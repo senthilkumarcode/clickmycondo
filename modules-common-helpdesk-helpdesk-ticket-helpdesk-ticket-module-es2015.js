@@ -384,6 +384,9 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
                         this.oldData = params.ticket;
                         this.createComment('log');
                     }
+                    if (this.ticket.ticketStatusId != 32) {
+                        this.statusTypeList = this.statusTypeList.filter((status) => status.lookupValueId != 32);
+                    }
                 }
                 else
                     this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -468,6 +471,20 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
         else
             return this.roleTypeStaffsList;
     }
+    getStatus() {
+        let statusParams = {
+            LookupTypeId: 9,
+            ApartmentId: this.sessionService.apartmentId
+        };
+        this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
+            if (this.ticket.ticketStatusId == 32) {
+                this.statusTypeList = res;
+            }
+            else {
+                this.statusTypeList = res.filter((status) => status.lookupValueId != 32);
+            }
+        });
+    }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         // Login Based View for admin or owner
@@ -499,6 +516,7 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
             this.ticketService.getTicketById(ticketId).subscribe(res => {
                 let _a = res[0], { fileDetailsPath } = _a, response = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["fileDetailsPath"]);
                 this.ticket = response;
+                this.getStatus();
                 //Get File Information
                 if (fileDetailsPath && fileDetailsPath.length > 0) {
                     this.ticket.fileDetailsIds = fileDetailsPath.reduce((acc, file, index) => {
@@ -523,13 +541,6 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
                 }
                 this.oldData = Object.assign({}, this.ticket); //log info
                 this.getCategoryList('edit');
-            });
-            let statusParams = {
-                LookupTypeId: 9,
-                ApartmentId: this.sessionService.apartmentId
-            };
-            this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
-                this.statusTypeList = res;
             });
             this.getCommentList();
             this.getStaff();

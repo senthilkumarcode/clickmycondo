@@ -150,6 +150,11 @@ const defaultTooltip = [
         text: 'After entering radio button name, press Enterkey to add another radio button'
     },
     {
+        id: 'addCheckBoxButton',
+        title: 'addCheckBoxButton',
+        text: 'After entering check-box name, press Enterkey to add another check-box'
+    },
+    {
         id: 'stickerNumber',
         title: 'stickerNumber',
         text: 'Enter the Pass Number'

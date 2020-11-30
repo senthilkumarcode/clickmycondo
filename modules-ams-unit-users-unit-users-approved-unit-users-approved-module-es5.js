@@ -369,7 +369,7 @@
                 };
 
                 _this4.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
-                  if (resp.message) {
+                  if (resp.code == 200 && resp.message) {
                     _this4.sharedService.openSnackBar('Primary Contact Updated', 'success'); //this.getApprovedUsers('primary');
 
                   } else {
@@ -418,13 +418,11 @@
                   };
 
                   _this5.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
-                    if (resp.message) {
-                      _this5.sharedService.openSnackBar('Living Updated Successfully', 'success'); //this.getApprovedUsers('living');
-
+                    if (resp.code == 200 && resp.message == 'IsPrimaryContact and IsLiving Updated.') {
+                      _this5.sharedService.openSnackBar('Living Updated Successfully', 'success');
                     } else {
                       user.isLiving = !user.isLiving;
-
-                      _this5.sharedService.openSnackBar(resp.errorMessage, 'error');
+                      if (resp.message) _this5.sharedService.openSnackBar(resp.message, 'error');else _this5.sharedService.openSnackBar(resp.errorMessage, 'error');
                     }
                   }, function (error) {
                     user.isLiving = !user.isLiving;

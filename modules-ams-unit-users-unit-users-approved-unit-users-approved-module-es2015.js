@@ -228,7 +228,7 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
                     apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
                 this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe((resp) => {
-                    if (resp.message) {
+                    if (resp.code == 200 && resp.message) {
                         this.sharedService.openSnackBar('Primary Contact Updated', 'success');
                         //this.getApprovedUsers('primary');
                     }
@@ -277,13 +277,15 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
                         apartmentBlockUnitUser: apartmentBlockUnitUser
                     };
                     this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe((resp) => {
-                        if (resp.message) {
+                        if (resp.code == 200 && resp.message == 'IsPrimaryContact and IsLiving Updated.') {
                             this.sharedService.openSnackBar('Living Updated Successfully', 'success');
-                            //this.getApprovedUsers('living');
                         }
                         else {
                             user.isLiving = !user.isLiving;
-                            this.sharedService.openSnackBar(resp.errorMessage, 'error');
+                            if (resp.message)
+                                this.sharedService.openSnackBar(resp.message, 'error');
+                            else
+                                this.sharedService.openSnackBar(resp.errorMessage, 'error');
                         }
                     }, (error) => {
                         user.isLiving = !user.isLiving;

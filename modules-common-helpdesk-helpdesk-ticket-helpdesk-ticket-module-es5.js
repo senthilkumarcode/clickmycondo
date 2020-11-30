@@ -565,6 +565,12 @@
 
                     _this5.createComment('log');
                   }
+
+                  if (_this5.ticket.ticketStatusId != 32) {
+                    _this5.statusTypeList = _this5.statusTypeList.filter(function (status) {
+                      return status.lookupValueId != 32;
+                    });
+                  }
                 } else _this5.sharedService.openSnackBar(res.errorMessage, 'error');
 
                 _this5.isTrackerSubmitted = true;
@@ -666,12 +672,31 @@
             if (this.viewMode == 'edit') return this.staffsList;else return this.roleTypeStaffsList;
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getStatus",
+          value: function getStatus() {
             var _this9 = this;
 
+            var statusParams = {
+              LookupTypeId: 9,
+              ApartmentId: this.sessionService.apartmentId
+            };
+            this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
+              if (_this9.ticket.ticketStatusId == 32) {
+                _this9.statusTypeList = res;
+              } else {
+                _this9.statusTypeList = res.filter(function (status) {
+                  return status.lookupValueId != 32;
+                });
+              }
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this10 = this;
+
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this9.timeZone = timeZone;
+              return _this10.timeZone = timeZone;
             }); // Login Based View for admin or owner
 
             if (!this.isAdmin()) {
@@ -685,7 +710,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(ticketTypeParams).subscribe(function (res) {
-              _this9.ticketTypeList = res;
+              _this10.ticketTypeList = res;
             }); //priorityList
 
             var priority = {
@@ -693,7 +718,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
-              _this9.priortyTypeList = res;
+              _this10.priortyTypeList = res;
             }); //Edit Mode
 
             if (this.viewMode == 'edit') {
@@ -704,39 +729,35 @@
                 var _a = res[0],
                     fileDetailsPath = _a.fileDetailsPath,
                     response = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["fileDetailsPath"]);
-                _this9.ticket = response; //Get File Information
+                _this10.ticket = response;
+
+                _this10.getStatus(); //Get File Information
+
 
                 if (fileDetailsPath && fileDetailsPath.length > 0) {
-                  _this9.ticket.fileDetailsIds = fileDetailsPath.reduce(function (acc, file, index) {
+                  _this10.ticket.fileDetailsIds = fileDetailsPath.reduce(function (acc, file, index) {
                     if (index == 0) {
                       return "".concat(file.fileDetailsId);
                     } else {
                       return "".concat(acc, ",").concat(file.fileDetailsId);
                     }
                   }, '');
-                } else _this9.ticket.fileDetailsIds = null; //owner or tenant edit mode
+                } else _this10.ticket.fileDetailsIds = null; //owner or tenant edit mode
 
 
-                if (_this9.ticket.apartmentBlockUnitUserId) {
-                  _this9.createdBY = 'owner';
-                  _this9.blockunitprimeName = "".concat(_this9.ticket.tower_Unit, " ").concat(_this9.ticket.primaryContactName);
+                if (_this10.ticket.apartmentBlockUnitUserId) {
+                  _this10.createdBY = 'owner';
+                  _this10.blockunitprimeName = "".concat(_this10.ticket.tower_Unit, " ").concat(_this10.ticket.primaryContactName);
                 } //staff Edit Mode
 
 
-                if (_this9.ticket.staffId) {
-                  _this9.createdBY = 'staff';
+                if (_this10.ticket.staffId) {
+                  _this10.createdBY = 'staff';
                 }
 
-                _this9.oldData = Object.assign({}, _this9.ticket); //log info
+                _this10.oldData = Object.assign({}, _this10.ticket); //log info
 
-                _this9.getCategoryList('edit');
-              });
-              var statusParams = {
-                LookupTypeId: 9,
-                ApartmentId: this.sessionService.apartmentId
-              };
-              this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this9.statusTypeList = res;
+                _this10.getCategoryList('edit');
               });
               this.getCommentList();
               this.getStaff();
@@ -746,7 +767,7 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-                _this9.blockList = res;
+                _this10.blockList = res;
               });
             }
           }
@@ -992,7 +1013,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this10 = this;
+            var _this11 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1005,7 +1026,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this10.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1016,7 +1037,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this11 = this;
+            var _this12 = this;
 
             this.goBack();
             this.isTicketDataLoaded = false;
@@ -1026,62 +1047,6 @@
               assigntoSupervisorId: this.filterData.supervisor,
               assigntoStaffId: this.filterData.staff
             };
-            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
-              _this11.isTicketDataLoaded = true;
-
-              if (res.length > 0) {
-                res.sort(function (a, b) {
-                  return b.serialNo - a.serialNo;
-                });
-                var ticketInfo = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this11.totalItems = ticketInfo.localdata.length;
-                _this11.ticketListData = new jqx.dataAdapter(ticketInfo);
-              }
-            }, function (error) {
-              _this11.isTicketDataLoaded = true;
-
-              _this11.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "clearFilter",
-          value: function clearFilter() {
-            this.filterData.ticketStatus = null;
-            this.filterData.staff = null;
-            this.filterData.supervisor = null;
-            this.getTicketByAdmin();
-            this.goBack();
-          }
-        }, {
-          key: "goBack",
-          value: function goBack() {
-            this.matDrawer.close();
-          }
-        }, {
-          key: "getTicketByAdmin",
-          value: function getTicketByAdmin() {
-            var _this12 = this;
-
-            this.isTicketDataLoaded = false;
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-
-            if (this.urlType == 'open-tickets') {
-              params.ticketStatusIds = "32,33,46";
-            } else if (this.urlType == 'closed-tickets') {
-              params.ticketStatusIds = "34";
-            } else if (this.urlType == 'unassigned') {
-              params.isStaffassigned = false;
-              params.ticketStatusIds = "32"; //open tickets
-            } else if (this.urlType == 'assigned-to-me') {
-              this.getTicketByAssignedUser();
-              return;
-            }
-
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this12.isTicketDataLoaded = true;
 
@@ -1103,15 +1068,42 @@
             });
           }
         }, {
-          key: "getTicketByAssignedUser",
-          value: function getTicketByAssignedUser() {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.filterData.ticketStatus = null;
+            this.filterData.staff = null;
+            this.filterData.supervisor = null;
+            this.getTicketByAdmin();
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getTicketByAdmin",
+          value: function getTicketByAdmin() {
             var _this13 = this;
 
+            this.isTicketDataLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId
+              apartmentId: this.sessionService.apartmentId
             };
-            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
+
+            if (this.urlType == 'open-tickets') {
+              params.ticketStatusIds = "32,33,46";
+            } else if (this.urlType == 'closed-tickets') {
+              params.ticketStatusIds = "34";
+            } else if (this.urlType == 'unassigned') {
+              params.isStaffassigned = false;
+              params.ticketStatusIds = "32"; //open tickets
+            } else if (this.urlType == 'assigned-to-me') {
+              this.getTicketByAssignedUser();
+              return;
+            }
+
+            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this13.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -1119,7 +1111,7 @@
                   return b.serialNo - a.serialNo;
                 });
                 var ticketInfo = {
-                  localdata: res.reverse(),
+                  localdata: res,
                   datatype: "array"
                 };
                 _this13.totalItems = ticketInfo.localdata.length;
@@ -1132,15 +1124,15 @@
             });
           }
         }, {
-          key: "getTicketsByUser",
-          value: function getTicketsByUser() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this14 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+              userId: this.sessionService.userId
             };
-            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this14.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -1161,15 +1153,44 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this15 = this;
 
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+            };
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+              _this15.isTicketDataLoaded = true;
+
+              if (res.length > 0) {
+                res.sort(function (a, b) {
+                  return b.serialNo - a.serialNo;
+                });
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this15.totalItems = ticketInfo.localdata.length;
+                _this15.ticketListData = new jqx.dataAdapter(ticketInfo);
+              }
+            }, function (error) {
+              _this15.isTicketDataLoaded = true;
+
+              _this15.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this16 = this;
+
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this15.timeZone = timeZone;
+              return _this16.timeZone = timeZone;
             });
             this.activateRouter.url.subscribe(function (data) {
-              _this15.urlType = data[0].path;
+              _this16.urlType = data[0].path;
             });
 
             if (this.isAdmin()) {
@@ -1282,7 +1303,7 @@
               text: 'Date Requested',
               datafield: 'insertedOn',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this15.timeZone.region).format(_this15.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this16.timeZone.region).format(_this16.timeZone.time) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1308,7 +1329,7 @@
                   res.forEach(function (ele) {
                     ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-                  _this15.staffsList = res;
+                  _this16.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -1319,7 +1340,7 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this15.ticketStatusList = res;
+                _this16.ticketStatusList = res;
               });
             }
           }
@@ -1819,10 +1840,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this16.timeZone = timeZone;
+              return _this17.timeZone = timeZone;
             }); //24 is common type so we passed 17
             //27 is private type so we passed 16
 
@@ -1831,16 +1852,16 @@
               LookupTypeId: 17
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryCommonParams).subscribe(function (res) {
-              _this16.ticketCommonCategoryList = res;
+              _this17.ticketCommonCategoryList = res;
               var categoryPrivateParams = {
-                ApartmentId: _this16.sessionService.apartmentId,
+                ApartmentId: _this17.sessionService.apartmentId,
                 LookupTypeId: 16
               };
 
-              _this16.lookupService.getLookupValueByLookupTypeId(categoryPrivateParams).subscribe(function (res) {
-                _this16.ticketPrivateCategoryList = res;
-                _this16.ticketCategoryList = _this16.ticketPrivateCategoryList.concat(_this16.ticketCommonCategoryList);
-                _this16.isTicketCategoryLoaded = true;
+              _this17.lookupService.getLookupValueByLookupTypeId(categoryPrivateParams).subscribe(function (res) {
+                _this17.ticketPrivateCategoryList = res;
+                _this17.ticketCategoryList = _this17.ticketPrivateCategoryList.concat(_this17.ticketCommonCategoryList);
+                _this17.isTicketCategoryLoaded = true;
               });
             });
             var params = {
@@ -1852,24 +1873,24 @@
                 res.sort(function (a, b) {
                   return b.serialNo - a.serialNo;
                 });
-                _this16.ticketListData = res;
+                _this17.ticketListData = res;
                 console.log(res);
 
-                if (_this16.totalItems > _this16.itemLimit) {
-                  _this16.ItemEndIndex = _this16.itemLimit;
+                if (_this17.totalItems > _this17.itemLimit) {
+                  _this17.ItemEndIndex = _this17.itemLimit;
                 } else {
-                  _this16.ItemEndIndex = _this16.totalItems;
+                  _this17.ItemEndIndex = _this17.totalItems;
                 }
 
-                _this16.totalItems = _this16.ticketListData.length;
-                _this16.isDataLoaded = true;
+                _this17.totalItems = _this17.ticketListData.length;
+                _this17.isDataLoaded = true;
               } else {
-                _this16.isDataLoaded = true;
+                _this17.isDataLoaded = true;
               }
             }, function (error) {
-              _this16.isDataLoaded = true;
+              _this17.isDataLoaded = true;
 
-              _this16.sharedService.openSnackBar('Server Error', 'error');
+              _this17.sharedService.openSnackBar('Server Error', 'error');
             }); //priorityList
 
             var priority = {
@@ -1877,8 +1898,8 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
-              _this16.priortyTypeList = res;
-              _this16.isTicketPriortyLoaded = true;
+              _this17.priortyTypeList = res;
+              _this17.isTicketPriortyLoaded = true;
             });
           }
         }]);
