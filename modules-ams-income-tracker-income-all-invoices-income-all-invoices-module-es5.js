@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t<form #reverseIncomeInvoiceForm = \"ngForm\" name=\"reverseIncomeInvoiceForm\" (ngSubmit)=\"submitReverseIncomeInvoiceForm(reverseIncomeInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
+      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<form #reverseIncomeInvoiceForm = \"ngForm\" name=\"reverseIncomeInvoiceForm\" (ngSubmit)=\"submitReverseIncomeInvoiceForm(reverseIncomeInvoiceForm)\"  novalidate>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isInvoiceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n</div>\n\n";
       /***/
     },
 
@@ -1047,7 +1047,7 @@
           this._incomeAllInvoicesComponent = _incomeAllInvoicesComponent;
           this.accountsService = accountsService;
           this.sessionService = sessionService;
-          this.isInvoiceSubmitted = true;
+          this.isInvoiceSubmitted = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
@@ -1061,7 +1061,7 @@
           value: function submitReverseIncomeInvoiceForm(form) {
             var _this7 = this;
 
-            this.isInvoiceSubmitted = false;
+            this.isInvoiceSubmitted = true;
             var details = {
               "apartmentId": this.sessionService.apartmentId,
               "amount": this.invoice.custInvoiceAmount,
@@ -1083,17 +1083,15 @@
               custTransReversal: details
             };
             this.accountsService.addCustTransReversal(params).subscribe(function (res) {
-              if (res.message) {
-                _this7.isInvoiceSubmitted = true;
+              _this7.isInvoiceSubmitted = false;
 
+              if (res.message) {
                 _this7.outputParams.emit(true);
 
                 _this7.goBack();
-              } else {
-                _this7.isInvoiceSubmitted = true;
               }
             }, function (error) {
-              _this7.isInvoiceSubmitted = true;
+              _this7.isInvoiceSubmitted = false;
             }, function () {});
           }
         }, {

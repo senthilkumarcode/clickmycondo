@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
+      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isReceiptSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
       /***/
     },
 
@@ -169,8 +169,6 @@
           key: "goBack",
           value: function goBack() {
             this._incomeInvoiceHistoryComponent._selectPanelOverlayRef.detach();
-
-            if (this.isReceiptSubmitted) this._incomeInvoiceHistoryComponent.getInvoiceDataList();
           }
         }, {
           key: "submitReverseIncomeHistoryForm",
@@ -178,7 +176,7 @@
             var _this = this;
 
             this.isDataLoaded = false;
-            this.isReceiptSubmitted = false;
+            this.isReceiptSubmitted = true;
             var details = {
               "apartmentId": this.sessionService.apartmentId,
               "amount": this.invoice.invoiceAmount,
@@ -201,22 +199,22 @@
             };
             this.accountsService.addCustTransReversal(params).subscribe(function (res) {
               _this.isDataLoaded = true;
+              _this.isReceiptSubmitted = false;
 
               if (res.code == 200) {
-                _this.isReceiptSubmitted = true;
+                _this.goBack();
+
+                _this._incomeInvoiceHistoryComponent.getInvoiceDataList();
 
                 _this.sharedService.openSnackBar('Invoice reversed successfully', 'success');
               } else {
                 var message = res.message;
-                _this.isReceiptSubmitted = false;
 
                 _this.sharedService.openSnackBar(message, 'error');
               }
-
-              _this.goBack();
             }, function (error) {
               _this.isDataLoaded = true;
-              _this.isReceiptSubmitted = true;
+              _this.isReceiptSubmitted = false;
 
               _this.sharedService.openSnackBar('Some error occured', 'error');
             }, function () {});

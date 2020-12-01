@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm(addCustomerAdvanceForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-security-deposit-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm(addSecuityDepositForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t\n\n\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" class=\"btn blue\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\t\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>";
       /***/
     },
 
@@ -337,7 +337,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */
-            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-dashboard-dashboard-module~modules-ams-expense-~0e2774aa"), __webpack_require__.e("default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-dashboard-dashboard-module~modules-ams-expense-~1ce4e2d1"), __webpack_require__.e("default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */
             "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(function (m) {
               return m.IncomePostInvoiceModule;
@@ -740,7 +740,6 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
-          this.isDataLoaded = false;
           this.isAdvanceSubmitted = false;
           this.isError = false;
           this.alertMessage = "";
@@ -770,17 +769,13 @@
           key: "goBack",
           value: function goBack() {
             this._incomeCustomerAdvancesComponent._selectPanelOverlayRef.detach();
-
-            if (this.isAdvanceSubmitted) {
-              this._incomeCustomerAdvancesComponent.getCustomerAdvancesData();
-            }
           }
         }, {
           key: "submitAddCustomerAdvanceForm",
-          value: function submitAddCustomerAdvanceForm(form) {
+          value: function submitAddCustomerAdvanceForm() {
             var _this2 = this;
 
-            this.isDataLoaded = false;
+            this.isAdvanceSubmitted = true;
 
             if (!this.isEdit) {
               var details = {
@@ -804,24 +799,21 @@
                 custAdvance: details
               };
               this.accountsService.addAdvance(params).subscribe(function (res) {
-                _this2.isDataLoaded = true;
+                _this2.isAdvanceSubmitted = false;
 
                 if (res.code == 200) {
-                  _this2.isAdvanceSubmitted = true;
-
                   _this2.goBack();
+
+                  _this2._incomeCustomerAdvancesComponent.getCustomerAdvancesData();
 
                   _this2.sharedService.openSnackBar("Customer Advance added successfully", 'success');
                 } else {
-                  _this2.isAdvanceSubmitted = false;
-
-                  _this2.sharedService.openSnackBar(res.message, 'error');
+                  _this2.sharedService.openSnackBar('Some error occured', 'error');
                 }
               }, function (error) {
-                _this2.isDataLoaded = true;
                 _this2.isAdvanceSubmitted = false;
 
-                _this2.sharedService.openSnackBar('Some error occured', 'error');
+                _this2.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               var _details = {
@@ -847,21 +839,16 @@
                 custAdvance: _details
               };
               this.accountsService.updateAdvance(_params).subscribe(function (res) {
-                _this2.isDataLoaded = true;
+                _this2.isAdvanceSubmitted = false;
 
                 if (res.code == 200) {
-                  _this2.isAdvanceSubmitted = true;
-
                   _this2.goBack();
 
                   _this2.sharedService.openSnackBar("Customer Advance updated successfully", 'success');
                 } else {
-                  _this2.isAdvanceSubmitted = false;
-
                   _this2.sharedService.openSnackBar(res.message, 'error');
                 }
               }, function (error) {
-                _this2.isDataLoaded = true;
                 _this2.isAdvanceSubmitted = false;
 
                 _this2.sharedService.openSnackBar('Some error occured', 'error');
@@ -870,16 +857,7 @@
           }
         }, {
           key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this3 = this;
-
-            this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this3.glAccountsDataList = res.filter(function (item) {
-                return item.isActive && _this3.sessionService.apartmentId && item.indicator == _this3.glAccountIndicator;
-              });
-              _this3.isDataLoaded = true;
-            });
-          }
+          value: function ngOnInit() {}
         }]);
 
         return IncomeAddCustomerAdvanceComponent;
@@ -1029,7 +1007,6 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
-          this.isDataLoaded = false;
           this.isDepositSubmitted = false;
           this.glAccountIndicator = "Cust_Invoice";
           this.isError = false;
@@ -1046,17 +1023,13 @@
           key: "goBack",
           value: function goBack() {
             this._incomeSecurityDepositComponent._selectPanelOverlayRef.detach();
-
-            if (this.isDepositSubmitted) {
-              this._incomeSecurityDepositComponent.getSecurityDepositData();
-            }
           }
         }, {
           key: "submitAddSecuityDepositForm",
-          value: function submitAddSecuityDepositForm(form) {
-            var _this4 = this;
+          value: function submitAddSecuityDepositForm() {
+            var _this3 = this;
 
-            this.isDataLoaded = false;
+            this.isDepositSubmitted = true;
 
             if (!this.isEdit) {
               var details = {
@@ -1081,24 +1054,21 @@
                 custSecurity: details
               };
               this.accountsService.addSecurityDeposit(params).subscribe(function (res) {
-                _this4.isDataLoaded = true;
+                _this3.isDepositSubmitted = false;
 
                 if (res.code = 200) {
-                  _this4.isDepositSubmitted = true;
+                  _this3.goBack();
 
-                  _this4.goBack();
+                  _this3._incomeSecurityDepositComponent.getSecurityDepositData();
 
-                  _this4.sharedService.openSnackBar("Security Deposit added successfully", 'success');
+                  _this3.sharedService.openSnackBar("Security Deposit added successfully", 'success');
                 } else {
-                  _this4.isDepositSubmitted = false;
-
-                  _this4.sharedService.openSnackBar(res.message, 'error');
+                  _this3.sharedService.openSnackBar(res.message, 'error');
                 }
               }, function (error) {
-                _this4.isDataLoaded = true;
-                _this4.isDepositSubmitted = false;
+                _this3.isDepositSubmitted = false;
 
-                _this4.sharedService.openSnackBar("Some error occured", 'error');
+                _this3.sharedService.openSnackBar("Some error occured", 'error');
               });
             } else {
               var _details2 = {
@@ -1124,43 +1094,28 @@
                 custSecurity: _details2
               };
               this.accountsService.updateSecurityDeposit(_params2).subscribe(function (res) {
-                _this4.isDataLoaded = true;
+                _this3.isDepositSubmitted = false;
 
                 if (res.code = 200) {
-                  _this4.isDepositSubmitted = true;
+                  _this3.goBack();
 
-                  _this4.goBack();
-
-                  _this4.sharedService.openSnackBar("Security Deposit updated successfully", 'success');
+                  _this3.sharedService.openSnackBar("Security Deposit updated successfully", 'success');
                 } else {
-                  _this4.isDepositSubmitted = false;
+                  _this3.isDepositSubmitted = false;
 
-                  _this4.sharedService.openSnackBar(res.message, 'error');
+                  _this3.sharedService.openSnackBar(res.message, 'error');
                 }
               }, function (error) {
-                _this4.isDataLoaded = true;
-                _this4.isDepositSubmitted = false;
+                _this3.isDepositSubmitted = false;
 
-                _this4.sharedService.openSnackBar("Some error occured", 'error');
+                _this3.sharedService.openSnackBar("Some error occured", 'error');
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
-
             this.deposit.glaccountId = "";
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              apartmentBlockUnitId: this.route.params['value'].id
-            };
-            this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this5.glAccountsDataList = res.filter(function (item) {
-                return item.isActive && _this5.sessionService.apartmentId && item.indicator == _this5.glAccountIndicator;
-              });
-              _this5.isDataLoaded = true;
-            });
           }
         }, {
           key: "ngOnChanges",
@@ -1344,7 +1299,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this6 = this;
+            var _this4 = this;
 
             if (this.customerAdvancesData != "") {
               var filtergroup = new jqx.filter();
@@ -1357,7 +1312,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this6.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this4.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1373,7 +1328,7 @@
         }, {
           key: "addCustomerAdvances",
           value: function addCustomerAdvances() {
-            var _this7 = this;
+            var _this5 = this;
 
             this.isEditAdvance = false; // Create the overlay
 
@@ -1396,9 +1351,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this7._selectPanelOverlayRef && _this7._selectPanelOverlayRef.hasAttached()) {
+              if (_this5._selectPanelOverlayRef && _this5._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this7._selectPanelOverlayRef.detach();
+                _this5._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -1411,7 +1366,7 @@
         }, {
           key: "onEditCustomerAdvances",
           value: function onEditCustomerAdvances(detail) {
-            var _this8 = this;
+            var _this6 = this;
 
             this.isEditAdvance = true;
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -1437,9 +1392,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this8._selectPanelOverlayRef && _this8._selectPanelOverlayRef.hasAttached()) {
+              if (_this6._selectPanelOverlayRef && _this6._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this8._selectPanelOverlayRef.detach();
+                _this6._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -1452,7 +1407,7 @@
         }, {
           key: "getCustomerAdvancesData",
           value: function getCustomerAdvancesData() {
-            var _this9 = this;
+            var _this7 = this;
 
             this.isAdvancesLoaded = false;
             var params = {
@@ -1461,13 +1416,13 @@
             };
             this.accountsService.getAdvanceByApartmentBlockUnitId(params).subscribe(function (res) {
               var customerAdvancesDataList = res;
-              _this9.gridSourceData = {
+              _this7.gridSourceData = {
                 localdata: customerAdvancesDataList,
                 datatype: "array"
               };
-              _this9.customerAdvancesDataList = new jqx.dataAdapter(_this9.gridSourceData);
-              _this9.totalItems = customerAdvancesDataList.length;
-              _this9.isAdvancesLoaded = true;
+              _this7.customerAdvancesDataList = new jqx.dataAdapter(_this7.gridSourceData);
+              _this7.totalItems = customerAdvancesDataList.length;
+              _this7.isAdvancesLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -1744,14 +1699,14 @@
         _createClass(IncomeJournalComponent, [{
           key: "getUnits",
           value: function getUnits(id) {
-            var _this10 = this;
+            var _this8 = this;
 
             var params = {
               apartmentBlockId: parseInt(id)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this10.blockUnitData = res;
-              _this10.isBlockSelected = true;
+              _this8.blockUnitData = res;
+              _this8.isBlockSelected = true;
             });
           }
         }, {
@@ -1772,7 +1727,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this11 = this;
+            var _this9 = this;
 
             if (this.reportsData != "") {
               var filtergroup = new jqx.filter();
@@ -1785,7 +1740,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1802,7 +1757,7 @@
         }, {
           key: "submitIncomeReportsForm",
           value: function submitIncomeReportsForm(form) {
-            var _this12 = this;
+            var _this10 = this;
 
             this.isReportSubmitted = true;
             this.isDataLoaded = false;
@@ -1819,24 +1774,24 @@
             };
             this.accountsService.getCustGltransactionsMultiFilter(details).subscribe(function (res) {
               var reportsDataList = res;
-              _this12.gridSourceData = {
+              _this10.gridSourceData = {
                 localdata: reportsDataList,
                 datatype: "array"
               };
-              _this12.reportsDataList = new jqx.dataAdapter(_this12.gridSourceData);
-              _this12.totalItems = reportsDataList.length;
-              _this12.isDataLoaded = true;
-              _this12.isReportSubmitted = false;
+              _this10.reportsDataList = new jqx.dataAdapter(_this10.gridSourceData);
+              _this10.totalItems = reportsDataList.length;
+              _this10.isDataLoaded = true;
+              _this10.isReportSubmitted = false;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this11 = this;
 
             this.report = {};
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this13.timeZone = timeZone;
+              return _this11.timeZone = timeZone;
             });
             this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
 
@@ -1902,7 +1857,7 @@
               datafield: 'documentDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1916,7 +1871,7 @@
               datafield: 'entryDateTime',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1924,7 +1879,7 @@
               datafield: 'postingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1932,7 +1887,7 @@
               datafield: 'clearingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1948,11 +1903,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this13.blockData = res;
+              _this11.blockData = res;
             });
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this13.glAccountsDataList = res.filter(function (item) {
-                return item.isActive && _this13.sessionService.apartmentId && item.indicator == _this13.glAccountIndicator;
+              _this11.glAccountsDataList = res.filter(function (item) {
+                return item.isActive && _this11.sessionService.apartmentId && item.indicator == _this11.glAccountIndicator;
               });
             });
             var glDocParams = {
@@ -1961,7 +1916,7 @@
             }; //Gl Document 
 
             this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-              _this13.glDocumentTypeDataList = res;
+              _this11.glDocumentTypeDataList = res;
             }, function (error) {});
           }
         }]);
@@ -2131,7 +2086,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this14 = this;
+            var _this12 = this;
 
             if (this.securityDepositData != "") {
               var filtergroup = new jqx.filter();
@@ -2144,7 +2099,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2160,7 +2115,7 @@
         }, {
           key: "addSecurityDeposit",
           value: function addSecurityDeposit() {
-            var _this15 = this;
+            var _this13 = this;
 
             this.isEditDeposit = false; // Create the overlay
 
@@ -2183,9 +2138,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this15._selectPanelOverlayRef && _this15._selectPanelOverlayRef.hasAttached()) {
+              if (_this13._selectPanelOverlayRef && _this13._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this15._selectPanelOverlayRef.detach();
+                _this13._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -2198,7 +2153,7 @@
         }, {
           key: "onSecurityDeposit",
           value: function onSecurityDeposit(detail) {
-            var _this16 = this;
+            var _this14 = this;
 
             this.isEditDeposit = true;
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -2224,9 +2179,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this16._selectPanelOverlayRef && _this16._selectPanelOverlayRef.hasAttached()) {
+              if (_this14._selectPanelOverlayRef && _this14._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this16._selectPanelOverlayRef.detach();
+                _this14._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -2239,7 +2194,7 @@
         }, {
           key: "getSecurityDepositData",
           value: function getSecurityDepositData() {
-            var _this17 = this;
+            var _this15 = this;
 
             this.isDepositLoaded = false;
             var params = {
@@ -2248,13 +2203,13 @@
             };
             this.accountsService.getSecurityDepositByApartmentBlockUnitId(params).subscribe(function (res) {
               var securityDepositDataList = res;
-              _this17.gridSourceData = {
+              _this15.gridSourceData = {
                 localdata: securityDepositDataList,
                 datatype: "array"
               };
-              _this17.securityDepositDataList = new jqx.dataAdapter(_this17.gridSourceData);
-              _this17.totalItems = securityDepositDataList.length;
-              _this17.isDepositLoaded = true;
+              _this15.securityDepositDataList = new jqx.dataAdapter(_this15.gridSourceData);
+              _this15.totalItems = securityDepositDataList.length;
+              _this15.isDepositLoaded = true;
             }, function (error) {
               console.log(error);
             });

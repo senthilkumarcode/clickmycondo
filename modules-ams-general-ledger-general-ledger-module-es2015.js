@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"gl-journal-wrapper\">\n\n\t<h4 class=\"mb-4 mt-5\">\n\t\t<span *ngIf=\"!isEditJournal\">Add Journal</span>\n\t\t<span *ngIf=\"isEditJournal\">Edit Journal</span>\n\t</h4>\n\n\n\t<div class=\"bg-card\">\n\n\t\t<form #addJournalForm = \"ngForm\" name=\"addJournalForm\" (ngSubmit)=\"submitAddJournalForm(addJournalForm)\"  novalidate>\n\n\t\t\t<app-loader *ngIf=\"!isJournalSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isJournalSubmitted\">\n\t\t\t\t\n\t\t\t\t<gl-create-journal-fields \n\t\t\t\t\t*ngFor=\"let journal of journalsArray; let i = index\"\n\t\t\t\t\t[index]=\"i\"\n\t\t\t\t\t[journalsArray]=\"journalsArray\"\n\t\t\t\t\t(fieldParams) = getFieldParams($event)\n\t\t\t\t\t>\t\n\t\t\t\t</gl-create-journal-fields>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Journal Date\"\n\t\t\t\t\t\t\tfieldName=\"JournalDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"journal.documentDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getDocumentDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reference</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter credit amount\" name=\"comments\" \n\t\t\t\t\t\t\t[(ngModel)]=\"journal.comment\" \n\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\n\t\t\t</ng-container>\n\n\t\t</form>\n\n\t</div>\n\n\t<div class=\"d-flex mt-4 justify-content-end\">\n\n\t\t<button class=\"mr-3\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t<button mat-button (click)=\"addJournal()\" *ngIf=\"!isEditJournal\">Add Another Journal</button>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"gl-journal-wrapper\">\n\n\t<h4 class=\"mb-4 mt-5\">\n\t\t<span *ngIf=\"!isEditJournal\">Add Journal</span>\n\t\t<span *ngIf=\"isEditJournal\">Edit Journal</span>\n\t</h4>\n\n\n\t<div class=\"bg-card\">\n\n\t\t<form #addJournalForm = \"ngForm\" name=\"addJournalForm\" (ngSubmit)=\"submitAddJournalForm(addJournalForm)\"  novalidate>\n\n\t\t\t<app-loader *ngIf=\"!isJournalSubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isJournalSubmitted\">\n\t\t\t\t\n\t\t\t\t<gl-create-journal-fields \n\t\t\t\t\t*ngFor=\"let journal of journalsArray; let i = index\"\n\t\t\t\t\t[index]=\"i\"\n\t\t\t\t\t[journalsArray]=\"journalsArray\"\n\t\t\t\t\t(fieldParams) = getFieldParams($event)\n\t\t\t\t\t>\t\n\t\t\t\t</gl-create-journal-fields>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Journal Date\"\n\t\t\t\t\t\t\tfieldName=\"JournalDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"journal.documentDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getDocumentDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reference</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter credit amount\" name=\"comments\" \n\t\t\t\t\t\t\t[(ngModel)]=\"journal.comment\" \n\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\n\t\t\t</ng-container>\n\n\t\t</form>\n\n\t</div>\n\n\t<div class=\"d-flex mt-4 justify-content-end\">\n\t\t<submit-button class=\"mt-4 mr-3\" [isSubmit]=\"isJournalSubmitted\">Submit</submit-button>\n\t\t<button mat-button (click)=\"addJournal()\" *ngIf=\"!isEditJournal\">Add Another Journal</button>\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -295,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"gl-transactions-wrapper\">\n\t\n\t<div class=\"relative-card float-right\">\n\t\t\n\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/general-ledger/reports\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<mat-icon class=\"icon-md\" svgIcon=\"feather:file-text\"></mat-icon>\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">Reports</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-4\">\n\t\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Date Range</h5>\n    \t\t</div>\n\t  \t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<form #glTransactionsForm = \"ngForm\" name=\"glTransactionsForm\" (ngSubmit)=\"submitGlTransactionsForm(glTransactionsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"From\"\n\t\t\t\t\t\t\tfieldName=\"reportFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"fromDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getFromDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"To\"\n\t\t\t\t\t\t\tfieldName=\"reportTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"toDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getToDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>{{type}} Transactions <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p>Transactions From <span class=\"tc-blue m-bold\">{{getDate(fromDate)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(toDate)}}</span> </p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsTransactionsData\" >\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('journalNo')\">Journal No <span [ngClass]=\"getFieldOrderBy('journalNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posted Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subLedger')\">Sub Ledger<span [ngClass]=\"getFieldOrderBy('subLedger')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('comment')\">Comments<span [ngClass]=\"getFieldOrderBy('comment')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('debit')\">Debit<span [ngClass]=\"getFieldOrderBy('debit')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('credit')\">Credit<span [ngClass]=\"getFieldOrderBy('credit')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let transactions of reportsTransactionsDataList | simpleSearch: reportsTransactionsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{transactions.journalNo}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(transactions.postingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{transactions.subLedger}}</td>\n\t\t\t\t      <td class=\"grey\">{{transactions.comment}}</td>\n\t\t\t\t      <td class=\"name\">{{transactions.debit}}</td>\n\t\t\t\t      <td class=\"name\">{{transactions.credit}}</td>\n\t\t\t\t    </tr>\n\t\t\t\t    <tr class=\"selected\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t\t<td class=\"name m-bold\">Balance</td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"name m-bold\">{{totalDebitAmount}}</td>\n\t\t\t\t\t\t<td class=\"name m-bold\">{{totalCreditAmount}}</td>\n\t\t\t\t\t</tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n  \t</div>\n\n  \t\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"gl-transactions-wrapper\">\n\t\n\t<div class=\"relative-card float-right\">\n\t\t\n\n\t\t<div class=\"relative-icon\">\n\t\t\t<a href=\"javascript:void(0)\"\n\t\t\t\trouterLink=\"/ams/general-ledger/reports\" \n\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t<mat-icon class=\"icon-md\" svgIcon=\"feather:file-text\"></mat-icon>\n\t\t\t\t</div>\n\t\t\t\t<span class=\"d-inline-block\">Reports</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card clear mb-4\">\n\t\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Date Range</h5>\n    \t\t</div>\n\t  \t</div>\n\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<form #glTransactionsForm = \"ngForm\" name=\"glTransactionsForm\" (ngSubmit)=\"submitGlTransactionsForm(glTransactionsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"From\"\n\t\t\t\t\t\t\tfieldName=\"reportFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"fromDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getFromDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"To\"\n\t\t\t\t\t\t\tfieldName=\"reportTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"toDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getToDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear table-card\" *ngIf=\"isDataLoaded\">\n\t\t\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>{{type}} Transactions <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p>Transactions From <span class=\"tc-blue m-bold\">{{getDate(fromDate)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(toDate)}}</span> </p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsTransactionsData\" >\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n  \t\t\n  \t\t<div class=\"card-body p-0\">\n\n  \t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('journalNo')\">Journal No <span [ngClass]=\"getFieldOrderBy('journalNo')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posted Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subLedger')\">Sub Ledger<span [ngClass]=\"getFieldOrderBy('subLedger')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('comment')\">Comments<span [ngClass]=\"getFieldOrderBy('comment')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('debit')\">Debit<span [ngClass]=\"getFieldOrderBy('debit')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('credit')\">Credit<span [ngClass]=\"getFieldOrderBy('credit')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let transactions of reportsTransactionsDataList | simpleSearch: reportsTransactionsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t      <td class=\"name\">{{transactions.journalNo}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(transactions.postingDate)}}</td>\n\t\t\t\t      <td class=\"grey\">{{transactions.subLedger}}</td>\n\t\t\t\t      <td class=\"grey\">{{transactions.comment}}</td>\n\t\t\t\t      <td class=\"name\">{{transactions.debit}}</td>\n\t\t\t\t      <td class=\"name\">{{transactions.credit}}</td>\n\t\t\t\t    </tr>\n\t\t\t\t    <tr class=\"selected\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t\t<td class=\"name m-bold\">Balance</td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"grey\"></td>\n\t\t\t\t\t\t<td class=\"name m-bold\">{{totalDebitAmount}}</td>\n\t\t\t\t\t\t<td class=\"name m-bold\">{{totalCreditAmount}}</td>\n\t\t\t\t\t</tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n  \t</div>\n\n  \t\n\n</div>");
 
 /***/ }),
 
@@ -2971,7 +2971,7 @@ let GlCreateJournalComponent = class GlCreateJournalComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isEditJournal = false;
-        this.isJournalSubmitted = true;
+        this.isJournalSubmitted = false;
         this.isFormInValid = true;
         this.isError = false;
         this.alertMessage = "";
@@ -3020,6 +3020,7 @@ let GlCreateJournalComponent = class GlCreateJournalComponent {
         });
     }
     submitAddJournalForm(form) {
+        this.isJournalSubmitted = true;
         var self = this;
         this.journalsArray.map(function (item) {
             delete item.form;
@@ -3037,24 +3038,19 @@ let GlCreateJournalComponent = class GlCreateJournalComponent {
             this.isError = false;
             this.journalService.addJournals(this.journalsArray).subscribe((res) => {
                 if (res.message) {
-                    this.isJournalSubmitted = true;
-                    this.sharedService.setAlertMessage("Journals added successfully");
+                    this.sharedService.openSnackBar('Journals added successfully', 'success');
                 }
                 else {
-                    this.isJournalSubmitted = true;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
+                    this.sharedService.openSnackBar('Some error occured', 'error');
                 }
             }, error => {
-                this.isJournalSubmitted = true;
-                this.isError = true;
-                this.alertMessage = "Some error occured";
+                this.isJournalSubmitted = false;
+                this.sharedService.openSnackBar('Network Error', 'error');
             });
         }
         else {
-            this.isJournalSubmitted = true;
-            this.isError = true;
-            this.alertMessage = "Total Credit not equal to Debit ";
+            this.isJournalSubmitted = false;
+            this.sharedService.openSnackBar('Total Credit not equal to Debit', 'error');
         }
     }
     ngOnInit() {
@@ -3936,6 +3932,7 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isDataLoaded = false;
+        this.isDataSubmitted = false;
         this.reportsTransactionsData = "";
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
@@ -3981,6 +3978,7 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
     }
     submitGlTransactionsForm(form) {
         this.isDataLoaded = false;
+        this.isDataSubmitted = true;
         var params = {
             GLAccountId: this.route.params['value'].id,
             ApartmentId: this.sessionService.apartmentId,
@@ -3992,6 +3990,7 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
     getTransactions(params) {
         this.accountsService.getGlAccountTransactionsById(params).subscribe((res) => {
             this.isDataLoaded = true;
+            this.isDataSubmitted = false;
             this.reportsTransactionsDataList = res;
             this.totalItems = this.reportsTransactionsDataList.length;
             if (this.totalItems > this.itemLimit) {
@@ -4004,6 +4003,8 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
                 this.totalDebitAmount = this.totalDebitAmount + item.debit;
                 this.totalCreditAmount = this.totalCreditAmount + item.credit;
             });
+        }, error => {
+            this.isDataSubmitted = false;
         });
     }
     ngOnInit() {

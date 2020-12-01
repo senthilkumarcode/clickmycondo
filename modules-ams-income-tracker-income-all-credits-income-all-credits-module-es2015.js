@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\n\t<ng-container *ngIf=\"isCreditSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"blocksData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t[fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\tfieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"unitData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t[fieldModel]=\"apartmentBlockUnitId\"\n\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Bill\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t[fieldModel]=\"credit.collectionId\"\n\t\t\t\t\t\tfieldId=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"blocksData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t[fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\tfieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"unitData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t[fieldModel]=\"apartmentBlockUnitId\"\n\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Bill\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t[fieldModel]=\"credit.collectionId\"\n\t\t\t\t\t\tfieldId=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isCreditSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>");
 
 /***/ }),
 
@@ -92,6 +92,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.isDataLoaded = false;
         this.isCreditSubmitted = false;
         this.isBlockSelected = false;
         this.isUnitSelected = false;
@@ -125,10 +126,12 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             apartmentId: this.sessionService.apartmentId
         };
         this.accountsService.getCollectionInvoicesByApartmentId(params).subscribe((res) => {
+            this.isDataLoaded = true;
             this.billData = res;
-            this.isCreditSubmitted = true;
             //Mark for check
             this._changeDetectorRef.markForCheck();
+        }, error => {
+            this.isDataLoaded = true;
         });
     }
     getAllCollectionByApartmentBlockUnitId() {
@@ -138,7 +141,6 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         };
         this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
             this.billData = res;
-            this.isCreditSubmitted = true;
             //Mark for check
             this._changeDetectorRef.markForCheck();
         });
@@ -147,13 +149,11 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         this.credit.collectionId = event[0].collectionId;
     }
     getCredit(id) {
-        this.isCreditSubmitted = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
             creditnotetransactionID: id
         };
         this.accountsService.getcustcreditnotebyId(params).subscribe((res) => {
-            this.isCreditSubmitted = true;
             this.isEdit = true;
             if (res === undefined || res.length == 0) {
                 this.credit = {};
@@ -163,9 +163,11 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             }
             this.apartmentBlockUnitId = parseInt(this.credit.apartmentBlockUnitId);
             this.getAllCollectionByApartmentBlockUnitId();
+        }, error => {
         });
     }
     submitAddCreditNoteForm(form) {
+        this.isCreditSubmitted = true;
         if (form.valid) {
             if (!this.isEdit) {
                 let details = {
@@ -190,9 +192,10 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                     custCreditNote: details
                 };
                 this.accountsService.addCustCreditNotes(params).subscribe((res) => {
-                    if (res.error) {
-                        this.isCreditSubmitted = true;
+                    this.isCreditSubmitted = false;
+                    if (res.message) {
                         this.credit = {};
+                        this.sharedService.openSnackBar('Credit Note added successfully', 'success');
                         /// Go to the parent route
                         this._incomeCreditListComponent.isCreditAdded();
                         this.goBack();
@@ -200,10 +203,12 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                         this._changeDetectorRef.markForCheck();
                     }
                     else {
-                        this.isCreditSubmitted = true;
+                        this.isCreditSubmitted = false;
+                        this.sharedService.openSnackBar('Some error occured', 'error');
                     }
                 }, error => {
-                    this.isCreditSubmitted = true;
+                    this.isCreditSubmitted = false;
+                    this.sharedService.openSnackBar('Some error occured', 'error');
                 });
             }
             else {
@@ -230,18 +235,20 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                     custCreditNote: details
                 };
                 this.accountsService.updateCustCreditNotes(params).subscribe((res) => {
+                    this.isCreditSubmitted = false;
                     if (res.message) {
-                        this.isCreditSubmitted = true;
                         this.sharedService.openSnackBar('Credit Note updated successfully', 'success');
                         // Go to the parent route
                         this._incomeCreditListComponent.isCreditAdded();
                         this.goBack();
                     }
                     else {
-                        this.isCreditSubmitted = true;
+                        this.isCreditSubmitted = false;
+                        this.sharedService.openSnackBar('Some error occured', 'error');
                     }
                 }, error => {
                     this.isCreditSubmitted = true;
+                    this.sharedService.openSnackBar('Some error occured', 'error');
                 });
             }
         }
@@ -254,6 +261,13 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         this._router.navigate(['.'], { relativeTo: this._activatedRoute.parent });
     }
     ngOnInit() {
+        let params = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        //get apartment blocks
+        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+            this.blocksData = res;
+        });
         this.getAllCollection();
         //Open the drawer
         this.sharedService.matdraweridcast.subscribe(id => {
@@ -267,7 +281,6 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             this.isEdit = false;
             this.credit = {};
             this.credit.collectionId = "";
-            this.isCreditSubmitted = true;
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -275,13 +288,6 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
             this.isEdit = true;
             this.credit = this._incomeCreditListComponent.credit;
         }
-        let params = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        //get apartment blocks
-        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
-            this.blocksData = res;
-        });
     }
 };
 IncomeAddCreditComponent.ctorParameters = () => [

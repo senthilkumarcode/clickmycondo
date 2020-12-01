@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeReceiptsForm = \"ngForm\" name=\"reverseIncomeReceiptsForm\" (ngSubmit)=\"submitReverseIncomeReceiptsForm(reverseIncomeInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"receipt.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n";
+      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<form #reverseIncomeReceiptsForm = \"ngForm\" name=\"reverseIncomeReceiptsForm\" (ngSubmit)=\"submitReverseIncomeReceiptsForm()\"  novalidate>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"receipt.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isReceiptSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n</div>\n";
       /***/
     },
 
@@ -133,7 +133,7 @@
           this._incomeViewReceiptsComponent = _incomeViewReceiptsComponent;
           this.accountsService = accountsService;
           this.sessionService = sessionService;
-          this.isReceiptSubmitted = true;
+          this.isReceiptSubmitted = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
@@ -144,10 +144,10 @@
           }
         }, {
           key: "submitReverseIncomeReceiptsForm",
-          value: function submitReverseIncomeReceiptsForm(form) {
+          value: function submitReverseIncomeReceiptsForm() {
             var _this = this;
 
-            this.isReceiptSubmitted = false;
+            this.isReceiptSubmitted = true;
             var details = {
               "apartmentId": this.sessionService.apartmentId,
               "apartmentBlockUnitId": this.receipt.apartmentBlockUnitID,
@@ -167,17 +167,15 @@
               custCollectionReversal: details
             };
             this.accountsService.addCustCollectionReversal(params).subscribe(function (res) {
-              if (res.collectionReversalId) {
-                _this.isReceiptSubmitted = true;
+              _this.isReceiptSubmitted = false;
 
+              if (res.collectionReversalId) {
                 _this.outputParams.emit(true);
 
                 _this.goBack();
-              } else {
-                _this.isReceiptSubmitted = true;
               }
             }, function (error) {
-              _this.isReceiptSubmitted = true;
+              _this.isReceiptSubmitted = false;
             }, function () {});
           }
         }, {

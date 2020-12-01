@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isInvoiceSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isInvoiceSubmitted\">\n\t\t<form #reverseIncomeInvoiceForm = \"ngForm\" name=\"reverseIncomeInvoiceForm\" (ngSubmit)=\"submitReverseIncomeInvoiceForm(reverseIncomeInvoiceForm)\"  novalidate>\n\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"bg-card popover-card\">\n\n\t<form #reverseIncomeInvoiceForm = \"ngForm\" name=\"reverseIncomeInvoiceForm\" (ngSubmit)=\"submitReverseIncomeInvoiceForm(reverseIncomeInvoiceForm)\"  novalidate>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isInvoiceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n</div>\n\n");
 
 /***/ }),
 
@@ -729,14 +729,14 @@ let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
         this._incomeAllInvoicesComponent = _incomeAllInvoicesComponent;
         this.accountsService = accountsService;
         this.sessionService = sessionService;
-        this.isInvoiceSubmitted = true;
+        this.isInvoiceSubmitted = false;
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     goBack() {
         this._incomeAllInvoicesComponent._selectPanelOverlayRef.detach();
     }
     submitReverseIncomeInvoiceForm(form) {
-        this.isInvoiceSubmitted = false;
+        this.isInvoiceSubmitted = true;
         let details = {
             "apartmentId": this.sessionService.apartmentId,
             "amount": this.invoice.custInvoiceAmount,
@@ -758,16 +758,13 @@ let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
             custTransReversal: details
         };
         this.accountsService.addCustTransReversal(params).subscribe((res) => {
+            this.isInvoiceSubmitted = false;
             if (res.message) {
-                this.isInvoiceSubmitted = true;
                 this.outputParams.emit(true);
                 this.goBack();
             }
-            else {
-                this.isInvoiceSubmitted = true;
-            }
         }, error => {
-            this.isInvoiceSubmitted = true;
+            this.isInvoiceSubmitted = false;
         }, () => {
         });
     }

@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-post-collection-wrapper mt-5\">\n\n\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\n\t\t<!-- Message -->\n\t\t<div class=\"mb-4\">\n\t\t\t<condo-message *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t{{message.content}}\n\t\t\t</condo-message>\n\n\t\t</div>\n\n\t\t<h4 class=\"mb-4\">Post Collection</h4>\n\n\t\t<form #postIncomeCollectionForm = \"ngForm\" name=\"postIncomeCollectionForm\" (ngSubmit)=\"submitIncomePostCollectionForm()\"  novalidate>\n\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Amount<span class=\"ml-2 text-warn font-medium\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" [customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" class=\"form-control\" #collectionAmount=\"ngModel\" placeholder=\"Enter text\" name=\"collectionAmount\" [(ngModel)]=\"collection.amount\" required [readonly]=\"isMultipleEntry\">\n\t\t\t\t\t\t\t<div *ngIf=\"collectionAmount.errors\">\n\t\t\t\t\t\t\t\t<p class=\"error\">Enter amount equal to or lesser than the selected entries</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<!-- <condo-select \n\t\t\t\t\t\t\tlabelText=\"Instrument Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"instrumentTypeListData\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.instrumentTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getInstrumentType($event)\" \n\t\t\t\t\t\t></condo-select> -->\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Gl Account\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t[fieldList]=\"glAccountListData\"\n\t\t\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.glaccountId\"\n\t\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedGlAccount($event)\" \n\t\t\t\t\t\t></condo-select>\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posted On\"\n\t\t\t\t\t\t\tfieldName=\"collectionPostOn\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.postOn\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostOn($event)\">\n                        </app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Payment Status\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Status\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"paymentStatusListData\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.collectionStatusId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPaymentStatus($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Payment Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Payment\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"paymentTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"label\"\n\t\t\t\t\t\t\t[fieldModel]=\"paymentTypeId\"\n\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPaymentType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCustomerAdvancesMode() || isCreditBalanceMode() || isSecurityDepositPaymentMode()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Balance</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"Balance\" [(ngModel)]=\"selectedCustBalance\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</div>\n\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button class=\"mt-4\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t</div>\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-post-collection-wrapper mt-5\">\n\n\t<!-- Message -->\n\t<div class=\"mb-4\">\n\t\t<condo-message *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\n\t</div>\n\n\t<h4 class=\"mb-4\">Post Collection</h4>\n\n\t<form #postIncomeCollectionForm = \"ngForm\" name=\"postIncomeCollectionForm\" (ngSubmit)=\"submitIncomePostCollectionForm()\"  novalidate>\n\n\t\t<div class=\"bg-card shadow\">\n\t\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount<span class=\"ml-2 text-warn font-medium\">*</span></label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" [customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" class=\"form-control\" #collectionAmount=\"ngModel\" placeholder=\"Enter text\" name=\"collectionAmount\" [(ngModel)]=\"collection.amount\" required [readonly]=\"isMultipleEntry\">\n\t\t\t\t\t\t<div *ngIf=\"collectionAmount.errors\">\n\t\t\t\t\t\t\t<p class=\"error\">Enter amount equal to or lesser than the selected entries</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<!-- <condo-select \n\t\t\t\t\t\tlabelText=\"Instrument Type\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"instrumentTypeListData\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"collection.instrumentTypeId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"getInstrumentType($event)\" \n\t\t\t\t\t></condo-select> -->\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Gl Account\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t[fieldList]=\"glAccountListData\"\n\t\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t\t[fieldModel]=\"collection.glaccountId\"\n\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedGlAccount($event)\" \n\t\t\t\t\t></condo-select>\t\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\tlabelText=\"Posted On\"\n\t\t\t\t\t\tfieldName=\"collectionPostOn\"\n\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t[fieldModel]=\"collection.postOn\"\n\t\t\t\t\t\t(fieldParams)=\"getPostOn($event)\">\n\t\t\t\t\t</app-datepicker>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Payment Status\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Status\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"paymentStatusListData\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"collection.collectionStatusId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"getPaymentStatus($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Payment Type\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Payment\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"paymentTypeList\"\n\t\t\t\t\t\tfieldValue=\"label\"\n\t\t\t\t\t\t[fieldModel]=\"paymentTypeId\"\n\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t(fieldParams)=\"getPaymentType($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCustomerAdvancesMode() || isCreditBalanceMode() || isSecurityDepositPaymentMode()\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Balance</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"Balance\" [(ngModel)]=\"selectedCustBalance\" readonly>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\t\n\t\t</div>\n\n\t\t<div class=\"text-right\">\n\t\t\t<submit-button [isSubmit]=\"isCollectionSubmitted\">Submit</submit-button>\n\t\t</div>\n\t\t\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -844,6 +844,7 @@
           value: function addCollection() {
             var _this7 = this;
 
+            this.isCollectionSubmitted = true;
             var custInvoiceObjArray = [];
             underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, function (item, index) {
               var details = {
@@ -862,7 +863,6 @@
               };
               custInvoiceObjArray.push(details);
             });
-            this.isCollectionSubmitted = false;
             var collectionDetails = {
               "apartmentId": this.sessionService.apartmentId,
               "receiptNumber": 0,
@@ -893,19 +893,17 @@
               collection: collectionDetails
             };
             this.accountsService.addCollection(params).subscribe(function (res) {
-              if (res.message) {
-                _this7.isCollectionSubmitted = true;
+              _this7.isCollectionSubmitted = false;
 
+              if (res.message) {
                 _this7.sharedService.openSnackBar('Collection done successfully', 'success');
 
                 _this7.collectionParams.emit(true);
               } else {
-                _this7.isCollectionSubmitted = true;
-
                 _this7.sharedService.openSnackBar('Collection Not Added', 'error');
               }
             }, function (error) {
-              _this7.isCollectionSubmitted = true; // Show the error message
+              _this7.isCollectionSubmitted = false; // Show the error message
 
               _this7.message = {
                 appearance: 'outline',
@@ -1117,7 +1115,6 @@
             }, {
               id: 4
             }];
-            this.isCollectionSubmitted = true;
             this.collection.amount = parseFloat(this.totalAmountArray[0]).toFixed(2);
             this.maxCollectionAmount = this.collection.amount;
             this.paymentTypeList = [{
