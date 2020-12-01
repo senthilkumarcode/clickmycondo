@@ -9996,6 +9996,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
 
 
 
@@ -10007,13 +10009,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
-    constructor(dialog, _activatedRoute, _router, dashboardService, userService, sessionService) {
+    constructor(dialog, _activatedRoute, _router, dashboardService, userService, sessionService, apartmentService) {
         this.dialog = dialog;
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this.dashboardService = dashboardService;
         this.userService = userService;
         this.sessionService = sessionService;
+        this.apartmentService = apartmentService;
         this.widgets = [{
                 front: 'Units',
                 back: 'Towers',
@@ -10058,7 +10061,7 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
                 backFooter: false,
                 type: ''
             }, {
-                front: 'No data',
+                front: 'Vacant list',
                 back: 'No data',
                 frontValue: '',
                 backValue: '',
@@ -10086,8 +10089,14 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             panelClass: 'material-dialog-big'
         });
         dialogRef.afterOpened().subscribe((res) => {
-            let name = "List of Expiring Rental  Lease Agreements";
-            this._router.navigate([`/ams/dashboard/main/report/reports/${name}/338`,]);
+            if (data.front === "Vacant list") {
+                let name = "List of Vacant List";
+                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1039`,]);
+            }
+            else {
+                let name = "List of Expiring Rental  Lease Agreements";
+                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/338`,]);
+            }
         });
         dialogRef.afterClosed().subscribe((res) => {
             this._router.navigate(['/ams/dashboard/main']);
@@ -10194,6 +10203,13 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
         // this.unApproveMoveOut(this.today('unapprove'));
         // this.upcomingMoveIn(this.today('upcoming'));
         // this.upcomingMoveOut(this.today('upcoming'));
+        let vacantParams = {
+            apartmentId: parseInt(this.sessionService.apartmentId),
+            BlockID: null,
+        };
+        this.apartmentService.getAllVacantCountunitsByApartmentId(vacantParams).subscribe((res) => {
+            this.widgets[5].frontValue = res;
+        });
     }
 };
 AdminDashFirstRowComponent.ctorParameters = () => [
@@ -10202,7 +10218,8 @@ AdminDashFirstRowComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] },
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"] }
 ];
 AdminDashFirstRowComponent.propDecorators = {
     dashboardReportRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["dashboardReportRef", { static: false },] }]
@@ -10219,7 +10236,8 @@ AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
         src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])
 ], AdminDashFirstRowComponent);
 
 

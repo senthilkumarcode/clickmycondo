@@ -2690,10 +2690,16 @@ let AssociateStaffComponent = class AssociateStaffComponent {
                     updateUserId: parseInt(this.sessionService.userId)
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
-                    this.sharedService.openSnackBar('Associate Category Deleted Successfully', 'success');
+                    if (res.message) {
+                        this.sharedService.openSnackBar('Associate Category Deleted Successfully', 'success');
+                        this.getAssociateStaff();
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
                     this.sharedService.setUnitListDeleteIndex(null);
-                    this.getAssociateStaff();
                 }, error => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
                 });
             }
         });
@@ -2744,10 +2750,17 @@ let AssociateStaffComponent = class AssociateStaffComponent {
                 lookupvalue: details
             };
             this.lookupService.addLookupValue(params).subscribe((res) => {
-                this.sharedService.openSnackBar('Associate Category Added', 'success');
-                this.isShowForm = false;
-                this.matDrawer.toggle();
-                this.getAssociateStaff();
+                if (res.code == 200) {
+                    this.matDrawer.toggle();
+                    this.sharedService.openSnackBar('Associate Category Added', 'success');
+                    this.getAssociateStaff();
+                    this.isShowForm = false;
+                }
+                else {
+                    this.sharedService.openSnackBar(res.message, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
@@ -2767,10 +2780,17 @@ let AssociateStaffComponent = class AssociateStaffComponent {
                 lookupvalue: details
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
-                this.sharedService.openSnackBar('Associate Category Updated', 'success');
-                this.isShowForm = false;
-                this.matDrawer.toggle();
-                this.getAssociateStaff();
+                if (res.message) {
+                    this.matDrawer.toggle();
+                    this.sharedService.openSnackBar('Associate Category Updated', 'success');
+                    this.getAssociateStaff();
+                    this.isShowForm = false;
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }
@@ -2867,10 +2887,16 @@ let PersonalStaffComponent = class PersonalStaffComponent {
                     updateUserId: parseInt(this.sessionService.userId)
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
-                    this.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
+                    if (res.message) {
+                        this.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
+                        this.getAssociateStaff();
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
                     this.sharedService.setUnitListDeleteIndex(null);
-                    this.getAssociateStaff();
                 }, error => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
                 });
             }
         });
@@ -2921,10 +2947,17 @@ let PersonalStaffComponent = class PersonalStaffComponent {
                 lookupvalue: details
             };
             this.lookupService.addLookupValue(params).subscribe((res) => {
-                this.sharedService.openSnackBar('Personal Category Added', 'success');
-                this.isShowForm = false;
-                this.matDrawer.toggle();
-                this.getAssociateStaff();
+                if (res.code == 200) {
+                    this.matDrawer.toggle();
+                    this.sharedService.openSnackBar('Personal Category Added', 'success');
+                    this.getAssociateStaff();
+                    this.isShowForm = false;
+                }
+                else {
+                    this.sharedService.openSnackBar(res.message, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
@@ -2944,10 +2977,17 @@ let PersonalStaffComponent = class PersonalStaffComponent {
                 lookupvalue: details
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
-                this.sharedService.openSnackBar('Personal Category Updated', 'success');
-                this.isShowForm = false;
-                this.matDrawer.toggle();
-                this.getAssociateStaff();
+                if (res.message) {
+                    this.matDrawer.toggle();
+                    this.sharedService.openSnackBar('Personal Category Updated', 'success');
+                    this.getAssociateStaff();
+                    this.isShowForm = false;
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }

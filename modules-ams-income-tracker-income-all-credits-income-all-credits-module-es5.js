@@ -321,8 +321,6 @@
 
                     _this5._changeDetectorRef.markForCheck();
                   } else {
-                    _this5.isCreditSubmitted = false;
-
                     _this5.sharedService.openSnackBar('Some error occured', 'error');
                   }
                 }, function (error) {

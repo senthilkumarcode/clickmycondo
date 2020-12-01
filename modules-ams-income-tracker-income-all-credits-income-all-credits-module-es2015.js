@@ -203,7 +203,6 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                         this._changeDetectorRef.markForCheck();
                     }
                     else {
-                        this.isCreditSubmitted = false;
                         this.sharedService.openSnackBar('Some error occured', 'error');
                     }
                 }, error => {

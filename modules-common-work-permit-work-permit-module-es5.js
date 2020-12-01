@@ -88,7 +88,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"nature-work-setup-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form #workForm=\"ngForm\" name=\"workForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Nature Of Work*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"type\" [(ngModel)]=\"natureOfWork.lookupValueName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"natureOfWork.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <submit-button *ngIf=\"clickMode=='create'\" (click)=\"submitWorkType()\" [isSubmit]=\"isDataSubmiited\">Submit</submit-button>\n                        <submit-button *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkType()\" [isSubmit]=\"isDataSubmiited\">Update</submit-button>\n                        <button mat-button class=\"ml-2\" (click)=\"cancelWorkPermit()\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Nature Of Work</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"natureFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWork()\">Create Nature Of Work</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"natureWorkList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ";
+      __webpack_exports__["default"] = "<div class=\"nature-work-setup-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form #workForm=\"ngForm\" name=\"workForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Nature Of Work*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"type\" [(ngModel)]=\"natureOfWork.lookupValueName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"natureOfWork.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <submit-button *ngIf=\"clickMode=='create'\" (click)=\"submitWorkType()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                        <submit-button *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkType()\" [isSubmit]=\"isDataSubmitted\">Update</submit-button>\n                        <button mat-button class=\"ml-2\" (click)=\"cancelWorkPermit()\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Nature Of Work</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"natureFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWork()\">Create Nature Of Work</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"natureWorkList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ";
       /***/
     },
 
@@ -128,7 +128,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"work-permit-type-setup-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form  #workPermitForm=\"ngForm\" name=\"workPermitForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Type*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"name\" [(ngModel)]=\"workpermit.lookupValueName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"workpermit.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <submit-button *ngIf=\"clickMode=='create'\" (click)=\"submitWorkPermitType()\" [isSubmit]=\"isDataSubmiited\">Submit</submit-button>\n                        <submit-button *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkPermitType()\" [isSubmit]=\"isDataSubmiited\">Update</submit-button>\n                        <button mat-button class=\"ml-2\" (click)=\"cancelWorkPermit()\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>WorkPermit Type</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"workPermitFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create WorkPermit Type</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\t\t";
+      __webpack_exports__["default"] = "<div class=\"work-permit-type-setup-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form  #workPermitForm=\"ngForm\" name=\"workPermitForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Type*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"name\" [(ngModel)]=\"workpermit.lookupValueName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"workpermit.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <submit-button *ngIf=\"clickMode=='create'\" (click)=\"submitWorkPermitType()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                        <submit-button *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkPermitType()\" [isSubmit]=\"isDataSubmitted\">Update</submit-button>\n                        <button mat-button class=\"ml-2\" (click)=\"cancelWorkPermit()\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>WorkPermit Type</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"workPermitFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create WorkPermit Type</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\t\t";
       /***/
     },
 
@@ -148,7 +148,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"workpermit-status-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4>Status Update</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon> \n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box radio-box\">\n                        <div class=\"form-group\" *ngFor=\"let data of statusTypeData;let i=index\">\n                            <input name=\"assetConditionId\" [id]=\"i\" [(ngModel)]=\"status\" [value]=\"data.lookupValueId\" type=\"radio\">\n                            <label class=\"radio-inline\" [for]=\"i\">{{data.lookupValueName}}</label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\" *ngIf=\"status == 353 || status == 357 || status == 359\">\n                    <div class=\"input-box\">\n                        <label>Reason</label>\n                        <textarea placeholder=\"some text here\" name=\"comments\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\"  (click)=\"onConfirm()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"workpermit-status-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4>Status Update</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon> \n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box radio-box\">\n                        <div class=\"form-group\" *ngFor=\"let data of statusTypeData;let i=index\">\n                            <input name=\"assetConditionId\" [id]=\"i\" [(ngModel)]=\"status\" [value]=\"data.lookupValueId\" type=\"radio\">\n                            <label class=\"radio-inline\" [for]=\"i\">{{data.lookupValueName}}</label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\" *ngIf=\"status == 353 || status == 357 || status == 359\">\n                    <div class=\"input-box\">\n                        <label>Reason</label>\n                        <textarea placeholder=\"some text here\" name=\"comments\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 float-right\">\n                    <submit-button (click)=\"onConfirm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>";
       /***/
     },
 
@@ -1965,7 +1965,7 @@
           this.natureFilter = '';
           this.natureOfWork = {};
           this.message = null;
-          this.isDataSubmiited = false;
+          this.isDataSubmitted = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
@@ -2034,7 +2034,7 @@
           value: function submitWorkType() {
             var _this19 = this;
 
-            this.isDataSubmiited = true;
+            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2068,7 +2068,7 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this19.isDataSubmiited = false;
+                _this19.isDataSubmitted = false;
 
                 if (res.message) {
                   _this19.clickMode = '';
@@ -2080,7 +2080,7 @@
                   _this19.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this19.isDataSubmiited = false;
+                _this19.isDataSubmitted = false;
 
                 _this19.sharedService.openSnackBar('Server Error', 'error');
               });
@@ -2091,7 +2091,7 @@
           value: function updateWorkType() {
             var _this20 = this;
 
-            this.isDataSubmiited = true;
+            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2125,7 +2125,7 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                _this20.isDataSubmiited = false;
+                _this20.isDataSubmitted = false;
 
                 if (res.message) {
                   _this20.clickMode = '';
@@ -2137,7 +2137,7 @@
                   _this20.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this20.isDataSubmiited = false;
+                _this20.isDataSubmitted = false;
 
                 _this20.sharedService.openSnackBar('Server Error', 'error');
               });
@@ -2513,7 +2513,7 @@
           this.workPermitFilter = '';
           this.workpermit = {};
           this.message = null;
-          this.isDataSubmiited = false;
+          this.isDataSubmitted = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
@@ -2582,7 +2582,7 @@
           value: function submitWorkPermitType() {
             var _this24 = this;
 
-            this.isDataSubmiited = true;
+            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2616,7 +2616,7 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this24.isDataSubmiited = false;
+                _this24.isDataSubmitted = false;
 
                 if (res.message) {
                   _this24.clickMode = '';
@@ -2628,7 +2628,7 @@
                   _this24.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this24.isDataSubmiited = false;
+                _this24.isDataSubmitted = false;
 
                 _this24.sharedService.openSnackBar('Server Error', 'error');
               });
@@ -2639,7 +2639,7 @@
           value: function updateWorkPermitType() {
             var _this25 = this;
 
-            this.isDataSubmiited = true;
+            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2673,7 +2673,7 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                _this25.isDataSubmiited = false;
+                _this25.isDataSubmitted = false;
 
                 if (res.message) {
                   _this25.clickMode = '';
@@ -2685,7 +2685,7 @@
                   _this25.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this25.isDataSubmiited = false;
+                _this25.isDataSubmitted = false;
 
                 _this25.sharedService.openSnackBar('Server Error', 'error');
               });
@@ -2954,6 +2954,7 @@
           this.workPermitService = workPermitService;
           this.sessionService = sessionService;
           this.sharedService = sharedService;
+          this.isDataSubmitted = false;
         }
 
         _createClass(WorkpermitStatusComponent, [{
@@ -2961,6 +2962,7 @@
           value: function onConfirm() {
             var _this28 = this;
 
+            this.isDataSubmitted = true;
             var params = {
               workPermit: {
                 apartmentId: this.sessionService.apartmentId,
@@ -2974,6 +2976,8 @@
               }
             };
             this.workPermitService.updateWorkPermitStatusById(params).subscribe(function (data) {
+              _this28.isDataSubmitted = false;
+
               if (data.message) {
                 _this28.sharedService.openSnackBar('Workpermit Status Updated', 'success');
 

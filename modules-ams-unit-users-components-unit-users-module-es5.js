@@ -2068,7 +2068,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-profile-profile-area-module */
-            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-dashboard-dashboard-module~modules-ams-expense-~1ce4e2d1"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-dashboard-dashboard-module~modules-ams-expense-~76077b41"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/profile/profile-area.module */
             "./src/app/modules/profile/profile-area.module.ts")).then(function (m) {
               return m.ProfileAreaModule;

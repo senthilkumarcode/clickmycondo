@@ -14162,9 +14162,15 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ../../../../../../api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
 
       var AdminDashFirstRowComponent = /*#__PURE__*/function () {
-        function AdminDashFirstRowComponent(dialog, _activatedRoute, _router, dashboardService, userService, sessionService) {
+        function AdminDashFirstRowComponent(dialog, _activatedRoute, _router, dashboardService, userService, sessionService, apartmentService) {
           _classCallCheck(this, AdminDashFirstRowComponent);
 
           this.dialog = dialog;
@@ -14173,6 +14179,7 @@
           this.dashboardService = dashboardService;
           this.userService = userService;
           this.sessionService = sessionService;
+          this.apartmentService = apartmentService;
           this.widgets = [{
             front: 'Units',
             back: 'Towers',
@@ -14217,7 +14224,7 @@
             backFooter: false,
             type: ''
           }, {
-            front: 'No data',
+            front: 'Vacant list',
             back: 'No data',
             frontValue: '',
             backValue: '',
@@ -14251,9 +14258,15 @@
               panelClass: 'material-dialog-big'
             });
             dialogRef.afterOpened().subscribe(function (res) {
-              var name = "List of Expiring Rental  Lease Agreements";
+              if (data.front === "Vacant list") {
+                var name = "List of Vacant List";
 
-              _this66._router.navigate(["/ams/dashboard/main/report/reports/".concat(name, "/338")]);
+                _this66._router.navigate(["/ams/dashboard/main/report/reports/".concat(name, "/1039")]);
+              } else {
+                var _name = "List of Expiring Rental  Lease Agreements";
+
+                _this66._router.navigate(["/ams/dashboard/main/report/reports/".concat(_name, "/338")]);
+              }
             });
             dialogRef.afterClosed().subscribe(function (res) {
               _this66._router.navigate(['/ams/dashboard/main']);
@@ -14371,6 +14384,14 @@
             // this.unApproveMoveOut(this.today('unapprove'));
             // this.upcomingMoveIn(this.today('upcoming'));
             // this.upcomingMoveOut(this.today('upcoming'));
+
+            var vacantParams = {
+              apartmentId: parseInt(this.sessionService.apartmentId),
+              BlockID: null
+            };
+            this.apartmentService.getAllVacantCountunitsByApartmentId(vacantParams).subscribe(function (res) {
+              _this67.widgets[5].frontValue = res;
+            });
           }
         }]);
 
@@ -14390,6 +14411,8 @@
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]
         }];
       };
 
@@ -14410,7 +14433,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./admin-dash-first-row.component.scss */
         "./src/app/modules/ams/dashboard/components/shared/admin-dash-first-row/admin-dash-first-row.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AdminDashFirstRowComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])], AdminDashFirstRowComponent);
       /***/
     },
 

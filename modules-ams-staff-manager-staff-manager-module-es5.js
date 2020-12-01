@@ -3680,12 +3680,18 @@
                 };
 
                 _this30.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this30.sharedService.openSnackBar('Associate Category Deleted Successfully', 'success');
+                  if (res.message) {
+                    _this30.sharedService.openSnackBar('Associate Category Deleted Successfully', 'success');
+
+                    _this30.getAssociateStaff();
+                  } else {
+                    _this30.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
 
                   _this30.sharedService.setUnitListDeleteIndex(null);
-
-                  _this30.getAssociateStaff();
-                }, function (error) {});
+                }, function (error) {
+                  _this30.sharedService.openSnackBar('Server Error', 'error');
+                });
               }
             });
           }
@@ -3748,13 +3754,19 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this32.sharedService.openSnackBar('Associate Category Added', 'success');
+                if (res.code == 200) {
+                  _this32.matDrawer.toggle();
 
-                _this32.isShowForm = false;
+                  _this32.sharedService.openSnackBar('Associate Category Added', 'success');
 
-                _this32.matDrawer.toggle();
+                  _this32.getAssociateStaff();
 
-                _this32.getAssociateStaff();
+                  _this32.isShowForm = false;
+                } else {
+                  _this32.sharedService.openSnackBar(res.message, 'error');
+                }
+              }, function (error) {
+                _this32.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               var _details3 = {
@@ -3773,13 +3785,19 @@
                 lookupvalue: _details3
               };
               this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
-                _this32.sharedService.openSnackBar('Associate Category Updated', 'success');
+                if (res.message) {
+                  _this32.matDrawer.toggle();
 
-                _this32.isShowForm = false;
+                  _this32.sharedService.openSnackBar('Associate Category Updated', 'success');
 
-                _this32.matDrawer.toggle();
+                  _this32.getAssociateStaff();
 
-                _this32.getAssociateStaff();
+                  _this32.isShowForm = false;
+                } else {
+                  _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this32.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -3951,12 +3969,18 @@
                 };
 
                 _this33.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this33.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
+                  if (res.message) {
+                    _this33.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
+
+                    _this33.getAssociateStaff();
+                  } else {
+                    _this33.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
 
                   _this33.sharedService.setUnitListDeleteIndex(null);
-
-                  _this33.getAssociateStaff();
-                }, function (error) {});
+                }, function (error) {
+                  _this33.sharedService.openSnackBar('Server Error', 'error');
+                });
               }
             });
           }
@@ -4019,13 +4043,19 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this35.sharedService.openSnackBar('Personal Category Added', 'success');
+                if (res.code == 200) {
+                  _this35.matDrawer.toggle();
 
-                _this35.isShowForm = false;
+                  _this35.sharedService.openSnackBar('Personal Category Added', 'success');
 
-                _this35.matDrawer.toggle();
+                  _this35.getAssociateStaff();
 
-                _this35.getAssociateStaff();
+                  _this35.isShowForm = false;
+                } else {
+                  _this35.sharedService.openSnackBar(res.message, 'error');
+                }
+              }, function (error) {
+                _this35.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               var _details4 = {
@@ -4044,13 +4074,19 @@
                 lookupvalue: _details4
               };
               this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
-                _this35.sharedService.openSnackBar('Personal Category Updated', 'success');
+                if (res.message) {
+                  _this35.matDrawer.toggle();
 
-                _this35.isShowForm = false;
+                  _this35.sharedService.openSnackBar('Personal Category Updated', 'success');
 
-                _this35.matDrawer.toggle();
+                  _this35.getAssociateStaff();
 
-                _this35.getAssociateStaff();
+                  _this35.isShowForm = false;
+                } else {
+                  _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this35.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
