@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isCreditSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Bill\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t[fieldModel]=\"credit.collectionId\"\n\t\t\t\t\t\tfieldId=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isCreditSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n\t\t\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Credit Note</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Credit Note</span>\n\t\t\t</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Bill No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Bill\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"billData\"\n\t\t\t\t\t\tfieldValue=\"collectionId\"\n\t\t\t\t\t\t[fieldModel]=\"credit.collectionId\"\n\t\t\t\t\t\tfieldId=\"collectionId\"\n\t\t\t\t\t\t(fieldParams)=\"getBillNo($event)\" \n                    ></condo-select>\n\n\t\t\t\t</div> \n\n\t\t\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isCreditSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n\t\n</div>";
       /***/
     },
 
@@ -171,6 +171,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isCreditSubmitted = false;
+          this.isDataLoaded = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
@@ -179,14 +180,14 @@
           value: function getCredit(id) {
             var _this = this;
 
-            this.isCreditSubmitted = true;
+            this.isDataLoaded = false;
             var params = {
               ApartmentId: this.sessionService.apartmentId,
               creditnotetransactionID: id
             };
             this.accountsService.getcustcreditnotebyId(params).subscribe(function (res) {
               _this.isEdit = true;
-              _this.isCreditSubmitted = false;
+              _this.isDataLoaded = true;
 
               if (res === undefined || res.length == 0) {
                 _this.credit = {};
@@ -203,13 +204,14 @@
           value: function getAllCollectionByApartmentBlockUnitId() {
             var _this2 = this;
 
+            this.isDataLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId,
               apartmentBlockUnitId: this.apartmentBlockUnitId
             };
             this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe(function (res) {
               _this2.billData = res;
-              _this2.isCreditSubmitted = true; //Mark for check
+              _this2.isDataLoaded = true; //Mark for check
 
               _this2._changeDetectorRef.markForCheck();
             });
@@ -223,6 +225,8 @@
           key: "submitAddCreditNoteForm",
           value: function submitAddCreditNoteForm(form) {
             var _this3 = this;
+
+            this.isCreditSubmitted = true;
 
             if (form.valid) {
               if (!this.isEdit) {
@@ -248,21 +252,26 @@
                   custCreditNote: details
                 };
                 this.accountsService.addCustCreditNotes(params).subscribe(function (res) {
-                  if (res.error) {
-                    _this3.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = false;
+
+                  if (res.code == 200) {
                     _this3.credit = {}; /// Go to the parent route
 
                     _this3._incomeActionCreditListComponent.isCreditAdded();
 
-                    _this3.goBack(); //Mark for check
+                    _this3.goBack();
+
+                    _this3.sharedService.openSnackBar("CreditNote added successfully", 'success'); //Mark for check
 
 
                     _this3._changeDetectorRef.markForCheck();
                   } else {
-                    _this3.isCreditSubmitted = true;
+                    _this3.sharedService.openSnackBar("Some error occured", 'error');
                   }
                 }, function (error) {
-                  _this3.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = false;
+
+                  _this3.sharedService.openSnackBar("Network error", 'error');
                 });
               } else {
                 var _details = {
@@ -288,21 +297,26 @@
                   custCreditNote: _details
                 };
                 this.accountsService.updateCustCreditNotes(_params).subscribe(function (res) {
+                  _this3.isCreditSubmitted = false;
+
                   if (res.message) {
-                    _this3.isCreditSubmitted = true;
                     _this3.credit = {}; /// Go to the parent route
 
                     _this3._incomeActionCreditListComponent.isCreditAdded();
 
-                    _this3.goBack(); //Mark for check
+                    _this3.goBack();
+
+                    _this3.sharedService.openSnackBar("CreditNote updated successfully", 'success'); //Mark for check
 
 
                     _this3._changeDetectorRef.markForCheck();
                   } else {
-                    _this3.isCreditSubmitted = true;
+                    _this3.sharedService.openSnackBar("Some error occured", 'error');
                   }
                 }, function (error) {
-                  _this3.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = false;
+
+                  _this3.sharedService.openSnackBar("Network error", 'error');
                 });
               }
             }

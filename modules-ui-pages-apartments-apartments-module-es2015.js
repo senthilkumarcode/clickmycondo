@@ -149,7 +149,7 @@ let ApartmentsComponent = class ApartmentsComponent {
         };
         this.isRouting = true;
         this.staffService.getStaffByUserId(params).subscribe((res) => {
-            console.log(res);
+            //console.log(res);
             if (!isNaN(this.sessionService.secLevelId)) {
                 this.sessionService.secLevelId = res[0].secLevelId;
                 // Hide the message
@@ -174,6 +174,7 @@ let ApartmentsComponent = class ApartmentsComponent {
                     }
                 }, error => {
                     this.isRouting = false;
+                    this.authService.clearApartmentDetails();
                     // Show the error message
                     this.message = {
                         appearance: 'outline',
@@ -186,6 +187,7 @@ let ApartmentsComponent = class ApartmentsComponent {
             }
             else {
                 this.isRouting = false;
+                this.authService.clearApartmentDetails();
                 // Show the error message
                 this.message = {
                     appearance: 'outline',

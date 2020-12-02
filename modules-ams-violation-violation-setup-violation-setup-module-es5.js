@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"violation-category-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"violation-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Violation Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Violation Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addDocumentCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Category Type*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"category.lookupValueName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"category.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n                                    <button *ngIf=\"clickMode=='add'\" class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"createViolationCategory()\">Submit</button>\n                                    <button *ngIf=\"clickMode=='edit'\"  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"updateViolationCategory()\">Update</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>Violation Category</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Violation Category\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <!-- Loader -->\n                        <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                        <div *ngIf=\"isViolationCategoryLoaded\">\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                                [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationCategoryList\"\n                                [columns]=\"violationCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"violation-category-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"violation-setup-drawer\">\n                \n                <div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Violation Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Violation Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n                \n                <form #addDocumentCategoryForm = \"ngForm\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Category Type*</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"category.lookupValueName\" required>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Description</label>\n                                <input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"category.description\">\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"float-right\">\n                                <submit-button *ngIf=\"clickMode=='add'\" class=\"mr-2\" (click)=\"createViolationCategory()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                                <submit-button *ngIf=\"clickMode=='edit'\"  class=\"mr-2\" (click)=\"updateViolationCategory()\" [isSubmit]=\"isDataSubmitted\">Update</submit-button>\n                                <button mat-button (click)=\"closeDrawer()\">Cancel</button>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n                \n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>Violation Category</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Violation Category\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <!-- Loader -->\n                        <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                        <div *ngIf=\"isViolationCategoryLoaded\">\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                                [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationCategoryList\"\n                                [columns]=\"violationCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -214,7 +214,7 @@
           this.sessionService = sessionService;
           this.category = {};
           this.isViolationCategoryLoaded = false;
-          this.isDrawerLoader = true;
+          this.isDataSubmitted = false;
           this.violationSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
         }
@@ -284,7 +284,7 @@
           value: function createViolationCategory() {
             var _this2 = this;
 
-            this.isDrawerLoader = false;
+            this.isDataSubmitted = true;
             var params = {
               lookupvalue: {
                 "apartmentId": this.sessionService.apartmentId,
@@ -299,7 +299,7 @@
               }
             };
             this.lookupService.addLookupValue(params).subscribe(function (res) {
-              _this2.isDrawerLoader = true;
+              _this2.isDataSubmitted = false;
 
               if (res.code == 200) {
                 _this2.closeDrawer();
@@ -311,7 +311,7 @@
                 _this2.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
               }
             }, function (error) {
-              _this2.isDrawerLoader = true;
+              _this2.isDataSubmitted = false;
 
               _this2.sharedService.openSnackBar('Network Error', 'error');
             });
@@ -321,7 +321,7 @@
           value: function updateViolationCategory() {
             var _this3 = this;
 
-            this.isDrawerLoader = false;
+            this.isDataSubmitted = true;
             var params = {
               lookupvalue: {
                 "apartmentId": this.sessionService.apartmentId,
@@ -337,7 +337,7 @@
               }
             };
             this.lookupService.updateLookupValue(params).subscribe(function (res) {
-              _this3.isDrawerLoader = true;
+              _this3.isDataSubmitted = false;
 
               if (res.message) {
                 _this3.closeDrawer();
@@ -349,7 +349,7 @@
                 _this3.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this3.isDrawerLoader = true;
+              _this3.isDataSubmitted = false;
 
               _this3.sharedService.openSnackBar('Network Error', 'error');
             });
