@@ -4432,7 +4432,7 @@ let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorCompon
             //Staffs List
             let staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                RoleTypeId: this.sessionService.roleTypeId
+                roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 this.staffsList = res;
@@ -5305,7 +5305,7 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
             //Staffs List
             let staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                RoleTypeId: this.sessionService.roleTypeId
+                roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 this.staffsList = res;
@@ -6556,7 +6556,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         // Staffs List
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
+            roleTypeIds: this.sessionService.roleTypeId
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             this.staffsList = res;

@@ -360,7 +360,7 @@ let CreatePackageComponent = class CreatePackageComponent {
         // Staffs List
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
+            roleTypeIds: this.sessionService.roleTypeId
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             this.staffListData = res;

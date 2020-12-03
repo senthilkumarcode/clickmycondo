@@ -1621,10 +1621,10 @@ let InventoryInternalTransferComponent = class InventoryInternalTransferComponen
     getAllStaff() {
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
+            roleTypeIds: this.sessionService.roleTypeId
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
-            if (res.length) {
+            if (res && res.length) {
                 res.forEach((ele) => {
                     ele.customLabel = `${ele.staffName}, ${ele.roleName} - ${ele.staffCategoryName}`;
                 });
@@ -1876,7 +1876,7 @@ let InventoryReceivingComponent = class InventoryReceivingComponent {
     getAllStaff() {
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
+            roleTypeIds: this.sessionService.roleTypeId
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             if (res.length) {
@@ -3023,7 +3023,7 @@ let InventorySetupComponent = class InventorySetupComponent {
     getAllStaff() {
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
+            roleTypeIds: this.sessionService.roleTypeId
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             if (res.length) {
@@ -3577,7 +3577,7 @@ let InventoryStockAdjustmentsComponent = class InventoryStockAdjustmentsComponen
     getAllStaff() {
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
+            roleTypeIds: this.sessionService.roleTypeId
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             if (res.length) {

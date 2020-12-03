@@ -1036,7 +1036,7 @@ let AllocatedSlotConfirmationComponent = class AllocatedSlotConfirmationComponen
             //community Owned staff
             let staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                RoleTypeId: this.sessionService.roleTypeId
+                roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 if (res.length) {
@@ -1518,7 +1518,7 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
             };
             let staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                RoleTypeId: this.sessionService.roleTypeId
+                roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 if (res.length) {

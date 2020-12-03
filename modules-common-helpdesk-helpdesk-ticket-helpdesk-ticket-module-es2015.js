@@ -451,7 +451,7 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
         }
         else {
             staffParms.apartmentId = this.sessionService.apartmentId;
-            staffParms.RoleTypeId = this.createdBY == 'staff' ? 3 : 1;
+            staffParms.roleTypeIds = this.createdBY == 'staff' ? 3 : 1;
         }
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             if (res.length) {
@@ -972,7 +972,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             //Filter Purpose => Staff
             let staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                RoleTypeId: this.sessionService.roleTypeId
+                roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 if (res.length) {

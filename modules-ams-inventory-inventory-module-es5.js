@@ -2246,10 +2246,10 @@
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
+              roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              if (res.length) {
+              if (res && res.length) {
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                 });
@@ -2601,7 +2601,7 @@
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
+              roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
@@ -4141,7 +4141,7 @@
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
+              roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
@@ -4823,7 +4823,7 @@
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
+              roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {

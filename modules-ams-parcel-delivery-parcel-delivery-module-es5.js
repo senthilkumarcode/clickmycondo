@@ -568,7 +568,7 @@
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
+              roleTypeIds: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               _this4.staffListData = res;
