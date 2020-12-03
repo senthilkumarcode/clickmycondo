@@ -4050,7 +4050,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expected-visitor-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"expected-visitor-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From Date\"\n                                fieldName=\"eventDateFrom\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.fromDate\"\n                                (fieldParams)=\"getFromDate($event)\">\n                            </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To Date\"\n                                fieldName=\"eventDateTo\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.toDate\"\n                                (fieldParams)=\"getToDate($event)\">\n                            </app-datepicker>\n                        </div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\t\t\t<div class=\"main\">\n                \n               <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n                    <div class=\"d-flex mb-4\">\n                        <div>\n                            <h4 class=\"mb-2\">Expected Visitors</h4>\n                            <p class=\"text-secondary mb-1\">{{totalItems}} results from {{getDate(filterField.fromDate)}} to {{getDate(filterField.toDate)}}</p>\n                        </div>\n                    </div>\n\n                    <div class=\"d-flex mb-4\">\n                        <div class=\"d-flex ml-auto\">\n                            <div class=\"mr-3\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                            </div>\n                            <div class=\"mr-3 ml-auto\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                                </button>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"bg-card shadow\" *ngIf=\"visitorList.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>\n\n                    <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                        <div class=\"visitor-item\">\n                            <div class=\"d-flex\">\n                                <div class=\"media\">\n                                    <div class=\"icon\">\n                                        <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                                    </div>\n                                    <div class=\"media-body\">\n                                        <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                        <p class=\"pb-1 text-secondary others\">\n                                            <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                            <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none link text-primary\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                        </p>\n                                    </div>\n                                </div>\n                                <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                                    <div class=\"icon\" (click)=\"checkIn(item)\">\n                                        <img width=\"35\" class=\"svg\" src=\"assets/images/checkin-icon.svg\" />\n                                    </div>\n                                    <div class=\"actions d-flex mt-3\">\n                                        <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                                        <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"border-top visitor-extras\">\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                        <p class=\"font-medium\">Pass ID</p>\n                                        <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected IN</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                                    </div>\n                                    <div class=\"ccol-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected OUT</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Visit Type</p>\n                                        <p class=\"right\">{{item.visitType_Label}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Tower & Unit</p>\n                                        <p class=\"right\">{{item.block_Unit}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                    </div>\n\n               </ng-container>\n\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expected-visitor-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"expected-visitor-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From Date\"\n                                fieldName=\"eventDateFrom\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.fromDate\"\n                                (fieldParams)=\"getFromDate($event)\">\n                            </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To Date\"\n                                fieldName=\"eventDateTo\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.toDate\"\n                                (fieldParams)=\"getToDate($event)\">\n                            </app-datepicker>\n                        </div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\t\t\t<div class=\"main\">\n                \n               <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n                    <div class=\"d-flex mb-4\">\n                        <div>\n                            <h4 class=\"mb-2\">Expected Visitors</h4>\n                            <p class=\"text-secondary mb-1\">{{totalItems}} results from {{getDate(filterField.fromDate)}} to {{getDate(filterField.toDate)}}</p>\n                        </div>\n                    </div>\n\n                    <div class=\"d-flex mb-4\">\n                        <div class=\"d-flex ml-auto\">\n                            <div class=\"mr-3\">\n                                <input type=\"text\" class=\"form-control\" [formControl]=\"searchData\" placeholder=\"Search...\" >\n                            </div>\n                            <div class=\"mr-3 ml-auto\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                                </button>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>\n\n                    \n                    <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList$ | async | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                        <div class=\"visitor-item\">\n                            <div class=\"d-flex\">\n                                <div class=\"media\">\n                                    <div class=\"icon\">\n                                        <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                                    </div>\n                                    <div class=\"media-body\">\n                                        <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                        <p class=\"pb-1 text-secondary others\">\n                                            <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                            <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none link text-primary\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                        </p>\n                                    </div>\n                                </div>\n                                <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                                    <div class=\"icon\" (click)=\"checkIn(item)\">\n                                        <img width=\"35\" class=\"svg\" src=\"assets/images/checkin-icon.svg\" />\n                                    </div>\n                                    <div class=\"actions d-flex mt-3\">\n                                        <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                                        <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"border-top visitor-extras\">\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                        <p class=\"font-medium\">Pass ID</p>\n                                        <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected IN</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                                    </div>\n                                    <div class=\"ccol-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected OUT</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Visit Type</p>\n                                        <p class=\"right\">{{item.visitType_Label}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Tower & Unit</p>\n                                        <p class=\"right\">{{item.block_Unit}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"totalItems != 0\">\n                        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                    </div>\n\n               </ng-container>\n\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n");
 
 /***/ }),
 
@@ -5440,11 +5440,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+
+
+
 
 
 
@@ -5467,15 +5473,19 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.sessionService = sessionService;
         this.activateRouter = activateRouter;
         this.dialog = dialog;
-        this.visitorList = [];
-        this.visitorSearch = '';
+        this.fullVisitorList = [];
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
         this.filterField = {
-            fromDate: moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(30, 'days').format(),
-            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_14__(new Date()).subtract(30, 'days').format(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
         };
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
+        this._visitorList = new rxjs__WEBPACK_IMPORTED_MODULE_10__["BehaviorSubject"](null);
+        this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormControl"]();
+    }
+    get visitorList$() {
+        return this._visitorList.asObservable();
     }
     getFromDate(event) {
         this.filterField.fromDate = event;
@@ -5487,10 +5497,10 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.router.navigate(['create-expected-visitor'], { relativeTo: this.activateRouter.parent });
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_14__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_14__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     viewPass(id) {
         this.router.navigate(['confirm-expected-visitor', id, 'expected'], { relativeTo: this.activateRouter.parent });
@@ -5518,7 +5528,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
     filterApply() {
         this.getVisitorList();
         this.matDrawer.close();
-        this.filterField.fromDate = moment__WEBPACK_IMPORTED_MODULE_11__(this.filterField.fromDate).utc().format();
+        this.filterField.fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.filterField.fromDate).utc().format();
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -5529,14 +5539,14 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.matDrawer.close();
     }
     fromDateChange(event) {
-        if (moment__WEBPACK_IMPORTED_MODULE_11__(this.filterField.toDate).diff(this.filterField.fromDate) < 0) {
+        if (moment__WEBPACK_IMPORTED_MODULE_14__(this.filterField.toDate).diff(this.filterField.fromDate) < 0) {
             this.filterField.toDate = '';
         }
     }
     clearFilter() {
         this.filterField = {
-            fromDate: moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(30, 'days').format(),
-            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_14__(new Date()).subtract(30, 'days').format(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
         };
         this.getVisitorList();
     }
@@ -5544,25 +5554,44 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.isVisitorDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            fromDate: moment__WEBPACK_IMPORTED_MODULE_11__(this.filterField.fromDate).toISOString(),
-            toDate: moment__WEBPACK_IMPORTED_MODULE_11__(this.filterField.toDate).toISOString(),
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_14__(this.filterField.fromDate).toISOString(),
+            toDate: moment__WEBPACK_IMPORTED_MODULE_14__(this.filterField.toDate).toISOString(),
         };
         this.visitorService.getAllYetToComeExpectedVisitorsByApartmentIdDate(params).subscribe((res) => {
             if (Array.isArray(res)) {
-                this.visitorList = res.reverse();
-                this.totalItems = this.visitorList.length;
-                if (this.totalItems > this.itemLimit) {
-                    this.ItemEndIndex = this.itemLimit;
-                }
-                else {
-                    this.ItemEndIndex = this.totalItems;
-                }
+                this.fullVisitorList = res;
+                this._visitorList.next(this.fullVisitorList.reverse());
             }
             this.isVisitorDataLoaded = true;
         }, (error) => {
             this.isVisitorDataLoaded = true;
             this.sharedService.openSnackBar('Server Error', 'error');
         });
+        this.visitorList$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["filter"])(res => res != null)).subscribe((res) => {
+            this.totalItems = res.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+        });
+        // Subscribe to search input field value changes
+        this.searchData.valueChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["map"])((val) => {
+            let newData = this.fullVisitorList.filter(item => {
+                for (let field in item) {
+                    if (item[field] === null || item[field] === undefined) {
+                        continue;
+                    }
+                    if (item[field].toString().toLowerCase().indexOf(val.toString().toLowerCase()) !== -1) {
+                        return item;
+                    }
+                }
+            });
+            this._visitorList.next(newData.reverse());
+        }))
+            .subscribe();
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
@@ -5577,16 +5606,11 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
                 this.visitorService.deleteExpectedVisitorById(params).subscribe((res) => {
                     this.sharedService.setUnitListDeleteIndex(null);
                     if (res.message) {
-                        this.visitorList = this.visitorList.filter(visitor => {
+                        this.fullVisitorList = this.fullVisitorList.filter(visitor => {
                             return visitor.expectedVisitorId != item.id;
                         });
-                        this.totalItems = this.visitorList.length;
-                        if (this.totalItems > this.itemLimit) {
-                            this.ItemEndIndex = this.itemLimit;
-                        }
-                        else {
-                            this.ItemEndIndex = this.totalItems;
-                        }
+                        this._visitorList.next(this.fullVisitorList.reverse());
+                        this.searchData.setValue('');
                         this.sharedService.openSnackBar(res.message, 'success');
                     }
                     else {
