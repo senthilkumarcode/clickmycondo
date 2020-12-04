@@ -199,6 +199,16 @@ let SelectComponent = class SelectComponent {
         const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__["TemplatePortal"](this._tagsPanel, this._viewContainerRef);
         // Attach the portal to the overlay
         this._selectPanelOverlayRef.attach(templatePortal);
+        let cdks = document.querySelectorAll('.cdk-overlay-backdrop');
+        [].forEach.call(cdks, function (el, i) {
+            el.style.zIndex = parseInt("100000") + i;
+            if (i == 0) {
+                el.style.opacity = 1;
+            }
+            else {
+                el.style.opacity = 0;
+            }
+        });
         // Subscribe to the backdrop click
         this._selectPanelOverlayRef.backdropClick().subscribe(() => {
             // If overlay exists and attached...
