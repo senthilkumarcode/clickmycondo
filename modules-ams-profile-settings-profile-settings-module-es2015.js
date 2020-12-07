@@ -714,7 +714,9 @@ let AddBlockUnitComponent = class AddBlockUnitComponent {
         if (input) {
             input.value = '';
         }
-        this.chipsInput.nativeElement.blur();
+        setTimeout(() => {
+            this.chipsInput.nativeElement.focus();
+        }, 1000);
     }
     //   pasteUnit(event: ClipboardEvent): void {
     // 	event.preventDefault();

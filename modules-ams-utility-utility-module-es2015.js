@@ -3070,8 +3070,6 @@ let UtilitySetupLocationComponent = class UtilitySetupLocationComponent {
     }
     ngOnInit() {
         this.getAllCategory();
-        this.getAllMaintenance();
-        this.getDepreciatonList();
         this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 let param = {};
@@ -3086,14 +3084,8 @@ let UtilitySetupLocationComponent = class UtilitySetupLocationComponent {
                     // 	}
                     // })
                     this.getAllCategory();
-                    this.getAllMaintenance();
                     setTimeout(() => {
-                        if (this.delType == "maintenance") {
-                            this.sharedService.setAlertMessage("Maintenance type deleted successfully");
-                        }
-                        else {
-                            this.sharedService.setAlertMessage("Asset Category deleted successfully");
-                        }
+                        this.sharedService.openSnackBar("Location deleted successfully", 'success');
                         this.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                 }, error => {
@@ -3137,7 +3129,6 @@ let UtilitySetupLocationComponent = class UtilitySetupLocationComponent {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.getAllCategory();
-                this.getAllMaintenance();
             }
         });
     }
@@ -3172,31 +3163,10 @@ let UtilitySetupLocationComponent = class UtilitySetupLocationComponent {
         params.subcategoryLookupTypeId = 206;
         this.lookupService.upsertSubCategory(params).subscribe((res) => {
             if (res) {
-                this.sharedService.setAlertMessage("Sub Location updated successfully");
+                this.sharedService.openSnackBar("Sub Location updated successfully", 'success');
                 this.isAssetLoaded = false;
                 this.getAllCategory();
                 this.currIndex = -1;
-            }
-        });
-    }
-    getAllMaintenance() {
-        let queryParamBase = {};
-        queryParamBase = {
-            apartmentId: this.sessionService.apartmentId,
-            lookupTypeId: 167,
-            subCategoryLookupTypeId: 168,
-        };
-        this.isAssetLoaded = true;
-        this.lookupService.getSubcategory(queryParamBase).subscribe((res) => {
-            if (res) {
-                this.isAssetLoaded = false;
-                this.mainType = res ? res : [];
-                this.maintenaceTotalItems = res.length;
-                this.tempMainType = this.mainType;
-                // if (this.data && this.data.type === 'addSubType') {
-                // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
-                // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
-                // }
             }
         });
     }
@@ -3218,110 +3188,6 @@ let UtilitySetupLocationComponent = class UtilitySetupLocationComponent {
                 this.asseTotalItems = res.length;
                 this.categoryList = res ? res : [];
                 this.tempCategoryList = this.categoryList;
-            }
-        });
-    }
-    editMaintenance(data) {
-        let reqObj = {};
-        reqObj.id = data.id;
-        reqObj.apartmentId = this.sessionService.apartmentId;
-        reqObj.name = data.name;
-        reqObj.subCategory = data && data.subCategory.length > 0 ? data.subCategory : [];
-        reqObj.isActive = true,
-            reqObj.insertedBy = parseInt(this.sessionService.userId);
-        reqObj.insertedOn = new Date();
-        reqObj.updatedBy = parseInt(this.sessionService.userId);
-        reqObj.updatedOn = new Date();
-        let params = {};
-        params.model = reqObj;
-        params.subcategoryLookupTypeId = 168;
-        this.lookupService.upsertSubCategory(params).subscribe((res) => {
-            if (res) {
-                this.sharedService.setAlertMessage("Maintenance sub types updated successfully");
-                this.isAssetLoaded = false;
-                this.getAllMaintenance();
-                this.mainCurrIndex = -1;
-            }
-        });
-    }
-    getDepreciatonList() {
-        let queryParamBase = {};
-        queryParamBase = {
-            ApartmentId: this.sessionService.apartmentId,
-            LookupTypeId: 104,
-        };
-        this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe((res) => {
-            if (res) {
-                this.depreciatonData = res ? res : [];
-                if (this.depreciatonData && this.depreciatonData.length) {
-                    this.depreciatonData.filter(val => {
-                        val.isCheck = val.isDisabled == true ? false : true;
-                    });
-                }
-            }
-        });
-    }
-    updateDepreciatonList(data) {
-        let reqObj = {};
-        reqObj = {
-            "lookupValueId": data.lookupValueId,
-            "lookupTypeId": 104,
-            "lookupValueName": data.lookupValueName,
-            "description": data.description,
-            'apartmentId': this.sessionService.apartmentId,
-            "isActive": true,
-            "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date(),
-            "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": new Date(),
-            "isDisabled": data.isCheck == false ? true : false
-        };
-        this.isAssetLoaded = true;
-        let param = {};
-        param.lookupvalue = reqObj;
-        this.lookupService.updateLookupValue(param).subscribe((res) => {
-            if (res) {
-                this.sharedService.setAlertMessage("Depreciaton method  updated successfully");
-                this.isAssetLoaded = false;
-                this.getDepreciatonList();
-            }
-            else if (res.body.errorMessage) {
-                // this.isError = true;
-                // this.errorMessage = 'Not Added it already exist'
-                this.isAssetLoaded = false;
-                //  this.sharedService.setAlertMessage("Not Added as it already exist");
-            }
-        });
-    }
-    editMaintanance(data) {
-        let reqObj = {};
-        reqObj.lookupvalue = {
-            "lookupValueId": data.id,
-            "apartmentId": this.sessionService.apartmentId,
-            "lookupTypeId": 167,
-            "lookupValueName": data.name,
-            "description": data.name,
-            "isActive": true,
-            "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date(),
-            "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": new Date(),
-            "isCommon": false,
-            "isDisabled": false
-        };
-        this.isAssetLoaded = true;
-        this.lookupService.updateLookupValue(reqObj).subscribe((res) => {
-            if (res) {
-                this.sharedService.setAlertMessage("Maintenance Type updated successfully");
-                this.isAssetLoaded = false;
-                this.currMainTypeIndex = -1;
-                this.getAllMaintenance();
-            }
-            else if (res.body.errorMessage) {
-                // this.isError = true;
-                // this.errorMessage = 'Not Added it already exist'
-                this.isAssetLoaded = false;
-                //  this.sharedService.setAlertMessage("Not Added as it already exist");
             }
         });
     }

@@ -128,15 +128,22 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
     approvedList() {
         if (this.unitData && this.unitData.length > 0) {
             let filterItems = [];
-            this.approvedUsersData.forEach((approveData) => {
-                if (approveData.userInfo && approveData.userInfo.length > 0) {
-                    approveData.userInfo.forEach((user) => {
-                        if (user.userName.toLowerCase().includes(this.unitData.toLowerCase())) {
-                            filterItems.push(approveData);
-                        }
-                    });
+            for (let j = 0; j < this.approvedUsersData.length; j++) {
+                let approveData = this.approvedUsersData[j];
+                if (approveData.apartmentBlockNumber.toLowerCase().includes(this.unitData.toLowerCase()) ||
+                    approveData.apartmentBlockUnitNumber.toLowerCase().includes(this.unitData.toLowerCase())) {
+                    filterItems.push(approveData);
                 }
-            });
+                else if (approveData.userInfo && approveData.userInfo.length > 0) {
+                    for (let i = 0; i < approveData.userInfo.length; i++) {
+                        if (approveData.userInfo[i].userName.toLowerCase().includes(this.unitData.toLowerCase()) ||
+                            approveData.userInfo[i].phone.toLowerCase().includes(this.unitData.toLowerCase())) {
+                            filterItems.push(approveData);
+                            break;
+                        }
+                    }
+                }
+            }
             return filterItems;
         }
         else {
@@ -150,27 +157,9 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
     }
     getSelectedBlock(event) {
         this.apartmentBlockId = event[0].apartmentBlockId;
-        this.getApprovedUsers('block');
-        // this.filterApprovedUserData();
+        this.getApprovedUsers();
     }
-    filterApprovedUserData() {
-        if (this.apartmentBlockId != null) {
-            this.approvedUsersData = this.approvedUsersNormalData.filter(item => {
-                return item.apartmentBlockId == this.apartmentBlockId;
-            });
-        }
-        else {
-            this.approvedUsersData = this.approvedUsersNormalData;
-        }
-        this.totalItems = this.approvedUsersData.length;
-        if (this.totalItems > this.itemLimit) {
-            this.ItemEndIndex = this.itemLimit;
-        }
-        else {
-            this.ItemEndIndex = this.totalItems;
-        }
-    }
-    getApprovedUsers(type) {
+    getApprovedUsers() {
         this.isUserDataLoaded = false;
         let approvedUsersParam = {
             apartmentId: this.sessionService.apartmentId,
@@ -180,19 +169,11 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
             this.approvedUsersData = res.filter(item => {
                 return item.userInfo.length != 0 && item.apartmentBlockUnitId != null;
             });
-            // this.approvedUsersData.map(item => {
-            //   item.userName = item.userInfo[0].userName
-            //   item.phone = item.userInfo[0].phone
-            //   item.isPrimaryContact = item.userInfo[0].isPrimaryContact
-            //   item.isLiving = item.userInfo[0].isLiving
-            //   item.roleName = item.userInfo[0].roleName
-            //   item.userId = item.userInfo[0].userId
-            // })
-            //this.approvedUsersNormalData = this.approvedUsersData;
             this.totalItems = this.approvedUsersData.length;
+            this.ItemStartIndex = 0;
+            this.changeDetector.detectChanges();
             if (this.totalItems > this.itemLimit) {
-                if (type == 'initial' || type == 'block')
-                    this.ItemEndIndex = this.itemLimit;
+                this.ItemEndIndex = this.itemLimit;
             }
             else {
                 this.ItemEndIndex = this.totalItems;
@@ -298,7 +279,7 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
         }
     }
     ngOnInit() {
-        this.getApprovedUsers('initial');
+        this.getApprovedUsers();
         let getTowerParam = {
             apartmentId: this.sessionService.apartmentId
         };

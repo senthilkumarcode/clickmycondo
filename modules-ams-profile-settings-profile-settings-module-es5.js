@@ -1088,7 +1088,9 @@
               input.value = '';
             }
 
-            this.chipsInput.nativeElement.blur();
+            setTimeout(function () {
+              _this13.chipsInput.nativeElement.focus();
+            }, 1000);
           } //   pasteUnit(event: ClipboardEvent): void {
           // 	event.preventDefault();
           // 	let pastedData =  event.clipboardData.getData('Text');

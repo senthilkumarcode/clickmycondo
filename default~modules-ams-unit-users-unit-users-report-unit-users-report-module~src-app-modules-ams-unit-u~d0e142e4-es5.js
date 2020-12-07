@@ -330,7 +330,7 @@
         }, {
           key: "isListOfBlocks",
           value: function isListOfBlocks() {
-            return this.pageName == "List of Blocks";
+            return this.pageName == "List of Blocks / Towers";
           }
         }, {
           key: "isListOfOwners",
@@ -350,7 +350,7 @@
         }, {
           key: "isListOfVacantList",
           value: function isListOfVacantList() {
-            return this.pageName == "List of Vacant List";
+            return this.pageName == "List of Vacant Units";
           }
         }, {
           key: "getDate",
@@ -1104,7 +1104,7 @@
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this4.timeZone = timeZone;
             });
-            this.pageName = this.route.params['value'].name;
+            this.pageName = this.route.params['value'].name.replace('#', '/');
             var unitBlockParams = {
               apartmentId: parseInt(localStorage.getItem('apartmentId'))
             };
@@ -1119,8 +1119,10 @@
               var data = res.filter(function (item) {
                 return item.lookupValueId == _this4.route.params['value'].id;
               });
-              _this4.pageName = data[0].lookupValueName.replace('/', '');
+              _this4.pageName = data[0].lookupValueName; //.replace('/', '');
+
               _this4.pageDesp = data[0].description;
+              console.log(_this4.pageName);
             });
             this.getBlockDetails();
           }
@@ -1382,7 +1384,7 @@
         }, {
           key: "getReportRedirectPath",
           value: function getReportRedirectPath(path) {
-            return path.replace('/', '');
+            return path.replace('/', '#');
           }
         }]);
 

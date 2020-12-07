@@ -253,19 +253,24 @@
         }, {
           key: "approvedList",
           value: function approvedList() {
-            var _this = this;
-
             if (this.unitData && this.unitData.length > 0) {
               var filterItems = [];
-              this.approvedUsersData.forEach(function (approveData) {
-                if (approveData.userInfo && approveData.userInfo.length > 0) {
-                  approveData.userInfo.forEach(function (user) {
-                    if (user.userName.toLowerCase().includes(_this.unitData.toLowerCase())) {
+
+              for (var j = 0; j < this.approvedUsersData.length; j++) {
+                var approveData = this.approvedUsersData[j];
+
+                if (approveData.apartmentBlockNumber.toLowerCase().includes(this.unitData.toLowerCase()) || approveData.apartmentBlockUnitNumber.toLowerCase().includes(this.unitData.toLowerCase())) {
+                  filterItems.push(approveData);
+                } else if (approveData.userInfo && approveData.userInfo.length > 0) {
+                  for (var i = 0; i < approveData.userInfo.length; i++) {
+                    if (approveData.userInfo[i].userName.toLowerCase().includes(this.unitData.toLowerCase()) || approveData.userInfo[i].phone.toLowerCase().includes(this.unitData.toLowerCase())) {
                       filterItems.push(approveData);
+                      break;
                     }
-                  });
+                  }
                 }
-              });
+              }
+
               return filterItems;
             } else {
               return this.approvedUsersData;
@@ -282,33 +287,12 @@
           key: "getSelectedBlock",
           value: function getSelectedBlock(event) {
             this.apartmentBlockId = event[0].apartmentBlockId;
-            this.getApprovedUsers('block'); // this.filterApprovedUserData();
-          }
-        }, {
-          key: "filterApprovedUserData",
-          value: function filterApprovedUserData() {
-            var _this2 = this;
-
-            if (this.apartmentBlockId != null) {
-              this.approvedUsersData = this.approvedUsersNormalData.filter(function (item) {
-                return item.apartmentBlockId == _this2.apartmentBlockId;
-              });
-            } else {
-              this.approvedUsersData = this.approvedUsersNormalData;
-            }
-
-            this.totalItems = this.approvedUsersData.length;
-
-            if (this.totalItems > this.itemLimit) {
-              this.ItemEndIndex = this.itemLimit;
-            } else {
-              this.ItemEndIndex = this.totalItems;
-            }
+            this.getApprovedUsers();
           }
         }, {
           key: "getApprovedUsers",
-          value: function getApprovedUsers(type) {
-            var _this3 = this;
+          value: function getApprovedUsers() {
+            var _this = this;
 
             this.isUserDataLoaded = false;
             var approvedUsersParam = {
@@ -316,35 +300,29 @@
               apartmentBlockId: this.apartmentBlockId
             };
             this.userService.getallapproveduserprofilesbyapartmentid3(approvedUsersParam).subscribe(function (res) {
-              _this3.approvedUsersData = res.filter(function (item) {
+              _this.approvedUsersData = res.filter(function (item) {
                 return item.userInfo.length != 0 && item.apartmentBlockUnitId != null;
-              }); // this.approvedUsersData.map(item => {
-              //   item.userName = item.userInfo[0].userName
-              //   item.phone = item.userInfo[0].phone
-              //   item.isPrimaryContact = item.userInfo[0].isPrimaryContact
-              //   item.isLiving = item.userInfo[0].isLiving
-              //   item.roleName = item.userInfo[0].roleName
-              //   item.userId = item.userInfo[0].userId
-              // })
-              //this.approvedUsersNormalData = this.approvedUsersData;
+              });
+              _this.totalItems = _this.approvedUsersData.length;
+              _this.ItemStartIndex = 0;
 
-              _this3.totalItems = _this3.approvedUsersData.length;
+              _this.changeDetector.detectChanges();
 
-              if (_this3.totalItems > _this3.itemLimit) {
-                if (type == 'initial' || type == 'block') _this3.ItemEndIndex = _this3.itemLimit;
+              if (_this.totalItems > _this.itemLimit) {
+                _this.ItemEndIndex = _this.itemLimit;
               } else {
-                _this3.ItemEndIndex = _this3.totalItems;
+                _this.ItemEndIndex = _this.totalItems;
               }
 
-              _this3.isUserDataLoaded = true;
+              _this.isUserDataLoaded = true;
             }, function (error) {
-              _this3.sharedService.openSnackBar('Server Error', 'error');
+              _this.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "changePrimayContact",
           value: function changePrimayContact(apartmentBlockUnitUserId, user) {
-            var _this4 = this;
+            var _this2 = this;
 
             var message;
             if (user.isPrimaryContact) message = 'Do you want to enable the user as primary contact for billing?';else message = 'Do you want to disable the user as primary contact for billing?';
@@ -357,30 +335,30 @@
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
                 var apartmentBlockUnitUser = {
-                  "apartmentId": _this4.sessionService.apartmentId,
+                  "apartmentId": _this2.sessionService.apartmentId,
                   "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
                   "isPrimaryContact": user.isPrimaryContact,
                   "isLiving": user.isLiving,
-                  "updatedBy": _this4.sessionService.userId,
+                  "updatedBy": _this2.sessionService.userId,
                   "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
                 };
                 var updateParam = {
                   apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
 
-                _this4.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+                _this2.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
                   if (resp.code == 200 && resp.message) {
-                    _this4.sharedService.openSnackBar('Primary Contact Updated', 'success'); //this.getApprovedUsers('primary');
+                    _this2.sharedService.openSnackBar('Primary Contact Updated', 'success'); //this.getApprovedUsers('primary');
 
                   } else {
                     user.isPrimaryContact = !user.isPrimaryContact;
 
-                    _this4.sharedService.openSnackBar(resp.errorMessage, 'error');
+                    _this2.sharedService.openSnackBar(resp.errorMessage, 'error');
                   }
                 }, function (error) {
                   user.isPrimaryContact = !user.isPrimaryContact;
 
-                  _this4.sharedService.openSnackBar('Server Error', 'error');
+                  _this2.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else user.isPrimaryContact = !user.isPrimaryContact;
             });
@@ -388,7 +366,7 @@
         }, {
           key: "changeLiving",
           value: function changeLiving(apartmentBlockUnitUserId, user) {
-            var _this5 = this;
+            var _this3 = this;
 
             if (user.roleName == 'Tenant' && !user.isLiving) {
               this.changeDetector.detectChanges();
@@ -406,28 +384,28 @@
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
                   var apartmentBlockUnitUser = {
-                    "apartmentId": _this5.sessionService.apartmentId,
+                    "apartmentId": _this3.sessionService.apartmentId,
                     "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
                     "isPrimaryContact": user.isPrimaryContact,
                     "isLiving": user.isLiving,
-                    "updatedBy": _this5.sessionService.userId,
+                    "updatedBy": _this3.sessionService.userId,
                     "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
                   };
                   var updateParam = {
                     apartmentBlockUnitUser: apartmentBlockUnitUser
                   };
 
-                  _this5.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+                  _this3.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
                     if (resp.code == 200 && resp.message == 'IsPrimaryContact and IsLiving Updated.') {
-                      _this5.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                      _this3.sharedService.openSnackBar('Living Updated Successfully', 'success');
                     } else {
                       user.isLiving = !user.isLiving;
-                      if (resp.message) _this5.sharedService.openSnackBar(resp.message, 'error');else _this5.sharedService.openSnackBar(resp.errorMessage, 'error');
+                      if (resp.message) _this3.sharedService.openSnackBar(resp.message, 'error');else _this3.sharedService.openSnackBar(resp.errorMessage, 'error');
                     }
                   }, function (error) {
                     user.isLiving = !user.isLiving;
 
-                    _this5.sharedService.openSnackBar('Server Error', 'error');
+                    _this3.sharedService.openSnackBar('Server Error', 'error');
                   });
                 } else user.isLiving = !user.isLiving;
               });
@@ -436,21 +414,21 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this4 = this;
 
-            this.getApprovedUsers('initial');
+            this.getApprovedUsers();
             var getTowerParam = {
               apartmentId: this.sessionService.apartmentId
             }; //get apartment blocks
 
             this.apartmentService.getApartmentBlockByApartmentId(getTowerParam).subscribe(function (res) {
-              _this6.towerList = res;
+              _this4.towerList = res;
             });
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-              _this6.totalUnits = res.length;
+              _this4.totalUnits = res.length;
             }, function (error) {
               console.log(error);
             });

@@ -4449,8 +4449,6 @@
             var _this34 = this;
 
             this.getAllCategory();
-            this.getAllMaintenance();
-            this.getDepreciatonList();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var param = {};
@@ -4467,14 +4465,8 @@
                   // })
                   _this34.getAllCategory();
 
-                  _this34.getAllMaintenance();
-
                   setTimeout(function () {
-                    if (_this34.delType == "maintenance") {
-                      _this34.sharedService.setAlertMessage("Maintenance type deleted successfully");
-                    } else {
-                      _this34.sharedService.setAlertMessage("Asset Category deleted successfully");
-                    }
+                    _this34.sharedService.openSnackBar("Location deleted successfully", 'success');
 
                     _this34.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
@@ -4527,8 +4519,6 @@
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
                 _this35.getAllCategory();
-
-                _this35.getAllMaintenance();
               }
             });
           }
@@ -4571,37 +4561,13 @@
             params.subcategoryLookupTypeId = 206;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this36.sharedService.setAlertMessage("Sub Location updated successfully");
+                _this36.sharedService.openSnackBar("Sub Location updated successfully", 'success');
 
                 _this36.isAssetLoaded = false;
 
                 _this36.getAllCategory();
 
                 _this36.currIndex = -1;
-              }
-            });
-          }
-        }, {
-          key: "getAllMaintenance",
-          value: function getAllMaintenance() {
-            var _this37 = this;
-
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              lookupTypeId: 167,
-              subCategoryLookupTypeId: 168
-            };
-            this.isAssetLoaded = true;
-            this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              if (res) {
-                _this37.isAssetLoaded = false;
-                _this37.mainType = res ? res : [];
-                _this37.maintenaceTotalItems = res.length;
-                _this37.tempMainType = _this37.mainType; // if (this.data && this.data.type === 'addSubType') {
-                // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
-                // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
-                // }
               }
             });
           }
@@ -4613,7 +4579,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this38 = this;
+            var _this37 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4624,140 +4590,17 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this38.isAssetLoaded = false;
-                _this38.asseTotalItems = res.length;
-                _this38.categoryList = res ? res : [];
-                _this38.tempCategoryList = _this38.categoryList;
-              }
-            });
-          }
-        }, {
-          key: "editMaintenance",
-          value: function editMaintenance(data) {
-            var _this39 = this;
-
-            var reqObj = {};
-            reqObj.id = data.id;
-            reqObj.apartmentId = this.sessionService.apartmentId;
-            reqObj.name = data.name;
-            reqObj.subCategory = data && data.subCategory.length > 0 ? data.subCategory : [];
-            reqObj.isActive = true, reqObj.insertedBy = parseInt(this.sessionService.userId);
-            reqObj.insertedOn = new Date();
-            reqObj.updatedBy = parseInt(this.sessionService.userId);
-            reqObj.updatedOn = new Date();
-            var params = {};
-            params.model = reqObj;
-            params.subcategoryLookupTypeId = 168;
-            this.lookupService.upsertSubCategory(params).subscribe(function (res) {
-              if (res) {
-                _this39.sharedService.setAlertMessage("Maintenance sub types updated successfully");
-
-                _this39.isAssetLoaded = false;
-
-                _this39.getAllMaintenance();
-
-                _this39.mainCurrIndex = -1;
-              }
-            });
-          }
-        }, {
-          key: "getDepreciatonList",
-          value: function getDepreciatonList() {
-            var _this40 = this;
-
-            var queryParamBase = {};
-            queryParamBase = {
-              ApartmentId: this.sessionService.apartmentId,
-              LookupTypeId: 104
-            };
-            this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
-              if (res) {
-                _this40.depreciatonData = res ? res : [];
-
-                if (_this40.depreciatonData && _this40.depreciatonData.length) {
-                  _this40.depreciatonData.filter(function (val) {
-                    val.isCheck = val.isDisabled == true ? false : true;
-                  });
-                }
-              }
-            });
-          }
-        }, {
-          key: "updateDepreciatonList",
-          value: function updateDepreciatonList(data) {
-            var _this41 = this;
-
-            var reqObj = {};
-            reqObj = {
-              "lookupValueId": data.lookupValueId,
-              "lookupTypeId": 104,
-              "lookupValueName": data.lookupValueName,
-              "description": data.description,
-              'apartmentId': this.sessionService.apartmentId,
-              "isActive": true,
-              "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date(),
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date(),
-              "isDisabled": data.isCheck == false ? true : false
-            };
-            this.isAssetLoaded = true;
-            var param = {};
-            param.lookupvalue = reqObj;
-            this.lookupService.updateLookupValue(param).subscribe(function (res) {
-              if (res) {
-                _this41.sharedService.setAlertMessage("Depreciaton method  updated successfully");
-
-                _this41.isAssetLoaded = false;
-
-                _this41.getDepreciatonList();
-              } else if (res.body.errorMessage) {
-                // this.isError = true;
-                // this.errorMessage = 'Not Added it already exist'
-                _this41.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
-              }
-            });
-          }
-        }, {
-          key: "editMaintanance",
-          value: function editMaintanance(data) {
-            var _this42 = this;
-
-            var reqObj = {};
-            reqObj.lookupvalue = {
-              "lookupValueId": data.id,
-              "apartmentId": this.sessionService.apartmentId,
-              "lookupTypeId": 167,
-              "lookupValueName": data.name,
-              "description": data.name,
-              "isActive": true,
-              "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date(),
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date(),
-              "isCommon": false,
-              "isDisabled": false
-            };
-            this.isAssetLoaded = true;
-            this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
-              if (res) {
-                _this42.sharedService.setAlertMessage("Maintenance Type updated successfully");
-
-                _this42.isAssetLoaded = false;
-                _this42.currMainTypeIndex = -1;
-
-                _this42.getAllMaintenance();
-              } else if (res.body.errorMessage) {
-                // this.isError = true;
-                // this.errorMessage = 'Not Added it already exist'
-                _this42.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this37.isAssetLoaded = false;
+                _this37.asseTotalItems = res.length;
+                _this37.categoryList = res ? res : [];
+                _this37.tempCategoryList = _this37.categoryList;
               }
             });
           }
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this43 = this;
+            var _this38 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -4777,16 +4620,16 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this43.sharedService.setAlertMessage("Category updated successfully");
+                _this38.sharedService.setAlertMessage("Category updated successfully");
 
-                _this43.isAssetLoaded = false;
-                _this43.currCatIndex = -1;
+                _this38.isAssetLoaded = false;
+                _this38.currCatIndex = -1;
 
-                _this43.getAllCategory();
+                _this38.getAllCategory();
               } else if (res.body.errorMessage) {
                 // this.isError = true;
                 // this.errorMessage = 'Not Added it already exist'
-                _this43.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this38.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
@@ -4815,7 +4658,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this44 = this;
+            var _this39 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -4823,9 +4666,9 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this44.sharedService.setUnitListDeleteIndex(null);
+              _this39.sharedService.setUnitListDeleteIndex(null);
 
-              _this44.loadGroup();
+              _this39.loadGroup();
             });
           }
         }, {
@@ -4874,7 +4717,7 @@
         }, {
           key: "addOrUpdateGroupForm",
           value: function addOrUpdateGroupForm(form) {
-            var _this45 = this;
+            var _this40 = this;
 
             this.isUtilityCategorySubmitted = true;
             this.isError = false;
@@ -4896,28 +4739,28 @@
               this.lookupService.addLookupValue(reqObj).subscribe(function (res) {
                 if (res) {
                   var params = {
-                    ApartmentId: _this45.sessionService.apartmentId,
+                    ApartmentId: _this40.sessionService.apartmentId,
                     LookupTypeId: 207
                   };
 
-                  _this45.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-                    _this45.isUtilityCategorySubmitted = false;
+                  _this40.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                    _this40.isUtilityCategorySubmitted = false;
 
-                    _this45.sharedService.openSnackBar("Group added Successfully!", 'success');
+                    _this40.sharedService.openSnackBar("Group added Successfully!", 'success');
 
-                    _this45.matDrawer.toggle();
+                    _this40.matDrawer.toggle();
 
-                    _this45.utilityCategoryData = res.filter(function (item) {
+                    _this40.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else if (res.body.errorMessage) {
-                  _this45.isUtilityCategorySubmitted = false;
-                  _this45.isError = true;
+                  _this40.isUtilityCategorySubmitted = false;
+                  _this40.isError = true;
 
-                  _this45.sharedService.openSnackBar("Not Added it already exist", 'warning');
+                  _this40.sharedService.openSnackBar("Not Added it already exist", 'warning');
 
-                  _this45.isAssetLoaded = false;
+                  _this40.isAssetLoaded = false;
                 }
               });
             } else {
@@ -4938,27 +4781,27 @@
               this.lookupService.updateLookupValue(_reqObj).subscribe(function (res) {
                 if (res) {
                   var params = {
-                    ApartmentId: _this45.sessionService.apartmentId,
+                    ApartmentId: _this40.sessionService.apartmentId,
                     LookupTypeId: 207
                   };
 
-                  _this45.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-                    _this45.isUtilityCategorySubmitted = false;
+                  _this40.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                    _this40.isUtilityCategorySubmitted = false;
 
-                    _this45.sharedService.openSnackBar("Group updated Successfully!", 'success');
+                    _this40.sharedService.openSnackBar("Group updated Successfully!", 'success');
 
-                    _this45.matDrawer.toggle();
+                    _this40.matDrawer.toggle();
 
-                    _this45.utilityCategoryData = res.filter(function (item) {
+                    _this40.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this45.isUtilityCategoryNew = false;
-                    _this45.isUtilityCategoryUpdate = false;
+                    _this40.isUtilityCategoryNew = false;
+                    _this40.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this45.isUtilityCategorySubmitted = false;
-                  _this45.isError = true;
-                  _this45.alertMessage = res.errorMessage;
+                  _this40.isUtilityCategorySubmitted = false;
+                  _this40.isError = true;
+                  _this40.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -4966,17 +4809,17 @@
         }, {
           key: "loadGroup",
           value: function loadGroup() {
-            var _this46 = this;
+            var _this41 = this;
 
             var params = {
               ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 207
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this46.utilityCategoryData = res.filter(function (item) {
+              _this41.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this46.isUtilityCategoryLoaded = true;
+              _this41.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
@@ -5201,10 +5044,10 @@
         _createClass(UtilitySetupMeterComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this47 = this;
+            var _this42 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this47.timeZone = timeZone;
+              return _this42.timeZone = timeZone;
             });
             var queryParamBase = {};
             queryParamBase = {
@@ -5213,7 +5056,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this47.blockData = res ? res : [];
+                _this42.blockData = res ? res : [];
               }
             });
             var locationParamBase = {};
@@ -5224,7 +5067,7 @@
             };
             this.lookupService.getSubcategory(locationParamBase).subscribe(function (res) {
               if (res) {
-                _this47.locationData = res ? res : [];
+                _this42.locationData = res ? res : [];
               }
             });
             var groupParamBase = {};
@@ -5234,18 +5077,18 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParamBase).subscribe(function (res) {
               if (res) {
-                _this47.groupData = res ? res : [];
+                _this42.groupData = res ? res : [];
               }
             });
             var blockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this47.blocktowerData = res;
+              _this42.blocktowerData = res;
             }); //TimeZone
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this47.timeZone = timeZone;
+              return _this42.timeZone = timeZone;
             }); //Status List
 
             var ParamBase = {
@@ -5255,9 +5098,9 @@
             this.lookupService.getLookupValueByLookupTypeId(ParamBase).subscribe(function (res) {
               if (res.length < 7) {
                 var status = [res[3], res[2], res[4], res[5], res[1], res[0]];
-                _this47.statusData = status;
+                _this42.statusData = status;
               } else {
-                _this47.statusData = res;
+                _this42.statusData = res;
               }
             }); // this.getAllMaitainList();
 
@@ -5279,14 +5122,14 @@
         }, {
           key: "getUnits",
           value: function getUnits(id) {
-            var _this48 = this;
+            var _this43 = this;
 
             var params = {
               apartmentBlockId: parseInt(id)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this48.blockUnitData = res;
-              _this48.isBlockSelected = true;
+              _this43.blockUnitData = res;
+              _this43.isBlockSelected = true;
             });
           }
         }, {
@@ -5298,12 +5141,12 @@
         }, {
           key: "setLocationId",
           value: function setLocationId(event) {
-            var _this49 = this;
+            var _this44 = this;
 
             this.locationId = event[0].id;
             this.locationName = event[0].name;
             this.sublocationData = this.locationData.filter(function (val) {
-              return val.id === _this49.locationId;
+              return val.id === _this44.locationId;
             })[0].subCategory;
           }
         }, {
@@ -5319,7 +5162,7 @@
         }, {
           key: "getallGroup",
           value: function getallGroup() {
-            var _this50 = this;
+            var _this45 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -5328,7 +5171,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this50.groupData = res ? res : [];
+                _this45.groupData = res ? res : [];
               }
             });
           }
@@ -5353,61 +5196,61 @@
         }, {
           key: "getAllUtilityMeterSetup",
           value: function getAllUtilityMeterSetup() {
-            var _this51 = this;
+            var _this46 = this;
 
             this.isDataLoaded = true;
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityCommonService.getUtilityMeterSetupByApartmentId(queryParamBase).subscribe(function (res) {
-              _this51.isDataLoaded = false;
+              _this46.isDataLoaded = false;
 
               if (res.length > 0) {
-                _this51.utilityMeterList = res.filter(function (x) {
+                _this46.utilityMeterList = res.filter(function (x) {
                   return x.typeId === 297;
                 }).reverse();
-                _this51.totalItems = _this51.utilityMeterList.length;
+                _this46.totalItems = _this46.utilityMeterList.length;
 
-                if (_this51.totalItems > _this51.itemLimit) {
-                  _this51.ItemEndIndex = _this51.itemLimit;
+                if (_this46.totalItems > _this46.itemLimit) {
+                  _this46.ItemEndIndex = _this46.itemLimit;
                 } else {
-                  _this51.ItemEndIndex = _this51.totalItems;
+                  _this46.ItemEndIndex = _this46.totalItems;
                 }
               }
             }, function (error) {
-              _this51.isDataLoaded = false;
+              _this46.isDataLoaded = false;
 
-              _this51.sharedService.openSnackBar('Server Error', 'error');
+              _this46.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getAllUnitSpecific",
           value: function getAllUnitSpecific() {
-            var _this52 = this;
+            var _this47 = this;
 
             this.isUnitLoaded = true;
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityCommonService.getUtilityMeterSetupByApartmentId(queryParamBase).subscribe(function (res) {
-              _this52.isUnitLoaded = false;
+              _this47.isUnitLoaded = false;
 
               if (res.length > 0) {
-                _this52.unitSpecificList = res.filter(function (x) {
+                _this47.unitSpecificList = res.filter(function (x) {
                   return x.typeId === 298;
                 }).reverse();
-                _this52.totalUnitItems = _this52.unitSpecificList.length;
+                _this47.totalUnitItems = _this47.unitSpecificList.length;
 
-                if (_this52.totalUnitItems > _this52.itemUnitLimit) {
-                  _this52.UnitItemEndIndex = _this52.UnitItemStartIndex;
+                if (_this47.totalUnitItems > _this47.itemUnitLimit) {
+                  _this47.UnitItemEndIndex = _this47.UnitItemStartIndex;
                 } else {
-                  _this52.UnitItemEndIndex = _this52.totalUnitItems;
+                  _this47.UnitItemEndIndex = _this47.totalUnitItems;
                 }
               }
             }, function (error) {
-              _this52.isUnitLoaded = false;
+              _this47.isUnitLoaded = false;
 
-              _this52.sharedService.openSnackBar('Server Error', 'error');
+              _this47.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -5475,7 +5318,7 @@
         }, {
           key: "addorupdateMeterSetup",
           value: function addorupdateMeterSetup() {
-            var _this53 = this;
+            var _this48 = this;
 
             this.isDataSubmitted = true;
             var queryParamBase = {};
@@ -5504,38 +5347,38 @@
 
             if (this.utilityMeterSetupId === null) {
               this.utilityCommonService.addUtilityMeterSetup(queryParams).subscribe(function (res) {
-                _this53.isDataSubmitted = false;
+                _this48.isDataSubmitted = false;
 
                 if (res.errorMessage === undefined) {
-                  _this53.sharedService.openSnackBar("Meter setup added Successfully!", 'success');
+                  _this48.sharedService.openSnackBar("Meter setup added Successfully!", 'success');
 
-                  _this53.isMeterLoaded = false;
+                  _this48.isMeterLoaded = false;
 
-                  _this53.getAllUtilityMeterSetup();
+                  _this48.getAllUtilityMeterSetup();
 
-                  _this53.utilityTypeId = null;
-                  _this53.meterName = null;
-                  _this53.locationId = null;
-                  _this53.sublocationId = null;
-                  _this53.groupId = null;
-                  _this53.frequencyDays = null;
-                  _this53.utilityMeterSetupId = null;
+                  _this48.utilityTypeId = null;
+                  _this48.meterName = null;
+                  _this48.locationId = null;
+                  _this48.sublocationId = null;
+                  _this48.groupId = null;
+                  _this48.frequencyDays = null;
+                  _this48.utilityMeterSetupId = null;
                 } else if (res.errorMessage !== undefined) {
-                  _this53.sharedService.openSnackBar(res.errorMessage, 'failure');
+                  _this48.sharedService.openSnackBar(res.errorMessage, 'failure');
                 }
               });
             } else {
               this.utilityCommonService.updateUtilityMeterSetup(queryParams).subscribe(function (res) {
-                _this53.isDataSubmitted = false;
+                _this48.isDataSubmitted = false;
 
                 if (res.errorMessage === undefined) {
-                  _this53.sharedService.openSnackBar("Meter setup updated Successfully!", 'success');
+                  _this48.sharedService.openSnackBar("Meter setup updated Successfully!", 'success');
 
-                  _this53.isMeterLoaded = false;
+                  _this48.isMeterLoaded = false;
 
-                  _this53.getAllUtilityMeterSetup();
+                  _this48.getAllUtilityMeterSetup();
                 } else if (res.errorMessage !== undefined) {
-                  _this53.sharedService.openSnackBar(res.errorMessage, 'failure');
+                  _this48.sharedService.openSnackBar(res.errorMessage, 'failure');
                 }
               });
             }
@@ -5588,7 +5431,7 @@
         }, {
           key: "addorupdateUnitSpecific",
           value: function addorupdateUnitSpecific() {
-            var _this54 = this;
+            var _this49 = this;
 
             this.isDataSubmitted = true;
             var queryParamBase = {};
@@ -5617,50 +5460,50 @@
 
             if (this.utilityMeterSetupId === null) {
               this.utilityCommonService.addUtilityMeterSetup(queryParams).subscribe(function (res) {
-                _this54.isDataSubmitted = false;
+                _this49.isDataSubmitted = false;
 
                 if (res.errorMessage === undefined) {
-                  _this54.sharedService.openSnackBar("Unit Specific added Successfully!", 'success');
+                  _this49.sharedService.openSnackBar("Unit Specific added Successfully!", 'success');
 
-                  _this54.isMeterLoaded = false;
+                  _this49.isMeterLoaded = false;
 
-                  _this54.getAllUnitSpecific();
+                  _this49.getAllUnitSpecific();
 
-                  _this54.utilityTypeId = null;
-                  _this54.meterName = null;
-                  _this54.locationId = null;
-                  _this54.sublocationId = null;
-                  _this54.groupId = null;
-                  _this54.frequencyDays = null;
-                  _this54.utilityMeterSetupId = null;
-                  _this54.blockId = null;
-                  _this54.unitId = null;
-                  _this54.unitName = "";
+                  _this49.utilityTypeId = null;
+                  _this49.meterName = null;
+                  _this49.locationId = null;
+                  _this49.sublocationId = null;
+                  _this49.groupId = null;
+                  _this49.frequencyDays = null;
+                  _this49.utilityMeterSetupId = null;
+                  _this49.blockId = null;
+                  _this49.unitId = null;
+                  _this49.unitName = "";
                 } else if (res.errorMessage !== undefined) {
-                  _this54.isMeterLoaded = false;
+                  _this49.isMeterLoaded = false;
 
-                  _this54.sharedService.openSnackBar(res.errorMessage, 'failure');
+                  _this49.sharedService.openSnackBar(res.errorMessage, 'failure');
                 }
               }, function (error) {
-                _this54.isDataSubmitted = false;
+                _this49.isDataSubmitted = false;
               });
             } else {
               this.utilityCommonService.updateUtilityMeterSetup(queryParams).subscribe(function (res) {
-                _this54.isDataSubmitted = false;
+                _this49.isDataSubmitted = false;
 
                 if (res.errorMessage === undefined) {
-                  _this54.sharedService.openSnackBar("Unit Specific updated Successfully!", 'success');
+                  _this49.sharedService.openSnackBar("Unit Specific updated Successfully!", 'success');
 
-                  _this54.isMeterLoaded = false;
+                  _this49.isMeterLoaded = false;
 
-                  _this54.getAllUnitSpecific();
+                  _this49.getAllUnitSpecific();
                 } else if (res.errorMessage !== undefined) {
-                  _this54.isMeterLoaded = false;
+                  _this49.isMeterLoaded = false;
 
-                  _this54.sharedService.openSnackBar(res.errorMessage, 'failure');
+                  _this49.sharedService.openSnackBar(res.errorMessage, 'failure');
                 }
               }, function (error) {
-                _this54.isDataSubmitted = false;
+                _this49.isDataSubmitted = false;
               });
             }
           }
@@ -5871,7 +5714,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this55 = this;
+            var _this50 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -5879,9 +5722,9 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this55.sharedService.setUnitListDeleteIndex(null);
+              _this50.sharedService.setUnitListDeleteIndex(null);
 
-              _this55.loadUtilityCategory();
+              _this50.loadUtilityCategory();
             });
           }
         }, {
@@ -5930,7 +5773,7 @@
         }, {
           key: "addOrUpdateUtilityCategoryForm",
           value: function addOrUpdateUtilityCategoryForm(form) {
-            var _this56 = this;
+            var _this51 = this;
 
             this.isUtilityCategorySubmitted = true;
             this.isError = false;
@@ -5951,26 +5794,26 @@
                 utilityTrackerCategory: details
               };
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
-                _this56.isUtilityCategorySubmitted = false;
+                _this51.isUtilityCategorySubmitted = false;
 
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: _this56.sessionService.apartmentId
+                    apartmentId: _this51.sessionService.apartmentId
                   };
 
-                  _this56.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                    _this56.sharedService.openSnackBar("Category added Successfully!", 'success');
+                  _this51.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                    _this51.sharedService.openSnackBar("Category added Successfully!", 'success');
 
-                    _this56.matDrawer.toggle();
+                    _this51.matDrawer.toggle();
 
-                    _this56.utilityCategoryData = res.filter(function (item) {
+                    _this51.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this56.isUtilityCategorySubmitted = false;
-                  _this56.isError = true;
-                  _this56.alertMessage = res.errorMessage;
+                  _this51.isUtilityCategorySubmitted = false;
+                  _this51.isError = true;
+                  _this51.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -5990,28 +5833,28 @@
                 utilityTrackerCategory: _details2
               };
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
-                _this56.isUtilityCategorySubmitted = false;
+                _this51.isUtilityCategorySubmitted = false;
 
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: _this56.sessionService.apartmentId
+                    apartmentId: _this51.sessionService.apartmentId
                   };
 
-                  _this56.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                    _this56.sharedService.openSnackBar("Category updated Successfully!", 'success');
+                  _this51.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                    _this51.sharedService.openSnackBar("Category updated Successfully!", 'success');
 
-                    _this56.matDrawer.toggle();
+                    _this51.matDrawer.toggle();
 
-                    _this56.utilityCategoryData = res.filter(function (item) {
+                    _this51.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this56.isUtilityCategoryNew = false;
-                    _this56.isUtilityCategoryUpdate = false;
+                    _this51.isUtilityCategoryNew = false;
+                    _this51.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this56.isUtilityCategorySubmitted = false;
-                  _this56.isError = true;
-                  _this56.alertMessage = res.errorMessage;
+                  _this51.isUtilityCategorySubmitted = false;
+                  _this51.isError = true;
+                  _this51.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -6019,33 +5862,33 @@
         }, {
           key: "loadUtilityCategory",
           value: function loadUtilityCategory() {
-            var _this57 = this;
+            var _this52 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this57.utilityCategoryData = res.filter(function (item) {
+              _this52.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this57.isUtilityCategoryLoaded = true;
+              _this52.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this58 = this;
+            var _this53 = this;
 
             this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this58.submitUtilityCategoryForm(is_category_form);
+                _this53.submitUtilityCategoryForm(is_category_form);
               }
             });
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this58.deleteUtilityCategory(item_id);
+                _this53.deleteUtilityCategory(item_id);
               }
             });
           }

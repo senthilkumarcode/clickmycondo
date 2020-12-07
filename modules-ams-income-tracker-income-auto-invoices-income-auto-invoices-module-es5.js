@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-auto-monthly-invoice-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Create Automatic Monthly Invoice</h4>\n\t\t<div>\n\t\t\t<form>\n\t\t\t\t<div class=\"bg-card shadow\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n\n                            <app-datepicker\n                                labelText=\"Date Of Bill Creation\"\n                                fieldName=\"dateOfBill\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"invoice.billCreationDate\"\n                                (fieldParams)=\"getCreationDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n\n                        </div>\n                        <div class=\"col-sm-4\">\n\n                            <app-datepicker\n                                labelText=\"Due Date\"\n                                fieldName=\"dueDate\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"invoice.dueDate\"\n                                (fieldParams)=\"getDueDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n\n                        </div>\n                    </div>\t\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right pr-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"addForm()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"bg-card shadow p-0\">\n                    <div class=\"invoice-card-wrapper\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n\t\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\t\t<div class=\"p-0 invoice-header\">\n\t\t\t\t\t\t\t\t<div class=\"wp-180 heads\">Bill Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Amount For Calc</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Fixed Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-200 heads\">GL Account</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-220 heads\">Description</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Tax</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Vat</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-80 heads\">Actions</div>\n                            </div>\n                            <div class=\"p-0 invoice-fields\" *ngFor=\"let item of invoice.autoInvoiceItem; let i = index;\">\n                                <div class=\"form\">\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Bill Amount Type{{index}}\"\n                                            fieldPlaceholder=\"Select Amount...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"billAmountList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.typeId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"billAmountChange($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"amountCalculation{{i}}\" placeholder=\"Amount\" \n                                            [(ngModel)]=\"item.varAmount\" [disabled]=\"item.typeId == 386\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"fixedAmount{{i}}\" placeholder=\"Fixed\" \n                                            [(ngModel)]=\"item.fixedAmount\" [disabled]=\"item.typeId == 387 || item.typeId == 388\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"GL Account{{index}}\"\n                                            fieldPlaceholder=\"Select GL Account..\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"glAccountList\"\n                                            fieldValue=\"customLabel\"\n                                            [fieldModel]=\"item.glaccountId\"\n                                            fieldId=\"glaccountId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setGlAccount($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" type=\"text\" name=\"description{{i}}\" placeholder=\"Description\" [(ngModel)]=\"item.description\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Tax {{index}}\"\n                                            fieldPlaceholder=\"Tax...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"taxPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.taxId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setTax($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"VAT {{index}}\"\n                                            fieldPlaceholder=\"Vat...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"vatPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.vatId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setVat($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads actions\">\n                                        <mat-icon class=\"link\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"removeInvoice(i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n                </div>\n                <div class=\"bg-card shadow\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Sq.m - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Consumption (Water) - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Power Units Consumption - Maintain Entry in utilities Menu</p>                     \n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addAutoinvoiceConfig()\">Save & Preview Invoice For All Units</button>\n                                <button class=\"ml-3\" mat-flat-button [color]=\"'accent'\">Create Final Invoice</button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\t\t\t</form>\n        </div>\n        <div *ngIf=\"invoiceTable\">\n            <app-view-monthly-invoice></app-view-monthly-invoice>\n        </div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-auto-monthly-invoice-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Create Automatic Monthly Invoice</h4>\n\t\t<div>\n\t\t\t<form>\n\t\t\t\t<div class=\"bg-card shadow\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n\n                            <app-datepicker\n                                labelText=\"Date Of Bill Creation\"\n                                fieldName=\"dateOfBill\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"invoice.billCreationDate\"\n                                (fieldParams)=\"getCreationDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n\n                        </div>\n                        <div class=\"col-sm-4\">\n\n                            <app-datepicker\n                                labelText=\"Due Date\"\n                                fieldName=\"dueDate\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"invoice.dueDate\"\n                                (fieldParams)=\"getDueDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n\n                        </div>\n                    </div>\t\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right pr-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"addForm()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"bg-card shadow p-0\">\n                    <div class=\"invoice-card-wrapper\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n\t\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\t\t<div class=\"p-0 invoice-header\">\n\t\t\t\t\t\t\t\t<div class=\"wp-180 heads\">Bill Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Amount For Calc</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Fixed Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-200 heads\">GL Account</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-220 heads\">Description</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Tax</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Vat</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-80 heads\">Actions</div>\n                            </div>\n                            <div class=\"p-0 invoice-fields\" *ngFor=\"let item of invoice.autoInvoiceItem; let i = index;\">\n                                <div class=\"form\">\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Bill Amount Type{{index}}\"\n                                            fieldPlaceholder=\"Select Amount...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"billAmountList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.typeId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"billAmountChange($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"amountCalculation{{i}}\" placeholder=\"Amount\" \n                                            [(ngModel)]=\"item.varAmount\" [disabled]=\"item.typeId == 386\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"fixedAmount{{i}}\" placeholder=\"Fixed\" \n                                            [(ngModel)]=\"item.fixedAmount\" [disabled]=\"item.typeId == 387 || item.typeId == 388\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"GL Account{{index}}\"\n                                            fieldPlaceholder=\"Select GL Account..\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"glAccountList\"\n                                            fieldValue=\"customLabel\"\n                                            [fieldModel]=\"item.glaccountId\"\n                                            fieldId=\"glaccountId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setGlAccount($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" type=\"text\" name=\"description{{i}}\" placeholder=\"Description\" [(ngModel)]=\"item.description\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Tax {{index}}\"\n                                            fieldPlaceholder=\"Tax...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"taxPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.taxId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setTax($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"VAT {{index}}\"\n                                            fieldPlaceholder=\"Vat...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"vatPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.vatId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setVat($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads actions\">\n                                        <mat-icon class=\"link\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"removeInvoice(i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n                </div>\n                <div class=\"bg-card shadow\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Sq.m - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Consumption (Water) - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Power Units Consumption - Maintain Entry in utilities Menu</p>                     \n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addAutoinvoiceConfig()\">Save & Preview Invoice For All Units</button>\n                                <button class=\"ml-3\" mat-flat-button [color]=\"'accent'\" *ngIf=\"invoiceTable\" (click)=\"addFinalInvoice()\">Create Final Invoice</button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\t\t\t</form>\n        </div>\n        <div *ngIf=\"invoiceTable\">\n            <app-view-monthly-invoice></app-view-monthly-invoice>\n        </div>\n\t</div>\n</div>";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div>\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Preview Invoices</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n                </div>\n                <div>\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid \n                    [theme]=\"'material'\" \n                    [width]=\"'100%'\"\n                    [rowsheight]=\"48\"\n                    [autoheight]=\"true\"\n                    [pageable]=\"true\" \n                    [filterable]=\"true\" \n                    [sortable]=\"true\" \n                    [source]=\"prevInvoiceDataList\"\n                    [columns]=\"prevColumnData\"\n                    [enablehover]=\"false\"\n                #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    <ng-template #viewInvoiceDetailsRef>\n        <div class=\"invoice-info info-modal-box rel\">\n            <div class=\"d-flex p-4\">\n                <h4>Invoice Info</h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n            <ng-container *ngIf=\"isInvoicePrintLoaded\">\n                <div id=\"InvoiceElement\">\n                    <div class=\"text-center bg-cool-gray-100 p-4\">\n                        <h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n                        <h6>{{apartmentDetails.address1}}</h6>\n                        <div class=\"mt-2\">\n                            <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n                            <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"bg-card p-0 border-bottom\">\n                        <div class=\"d-flex pt-4 pb-4 border-bottom\">\n                            <div class=\"pl-4\">\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{prevInvoice.apartmentBlockNumber}}</p>\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> {{prevInvoice.primaryContact}}</p>\n                            </div>\n                            <div class=\"ml-auto pr-4\">\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{prevInvoice.custInvoiceId}}</p>\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n                            </div>\n                        </div>\n                        <div class=\"\">{{invoice.length}}</div>\n                        <table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n                            <thead>\n                                <tr>\n                                    <th>Income Accounts</th>\n                                    <th>Rate</th>\n                                    <th>Comments</th>\n                                    <th>Discount</th>\n                                    <th>Tax</th>\n                                    <th>Amount</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let item of prevInvoice.invoiceGLAccounts; let i = index\">\n                                    <td>{{item.glaccountName}}</td>\n                                    <td>{{item.amount}}</td>\n                                    <td>{{item.comments}}</td>\n                                    <td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n                                    <td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n                                    <td>{{item.lineItemTotal + item.vatamount}}</td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"5\">Final Discount:</td>\n                                    <td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n                                </tr>\n                                <tr class=\"total font-medium\">\n                                    <td colspan=\"5\">Total Amount:</td>\n                                    <td>{{invoice.custInvoiceAmount}}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n                <div class=\"text-center m-5\">\n                    <button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n                        Print\n                    </button>\n                </div>\n            </ng-container>\n    \n    \n        </div>\n    </ng-template>\n</div>";
+      __webpack_exports__["default"] = "<div>\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Preview Invoices</h4>\n                    <p>{{prevTotalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n                </div>\n                <div>\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n            </div>\n        </div>\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <div CondoCardBody *ngIf=\"!isDataLoaded\">\n            <jqxGrid \n                    [theme]=\"'material'\" \n                    [width]=\"'100%'\"\n                    [rowsheight]=\"48\"\n                    [autoheight]=\"true\"\n                    [pageable]=\"true\" \n                    [filterable]=\"true\" \n                    [sortable]=\"true\" \n                    [source]=\"prevInvoiceDataList\"\n                    [columns]=\"prevColumnData\"\n                    [enablehover]=\"false\"\n                #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    <ng-template #viewInvoiceDetailsRef>\n        <div class=\"invoice-info info-modal-box rel\">\n            <div class=\"d-flex p-4\">\n                <h4>Invoice Info</h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n            <ng-container *ngIf=\"isInvoicePrintLoaded\">\n                <div id=\"InvoiceElement\">\n                    <div class=\"text-center bg-cool-gray-100 p-4\">\n                        <h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n                        <h6>{{apartmentDetails.address1}}</h6>\n                        <div class=\"mt-2\">\n                            <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n                            <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"bg-card p-0 border-bottom\">\n                        <div class=\"d-flex pt-4 pb-4 border-bottom\">\n                            <div class=\"pl-4\">\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{prevInvoice.apartmentBlockNumber}}</p>\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> {{prevInvoice.primaryContact}}</p>\n                            </div>\n                            <div class=\"ml-auto pr-4\">\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{prevInvoice.custInvoiceId}}</p>\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n                            </div>\n                        </div>\n                        <div class=\"\">{{invoice.length}}</div>\n                        <table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n                            <thead>\n                                <tr>\n                                    <th>Income Accounts</th>\n                                    <th>Rate</th>\n                                    <th>Comments</th>\n                                    <th>Discount</th>\n                                    <th>Tax</th>\n                                    <th>Amount</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let item of prevInvoice.invoiceGLAccounts; let i = index\">\n                                    <td>{{item.glaccountName}}</td>\n                                    <td>{{item.amount}}</td>\n                                    <td>{{item.comments}}</td>\n                                    <td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n                                    <td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n                                    <td>{{item.lineItemTotal + item.vatamount}}</td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"5\">Final Discount:</td>\n                                    <td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n                                </tr>\n                                <tr class=\"total font-medium\">\n                                    <td colspan=\"5\">Total Amount:</td>\n                                    <td>{{invoice.custInvoiceAmount}}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n                <div class=\"text-center m-5\">\n                    <button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n                        Print\n                    </button>\n                </div>\n            </ng-container>\n    \n    \n        </div>\n    </ng-template>\n</div>";
       /***/
     },
 
@@ -242,19 +242,34 @@
               }
             };
             this.accountsService.addRunAutoInvoice(entity).subscribe(function (res) {
-              if (res.message) {
+              if (res.code == 200) {
                 _this.invoiceTable = !_this.invoiceTable;
 
                 _this.sharedService.openSnackBar('Auto Invoice Created Successfully', 'success');
               } else {
-                _this.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this.invoiceTable = !_this.invoiceTable;
+
+                _this.sharedService.openSnackBar(res.message, 'error');
+              }
+            });
+          }
+        }, {
+          key: "addFinalInvoice",
+          value: function addFinalInvoice() {
+            var _this2 = this;
+
+            this.accountsService.addInvoiceFromPreview().subscribe(function (res) {
+              if (res.code == 200) {
+                _this2.sharedService.openSnackBar('Final Invoice Created Successfully', 'success');
+              } else {
+                _this2.sharedService.openSnackBar(res.message, 'error');
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             //Bill Amount List
             var billAmountParams = {
@@ -263,7 +278,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(billAmountParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this2.billAmountList = res;
+                _this3.billAmountList = res;
               }
             }); //VAT List
 
@@ -273,7 +288,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this2.vatPecentageDataList = res;
+                _this3.vatPecentageDataList = res;
               }
             }); //TAX List
 
@@ -283,7 +298,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this2.taxPecentageDataList = res;
+                _this3.taxPecentageDataList = res;
               }
             }); //GL AccountList
 
@@ -296,7 +311,7 @@
                 res.forEach(function (data) {
                   data.customLabel = "".concat(data.glaccountNumber, " - ").concat(data.glaccountName);
                 });
-                _this2.glAccountList = res;
+                _this3.glAccountList = res;
               }
             });
           }
@@ -607,29 +622,23 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var html2canvas__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var html2canvas__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! html2canvas */
       "./node_modules/html2canvas/dist/html2canvas.js");
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_13__);
+      var html2canvas__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_12__);
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var jspdf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! jspdf */
       "./node_modules/jspdf/dist/jspdf.min.js");
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_14__);
+      var jspdf__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_13__);
 
       var ViewMonthlyInvoiceComponent = /*#__PURE__*/function () {
         function ViewMonthlyInvoiceComponent(_overlay, _viewContainerRef, dialog, router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
@@ -647,12 +656,13 @@
           this.sessionService = sessionService;
           this.prevInvoiceSearch = '';
           this.prevInvoice = {};
+          this.isDataLoaded = true;
         }
 
         _createClass(ViewMonthlyInvoiceComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this3 = this;
+            var _this4 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -665,7 +675,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.prevColumnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this3.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this4.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -676,7 +686,7 @@
         }, {
           key: "onDownloadInvoice",
           value: function onDownloadInvoice(detail) {
-            var _this4 = this;
+            var _this5 = this;
 
             var row = this.datagrid.getrowdata(detail.rowId);
             this.prevInvoice = {};
@@ -685,12 +695,12 @@
               invoiceId: row.custInvoiceId
             };
             this.accountsService.getCustInvoicesByApartmentId(invoiceParams).subscribe(function (res) {
-              _this4.prevInvoice = res[0];
+              _this5.prevInvoice = res[0];
               var params = {
-                apartmentId: _this4.sessionService.apartmentId,
+                apartmentId: _this5.sessionService.apartmentId,
                 invoiceId: 2
               };
-              _this4.isInvoicePrintLoaded = true;
+              _this5.isInvoicePrintLoaded = true;
             });
             this.dialog.open(this.viewInvoiceDetailsRef, {
               panelClass: 'material-dialog-big'
@@ -698,38 +708,35 @@
           }
         }, {
           key: "getAllInvoicesData",
-          value: function getAllInvoicesData(fromDate, toDate) {
-            var _this5 = this;
+          value: function getAllInvoicesData() {
+            var _this6 = this;
 
+            this.isDataLoaded = true;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
-              InvoiceFromDate: fromDate,
-              InvoiceToDate: toDate
+              apartmentId: this.sessionService.apartmentId
             };
-            this.accountsService.getCustInvoicesByApartmentIdNew(params).subscribe(function (res) {
+            this.accountsService.getCustInvoicesPreviewByApartmentIdNew(params).subscribe(function (res) {
               var invoiceDataList = res.responseData.value;
-              underscore__WEBPACK_IMPORTED_MODULE_12__["each"](invoiceDataList, function (item) {
-                item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
-              });
-              _this5.prevTotalItems = invoiceDataList.length;
+              _this6.prevTotalItems = invoiceDataList.length;
               var tableInfo = {
                 localdata: invoiceDataList,
                 datatype: "array"
               };
-              _this5.prevInvoiceDataList = new jqx.dataAdapter(tableInfo);
+              _this6.prevInvoiceDataList = new jqx.dataAdapter(tableInfo);
+              _this6.isDataLoaded = false;
             });
           }
         }, {
           key: "printInvoice",
           value: function printInvoice() {
             var data = document.getElementById('InvoiceElement');
-            html2canvas__WEBPACK_IMPORTED_MODULE_13___default()(data).then(function (canvas) {
+            html2canvas__WEBPACK_IMPORTED_MODULE_12___default()(data).then(function (canvas) {
               var imgWidth = 208;
               var pageHeight = 295;
               var imgHeight = canvas.height * imgWidth / canvas.width;
               var heightLeft = imgHeight;
               var contentDataURL = canvas.toDataURL('image/png');
-              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_14__('p', 'mm', 'a4'); // A4 size page of PDF  
+              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_13__('p', 'mm', 'a4'); // A4 size page of PDF  
 
               var position = 0;
               pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
@@ -739,7 +746,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            this.getAllInvoicesData('', '');
+            this.getAllInvoicesData();
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';

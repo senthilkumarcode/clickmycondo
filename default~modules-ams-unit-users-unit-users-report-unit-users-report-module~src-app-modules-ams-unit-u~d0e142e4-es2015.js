@@ -202,7 +202,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         return this.pageName == "List of Units";
     }
     isListOfBlocks() {
-        return this.pageName == "List of Blocks";
+        return this.pageName == "List of Blocks / Towers";
     }
     isListOfOwners() {
         return this.pageName == "List of Owners";
@@ -214,7 +214,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         return this.pageName == "List of Admins";
     }
     isListOfVacantList() {
-        return this.pageName == "List of Vacant List";
+        return this.pageName == "List of Vacant Units";
     }
     getDate(date) {
         return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
@@ -1037,7 +1037,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        this.pageName = this.route.params['value'].name;
+        this.pageName = this.route.params['value'].name.replace('#', '/');
         let unitBlockParams = {
             apartmentId: parseInt(localStorage.getItem('apartmentId'))
         };
@@ -1052,8 +1052,9 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             var data = res.filter(item => {
                 return item.lookupValueId == this.route.params['value'].id;
             });
-            this.pageName = data[0].lookupValueName.replace('/', '');
+            this.pageName = data[0].lookupValueName; //.replace('/', '');
             this.pageDesp = data[0].description;
+            console.log(this.pageName);
         });
         this.getBlockDetails();
     }
@@ -1206,7 +1207,7 @@ let UnitUsersReportComponent = class UnitUsersReportComponent {
         });
     }
     getReportRedirectPath(path) {
-        return path.replace('/', '');
+        return path.replace('/', '#');
     }
 };
 UnitUsersReportComponent.ctorParameters = () => [
