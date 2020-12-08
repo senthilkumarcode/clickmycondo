@@ -1054,7 +1054,6 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             });
             this.pageName = data[0].lookupValueName; //.replace('/', '');
             this.pageDesp = data[0].description;
-            console.log(this.pageName);
         });
         this.getBlockDetails();
     }

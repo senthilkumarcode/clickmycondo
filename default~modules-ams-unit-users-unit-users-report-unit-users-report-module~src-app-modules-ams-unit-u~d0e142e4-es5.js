@@ -1122,7 +1122,6 @@
               _this4.pageName = data[0].lookupValueName; //.replace('/', '');
 
               _this4.pageDesp = data[0].description;
-              console.log(_this4.pageName);
             });
             this.getBlockDetails();
           }

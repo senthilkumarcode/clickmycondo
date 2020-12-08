@@ -661,7 +661,6 @@ let UtilityAddReadingComponent = class UtilityAddReadingComponent {
                     key['url'] = "insurance";
                 }
             });
-            console.log('log', this.utilityCategoryData);
             this.isUtilityCategoryLoaded = true;
         }, error => {
         });

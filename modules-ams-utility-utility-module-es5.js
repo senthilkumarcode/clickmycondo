@@ -1014,7 +1014,6 @@
                 }
               });
 
-              console.log('log', _this6.utilityCategoryData);
               _this6.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
