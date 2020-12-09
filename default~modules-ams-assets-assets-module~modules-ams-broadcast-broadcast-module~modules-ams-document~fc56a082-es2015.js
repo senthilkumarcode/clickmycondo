@@ -100,6 +100,7 @@ let UploadComponent = class UploadComponent {
     }
     selectFile(event) {
         this.selectedFiles = Array.from(event.target.files);
+        this.isMoreFileSize = false;
         this.selectedFiles.forEach(file => {
             var totalSizeMB = file.size / Math.pow(1024, 2);
             if (totalSizeMB >= 2) {
@@ -108,33 +109,31 @@ let UploadComponent = class UploadComponent {
             }
             else {
                 this.isMoreFileSize = false;
+                this.newFiles = this.selectedFiles.map(item => {
+                    return { tempId: this.sharedService.guid(), fileDetailsId: null, filePath: null, status: false };
+                });
+                this.newFiles.map((item) => {
+                    this.fileList = this.fileList.concat(item);
+                });
+                this.selectedFiles.forEach((file, index) => {
+                    this.uploadFiles(file, index).subscribe((data) => {
+                        this.newFiles[index].binary = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
+                        this.newFiles[index].type = data.body.type;
+                        this.newFiles[index].status = true;
+                        this.fileList.map(fileItem => {
+                            if (fileItem.tempId == this.newFiles[index].tempId) {
+                                fileItem.status = true;
+                                return fileItem;
+                            }
+                        });
+                        this.fileIds = this.fileList.map(item => {
+                            return item.fileDetailsId;
+                        });
+                        this.outputParams.emit(this.fileIds);
+                    });
+                });
             }
         });
-        if (!this.isMoreFileSize) {
-            this.newFiles = this.selectedFiles.map(item => {
-                return { tempId: this.sharedService.guid(), fileDetailsId: null, filePath: null, status: false };
-            });
-            this.newFiles.map((item) => {
-                this.fileList = this.fileList.concat(item);
-            });
-            this.selectedFiles.forEach((file, index) => {
-                this.uploadFiles(file, index).subscribe((data) => {
-                    this.newFiles[index].binary = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
-                    this.newFiles[index].type = data.body.type;
-                    this.newFiles[index].status = true;
-                    this.fileList.map(fileItem => {
-                        if (fileItem.tempId == this.newFiles[index].tempId) {
-                            fileItem.status = true;
-                            return fileItem;
-                        }
-                    });
-                    this.fileIds = this.fileList.map(item => {
-                        return item.fileDetailsId;
-                    });
-                    this.outputParams.emit(this.fileIds);
-                });
-            });
-        }
     }
     uploadFiles(file, index) {
         return this.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {

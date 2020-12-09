@@ -1550,10 +1550,12 @@ let AssetsCreateComponent = class AssetsCreateComponent {
     }
     setCategoryLocation(event) {
         this.asset.locationId = event[0].id;
+        this.asset.assetLocationName = event[0].name;
         this.subLocationCategoryList = event[0].subCategory;
     }
     setCategorySubLocation(event) {
         this.asset.subLocationId = event[0].id;
+        this.asset.assetSubLocationName = event[0].name;
     }
     getInstallationDate(event) {
         this.asset.installationDate = event;
@@ -1573,6 +1575,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
     }
     getAssetCategory(event) {
         this.asset.assetCategoryId = event[0].id;
+        this.asset.assetCategoryName = event[0].name;
         this.setSubCategory(event[0].id);
     }
     getAssetSubCategory(event) {
@@ -1602,9 +1605,9 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "manufacturerDetails": this.asset.manufacturerDetails,
                 "modelNo": this.asset.modelNo,
                 "assetConditionId": parseInt(this.asset.assetConditionId),
-                "assetLocation": this.asset.assetLocation,
+                "assetLocation": this.asset.assetLocation.toString(),
                 "depreciationPercentage": parseInt(this.asset.depreciationPercentage),
-                "assetImageId": this.asset.assetImageId,
+                "assetImageId": parseInt(this.asset.assetImageId),
                 "installationDate": this.asset.installationDate,
                 "vendorId": parseInt(this.asset.vendorId),
                 "purchaseOrderNo": this.asset.purchaseOrderNo,
@@ -1618,31 +1621,31 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
-                "serialNo": this.asset.serialNo,
+                "serialNo": parseInt(this.asset.serialNo),
                 "assetDescription1": "string",
                 "assetDescription2": "string",
                 "unitOfMeasure": null,
                 "quantity": null,
                 "costCenter": null,
                 "inventoryNumber": null,
-                "salvageValue": this.asset.salvageValue,
+                "salvageValue": parseInt(this.asset.salvageValue),
                 "assetTypeId": null,
-                "assetSubcategoryId": this.asset.assetSubcategoryId,
+                "assetSubcategoryId": parseInt(this.asset.assetSubcategoryId),
                 "assetOwnerId": null,
-                "isLeased": this.asset.isLeased,
+                "isLeased": null,
                 "totalAssetPrice": null,
                 "contractNumber": "string",
                 "contractExpirydate": null,
                 "contractAmount": null,
                 "contractPaymentTerm": "string",
                 "costCenterid": null,
-                "maintFrequencyInDays": this.asset.maintFrequencyInDays,
+                "maintFrequencyInDays": parseInt(this.asset.maintFrequencyInDays),
                 "assetBlockId": null,
                 "depreciationMethodId": this.asset.depreciationMethodId,
                 "consumedUnitsperYear": null,
-                "maximumAllowed": this.asset.maximumAllowed,
+                "maximumAllowed": parseInt(this.asset.maximumAllowed),
                 "consumedUnitDescription": this.asset.consumedUnitDescription,
-                "alertBeforeDays": this.asset.alertBeforeDays,
+                "alertBeforeDays": parseInt(this.asset.alertBeforeDays),
                 "lastMaintenanceDate": this.asset.lastMaintenanceDate,
                 "warrentyExpiryDate": null,
                 "assetCategoryName": "string",
@@ -1650,8 +1653,12 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "vendorName": "string",
                 "assetConditionName": "string",
                 "fileDetailsIds": this.asset.fileDetailsIds,
+                "imgFileDetailGuid": this.asset.imgFileDetailGuid,
+                "fileDetailsPath": null,
                 "locationId": this.asset.locationId,
                 "subLocationId": this.asset.subLocationId,
+                "assetLocationName": this.asset.assetLocationName,
+                "assetSubLocationName": this.asset.assetSubLocationName,
                 "customFields": JSON.stringify(this.title.customForm)
             };
             var addAssetParams = {
@@ -1681,9 +1688,9 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "manufacturerDetails": this.asset.manufacturerDetails,
                 "modelNo": this.asset.modelNo,
                 "assetConditionId": parseInt(this.asset.assetConditionId),
-                "assetLocation": this.asset.assetLocation,
+                "assetLocation": this.asset.assetLocation.toString(),
                 "depreciationPercentage": parseInt(this.asset.depreciationPercentage),
-                "assetImageId": this.asset.assetImageId,
+                "assetImageId": parseInt(this.asset.assetImageId),
                 "installationDate": this.asset.installationDate,
                 "vendorId": parseInt(this.asset.vendorId),
                 "purchaseOrderNo": this.asset.purchaseOrderNo,
@@ -1697,16 +1704,16 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "insertedOn": this.asset.insertedOn,
                 "updatedBy": this.sessionService.userId,
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
-                "serialNo": this.asset.serialNo,
+                "serialNo": parseInt(this.asset.serialNo),
                 "assetDescription1": this.asset.assetDescription1,
                 "assetDescription2": this.asset.assetDescription2,
                 "unitOfMeasure": this.asset.unitOfMeasure,
                 "quantity": this.asset.quantity,
                 "costCenter": this.asset.costCenter,
                 "inventoryNumber": this.asset.inventoryNumber,
-                "salvageValue": this.asset.salvageValue,
+                "salvageValue": parseInt(this.asset.salvageValue),
                 "assetTypeId": this.asset.assetTypeId,
-                "assetSubcategoryId": this.asset.assetSubcategoryId,
+                "assetSubcategoryId": parseInt(this.asset.assetSubcategoryId),
                 "assetOwnerId": this.asset.assetOwnerId,
                 "isLeased": this.asset.isLeased,
                 "totalAssetPrice": this.asset.totalAssetPrice,
@@ -1715,13 +1722,13 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "contractAmount": this.asset.contractAmount,
                 "contractPaymentTerm": this.asset.contractPaymentTerm,
                 "costCenterid": this.asset.costCenterid,
-                "maintFrequencyInDays": this.asset.maintFrequencyInDays,
+                "maintFrequencyInDays": parseInt(this.asset.maintFrequencyInDays),
                 "assetBlockId": this.asset.assetBlockId,
                 "depreciationMethodId": this.asset.depreciationMethodId,
                 "consumedUnitsperYear": this.asset.consumedUnitsperYear,
-                "maximumAllowed": this.asset.maximumAllowed,
+                "maximumAllowed": parseInt(this.asset.maximumAllowed),
                 "consumedUnitDescription": this.asset.consumedUnitDescription,
-                "alertBeforeDays": this.asset.alertBeforeDays,
+                "alertBeforeDays": parseInt(this.asset.alertBeforeDays),
                 "lastMaintenanceDate": this.asset.lastMaintenanceDate,
                 "warrentyExpiryDate": this.asset.warrentyExpiryDate,
                 "assetCategoryName": this.asset.assetCategoryName,
@@ -1729,8 +1736,12 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                 "vendorName": this.asset.vendorName,
                 "assetConditionName": this.asset.assetConditionName,
                 "fileDetailsIds": this.asset.fileDetailsIds,
+                "imgFileDetailGuid": this.asset.imgFileDetailGuid,
+                "fileDetailsPath": this.asset.fileDetailsPath,
                 "locationId": this.asset.locationId,
                 "subLocationId": this.asset.subLocationId,
+                "assetLocationName": this.asset.assetLocationName,
+                "assetSubLocationName": this.asset.assetSubLocationName,
                 "customFields": JSON.stringify(this.title.customForm)
             };
             var editAssetParams = {
@@ -1841,6 +1852,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         this.asset.depreciationMethodId = "";
         this.asset.assetSubcategoryId = "";
         this.asset.assetImageId = null;
+        this.asset.manufacturerDetails = "";
         this.asset.isLeased = false;
         this.asset.alertBeforeDays = null;
         this.getAssetLocationList();

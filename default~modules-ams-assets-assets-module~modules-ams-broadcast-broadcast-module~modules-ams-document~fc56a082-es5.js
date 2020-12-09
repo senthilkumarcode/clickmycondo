@@ -185,6 +185,7 @@
             var _this = this;
 
             this.selectedFiles = Array.from(event.target.files);
+            this.isMoreFileSize = false;
             this.selectedFiles.forEach(function (file) {
               var totalSizeMB = file.size / Math.pow(1024, 2);
 
@@ -193,42 +194,41 @@
                 return true;
               } else {
                 _this.isMoreFileSize = false;
+                _this.newFiles = _this.selectedFiles.map(function (item) {
+                  return {
+                    tempId: _this.sharedService.guid(),
+                    fileDetailsId: null,
+                    filePath: null,
+                    status: false
+                  };
+                });
+
+                _this.newFiles.map(function (item) {
+                  _this.fileList = _this.fileList.concat(item);
+                });
+
+                _this.selectedFiles.forEach(function (file, index) {
+                  _this.uploadFiles(file, index).subscribe(function (data) {
+                    _this.newFiles[index].binary = _this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
+                    _this.newFiles[index].type = data.body.type;
+                    _this.newFiles[index].status = true;
+
+                    _this.fileList.map(function (fileItem) {
+                      if (fileItem.tempId == _this.newFiles[index].tempId) {
+                        fileItem.status = true;
+                        return fileItem;
+                      }
+                    });
+
+                    _this.fileIds = _this.fileList.map(function (item) {
+                      return item.fileDetailsId;
+                    });
+
+                    _this.outputParams.emit(_this.fileIds);
+                  });
+                });
               }
             });
-
-            if (!this.isMoreFileSize) {
-              this.newFiles = this.selectedFiles.map(function (item) {
-                return {
-                  tempId: _this.sharedService.guid(),
-                  fileDetailsId: null,
-                  filePath: null,
-                  status: false
-                };
-              });
-              this.newFiles.map(function (item) {
-                _this.fileList = _this.fileList.concat(item);
-              });
-              this.selectedFiles.forEach(function (file, index) {
-                _this.uploadFiles(file, index).subscribe(function (data) {
-                  _this.newFiles[index].binary = _this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
-                  _this.newFiles[index].type = data.body.type;
-                  _this.newFiles[index].status = true;
-
-                  _this.fileList.map(function (fileItem) {
-                    if (fileItem.tempId == _this.newFiles[index].tempId) {
-                      fileItem.status = true;
-                      return fileItem;
-                    }
-                  });
-
-                  _this.fileIds = _this.fileList.map(function (item) {
-                    return item.fileDetailsId;
-                  });
-
-                  _this.outputParams.emit(_this.fileIds);
-                });
-              });
-            }
           }
         }, {
           key: "uploadFiles",
