@@ -4757,7 +4757,7 @@
 
               _this10.message = {
                 appearance: 'outline',
-                content: 'Network Error',
+                content: 'Network Error Please retry after some time',
                 shake: true,
                 showIcon: true,
                 type: 'error'

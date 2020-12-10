@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-add-unit-wrapper\">\n\n    <app-loader *ngIf=\"!isUnitSubmitted\"></app-loader>\n\n    <ng-container *ngIf=\"isUnitSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>Edit Unit</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow accent mb-5\" *ngIf=\"isUnitSubmitted\">\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Tower: </span>{{unit.apartmentBlockNumber}}</p>\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Unit: </span>{{unit.apartmentBlockUnitNumber}}</p>\n\t\t</div>\n\n\t\t<form #editUnitForm = \"ngForm\" name=\"editUnitForm\" (ngSubmit)=\"submitEditUnitForm(editUnitForm)\"  novalidate>\n\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Bulit Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"builtupArea\" [(ngModel)]=\"unit.builtupArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Unit Construction Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitConstructionArea\" [(ngModel)]=\"unit.carpetArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit Type\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t[fieldList]=\"unitTypeData\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"unit.unitTypeId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedUnitTypeId($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>No.of Cars Allowed</label>\n\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter No.of Cars\" name=\"unitCar\" \n\t\t\t\t\t\t[(ngModel)]=\"unit.cars\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Intercom\" name=\"intercom\" [(ngModel)]=\"unit.intercom\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitSold class=\"form-check-input\" id=\"unitSlod\" name=\"unitSold\" [(ngModel)]=\"unit.isSold\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitSlod\">Is Sold</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitVacant class=\"form-check-input\" id=\"unitVacant\" name=\"unitVacant\" [(ngModel)]=\"unit.isVacant\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitVacant\">Is Vacant</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #petsAllowed class=\"form-check-input\" id=\"petsAllowed\" name=\"petsAllowed\" [(ngModel)]=\"unit.isPetsAllowed\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"petsAllowed\">Is Pets Allowed</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #furnished class=\"form-check-input\" id=\"furnished\" name=\"furnished\" [(ngModel)]=\"unit.isFurnished\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"furnished\">Is Furnished</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</form> \n\n\t</ng-container>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-add-unit-wrapper\">\n\n    <app-loader *ngIf=\"!isUnitSubmitted\"></app-loader>\n\n    <ng-container *ngIf=\"isUnitSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>Edit Unit</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow accent mb-5\" *ngIf=\"isUnitSubmitted\">\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Tower: </span>{{unit.apartmentBlockNumber}}</p>\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Unit: </span>{{unit.apartmentBlockUnitNumber}}</p>\n\t\t</div>\n\n\t\t<form #editUnitForm = \"ngForm\" name=\"editUnitForm\" (ngSubmit)=\"submitEditUnitForm(editUnitForm)\"  novalidate>\n\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Bulit Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"builtupArea\" [(ngModel)]=\"unit.builtupArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Unit Construction Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitConstructionArea\" [(ngModel)]=\"unit.carpetArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div> -->\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit Type\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t[fieldList]=\"unitTypeData\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"unit.unitTypeId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedUnitTypeId($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>No.of Cars Allowed</label>\n\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter No.of Cars\" name=\"unitCar\" \n\t\t\t\t\t\t[(ngModel)]=\"unit.cars\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Intercom\" name=\"intercom\" [(ngModel)]=\"unit.intercom\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitSold class=\"form-check-input\" id=\"unitSlod\" name=\"unitSold\" [(ngModel)]=\"unit.isSold\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitSlod\">Is Sold</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitVacant class=\"form-check-input\" id=\"unitVacant\" name=\"unitVacant\" [(ngModel)]=\"unit.isVacant\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitVacant\">Is Vacant</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #petsAllowed class=\"form-check-input\" id=\"petsAllowed\" name=\"petsAllowed\" [(ngModel)]=\"unit.isPetsAllowed\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"petsAllowed\">Is Pets Allowed</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #furnished class=\"form-check-input\" id=\"furnished\" name=\"furnished\" [(ngModel)]=\"unit.isFurnished\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"furnished\">Is Furnished</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</form> \n\n\t</ng-container>\n</div>\n");
 
 /***/ }),
 
@@ -631,7 +631,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
         this.columnData = [{
                 text: 'Tower No',
                 datafield: 'apartmentBlockNumber',
-                width: 160,
+                width: 220,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -639,35 +639,35 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             {
                 text: 'Unit No',
                 datafield: 'apartmentBlockUnitNumber',
-                width: 110,
+                width: 180,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Built Area SQ.M',
                 datafield: 'builtupArea',
-                width: 150,
+                width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
-            {
-                text: 'Unit Construction Area SQ.M',
-                datafield: 'carpetArea',
-                width: 240,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            },
+            // {
+            //   text: 'Unit Construction Area SQ.M',
+            //   datafield: 'carpetArea',
+            //   width: 240,
+            //   cellsrenderer: cellsrenderer,
+            //   renderer: columnrenderer
+            // },
             {
                 text: 'Unit Type',
                 datafield: 'unitType',
-                width: 120,
+                width: 160,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Is Furnished',
                 datafield: 'isFurnished',
-                width: 130,
+                width: 150,
                 cellsrenderer: (row, column, value) => {
                     return '<div style="padding: 14px; overflow: hidden; text-overflow: ellipsis; text-align: center"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
                 },
@@ -676,7 +676,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             {
                 text: 'Pets Allowed',
                 datafield: 'isPetsAllowed',
-                width: 130,
+                width: 150,
                 cellsrenderer: (row, column, value) => {
                     return '<div style="padding: 14px; overflow: hidden; text-overflow: ellipsis; text-align: center"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
                 },
@@ -685,7 +685,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             {
                 text: 'Is Vacant',
                 datafield: 'isVacant',
-                width: 130,
+                width: 170,
                 cellsrenderer: (row, column, value) => {
                     return '<div style="padding: 14px; overflow: hidden; text-overflow: ellipsis; text-align: center"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
                 },

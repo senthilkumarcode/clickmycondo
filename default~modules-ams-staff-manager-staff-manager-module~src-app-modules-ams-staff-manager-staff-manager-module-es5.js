@@ -5,7 +5,7 @@
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-staff-manager-staff-manager-module"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module"], {
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.html":
     /*!*******************************************************************************************************************************!*\
@@ -163,26 +163,6 @@
 
 
       __webpack_exports__["default"] = "<p>\n  staff-payroll works!\n</p>\n";
-      /***/
-    },
-
-    /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.html":
-    /*!***************************************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.html ***!
-      \***************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsStaffManagerComponentsStaffReportsStaffReportsComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<p>\n  staff-reports works!\n</p>\n";
       /***/
     },
 
@@ -3475,87 +3455,6 @@
     },
 
     /***/
-    "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.scss":
-    /*!*************************************************************************************************!*\
-      !*** ./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.scss ***!
-      \*************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesAmsStaffManagerComponentsStaffReportsStaffReportsComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3N0YWZmLW1hbmFnZXIvY29tcG9uZW50cy9zdGFmZi1yZXBvcnRzL3N0YWZmLXJlcG9ydHMuY29tcG9uZW50LnNjc3MifQ== */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts":
-    /*!***********************************************************************************************!*\
-      !*** ./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts ***!
-      \***********************************************************************************************/
-
-    /*! exports provided: StaffReportsComponent */
-
-    /***/
-    function srcAppModulesAmsStaffManagerComponentsStaffReportsStaffReportsComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "StaffReportsComponent", function () {
-        return StaffReportsComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-      var StaffReportsComponent = /*#__PURE__*/function () {
-        function StaffReportsComponent() {
-          _classCallCheck(this, StaffReportsComponent);
-        }
-
-        _createClass(StaffReportsComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {}
-        }]);
-
-        return StaffReportsComponent;
-      }();
-
-      StaffReportsComponent.ctorParameters = function () {
-        return [];
-      };
-
-      StaffReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-staff-reports',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./staff-reports.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./staff-reports.component.scss */
-        "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], StaffReportsComponent);
-      /***/
-    },
-
-    /***/
     "./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.scss":
     /*!*****************************************************************************************************************!*\
       !*** ./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.scss ***!
@@ -5067,4 +4966,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=modules-ams-staff-manager-staff-manager-module-es5.js.map
+//# sourceMappingURL=default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module-es5.js.map

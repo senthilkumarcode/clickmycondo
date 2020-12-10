@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-staff-manager-staff-manager-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module"],{
 
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.html":
 /*!*******************************************************************************************************************************!*\
@@ -101,19 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<p>\n  staff-payroll works!\n</p>\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.html":
-/*!***************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.html ***!
-  \***************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  staff-reports works!\n</p>\n");
 
 /***/ }),
 
@@ -2581,52 +2568,6 @@ StaffPayrollComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 /***/ }),
 
-/***/ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.scss":
-/*!*************************************************************************************************!*\
-  !*** ./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.scss ***!
-  \*************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3N0YWZmLW1hbmFnZXIvY29tcG9uZW50cy9zdGFmZi1yZXBvcnRzL3N0YWZmLXJlcG9ydHMuY29tcG9uZW50LnNjc3MifQ== */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts":
-/*!***********************************************************************************************!*\
-  !*** ./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts ***!
-  \***********************************************************************************************/
-/*! exports provided: StaffReportsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffReportsComponent", function() { return StaffReportsComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let StaffReportsComponent = class StaffReportsComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-StaffReportsComponent.ctorParameters = () => [];
-StaffReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-staff-reports',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./staff-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./staff-reports.component.scss */ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], StaffReportsComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.scss":
 /*!*****************************************************************************************************************!*\
   !*** ./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.scss ***!
@@ -3568,4 +3509,4 @@ StaffManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=modules-ams-staff-manager-staff-manager-module-es2015.js.map
+//# sourceMappingURL=default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module-es2015.js.map

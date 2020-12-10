@@ -8181,7 +8181,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"admin-dash-wiget-one row\">\n    <div class=\"col-xs-12 col-sm-4 col-xl-2\" *ngFor= \"let data of widgets\">\n        <div class=\"flip\" #menu *ngIf=\"!data.middle\">\n            <div class=\"front\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data)\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.front}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appFront\"></i>\n                            <mat-menu #appFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"back\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data)\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.backValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.back}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.backFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appBack\"></i>\n                            <mat-menu #appBack=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"admin-wid-one\" *ngIf=\"data.middle\">\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'owner'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='tenants'\"></mat-icon>\n                        </div>\n                        <h5>{{data.frontValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.front}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widront\"></i>\n                        <mat-menu #widFront=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'tenants'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='admin'\"></mat-icon>\n                        </div>\n                        <h5>{{data.middleValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.middle}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widMiddle\"></i>\n                        <mat-menu #widMiddle=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.middle,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.middle,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.middle,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'admin'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='owner'\"></mat-icon>\n                        </div>\n                        <h5>{{data.backValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.back}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widBack\"></i>\n                        <mat-menu #widBack=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<ng-template #dashboardReportRef>\n\n    <div class=\"info-modal-box vh-80 rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n       <div class=\"p-4\">\n        <router-outlet></router-outlet>\n       </div>\n    </div>\n\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"admin-dash-wiget-one row\">\n    <div class=\"col-xs-12 col-sm-4 col-xl-2\" *ngFor= \"let data of widgets\">\n        <div class=\"flip\" #menu *ngIf=\"!data.middle\">\n            <div class=\"front\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data, data.front)\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.front}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appFront\"></i>\n                            <mat-menu #appFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"back\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data,data.back )\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.backValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.back}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.backFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appBack\"></i>\n                            <mat-menu #appBack=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"admin-wid-one\" *ngIf=\"data.middle\">\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'owner'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data, data.front)\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='tenants'\"></mat-icon>\n                        </div>\n                        <h5>{{data.frontValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.front}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widront\"></i>\n                        <mat-menu #widFront=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'tenants'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data, data.middle)\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='admin'\"></mat-icon>\n                        </div>\n                        <h5>{{data.middleValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.middle}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widMiddle\"></i>\n                        <mat-menu #widMiddle=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.middle,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.middle,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.middle,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'admin'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data, data.back)\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='owner'\"></mat-icon>\n                        </div>\n                        <h5>{{data.backValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.back}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widBack\"></i>\n                        <mat-menu #widBack=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<ng-template #dashboardReportRef>\n\n    <div class=\"info-modal-box vh-80 rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n       <div class=\"p-4\">\n        <router-outlet></router-outlet>\n       </div>\n    </div>\n\n</ng-template>");
 
 /***/ }),
 
@@ -8207,7 +8207,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-xs-12 col-sm-6 col-xl-3\" *ngFor=\"let label of widgetData\">\n        <div class=\"dash-wiget-two flip dash-space\" #menu>\n            <!-- Front Widget-->\n            <div class=\"front\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 gradient-iyal wid-height\">\n                        <div>\n                            <div class=\"mb-3 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\"></mat-icon>\n                            </div>\n                            <div class=\"mb-3 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-3\" (click)=\"flip(menu)\"></mat-icon>\n                            <h6 class=\"mb-3 clear text-right\">{{label.front}}</h6> \n                            <h5 class=\"text-right font-medium mb-3\">{{label.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <!-- <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div class=\"label\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"feather:calendar\"></mat-icon> \n                            <span class=\"align-top\">Last day</span>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.frontFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.front,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.front,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.front,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div> -->\n                </div>\n            </div>\n\n             <!-- Back Widget-->\n            <div class=\"back\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 gradient-iyal wid-height\">\n                        <div>\n                            <div class=\"mb-3 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\"></mat-icon>\n                            </div>\n                            <div class=\"mb-3 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-3\" (click)=\"flip(menu)\"></mat-icon>\n                            <h6 class=\"mb-3 clear\">{{label.back}}</h6> \n                            <h5 class=\"text-right font-medium mb-3\">{{label.backValue}}</h5> \n                        </div>\n                    </div>\n                    <!-- <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div class=\"label\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"feather:calendar\"></mat-icon> \n                            <span class=\"align-top\">Last day</span>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.backFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.back,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.back,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.back,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<ng-template #datePopup>\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"text-right\">\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form #widgetFilter=\"ngForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>From Date</label>\n                        <input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n                        [owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"filterField.fromDate\" placeholder=\"From Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\" *ngIf=\"currentClick != 'alerts'\">\n                    <div class=\"input-box\">\n                        <label>To Date</label>\n                        <input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n                        [owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"filterField.toDate\" placeholder=\"To Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                   <div class=\"float-right\">\n                        <button mat-flat-button  [color]=\"'primary'\" [disabled]=\"widgetFilter.invalid\" (click)=\"applyFilter()\">Filter</button>\n                   </div>\n                </div>\n            </div>\n        </form>\n    </div>\n</ng-template>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-xs-12 col-sm-6 col-xl-3\" *ngFor=\"let label of widgetData\">\n        <div class=\"dash-wiget-two flip dash-space\" #menu>\n            <!-- Front Widget-->\n            <div class=\"front\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 gradient-iyal wid-height\">\n                        <div>\n                            <div class=\"mb-3 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\" (click)=\"detailInfo(label, label.front)\"></mat-icon>\n                            </div>\n                            <div class=\"mb-3 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-3\" (click)=\"label.isFlip ? flip(menu) : ''\"></mat-icon>\n                            <h6 class=\"mb-3 clear text-right\">{{label.front}}</h6> \n                            <h5 class=\"text-right font-medium mb-3\">{{label.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <!-- <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div class=\"label\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"feather:calendar\"></mat-icon> \n                            <span class=\"align-top\">Last day</span>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.frontFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.front,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.front,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.front,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div> -->\n                </div>\n            </div>\n\n             <!-- Back Widget-->\n            <div class=\"back\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 gradient-iyal wid-height\">\n                        <div>\n                            <div class=\"mb-3 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\" (click)=\"detailInfo(label, label.back)\"></mat-icon>\n                            </div>\n                            <div class=\"mb-3 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-3\" (click)=\"label.isFlip ? flip(menu) : ''\"></mat-icon>\n                            <h6 class=\"mb-3 clear\">{{label.back}}</h6> \n                            <h5 class=\"text-right font-medium mb-3\">{{label.backValue}}</h5> \n                        </div>\n                    </div>\n                    <!-- <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div class=\"label\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"feather:calendar\"></mat-icon> \n                            <span class=\"align-top\">Last day</span>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.backFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.back,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.back,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.back,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<ng-template #datePopup>\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"text-right\">\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form #widgetFilter=\"ngForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>From Date</label>\n                        <input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n                        [owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"filterField.fromDate\" placeholder=\"From Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\" *ngIf=\"currentClick != 'alerts'\">\n                    <div class=\"input-box\">\n                        <label>To Date</label>\n                        <input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n                        [owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"filterField.toDate\" placeholder=\"To Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                   <div class=\"float-right\">\n                        <button mat-flat-button  [color]=\"'primary'\" [disabled]=\"widgetFilter.invalid\" (click)=\"applyFilter()\">Filter</button>\n                   </div>\n                </div>\n            </div>\n        </form>\n    </div>\n</ng-template>\n\n\n<ng-template #dashboardReportRef>\n\n    <div class=\"info-modal-box vh-80 rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n       <div class=\"p-4\">\n        <router-outlet></router-outlet>\n       </div>\n    </div>\n\n</ng-template>");
 
 /***/ }),
 
@@ -9996,7 +9996,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
 
@@ -10071,6 +10071,10 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             }
         ];
         this.colType = 'owner';
+        this._router.events.subscribe(e => {
+            if (e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivationStart"] && e.snapshot.outlet === "primary")
+                this.outlet.deactivate();
+        });
     }
     flip(data) {
         let front = data.firstElementChild;
@@ -10084,24 +10088,39 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             back.classList.add('flip-ft');
         }
     }
-    detailInfo(data) {
+    detailInfo(data, item) {
         let dialogRef = this.dialog.open(this.dashboardReportRef, {
             panelClass: 'material-dialog-big'
         });
         dialogRef.afterOpened().subscribe((res) => {
-            if (data.front === "Vacant list") {
-                let name = "List of Vacant List";
+            if (item === "Vacant list") {
+                let name = "List of Vacant Units";
                 this._router.navigate([`/ams/dashboard/main/report/reports/${name}/456`]);
             }
-            else if (data.back === "Towers") {
+            else if (item === "Towers") {
                 let name = "List of Blocks / Towers";
                 name = name.replace('/', '#');
                 this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1034`]);
             }
-            else if (data.front === "Units") {
+            else if (item === "Units") {
                 let name = "List of Units";
                 name = name.replace('/', '#');
                 this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1035`]);
+            }
+            else if (item === "Owners") {
+                let name = "List of Owners";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1036`]);
+            }
+            else if (item === "Tenants") {
+                let name = "List of Tenants";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1037`]);
+            }
+            else if (item === "Community Staffs") {
+                let name = "List of Community Staffs";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/staff/reports`]);
             }
             else {
                 let name = "List of Expiring Rental  Lease Agreements";
@@ -10109,7 +10128,7 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             }
         });
         dialogRef.afterClosed().subscribe((res) => {
-            this._router.navigate(['/ams/dashboard/main']);
+            this._router.navigate(['/ams/dashboard/main'], { relativeTo: this._activatedRoute });
         });
     }
     yesterday(type) {
@@ -10229,10 +10248,11 @@ AdminDashFirstRowComponent.ctorParameters = () => [
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"] }
 ];
 AdminDashFirstRowComponent.propDecorators = {
-    dashboardReportRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["dashboardReportRef", { static: false },] }]
+    dashboardReportRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["dashboardReportRef", { static: false },] }],
+    outlet: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterOutlet"],] }]
 };
 AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -10247,7 +10267,7 @@ AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])
 ], AdminDashFirstRowComponent);
 
 
@@ -10587,6 +10607,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
 
 
 
@@ -10596,11 +10618,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
-    constructor(dialog, dashboardService, ticketService, sessionService) {
+    constructor(dialog, dashboardService, ticketService, sessionService, _activatedRoute, _router) {
         this.dialog = dialog;
         this.dashboardService = dashboardService;
         this.ticketService = ticketService;
         this.sessionService = sessionService;
+        this._activatedRoute = _activatedRoute;
+        this._router = _router;
         this.filterField = {};
         this.isFilterSubmit = false;
         this.widgetData = [
@@ -10644,6 +10668,10 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
                 isFlip: true
             },
         ];
+        this._router.events.subscribe(e => {
+            if (e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivationStart"] && e.snapshot.outlet === "primary")
+                this.outlet.deactivate();
+        });
     }
     flip(data) {
         let front = data.firstElementChild;
@@ -10768,10 +10796,19 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
     }
     unassignedTickets() {
         const params = {
-            apartmentId: this.sessionService.apartmentId,
+            ApartmentID: this.sessionService.apartmentId,
+            ApartmentBlockID: this.sessionService.apartmentBlockID,
+            StartDate: "2020-01-01",
+            EndDate: moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).format("YYYY-MM-DD").toString(),
+            TicketStatus: null,
+            TicketType: null,
+            TicketRaisedBy: null,
+            AssignedToStaffId: null,
+            StaffCategoryType: null,
+            StaffSubCategoryType: null,
         };
-        this.ticketService.getAllUnAssignedTicketsByApartmentId(params).subscribe((res) => {
-            this.widgetData[2].frontValue = res.length;
+        this.ticketService.getDashUnassignedTicketsbyApartmentId(params).subscribe((res) => {
+            this.widgetData[2].frontValue = res;
         });
     }
     inProgressPanicAlerts(result) {
@@ -10805,20 +10842,58 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
         this.unassignedTickets();
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            date: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().subtract(10, 'months').startOf('month').toISOString()
+            date: moment__WEBPACK_IMPORTED_MODULE_6__(new Date("2020-01-01")).format("MM/DD/YYYY") // _moment().subtract(10,'months').startOf('month').toISOString()
         };
         this.inProgressPanicAlerts(params);
         this.openPanicAlerts(params);
+    }
+    detailInfo(data, item) {
+        let dialogRef = this.dialog.open(this.dashboardReportRef, {
+            panelClass: 'material-dialog-big'
+        });
+        dialogRef.afterOpened().subscribe((res) => {
+            if (item === "Open Community Tickets") {
+                let name = "List of tickets";
+                this._router.navigate([`/ams/dashboard/main/helpdesk/reports/${name}/362/true/24/32`]);
+            }
+            else if (item === "Open Personal Tickets") {
+                let name = "List of tickets";
+                this._router.navigate([`/ams/dashboard/main/helpdesk/reports/${name}/362/true/27/32`]);
+            }
+            else if (item === "Unassigned Tickets") {
+                let name = "List of Unassigned tickets";
+                this._router.navigate([`/ams/dashboard/main/helpdesk/reports/${name}/364/true`]);
+            }
+            else if (item === "Open Panic Alerts") {
+                let name = "List of Open Panic Alerts";
+                this._router.navigate([`/ams/dashboard/main/security/reports/${name}/135/true`]);
+            }
+            else if (item === "Inprogrss Panic Alerts") {
+                let name = "List of Inprogrss Panic Alerts";
+                this._router.navigate([`/ams/dashboard/main/security/reports/${name}/136/true`]);
+            }
+            else {
+                let name = "List of Expiring Rental  Lease Agreements";
+                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/338`]);
+            }
+        });
+        dialogRef.afterClosed().subscribe((res) => {
+            this._router.navigate(['/ams/dashboard/main'], { relativeTo: this._activatedRoute });
+        });
     }
 };
 AdminWidgetTwoComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__["TicketService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] }
 ];
 AdminWidgetTwoComponent.propDecorators = {
-    datePopup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["datePopup",] }]
+    datePopup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["datePopup",] }],
+    dashboardReportRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["dashboardReportRef", { static: false },] }],
+    outlet: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: [_angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterOutlet"],] }]
 };
 AdminWidgetTwoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -10830,7 +10905,9 @@ AdminWidgetTwoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__["TicketService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])
 ], AdminWidgetTwoComponent);
 
 
@@ -11764,6 +11841,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard.component */ "./src/app/modules/ams/dashboard/dashboard.component.ts");
 /* harmony import */ var _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/dashboard/admin-dashboard/admin-dashboard.component */ "./src/app/modules/ams/dashboard/components/dashboard/admin-dashboard/admin-dashboard.component.ts");
 /* harmony import */ var _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/dashboard/custom-dashboard/custom-dashboard.component */ "./src/app/modules/ams/dashboard/components/dashboard/custom-dashboard/custom-dashboard.component.ts");
+/* harmony import */ var _staff_manager_components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../staff-manager/components/staff-reports/staff-reports.component */ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts");
+/* harmony import */ var _common_helpdesk_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../common/helpdesk/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component */ "./src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.ts");
+/* harmony import */ var _security_components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../security/components/security-reports/security-reports-data/security-reports-data.component */ "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.ts");
+
+
+
 
 
 
@@ -11774,10 +11857,24 @@ const routes = [
     { path: '', component: _dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], children: [
             { path: '', redirectTo: 'main', pathMatch: 'full' },
             { path: 'main', component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"], children: [
-                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~a9c10c49"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~93a0ca5d"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~e24ef838"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) }
+                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) },
+                    { path: 'staff', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-staff-manager-staff-manager-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-manager.module */ "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(m => m.StaffManagerModule),
+                        children: [
+                            { path: 'reports', component: _staff_manager_components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_6__["StaffReportsComponent"] },
+                        ] },
+                    { path: 'helpdesk', loadChildren: () => Promise.all(/*! import() | src-app-modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module~src-app-modules-common-help~e18471af")]).then(__webpack_require__.bind(null, /*! src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module */ "./src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module.ts")).then(m => m.HelpdeskReportsModule),
+                        children: [
+                            { path: 'reports/:name/:id/:link/:type/:status', component: _common_helpdesk_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskReportsDataComponent"] },
+                            { path: 'reports/:name/:id/:link', component: _common_helpdesk_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskReportsDataComponent"] },
+                        ] },
+                    { path: 'security', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-security-security-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/security/security.module */ "./src/app/modules/ams/security/security.module.ts")).then(m => m.SecurityModule),
+                        children: [
+                            { path: 'reports/:name/:type/:link', component: _security_components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_8__["SecurityReportsDataComponent"] },
+                        ] }
                 ] },
             { path: 'custom', component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"] }
         ] }
+    //typeStatus
 ];
 let DashboardRoutingModule = class DashboardRoutingModule {
 };

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~93a0ca5d"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"],{
 
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/select/panel-list/panel-list.component.html":
 /*!**************************************************************************************************************!*\
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-wrapper input-box\" #selectFieldElem>\n    <label [ngClass]=\"isLabel == 'false' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{getLabelText(labelText)}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n    <div class=\"input-wrapper\">\n        <input type=\"text\" \n\t\treadonly\n\t\tclass=\"form-control condo-select\" \n\t\tplaceholder = \"{{fieldPlaceholder}}\"\n\t\tname = \"{{fieldName}}\"\n\t\t[required]=\"isFieldRequired() ? 'required' : null\"\n        [(ngModel)]=\"selectedModel\"\n        (click)=\"OpenDropDown()\"\n        [ngClass]=\"isDisabled? 'input-disabled' : ''\"\n        autocomplete=\"off\" readonly>\n        <mat-icon class=\"close delete\" [svgIcon]=\"'close'\" *ngIf=\"isValue() && isFieldValue() && isClear\" (click)=\"clearSelection()\"></mat-icon>\n        <help-tooltip title=\"{{toolTip}}\" *ngIf=\"(!isValue() && isTooltip()) || (!isFieldValue() && isTooltip())\"></help-tooltip>\n    </div>\n</div>\n\n <!-- Tags panel -->\n <ng-template #selectPanel>\n    <app-panel-list [fieldList]=\"fieldList\" \n    [fieldValue]=\"fieldValue\" \n    [selectedItem]=\"selectedItem\"\n    (outputParams)=\"getFieldModel($event)\" ></app-panel-list>\n </ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-wrapper input-box\" #selectFieldElem>\n    <label [ngClass]=\"isLabel == 'false' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{getLabelText(labelText)}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 font-medium\">*</span></label>\n    <div class=\"input-wrapper\">\n        <input type=\"text\" \n\t\treadonly\n\t\tclass=\"form-control condo-select\" \n\t\tplaceholder = \"{{fieldPlaceholder}}\"\n\t\tname = \"{{fieldName}}\"\n\t\t[required]=\"isFieldRequired() ? 'required' : null\"\n        [(ngModel)]=\"selectedModel\"\n        (click)=\"OpenDropDown()\"\n        [ngClass]=\"isDisabled? 'input-disabled' : ''\"\n        autocomplete=\"off\" readonly>\n        <mat-icon class=\"close delete\" [svgIcon]=\"'close'\" *ngIf=\"isValue() && isFieldValue() && isClear\" (click)=\"clearSelection()\"></mat-icon>\n        <help-tooltip title=\"{{toolTip}}\" *ngIf=\"(!isValue() && isTooltip()) || (!isFieldValue() && isTooltip())\"></help-tooltip>\n    </div>\n</div>\n\n <!-- Tags panel -->\n <ng-template #selectPanel>\n    <app-panel-list [fieldList]=\"fieldList\" \n    [fieldValue]=\"fieldValue\" \n    [selectedItem]=\"selectedItem\"\n    (outputParams)=\"getFieldModel($event)\" ></app-panel-list>\n </ng-template>");
 
 /***/ }),
 
@@ -336,4 +336,4 @@ SelectModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~93a0ca5d-es2015.js.map
+//# sourceMappingURL=default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498-es2015.js.map

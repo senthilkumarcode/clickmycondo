@@ -3079,7 +3079,7 @@ let LoginComponent = class LoginComponent {
             // Show the error message
             this.message = {
                 appearance: 'outline',
-                content: 'Network Error',
+                content: 'Network Error Please retry after some time',
                 shake: true,
                 showIcon: true,
                 type: 'error'
