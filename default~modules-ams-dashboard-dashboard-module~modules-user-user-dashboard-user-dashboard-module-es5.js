@@ -16946,7 +16946,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */
               "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(function (m) {
                 return m.UnitUsersReportModule;
@@ -16957,7 +16957,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-staff-manager-staff-manager-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/staff-manager/staff-manager.module */
               "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(function (m) {
                 return m.StaffManagerModule;
@@ -16972,7 +16972,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module~src-app-modules-common-help~e18471af")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module~src-app-modules-common-help~e18471af")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module */
               "./src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module.ts")).then(function (m) {
                 return m.HelpdeskReportsModule;
@@ -16990,7 +16990,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-security-security-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~82e6bb5a"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~57c45498"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/security/security.module */
               "./src/app/modules/ams/security/security.module.ts")).then(function (m) {
                 return m.SecurityModule;
