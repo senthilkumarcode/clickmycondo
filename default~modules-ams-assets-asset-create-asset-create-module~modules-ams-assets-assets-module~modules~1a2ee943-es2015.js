@@ -6554,19 +6554,16 @@ let DatepickerComponent = class DatepickerComponent {
     }
     ngOnInit() {
         this.index = this.sharedService.guid().replace(/-/g, '');
-        /*if(this.fieldModel == undefined) {
-          this.selectedDate = moment().tz(this.timeZone.region);
-        }
-        else {
-          this.selectedDate = moment.utc(this.fieldModel).tz(this.timeZone.region)
-        }*/
+        this.dateTimeAdapter.setLocale(this.timeZone.language);
         if (this.fieldModel != undefined) {
             this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).tz(this.timeZone.region);
+        }
+        else {
+            this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__().tz(this.timeZone.region);
         }
     }
     ngOnChanges() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        this.dateTimeAdapter.setLocale(this.timeZone.language);
         /*if(this.fieldModel == undefined) {
           this.selectedDate = moment().tz(this.timeZone.region);
         }

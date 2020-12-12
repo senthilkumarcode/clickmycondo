@@ -239,11 +239,10 @@ let SelectComponent = class SelectComponent {
             this.selectedItem = this.fieldList.filter(item => { return item[this.fieldId] == this.fieldModel; });
             if (this.selectedItem.length != 0)
                 this.selectedModel = this.selectedItem[0][this.fieldValue];
-            else
-                this.selectedModel = "";
         }
         else {
             this.selectedModel = "";
+            this.selectedItem = [];
         }
     }
 };
