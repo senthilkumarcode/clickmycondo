@@ -310,6 +310,21 @@
                       });
                     }
                   }
+
+                  if (res.code == 404) {
+                    _this2.isRouting = false;
+
+                    _this2.authService.clearApartmentDetails(); // Show the error message
+
+
+                    _this2.message = {
+                      appearance: 'outline',
+                      content: res.message,
+                      shake: true,
+                      showIcon: true,
+                      type: 'error'
+                    };
+                  }
                 }, function (error) {
                   _this2.isRouting = false;
 

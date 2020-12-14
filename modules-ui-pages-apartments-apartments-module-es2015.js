@@ -172,6 +172,18 @@ let ApartmentsComponent = class ApartmentsComponent {
                             });
                         }
                     }
+                    if (res.code == 404) {
+                        this.isRouting = false;
+                        this.authService.clearApartmentDetails();
+                        // Show the error message
+                        this.message = {
+                            appearance: 'outline',
+                            content: res.message,
+                            shake: true,
+                            showIcon: true,
+                            type: 'error'
+                        };
+                    }
                 }, error => {
                     this.isRouting = false;
                     this.authService.clearApartmentDetails();
