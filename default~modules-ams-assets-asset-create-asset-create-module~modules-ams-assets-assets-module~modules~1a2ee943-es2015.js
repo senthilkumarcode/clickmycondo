@@ -6485,7 +6485,7 @@ OwlNativeDateTimeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n        <ng-container *ngIf=\"type == 'date'\">\n            <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        \n            <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n            [owlDateTimeTrigger]=\"index\" placeholder=\"Date\" [(ngModel)]=\"selectedDate\" (ngModelChange)=\"onPickerChange()\" [disabled]=\"isDisabled\" [required]=\"isFieldRequired() ? 'required' : null\">\n\n            <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n            [value]=\"fieldModel | userDateFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\" [required]=\"isFieldRequired() ? 'required' : null\"/>\n        \n            <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n            <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"type == 'dateTime'\">\n            <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n            <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n            placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n            \n            <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n            [value]=\"fieldModel | userDateTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\" [required]=\"isFieldRequired() ? 'required' : null\"/>\n            \n            <owl-date-time #index></owl-date-time>\n            <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"type == 'time'\">\n            <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n            \n            <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n            placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n            \n            <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Time\"\n            [value]=\"fieldModel | userTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\" [required]=\"isFieldRequired() ? 'required' : null\"/>\n            \n            <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n            <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n            </div>\n        </ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n        <ng-container *ngIf=\"type == 'date'\">\n            <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        \n            <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n            [owlDateTimeTrigger]=\"index\" placeholder=\"Date\" [(ngModel)]=\"selectedDate\" (ngModelChange)=\"onPickerChange()\" (input)=\"onInputChange($event.target.value)\" [disabled]=\"isDisabled\" [required]=\"isFieldRequired() ? 'required' : null\">\n\n            <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n            [value]=\"fieldModel | userDateFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\" [required]=\"isFieldRequired() ? 'required' : null\"/>\n        \n            <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n            <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"type == 'dateTime'\">\n            <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n            <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n            placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n            \n            <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n            [value]=\"fieldModel | userDateTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\" [required]=\"isFieldRequired() ? 'required' : null\"/>\n            \n            <owl-date-time #index></owl-date-time>\n            <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"type == 'time'\">\n            <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n            \n            <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n            placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n            \n            <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Time\"\n            [value]=\"fieldModel | userTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\" [required]=\"isFieldRequired() ? 'required' : null\"/>\n            \n            <owl-date-time #index [pickerType]=\"'timer'\" [hour12Timer]=\"isHour12Timer\" ></owl-date-time>\n            <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n            </div>\n        </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -6534,17 +6534,16 @@ let DatepickerComponent = class DatepickerComponent {
         this.labelText = '';
         this.fieldClass = '';
         this.fieldReadonly = false;
+        this.isHour12Timer = true;
         this.isDisabled = false;
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_5__["timeZones"];
+        this.isPickerOpened = false;
     }
     isFieldRequired() {
         return this.fieldRequired == "required" ? true : false;
     }
     onPickerChange() {
-        //let picker = this.timeZone.picker;
-        //let utcDate:any = moment(this.selectedDate).subtract(picker.offset, 'hours').format().split('+');
-        //this.fieldParams.emit(utcDate[0])
         this.fieldParams.emit(moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.selectedDate));
     }
     camelCase(str) {
@@ -6554,7 +6553,6 @@ let DatepickerComponent = class DatepickerComponent {
     }
     ngOnInit() {
         this.index = this.sharedService.guid().replace(/-/g, '');
-        this.dateTimeAdapter.setLocale(this.timeZone.language);
         if (this.fieldModel != undefined) {
             this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).tz(this.timeZone.region);
         }
@@ -6564,18 +6562,19 @@ let DatepickerComponent = class DatepickerComponent {
     }
     ngOnChanges() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        /*if(this.fieldModel == undefined) {
-          this.selectedDate = moment().tz(this.timeZone.region);
-        }
-        else {
-          this.selectedDate = moment.utc(this.fieldModel).tz(this.timeZone.region)
-        }*/
         if (this.fieldModel != undefined) {
             this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).tz(this.timeZone.region);
         }
-        //console.log(this.fieldModel)
-        //console.log(this.selectedDate)
-        //this.selectedDate = moment.utc(this.fieldModel).add(picker.offset, 'hours').toISOString().replace('Z', '')
+        else {
+            this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__().tz(this.timeZone.region);
+        }
+        if (this.min != null) {
+            this.min = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.min).tz(this.timeZone.region);
+        }
+        if (this.max != null) {
+            this.max = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.max).tz(this.timeZone.region);
+        }
+        this.dateTimeAdapter.setLocale(this.timeZone.language);
     }
 };
 DatepickerComponent.ctorParameters = () => [
@@ -6589,6 +6588,7 @@ DatepickerComponent.propDecorators = {
     type: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     fieldClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     fieldReadonly: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    isHour12Timer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     fieldModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     min: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     max: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
