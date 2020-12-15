@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                                        <div class=\"filter-box cleafix\">\n                                                <div class=\"row align-items-center mb-4\">\n                                                    \n                                            \n                                                        <button mat-flat-button class=\"mr-3 mb-2\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                            Towers</button>\n                                                        <button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n                                                        <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                            <ng-container *ngFor=\"let block of unitBlocksData\">\n                                                                <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                                    {{block.apartmentBlockNumber}}\n                                                                </button>\n                                                            </ng-container>\n                                                        </mat-menu>\n                                            \n                                                        <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                             [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                                    \n                                                </div>\n                                            </div>\n                                    <div class=\"row\">\n                \n                                        <!-- <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div> -->\n\n                                       \n                                       \n                                    </div>\n                                    <!-- <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div> -->\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n             \n\t\t\t\t<!-- <div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div> -->\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\t<!-- vehicle info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Rental info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Pets info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Units -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Blocks -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Tenant -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Owners -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Admins -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    \t<!-- List of Vacant List -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfVacantList()\">\n            <div CondoCardHeader>\n                    <div class=\"row\">\n                            <div class=\"float-right\">\n                                        \n                                    <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                        routerLinkActive=\"active\"\n                                        [routerLinkActiveOptions] = \"{exact:true}\">\n                                        <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                        \n                                    </a>\n                                \n                                </div>\n                    </div>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n                            <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                                <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div class=\"mr-3 my-auto ml-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                </button>\n                                <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                        <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                      </button>\n                            </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                                        <div class=\"filter-box cleafix\">\n                                                <div class=\"row align-items-center mb-4\">\n                                                    \n                                            \n                                                        <button mat-flat-button class=\"mr-3 mb-2\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                            Towers</button>\n                                                        <button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n                                                        <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                            <ng-container *ngFor=\"let block of unitBlocksData\">\n                                                                <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                                    {{block.apartmentBlockNumber}}\n                                                                </button>\n                                                            </ng-container>\n                                                        </mat-menu>\n                                            \n                                                        <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                             [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                                    \n                                                </div>\n                                            </div>\n                                    <div class=\"row\">\n                \n                                        <!-- <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div> -->\n\n                                       \n                                       \n                                    </div>\n                                    <!-- <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div> -->\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n             \n\t\t\t\t<!-- <div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div> -->\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\t<!-- vehicle info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Rental info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    <condo-card *ngIf=\"isDataLoaded && isListOfExpiredRental()\">\n            <div CondoCardHeader>\n                    <div class=\"row\">\n                            <div class=\"float-right\" *ngIf=\"!allLink\">\n                                        \n                                    <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                        routerLinkActive=\"active\"\n                                        [routerLinkActiveOptions] = \"{exact:true}\">\n                                        <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                        \n                                    </a>\n                                \n                                </div>\n                    </div>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n                            <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                                <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div class=\"mr-3 my-auto ml-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                </button>\n                                <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                        <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                      </button>\n                            </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n\n\t<!-- Pets info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Units -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n    \n\t<!-- List of Blocks -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Tenant -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Owners -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Admins -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    \t<!-- List of Vacant List -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfVacantList()\">\n            <div CondoCardHeader>\n                    <div class=\"row\">\n                            <div class=\"float-right\" *ngIf=\"!allLink\">\n                                        \n                                    <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                        routerLinkActive=\"active\"\n                                        [routerLinkActiveOptions] = \"{exact:true}\">\n                                        <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                        \n                                    </a>\n                                \n                                </div>\n                    </div>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n                            <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                                <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div class=\"mr-3 my-auto ml-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                </button>\n                                <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                        <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                      </button>\n                            </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n\n\n        <!-- List of Is Living -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfIsLiving()\">\n            <div CondoCardHeader>\n                    <div class=\"row\">\n                            <div class=\"float-right\" *ngIf=\"!allLink\">\n                                        \n                                    <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                        routerLinkActive=\"active\"\n                                        [routerLinkActiveOptions] = \"{exact:true}\">\n                                        <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                        \n                                    </a>\n                                \n                                </div>\n                    </div>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>List of Living</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n                            <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                                <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div class=\"mr-3 my-auto ml-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                </button>\n                                <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                        <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                      </button>\n                            </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n\n        <condo-card *ngIf=\"isDataLoaded && isListOfIsPrimaryContact()\">\n                <div CondoCardHeader>\n                        <div class=\"row\">\n                                <div class=\"float-right\" *ngIf=\"!allLink\">\n                                            \n                                        <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                            routerLinkActive=\"active\"\n                                            [routerLinkActiveOptions] = \"{exact:true}\">\n                                            <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                            \n                                        </a>\n                                    \n                                    </div>\n                        </div>\n                    <div class=\"d-flex\">\n                        <div>\n                            <h4>List of PrimaryContact</h4>\n                            <p>{{totalItems}} results</p>\n                        </div>\n                        <div class=\"ml-auto my-auto\">\n                                <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3 my-auto ml-3\">\n                                    <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                                </div>\n                                <div class=\"mr-3 my-auto ml-3\">\n                                    <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                        <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                    </button>\n                                    <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                            <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                          </button>\n                                </div>\n                    </div>\n                </div>\n                <div CondoCardBody>\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                        [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                        [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                    </jqxGrid>\n                </div>\n            </condo-card>\n            <condo-card *ngIf=\"isDataLoaded && isListOfUnapprovedPendingAdmins()\">\n                    <div CondoCardHeader>\n                            <div class=\"row\">\n                                    <div class=\"float-right\" *ngIf=\"!allLink\">\n                                                \n                                            <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                                routerLinkActive=\"active\"\n                                                [routerLinkActiveOptions] = \"{exact:true}\">\n                                                <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                                \n                                            </a>\n                                        \n                                        </div>\n                            </div>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>{{pageName}}</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto my-auto\">\n                                    <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                                </div>\n                                <div class=\"mr-3 my-auto ml-3\">\n                                        <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                                    </div>\n                                    <div class=\"mr-3 my-auto ml-3\">\n                                        <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                        </button>\n                                        <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                                <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                              </button>\n                                    </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                            [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                            [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                        </jqxGrid>\n                    </div>\n                </condo-card>\n            \n                <condo-card *ngIf=\"isDataLoaded && isListOfUnapprovedPendingUsers()\">\n                        <div CondoCardHeader>\n                                <div class=\"row\">\n                                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                                    \n                                                <a href=\"javascript:void(0)\" routerLink=\"/ams/unit&users/reports\" \n                                                    routerLinkActive=\"active\"\n                                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                                    \n                                                </a>\n                                            \n                                            </div>\n                                </div>\n                            <div class=\"d-flex\">\n                                <div>\n                                    <h4>{{pageName}}</h4>\n                                    <p>{{totalItems}} results</p>\n                                </div>\n                                <div class=\"ml-auto my-auto\">\n                                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                                    </div>\n                                    <div class=\"mr-3 my-auto ml-3\">\n                                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                                        </div>\n                                        <div class=\"mr-3 my-auto ml-3\">\n                                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                            </button>\n                                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                                  </button>\n                                        </div>\n                            </div>\n                        </div>\n                        <div CondoCardBody>\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </condo-card>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -146,13 +146,23 @@
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
@@ -169,6 +179,7 @@
           this.sessionService = sessionService;
           this.pageName = "";
           this.pageDesp = "";
+          this.pageId = "";
           this.userReportData = "";
           this.ItemStartIndex = 0;
           this.itemLimit = 10;
@@ -182,6 +193,7 @@
           this.start_date = null;
           this.filterSelected = "all";
           this.singleBlock = "Select Tower";
+          this.allLink = false;
         }
 
         _createClass(UnitUsersReportDataComponent, [{
@@ -313,9 +325,14 @@
             return this.pageName == "List of Residents Vehicle Info";
           }
         }, {
+          key: "isListOfExpiredRental",
+          value: function isListOfExpiredRental() {
+            return this.pageName == "List of Expiring Rental / Lease Agreements";
+          }
+        }, {
           key: "isListOfExpiringRental",
           value: function isListOfExpiringRental() {
-            return this.pageName == "List of Expiring Rental  Lease Agreements";
+            return this.pageName == "Rental / Lease Agreements on expiry soon";
           }
         }, {
           key: "isListOfUsersWithPets",
@@ -351,6 +368,26 @@
           key: "isListOfVacantList",
           value: function isListOfVacantList() {
             return this.pageName == "List of Vacant Units";
+          }
+        }, {
+          key: "isListOfIsLiving",
+          value: function isListOfIsLiving() {
+            return this.pageName == "List of Living";
+          }
+        }, {
+          key: "isListOfIsPrimaryContact",
+          value: function isListOfIsPrimaryContact() {
+            return this.pageName == "List of PrimaryContact";
+          }
+        }, {
+          key: "isListOfUnapprovedPendingAdmins",
+          value: function isListOfUnapprovedPendingAdmins() {
+            return this.pageName == "List of Unapproved Unit Users" && this.pageId == "2026";
+          }
+        }, {
+          key: "isListOfUnapprovedPendingUsers",
+          value: function isListOfUnapprovedPendingUsers() {
+            return this.pageName == "List of Unapproved Unit Users" && this.pageId == "2027";
           }
         }, {
           key: "getDate",
@@ -601,7 +638,7 @@
 
                 _this3.showItems();
               });
-            } else if (this.isListOfExpiringRental()) {
+            } else if (this.isListOfExpiredRental()) {
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
@@ -654,6 +691,71 @@
               this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe(function (res) {
                 var gridSourceData = {
                   localdata: res,
+                  datatype: "array"
+                };
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
+
+                _this3.showItems();
+              });
+            } else if (this.isListOfExpiringRental()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 160,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                width: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                width: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Start Date',
+                datafield: 'agreementStartDate',
+                width: 130,
+                // cellsrenderer: cellsrenderer,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("YYYY-MM-DD") + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'End Date',
+                datafield: 'agreementEndDate',
+                width: 130,
+                // cellsrenderer: cellsrenderer,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("YYYY-MM-DD") + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'Rental Lease',
+                datafield: 'rentalorLease',
+                width: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(7, 'days').toISOString();
+              var toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+              this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe(function (res) {
+                var dataList = res.filter(function (x) {
+                  return x.agreementStartDate === fromDate && x.agreementEndDate === toDate;
+                });
+                var gridSourceData = {
+                  localdata: dataList,
                   datatype: "array"
                 };
                 _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
@@ -1083,6 +1185,290 @@
 
                 _this3.showItems();
               });
+            } else if (this.isListOfIsLiving()) {
+              this.columnData = [{
+                text: 'Tower & Unit',
+                datafield: 'aptName',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'First Name',
+                datafield: 'fN',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Last Name',
+                datafield: 'lN',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Middle Name',
+                datafield: 'mN',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var livingParams = {
+                apartmentId: this.sessionService.apartmentId,
+                appartmentbBlockIds: "1,5,6,9,10,89,90,91,92,93,94,96,97,98,99,100,101,102,103",
+                filter: "1",
+                RoleIds: "2,4",
+                conditionIds: "1",
+                staffcategoryIds: "",
+                staffSubCategoryIds: ""
+              };
+              this.userService.getUsersByFilterNew(livingParams).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
+
+                _this3.showItems();
+              });
+            } else if (this.isListOfIsPrimaryContact()) {
+              this.columnData = [{
+                text: 'Tower & Unit',
+                datafield: 'aptName',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'First Name',
+                datafield: 'fN',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Last Name',
+                datafield: 'lN',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Middle Name',
+                datafield: 'mN',
+                minwidth: 160,
+                maxwidth: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var _livingParams = {
+                apartmentId: this.sessionService.apartmentId,
+                appartmentbBlockIds: "",
+                filter: "1",
+                RoleIds: "2",
+                conditionIds: "2",
+                staffcategoryIds: "",
+                staffSubCategoryIds: ""
+              };
+              this.userService.getUsersByFilterNew(_livingParams).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
+
+                _this3.showItems();
+              });
+            } else if (this.isListOfExpiringRental()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 160,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                width: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                width: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Start Date',
+                datafield: 'agreementStartDate',
+                width: 130,
+                // cellsrenderer: cellsrenderer,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("YYYY-MM-DD") + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'End Date',
+                datafield: 'agreementEndDate',
+                width: 130,
+                // cellsrenderer: cellsrenderer,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("YYYY-MM-DD") + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'Rental Lease',
+                datafield: 'rentalorLease',
+                width: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+
+              var _fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(7, 'days').toISOString();
+
+              var _toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+
+              this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe(function (res) {
+                var dataList = res.filter(function (x) {
+                  return x.agreementStartDate === _fromDate && x.agreementEndDate === _toDate;
+                });
+                var gridSourceData = {
+                  localdata: dataList,
+                  datatype: "array"
+                };
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
+
+                _this3.showItems();
+              });
+            } else if (this.isListOfUnapprovedPendingAdmins()) {
+              this.columnData = [{
+                text: 'Name',
+                datafield: 'userName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Phone',
+                datafield: 'phoneNumber',
+                cellsrenderer: cellsrenderer,
+                width: 150,
+                renderer: columnrenderer
+              }, {
+                text: 'Email',
+                datafield: 'emailId',
+                cellsrenderer: cellsrenderer,
+                width: 200,
+                renderer: columnrenderer
+              }, {
+                text: 'Tower',
+                datafield: 'apartmentBlockNumber',
+                cellsrenderer: cellsrenderer,
+                width: 180,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit No',
+                datafield: 'apartmentBlockUnitNumber',
+                cellsrenderer: cellsrenderer,
+                width: 130,
+                renderer: columnrenderer
+              }, {
+                text: 'Role Type',
+                datafield: 'roleTypeName',
+                width: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Requested On',
+                datafield: 'insertedOn',
+                cellsrenderer: cellsrenderer,
+                width: 130,
+                renderer: columnrenderer
+              }];
+              var usersParams = {
+                apartmentID: this.sessionService.apartmentId
+              };
+              this.userService.getAllUnApprovedUsersByApartmentIdNew(usersParams).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res.filter(function (x) {
+                    return x.isDocSubmitted === true;
+                  }),
+                  datatype: "array"
+                };
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
+
+                _this3.showItems();
+              });
+            } else if (this.isListOfUnapprovedPendingUsers()) {
+              this.columnData = [{
+                text: 'Name',
+                datafield: 'userName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Phone',
+                datafield: 'phoneNumber',
+                cellsrenderer: cellsrenderer,
+                width: 150,
+                renderer: columnrenderer
+              }, {
+                text: 'Email',
+                datafield: 'emailId',
+                cellsrenderer: cellsrenderer,
+                width: 200,
+                renderer: columnrenderer
+              }, {
+                text: 'Tower',
+                datafield: 'apartmentBlockNumber',
+                cellsrenderer: cellsrenderer,
+                width: 180,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit No',
+                datafield: 'apartmentBlockUnitNumber',
+                cellsrenderer: cellsrenderer,
+                width: 130,
+                renderer: columnrenderer
+              }, {
+                text: 'Role Type',
+                datafield: 'roleTypeName',
+                width: 130,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Requested On',
+                datafield: 'insertedOn',
+                cellsrenderer: cellsrenderer,
+                width: 130,
+                renderer: columnrenderer
+              }];
+              var _usersParams = {
+                apartmentID: this.sessionService.apartmentId
+              };
+              this.userService.getAllUnApprovedUsersByApartmentIdNew(_usersParams).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res.filter(function (x) {
+                    return x.isDocSubmitted === false;
+                  }),
+                  datatype: "array"
+                };
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
+
+                _this3.showItems();
+              });
             }
           }
         }, {
@@ -1105,6 +1491,9 @@
               return _this4.timeZone = timeZone;
             });
             this.pageName = this.route.params['value'].name.replace('#', '/');
+            console.log(this.pageName);
+            this.allLink = this.route.params['value'].link;
+            this.pageId = this.route.params['value'].id;
             var unitBlockParams = {
               apartmentId: parseInt(localStorage.getItem('apartmentId'))
             };
@@ -1119,9 +1508,12 @@
               var data = res.filter(function (item) {
                 return item.lookupValueId == _this4.route.params['value'].id;
               });
-              _this4.pageName = data[0].lookupValueName; //.replace('/', '');
 
-              _this4.pageDesp = data[0].description;
+              if (data) {
+                _this4.pageName = data[0].lookupValueName; // replace('/', '');
+
+                _this4.pageDesp = data[0].description;
+              }
             });
             this.getBlockDetails();
           }
@@ -1275,6 +1667,10 @@
         path: 'reports/:name/:id',
         component: _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_5__["UnitUsersReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports/:name/:id/:link',
+        component: _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_5__["UnitUsersReportDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }];
 
       var UnitUsersReportRoutingModule = function UnitUsersReportRoutingModule() {
@@ -1376,6 +1772,23 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
+              // this.reportDataList = res;
+              var _arr = {
+                lookupValueID: 2030,
+                lookupValueName: 'List of Living',
+                description: 'Gives the list of Living',
+                statusId: 2030,
+                name: 'isLiving'
+              };
+              var _arr2 = {
+                lookupValueID: 2031,
+                lookupValueName: 'List of PrimaryContact',
+                description: 'Gives the list of PrimaryContact',
+                statusId: 2031,
+                name: 'IsPrimaryContact'
+              };
+              res.push(_arr);
+              res.push(_arr2);
               _this6.reportDataList = res;
               _this6.isDataLoaded = true;
             });

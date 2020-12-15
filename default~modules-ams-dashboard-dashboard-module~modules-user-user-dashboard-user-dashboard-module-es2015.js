@@ -8194,7 +8194,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-xs-12 col-sm-6 col-xl-3\" *ngFor=\"let label of widgetData\">\n        <div class=\"dash-wiget-three flip dash-space\" #menu>\n            <!-- Front Widget-->\n            <div class=\"front\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 bg-white-widget\">\n                        <div>\n                            <div class=\"mb-2 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\"></mat-icon>\n                            </div>\n                            <div class=\"mb-2 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-2\" (click)=\"flip(menu)\"></mat-icon>\n                            <h5 class=\"text-right font-medium\">{{label.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div>\n                            <p> {{label.front}}</p>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.frontFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.front,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.front,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.front,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n             <!-- Back Widget-->\n             <div class=\"back\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 bg-white-widget\">\n                        <div>\n                            <div class=\"mb-2 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\"></mat-icon>\n                            </div>\n                            <div class=\"mb-2 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-2\" (click)=\"flip(menu)\"></mat-icon>\n                            <h5 class=\"text-right font-medium\">{{label.backValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div>\n                            <p> {{label.back}}</p>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.backFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.back,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.back,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.back,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-xs-12 col-sm-6 col-xl-3\" *ngFor=\"let label of widgetData\">\n        <div class=\"dash-wiget-three flip dash-space\" #menu>\n            <!-- Front Widget-->\n            <div class=\"front\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 bg-white-widget\">\n                        <div>\n                            <div class=\"mb-2 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\" (click)=\"detailInfo(label, label.front)\"></mat-icon>\n                            </div>\n                            <div class=\"mb-2 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-2\" (click)=\"label.isFlip ? flip(menu) : ''\"></mat-icon>\n                            <h5 class=\"text-right font-medium\">{{label.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div>\n                            <p> {{label.front}}</p>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.frontFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.front,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.front,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.front,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n             <!-- Back Widget-->\n             <div class=\"back\">\n                <div class=\"shadow rounded\">\n                    <div class=\"d-flex p-4 bg-white-widget\">\n                        <div>\n                            <div class=\"mb-2 icon-left-top\">\n                                <mat-icon svgIcon=\"feather:eye\" (click)=\"detailInfo(label, label.back)\"></mat-icon>\n                            </div>\n                            <div class=\"mb-2 icon-left-bottom\">\n                                <mat-icon svgIcon=\"dripicons:wallet\"></mat-icon>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link float-right mb-2\" (click)=\"label.isFlip ? flip(menu) : ''\"></mat-icon>\n                            <h5 class=\"text-right font-medium\">{{label.backValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 foot-height\">\n                        <div>\n                            <p> {{label.back}}</p>\n                        </div>\n                        <div class=\"dashboard-dropdown ml-auto\" *ngIf=\"label.backFooter\">\n                            <mat-icon [matMenuTriggerFor]=\"appwidgetFront\" svgIcon=\":arrow_drop_down\"></mat-icon>\n                            <mat-menu #appwidgetFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',label.back,label.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',label.back,label.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(label.back,label.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<ng-template #dashboardReportRef>\n\n    <div class=\"info-modal-box vh-80 rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n       <div class=\"p-4\">\n        <router-outlet></router-outlet>\n       </div>\n    </div>\n\n</ng-template>");
 
 /***/ }),
 
@@ -10095,36 +10095,64 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
         dialogRef.afterOpened().subscribe((res) => {
             if (item === "Vacant list") {
                 let name = "List of Vacant Units";
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/456`]);
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/456/true`]);
             }
             else if (item === "Towers") {
                 let name = "List of Blocks / Towers";
                 name = name.replace('/', '#');
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1034`]);
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/1034/true`]);
             }
             else if (item === "Units") {
                 let name = "List of Units";
                 name = name.replace('/', '#');
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1035`]);
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/1035/true`]);
             }
             else if (item === "Owners") {
                 let name = "List of Owners";
                 name = name.replace('/', '#');
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1036`]);
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/1036/true`]);
             }
             else if (item === "Tenants") {
                 let name = "List of Tenants";
                 name = name.replace('/', '#');
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/1037`]);
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/1037/true`]);
             }
             else if (item === "Community Staffs") {
                 let name = "List of Community Staffs";
                 name = name.replace('/', '#');
-                this._router.navigate([`/ams/dashboard/main/staff/reports`]);
+                this._router.navigate([`/ams/dashboard/main/staff/reports/true`]);
+            }
+            else if (item === "Parking Slots") {
+                let name = "List of Parking Slots";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/parking/reports/${name}/true`]);
+            }
+            else if (item === "Unassigned Parking") {
+                let name = "List of Unassigned Parking Slots";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/parking/reports/${name}/true`]);
+            }
+            else if (item === "Rental/Lease Expired") {
+                let name = "List of Expiring Rental / Lease Agreements";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/338/true`]);
+            }
+            else if (item === "Rental/Lease on Expiry") {
+                let name = "Rental / Lease Agreements on expiry soon";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2028/true`]);
+            }
+            else if (item === "Is Living") {
+                let name = "List of Living";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2030/true`]);
+            }
+            else if (item === "Is PrimaryContact") {
+                let name = "List of PrimaryContact";
+                name = name.replace('/', '#');
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2030/true`]);
             }
             else {
-                let name = "List of Expiring Rental  Lease Agreements";
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/338`]);
             }
         });
         dialogRef.afterClosed().subscribe((res) => {
@@ -10225,8 +10253,8 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
             staffcategoryIds: "",
             staffSubCategoryIds: "",
         };
-        this.userService.getUsersByFilterNew(livingParams).subscribe((res) => {
-            this.widgets[4].frontValue = res.length;
+        this.userService.getDashTotalislivingusersCountbyApartmenId(livingParams).subscribe((res) => {
+            this.widgets[4].frontValue = res;
         });
         // this.unApproveMoveIn(this.today('unapprove'));
         // this.unApproveMoveOut(this.today('unapprove'));
@@ -10304,6 +10332,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/WorkPermit */ "./src/app/api/controllers/WorkPermit.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+
+
 
 
 
@@ -10311,10 +10343,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
-    constructor(sessionService, dashboardService, workPermitService) {
+    constructor(sessionService, dashboardService, workPermitService, _activatedRoute, _router, dialog) {
         this.sessionService = sessionService;
         this.dashboardService = dashboardService;
         this.workPermitService = workPermitService;
+        this._activatedRoute = _activatedRoute;
+        this._router = _router;
+        this.dialog = dialog;
         this.widgetData = [
             {
                 front: 'Visitors Checked-in',
@@ -10333,7 +10368,7 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
                 frontValue: '',
                 backValue: '',
                 type: 'visitor-checked',
-                isFlip: true
+                isFlip: false
             },
             {
                 front: 'Payment Defaulters Customers',
@@ -10396,6 +10431,10 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
                 isFlip: true
             }
         ];
+        this._router.events.subscribe(e => {
+            if (e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivationStart"] && e.snapshot.outlet === "primary")
+                this.outlet.deactivate();
+        });
     }
     flip(data) {
         let front = data.firstElementChild;
@@ -10531,7 +10570,7 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
     ngOnInit() {
         let entity = {
             apartmentId: this.sessionService.apartmentId,
-            startDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+            startDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()(new Date("2020-01-01")).format("MM/DD/YYYY"),
             EndDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
         };
         this.visitorsCheckedIn(entity);
@@ -10552,12 +10591,57 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
         this.workpermitsPendingApproval();
         this.upcomingWorkPermits();
     }
+    detailInfo(data, item) {
+        let dialogRef = this.dialog.open(this.dashboardReportRef, {
+            panelClass: 'material-dialog-big'
+        });
+        dialogRef.afterOpened().subscribe((res) => {
+            if (item === "Visitors Checked-in") {
+                let name = "List of Checked In Visitors";
+                this._router.navigate([`/ams/dashboard/main/visitor/reports/${name}/365/true`]);
+            }
+            else if (item === "Visitors Checked-out") {
+                let name = "List of Checked out Visitors";
+                this._router.navigate([`/ams/dashboard/main/visitor/reports/${name}/366/true`]);
+            }
+            else if (item === "Visitors Not Checked") {
+                let name = "List of Visitors Not Checked";
+                this._router.navigate([`/ams/dashboard/main/visitor/reports/${name}/364/true`]);
+            }
+            else if (item === "Facility Booking UnApproved") {
+                let name = "Facility booking, approval pending";
+                this._router.navigate([`/ams/dashboard/main/facility/reports/${name}/135/true`]);
+            }
+            else if (item === "Unapproved Move In") {
+                let name = "List of Unapproved Move In";
+                this._router.navigate([`/ams/dashboard/main/movein/reports/${name}/372/true`]);
+            }
+            else if (item === "Unapproved Move Out") {
+                let name = "List of Unapproved Move Out";
+                this._router.navigate([`/ams/dashboard/main/moveout/reports/${name}/373/true`]);
+            }
+            else {
+                let name = "List of Expiring Rental  Lease Agreements";
+                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/338`]);
+            }
+        });
+        dialogRef.afterClosed().subscribe((res) => {
+            this._router.navigate(['/ams/dashboard/main'], { relativeTo: this._activatedRoute });
+        });
+    }
 };
 AdminWidgetThreeComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"] },
-    { type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"] }
+    { type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
+AdminWidgetThreeComponent.propDecorators = {
+    dashboardReportRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["dashboardReportRef", { static: false },] }],
+    outlet: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterOutlet"],] }]
+};
 AdminWidgetThreeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-admin-widget-three',
@@ -10567,7 +10651,10 @@ AdminWidgetThreeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
         src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"],
-        src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"]])
+        src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], AdminWidgetThreeComponent);
 
 
@@ -10872,9 +10959,13 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
                 let name = "List of Inprogrss Panic Alerts";
                 this._router.navigate([`/ams/dashboard/main/security/reports/${name}/136/true`]);
             }
-            else {
-                let name = "List of Expiring Rental  Lease Agreements";
-                this._router.navigate([`/ams/dashboard/main/report/reports/${name}/338`]);
+            else if (item === "Unapproved Pending Admins") {
+                let name = "List of Unapproved Unit Users";
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2026/true`]);
+            }
+            else if (item === "Unapproved Pending Users") {
+                let name = "List of Unapproved Unit Users";
+                this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2027/true`]);
             }
         });
         dialogRef.afterClosed().subscribe((res) => {
@@ -11844,6 +11935,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _staff_manager_components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../staff-manager/components/staff-reports/staff-reports.component */ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts");
 /* harmony import */ var _common_helpdesk_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../common/helpdesk/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component */ "./src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.ts");
 /* harmony import */ var _security_components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../security/components/security-reports/security-reports-data/security-reports-data.component */ "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.ts");
+/* harmony import */ var _common_visitor_visitor_report_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../common/visitor/visitor-report/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/modules/common/visitor/visitor-report/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
+/* harmony import */ var _facility_facility_report_facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../facility/facility-report/facility-reports/facility-report-data/facility-report-data.component */ "./src/app/modules/ams/facility/facility-report/facility-reports/facility-report-data/facility-report-data.component.ts");
+/* harmony import */ var _common_moveinout_tracker_components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../common/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component */ "./src/app/modules/common/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.ts");
+/* harmony import */ var _parking_management_components_parking_management_reports_parking_management_report_data_parking_management_report_data_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../parking-management/components/parking-management-reports/parking-management-report-data/parking-management-report-data.component */ "./src/app/modules/ams/parking-management/components/parking-management-reports/parking-management-report-data/parking-management-report-data.component.ts");
+
+
+
+
 
 
 
@@ -11854,26 +11953,66 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], children: [
+    {
+        path: '', component: _dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], children: [
             { path: '', redirectTo: 'main', pathMatch: 'full' },
-            { path: 'main', component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"], children: [
-                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) },
-                    { path: 'staff', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-staff-manager-staff-manager-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-manager.module */ "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(m => m.StaffManagerModule),
+            {
+                path: 'main', component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"], children: [
+                    { path: 'unit&user', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~887706fb"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) },
+                    {
+                        path: 'staff', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-staff-manager-staff-manager-module */ "default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-manager.module */ "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(m => m.StaffManagerModule),
                         children: [
-                            { path: 'reports', component: _staff_manager_components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_6__["StaffReportsComponent"] },
-                        ] },
-                    { path: 'helpdesk', loadChildren: () => Promise.all(/*! import() | src-app-modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module~src-app-modules-common-help~e18471af")]).then(__webpack_require__.bind(null, /*! src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module */ "./src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module.ts")).then(m => m.HelpdeskReportsModule),
+                            { path: 'reports/:link', component: _staff_manager_components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_6__["StaffReportsComponent"] },
+                        ]
+                    },
+                    {
+                        path: 'helpdesk', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module */ "default~modules-common-helpdesk-helpdesk-reports-helpdesk-reports-module~src-app-modules-common-help~e18471af").then(__webpack_require__.bind(null, /*! src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module */ "./src/app/modules/common/helpdesk/helpdesk-reports/helpdesk-reports.module.ts")).then(m => m.HelpdeskReportsModule),
                         children: [
                             { path: 'reports/:name/:id/:link/:type/:status', component: _common_helpdesk_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskReportsDataComponent"] },
                             { path: 'reports/:name/:id/:link', component: _common_helpdesk_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskReportsDataComponent"] },
-                        ] },
-                    { path: 'security', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-security-security-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~fddb38ce"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~50ee7666"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a5fbf58c"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/security/security.module */ "./src/app/modules/ams/security/security.module.ts")).then(m => m.SecurityModule),
+                        ]
+                    },
+                    {
+                        path: 'security', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-security-security-module */[__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~887706fb"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/security/security.module */ "./src/app/modules/ams/security/security.module.ts")).then(m => m.SecurityModule),
                         children: [
                             { path: 'reports/:name/:type/:link', component: _security_components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_8__["SecurityReportsDataComponent"] },
-                        ] }
-                ] },
+                        ]
+                    },
+                    {
+                        path: 'visitor', loadChildren: () => Promise.all(/*! import() | src-app-modules-common-visitor-visitor-report-visitor-report-module */[__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~887706fb"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null, /*! src/app/modules/common/visitor/visitor-report/visitor-report.module */ "./src/app/modules/common/visitor/visitor-report/visitor-report.module.ts")).then(m => m.VisitorReportModule),
+                        children: [
+                            { path: 'reports/:name/:id/:link', component: _common_visitor_visitor_report_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"] },
+                        ]
+                    },
+                    {
+                        path: 'facility', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-facility-facility-report-facility-report-module */[__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~887706fb"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/facility/facility-report/facility-report.module */ "./src/app/modules/ams/facility/facility-report/facility-report.module.ts")).then(m => m.FacilityReportModule),
+                        children: [
+                            { path: 'reports/:name/:id/:link', component: _facility_facility_report_facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_10__["FacilityReportDataComponent"] },
+                        ]
+                    },
+                    {
+                        path: 'movein', loadChildren: () => Promise.all(/*! import() | src-app-modules-common-moveinout-tracker-moveinout-tracker-module */[__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~887706fb"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~49509b3a"), __webpack_require__.e("default~modules-common-moveinout-tracker-moveinout-tracker-module~src-app-modules-common-moveinout-t~47ccd680")]).then(__webpack_require__.bind(null, /*! src/app/modules/common/moveinout-tracker/moveinout-tracker.module */ "./src/app/modules/common/moveinout-tracker/moveinout-tracker.module.ts")).then(m => m.MoveinoutTrackerModule),
+                        children: [
+                            { path: 'reports/:name/:id/:link', component: _common_moveinout_tracker_components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__["MoveinReportDataComponent"] },
+                        ]
+                    },
+                    {
+                        path: 'moveout', loadChildren: () => Promise.all(/*! import() | src-app-modules-common-moveinout-tracker-moveinout-tracker-module */[__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~887706fb"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~49509b3a"), __webpack_require__.e("default~modules-common-moveinout-tracker-moveinout-tracker-module~src-app-modules-common-moveinout-t~47ccd680")]).then(__webpack_require__.bind(null, /*! src/app/modules/common/moveinout-tracker/moveinout-tracker.module */ "./src/app/modules/common/moveinout-tracker/moveinout-tracker.module.ts")).then(m => m.MoveinoutTrackerModule),
+                        children: [
+                            { path: 'reports/:name/:id/:link', component: _common_moveinout_tracker_components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__["MoveinReportDataComponent"] },
+                        ]
+                    },
+                    {
+                        path: 'parking', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-parking-management-parking-management-module */ "default~modules-ams-parking-management-parking-management-module~src-app-modules-ams-parking-managem~0fbe89f4").then(__webpack_require__.bind(null, /*! src/app/modules/ams/parking-management/parking-management.module */ "./src/app/modules/ams/parking-management/parking-management.module.ts")).then(m => m.ParkingManagementModule),
+                        children: [
+                            { path: 'reports/:name/:link', component: _parking_management_components_parking_management_reports_parking_management_report_data_parking_management_report_data_component__WEBPACK_IMPORTED_MODULE_12__["ParkingManagementReportDataComponent"] },
+                        ]
+                    }
+                ]
+            },
             { path: 'custom', component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"] }
-        ] }
+        ]
+    }
     //typeStatus
 ];
 let DashboardRoutingModule = class DashboardRoutingModule {

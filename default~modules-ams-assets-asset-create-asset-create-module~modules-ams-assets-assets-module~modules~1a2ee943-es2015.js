@@ -6559,6 +6559,7 @@ let DatepickerComponent = class DatepickerComponent {
         else {
             this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__().tz(this.timeZone.region);
         }
+        this.fieldParams.emit(moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.selectedDate));
     }
     ngOnChanges() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
