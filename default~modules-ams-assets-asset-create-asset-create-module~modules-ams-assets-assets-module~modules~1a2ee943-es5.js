@@ -10982,11 +10982,10 @@
 
             if (this.fieldModel != undefined) {
               this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).tz(this.timeZone.region);
+              this.fieldParams.emit(moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.selectedDate));
             } else {
               this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__().tz(this.timeZone.region);
             }
-
-            this.fieldParams.emit(moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.selectedDate));
           }
         }, {
           key: "ngOnChanges",
