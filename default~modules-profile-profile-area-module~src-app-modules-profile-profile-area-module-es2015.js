@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-password-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Change Password</h4>\n\n    <div class=\"bg-card shadow\">\n\n        <form #forgotpassform = \"ngForm\" name=\"forgotpassform\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <div class=\"form-group\">\n                            <label for=\"forgotpassFormEmail\">Email</label>\n                            <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Password*</label>\n                        <input type=\"password\" class=\"form-control\"\n                            placeholder=\"Password\" name=\"password\" [(ngModel)]=\"user.password\" autocomplete=\"off\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Confirm Password*</label>\n                        <input type=\"password\" class=\"form-control\"\n                            placeholder=\"Password\" name=\"confirmPassword\" [(ngModel)]=\"user.confirmPassword\" autocomplete=\"off\" required>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\"  *ngIf=\"checkPassword()\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <submit-button (click)=\"submitPasswordReset()\" [isSubmit]=\"formSubmitted\">Submit</submit-button>\n                    </div>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-password-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Change Password</h4>\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n            {{message.content}}\n    </condo-message>\n\n    <div class=\"bg-card shadow\">\n\n        <form #forgotpassform = \"ngForm\" name=\"forgotpassform\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <div class=\"form-group\">\n                            <label for=\"forgotpassFormEmail\">Email</label>\n                            <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Password*</label>\n                        <input [type]=\"isShowPass ? 'text' : 'password'\" class=\"form-control\"\n                            placeholder=\"Password\" name=\"password\" [(ngModel)]=\"user.password\" autocomplete=\"off\" required>\n                        <div class=\"date-btn\">\n                            <mat-icon *ngIf=\"!isShowPass\" svgIcon=\"feather:eye\" (click)=\"isShowPass = true\"></mat-icon>\n                            <mat-icon *ngIf=\"isShowPass\" svgIcon=\"feather:eye-off\" (click)=\"isShowPass = false\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Confirm Password*</label>\n                        <input [type]=\"isConfirmShowPass ? 'text' : 'password'\" class=\"form-control\"\n                            placeholder=\"Password\" name=\"confirmPassword\" [(ngModel)]=\"user.confirmPassword\" autocomplete=\"off\" required>\n                        <div class=\"date-btn\">\n                            <mat-icon *ngIf=\"!isConfirmShowPass\" svgIcon=\"feather:eye\" (click)=\"isConfirmShowPass = true\"></mat-icon>\n                            <mat-icon *ngIf=\"isConfirmShowPass\"  svgIcon=\"feather:eye-off\" (click)=\"isConfirmShowPass = false\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\"  *ngIf=\"checkPassword()\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <submit-button (click)=\"submitPasswordReset()\" [isSubmit]=\"formSubmitted\">Submit</submit-button>\n                    </div>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -1246,6 +1246,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./profile-timezone/profile-timezone.component */ "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
 /* harmony import */ var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./profile-document/profile-document.component */ "./src/app/modules/profile/profile-document/profile-document.component.ts");
 /* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+
 
 
 
@@ -1321,6 +1323,7 @@ ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"],
             _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__["MatChipsModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_37__["CondoMessageModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"],
             src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_12__["DatepickerModule"].forRoot(),
             src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__["CondoScrollbarModule"],
@@ -2306,6 +2309,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/LoginCheck */ "./src/app/api/controllers/LoginCheck.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -2313,41 +2318,65 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfilePasswordComponent = class ProfilePasswordComponent {
-    constructor(_activatedRoute, sessionService, sharedService, logInCheckService) {
+    constructor(_activatedRoute, sessionService, sharedService, _changeDetectorRef, logInCheckService) {
         this._activatedRoute = _activatedRoute;
         this.sessionService = sessionService;
         this.sharedService = sharedService;
+        this._changeDetectorRef = _changeDetectorRef;
         this.logInCheckService = logInCheckService;
         this.formSubmitted = false;
+        this.isShowPass = false;
+        this.isConfirmShowPass = false;
+        this.message = null;
     }
     checkPassword() {
-        if (this.user.password.length > 0 && this.user.password === this.user.confirmPassword) {
-            return true;
+        if (this.user.password && this.user.password.length > 0 && this.user.password === this.user.confirmPassword) {
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
     submitPasswordReset() {
-        this.formSubmitted = true;
-        let params = {
-            AdminUsers_vm: {
-                "userId": this.user.userId,
-                "password": this.user.password,
-                "updateBy": this.sessionService.userId
-            }
-        };
-        this.logInCheckService.changePasswordEmail(params).subscribe((res) => {
-            this.formSubmitted = false;
-            if (res.message) {
-                this.sharedService.openSnackBar(res.message, 'success');
-            }
-            else {
-                this.sharedService.openSnackBar(res.errorMessage, 'error');
-            }
-        }, (error) => {
-            this.sharedService.openSnackBar('Server Error', 'error');
-        });
+        this.message = null;
+        if (this.checkPassword()) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "The password confirmation does not match",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
+        }
+        else {
+            this.formSubmitted = true;
+            let params = {
+                AdminUsers_vm: {
+                    "userId": this.user.userId,
+                    "password": this.user.password,
+                    "updateBy": this.sessionService.userId
+                }
+            };
+            this.logInCheckService.changePasswordEmail(params).subscribe((res) => {
+                this.formSubmitted = false;
+                if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.formSubmitted = false;
+                this.sharedService.openSnackBar('Server Error', 'error');
+            });
+        }
     }
     ngOnInit() {
         this.user = {};
@@ -2367,17 +2396,21 @@ ProfilePasswordComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"] }
 ];
 ProfilePasswordComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-password',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-password.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-password/profile-password.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_6__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-password.component.scss */ "./src/app/modules/profile/profile-password/profile-password.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"]])
 ], ProfilePasswordComponent);
 
