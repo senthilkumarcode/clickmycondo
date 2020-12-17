@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-asset-usage-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t<h4 class=\"mb-4\">\t\t\t\n\t\t\t\t<span>Add Asset Usage </span>\n\t\t\t\t<!-- <span *ngIf=\"isEdit\">Edit Asset Maintenance </span>\t\t\t -->\n\t\t\t</h4>\t\t\t\n\t\t</div>\n\t\t<!-- <app-loader *ngIf=\"isAssetLoaded\"></app-loader> -->\n\t\t<form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\tlabelText=\"Select Asset\"  \n\t\t\t\t\t\t fieldPlaceholder=\"Select Asset\"\n\t\t\t\t\t\t [fieldList]=\"assetList\"                                     \n\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t fieldId=\"assetId\"\n\t\t\t\t\t\t [fieldModel]=\"usage.assetId\"\n\t\t\t\t\t\t (fieldParams)=\"setAssetId($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n            </div>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\t\t\t\t\t\t\t\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine Start Time\"\n                            fieldName=\"startDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetStarttime\"\n                            (fieldParams)=\"setStartTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine End Time\"\n                            fieldName=\"endDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetEndtime\"\n                            (fieldParams)=\"setEndTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Total Run TIme</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Total Run Time\" name=\"totalRunTime\" [value]=\"usage.totalhoursRan\" disabled>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading Start</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading Start\" name=\"meterReadingStart\"\n                                [(ngModel)]=\"usage.assetMeterStart\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading End</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading End\" name=\"meterReadingEnd\"\n                                [(ngModel)]=\"usage.assetMeterEnd\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Meter Reading</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Meter Reading\" name=\"totalMeterReading\"\n                                [(ngModel)]=\"usage.totalMeterreading\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Fuel Added Count</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Fuel Added Count\" name=\"fuelAddedCount\"\n                                [(ngModel)]=\"usage.fuelAddedCount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Unit Of Measure\"  \n                            fieldPlaceholder=\"Select Unit Measure\"\n                            [fieldList]=\"unitOfMeasureList\"                                     \n                            fieldValue=\"lookupValueName\"\n                            fieldId=\"lookupValueId\"\n                            [fieldModel]=\"usage.fuelAddedId\"\n                            (fieldParams)=\"setUnitOfMeasure($event)\">\n                        </condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Fuel Added By\" \n                            fieldPlaceholder=\"Select Fuel Added By\"\n                            [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n                            fieldValue=\"customLabel\"\n                            fieldId=\"staffId\"\n                            [fieldModel]=\"usage.fuelAddedby\"\n                            (fieldParams)=\"setFuelAddedBy($event)\">\n                        </condo-select>\n                    </div>\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Fuel Added On\"\n                            fieldName=\"fuelAddedOn\"\n                            type=\"date\"\n                            [fieldModel]=\"usage.fuelAddedon\"\n                            (fieldParams)=\"setFuelAddedOn($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Amount</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\"\n                                [(ngModel)]=\"usage.amount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Tax</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Tax\" name=\"tax\"\n                                [(ngModel)]=\"usage.tax\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Bill</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Bill\" name=\"totalBill\"\n                                [(ngModel)]=\"usage.totalBill\">\n                        </div>\n                    </div>  \n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <textarea placeholder=\"Enter Comments\" name=\"comments\" [(ngModel)]=\"usage.comments\"></textarea>\n                        </div>\t\t\t\t\t\t\t\t\t\n                    </div>                                \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"addAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"add-asset-usage-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t<h4 class=\"mb-4\">\t\t\t\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Asset Usage </span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Asset Usage </span>\t\t\t\n\t\t\t</h4>\t\t\t\n\t\t</div>\n\t\t<!-- <app-loader *ngIf=\"isAssetLoaded\"></app-loader> -->\n\t\t<form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\tlabelText=\"Select Asset\"  \n\t\t\t\t\t\t fieldPlaceholder=\"Select Asset\"\n\t\t\t\t\t\t [fieldList]=\"assetList\"                                     \n\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t fieldId=\"assetId\"\n\t\t\t\t\t\t [fieldModel]=\"usage.assetId\"\n\t\t\t\t\t\t (fieldParams)=\"setAssetId($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n            </div>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\t\t\t\t\t\t\t\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine Start Time\"\n                            fieldName=\"startDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetStarttime\"\n                            (fieldParams)=\"setStartTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine End Time\"\n                            fieldName=\"endDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetEndtime\"\n                            (fieldParams)=\"setEndTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Total Run TIme</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Total Run Time\" name=\"totalRunTime\" [value]=\"usage.totalhoursRan\" disabled>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading Start</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading Start\" name=\"meterReadingStart\"\n                                [(ngModel)]=\"usage.assetMeterStart\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading End</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading End\" name=\"meterReadingEnd\"\n                                [(ngModel)]=\"usage.assetMeterEnd\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Meter Reading</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Meter Reading\" name=\"totalMeterReading\"\n                                [(ngModel)]=\"usage.totalMeterreading\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Fuel Added Count</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Fuel Added Count\" name=\"fuelAddedCount\"\n                                [(ngModel)]=\"usage.fuelAddedCount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Unit Of Measure\"  \n                            fieldPlaceholder=\"Select Unit Measure\"\n                            [fieldList]=\"unitOfMeasureList\"                                     \n                            fieldValue=\"lookupValueName\"\n                            fieldId=\"lookupValueId\"\n                            [fieldModel]=\"usage.fuelAddedId\"\n                            (fieldParams)=\"setUnitOfMeasure($event)\">\n                        </condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Fuel Added By\" \n                            fieldPlaceholder=\"Select Fuel Added By\"\n                            [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n                            fieldValue=\"customLabel\"\n                            fieldId=\"staffId\"\n                            [fieldModel]=\"usage.fuelAddedby\"\n                            (fieldParams)=\"setFuelAddedBy($event)\">\n                        </condo-select>\n                    </div>\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Fuel Added On\"\n                            fieldName=\"fuelAddedOn\"\n                            type=\"date\"\n                            [fieldModel]=\"usage.fuelAddedon\"\n                            (fieldParams)=\"setFuelAddedOn($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Amount</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\"\n                                [(ngModel)]=\"usage.amount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Tax</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Tax\" name=\"tax\"\n                                [(ngModel)]=\"usage.tax\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Bill</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Bill\" name=\"totalBill\"\n                                [(ngModel)]=\"usage.totalBill\">\n                        </div>\n                    </div>  \n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <textarea placeholder=\"Enter Comments\" name=\"comments\" [(ngModel)]=\"usage.comments\"></textarea>\n                        </div>\t\t\t\t\t\t\t\t\t\n                    </div>                                \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button *ngIf=\"!isEdit\" (click)=\"addAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                            <submit-button *ngIf=\"isEdit\" (click)=\"updateAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n\t\t\t\t\t\t    <button class=\"ml-2\" mat-button (click)=\"resetField()\">{{isEdit ? 'Cancel' : 'Clear'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -142,7 +142,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"view-assets-usage-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\" *ngIf=\"urlType=='asset-usage-list'\">\n\t\t\t<div class=\"asset-usage-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4>Filter</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                fieldPlaceholder=\"Select Asset\"\n                                [fieldList]=\"assetList\"                                     \n                                fieldValue=\"customLabel\"\n                                fieldId=\"assetId\"\n                                [fieldModel]=\"filterField.assetId\"\n                                (fieldParams)=\"setAssetId($event)\">\n                            </condo-select>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"from\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.fromInsertedOn\"\n                                (fieldParams)=\"setFromDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"to\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.toInsertedOn\"\n                                (fieldParams)=\"setToDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <div class=\"d-flex mb-4\">\n                    <h4>\n                        <span *ngIf=\"urlType=='asset-usage-view'\">View Asset Usage</span>\n                        <span *ngIf=\"urlType=='asset-usage-list'\">View All Asset Usage List</span>\n                    </h4>\n                    <div class=\"ml-auto\" *ngIf=\"urlType=='asset-usage-list'\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                        </button>\n                    </div>\t\t\t\n                </div>\n                <app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n                <form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n                    <div class=\"bg-card shadow\" *ngIf=\"urlType=='asset-usage-view'\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-6\">\n                                <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                 fieldPlaceholder=\"Select Asset\"\n                                 [fieldList]=\"assetList\"                                     \n                                 fieldValue=\"customLabel\"\n                                 fieldId=\"assetId\"\n                                 [fieldModel]=\"filterField.assetId\"\n                                 (fieldParams)=\"setAssetId($event)\"></condo-select>\n                            </div>\n                        </div>\n                    </div>\n        \n                    <mat-accordion class=\"pt-5 manage-assets\">\n                        <mat-expansion-panel  *ngFor=\" let main of assetUsageList | slice:ItemStartIndex:ItemEndIndex;let mainIndex = index\">\n                            <mat-expansion-panel-header class=\"mr-0\">\n                                <mat-panel-title>\n                                    <form>\n                                        <div class=\"row\">\n                                            <div class=\"col-sm-2\">\n                                                <label>Recorded On</label>\n                                                <p class=\"ellipse\">{{main}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Time Ran</label>\n                                                <p class=\"ellipse\">{{main.totalhoursRan}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Meter Units</label>\n                                                <p class=\"ellipse\">{{main.totalMeterreading}}</p>\n                                            </div> \n                                            <div class=\"col-sm-3\">\n                                                <label>Fuel Added</label>\n                                                <p class=\"ellipse\">{{main.fuelAddedby}}</p>\n                                            </div> \n                                            <div class=\"col-sm-1\">\n                                                <label>Action</label>\n                                                <div class=\"d-flex medium-icon\">\n                                                    <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"custom-icon-20 edit-asset\"  routerLink=\"/ams/assets/create-maintenance/{{main}}\" ></mat-icon>  \n                                                    <mat-icon [svgIcon]=\"'feather:trash'\"  class=\"delete icon-md delete-asset\" (click)=\"deleteManitenance(main)\"></mat-icon>                           \n                                                </div>\n                                            </div>                        \n                                        </div>\n                                    </form>\n                                </mat-panel-title>\n                            </mat-expansion-panel-header>\n                            <mat-panel-description>\n                                <div class=\"row wd-100\">\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading Start</label>\n                                        <div class=\"display-name\">{{main.assetMeterStart}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading End</label>\n                                        <div class=\"display-name\">{{main.assetMeterEnd}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Unit Of Measure</label>\n                                        <div class=\"display-name\" >{{main.fuelAddedId}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Fuel Added</label>\n                                        <div class=\"display-name\">{{main}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added By</label>\n                                        <div class=\"display-name\"> {{main.fuelAddedby}} </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added On</label>\n                                        <div class=\"display-name\">{{main}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Amount</label>\n                                        <div class=\"display-name\">{{main.amount}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Tax</label>\n                                        <div class=\"display-name\">{{main.tax}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Bill</label>\n                                        <div class=\"display-name\">{{main.totalBill}}</div>\n                                    </div>\n                                    <div class=\"col-sm-12\">\n                                        <label>Comment</label>\n                                        <div class=\"display-name\">{{main.comments}}</div>\n                                    </div>\n                                </div>\n                            </mat-panel-description>\n                        </mat-expansion-panel>\n                        <app-pagination  class=\"custom-outer-pagination\" *ngIf=\"totalItems\"\n                            [totalItems]=\"totalItems\"  \n                            [ItemStartIndex]=\"ItemStartIndex\"\n                            [ItemEndIndex] = \"ItemEndIndex\"\n                            [itemLimit] = \"itemLimit\"\n                            (outputParams) = \"getIndexParams($event)\">\t\n                        </app-pagination>\n                    </mat-accordion>\n                    \n                </form>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"view-assets-usage-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\" *ngIf=\"urlType=='asset-usage-list'\">\n\t\t\t<div class=\"asset-usage-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4>Filter</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                fieldPlaceholder=\"Select Asset\"\n                                [fieldList]=\"assetList\"                                     \n                                fieldValue=\"customLabel\"\n                                fieldId=\"assetId\"\n                                [fieldModel]=\"filterField.assetId\"\n                                (fieldParams)=\"setAssetId($event)\">\n                            </condo-select>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"from\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.fromInsertedOn\"\n                                (fieldParams)=\"setFromDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"to\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.toInsertedOn\"\n                                (fieldParams)=\"setToDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"getAssetUsageList()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <div class=\"d-flex mb-4\">\n                    <h4>\n                        <span *ngIf=\"urlType=='asset-usage-view'\">View Asset Usage</span>\n                        <span *ngIf=\"urlType=='asset-usage-list'\">View All Asset Usage List</span>\n                    </h4>\n                    <div class=\"ml-auto\" *ngIf=\"urlType=='asset-usage-list'\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                        </button>\n                    </div>\t\t\t\n                </div>\n                <form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n                    <div class=\"bg-card shadow\" *ngIf=\"urlType=='asset-usage-view'\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-6\">\n                                <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                 fieldPlaceholder=\"Select Asset\"\n                                 [fieldList]=\"assetList\"                                     \n                                 fieldValue=\"customLabel\"\n                                 fieldId=\"assetId\"\n                                 [fieldModel]=\"filterField.assetId\"\n                                 (fieldParams)=\"setAssetId($event)\"></condo-select>\n                            </div>\n                        </div>\n                    </div>\n                    <app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n                    <mat-accordion class=\"pt-5 manage-assets\" *ngIf=\"!isAssetLoaded\">\n                        <mat-expansion-panel  *ngFor=\" let main of assetUsageList | slice:ItemStartIndex:ItemEndIndex;let mainIndex = index\">\n                            <mat-expansion-panel-header class=\"mr-0\">\n                                <mat-panel-title>\n                                    <form>\n                                        <div class=\"row\">\n                                            <div class=\"col-sm-2\">\n                                                <label>Recorded On</label>\n                                                <p class=\"ellipse\">{{main}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Time Ran</label>\n                                                <p class=\"ellipse\">{{main.totalhoursRan}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Meter Units</label>\n                                                <p class=\"ellipse\">{{main.totalMeterreading}}</p>\n                                            </div> \n                                            <div class=\"col-sm-3\">\n                                                <label>Fuel Added</label>\n                                                <p class=\"ellipse\">{{main.fuelAddedby}}</p>\n                                            </div> \n                                            <div class=\"col-sm-1\">\n                                                <label>Action</label>\n                                                <div class=\"d-flex medium-icon\">\n                                                    <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"custom-icon-20 edit-asset\"  routerLink=\"/ams/assets/create-asset-usage/{{main.assetUsageId}}\" ></mat-icon>  \n                                                    <mat-icon [svgIcon]=\"'feather:trash'\"  class=\"delete icon-md delete-asset\" (click)=\"deleteAssertUsage(main.assetUsageId)\"></mat-icon>                           \n                                                </div>\n                                            </div>                        \n                                        </div>\n                                    </form>\n                                </mat-panel-title>\n                            </mat-expansion-panel-header>\n                            <mat-panel-description>\n                                <div class=\"row wd-100\">\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading Start</label>\n                                        <div class=\"display-name\">{{main.assetMeterStart}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading End</label>\n                                        <div class=\"display-name\">{{main.assetMeterEnd}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Unit Of Measure</label>\n                                        <div class=\"display-name\" >{{main.fuelAddedId}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Fuel Added</label>\n                                        <div class=\"display-name\">{{main}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added By</label>\n                                        <div class=\"display-name\"> {{main.fuelAddedby}} </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added On</label>\n                                        <div class=\"display-name\">{{getDateTimeFormat(main.fuelAddedon)}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Amount</label>\n                                        <div class=\"display-name\">{{main.amount}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Tax</label>\n                                        <div class=\"display-name\">{{main.tax}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Bill</label>\n                                        <div class=\"display-name\">{{main.totalBill}}</div>\n                                    </div>\n                                    <div class=\"col-sm-12\">\n                                        <label>Comment</label>\n                                        <div class=\"display-name\">{{main.comments}}</div>\n                                    </div>\n                                </div>\n                            </mat-panel-description>\n                        </mat-expansion-panel>\n                        <app-pagination  class=\"custom-outer-pagination\" *ngIf=\"assetUsageList.length > 0\"\n                            [totalItems]=\"totalItems\"  \n                            [ItemStartIndex]=\"ItemStartIndex\"\n                            [ItemEndIndex] = \"ItemEndIndex\"\n                            [itemLimit] = \"itemLimit\"\n                            (outputParams) = \"getIndexParams($event)\">\t\n                        </app-pagination>\n                    </mat-accordion>\n                </form>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -490,6 +490,10 @@
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-asset-usage',
+        component: _components_add_asset_usage_add_asset_usage_component__WEBPACK_IMPORTED_MODULE_15__["AddAssetUsageComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'create-asset-usage/:id',
         component: _components_add_asset_usage_add_asset_usage_component__WEBPACK_IMPORTED_MODULE_15__["AddAssetUsageComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
@@ -1246,9 +1250,27 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var AddAssetUsageComponent = /*#__PURE__*/function () {
-        function AddAssetUsageComponent(sharedService, sessionService, staffService, lookupService, assetService) {
+        function AddAssetUsageComponent(sharedService, sessionService, staffService, lookupService, assetService, router, activateRoute, dialog) {
           _classCallCheck(this, AddAssetUsageComponent);
 
           this.sharedService = sharedService;
@@ -1256,11 +1278,15 @@
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.assetService = assetService;
+          this.router = router;
+          this.activateRoute = activateRoute;
+          this.dialog = dialog;
           this.usage = {};
           this.staffList = [];
           this.assetList = [];
           this.unitOfMeasureList = [];
           this.isAssetLoaded = false;
+          this.isEdit = false;
         }
 
         _createClass(AddAssetUsageComponent, [{
@@ -1354,6 +1380,10 @@
 
               if (res.message) {
                 _this3.sharedService.openSnackBar('Assert Usage Create SuccessFully', 'success');
+
+                _this3.router.navigate(['asset-usage-list'], {
+                  relativeTo: _this3.activateRoute.parent
+                });
               } else {
                 _this3.sharedService.openSnackBar(res.errorMessage, 'error');
               }
@@ -1364,9 +1394,88 @@
             });
           }
         }, {
+          key: "updateAssertUsage",
+          value: function updateAssertUsage() {
+            var _this4 = this;
+
+            this.isAssetLoaded = true;
+            var params = {
+              model: {
+                "assetUsageId": this.usage.assetUsageId,
+                "assetId": this.usage.assetId,
+                "assetMeterStart": parseInt(this.usage.assetMeterStart),
+                "assetMeterEnd": parseInt(this.usage.assetMeterEnd),
+                "assetStarttime": this.usage.assetStarttime,
+                "assetEndtime": this.usage.assetEndtime,
+                "fuelAddedId": this.usage.fuelAddedId,
+                "fuelAddedby": this.usage.fuelAddedby,
+                "fuelAddedon": this.usage.fuelAddedon,
+                "totalhoursRan": parseInt(this.usage.totalhoursRan),
+                "totalMeterreading": parseInt(this.usage.totalMeterreading),
+                "amount": parseInt(this.usage.amount),
+                "tax": parseInt(this.usage.tax),
+                "totalBill": parseInt(this.usage.totalBill),
+                "comments": this.usage.comments,
+                "customfield": 'string',
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              }
+            };
+            this.assetService.updateAssetUsage(params).subscribe(function (res) {
+              _this4.isAssetLoaded = false;
+
+              if (res.message) {
+                _this4.sharedService.openSnackBar('Assert Usage Updated SuccessFully', 'success');
+
+                _this4.router.navigate(['asset-usage-list'], {
+                  relativeTo: _this4.activateRoute.parent
+                });
+              } else {
+                _this4.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this4.isAssetLoaded = false;
+
+              _this4.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "resetField",
+          value: function resetField() {
+            var _this5 = this;
+
+            if (this.isEdit) {
+              var message = "Are you sure, you want to exit the screen ?";
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
+              var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this5.router.navigate(['asset-usage-list'], {
+                    relativeTo: _this5.activateRoute.parent
+                  });
+                }
+              });
+            } else {
+              this.form.reset();
+              this.usage = {
+                'assetEndtime': null,
+                'assetStarttime': null,
+                'fuelAddedon': null,
+                'totalhoursRan': null
+              };
+            }
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this6 = this;
 
             this.usage.totalhoursRan = null; //Staff List
 
@@ -1379,7 +1488,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.roleName, " - ").concat(ele.staffCategoryName, " -- ").concat(ele.staffName);
                 });
-                _this4.staffList = res;
+                _this6.staffList = res;
               }
             }); // Asset List
 
@@ -1388,9 +1497,9 @@
             };
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this4.assetList = res ? res : [];
+                _this6.assetList = res ? res : [];
 
-                _this4.assetList.forEach(function (data) {
+                _this6.assetList.forEach(function (data) {
                   data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
                 });
               }
@@ -1402,8 +1511,19 @@
               LookupTypeId: 208
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
-              _this4.unitOfMeasureList = res;
+              _this6.unitOfMeasureList = res;
             });
+
+            if (this.activateRoute.params['value'].id) {
+              this.isEdit = true;
+              var assertUsageInfo = {
+                apartmentId: this.sessionService.apartmentId,
+                assetUsageId: this.activateRoute.params['value'].id
+              };
+              this.assetService.getAssetUsagebyAssetUsageId(assertUsageInfo).subscribe(function (res) {
+                _this6.usage = res[0];
+              });
+            }
           }
         }]);
 
@@ -1421,9 +1541,21 @@
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
         }, {
           type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
         }];
       };
 
+      AddAssetUsageComponent.propDecorators = {
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['assetUsageForm']
+        }]
+      };
       AddAssetUsageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-asset-usage',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1432,7 +1564,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-asset-usage.component.scss */
         "./src/app/modules/ams/assets/components/add-asset-usage/add-asset-usage.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"]])], AddAssetUsageComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], AddAssetUsageComponent);
       /***/
     },
 
@@ -1591,7 +1723,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this7 = this;
 
             this.maintenance.isMaintainedbyStaff = true;
             this.maintenance.maintenanceTypeId = '';
@@ -1608,35 +1740,35 @@
 
             this.activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.type == 'ADD') {
-                _this5.assetId = params.assetId;
+                _this7.assetId = params.assetId;
               }
             });
             this.route.paramMap.subscribe(function (params) {
               if (params) {
-                _this5.assetMaintenancePlanId = params.get('id');
+                _this7.assetMaintenancePlanId = params.get('id');
 
-                if (_this5.assetMaintenancePlanId) {
+                if (_this7.assetMaintenancePlanId) {
                   var _params = {
-                    assetMaintenancePlanId: _this5.assetMaintenancePlanId
+                    assetMaintenancePlanId: _this7.assetMaintenancePlanId
                   };
-                  _this5.isEdit = true;
+                  _this7.isEdit = true;
 
-                  _this5.assetService.getAllAssetMaintenancePlanById(_params).subscribe(function (res) {
-                    _this5.maintenance = res[0] ? res[0] : {};
-                    _this5.assetId = _this5.maintenance ? _this5.maintenance.assetId : '';
-                    _this5.maintenance.isMaintainedbyStaff = !_this5.maintenance.isMaintainedbyStaff;
-                    var customField = JSON.parse(_this5.maintenance.customFields);
-                    if (customField && customField.length > 0) _this5.dynamicForm = customField;
+                  _this7.assetService.getAllAssetMaintenancePlanById(_params).subscribe(function (res) {
+                    _this7.maintenance = res[0] ? res[0] : {};
+                    _this7.assetId = _this7.maintenance ? _this7.maintenance.assetId : '';
+                    _this7.maintenance.isMaintainedbyStaff = !_this7.maintenance.isMaintainedbyStaff;
+                    var customField = JSON.parse(_this7.maintenance.customFields);
+                    if (customField && customField.length > 0) _this7.dynamicForm = customField;
                   }); //Status List
 
 
                   var queryParamBase = {
-                    ApartmentId: _this5.sessionService.apartmentId,
+                    ApartmentId: _this7.sessionService.apartmentId,
                     LookupTypeId: 64
                   };
 
-                  _this5.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
-                    _this5.statusList = res;
+                  _this7.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
+                    _this7.statusList = res;
                   });
                 }
               }
@@ -1648,12 +1780,12 @@
         }, {
           key: "setMainSubType",
           value: function setMainSubType(id) {
-            var _this6 = this;
+            var _this8 = this;
 
             if (this.mainType && this.mainType.length > 0) {
               this.mainType.filter(function (val) {
                 if (val.id == id) {
-                  _this6.mainSubType = val.subCategory;
+                  _this8.mainSubType = val.subCategory;
                 }
               });
             }
@@ -1690,7 +1822,7 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this7 = this;
+            var _this9 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -1701,7 +1833,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.roleName, " - ").concat(ele.staffCategoryName, " -- ").concat(ele.staffName);
                 });
-                _this7.staffList = res;
+                _this9.staffList = res;
               }
             });
           }
@@ -1718,7 +1850,7 @@
         }, {
           key: "addMaintenance",
           value: function addMaintenance() {
-            var _this8 = this;
+            var _this10 = this;
 
             this.message = null;
 
@@ -1774,11 +1906,11 @@
               };
               this.assetService.addAssetMaintenancePlan(params).subscribe(function (res) {
                 if (res.message) {
-                  _this8.sharedService.openSnackBar("Asset Maintenance added successfully", 'success');
+                  _this10.sharedService.openSnackBar("Asset Maintenance added successfully", 'success');
 
-                  _this8.isAssetLoaded = false;
+                  _this10.isAssetLoaded = false;
 
-                  _this8.router.navigate(['ams/assets/manage-maintenance']);
+                  _this10.router.navigate(['ams/assets/manage-maintenance']);
                 }
               });
             }
@@ -1786,7 +1918,7 @@
         }, {
           key: "updateMaintenance",
           value: function updateMaintenance() {
-            var _this9 = this;
+            var _this11 = this;
 
             this.message = null;
 
@@ -1842,19 +1974,19 @@
               };
               this.assetService.updateAssetMaintenancePlan(params).subscribe(function (res) {
                 if (res) {
-                  _this9.sharedService.openSnackBar("Asset maintenance updated successfully", 'success');
+                  _this11.sharedService.openSnackBar("Asset maintenance updated successfully", 'success');
 
-                  _this9.router.navigate(['ams/assets/manage-maintenance']);
+                  _this11.router.navigate(['ams/assets/manage-maintenance']);
                 }
 
-                _this9.isAssetLoaded = false;
+                _this11.isAssetLoaded = false;
               });
             }
           }
         }, {
           key: "getAllMaintenance",
           value: function getAllMaintenance() {
-            var _this10 = this;
+            var _this12 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1865,11 +1997,11 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this10.isAssetLoaded = false;
-                _this10.mainType = res ? res : [];
+                _this12.isAssetLoaded = false;
+                _this12.mainType = res ? res : [];
 
-                if (_this10.isEdit && _this10.maintenance.maintenanceTypeId) {
-                  _this10.setMainSubType(_this10.maintenance.maintenanceTypeId);
+                if (_this12.isEdit && _this12.maintenance.maintenanceTypeId) {
+                  _this12.setMainSubType(_this12.maintenance.maintenanceTypeId);
                 } else {// this.maintenance.maintenanceTypeId = this.mainType && this.mainType.length > 0 ? this.mainType[0].id : '';
                   // this.setMainSubType(this.maintenance.maintenanceTypeId);
                 }
@@ -1884,15 +2016,15 @@
         }, {
           key: "getAsset",
           value: function getAsset() {
-            var _this11 = this;
+            var _this13 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this11.assetList = res ? res : [];
+                _this13.assetList = res ? res : [];
 
-                _this11.assetList.forEach(function (data) {
+                _this13.assetList.forEach(function (data) {
                   data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
                 }); // this.assetId = !this.assetId ? (this.assetList && this.assetList.length > 0) && this.assetList[0].assetId :'';
 
@@ -2129,7 +2261,7 @@
         }, {
           key: "getCompletedList",
           value: function getCompletedList() {
-            var _this12 = this;
+            var _this14 = this;
 
             this.isCompletedDataLoaded = false;
             var params = {
@@ -2143,32 +2275,32 @@
             };
             this.assetService.getRecentlyCompletedAssetMaintenancePlanByApartmentId(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this12.completedList = res.reverse();
-                _this12.totalItems = _this12.completedList.length;
+                _this14.completedList = res.reverse();
+                _this14.totalItems = _this14.completedList.length;
 
-                if (_this12.totalItems > _this12.itemLimit) {
-                  _this12.ItemEndIndex = _this12.itemLimit;
+                if (_this14.totalItems > _this14.itemLimit) {
+                  _this14.ItemEndIndex = _this14.itemLimit;
                 } else {
-                  _this12.ItemEndIndex = _this12.totalItems;
+                  _this14.ItemEndIndex = _this14.totalItems;
                 }
               } else {
-                _this12.completedList = [];
+                _this14.completedList = [];
               }
 
-              _this12.isCompletedDataLoaded = true;
+              _this14.isCompletedDataLoaded = true;
             }, function (error) {
-              _this12.isCompletedDataLoaded = true;
+              _this14.isCompletedDataLoaded = true;
 
-              _this12.sharedService.openSnackBar('Server Error', 'error');
+              _this14.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this15 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this13.timeZone = timeZone;
+              return _this15.timeZone = timeZone;
             });
             this.getCompletedList(); //location List
 
@@ -2178,7 +2310,7 @@
               subCategoryLookupTypeId: 206
             };
             this.lookupService.getSubcategory(location).subscribe(function (res) {
-              _this13.locationListCategory = res;
+              _this15.locationListCategory = res;
             }); //categoryList
 
             var category = {
@@ -2187,7 +2319,7 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(category).subscribe(function (res) {
-              _this13.assetListCategory = res;
+              _this15.assetListCategory = res;
             });
           }
         }]);
@@ -2419,7 +2551,7 @@
         }, {
           key: "getReminderList",
           value: function getReminderList() {
-            var _this14 = this;
+            var _this16 = this;
 
             this.isReminderDataLoaded = false;
             var params = {
@@ -2432,32 +2564,32 @@
             };
             this.assetService.getRemaindersAssetMaintenancePlanByApartmentId(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this14.reminderList = res.reverse();
-                _this14.totalItems = _this14.reminderList.length;
+                _this16.reminderList = res.reverse();
+                _this16.totalItems = _this16.reminderList.length;
 
-                if (_this14.totalItems > _this14.itemLimit) {
-                  _this14.ItemEndIndex = _this14.itemLimit;
+                if (_this16.totalItems > _this16.itemLimit) {
+                  _this16.ItemEndIndex = _this16.itemLimit;
                 } else {
-                  _this14.ItemEndIndex = _this14.totalItems;
+                  _this16.ItemEndIndex = _this16.totalItems;
                 }
               } else {
-                _this14.reminderList = [];
+                _this16.reminderList = [];
               }
 
-              _this14.isReminderDataLoaded = true;
+              _this16.isReminderDataLoaded = true;
             }, function (error) {
-              _this14.isReminderDataLoaded = true;
+              _this16.isReminderDataLoaded = true;
 
-              _this14.sharedService.openSnackBar('Server Error', 'error');
+              _this16.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this17 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this15.timeZone = timeZone;
+              return _this17.timeZone = timeZone;
             });
             this.getReminderList(); //location List
 
@@ -2467,7 +2599,7 @@
               subCategoryLookupTypeId: 206
             };
             this.lookupService.getSubcategory(location).subscribe(function (res) {
-              _this15.locationListCategory = res;
+              _this17.locationListCategory = res;
             }); //categoryList
 
             var category = {
@@ -2476,7 +2608,7 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(category).subscribe(function (res) {
-              _this15.assetListCategory = res;
+              _this17.assetListCategory = res;
             });
           }
         }]);
@@ -2618,10 +2750,26 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
 
       var AssetViewUsageComponent = /*#__PURE__*/function () {
-        function AssetViewUsageComponent(sharedService, sessionService, staffService, assetService, activeRouter) {
-          var _this16 = this;
+        function AssetViewUsageComponent(sharedService, sessionService, staffService, assetService, activeRouter, injector) {
+          var _this18 = this;
 
           _classCallCheck(this, AssetViewUsageComponent);
 
@@ -2630,6 +2778,7 @@
           this.staffService = staffService;
           this.assetService = assetService;
           this.activeRouter = activeRouter;
+          this.injector = injector;
           this.usage = {};
           this.staffList = [];
           this.assetList = [];
@@ -2637,8 +2786,9 @@
           this.ItemStartIndex = 0;
           this.itemLimit = 10;
           this.assetUsageList = [];
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
           this.activeRouter.url.subscribe(function (data) {
-            _this16.urlType = data[0].path;
+            _this18.urlType = data[0].path;
           });
         }
 
@@ -2648,7 +2798,7 @@
             this.filterField.assetId = event[0].assetId;
 
             if (this.urlType == 'asset-usage-view') {
-              this.getAssetUsageList();
+              if (this.filterField.assetId) this.getAssetUsageList();else this.assetUsageList = [];
             }
           }
         }, {
@@ -2679,6 +2829,15 @@
             this.filterField.toInsertedOn = moment__WEBPACK_IMPORTED_MODULE_8__().format();
           }
         }, {
+          key: "getDateTimeFormat",
+          value: function getDateTimeFormat(date) {
+            if (date) {
+              return moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()(date).format(this.timeZone.time);
+            } else {
+              return '';
+            }
+          }
+        }, {
           key: "getIndexParams",
           value: function getIndexParams(event) {
             this.ItemStartIndex = event.ItemStartIndex;
@@ -2688,7 +2847,7 @@
         }, {
           key: "getAssetUsageList",
           value: function getAssetUsageList() {
-            var _this17 = this;
+            var _this19 = this;
 
             this.isAssetLoaded = true;
             var params = {
@@ -2702,33 +2861,49 @@
             }
 
             this.assetService.getAllAssetUsagebyApartmentId(params).subscribe(function (res) {
-              _this17.isAssetLoaded = false;
+              _this19.isAssetLoaded = false;
 
               if (Array.isArray(res)) {
-                _this17.assetUsageList = res;
+                _this19.assetUsageList = res;
+                _this19.totalItems = _this19.assetUsageList.length;
+
+                if (_this19.totalItems > _this19.itemLimit) {
+                  _this19.ItemEndIndex = _this19.itemLimit;
+                } else {
+                  _this19.ItemEndIndex = _this19.totalItems;
+                }
               } else {
-                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this19.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this17.isAssetLoaded = false;
+              _this19.isAssetLoaded = false;
 
-              _this17.sharedService.openSnackBar('Server Error', 'error');
+              _this19.sharedService.openSnackBar('Server Error', 'error');
             });
+          }
+        }, {
+          key: "deleteAssertUsage",
+          value: function deleteAssertUsage(id) {
+            this.modalService.showConfirmModal(id);
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this20 = this;
 
-            // Asset List
+            //TimeZone
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this20.timeZone = timeZone;
+            }); // Asset List
+
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this18.assetList = res ? res : [];
+                _this20.assetList = res ? res : [];
 
-                _this18.assetList.forEach(function (data) {
+                _this20.assetList.forEach(function (data) {
                   data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
                 });
               }
@@ -2737,7 +2912,42 @@
             if (this.urlType == 'asset-usage-list') {
               this.clearFilter();
               this.getAssetUsageList();
-            }
+            } // delete maintenance
+
+
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var param = {
+                  assetUsageId: id,
+                  deleteBy: _this20.sessionService.userId
+                };
+
+                _this20.assetService.deleteAssetUsage(param).subscribe(function (res) {
+                  _this20.sharedService.setUnitListDeleteIndex(null);
+
+                  if (res.message) {
+                    if (_this20.urlType == 'asset-usage-list') {
+                      _this20.clearFilter();
+                    }
+
+                    _this20.getAssetUsageList();
+
+                    _this20.sharedService.openSnackBar("Assert Usage deleted successfully", 'success');
+                  } else {
+                    _this20.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this20.sharedService.setUnitListDeleteIndex(null);
+
+                  _this20.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -2755,6 +2965,8 @@
           type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
       };
 
@@ -2775,7 +2987,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./asset-view-usage.component.scss */
         "./src/app/modules/ams/assets/components/asset-view-usage/asset-view-usage.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])], AssetViewUsageComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], AssetViewUsageComponent);
       /***/
     },
 
@@ -2924,29 +3136,29 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this21 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this19.timeZone = timeZone;
+              return _this21.timeZone = timeZone;
             });
             this.assetService.getAllAssetMaintenancePlanByAssetId(this.assetId).subscribe(function (res) {
-              _this19.isAssetMaintenanceLoaded = true;
-              _this19.maintenanceDataList = res;
+              _this21.isAssetMaintenanceLoaded = true;
+              _this21.maintenanceDataList = res;
 
-              if (_this19.totalItems > _this19.itemLimit) {
-                _this19.ItemEndIndex = _this19.itemLimit;
+              if (_this21.totalItems > _this21.itemLimit) {
+                _this21.ItemEndIndex = _this21.itemLimit;
               } else {
-                _this19.ItemEndIndex = _this19.totalItems;
+                _this21.ItemEndIndex = _this21.totalItems;
               }
 
-              _this19.totalItems = _this19.maintenanceDataList.length;
+              _this21.totalItems = _this21.maintenanceDataList.length;
             });
             var params = {
               LookupTypeId: 64,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this19.statusTypeData = res;
+              _this21.statusTypeData = res;
             }, function (error) {});
           }
         }]);
@@ -3210,7 +3422,7 @@
         }, {
           key: "getSelectedType",
           value: function getSelectedType(event) {
-            var _this20 = this;
+            var _this22 = this;
 
             this.blockId = event[0].apartmentBlockId;
             this.blockNo = event[0].apartmentBlockId;
@@ -3226,7 +3438,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield === 'blockNo') {
-                  _this20.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this22.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3237,7 +3449,7 @@
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this21 = this;
+            var _this23 = this;
 
             if (this.userReportData != "") {
               var filtergroup = new jqx.filter();
@@ -3250,7 +3462,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this21.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this23.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3261,7 +3473,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this22 = this;
+            var _this24 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -3335,11 +3547,11 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this22.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this22.totalItems = _this22.userReportDataList.length;
-                _this22.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.totalItems = _this24.userReportDataList.length;
+                _this24.isDataLoaded = true;
 
-                _this22.showItems();
+                _this24.showItems();
               });
             } else if (this.isListofAgedtickets()) {
               this.columnData = [{
@@ -3390,10 +3602,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this22.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this22.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this22.showItems();
+                _this24.showItems();
               });
             } else if (this.isListofUnassignedtickets()) {
               this.columnData = [{
@@ -3444,10 +3656,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this22.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this22.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this22.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -3492,10 +3704,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this22.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this22.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this22.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -3546,10 +3758,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this22.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this22.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this22.showItems();
+                _this24.showItems();
               });
             }
           }
@@ -3567,17 +3779,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this25 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this23.timeZone = timeZone;
+              return _this25.timeZone = timeZone;
             });
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this23.unitBlocksData = res;
+              _this25.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87,
@@ -3585,10 +3797,10 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this23.route.params['value'].id;
+                return item.lookupValueId == _this25.route.params['value'].id;
               });
-              _this23.pageName = data[0].lookupValueName.replace('/', '');
-              _this23.pageDesp = data[0].description;
+              _this25.pageName = data[0].lookupValueName.replace('/', '');
+              _this25.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -3796,15 +4008,15 @@
         }, {
           key: "getReportData",
           value: function getReportData() {
-            var _this24 = this;
+            var _this26 = this;
 
             var details = {
               LookupTypeId: 87,
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this24.reportDataList = res;
-              _this24.isDataLoaded = true;
+              _this26.reportDataList = res;
+              _this26.isDataLoaded = true;
             });
           }
         }, {
@@ -3821,14 +4033,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this27 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this25.unitBlocksData = res;
+              _this27.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87,
@@ -3836,10 +4048,10 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this25.route.params['value'].id;
+                return item.lookupValueId == _this27.route.params['value'].id;
               });
-              _this25.pageName = res[0].lookupValueName;
-              _this25.pageDesp = res[0].description;
+              _this27.pageName = res[0].lookupValueName;
+              _this27.pageDesp = res[0].description;
             }); // this.getBlockDetails();
 
             this.getReportData();
@@ -3893,17 +4105,17 @@
         }, {
           key: "getCurrentInventory",
           value: function getCurrentInventory() {
-            var _this26 = this;
+            var _this28 = this;
 
             var params = {};
             params.ApartmentId = this.sessionService.apartmentId;
             this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this26.gridSourceData = {
+                _this28.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this26.inventoryHistoryData = new jqx.dataAdapter(_this26.gridSourceData);
+                _this28.inventoryHistoryData = new jqx.dataAdapter(_this28.gridSourceData);
               }
             });
           }
@@ -4070,7 +4282,7 @@
         _createClass(AssetsSetupComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this29 = this;
 
             this.getAllCategory();
             this.getAllMaintenance();
@@ -4080,27 +4292,27 @@
                 var param = {};
                 param = {
                   categoryId: id,
-                  deletedBy: parseInt(_this27.sessionService.userId)
+                  deletedBy: parseInt(_this29.sessionService.userId)
                 };
 
-                _this27.lookupService.deleteCategory(param).subscribe(function (res) {
+                _this29.lookupService.deleteCategory(param).subscribe(function (res) {
                   // _.each(this.categoryList, (type) => {
                   // 	if (type.id == id) {
                   // 		type.isActive = false;
                   // 	}
                   // })
-                  _this27.getAllCategory();
+                  _this29.getAllCategory();
 
-                  _this27.getAllMaintenance();
+                  _this29.getAllMaintenance();
 
                   setTimeout(function () {
-                    if (_this27.delType == "maintenance") {
-                      _this27.sharedService.setAlertMessage("Maintenance type deleted successfully");
+                    if (_this29.delType == "maintenance") {
+                      _this29.sharedService.setAlertMessage("Maintenance type deleted successfully");
                     } else {
-                      _this27.sharedService.setAlertMessage("Asset Category deleted successfully");
+                      _this29.sharedService.setAlertMessage("Asset Category deleted successfully");
                     }
 
-                    _this27.sharedService.setUnitListDeleteIndex(null);
+                    _this29.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -4118,7 +4330,7 @@
         }, {
           key: "addSetUp",
           value: function addSetUp(name, type, value, e) {
-            var _this28 = this;
+            var _this30 = this;
 
             // let data:any={};
             // data.name=type;
@@ -4133,9 +4345,9 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this28.getAllCategory();
+                _this30.getAllCategory();
 
-                _this28.getAllMaintenance();
+                _this30.getAllMaintenance();
               }
             });
           }
@@ -4157,7 +4369,7 @@
         }, {
           key: "editSubCategory",
           value: function editSubCategory(data) {
-            var _this29 = this;
+            var _this31 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -4178,20 +4390,20 @@
             params.subcategoryLookupTypeId = 68;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this29.sharedService.setAlertMessage("Sub Category updated successfully");
+                _this31.sharedService.setAlertMessage("Sub Category updated successfully");
 
-                _this29.isAssetLoaded = false;
+                _this31.isAssetLoaded = false;
 
-                _this29.getAllCategory();
+                _this31.getAllCategory();
 
-                _this29.currIndex = -1;
+                _this31.currIndex = -1;
               }
             });
           }
         }, {
           key: "getAllMaintenance",
           value: function getAllMaintenance() {
-            var _this30 = this;
+            var _this32 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4202,10 +4414,10 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this30.isAssetLoaded = false;
-                _this30.mainType = res ? res : [];
-                _this30.maintenaceTotalItems = res.length;
-                _this30.tempMainType = _this30.mainType; // if (this.data && this.data.type === 'addSubType') {
+                _this32.isAssetLoaded = false;
+                _this32.mainType = res ? res : [];
+                _this32.maintenaceTotalItems = res.length;
+                _this32.tempMainType = _this32.mainType; // if (this.data && this.data.type === 'addSubType') {
                 // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
                 // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
                 // }
@@ -4220,7 +4432,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this31 = this;
+            var _this33 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4231,17 +4443,17 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this31.isAssetLoaded = false;
-                _this31.asseTotalItems = res.length;
-                _this31.categoryList = res ? res : [];
-                _this31.tempCategoryList = _this31.categoryList;
+                _this33.isAssetLoaded = false;
+                _this33.asseTotalItems = res.length;
+                _this33.categoryList = res ? res : [];
+                _this33.tempCategoryList = _this33.categoryList;
               }
             });
           }
         }, {
           key: "editMaintenance",
           value: function editMaintenance(data) {
-            var _this32 = this;
+            var _this34 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -4257,20 +4469,20 @@
             params.subcategoryLookupTypeId = 168;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this32.sharedService.setAlertMessage("Maintenance sub types updated successfully");
+                _this34.sharedService.setAlertMessage("Maintenance sub types updated successfully");
 
-                _this32.isAssetLoaded = false;
+                _this34.isAssetLoaded = false;
 
-                _this32.getAllMaintenance();
+                _this34.getAllMaintenance();
 
-                _this32.mainCurrIndex = -1;
+                _this34.mainCurrIndex = -1;
               }
             });
           }
         }, {
           key: "getDepreciatonList",
           value: function getDepreciatonList() {
-            var _this33 = this;
+            var _this35 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4279,10 +4491,10 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this33.depreciatonData = res ? res : [];
+                _this35.depreciatonData = res ? res : [];
 
-                if (_this33.depreciatonData && _this33.depreciatonData.length) {
-                  _this33.depreciatonData.filter(function (val) {
+                if (_this35.depreciatonData && _this35.depreciatonData.length) {
+                  _this35.depreciatonData.filter(function (val) {
                     val.isCheck = val.isDisabled == true ? false : true;
                   });
                 }
@@ -4292,7 +4504,7 @@
         }, {
           key: "updateDepreciatonList",
           value: function updateDepreciatonList(data) {
-            var _this34 = this;
+            var _this36 = this;
 
             var reqObj = {};
             reqObj = {
@@ -4313,22 +4525,22 @@
             param.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(param).subscribe(function (res) {
               if (res) {
-                _this34.sharedService.setAlertMessage("Depreciaton method  updated successfully");
+                _this36.sharedService.setAlertMessage("Depreciaton method  updated successfully");
 
-                _this34.isAssetLoaded = false;
+                _this36.isAssetLoaded = false;
 
-                _this34.getDepreciatonList();
+                _this36.getDepreciatonList();
               } else if (res.body.errorMessage) {
                 // this.isError = true;
                 // this.errorMessage = 'Not Added it already exist'
-                _this34.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this36.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
         }, {
           key: "editMaintanance",
           value: function editMaintanance(data) {
-            var _this35 = this;
+            var _this37 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -4348,16 +4560,16 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this35.sharedService.setAlertMessage("Maintenance Type updated successfully");
+                _this37.sharedService.setAlertMessage("Maintenance Type updated successfully");
 
-                _this35.isAssetLoaded = false;
-                _this35.currMainTypeIndex = -1;
+                _this37.isAssetLoaded = false;
+                _this37.currMainTypeIndex = -1;
 
-                _this35.getAllMaintenance();
+                _this37.getAllMaintenance();
               } else if (res.body.errorMessage) {
                 // this.isError = true;
                 // this.errorMessage = 'Not Added it already exist'
-                _this35.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this37.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
@@ -4376,7 +4588,7 @@
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this36 = this;
+            var _this38 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -4395,15 +4607,15 @@
             };
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
-              _this36.isAssetLoaded = false;
+              _this38.isAssetLoaded = false;
 
               if (res) {
-                _this36.sharedService.openSnackBar("Category updated successfully", 'success');
+                _this38.sharedService.openSnackBar("Category updated successfully", 'success');
 
-                _this36.currCatIndex = -1;
+                _this38.currCatIndex = -1;
 
-                _this36.getAllCategory();
-              } else _this36.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this38.getAllCategory();
+              } else _this38.sharedService.openSnackBar(res.errorMessage, 'error');
             });
           }
         }]);
@@ -4678,7 +4890,7 @@
         _createClass(AssetsViewComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this37 = this;
+            var _this39 = this;
 
             this.getAllAssets();
 
@@ -4743,23 +4955,23 @@
               if (id != null) {
                 var params = {
                   assetId: id,
-                  deleteBy: parseInt(_this37.sessionService.userId)
+                  deleteBy: parseInt(_this39.sessionService.userId)
                 };
 
-                _this37.assetService.deleteAsset(params).subscribe(function (res) {
-                  _this37.sharedService.setUnitListDeleteIndex(null);
+                _this39.assetService.deleteAsset(params).subscribe(function (res) {
+                  _this39.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this37.getAllAssets();
+                    _this39.getAllAssets();
 
-                    _this37.sharedService.openSnackBar("Asset deleted successfully", 'success');
+                    _this39.sharedService.openSnackBar("Asset deleted successfully", 'success');
                   } else {
-                    _this37.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this39.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this37.sharedService.setUnitListDeleteIndex(null);
+                  _this39.sharedService.setUnitListDeleteIndex(null);
 
-                  _this37.sharedService.openSnackBar('Server Error', 'error');
+                  _this39.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -4767,21 +4979,21 @@
         }, {
           key: "getAllAssets",
           value: function getAllAssets() {
-            var _this38 = this;
+            var _this40 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this38.totalItems = res.length;
-                _this38.gridSourceData = {
+                _this40.totalItems = res.length;
+                _this40.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this38.assetData = new jqx.dataAdapter(_this38.gridSourceData);
+                _this40.assetData = new jqx.dataAdapter(_this40.gridSourceData);
               }
 
-              _this38.isDataLoaded = false;
+              _this40.isDataLoaded = false;
             });
           }
         }, {
@@ -4792,7 +5004,7 @@
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this39 = this;
+            var _this41 = this;
 
             if (this.histroySearch != "") {
               var filterGroup = new jqx.filter();
@@ -4805,7 +5017,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.header.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this39.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this41.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4867,7 +5079,7 @@
         }, {
           key: "assetAction",
           value: function assetAction(id) {
-            var _this40 = this;
+            var _this42 = this;
 
             // Create the overlay
             this._selectPanelOverlayRef = this._overlay.create({
@@ -4889,9 +5101,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this40._selectPanelOverlayRef && _this40._selectPanelOverlayRef.hasAttached()) {
+              if (_this42._selectPanelOverlayRef && _this42._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this40._selectPanelOverlayRef.detach();
+                _this42._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -5414,7 +5626,7 @@
         _createClass(LastMaintenanceComponent, [{
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this41 = this;
+            var _this43 = this;
 
             if (this.histroySearch != "") {
               var filterGroup = new jqx.filter();
@@ -5427,7 +5639,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this41.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this43.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5443,7 +5655,7 @@
         }, {
           key: "onStatusFilter",
           value: function onStatusFilter() {
-            var _this42 = this;
+            var _this44 = this;
 
             if (this.historyStatus != "") {
               var filterGroup = new jqx.filter();
@@ -5456,7 +5668,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield == 'historyStatus') {
-                  _this42.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this44.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5472,14 +5684,14 @@
         }, {
           key: "setCatIdAndGetAssetSubCat",
           value: function setCatIdAndGetAssetSubCat(event) {
-            var _this43 = this;
+            var _this45 = this;
 
             this.search.categoryId = event[0].id;
             this.subCategoryList = [];
             this.search.subCategoryId = null;
             this.categoryList.filter(function (val) {
-              if (val.id == _this43.search.categoryId) {
-                _this43.subCategoryList = val.subCategory;
+              if (val.id == _this45.search.categoryId) {
+                _this45.subCategoryList = val.subCategory;
               }
             });
           }
@@ -5491,7 +5703,7 @@
         }, {
           key: "getMaintainAsset",
           value: function getMaintainAsset() {
-            var _this44 = this;
+            var _this46 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -5522,10 +5734,10 @@
 
               if (responeData && responeData.length > 0) {
                 responeData.filter(function (val) {
-                  val.actualMaintDate = val.actualMaintDate ? _this44.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
-                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this44.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
-                  val.nextPlannedMaintenance = val.nextPlannedMaintenance ? _this44.datePipe.transform(val.nextPlannedMaintenance, 'MM-dd-yyyy') : '';
-                  val.lastMaintenanceDate = val.lastMaintenanceDate ? _this44.datePipe.transform(val.lastMaintenanceDate, 'MM-dd-yyyy') : '';
+                  val.actualMaintDate = val.actualMaintDate ? _this46.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this46.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                  val.nextPlannedMaintenance = val.nextPlannedMaintenance ? _this46.datePipe.transform(val.nextPlannedMaintenance, 'MM-dd-yyyy') : '';
+                  val.lastMaintenanceDate = val.lastMaintenanceDate ? _this46.datePipe.transform(val.lastMaintenanceDate, 'MM-dd-yyyy') : '';
                 });
               }
 
@@ -5533,15 +5745,15 @@
                 localdata: responeData.length > 0 ? responeData : [],
                 datatype: "array"
               };
-              _this44.assetData = new jqx.dataAdapter(tableData);
-              _this44.totalItems = responeData.length;
-              _this44.isDataLoaded = false;
+              _this46.assetData = new jqx.dataAdapter(tableData);
+              _this46.totalItems = responeData.length;
+              _this46.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this47 = this;
 
             this.getMaintainAsset();
 
@@ -5619,14 +5831,14 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              _this45.categoryList = res;
+              _this47.categoryList = res;
             }); // geAsset
 
             var asset = {
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(asset).subscribe(function (res) {
-              _this45.assetList = res;
+              _this47.assetList = res;
             });
           }
         }]);
@@ -5779,7 +5991,7 @@
         _createClass(MaintenanceHistoryComponent, [{
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this46 = this;
+            var _this48 = this;
 
             if (this.histroySearch != "") {
               var filterGroup = new jqx.filter();
@@ -5792,7 +6004,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this46.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this48.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5808,7 +6020,7 @@
         }, {
           key: "onStatusFilter",
           value: function onStatusFilter() {
-            var _this47 = this;
+            var _this49 = this;
 
             if (this.historyStatus != "") {
               var filterGroup = new jqx.filter();
@@ -5821,7 +6033,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield == 'historyStatus') {
-                  _this47.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this49.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5837,14 +6049,14 @@
         }, {
           key: "setCatIdAndGetAssetSubCat",
           value: function setCatIdAndGetAssetSubCat(event) {
-            var _this48 = this;
+            var _this50 = this;
 
             this.search.categoryId = event[0].id;
             this.subCategoryList = [];
             this.search.subCategoryId = null;
             this.categoryList.filter(function (val) {
-              if (val.id == _this48.search.categoryId) {
-                _this48.subCategoryList = val.subCategory;
+              if (val.id == _this50.search.categoryId) {
+                _this50.subCategoryList = val.subCategory;
               }
             });
           }
@@ -5856,7 +6068,7 @@
         }, {
           key: "getMaintainHistory",
           value: function getMaintainHistory() {
-            var _this49 = this;
+            var _this51 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -5887,27 +6099,27 @@
 
                 if (responeData && responeData.length > 0) {
                   responeData.filter(function (val) {
-                    val.actualMaintDate = val.actualMaintDate ? _this49.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
-                    val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this49.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                    val.actualMaintDate = val.actualMaintDate ? _this51.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                    val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this51.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
                   });
                 }
 
-                _this49.maintenanceList = res;
-                _this49.tempMaintenanceList = res;
+                _this51.maintenanceList = res;
+                _this51.tempMaintenanceList = res;
                 var tableData = {
                   localdata: responeData.length > 0 ? responeData : [],
                   datatype: "array"
                 };
-                _this49.totalItems = tableData.localdata.length;
-                _this49.isDataLoaded = false;
-                _this49.assetsHistoryData = new jqx.dataAdapter(tableData);
+                _this51.totalItems = tableData.localdata.length;
+                _this51.isDataLoaded = false;
+                _this51.assetsHistoryData = new jqx.dataAdapter(tableData);
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this50 = this;
+            var _this52 = this;
 
             this.getMaintainHistory();
 
@@ -5983,14 +6195,14 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              _this50.categoryList = res;
+              _this52.categoryList = res;
             }); // geAsset
 
             var asset = {
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(asset).subscribe(function (res) {
-              _this50.assetList = res;
+              _this52.assetList = res;
             });
           }
         }]);
@@ -6160,7 +6372,7 @@
 
       var ManageMaintenanceComponent = /*#__PURE__*/function () {
         function ManageMaintenanceComponent(lookupService, sharedService, route, sessionService, injector, assetService, csvService, activeRouter) {
-          var _this51 = this;
+          var _this53 = this;
 
           _classCallCheck(this, ManageMaintenanceComponent);
 
@@ -6186,14 +6398,14 @@
           this.dynamicForm = [];
           this.customFieldComment = '';
           this.activeRouter.url.subscribe(function (data) {
-            _this51.urlType = data[0].path;
+            _this53.urlType = data[0].path;
           });
         }
 
         _createClass(ManageMaintenanceComponent, [{
           key: "searchAsset",
           value: function searchAsset() {
-            var _this52 = this;
+            var _this54 = this;
 
             var filterArr = [];
             var filterCategoryArr = [];
@@ -6202,7 +6414,7 @@
             if (this.assetName) {
               if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
                 this.tempMaintenanceList.filter(function (val) {
-                  if (_this52.assetName == val.assetName) {
+                  if (_this54.assetName == val.assetName) {
                     filterArr.push(val);
                   }
                 });
@@ -6214,7 +6426,7 @@
             if (this.assetName && this.categoryName) {
               // if(filterArr && filterArr.length>0){
               filterArr.filter(function (val) {
-                if (_this52.categoryName == val.assetCategoryName) {
+                if (_this54.categoryName == val.assetCategoryName) {
                   filterCategoryArr.push(val);
                 }
               }); // }
@@ -6223,7 +6435,7 @@
             } else if (!this.assetName && this.categoryName) {
               if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
                 this.tempMaintenanceList.filter(function (val) {
-                  if (_this52.categoryName == val.assetCategoryName) {
+                  if (_this54.categoryName == val.assetCategoryName) {
                     filterCategoryArr.push(val);
                   }
                 });
@@ -6233,7 +6445,7 @@
 
             if (this.categoryName && this.subCategoryName) {
               filterCategoryArr.filter(function (val) {
-                if (_this52.subCategoryName == val.assetSubcategoryName) {
+                if (_this54.subCategoryName == val.assetSubcategoryName) {
                   filterSubCategoryArr.push(val);
                 }
               });
@@ -6241,7 +6453,7 @@
             } else if (!this.categoryName && this.subCategoryName) {
               if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
                 this.tempMaintenanceList.filter(function (val) {
-                  if (_this52.subCategoryName == val.assetSubcategoryName) {
+                  if (_this54.subCategoryName == val.assetSubcategoryName) {
                     filterSubCategoryArr.push(val);
                   }
                 });
@@ -6342,20 +6554,20 @@
         }, {
           key: "getCheckListComments",
           value: function getCheckListComments() {
-            var _this53 = this;
+            var _this55 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               assetMaintenancePlanId: this.selectedList.assetMaintenancePlanId
             };
             this.assetService.getAssetMaintenancePlanCommentsByAssetMaintenancePlanId(params).subscribe(function (comment) {
-              _this53.selectedList.comments = comment;
+              _this55.selectedList.comments = comment;
             });
           }
         }, {
           key: "updateCustomField",
           value: function updateCustomField() {
-            var _this54 = this;
+            var _this56 = this;
 
             var params = {
               assetMaintenancePlan: {
@@ -6371,20 +6583,20 @@
             };
             this.assetService.updateAssetMaintenancePlanCustomFields(params).subscribe(function (res) {
               if (res.message) {
-                _this54.closeDrawer();
+                _this56.closeDrawer();
 
-                _this54.sharedService.openSnackBar(res.message, 'success');
+                _this56.sharedService.openSnackBar(res.message, 'success');
               } else {
-                _this54.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this56.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this54.sharedService.openSnackBar('Server Error', 'error');
+              _this56.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "submitCustomFieldComment",
           value: function submitCustomFieldComment() {
-            var _this55 = this;
+            var _this57 = this;
 
             var comment = this.customFieldComment.trim();
 
@@ -6402,17 +6614,17 @@
               };
               this.assetService.addAssetMaintenancePlanComments(params).subscribe(function (res) {
                 if (res.message) {
-                  _this55.customFieldComment = '';
+                  _this57.customFieldComment = '';
 
-                  _this55.sharedService.openSnackBar('Comment Added Successfully', 'success'); //CommentList 
+                  _this57.sharedService.openSnackBar('Comment Added Successfully', 'success'); //CommentList 
 
 
-                  _this55.getCheckListComments();
+                  _this57.getCheckListComments();
                 } else {
-                  _this55.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this57.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this55.sharedService.openSnackBar('Server Error', 'error');
+                _this57.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -6424,10 +6636,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this56 = this;
+            var _this58 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this56.timeZone = timeZone;
+              return _this58.timeZone = timeZone;
             });
             this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]); // delete maintenance
 
@@ -6436,19 +6648,19 @@
                 var param = {};
                 param = {
                   assetMaintenancePlanId: id,
-                  deleteBy: parseInt(_this56.sessionService.userId)
+                  deleteBy: parseInt(_this58.sessionService.userId)
                 };
 
-                _this56.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
+                _this58.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
                   //  this.getMaintenaceList();
-                  var pos = _this56.maintenanceList.map(function (e) {
+                  var pos = _this58.maintenanceList.map(function (e) {
                     return e.assetMaintenancePlanId;
                   }).indexOf(id);
 
-                  _this56.maintenanceList.splice(pos, 1);
+                  _this58.maintenanceList.splice(pos, 1);
 
-                  _this56.totalItems = _this56.maintenanceList.length;
-                  _this56.ItemEndIndex = _this56.totalItems; //  if(this.totalItems>this.itemLimit){
+                  _this58.totalItems = _this58.maintenanceList.length;
+                  _this58.ItemEndIndex = _this58.totalItems; //  if(this.totalItems>this.itemLimit){
                   //    this.ItemEndIndex = this.itemLimit;
                   //  }
                   //  else {
@@ -6456,9 +6668,9 @@
                   //  }
 
                   setTimeout(function () {
-                    _this56.sharedService.setAlertMessage("Maintenance  deleted successfully");
+                    _this58.sharedService.setAlertMessage("Maintenance  deleted successfully");
 
-                    _this56.sharedService.setUnitListDeleteIndex(null);
+                    _this58.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -6467,16 +6679,16 @@
             });
             this.route.paramMap.subscribe(function (params) {
               if (params) {
-                _this56.assetId = params.get('id');
+                _this58.assetId = params.get('id');
                 var reqOBj = {
-                  apartmentId: _this56.sessionService.apartmentId,
-                  assetId: _this56.assetId
+                  apartmentId: _this58.sessionService.apartmentId,
+                  assetId: _this58.assetId
                 };
 
-                _this56.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
+                _this58.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
                   // this.asset = res[0];
                   if (res && res[0]) {
-                    _this56.maintenanceList = res;
+                    _this58.maintenanceList = res;
                   }
                 });
               }
@@ -6505,7 +6717,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this57 = this;
+            var _this59 = this;
 
             var params = {
               LookupTypeId: 19,
@@ -6515,7 +6727,7 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this57.categoryList.push({
+                    _this59.categoryList.push({
                       'id': val.lookupValueId,
                       'itemName': val.lookupValueName
                     });
@@ -6542,7 +6754,7 @@
         }, {
           key: "getSubCategory",
           value: function getSubCategory() {
-            var _this58 = this;
+            var _this60 = this;
 
             var params = {
               LookupTypeId: 68,
@@ -6553,7 +6765,7 @@
                 // this.subCategoryList = res;
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this58.subCategoryList.push({
+                    _this60.subCategoryList.push({
                       'id': val.lookupValueId,
                       'itemName': val.lookupValueName
                     });
@@ -6570,7 +6782,7 @@
         }, {
           key: "getAsset",
           value: function getAsset() {
-            var _this59 = this;
+            var _this61 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
@@ -6579,7 +6791,7 @@
                 // this.assetList = res;
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this59.assetList.push({
+                    _this61.assetList.push({
                       'id': val.assetId,
                       'itemName': val.assetName
                     });
@@ -6591,7 +6803,7 @@
         }, {
           key: "getMaintenaceList",
           value: function getMaintenaceList() {
-            var _this60 = this;
+            var _this62 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
@@ -6599,14 +6811,14 @@
             };
             this.assetService.getAllAssetMaintenancePlanByApartmentIdStatus(params).subscribe(function (res) {
               if (res) {
-                _this60.maintenanceList = res.length > 0 ? res : [];
-                _this60.tempMaintenanceList = _this60.maintenanceList;
-                _this60.totalItems = _this60.maintenanceList.length;
+                _this62.maintenanceList = res.length > 0 ? res : [];
+                _this62.tempMaintenanceList = _this62.maintenanceList;
+                _this62.totalItems = _this62.maintenanceList.length;
 
-                if (_this60.totalItems > _this60.itemLimit) {
-                  _this60.ItemEndIndex = _this60.itemLimit;
+                if (_this62.totalItems > _this62.itemLimit) {
+                  _this62.ItemEndIndex = _this62.itemLimit;
                 } else {
-                  _this60.ItemEndIndex = _this60.totalItems;
+                  _this62.ItemEndIndex = _this62.totalItems;
                 }
               }
             });
@@ -6614,7 +6826,7 @@
         }, {
           key: "getAssignToMeList",
           value: function getAssignToMeList() {
-            var _this61 = this;
+            var _this63 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
@@ -6622,14 +6834,14 @@
             };
             this.assetService.getAssetMaintenancePlanByAssignedtome(params).subscribe(function (res) {
               if (res) {
-                _this61.maintenanceList = res.length > 0 ? res : [];
-                _this61.tempMaintenanceList = _this61.maintenanceList;
-                _this61.totalItems = _this61.maintenanceList.length;
+                _this63.maintenanceList = res.length > 0 ? res : [];
+                _this63.tempMaintenanceList = _this63.maintenanceList;
+                _this63.totalItems = _this63.maintenanceList.length;
 
-                if (_this61.totalItems > _this61.itemLimit) {
-                  _this61.ItemEndIndex = _this61.itemLimit;
+                if (_this63.totalItems > _this63.itemLimit) {
+                  _this63.ItemEndIndex = _this63.itemLimit;
                 } else {
-                  _this61.ItemEndIndex = _this61.totalItems;
+                  _this63.ItemEndIndex = _this63.totalItems;
                 }
               }
             });

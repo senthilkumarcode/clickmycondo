@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-asset-usage-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t<h4 class=\"mb-4\">\t\t\t\n\t\t\t\t<span>Add Asset Usage </span>\n\t\t\t\t<!-- <span *ngIf=\"isEdit\">Edit Asset Maintenance </span>\t\t\t -->\n\t\t\t</h4>\t\t\t\n\t\t</div>\n\t\t<!-- <app-loader *ngIf=\"isAssetLoaded\"></app-loader> -->\n\t\t<form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\tlabelText=\"Select Asset\"  \n\t\t\t\t\t\t fieldPlaceholder=\"Select Asset\"\n\t\t\t\t\t\t [fieldList]=\"assetList\"                                     \n\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t fieldId=\"assetId\"\n\t\t\t\t\t\t [fieldModel]=\"usage.assetId\"\n\t\t\t\t\t\t (fieldParams)=\"setAssetId($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n            </div>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\t\t\t\t\t\t\t\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine Start Time\"\n                            fieldName=\"startDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetStarttime\"\n                            (fieldParams)=\"setStartTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine End Time\"\n                            fieldName=\"endDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetEndtime\"\n                            (fieldParams)=\"setEndTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Total Run TIme</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Total Run Time\" name=\"totalRunTime\" [value]=\"usage.totalhoursRan\" disabled>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading Start</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading Start\" name=\"meterReadingStart\"\n                                [(ngModel)]=\"usage.assetMeterStart\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading End</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading End\" name=\"meterReadingEnd\"\n                                [(ngModel)]=\"usage.assetMeterEnd\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Meter Reading</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Meter Reading\" name=\"totalMeterReading\"\n                                [(ngModel)]=\"usage.totalMeterreading\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Fuel Added Count</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Fuel Added Count\" name=\"fuelAddedCount\"\n                                [(ngModel)]=\"usage.fuelAddedCount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Unit Of Measure\"  \n                            fieldPlaceholder=\"Select Unit Measure\"\n                            [fieldList]=\"unitOfMeasureList\"                                     \n                            fieldValue=\"lookupValueName\"\n                            fieldId=\"lookupValueId\"\n                            [fieldModel]=\"usage.fuelAddedId\"\n                            (fieldParams)=\"setUnitOfMeasure($event)\">\n                        </condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Fuel Added By\" \n                            fieldPlaceholder=\"Select Fuel Added By\"\n                            [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n                            fieldValue=\"customLabel\"\n                            fieldId=\"staffId\"\n                            [fieldModel]=\"usage.fuelAddedby\"\n                            (fieldParams)=\"setFuelAddedBy($event)\">\n                        </condo-select>\n                    </div>\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Fuel Added On\"\n                            fieldName=\"fuelAddedOn\"\n                            type=\"date\"\n                            [fieldModel]=\"usage.fuelAddedon\"\n                            (fieldParams)=\"setFuelAddedOn($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Amount</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\"\n                                [(ngModel)]=\"usage.amount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Tax</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Tax\" name=\"tax\"\n                                [(ngModel)]=\"usage.tax\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Bill</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Bill\" name=\"totalBill\"\n                                [(ngModel)]=\"usage.totalBill\">\n                        </div>\n                    </div>  \n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <textarea placeholder=\"Enter Comments\" name=\"comments\" [(ngModel)]=\"usage.comments\"></textarea>\n                        </div>\t\t\t\t\t\t\t\t\t\n                    </div>                                \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"addAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-asset-usage-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t<h4 class=\"mb-4\">\t\t\t\n\t\t\t\t<span *ngIf=\"!isEdit\">Add Asset Usage </span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Asset Usage </span>\t\t\t\n\t\t\t</h4>\t\t\t\n\t\t</div>\n\t\t<!-- <app-loader *ngIf=\"isAssetLoaded\"></app-loader> -->\n\t\t<form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\tlabelText=\"Select Asset\"  \n\t\t\t\t\t\t fieldPlaceholder=\"Select Asset\"\n\t\t\t\t\t\t [fieldList]=\"assetList\"                                     \n\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t fieldId=\"assetId\"\n\t\t\t\t\t\t [fieldModel]=\"usage.assetId\"\n\t\t\t\t\t\t (fieldParams)=\"setAssetId($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n            </div>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\t\t\t\t\t\t\t\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine Start Time\"\n                            fieldName=\"startDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetStarttime\"\n                            (fieldParams)=\"setStartTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Machine End Time\"\n                            fieldName=\"endDateTime\"\n                            type=\"dateTime\"\n                            [fieldModel]=\"usage.assetEndtime\"\n                            (fieldParams)=\"setEndTime($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Total Run TIme</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Total Run Time\" name=\"totalRunTime\" [value]=\"usage.totalhoursRan\" disabled>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading Start</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading Start\" name=\"meterReadingStart\"\n                                [(ngModel)]=\"usage.assetMeterStart\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Meter Reading End</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading End\" name=\"meterReadingEnd\"\n                                [(ngModel)]=\"usage.assetMeterEnd\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Meter Reading</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Meter Reading\" name=\"totalMeterReading\"\n                                [(ngModel)]=\"usage.totalMeterreading\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Fuel Added Count</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Fuel Added Count\" name=\"fuelAddedCount\"\n                                [(ngModel)]=\"usage.fuelAddedCount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Unit Of Measure\"  \n                            fieldPlaceholder=\"Select Unit Measure\"\n                            [fieldList]=\"unitOfMeasureList\"                                     \n                            fieldValue=\"lookupValueName\"\n                            fieldId=\"lookupValueId\"\n                            [fieldModel]=\"usage.fuelAddedId\"\n                            (fieldParams)=\"setUnitOfMeasure($event)\">\n                        </condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select\n                            labelText=\"Fuel Added By\" \n                            fieldPlaceholder=\"Select Fuel Added By\"\n                            [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n                            fieldValue=\"customLabel\"\n                            fieldId=\"staffId\"\n                            [fieldModel]=\"usage.fuelAddedby\"\n                            (fieldParams)=\"setFuelAddedBy($event)\">\n                        </condo-select>\n                    </div>\t\n                    <div class=\"col-sm-4\">\n                        <app-datepicker\n                            labelText=\"Fuel Added On\"\n                            fieldName=\"fuelAddedOn\"\n                            type=\"date\"\n                            [fieldModel]=\"usage.fuelAddedon\"\n                            (fieldParams)=\"setFuelAddedOn($event)\">\n                        </app-datepicker>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Amount</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\"\n                                [(ngModel)]=\"usage.amount\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Tax</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Tax\" name=\"tax\"\n                                [(ngModel)]=\"usage.tax\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Total Bill</label>\n                            <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Bill\" name=\"totalBill\"\n                                [(ngModel)]=\"usage.totalBill\">\n                        </div>\n                    </div>  \n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <textarea placeholder=\"Enter Comments\" name=\"comments\" [(ngModel)]=\"usage.comments\"></textarea>\n                        </div>\t\t\t\t\t\t\t\t\t\n                    </div>                                \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button *ngIf=\"!isEdit\" (click)=\"addAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                            <submit-button *ngIf=\"isEdit\" (click)=\"updateAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n\t\t\t\t\t\t    <button class=\"ml-2\" mat-button (click)=\"resetField()\">{{isEdit ? 'Cancel' : 'Clear'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"view-assets-usage-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\" *ngIf=\"urlType=='asset-usage-list'\">\n\t\t\t<div class=\"asset-usage-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4>Filter</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                fieldPlaceholder=\"Select Asset\"\n                                [fieldList]=\"assetList\"                                     \n                                fieldValue=\"customLabel\"\n                                fieldId=\"assetId\"\n                                [fieldModel]=\"filterField.assetId\"\n                                (fieldParams)=\"setAssetId($event)\">\n                            </condo-select>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"from\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.fromInsertedOn\"\n                                (fieldParams)=\"setFromDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"to\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.toInsertedOn\"\n                                (fieldParams)=\"setToDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <div class=\"d-flex mb-4\">\n                    <h4>\n                        <span *ngIf=\"urlType=='asset-usage-view'\">View Asset Usage</span>\n                        <span *ngIf=\"urlType=='asset-usage-list'\">View All Asset Usage List</span>\n                    </h4>\n                    <div class=\"ml-auto\" *ngIf=\"urlType=='asset-usage-list'\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                        </button>\n                    </div>\t\t\t\n                </div>\n                <app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n                <form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n                    <div class=\"bg-card shadow\" *ngIf=\"urlType=='asset-usage-view'\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-6\">\n                                <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                 fieldPlaceholder=\"Select Asset\"\n                                 [fieldList]=\"assetList\"                                     \n                                 fieldValue=\"customLabel\"\n                                 fieldId=\"assetId\"\n                                 [fieldModel]=\"filterField.assetId\"\n                                 (fieldParams)=\"setAssetId($event)\"></condo-select>\n                            </div>\n                        </div>\n                    </div>\n        \n                    <mat-accordion class=\"pt-5 manage-assets\">\n                        <mat-expansion-panel  *ngFor=\" let main of assetUsageList | slice:ItemStartIndex:ItemEndIndex;let mainIndex = index\">\n                            <mat-expansion-panel-header class=\"mr-0\">\n                                <mat-panel-title>\n                                    <form>\n                                        <div class=\"row\">\n                                            <div class=\"col-sm-2\">\n                                                <label>Recorded On</label>\n                                                <p class=\"ellipse\">{{main}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Time Ran</label>\n                                                <p class=\"ellipse\">{{main.totalhoursRan}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Meter Units</label>\n                                                <p class=\"ellipse\">{{main.totalMeterreading}}</p>\n                                            </div> \n                                            <div class=\"col-sm-3\">\n                                                <label>Fuel Added</label>\n                                                <p class=\"ellipse\">{{main.fuelAddedby}}</p>\n                                            </div> \n                                            <div class=\"col-sm-1\">\n                                                <label>Action</label>\n                                                <div class=\"d-flex medium-icon\">\n                                                    <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"custom-icon-20 edit-asset\"  routerLink=\"/ams/assets/create-maintenance/{{main}}\" ></mat-icon>  \n                                                    <mat-icon [svgIcon]=\"'feather:trash'\"  class=\"delete icon-md delete-asset\" (click)=\"deleteManitenance(main)\"></mat-icon>                           \n                                                </div>\n                                            </div>                        \n                                        </div>\n                                    </form>\n                                </mat-panel-title>\n                            </mat-expansion-panel-header>\n                            <mat-panel-description>\n                                <div class=\"row wd-100\">\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading Start</label>\n                                        <div class=\"display-name\">{{main.assetMeterStart}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading End</label>\n                                        <div class=\"display-name\">{{main.assetMeterEnd}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Unit Of Measure</label>\n                                        <div class=\"display-name\" >{{main.fuelAddedId}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Fuel Added</label>\n                                        <div class=\"display-name\">{{main}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added By</label>\n                                        <div class=\"display-name\"> {{main.fuelAddedby}} </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added On</label>\n                                        <div class=\"display-name\">{{main}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Amount</label>\n                                        <div class=\"display-name\">{{main.amount}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Tax</label>\n                                        <div class=\"display-name\">{{main.tax}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Bill</label>\n                                        <div class=\"display-name\">{{main.totalBill}}</div>\n                                    </div>\n                                    <div class=\"col-sm-12\">\n                                        <label>Comment</label>\n                                        <div class=\"display-name\">{{main.comments}}</div>\n                                    </div>\n                                </div>\n                            </mat-panel-description>\n                        </mat-expansion-panel>\n                        <app-pagination  class=\"custom-outer-pagination\" *ngIf=\"totalItems\"\n                            [totalItems]=\"totalItems\"  \n                            [ItemStartIndex]=\"ItemStartIndex\"\n                            [ItemEndIndex] = \"ItemEndIndex\"\n                            [itemLimit] = \"itemLimit\"\n                            (outputParams) = \"getIndexParams($event)\">\t\n                        </app-pagination>\n                    </mat-accordion>\n                    \n                </form>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"view-assets-usage-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\" *ngIf=\"urlType=='asset-usage-list'\">\n\t\t\t<div class=\"asset-usage-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4>Filter</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                fieldPlaceholder=\"Select Asset\"\n                                [fieldList]=\"assetList\"                                     \n                                fieldValue=\"customLabel\"\n                                fieldId=\"assetId\"\n                                [fieldModel]=\"filterField.assetId\"\n                                (fieldParams)=\"setAssetId($event)\">\n                            </condo-select>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"from\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.fromInsertedOn\"\n                                (fieldParams)=\"setFromDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"to\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.toInsertedOn\"\n                                (fieldParams)=\"setToDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"getAssetUsageList()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <div class=\"d-flex mb-4\">\n                    <h4>\n                        <span *ngIf=\"urlType=='asset-usage-view'\">View Asset Usage</span>\n                        <span *ngIf=\"urlType=='asset-usage-list'\">View All Asset Usage List</span>\n                    </h4>\n                    <div class=\"ml-auto\" *ngIf=\"urlType=='asset-usage-list'\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                        </button>\n                    </div>\t\t\t\n                </div>\n                <form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n                    <div class=\"bg-card shadow\" *ngIf=\"urlType=='asset-usage-view'\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-6\">\n                                <condo-select\n                                labelText=\"Select Asset\"                                     \n                                [fieldRequired]=\"'required'\"\n                                 fieldPlaceholder=\"Select Asset\"\n                                 [fieldList]=\"assetList\"                                     \n                                 fieldValue=\"customLabel\"\n                                 fieldId=\"assetId\"\n                                 [fieldModel]=\"filterField.assetId\"\n                                 (fieldParams)=\"setAssetId($event)\"></condo-select>\n                            </div>\n                        </div>\n                    </div>\n                    <app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n                    <mat-accordion class=\"pt-5 manage-assets\" *ngIf=\"!isAssetLoaded\">\n                        <mat-expansion-panel  *ngFor=\" let main of assetUsageList | slice:ItemStartIndex:ItemEndIndex;let mainIndex = index\">\n                            <mat-expansion-panel-header class=\"mr-0\">\n                                <mat-panel-title>\n                                    <form>\n                                        <div class=\"row\">\n                                            <div class=\"col-sm-2\">\n                                                <label>Recorded On</label>\n                                                <p class=\"ellipse\">{{main}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Time Ran</label>\n                                                <p class=\"ellipse\">{{main.totalhoursRan}}</p>\n                                            </div>\n                                            <div class=\"col-sm-3\">\n                                                <label>Total Meter Units</label>\n                                                <p class=\"ellipse\">{{main.totalMeterreading}}</p>\n                                            </div> \n                                            <div class=\"col-sm-3\">\n                                                <label>Fuel Added</label>\n                                                <p class=\"ellipse\">{{main.fuelAddedby}}</p>\n                                            </div> \n                                            <div class=\"col-sm-1\">\n                                                <label>Action</label>\n                                                <div class=\"d-flex medium-icon\">\n                                                    <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"custom-icon-20 edit-asset\"  routerLink=\"/ams/assets/create-asset-usage/{{main.assetUsageId}}\" ></mat-icon>  \n                                                    <mat-icon [svgIcon]=\"'feather:trash'\"  class=\"delete icon-md delete-asset\" (click)=\"deleteAssertUsage(main.assetUsageId)\"></mat-icon>                           \n                                                </div>\n                                            </div>                        \n                                        </div>\n                                    </form>\n                                </mat-panel-title>\n                            </mat-expansion-panel-header>\n                            <mat-panel-description>\n                                <div class=\"row wd-100\">\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading Start</label>\n                                        <div class=\"display-name\">{{main.assetMeterStart}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Meter Reading End</label>\n                                        <div class=\"display-name\">{{main.assetMeterEnd}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Unit Of Measure</label>\n                                        <div class=\"display-name\" >{{main.fuelAddedId}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Fuel Added</label>\n                                        <div class=\"display-name\">{{main}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added By</label>\n                                        <div class=\"display-name\"> {{main.fuelAddedby}} </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Fuel Added On</label>\n                                        <div class=\"display-name\">{{getDateTimeFormat(main.fuelAddedon)}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Amount</label>\n                                        <div class=\"display-name\">{{main.amount}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Tax</label>\n                                        <div class=\"display-name\">{{main.tax}}</div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <label>Total Bill</label>\n                                        <div class=\"display-name\">{{main.totalBill}}</div>\n                                    </div>\n                                    <div class=\"col-sm-12\">\n                                        <label>Comment</label>\n                                        <div class=\"display-name\">{{main.comments}}</div>\n                                    </div>\n                                </div>\n                            </mat-panel-description>\n                        </mat-expansion-panel>\n                        <app-pagination  class=\"custom-outer-pagination\" *ngIf=\"assetUsageList.length > 0\"\n                            [totalItems]=\"totalItems\"  \n                            [ItemStartIndex]=\"ItemStartIndex\"\n                            [ItemEndIndex] = \"ItemEndIndex\"\n                            [itemLimit] = \"itemLimit\"\n                            (outputParams) = \"getIndexParams($event)\">\t\n                        </app-pagination>\n                    </mat-accordion>\n                </form>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -256,6 +256,7 @@ const routes = [
     { path: 'view', component: _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_6__["AssetsViewComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'view/:id', component: _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_6__["AssetsViewComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'create-asset-usage', component: _components_add_asset_usage_add_asset_usage_component__WEBPACK_IMPORTED_MODULE_15__["AddAssetUsageComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'create-asset-usage/:id', component: _components_add_asset_usage_add_asset_usage_component__WEBPACK_IMPORTED_MODULE_15__["AddAssetUsageComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'asset-usage-view', component: _components_asset_view_usage_asset_view_usage_component__WEBPACK_IMPORTED_MODULE_16__["AssetViewUsageComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'asset-usage-list', component: _components_asset_view_usage_asset_view_usage_component__WEBPACK_IMPORTED_MODULE_16__["AssetViewUsageComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'reports', component: _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_5__["AssetsReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
@@ -702,6 +703,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+
+
+
 
 
 
@@ -711,17 +718,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddAssetUsageComponent = class AddAssetUsageComponent {
-    constructor(sharedService, sessionService, staffService, lookupService, assetService) {
+    constructor(sharedService, sessionService, staffService, lookupService, assetService, router, activateRoute, dialog) {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.staffService = staffService;
         this.lookupService = lookupService;
         this.assetService = assetService;
+        this.router = router;
+        this.activateRoute = activateRoute;
+        this.dialog = dialog;
         this.usage = {};
         this.staffList = [];
         this.assetList = [];
         this.unitOfMeasureList = [];
         this.isAssetLoaded = false;
+        this.isEdit = false;
     }
     setAssetId(event) {
         this.usage.assetId = event[0].assetId;
@@ -792,6 +803,7 @@ let AddAssetUsageComponent = class AddAssetUsageComponent {
             this.isAssetLoaded = false;
             if (res.message) {
                 this.sharedService.openSnackBar('Assert Usage Create SuccessFully', 'success');
+                this.router.navigate(['asset-usage-list'], { relativeTo: this.activateRoute.parent });
             }
             else {
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -800,6 +812,72 @@ let AddAssetUsageComponent = class AddAssetUsageComponent {
             this.isAssetLoaded = false;
             this.sharedService.openSnackBar('Server Error', 'error');
         });
+    }
+    updateAssertUsage() {
+        this.isAssetLoaded = true;
+        let params = {
+            model: {
+                "assetUsageId": this.usage.assetUsageId,
+                "assetId": this.usage.assetId,
+                "assetMeterStart": parseInt(this.usage.assetMeterStart),
+                "assetMeterEnd": parseInt(this.usage.assetMeterEnd),
+                "assetStarttime": this.usage.assetStarttime,
+                "assetEndtime": this.usage.assetEndtime,
+                "fuelAddedId": this.usage.fuelAddedId,
+                "fuelAddedby": this.usage.fuelAddedby,
+                "fuelAddedon": this.usage.fuelAddedon,
+                "totalhoursRan": parseInt(this.usage.totalhoursRan),
+                "totalMeterreading": parseInt(this.usage.totalMeterreading),
+                "amount": parseInt(this.usage.amount),
+                "tax": parseInt(this.usage.tax),
+                "totalBill": parseInt(this.usage.totalBill),
+                "comments": this.usage.comments,
+                "customfield": 'string',
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            }
+        };
+        this.assetService.updateAssetUsage(params).subscribe((res) => {
+            this.isAssetLoaded = false;
+            if (res.message) {
+                this.sharedService.openSnackBar('Assert Usage Updated SuccessFully', 'success');
+                this.router.navigate(['asset-usage-list'], { relativeTo: this.activateRoute.parent });
+            }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isAssetLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    resetField() {
+        if (this.isEdit) {
+            const message = `Are you sure, you want to exit the screen ?`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.router.navigate(['asset-usage-list'], { relativeTo: this.activateRoute.parent });
+                }
+            });
+        }
+        else {
+            this.form.reset();
+            this.usage = {
+                'assetEndtime': null,
+                'assetStarttime': null,
+                'fuelAddedon': null,
+                'totalhoursRan': null
+            };
+        }
     }
     ngOnInit() {
         this.usage.totalhoursRan = null;
@@ -837,6 +915,16 @@ let AddAssetUsageComponent = class AddAssetUsageComponent {
         this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe((res) => {
             this.unitOfMeasureList = res;
         });
+        if (this.activateRoute.params['value'].id) {
+            this.isEdit = true;
+            let assertUsageInfo = {
+                apartmentId: this.sessionService.apartmentId,
+                assetUsageId: this.activateRoute.params['value'].id
+            };
+            this.assetService.getAssetUsagebyAssetUsageId(assertUsageInfo).subscribe((res) => {
+                this.usage = res[0];
+            });
+        }
     }
 };
 AddAssetUsageComponent.ctorParameters = () => [
@@ -844,8 +932,14 @@ AddAssetUsageComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] }
+    { type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] }
 ];
+AddAssetUsageComponent.propDecorators = {
+    form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['assetUsageForm',] }]
+};
 AddAssetUsageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-asset-usage',
@@ -856,7 +950,10 @@ AddAssetUsageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"]])
+        src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])
 ], AddAssetUsageComponent);
 
 
@@ -1658,6 +1755,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+
+
 
 
 
@@ -1668,12 +1770,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AssetViewUsageComponent = class AssetViewUsageComponent {
-    constructor(sharedService, sessionService, staffService, assetService, activeRouter) {
+    constructor(sharedService, sessionService, staffService, assetService, activeRouter, injector) {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.staffService = staffService;
         this.assetService = assetService;
         this.activeRouter = activeRouter;
+        this.injector = injector;
         this.usage = {};
         this.staffList = [];
         this.assetList = [];
@@ -1681,6 +1784,7 @@ let AssetViewUsageComponent = class AssetViewUsageComponent {
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
         this.assetUsageList = [];
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         this.activeRouter.url.subscribe((data) => {
             this.urlType = data[0].path;
         });
@@ -1688,7 +1792,10 @@ let AssetViewUsageComponent = class AssetViewUsageComponent {
     setAssetId(event) {
         this.filterField.assetId = event[0].assetId;
         if (this.urlType == 'asset-usage-view') {
-            this.getAssetUsageList();
+            if (this.filterField.assetId)
+                this.getAssetUsageList();
+            else
+                this.assetUsageList = [];
         }
     }
     setFromDate(event) {
@@ -1707,6 +1814,14 @@ let AssetViewUsageComponent = class AssetViewUsageComponent {
         this.filterField = {};
         this.filterField.fromInsertedOn = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(30, 'days').utc().format();
         this.filterField.toInsertedOn = moment__WEBPACK_IMPORTED_MODULE_8__().format();
+    }
+    getDateTimeFormat(date) {
+        if (date) {
+            return moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()(date).format(this.timeZone.time);
+        }
+        else {
+            return '';
+        }
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1727,6 +1842,13 @@ let AssetViewUsageComponent = class AssetViewUsageComponent {
             this.isAssetLoaded = false;
             if (Array.isArray(res)) {
                 this.assetUsageList = res;
+                this.totalItems = this.assetUsageList.length;
+                if (this.totalItems > this.itemLimit) {
+                    this.ItemEndIndex = this.itemLimit;
+                }
+                else {
+                    this.ItemEndIndex = this.totalItems;
+                }
             }
             else {
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -1736,7 +1858,12 @@ let AssetViewUsageComponent = class AssetViewUsageComponent {
             this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
+    deleteAssertUsage(id) {
+        this.modalService.showConfirmModal(id);
+    }
     ngOnInit() {
+        //TimeZone
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         // Asset List
         let params = {
             apartmentId: this.sessionService.apartmentId
@@ -1753,6 +1880,34 @@ let AssetViewUsageComponent = class AssetViewUsageComponent {
             this.clearFilter();
             this.getAssetUsageList();
         }
+        // delete maintenance
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                let param = {
+                    assetUsageId: id,
+                    deleteBy: this.sessionService.userId
+                };
+                this.assetService.deleteAssetUsage(param).subscribe((res) => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    if (res.message) {
+                        if (this.urlType == 'asset-usage-list') {
+                            this.clearFilter();
+                        }
+                        this.getAssetUsageList();
+                        this.sharedService.openSnackBar("Assert Usage deleted successfully", 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, error => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 AssetViewUsageComponent.ctorParameters = () => [
@@ -1760,7 +1915,8 @@ AssetViewUsageComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
     { type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 AssetViewUsageComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
@@ -1776,7 +1932,8 @@ AssetViewUsageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
         src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], AssetViewUsageComponent);
 
 
