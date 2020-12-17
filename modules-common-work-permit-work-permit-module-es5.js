@@ -767,6 +767,7 @@
           this.isPDFDow = false;
           this.message = null;
           this.isSubmitted = false;
+          this.acceptTerms = "";
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
           this.activateRouter.url.subscribe(function (data) {
             _this5.urlType = data[0].path;

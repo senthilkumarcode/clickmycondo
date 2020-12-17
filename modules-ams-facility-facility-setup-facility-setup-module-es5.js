@@ -197,6 +197,7 @@
           this.isImageUploaded = false;
           this.viewMode = false;
           this.isFileEdit = false;
+          this.editorPlacehorder = "";
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
           this.quillModules = {
             toolbar: [[{
