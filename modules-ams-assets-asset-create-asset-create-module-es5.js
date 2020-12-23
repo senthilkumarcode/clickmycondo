@@ -867,8 +867,17 @@
         }, {
           key: "back",
           value: function back() {
-            this.router.navigate(['view'], {
-              relativeTo: this.route.parent
+            var _this5 = this;
+
+            var message = "Are you sure you want to exit the Screen ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) _this5.router.navigate(['/ams/assets/view']);
             });
           }
         }, {
@@ -884,10 +893,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this5.timeZone = timeZone;
+              return _this6.timeZone = timeZone;
             });
             this.asset = {};
             this.asset.assetCategoryId = "";
@@ -912,38 +921,38 @@
                 assetId: this.route.params['value'].id
               };
               this.assetService.getAllAssetByAssetId(params).subscribe(function (res) {
-                _this5.asset = res[0];
-                _this5.fieldType = '';
-                _this5.title.customForm = JSON.parse(_this5.asset.customFields); // Location Category Logic
+                _this6.asset = res[0];
+                _this6.fieldType = '';
+                _this6.title.customForm = JSON.parse(_this6.asset.customFields); // Location Category Logic
 
-                _this5.getLocationCategory().subscribe(function (res) {
-                  _this5.locationListCategory = res;
+                _this6.getLocationCategory().subscribe(function (res) {
+                  _this6.locationListCategory = res;
 
-                  var subLocationList = _this5.locationListCategory.filter(function (loc) {
-                    return loc.id == _this5.asset.locationId;
+                  var subLocationList = _this6.locationListCategory.filter(function (loc) {
+                    return loc.id == _this6.asset.locationId;
                   });
 
                   if (subLocationList.length > 0) {
-                    _this5.subLocationCategoryList = subLocationList[0].subCategory;
+                    _this6.subLocationCategoryList = subLocationList[0].subCategory;
                   }
                 });
 
-                _this5.setNextPlanDate();
+                _this6.setNextPlanDate();
               });
               var reqInsuranceParam = {};
               this.currentAssetId = params.assetId;
               reqInsuranceParam.AssetId = params.assetId;
               this.assetService.getAllAssetInsurancePlanByAssetId(reqInsuranceParam).subscribe(function (res) {
                 if (res && res.length > 0) {
-                  _this5.insurance = res[0];
+                  _this6.insurance = res[0];
                 } else {
-                  _this5.isAddInsurance = true;
-                  _this5.insurance = {};
+                  _this6.isAddInsurance = true;
+                  _this6.insurance = {};
                 }
               });
             } else {
               this.getLocationCategory().subscribe(function (res) {
-                _this5.locationListCategory = res;
+                _this6.locationListCategory = res;
               });
             }
 
@@ -952,13 +961,13 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
-              _this5.assetCategoryData = res;
+              _this6.assetCategoryData = res;
             });
             var vendprParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(vendprParams).subscribe(function (res) {
-              _this5.vendorDataList = res;
+              _this6.vendorDataList = res;
             }); //maintenance status 
 
             var assetStatusParams = {
@@ -966,13 +975,13 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe(function (res) {
-              _this5.statusTypeData = res;
+              _this6.statusTypeData = res;
             });
           }
         }, {
           key: "getAssetLocationList",
           value: function getAssetLocationList() {
-            var _this6 = this;
+            var _this7 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -980,14 +989,14 @@
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this6.assetLocationList = res ? res : [];
+                _this7.assetLocationList = res ? res : [];
               }
             });
           }
         }, {
           key: "getDepreciatonList",
           value: function getDepreciatonList() {
-            var _this7 = this;
+            var _this8 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -996,7 +1005,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this7.depreciatonData = res ? res : []; //  if(this.depreciatonData && this.depreciatonData.length){
+                _this8.depreciatonData = res ? res : []; //  if(this.depreciatonData && this.depreciatonData.length){
                 //    this.depreciatonData.filter( val =>{
                 //            val.isCheck = val.isDisabled == true ? false:true;
                 //    })
@@ -1016,7 +1025,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this8 = this;
+            var _this9 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1026,10 +1035,10 @@
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this8.categoryList = res ? res : [];
+                _this9.categoryList = res ? res : [];
 
-                if (_this8.isEditAsset && _this8.asset.assetCategoryId) {
-                  _this8.setSubCategory(_this8.asset.assetCategoryId);
+                if (_this9.isEditAsset && _this9.asset.assetCategoryId) {
+                  _this9.setSubCategory(_this9.asset.assetCategoryId);
                 } else {// this.asset.assetCategoryId = this.categoryList && this.categoryList.length > 0 ? this.categoryList[0].id : '';
                   // this.setSubCategory(this.asset.assetCategoryId);
                 }
@@ -1039,12 +1048,12 @@
         }, {
           key: "setSubCategory",
           value: function setSubCategory(id) {
-            var _this9 = this;
+            var _this10 = this;
 
             if (this.categoryList && this.categoryList.length > 0) {
               this.categoryList.filter(function (val) {
                 if (val.id == id) {
-                  _this9.categorySubType = val.subCategory;
+                  _this10.categorySubType = val.subCategory;
                 }
               });
             }

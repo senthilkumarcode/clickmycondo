@@ -381,7 +381,7 @@
               text: 'Phone Number',
               datafield: 'visitorPhone',
               cellsrenderer: cellsrenderer,
-              minwidth: 80,
+              minwidth: 150,
               renderer: columnrenderer
             }, {
               text: 'Date/Time of Visit',

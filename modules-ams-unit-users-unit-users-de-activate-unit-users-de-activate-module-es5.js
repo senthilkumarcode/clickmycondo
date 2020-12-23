@@ -224,7 +224,7 @@
             this._router.navigate(['/ams/profile', 'basic'], {
               queryParams: {
                 type: 'user',
-                subtype: 'au',
+                subtype: 'du',
                 id: user.userId,
                 blockId: details.apartmentBlockId,
                 unitId: details.apartmentBlockUnitId,

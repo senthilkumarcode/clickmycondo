@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-message-wrapper\">\n    <mat-drawer-container [hasBackdrop]=\"false\">\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" #matDrawer>\n            <app-user-group-announcement-details *ngIf=\"selectedId\" [detailId]=\"selectedId\"\n                (selectedId)=\"changeRecord($event)\">\n            </app-user-group-announcement-details>\n        </mat-drawer>\n        <mat-drawer-content>\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"announcementList mt-3\">\n                    <div class=\"row m-0 announcement\" *ngFor=\"let message of broadCastMessages\"\n                        [ngClass]=\"{'bg-cool-gray-50': message.broadCastMessageId == selectedId }\"\n                        (click)=\"openAnnouncement(message.broadCastMessageId)\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                            <div class=\"broadCastList\">\n                                <span>{{message?.subject}}</span>\n                                <span class=\"d-flex align-items-center\" >\n                                    <div class=\"status-badge bg-status-purple-700 mr-4\" *ngIf=\"message.groupName\">\n                                        <small class=\"font-bold text-status-purple-900 text-uppercase\">{{message?.groupName}}</small>\n                                    </div>\n                                    <small class=\"text-secondary\">{{getDateFormat(message.broadcastOn)}}</small>\n                                </span>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n\n                        </div>\n                    </div>\n                    <div class=\"row m-0 announcement\" *ngIf=\"broadCastMessages.length == 0\">\n                        <p class=\"p-3 d-flex justify-content-center\">No Record Found</p>\n                    </div>\n                    <app-loader *ngIf=\"broadCastMessages.length == 0\"></app-loader>\n                </div>\n            </form>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-message-wrapper\">\n    <mat-drawer-container [hasBackdrop]=\"false\">\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" #matDrawer>\n            <app-user-group-announcement-details *ngIf=\"selectedId\" [detailId]=\"selectedId\"\n                (selectedId)=\"changeRecord($event)\">\n            </app-user-group-announcement-details>\n        </mat-drawer>\n        <mat-drawer-content>\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"announcementList mt-3\">\n                    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                    <ng-container *ngIf=\"!isDataLoaded\">\n                        <div class=\"row m-0 announcement\" *ngFor=\"let message of broadCastMessages\"\n                        [ngClass]=\"{'bg-cool-gray-50': message.broadCastMessageId == selectedId }\"\n                        (click)=\"openAnnouncement(message.broadCastMessageId)\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                            <div class=\"broadCastList\">\n                                <span>{{message?.subject}}</span>\n                                <span class=\"d-flex align-items-center\" >\n                                    <div class=\"status-badge bg-status-purple-700 mr-4\" *ngIf=\"message.groupName\">\n                                        <small class=\"font-bold text-status-purple-900 text-uppercase\">{{message?.groupName}}</small>\n                                    </div>\n                                    <small class=\"text-secondary\">{{getDateFormat(message.broadcastOn)}}</small>\n                                </span>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n\n                        </div>\n                    </div>\n                    </ng-container>\n                    <div class=\"row m-0 announcement\" *ngIf=\"broadCastMessages.length == 0\">\n                        <p class=\"p-3 d-flex justify-content-center\">No Record Found</p>\n                    </div>\n                </div>\n            </form>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -682,6 +682,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
     //   }
     // }
     getAllBroadcastMessage() {
+        this.isDataLoaded = true;
         let queryParamBase = {
             apartmentId: this.sessionService.apartmentId,
             UnituserId: this.sessionService.apartmentBlockUnitUserId,
@@ -699,9 +700,11 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
                 this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
                 this.openAnnouncement(this.broadCastMessages[0].broadCastMessageId);
             }
+            this.isDataLoaded = false;
         });
     }
     getInterestGroup() {
+        this.isDataLoaded = true;
         let queryParamBase = {
             apartmentId: this.sessionService.apartmentId,
             UnituserId: this.sessionService.apartmentBlockUnitUserId,
@@ -720,6 +723,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
                 this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
                 this.openAnnouncement(this.broadCastMessages[0].broadCastMessageId);
             }
+            this.isDataLoaded = false;
         });
     }
     getDate(inDays) {

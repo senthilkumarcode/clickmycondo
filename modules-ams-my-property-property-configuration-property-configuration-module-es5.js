@@ -1070,7 +1070,7 @@
               "builderName": this.property.builderName,
               "registrationNumber": this.property.registrationNumber,
               "emailId": this.property.emailId,
-              "phoneNumber": this.property.phoneNumber.e164Number,
+              "phoneNumber": this.property.phoneNumber ? this.property.phoneNumber.e164Number : null,
               "address1": this.property.address1,
               "address2": this.property.address2,
               "city": this.property.city,

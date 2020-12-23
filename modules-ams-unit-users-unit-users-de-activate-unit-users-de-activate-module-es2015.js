@@ -112,7 +112,7 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
         this.towerList = [];
     }
     showApprovedUserDetails(details, user) {
-        this._router.navigate(['/ams/profile', 'basic'], { queryParams: { type: 'user', subtype: 'au', id: user.userId, blockId: details.apartmentBlockId, unitId: details.apartmentBlockUnitId, unituserid: details.apartmentBlockUnitUserId } });
+        this._router.navigate(['/ams/profile', 'basic'], { queryParams: { type: 'user', subtype: 'du', id: user.userId, blockId: details.apartmentBlockId, unitId: details.apartmentBlockUnitId, unituserid: details.apartmentBlockUnitUserId } });
     }
     searchFilter() {
         this.deActivateList();

@@ -593,7 +593,17 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         });
     }
     back() {
-        this.router.navigate(['view'], { relativeTo: this.route.parent });
+        const message = `Are you sure you want to exit the Screen ?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult)
+                this.router.navigate(['/ams/assets/view']);
+        });
     }
     getLocationCategory() {
         let queryParamBase = {

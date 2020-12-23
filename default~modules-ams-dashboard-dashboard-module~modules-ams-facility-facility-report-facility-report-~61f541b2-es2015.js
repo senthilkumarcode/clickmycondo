@@ -351,12 +351,30 @@ let FacilityReportDataComponent = class FacilityReportDataComponent {
                     renderer: columnrenderer
                 }
             ];
-            var paramdetails = {
-                ApartmentID: this.sessionService.apartmentId,
-                ApartmentBlockID: this.sessionService.apartmentBlockID,
-                FacilityTypeID: 184
+            var facilitydetails = {
+                apartmentId: this.sessionService.apartmentId,
+                apartmentFacilityID: 0,
+                facilityBookingStatusID: 0,
+                bookedOn_From: null,
+                bookedOn_To: null,
+                eventDate_From: null,
+                eventDate_To: null,
             };
-            this.facilityService.getReportsFacilityForPendingBookedFacilityMultiFilter(paramdetails).subscribe((res) => {
+            //   var paramdetails = {
+            //     ApartmentID: this.sessionService.apartmentId,
+            //     ApartmentBlockID: this.sessionService.apartmentBlockID,
+            //     FacilityTypeID: 184
+            //   }
+            // this.facilityService.getReportsFacilityForPendingBookedFacilityMultiFilter(paramdetails).subscribe((res: any) => {
+            // 	let gridSourceData = {
+            // 		localdata: res,
+            // 		datatype: "array"
+            // 	}
+            // 	this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+            // 	this.isDataLoaded = true;
+            // 	this.showItems();
+            // })
+            this.facilityService.getApartmentFacilityBookingsByApartmentId(facilitydetails).subscribe((res) => {
                 let gridSourceData = {
                     localdata: res,
                     datatype: "array"

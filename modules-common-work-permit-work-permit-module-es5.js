@@ -73,6 +73,46 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.html":
+    /*!****************************************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.html ***!
+      \****************************************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesCommonWorkPermitComponentsWorkpermitReportWorkpermitReportDataWorkpermitReportDataComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n            <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                <div class=\"helpdesk-filter-drawer p-5\">\n                    <div class=\"title row\">\n                        <h4> Filter By </h4>\n                        <div class=\"ml-auto\">\n                            <button mat-icon-button (click)=\"goBack()\">\n                                <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                            </button>\n                        </div>\n                    </div>\n                    <condo-card>\n                        <div CondoCardHeader>\n            \n                            <form>\n\n                                    <div class=\"filter-box cleafix\">\n                                        <div class=\"row align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 mb-2\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                    Towers</button>\n                                                <button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let block of unitBlocksData\">\n                                                        <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                            {{block.apartmentBlockNumber}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                    </div>\n                                \n                                <!-- <div class=\"row\">\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"text-right mt-4\">\n                                                        <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                        <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                    </div>\n                                            \n                                        </div>\n                                    \n                                </div> -->\n            \n                            </form>\n                        </div>\n                    </condo-card>\n                \n                </div>\n            </mat-drawer>\n            <mat-drawer-content>\n    <div class=\"main\">\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    <condo-card *ngIf=\"isDataLoaded && isListOfWorkpermitsPendingApproval()\">\n        <div CondoCardHeader>\n        \n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/helpdesk/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n\n            <div class=\"d-flex\">\n                    <div>\n                            <h4>Workpermits Pending Approval</h4>\n                            <p>{{totalItems}} results</p>\n                    </div>\n                \n                    \n                    <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    \n                    </div>\n                    \n                    \n                    <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                    \n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                        <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                        </button>\n                        <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                            <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                        </button>\n                    </div>\n                \n              </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n    <!-- De Activated Users -->\n    <condo-card *ngIf=\"isDataLoaded && isListofAgedtickets()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/helpdesk/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block my-auto\">\n                    <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\n              </div>\n              \n                <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                    \n                </div>\n                <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                        <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                        </button>\n                    </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n    <!-- vehicle info -->\n    <condo-card *ngIf=\"isDataLoaded && isListofUnassignedtickets()\">\n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\" *ngIf=\"!allLink\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/helpdesk/reports\" \n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block my-auto\">\n                    <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\n              </div>\n              \n                <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                    \n                </div>\n                <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                        <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                        <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                        </button>\n                    </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n    \n\n\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\n</div>";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.html":
+    /*!************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.html ***!
+      \************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesCommonWorkPermitComponentsWorkpermitReportWorkpermitReportComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"reports-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4 class=\"mb-4\">Work Permit Reports </h4>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n\n\t\t\t\t\t<condo-card>\n\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/work-permit/reports/{{report.lookupValueName}}/{{report.lookupValueId}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</condo-card>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\t</div>\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.html":
     /*!***********************************************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.html ***!
@@ -815,7 +855,20 @@
         }, {
           key: "cancel",
           value: function cancel() {
-            if (this.isAdmin()) this.router.navigate(['/ams/work-permit/pending']);else this.router.navigate(['/user/work-permit/user-history']);
+            var _this6 = this;
+
+            var message = "Are you sure you want to exit the Screen ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                if (_this6.isAdmin()) _this6.router.navigate(['/ams/work-permit/pending']);else _this6.router.navigate(['/user/work-permit/user-history']);
+              }
+            });
           }
         }, {
           key: "setSelectedBlock",
@@ -957,7 +1010,7 @@
         }, {
           key: "deleteConfirmDialog",
           value: function deleteConfirmDialog(type, index) {
-            var _this6 = this;
+            var _this7 = this;
 
             var message = "Are you sure you want to delete ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
@@ -968,7 +1021,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                if (type == 'worker') _this6.workersList.splice(index, 1);else if (type === 'material') _this6.materialsList.splice(index, 1);else _this6.toolsList.splice(index, 1);
+                if (type == 'worker') _this7.workersList.splice(index, 1);else if (type === 'material') _this7.materialsList.splice(index, 1);else _this7.toolsList.splice(index, 1);
               }
             });
           } //edit listWorkers 
@@ -990,7 +1043,7 @@
         }, {
           key: "createWorkPermit",
           value: function createWorkPermit() {
-            var _this7 = this;
+            var _this8 = this;
 
             this.message = null;
 
@@ -1028,35 +1081,35 @@
               };
               this.workPermitService.addWorkPermit(params).subscribe(function (res) {
                 if (res.message) {
-                  _this7.isSubmitted = false;
+                  _this8.isSubmitted = false;
 
-                  _this7.sharedService.openSnackBar('WorkPermit Created Successfully', 'success');
+                  _this8.sharedService.openSnackBar('WorkPermit Created Successfully', 'success');
 
-                  _this7.createWorkers(res.message);
+                  _this8.createWorkers(res.message);
 
-                  _this7.createMaterials(res.message);
+                  _this8.createMaterials(res.message);
 
-                  _this7.createTools(res.message);
+                  _this8.createTools(res.message);
 
-                  _this7.cancel();
+                  _this8.cancel();
 
-                  _this7.isSubmitted = false;
+                  _this8.isSubmitted = false;
                 } else {
-                  _this7.isSubmitted = false;
+                  _this8.isSubmitted = false;
 
-                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this8.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this7.isSubmitted = false;
+                _this8.isSubmitted = false;
 
-                _this7.sharedService.openSnackBar('Server Error', 'error');
+                _this8.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateWorkPermit",
           value: function updateWorkPermit() {
-            var _this8 = this;
+            var _this9 = this;
 
             this.message = null;
 
@@ -1089,26 +1142,26 @@
               };
               this.workPermitService.updateWorkPermit(params).subscribe(function (res) {
                 if (res.message) {
-                  _this8.sharedService.openSnackBar(res.message, 'success');
+                  _this9.sharedService.openSnackBar(res.message, 'success');
 
-                  _this8.createWorkers(null);
+                  _this9.createWorkers(null);
 
-                  _this8.createMaterials(null);
+                  _this9.createMaterials(null);
 
-                  _this8.createTools(null);
+                  _this9.createTools(null);
 
-                  _this8.cancel();
+                  _this9.cancel();
 
-                  _this8.isSubmitted = false;
+                  _this9.isSubmitted = false;
                 } else {
-                  _this8.isSubmitted = false;
+                  _this9.isSubmitted = false;
 
-                  _this8.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this8.isSubmitted = false;
+                _this9.isSubmitted = false;
 
-                _this8.sharedService.openSnackBar('Server Error', 'error');
+                _this9.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -1172,52 +1225,52 @@
         }, {
           key: "deleteWorkers",
           value: function deleteWorkers(id, index) {
-            var _this9 = this;
+            var _this10 = this;
 
             var params = {
               workPermitWorkersId: id,
               deleteBy: this.sessionService.userId
             };
             this.workPermitService.deleteWorkPermitWorkers(params).subscribe(function (res) {
-              _this9.sharedService.setUnitListDeleteIndex(null);
+              _this10.sharedService.setUnitListDeleteIndex(null);
 
-              _this9.workersList.splice(index, 1);
+              _this10.workersList.splice(index, 1);
             });
           }
         }, {
           key: "deleteMaterials",
           value: function deleteMaterials(id, index) {
-            var _this10 = this;
+            var _this11 = this;
 
             var params = {
               workPermitMaterialsId: id,
               deleteBy: this.sessionService.userId
             };
             this.workPermitService.deleteWorkPermitMaterials(params).subscribe(function (res) {
-              _this10.sharedService.setUnitListDeleteIndex(null);
+              _this11.sharedService.setUnitListDeleteIndex(null);
 
-              _this10.materialsList.splice(index, 1);
+              _this11.materialsList.splice(index, 1);
             });
           }
         }, {
           key: "deleteTools",
           value: function deleteTools(id, index) {
-            var _this11 = this;
+            var _this12 = this;
 
             var params = {
               workPermitToolsId: id,
               deleteBy: this.sessionService.userId
             };
             this.workPermitService.deleteWorkPermitTools(params).subscribe(function (res) {
-              _this11.sharedService.setUnitListDeleteIndex(null);
+              _this12.sharedService.setUnitListDeleteIndex(null);
 
-              _this11.toolsList.splice(index, 1);
+              _this12.toolsList.splice(index, 1);
             });
           }
         }, {
           key: "downloadPdf",
           value: function downloadPdf() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.accordion1.openAll();
             this.accordion2.openAll();
@@ -1237,48 +1290,48 @@
                 var position = 0;
                 pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
                 pdf.save('work-permit.pdf');
-                _this12.isPDFDow = false;
+                _this13.isPDFDow = false;
               });
             }, 800);
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.activateRouter.parent.parent.data.subscribe(function (data) {
-              _this13.apartmentInfo = data.initialData.apartment;
+              _this14.apartmentInfo = data.initialData.apartment;
             });
             var natureWork = {
               LookupTypeId: 89,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(natureWork).subscribe(function (res) {
-              _this13.natureWorkList = res;
+              _this14.natureWorkList = res;
             });
             var workPermitType = {
               LookupTypeId: 90,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(workPermitType).subscribe(function (res) {
-              _this13.workPermitTypeList = res;
+              _this14.workPermitTypeList = res;
             });
             var vendor = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vendor.getAllWorkPermitVendorByApartmentId(vendor).subscribe(function (res) {
-              _this13.vendorList = res;
+              _this14.vendorList = res;
             });
             var statusParams = {
               LookupTypeId: 91,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-              if (_this13.activateRouter.params['value'].type) {
-                _this13.statusList = res;
+              if (_this14.activateRouter.params['value'].type) {
+                _this14.statusList = res;
               } else {
                 //restricted Cancel Button Status in Create Mode
-                _this13.statusList = res.filter(function (data) {
+                _this14.statusList = res.filter(function (data) {
                   return data.lookupValueId != 353;
                 });
               }
@@ -1288,70 +1341,70 @@
               if (params.id && params.type) {
                 var entity = {
                   workPermitId: parseInt(params.id),
-                  apartmentId: _this13.sessionService.apartmentId
+                  apartmentId: _this14.sessionService.apartmentId
                 };
-                _this13.pageType = params.type;
+                _this14.pageType = params.type;
 
-                if (_this13.pageType == 'view') {
-                  _this13.viewMode = true;
+                if (_this14.pageType == 'view') {
+                  _this14.viewMode = true;
                 }
 
-                _this13.workPermitService.getWorkPermitById(entity).subscribe(function (res) {
-                  _this13.workPermit = res[0];
-                  _this13.workPermit.startTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].startTime, 'HH:mm').format();
-                  _this13.workPermit.endTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].endTime, 'HH:mm').format(); //tower Info
+                _this14.workPermitService.getWorkPermitById(entity).subscribe(function (res) {
+                  _this14.workPermit = res[0];
+                  _this14.workPermit.startTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].startTime, 'HH:mm').format();
+                  _this14.workPermit.endTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].endTime, 'HH:mm').format(); //tower Info
 
-                  if (_this13.isAdmin()) {
-                    _this13.block.blockId = res[0].apartmentBlockID;
+                  if (_this14.isAdmin()) {
+                    _this14.block.blockId = res[0].apartmentBlockID;
 
-                    _this13.getTowers().subscribe(function (res) {
-                      _this13.towerList = res;
+                    _this14.getTowers().subscribe(function (res) {
+                      _this14.towerList = res;
 
-                      _this13.getUnits('edit');
+                      _this14.getUnits('edit');
 
-                      _this13.getPrimaryName();
+                      _this14.getPrimaryName();
                     });
                   }
                 });
 
-                _this13.workPermitService.getWorkPermitWorkersByWorkPermitId(entity).subscribe(function (res) {
+                _this14.workPermitService.getWorkPermitWorkersByWorkPermitId(entity).subscribe(function (res) {
                   if (Array.isArray(res)) {
-                    _this13.workersList = res;
+                    _this14.workersList = res;
                   }
                 });
 
-                _this13.workPermitService.getWorkPermitMaterialsByWorkPermitId(entity).subscribe(function (res) {
+                _this14.workPermitService.getWorkPermitMaterialsByWorkPermitId(entity).subscribe(function (res) {
                   if (Array.isArray(res)) {
-                    _this13.materialsList = res;
+                    _this14.materialsList = res;
                   }
                 });
 
-                _this13.workPermitService.getWorkPermitToolsByWorkPermitId(entity).subscribe(function (res) {
+                _this14.workPermitService.getWorkPermitToolsByWorkPermitId(entity).subscribe(function (res) {
                   if (Array.isArray(res)) {
-                    _this13.toolsList = res;
+                    _this14.toolsList = res;
                   }
                 });
               } else {
                 //termsCondition
-                _this13.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({
-                  ApartmentId: _this13.sessionService.apartmentId,
+                _this14.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({
+                  ApartmentId: _this14.sessionService.apartmentId,
                   TermsNo: "1"
                 }).subscribe(function (res) {
-                  if (res.length > 0) _this13.workPermit.termsConditions = res[0].termsTemplate;
+                  if (res.length > 0) _this14.workPermit.termsConditions = res[0].termsTemplate;
                 });
 
-                if (_this13.isAdmin()) {
-                  _this13.getTowers().subscribe(function (res) {
-                    _this13.towerList = res;
+                if (_this14.isAdmin()) {
+                  _this14.getTowers().subscribe(function (res) {
+                    _this14.towerList = res;
                   });
                 } else {
-                  _this13.workPermit.apartmentUnitId = _this13.sessionService.apartmentBlockUnitID;
+                  _this14.workPermit.apartmentUnitId = _this14.sessionService.apartmentBlockUnitID;
                 }
               }
             }); //delete workers,tools and materials
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
-              if (item && item.id && item.type == 'worker') _this13.deleteWorkers(item.id, item.index);else if (item && item.id && item.type == 'material') _this13.deleteMaterials(item.id, item.index);else if (item && item.id && item.type == 'tool') _this13.deleteTools(item.id, item.index);
+              if (item && item.id && item.type == 'worker') _this14.deleteWorkers(item.id, item.index);else if (item && item.id && item.type == 'material') _this14.deleteMaterials(item.id, item.index);else if (item && item.id && item.type == 'tool') _this14.deleteTools(item.id, item.index);
             });
           }
         }, {
@@ -1536,7 +1589,7 @@
         _createClass(WorkpermitListComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this14 = this;
+            var _this15 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1549,7 +1602,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1560,7 +1613,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'ApprovalList');
+            this.datagrid.exportdata(event, "".concat(this.urlType, " list"));
           }
         }, {
           key: "navCreatePageUrl",
@@ -1589,7 +1642,7 @@
         }, {
           key: "onstatusPermit",
           value: function onstatusPermit(detail) {
-            var _this15 = this;
+            var _this16 = this;
 
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var entity = {
@@ -1602,14 +1655,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this15.getWorkApprovalListByAdmin();
+                _this16.getWorkApprovalListByAdmin();
               }
             });
           }
         }, {
           key: "getWorkApprovalListByAdmin",
           value: function getWorkApprovalListByAdmin() {
-            var _this16 = this;
+            var _this17 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -1628,23 +1681,23 @@
             }
 
             this.workPermit.getAllWorkPermitsByStatues(params).subscribe(function (res) {
-              _this16.workPermitListData = res.reverse();
-              _this16.totalItems = _this16.workPermitListData.length;
-              _this16.gridSourceData = {
-                localdata: _this16.workPermitListData,
+              _this17.workPermitListData = res.reverse();
+              _this17.totalItems = _this17.workPermitListData.length;
+              _this17.gridSourceData = {
+                localdata: _this17.workPermitListData,
                 datatype: "array"
               };
-              _this16.workPermitListData = new jqx.dataAdapter(_this16.gridSourceData);
-              _this16.isDataLoaded = true;
+              _this17.workPermitListData = new jqx.dataAdapter(_this17.gridSourceData);
+              _this17.isDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this18 = this;
 
             this.activeRouter.url.subscribe(function (data) {
-              _this17.urlType = data[0].path;
+              _this18.urlType = data[0].path;
             });
             this.getWorkApprovalListByAdmin();
 
@@ -1739,7 +1792,7 @@
                   status = 'red';
                 }
 
-                return "<div class=\"jqx-custom-inner-cell\">\n           <div class=\"status-badge bg-status-".concat(status, "-700\">\n             <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this17.workPermitListData.loadedData[row].status, "</span>\n           </div>\n        </div>");
+                return "<div class=\"jqx-custom-inner-cell\">\n           <div class=\"status-badge bg-status-".concat(status, "-700\">\n             <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this18.workPermitListData.loadedData[row].status, "</span>\n           </div>\n        </div>");
               },
               minwidth: 160,
               renderer: columnrenderer
@@ -1754,7 +1807,7 @@
                 edit = '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>';
                 status = '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a>';
 
-                if (_this17.urlType == 'pending') {
+                if (_this18.urlType == 'pending') {
                   return '<div class="simple-actions">' + edit + view + status + '</div>';
                 } else {
                   return '<div class="simple-actions">' + view + status + '</div>';
@@ -1845,6 +1898,832 @@
       }
 
       window.viewPermitEvent = viewPermitEvent;
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.scss":
+    /*!**************************************************************************************************************************************!*\
+      !*** ./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.scss ***!
+      \**************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesCommonWorkPermitComponentsWorkpermitReportWorkpermitReportDataWorkpermitReportDataComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvY29tbW9uL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1yZXBvcnQvd29ya3Blcm1pdC1yZXBvcnQtZGF0YS93b3JrcGVybWl0LXJlcG9ydC1kYXRhLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.ts":
+    /*!************************************************************************************************************************************!*\
+      !*** ./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.ts ***!
+      \************************************************************************************************************************************/
+
+    /*! exports provided: WorkpermitReportDataComponent */
+
+    /***/
+    function srcAppModulesCommonWorkPermitComponentsWorkpermitReportWorkpermitReportDataWorkpermitReportDataComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "WorkpermitReportDataComponent", function () {
+        return WorkpermitReportDataComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/api/controllers/Ticket */
+      "./src/app/api/controllers/Ticket.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/app/api/controllers/WorkPermit */
+      "./src/app/api/controllers/WorkPermit.ts");
+
+      var WorkpermitReportDataComponent = /*#__PURE__*/function () {
+        function WorkpermitReportDataComponent(route, apartmentService, lookupService, sharedService, sessionService, ticketService, workpermitService) {
+          _classCallCheck(this, WorkpermitReportDataComponent);
+
+          this.route = route;
+          this.apartmentService = apartmentService;
+          this.lookupService = lookupService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.ticketService = ticketService;
+          this.workpermitService = workpermitService;
+          this.pageName = "";
+          this.pageDesp = "";
+          this.allLink = false;
+          this.userReportData = "";
+          this.ItemStartIndex = 0;
+          this.itemLimit = 10;
+          this.unitFieldType = "unitno";
+          this.unitOrder = true;
+          this.isDataLoaded = false;
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
+          this.reportData = "";
+          this.filterSelected = "all";
+          this.singleBlock = "Select Tower";
+        }
+
+        _createClass(WorkpermitReportDataComponent, [{
+          key: "isMobileView",
+          value: function isMobileView() {
+            return window.innerWidth <= 767 ? 'table-responsive' : '';
+          }
+        }, {
+          key: "isItemsAvailable",
+          value: function isItemsAvailable() {
+            return this.totalItems > 0 ? true : false;
+          }
+        }, {
+          key: "isNoItemsAvailable",
+          value: function isNoItemsAvailable() {
+            return this.totalItems == 0 ? true : false;
+          }
+        }, {
+          key: "isListOfWorkpermitsPendingApproval",
+          value: function isListOfWorkpermitsPendingApproval() {
+            return this.pageName == "Workpermits Pending Approval";
+          }
+        }, {
+          key: "isListOfTickets",
+          value: function isListOfTickets() {
+            return this.pageName == "List of tickets";
+          }
+        }, {
+          key: "isListofAgedtickets",
+          value: function isListofAgedtickets() {
+            return this.pageName == "List of Aged tickets";
+          }
+        }, {
+          key: "isListofUnassignedtickets",
+          value: function isListofUnassignedtickets() {
+            return this.pageName == "List of Unassigned tickets";
+          }
+        }, {
+          key: "isListOfApprovedUsers",
+          value: function isListOfApprovedUsers() {
+            return this.pageName == "List of Approved Users";
+          }
+        }, {
+          key: "isListOfDeactivatedUsers",
+          value: function isListOfDeactivatedUsers() {
+            return this.pageName == "List of De-activated Users";
+          }
+        }, {
+          key: "isListOfResidentsVehicleInfo",
+          value: function isListOfResidentsVehicleInfo() {
+            return this.pageName == "List of Residents Vehicle Info";
+          }
+        }, {
+          key: "isListOfExpiringRental",
+          value: function isListOfExpiringRental() {
+            return this.pageName == "List of Expiring Rental  Lease Agreements";
+          }
+        }, {
+          key: "isListOfUsersWithPets",
+          value: function isListOfUsersWithPets() {
+            return this.pageName == "List of Users with Pets";
+          }
+        }, {
+          key: "isListOfUnits",
+          value: function isListOfUnits() {
+            return this.pageName == "List of Units";
+          }
+        }, {
+          key: "isListOfBlocks",
+          value: function isListOfBlocks() {
+            return this.pageName == "List of Blocks";
+          }
+        }, {
+          key: "isListOfOwners",
+          value: function isListOfOwners() {
+            return this.pageName == "List of Owners";
+          }
+        }, {
+          key: "isListOfTenants",
+          value: function isListOfTenants() {
+            return this.pageName == "List of Tenants";
+          }
+        }, {
+          key: "isListOfAdmins",
+          value: function isListOfAdmins() {
+            return this.pageName == "List of Admins";
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+          }
+        }, {
+          key: "getSelectedType",
+          value: function getSelectedType(event) {
+            this.blockId = event[0].apartmentBlockId;
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this19 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this19.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "getBlockDetails",
+          value: function getBlockDetails() {
+            var _this20 = this;
+
+            //jqx column generating
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.isDataLoaded = false;
+
+            if (this.isListOfWorkpermitsPendingApproval()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'endorsedBy',
+                minwidth: 150,
+                maxwidth: 170,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'apartmentBlockNumber',
+                minwidth: 120,
+                maxwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'apartmentBlockUnitNumber',
+                minwidth: 110,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Nature Of Work',
+                datafield: 'natureOfWork',
+                minwidth: 250,
+                maxwidth: 270,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'WorkPermit Type',
+                datafield: 'workPermitType',
+                minwidth: 250,
+                maxwidth: 270,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'No Of Personnels',
+                datafield: 'noOfPersonnels',
+                minwidth: 120,
+                maxwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Start Date',
+                datafield: 'startDate',
+                minwidth: 180,
+                maxwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'End Date',
+                datafield: 'endDate',
+                minwidth: 180,
+                maxwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Start Time',
+                datafield: 'startTime',
+                minwidth: 100,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'End Time',
+                datafield: 'endTime',
+                minwidth: 100,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Status',
+                datafield: 'status',
+                minwidth: 170,
+                maxwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var pendingdetails = {
+                apartmentId: parseInt(this.sessionService.apartmentId),
+                status: 354
+              };
+              this.workpermitService.getWorkPermitsByApartmentIdWorkPermitStatus(pendingdetails).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this20.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this20.totalItems = _this20.userReportDataList.length;
+                _this20.isDataLoaded = true;
+
+                _this20.showItems();
+              });
+            } else if (this.isListofAgedtickets()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'userName',
+                minwidth: 130,
+                maxwidth: 140,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                maxwidth: 110,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Type',
+                datafield: 'ticketType',
+                minwidth: 100,
+                maxwidth: 110,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                minwidth: 100,
+                maxwidth: 110,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Subject',
+                datafield: 'subject',
+                minwidth: 220,
+                maxwidth: 240,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Priority',
+                datafield: 'ticketPriority',
+                minwidth: 100,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Age',
+                datafield: 'ticketAge',
+                minwidth: 80,
+                maxwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Status',
+                datafield: 'ticketStatus',
+                minwidth: 150,
+                maxwidth: 170,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var details = {
+                ApartmentID: this.sessionService.apartmentId,
+                ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+                StartDate: this.start_date === null ? "2020-01-01" : this.getDate(this.start_date),
+                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date),
+                TicketStatus: this.TicketStatus,
+                TicketType: this.TicketType,
+                TicketRaisedBy: this.TicketRaisedBy,
+                AssignedToStaffId: this.AssignedToStaffId,
+                StaffCategoryType: this.StaffCategoryType,
+                StaffSubCategoryType: this.StaffSubCategoryType
+              };
+              this.ticketService.getReportsForListofAgedTicketsMultiFilter(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this20.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this20.isDataLoaded = true;
+
+                _this20.showItems();
+              });
+            } else if (this.isListofUnassignedtickets()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'userName',
+                minwidth: 170,
+                maxwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 130,
+                maxwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 110,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Type',
+                datafield: 'ticketType',
+                minwidth: 100,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                minwidth: 110,
+                maxwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Subject',
+                datafield: 'subject',
+                minwidth: 220,
+                maxwidth: 240,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Priority',
+                datafield: 'ticketPriority',
+                minwidth: 130,
+                maxwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Status',
+                datafield: 'ticketStatus',
+                minwidth: 130,
+                maxwidth: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var details = {
+                ApartmentID: this.sessionService.apartmentId,
+                ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+                StartDate: this.start_date === null ? "2020-01-01" : this.getDate(this.start_date),
+                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date),
+                TicketStatus: this.TicketStatus,
+                TicketType: this.TicketType,
+                TicketRaisedBy: this.TicketRaisedBy,
+                AssignedToStaffId: this.AssignedToStaffId,
+                StaffCategoryType: this.StaffCategoryType,
+                StaffSubCategoryType: this.StaffSubCategoryType
+              };
+              this.ticketService.getReportsForListofUnAssignedTicketsMultiFilter(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this20.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this20.isDataLoaded = true;
+
+                _this20.showItems();
+              });
+            }
+          }
+        }, {
+          key: "showItems",
+          value: function showItems() {
+            this.totalItems = this.userReportDataList["_source"].localdata.length;
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+            } else {
+              this.ItemEndIndex = this.totalItems;
+            }
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'HelpdeskReportsData');
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            this.goBack();
+            this.isDataLoaded = false;
+            this.getBlockDetails();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = "";
+            this.start_date = null;
+            this.end_date = null;
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower"; // =this.getTicketByAdmin();
+
+            this.getBlockDetails();
+            this.goBack();
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this21 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this21.timeZone = timeZone;
+            });
+            this.pageName = this.route.params['value'].name;
+            this.allLink = this.route.params['value'].link;
+            var unitBlockParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
+              _this21.unitBlocksData = res;
+            }); // let params = {
+            // 	LookupTypeId: 87,
+            // 	ApartmentId: this.sessionService.apartmentId
+            // }
+            // this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res: any) => {
+            // 	var data = res.filter(item => {
+            // 		return item.lookupValueId == this.route.params['value'].id
+            // 	})
+            // 	this.pageName = data[0].lookupValueName.replace('/', '');
+            // 	this.pageDesp = data[0].description;
+            // });
+
+            this.getBlockDetails();
+          }
+        }, {
+          key: "getAllBlockData",
+          value: function getAllBlockData() {
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower";
+            this.blockId = "";
+            this.datagrid.clearfilters();
+          }
+        }, {
+          key: "getSingleBlock",
+          value: function getSingleBlock(block) {
+            var _this22 = this;
+
+            this.filterSelected = 'single';
+            this.singleBlock = block.apartmentBlockNumber;
+            this.blockId = block.apartmentBlockId;
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.singleBlock;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          }
+        }]);
+
+        return WorkpermitReportDataComponent;
+      }();
+
+      WorkpermitReportDataComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_8__["TicketService"]
+        }, {
+          type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_11__["WorkPermitService"]
+        }];
+      };
+
+      WorkpermitReportDataComponent.propDecorators = {
+        gridResident: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['gridResident', {
+            "static": false
+          }]
+        }],
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
+          }]
+        }]
+      };
+      WorkpermitReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-workpermit-report-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./workpermit-report-data.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./workpermit-report-data.component.scss */
+        "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_8__["TicketService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_11__["WorkPermitService"]])], WorkpermitReportDataComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.scss":
+    /*!**********************************************************************************************************!*\
+      !*** ./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.scss ***!
+      \**********************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesCommonWorkPermitComponentsWorkpermitReportWorkpermitReportComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvY29tbW9uL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1yZXBvcnQvd29ya3Blcm1pdC1yZXBvcnQuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.ts":
+    /*!********************************************************************************************************!*\
+      !*** ./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.ts ***!
+      \********************************************************************************************************/
+
+    /*! exports provided: WorkpermitReportComponent */
+
+    /***/
+    function srcAppModulesCommonWorkPermitComponentsWorkpermitReportWorkpermitReportComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "WorkpermitReportComponent", function () {
+        return WorkpermitReportComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+
+      var WorkpermitReportComponent = /*#__PURE__*/function () {
+        function WorkpermitReportComponent(lookupService, sharedService, sessionService) {
+          _classCallCheck(this, WorkpermitReportComponent);
+
+          this.lookupService = lookupService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.isDataLoaded = false;
+        }
+
+        _createClass(WorkpermitReportComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.reportDataList = [{
+              lookupValueName: 'Workpermits Pending Approval',
+              description: 'Provides the list of Workpermits Pending Approval',
+              lookupValueId: 365
+            }, {
+              lookupValueName: 'Upcoming Work Permits',
+              description: 'Provides the list of Upcoming Work Permits',
+              lookupValueId: 366
+            }];
+            this.isDataLoaded = true; // let details = {
+            //   LookupTypeId: 87, //lookuptypeid for report
+            //   MenuName: 'VisitorManagement'
+            // }
+            // this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res:any) => {
+            //   this.reportDataList = res;
+            //   this.isDataLoaded = true;
+            // });
+          }
+        }]);
+
+        return WorkpermitReportComponent;
+      }();
+
+      WorkpermitReportComponent.ctorParameters = function () {
+        return [{
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+        }];
+      };
+
+      WorkpermitReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-workpermit-report',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./workpermit-report.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./workpermit-report.component.scss */
+        "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], WorkpermitReportComponent);
       /***/
     },
 
@@ -1973,7 +2852,7 @@
         _createClass(NatureOfWorkSetupComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this18 = this;
+            var _this23 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1986,7 +2865,7 @@
               this.dataGrid.showfiltercolumnbackground(false);
               this.column.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this18.dataGrid.addfilter(item.datafield, filtergroup, true);
+                  _this23.dataGrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.dataGrid.applyfilters();
@@ -2033,9 +2912,8 @@
         }, {
           key: "submitWorkType",
           value: function submitWorkType() {
-            var _this19 = this;
+            var _this24 = this;
 
-            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2054,6 +2932,7 @@
 
               this._changeDetectorRef.markForCheck();
             } else {
+              this.isDataSubmitted = true;
               var params = {
                 lookupvalue: {
                   "lookupValueId": 0,
@@ -2069,30 +2948,29 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this19.isDataSubmitted = false;
+                _this24.isDataSubmitted = false;
 
                 if (res.message) {
-                  _this19.clickMode = '';
+                  _this24.clickMode = '';
 
-                  _this19.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
+                  _this24.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
 
-                  _this19.getNatureOfWorklist();
+                  _this24.getNatureOfWorklist();
                 } else {
-                  _this19.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this24.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this19.isDataSubmitted = false;
+                _this24.isDataSubmitted = false;
 
-                _this19.sharedService.openSnackBar('Server Error', 'error');
+                _this24.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateWorkType",
           value: function updateWorkType() {
-            var _this20 = this;
+            var _this25 = this;
 
-            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2111,6 +2989,7 @@
 
               this._changeDetectorRef.markForCheck();
             } else {
+              this.isDataSubmitted = true;
               var params = {
                 lookupvalue: {
                   "lookupValueId": this.natureOfWork.lookupValueId,
@@ -2126,28 +3005,28 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                _this20.isDataSubmitted = false;
+                _this25.isDataSubmitted = false;
 
                 if (res.message) {
-                  _this20.clickMode = '';
+                  _this25.clickMode = '';
 
-                  _this20.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
+                  _this25.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
 
-                  _this20.getNatureOfWorklist();
+                  _this25.getNatureOfWorklist();
                 } else {
-                  _this20.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this25.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this20.isDataSubmitted = false;
+                _this25.isDataSubmitted = false;
 
-                _this20.sharedService.openSnackBar('Server Error', 'error');
+                _this25.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "getNatureOfWorklist",
           value: function getNatureOfWorklist() {
-            var _this21 = this;
+            var _this26 = this;
 
             var params = {
               LookupTypeId: 89,
@@ -2155,25 +3034,25 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (resp) {
               if (resp.length > 0) {
-                _this21.totalItems = resp.length;
+                _this26.totalItems = resp.length;
                 var arrangeSlotRawData = {
                   localdata: resp.reverse(),
                   datatype: "array"
                 };
-                _this21.natureWorkList = new jqx.dataAdapter(arrangeSlotRawData);
+                _this26.natureWorkList = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this21.isDataLoaded = false;
+              _this26.isDataLoaded = false;
             }, function (error) {
-              _this21.isDataLoaded = false;
+              _this26.isDataLoaded = false;
 
-              _this21.sharedService.openSnackBar('Server Error', 'error');
+              _this26.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this27 = this;
 
             this.getNatureOfWorklist();
 
@@ -2210,14 +3089,14 @@
               if (item != null) {
                 var params = {
                   lookupValueId: item,
-                  updateUserId: _this22.sessionService.userId
+                  updateUserId: _this27.sessionService.userId
                 };
 
-                _this22.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this27.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res) {
-                    _this22.sharedService.setUnitListDeleteIndex(null);
+                    _this27.sharedService.setUnitListDeleteIndex(null);
 
-                    _this22.getNatureOfWorklist();
+                    _this27.getNatureOfWorklist();
                   }
                 });
               }
@@ -2521,7 +3400,7 @@
         _createClass(WorkpermitTypeSetupComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this23 = this;
+            var _this28 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2534,7 +3413,7 @@
               this.dataGrid.showfiltercolumnbackground(false);
               this.column.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this23.dataGrid.addfilter(item.datafield, filtergroup, true);
+                  _this28.dataGrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.dataGrid.applyfilters();
@@ -2581,9 +3460,8 @@
         }, {
           key: "submitWorkPermitType",
           value: function submitWorkPermitType() {
-            var _this24 = this;
+            var _this29 = this;
 
-            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2602,6 +3480,7 @@
 
               this._changeDetectorRef.markForCheck();
             } else {
+              this.isDataSubmitted = true;
               var params = {
                 lookupvalue: {
                   "lookupValueId": 0,
@@ -2617,30 +3496,29 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this24.isDataSubmitted = false;
+                _this29.isDataSubmitted = false;
 
                 if (res.message) {
-                  _this24.clickMode = '';
+                  _this29.clickMode = '';
 
-                  _this24.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
+                  _this29.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
 
-                  _this24.getWorkPermitList();
+                  _this29.getWorkPermitList();
                 } else {
-                  _this24.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this29.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this24.isDataSubmitted = false;
+                _this29.isDataSubmitted = false;
 
-                _this24.sharedService.openSnackBar('Server Error', 'error');
+                _this29.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateWorkPermitType",
           value: function updateWorkPermitType() {
-            var _this25 = this;
+            var _this30 = this;
 
-            this.isDataSubmitted = true;
             this.message = null;
 
             if (!this.form.valid) {
@@ -2659,6 +3537,7 @@
 
               this._changeDetectorRef.markForCheck();
             } else {
+              this.isDataSubmitted = true;
               var params = {
                 lookupvalue: {
                   "lookupValueId": this.workpermit.lookupValueId,
@@ -2674,28 +3553,28 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                _this25.isDataSubmitted = false;
+                _this30.isDataSubmitted = false;
 
                 if (res.message) {
-                  _this25.clickMode = '';
+                  _this30.clickMode = '';
 
-                  _this25.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
+                  _this30.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
 
-                  _this25.getWorkPermitList();
+                  _this30.getWorkPermitList();
                 } else {
-                  _this25.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this30.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this25.isDataSubmitted = false;
+                _this30.isDataSubmitted = false;
 
-                _this25.sharedService.openSnackBar('Server Error', 'error');
+                _this30.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "getWorkPermitList",
           value: function getWorkPermitList() {
-            var _this26 = this;
+            var _this31 = this;
 
             var params = {
               LookupTypeId: 90,
@@ -2703,25 +3582,25 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (resp) {
               if (resp.length > 0) {
-                _this26.totalItems = resp.length;
+                _this31.totalItems = resp.length;
                 var arrangeSlotRawData = {
                   localdata: resp.reverse(),
                   datatype: "array"
                 };
-                _this26.workPermitList = new jqx.dataAdapter(arrangeSlotRawData);
+                _this31.workPermitList = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this26.isDataLoaded = false;
+              _this31.isDataLoaded = false;
             }, function (error) {
-              _this26.isDataLoaded = false;
+              _this31.isDataLoaded = false;
 
-              _this26.sharedService.openSnackBar('Server Error', 'error');
+              _this31.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this32 = this;
 
             this.getWorkPermitList();
 
@@ -2758,14 +3637,14 @@
               if (item != null) {
                 var params = {
                   lookupValueId: item,
-                  updateUserId: _this27.sessionService.userId
+                  updateUserId: _this32.sessionService.userId
                 };
 
-                _this27.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this32.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res) {
-                    _this27.sharedService.setUnitListDeleteIndex(null);
+                    _this32.sharedService.setUnitListDeleteIndex(null);
 
-                    _this27.getWorkPermitList();
+                    _this32.getWorkPermitList();
                   }
                 });
               }
@@ -2961,7 +3840,7 @@
         _createClass(WorkpermitStatusComponent, [{
           key: "onConfirm",
           value: function onConfirm() {
-            var _this28 = this;
+            var _this33 = this;
 
             this.isDataSubmitted = true;
             var params = {
@@ -2977,27 +3856,27 @@
               }
             };
             this.workPermitService.updateWorkPermitStatusById(params).subscribe(function (data) {
-              _this28.isDataSubmitted = false;
+              _this33.isDataSubmitted = false;
 
               if (data.message) {
-                _this28.sharedService.openSnackBar('Workpermit Status Updated', 'success');
+                _this33.sharedService.openSnackBar('Workpermit Status Updated', 'success');
 
-                _this28.dialogRef.close(true);
+                _this33.dialogRef.close(true);
               } else {
-                _this28.sharedService.openSnackBar(data.errorMessage, 'error');
+                _this33.sharedService.openSnackBar(data.errorMessage, 'error');
 
-                _this28.dialogRef.close(false);
+                _this33.dialogRef.close(false);
               }
             }, function (error) {
-              _this28.dialogRef.close(false);
+              _this33.dialogRef.close(false);
 
-              _this28.sharedService.openSnackBar('Server Error', 'error');
+              _this33.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this29 = this;
+            var _this34 = this;
 
             var statusParams = {
               LookupTypeId: 91,
@@ -3005,9 +3884,9 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this29.statusTypeData = res.filter(function (status) {
+                _this34.statusTypeData = res.filter(function (status) {
                   // Admin Side
-                  if (_this29.sessionService.isAdmin()) {
+                  if (_this34.sessionService.isAdmin()) {
                     return status;
                   } else {
                     // User side
@@ -3016,7 +3895,7 @@
                     }
                   }
                 });
-                _this29.status = _this29.data.statusId;
+                _this34.status = _this34.data.statusId;
               }
             });
           }
@@ -3136,6 +4015,18 @@
       var _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/workpermit-list/workpermit-list.component */
       "./src/app/modules/common/work-permit/components/workpermit-list/workpermit-list.component.ts");
+      /* harmony import */
+
+
+      var _components_workpermit_report_workpermit_report_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./components/workpermit-report/workpermit-report.component */
+      "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.ts");
+      /* harmony import */
+
+
+      var _components_workpermit_report_workpermit_report_data_workpermit_report_data_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ./components/workpermit-report/workpermit-report-data/workpermit-report-data.component */
+      "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.ts");
 
       var routes = [{
         path: '',
@@ -3193,6 +4084,14 @@
       }, {
         path: 'user-history',
         component: _components_user_workpermit_user_workpermit_component__WEBPACK_IMPORTED_MODULE_8__["UserWorkpermitComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports',
+        component: _components_workpermit_report_workpermit_report_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitReportComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports/:name/:id',
+        component: _components_workpermit_report_workpermit_report_data_workpermit_report_data_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
@@ -3413,13 +4312,25 @@
       var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! src/app/modules/ui/select/select.module */
       "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var _components_workpermit_report_workpermit_report_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! ./components/workpermit-report/workpermit-report.component */
+      "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report.component.ts");
+      /* harmony import */
+
+
+      var _components_workpermit_report_workpermit_report_data_workpermit_report_data_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      /*! ./components/workpermit-report/workpermit-report-data/workpermit-report-data.component */
+      "./src/app/modules/common/work-permit/components/workpermit-report/workpermit-report-data/workpermit-report-data.component.ts");
 
       var WorkPermitModule = function WorkPermitModule() {
         _classCallCheck(this, WorkPermitModule);
       };
 
       WorkPermitModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_work_permit_component__WEBPACK_IMPORTED_MODULE_7__["WorkPermitComponent"], _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitSetupComponent"], _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitCreateComponent"], _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitStatusComponent"], _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitTypeSetupComponent"], _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_12__["NatureOfWorkSetupComponent"], _components_user_workpermit_user_workpermit_component__WEBPACK_IMPORTED_MODULE_14__["UserWorkpermitComponent"], _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_15__["WorkpermitListComponent"]],
+        declarations: [_work_permit_component__WEBPACK_IMPORTED_MODULE_7__["WorkPermitComponent"], _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitSetupComponent"], _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitCreateComponent"], _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitStatusComponent"], _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitTypeSetupComponent"], _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_12__["NatureOfWorkSetupComponent"], _components_user_workpermit_user_workpermit_component__WEBPACK_IMPORTED_MODULE_14__["UserWorkpermitComponent"], _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_15__["WorkpermitListComponent"], _components_workpermit_report_workpermit_report_component__WEBPACK_IMPORTED_MODULE_17__["WorkpermitReportComponent"], _components_workpermit_report_workpermit_report_data_workpermit_report_data_component__WEBPACK_IMPORTED_MODULE_18__["WorkpermitReportDataComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__["SelectModule"], _work_permit_routing_module__WEBPACK_IMPORTED_MODULE_3__["WorkPermitRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_6__["DatepickerModule"].forRoot(), src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__["CondoMessageModule"]],
         bootstrap: [_work_permit_component__WEBPACK_IMPORTED_MODULE_7__["WorkPermitComponent"]]
       })], WorkPermitModule);
