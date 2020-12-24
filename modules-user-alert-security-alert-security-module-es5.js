@@ -888,12 +888,13 @@
       "./src/app/core/session/session.service.ts");
 
       var SendPanicAlertComponent = /*#__PURE__*/function () {
-        function SendPanicAlertComponent(injector, dialog, router, alertService, userService, apartmentService, sharedService, lookupService, sessionService) {
+        function SendPanicAlertComponent(injector, dialog, router, activatedRouter, alertService, userService, apartmentService, sharedService, lookupService, sessionService) {
           _classCallCheck(this, SendPanicAlertComponent);
 
           this.injector = injector;
           this.dialog = dialog;
           this.router = router;
+          this.activatedRouter = activatedRouter;
           this.alertService = alertService;
           this.userService = userService;
           this.apartmentService = apartmentService;
@@ -970,7 +971,9 @@
 
             this.confirmDialogRef.close();
             this.confirmDialogRef.afterClosed().subscribe(function (data) {
-              _this7.router.navigateByUrl('user/alert-security/my-history');
+              _this7.router.navigate(['my-history'], {
+                relativeTo: _this7.activatedRouter.parent
+              });
             });
           }
         }, {
@@ -1065,6 +1068,8 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
           type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"]
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
@@ -1095,7 +1100,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./send-panic-alert.component.scss */
         "./src/app/modules/user/alert-security/components/send-panic-alert/send-panic-alert.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])], SendPanicAlertComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])], SendPanicAlertComponent);
       /***/
     }
   }]);

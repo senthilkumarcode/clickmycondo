@@ -538,10 +538,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SendPanicAlertComponent = class SendPanicAlertComponent {
-    constructor(injector, dialog, router, alertService, userService, apartmentService, sharedService, lookupService, sessionService) {
+    constructor(injector, dialog, router, activatedRouter, alertService, userService, apartmentService, sharedService, lookupService, sessionService) {
         this.injector = injector;
         this.dialog = dialog;
         this.router = router;
+        this.activatedRouter = activatedRouter;
         this.alertService = alertService;
         this.userService = userService;
         this.apartmentService = apartmentService;
@@ -612,7 +613,7 @@ let SendPanicAlertComponent = class SendPanicAlertComponent {
     closeAlertModal() {
         this.confirmDialogRef.close();
         this.confirmDialogRef.afterClosed().subscribe(data => {
-            this.router.navigateByUrl('user/alert-security/my-history');
+            this.router.navigate(['my-history'], { relativeTo: this.activatedRouter.parent });
         });
     }
     showConfirmEmergency(item, type) {
@@ -682,6 +683,7 @@ SendPanicAlertComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
@@ -701,6 +703,7 @@ SendPanicAlertComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
