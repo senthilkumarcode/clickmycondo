@@ -143,6 +143,7 @@ let ApartmentsComponent = class ApartmentsComponent {
         this.sessionService.roleTypeId = condo.roleTypeId;
         this.sessionService.roleTypeName = condo.roleTypeName;
         this.sessionService.staffId = condo.staffId;
+        this.sessionService.layout = 'dense';
         let params = {
             apartmentId: this.sessionService.apartmentId,
             userId: this.sessionService.userId
