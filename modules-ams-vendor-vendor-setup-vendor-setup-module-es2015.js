@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"vendors-setup-wrapper\">\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isVendorCategoryLoaded\">\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Vendor Categories</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{vendorCategoryData.length}} Items</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addNewVendorCategory()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\tAdd New Category</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"bg-card-list\">\n\t\t\n\t\t\t\t<div class=\"category-list list-boxes\">\n\t\t\n\t\t\t\t\t<div class=\"bg-card pt-4 pr-5 pl-5 shadow\" *ngFor=\"let item of vendorCategoryData; let i = index\">\n\t\t\t\t\t\t<div class=\"desp mt-3\">\n\t\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t<p>{{getVendorsCount(item.lookupValueId)}} Vendor(s)</p>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"mt-4 ml-n4 button-wrapper\">\n\t\t\t\t\t\t\t<button class=\"px-3\"\n\t\t\t\t\t\t\t\t\tmat-button\n\t\t\t\t\t\t\t\t\t[color]=\"'primary'\" (click)=\"updateVendorCategory(item, i)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n\t\t\t\t\t\t\t\tEdit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"px-3\"\n\t\t\t\t\t\t\t\t\tmat-button\n\t\t\t\t\t\t\t\t\t[color]=\"'warn'\" (click)=\"showRemoveCategoryConfirmModal(item)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n\t\t\t\t\t\t\t\tDelete\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\n\t\t\t\t</div>\n\t\t\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\t\t\n\n\n\t<condo-card  *ngIf=\"isVendorCategoryNew || isVendorCategoryUpdate\">\n\t\t<div CondoCardHeader>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4 *ngIf=\"isVendorCategoryNew\">Add Vendor Category</h4>\n    \t\t\t<h4 *ngIf=\"!isVendorCategoryNew\">Update Vendor Category</h4>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div CondoCardBody>\n\t\t\t<form #addVendorCategoryForm=\"ngForm\" class=\"p-5\" name=\"addVendorCategoryForm\" (ngSubmit)=\"showConfirmModal(addVendorCategoryForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Category Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"VendorCategory\" [(ngModel)]=\"VendorCategory\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isVendorCategorySubmitted\">Submit</submit-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</condo-card>\n\n\t<!-- <div class=\"card mt-5\" *ngIf=\"isVendorCategoryNew || isVendorCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isVendorCategoryNew\">Add Vendor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isVendorCategoryNew\">Update Vendor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isVendorCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isVendorCategorySubmitted\">\n\n\t\t\t\t<form #addVendorCategoryForm = \"ngForm\" name=\"addVendorCategoryForm\" (ngSubmit)=\"showConfirmModal(addVendorCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type<span class=\"mandatory\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"VendorCategory\" [(ngModel)]=\"VendorCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div> -->\n</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"vendors-setup-wrapper\">\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isVendorCategoryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isVendorCategoryLoaded\">\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Vendor Categories</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{vendorCategoryData.length}} Items</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addNewVendorCategory()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\tAdd New Category</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"bg-card-list\">\n\t\t\n\t\t\t\t<div class=\"category-list list-boxes\">\n\t\t\n\t\t\t\t\t<div class=\"bg-card pt-4 pr-5 pl-5 shadow\" *ngFor=\"let item of vendorCategoryData; let i = index\">\n\t\t\t\t\t\t<div class=\"desp mt-3\">\n\t\t\t\t\t\t\t<h6>{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t<p>{{getVendorsCount(item.lookupValueId)}} Vendor(s)</p>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"mt-4 ml-n4 button-wrapper\">\n\t\t\t\t\t\t\t<button class=\"px-3\"\n\t\t\t\t\t\t\t\t\tmat-button\n\t\t\t\t\t\t\t\t\t[color]=\"'primary'\" (click)=\"updateVendorCategory(item, i)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n\t\t\t\t\t\t\t\tEdit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"px-3\"\n\t\t\t\t\t\t\t\t\tmat-button\n\t\t\t\t\t\t\t\t\t[color]=\"'warn'\" (click)=\"showRemoveCategoryConfirmModal(item)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n\t\t\t\t\t\t\t\tDelete\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\n\t\t\t\t</div>\n\t\t\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\t\t\n\n\n\t<condo-card  *ngIf=\"isVendorCategoryNew || isVendorCategoryUpdate\">\n\t\t<div CondoCardHeader>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4 *ngIf=\"isVendorCategoryNew\">Add Vendor Category</h4>\n    \t\t\t<h4 *ngIf=\"!isVendorCategoryNew\">Update Vendor Category</h4>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div CondoCardBody>\n\t\t\t<form #addVendorCategoryForm=\"ngForm\" class=\"p-5\" name=\"addVendorCategoryForm\" (ngSubmit)=\"showConfirmModal(addVendorCategoryForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Category Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"VendorCategory\" [(ngModel)]=\"category.lookupValueName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isVendorCategorySubmitted\">Submit</submit-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</condo-card>\n\n\t<!-- <div class=\"card mt-5\" *ngIf=\"isVendorCategoryNew || isVendorCategoryUpdate\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h6 *ngIf=\"isVendorCategoryNew\">Add Vendor Category</h6>\n    \t\t\t<h6 *ngIf=\"!isVendorCategoryNew\">Update Vendor Category</h6>\n    \t\t</div>\n    \t\t<div class=\"float-right\" (click)=\"removeCategoryBox()\">\n    \t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\n\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isVendorCategorySubmitted\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isVendorCategorySubmitted\">\n\n\t\t\t\t<form #addVendorCategoryForm = \"ngForm\" name=\"addVendorCategoryForm\" (ngSubmit)=\"showConfirmModal(addVendorCategoryForm)\"  novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Category Type<span class=\"mandatory\">*</span></label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"VendorCategory\" [(ngModel)]=\"VendorCategory\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\n\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\t</div> -->\n</div>\n</div>\n");
 
 /***/ }),
 
@@ -99,22 +99,17 @@ let VendorSetupComponent = class VendorSetupComponent {
         this.isVendorCategorySubmitted = false;
         this.isVendorCategoryNew = false;
         this.isVendorCategoryUpdate = false;
-        this.VendorCategory = "";
-        this.VendorCategoryUpdateId = 0;
-        this.alertMessage = "";
-        this.isError = false;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     addNewVendorCategory() {
-        this.VendorCategory = "";
+        this.category = {};
         this.isVendorCategoryNew = true;
         this.isVendorCategoryUpdate = false;
     }
     updateVendorCategory(item) {
         this.isVendorCategoryUpdate = true;
         this.isVendorCategoryNew = false;
-        this.VendorCategory = item.lookupValueName;
-        this.VendorCategoryUpdateId = item.lookupValueId;
+        this.category = item;
     }
     deleteVendorCategory(item) {
         this.isVendorCategoryLoaded = false;
@@ -123,8 +118,13 @@ let VendorSetupComponent = class VendorSetupComponent {
             updateUserId: parseInt(this.sessionService.userId)
         };
         this.lookupService.deleteLookupvalue(params).subscribe((res) => {
-            //this.vendorCategoryData.splice(index, 1);
-            this.loadVendorCategory();
+            this.vendorCategoryData = this.vendorCategoryData.filter(category => {
+                return category.lookupValueId != item.lookupValueId;
+            });
+            this.isVendorCategoryLoaded = true;
+        }, error => {
+            this.isVendorCategoryLoaded = true;
+            this.sharedService.openSnackBar("Some error occurred", 'error');
         });
     }
     showConfirmModal(form) {
@@ -141,7 +141,6 @@ let VendorSetupComponent = class VendorSetupComponent {
     removeCategoryBox() {
         this.isVendorCategoryNew = false;
         this.isVendorCategoryUpdate = false;
-        this.isError = false;
     }
     getVendorsCount(id) {
         var data = this.vendorListData.filter(item => {
@@ -156,17 +155,23 @@ let VendorSetupComponent = class VendorSetupComponent {
     }
     submitVendorCategoryForm(form) {
         this.isVendorCategorySubmitted = true;
-        this.isError = false;
         if (this.isVendorCategoryNew) {
             let details = {
+                "apartmentId": this.sessionService.apartmentId,
                 "lookupTypeId": 57,
-                "lookupValueName": this.VendorCategory,
-                "description": this.VendorCategory,
+                "lookupValueName": this.category.lookupValueName,
+                "description": this.category.lookupValueName,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
-                "updatedOn": null
+                "updatedOn": null,
+                "menuName": "",
+                "notes": "",
+                "isCommon": true,
+                "module": "",
+                "subModule": "",
+                "isDisabled": true
             };
             let params = {
                 lookupvalue: details
@@ -179,7 +184,9 @@ let VendorSetupComponent = class VendorSetupComponent {
                     };
                     this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isVendorCategorySubmitted = false;
-                        this.sharedService.setAlertMessage("Category added Successfully!");
+                        this.isVendorCategoryNew = false;
+                        this.isVendorCategoryUpdate = false;
+                        this.sharedService.openSnackBar("Category added Successfully!", 'success');
                         this.vendorCategoryData = res.filter(item => {
                             return item.isActive;
                         });
@@ -187,25 +194,32 @@ let VendorSetupComponent = class VendorSetupComponent {
                 }
                 else {
                     this.isVendorCategorySubmitted = false;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
-                    if (this.alertMessage === "addLookupValue Not Added as it already exist.") {
-                        this.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
+                    this.isVendorCategoryNew = false;
+                    this.isVendorCategoryUpdate = false;
+                    if (res.errorMessage === "addLookupValue Not Added as it already exist.") {
+                        this.sharedService.openSnackBar("Invalid action. " + details.lookupValueName + " vendor category already exist.", 'error');
                     }
                 }
             });
         }
         else {
             let details = {
-                "lookupValueId": this.VendorCategoryUpdateId,
+                "lookupValueId": this.category.lookupValueId,
+                "apartmentId": this.sessionService.apartmentId,
                 "lookupTypeId": 57,
-                "lookupValueName": this.VendorCategory,
-                "description": this.VendorCategory,
+                "lookupValueName": this.category.lookupValueName,
+                "description": this.category.lookupValueName,
                 "isActive": true,
-                "insertedBy": 0,
-                "insertedOn": "2019-11-20T16:51:24.105Z",
+                "insertedBy": this.category.insertedBy,
+                "insertedOn": this.category.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "menuName": this.category.menuName,
+                "notes": this.category.notes,
+                "isCommon": this.category.isCommon,
+                "module": this.category.module,
+                "subModule": this.category.subModule,
+                "isDisabled": this.category.isDisabled
             };
             let params = {
                 lookupvalue: details
@@ -218,7 +232,9 @@ let VendorSetupComponent = class VendorSetupComponent {
                     };
                     this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isVendorCategorySubmitted = false;
-                        this.sharedService.setAlertMessage("Category updated Successfully!");
+                        this.isVendorCategoryNew = false;
+                        this.isVendorCategoryUpdate = false;
+                        this.sharedService.openSnackBar("Category updated Successfully!", 'success');
                         this.vendorCategoryData = res.filter(item => {
                             return item.isActive;
                         });
@@ -226,12 +242,12 @@ let VendorSetupComponent = class VendorSetupComponent {
                 }
                 else {
                     this.isVendorCategorySubmitted = false;
-                    this.isError = true;
-                    this.alertMessage = res.errorMessage;
+                    this.isVendorCategoryNew = false;
+                    this.isVendorCategoryUpdate = false;
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
             });
         }
-        this.VendorCategory = "";
     }
     loadVendorCategory() {
         let categoryParams = {
