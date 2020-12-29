@@ -272,14 +272,20 @@ let InitialMaintananceComponent = class InitialMaintananceComponent {
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
     }
     getAllCategory() {
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 this.categoriesData = res ? res : [];
             }
         });
     }
     getAllSubCategory() {
-        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 this.subCategoriesData = res ? res : [];
             }
@@ -482,10 +488,16 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
         });
     }
     getAllCategory() {
-        return this.genMaintService.getAllGenMaintenanceCategory().toPromise();
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        return this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).toPromise();
     }
     getAllSubCategory() {
-        return this.genMaintService.getAllGenMaintenanceSubCategory().toPromise();
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        return this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).toPromise();
     }
     getTitleList() {
         let queryParamBase = {
@@ -994,7 +1006,10 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
         }
     }
     getAllCategory() {
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 if (res && res.length > 0) {
                     res.filter(val => {
@@ -1008,7 +1023,10 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
         });
     }
     getAllSubCategory() {
-        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 if (res && res.length > 0) {
                     res.filter(val => {
@@ -1746,7 +1764,10 @@ let OpMaintenanceSetupCategoryComponent = class OpMaintenanceSetupCategoryCompon
     }
     getAllCategory() {
         this.isCategoryLoaded = false;
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             if (Array.isArray(res)) {
                 this.fullCategoriesData = res;
                 this._categoriesData.next(this.fullCategoriesData.reverse());
@@ -2007,13 +2028,19 @@ let OpMaintenanceSetupSubcategoryComponent = class OpMaintenanceSetupSubcategory
         this.modalService.showConfirmModal({ id: data.genMaintenanceSubCategoryId, index: index });
     }
     getAllCategory() {
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             this.categoriesData = res;
         });
     }
     getAllSubCategory() {
         this.isCategoryLoaded = false;
-        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe((res) => {
             if (Array.isArray(res)) {
                 this.fullSubCategoriesData = res;
                 this._subCategoriesData.next(this.fullSubCategoriesData.reverse());
@@ -2531,12 +2558,15 @@ let OpMaintenanceSetupTitleComponent = class OpMaintenanceSetupTitleComponent {
     }
     ngOnInit() {
         this.getTitleList();
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             if (res.length > 0) {
                 this.categoriesData = res;
             }
         });
-        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+        this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe((res) => {
             if (res.length > 0) {
                 this.subCategoriesData = res;
             }
@@ -2933,13 +2963,16 @@ let OperationalMaintenanceCompletedComponent = class OperationalMaintenanceCompl
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         //category List
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 this.categoryList = res;
             }
         });
         //sub-category List
-        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+        this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 this.subCategoryList = res;
             }
@@ -3105,14 +3138,17 @@ let OperationalMaintenanceRemindersComponent = class OperationalMaintenanceRemin
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId
+        };
         //category List
-        this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
+        this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 this.categoryList = res;
             }
         });
         //sub-category List
-        this.genMaintService.getAllGenMaintenanceSubCategory().subscribe((res) => {
+        this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe((res) => {
             if (res) {
                 this.subCategoryList = res;
             }

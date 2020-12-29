@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<condo-message *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n            {{message.content}}\n    \t</condo-message>\n\n\t\t<div class=\"income-view-filter-wrapper mb-5\" *ngIf=\"isInvoiceSubmitted\">\n\n\t\t\t<form #incomeInvoicesFilterForm = \"ngForm\" name=\"incomeInvoicesFilterForm\" (ngSubmit)=\"submitIncomeInvoicesFilterForm()\"  novalidate>\n\n\t\t\t\t<mat-accordion>\n\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t\t<div class=\"filter-box\">\n\t\t\t\t\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\n\t\t\t\t\t\t<mat-panel-description>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\t\t\t\tfieldName=\"invoiceDateForm\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"fromDate\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"getFromDate($event)\">\n\t\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\t\t\t\tfieldName=\"invoiceDateTo\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"toDate\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"getToDate($event)\">\n\t\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t\t</div> \n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"incomeInvoicesFilterForm.invalid\">Apply Filter</button>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</mat-panel-description>\n\n\t\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t</mat-accordion>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded && !isInvoiceSubmitted\"></app-loader>\n\n\t\t<div class=\"legends mb-4\" *ngIf=\"isInvoiceDataLoaded && isInvoiceSubmitted\">\n\t\t\t<div>\n\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isInvoiceDataLoaded && isInvoiceSubmitted\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Invoices</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\n\t\n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t</div>\n\n\n\t<ng-template #viewInvoiceDetailsRef>\n\n\t\t<div class=\"invoice-info info-modal-box invoice-modal rel\">\n\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\n\t\t\t\t<div id=\"InvoiceElement\">\n\n\t\t\t\t\t<div class=\"d-flex bg-cool-gray-100 p-4\">\n\t\t\t\t\t\t<div class=\"apartment-logo\">\n\t\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"apartmentPicUrl\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n\t\t\t\t\t\t\t<h6>{{apartmentDetails.address1}}</h6>\n\t\t\t\t\t\t\t<div class=\"mt-2\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t\t<div class=\"bg-card p-0 border-bottom mb-0\">\n\t\n\t\t\t\t\t\t<div class=\"d-flex pt-4 pb-4 border-bottom\">\n\t\t\t\t\t\t\t<div class=\"pl-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{invoice.apartmentBlockNumber}} {{invoice.apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> {{invoice.primaryContact}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto pr-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{invoice.serialNo}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Due Date:</span> {{getDate(invoice.dueDate)}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"\">{{invoice.length}}</div>\n\n\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th class=\"w-50\">Description</th>\n\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t<td class=\"w-50\">{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=\"4\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr class=\"total font-medium\">\n\t\t\t\t\t\t\t\t\t<td colspan=\"4\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<!-- <div class=\"p-4 border-top\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t</div>  -->\n\n\t\t\t\t\t\t<div class=\"d-flex justify-content-end m-4 invoice-footer\">\n\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/images/logo-cmc-brand.svg\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<p class=\"text-muted mb-1\">Powered by</p>\n\t\t\t\t\t\t\t\t<h6 class=\"logo-color\">Clickmycondo</h6>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"m-4 pdf-btn\">\n\t\t\t\t\t<button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>PDF\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</ng-template>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-invoice-reverse [invoice]=\"invoice\" (outputParams)=\"isReversed($event)\"></app-income-invoice-reverse>\n\t</ng-template>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<condo-message *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n            {{message.content}}\n    \t</condo-message>\n\n\t\t<div class=\"income-view-filter-wrapper mb-5\" *ngIf=\"isInvoiceSubmitted\">\n\n\t\t\t<form #incomeInvoicesFilterForm = \"ngForm\" name=\"incomeInvoicesFilterForm\" (ngSubmit)=\"submitIncomeInvoicesFilterForm()\"  novalidate>\n\n\t\t\t\t<mat-accordion>\n\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t\t<div class=\"filter-box\">\n\t\t\t\t\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\n\t\t\t\t\t\t<mat-panel-description>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\t\t\t\tfieldName=\"invoiceDateForm\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"fromDate\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"getFromDate($event)\">\n\t\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\t\t\t\tfieldName=\"invoiceDateTo\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"toDate\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"getToDate($event)\">\n\t\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t\t</div> \n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"incomeInvoicesFilterForm.invalid\">Apply Filter</button>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</mat-panel-description>\n\n\t\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t</mat-accordion>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded && !isInvoiceSubmitted\"></app-loader>\n\n\t\t<div class=\"legends mb-4\" *ngIf=\"isInvoiceDataLoaded && isInvoiceSubmitted\">\n\t\t\t<div>\n\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isInvoiceDataLoaded && isInvoiceSubmitted\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Invoices</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\n\t\n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t</div>\n\n\n\t<ng-template #viewInvoiceDetailsRef>\n\n\t\t<div class=\"invoice-info info-modal-box invoice-modal rel\">\n\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\n\t\t\t\t<div id=\"InvoiceElement\">\n\n\t\t\t\t\t<div class=\"d-flex bg-cool-gray-100 p-4\">\n\t\t\t\t\t\t<div class=\"apartment-logo\">\n\t\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"apartmentPicUrl\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n\t\t\t\t\t\t\t<h6>{{apartmentDetails.address1}}</h6>\n\t\t\t\t\t\t\t<div class=\"mt-2\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t\t<div class=\"bg-card p-0 border-bottom mb-0\">\n\t\n\t\t\t\t\t\t<div class=\"d-flex pt-4 pb-4 border-bottom\">\n\t\t\t\t\t\t\t<div class=\"pl-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{invoice.apartmentBlockNumber}} {{invoice.apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> {{invoice.primaryContact}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto pr-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{invoice.serialNo}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Due Date:</span> {{getDate(invoice.dueDate)}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"\">{{invoice.length}}</div>\n\n\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th class=\"w-50\">Description</th>\n\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t<td class=\"w-50\">{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=\"4\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr class=\"total font-medium\">\n\t\t\t\t\t\t\t\t\t<td colspan=\"4\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<!-- <div class=\"p-4 border-top\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t</div>  -->\n\n\t\t\t\t\t\t<div class=\"d-flex justify-content-end m-4 invoice-footer\">\n\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/images/logo-cmc-brand.svg\">\n\t\t\t\t\t\t\t<div class=\"ml-2\">\n\t\t\t\t\t\t\t\t<p class=\"text-muted mb-1\">Powered by</p>\n\t\t\t\t\t\t\t\t<h6 class=\"logo-color\">Clickmycondo</h6>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"m-4 pdf-btn\">\n\t\t\t\t\t<button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>PDF\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</ng-template>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-invoice-reverse [invoice]=\"invoice\" (outputParams)=\"isReversed($event)\"></app-income-invoice-reverse>\n\t</ng-template>\n\n</div>";
       /***/
     },
 
@@ -576,7 +576,7 @@
             };
 
             this.columnData = [{
-              text: 'Serial No',
+              text: 'InvoiceNo',
               datafield: 'serialNo',
               width: 120,
               pinned: true,
@@ -585,29 +585,9 @@
               },
               renderer: columnrenderer
             }, {
-              text: 'Posted By',
-              datafield: 'insertedBy_Label',
-              minwidth: 120,
-              cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
-            }, {
-              text: 'Posted On',
-              datafield: 'insertedOn',
-              minwidth: 120,
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(_this5.timeZone.region).format(_this5.timeZone.time) + '</div>';
-              },
-              renderer: columnrenderer
-            }, {
               text: 'Tower Unit',
               datafield: 'block_Unit',
               minwidth: 120,
-              cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
-            }, {
-              text: 'Due',
-              datafield: 'custInvoiceAmount',
-              minwidth: 150,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             },
@@ -638,13 +618,55 @@
               minwidth: 120,
               renderer: columnrenderer,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(_this5.timeZone.region).format(_this5.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(_this5.timeZone.region).format(_this5.timeZone.date) + '</div>';
               }
+            }, {
+              text: 'Due',
+              datafield: 'custInvoiceAmount',
+              minwidth: 130,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Status',
+              datafield: 'isPaid',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                if (value != null) {
+                  var status, label;
+
+                  if (value) {
+                    status = 'green';
+                    label = 'Paid';
+                  } else {
+                    status = 'red';
+                    label = 'Due';
+                  }
+
+                  return "<div class=\"jqx-custom-inner-cell\">\n              <div class=\"status-badge bg-status-".concat(status, "-700\">\n                <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(label ? label : '', "</span>\n              </div>\n          </div>");
+                } else {
+                  return '<div class="jqx-custom-inner-cell"></div>';
+                }
+              },
+              minwidth: 120,
+              renderer: columnrenderer
+            }, {
+              text: 'Posted By',
+              datafield: 'insertedBy_Label',
+              minwidth: 130,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Posted On',
+              datafield: 'insertedOn',
+              width: 130,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(_this5.timeZone.region).format(_this5.timeZone.date) + '</div>';
+              },
+              renderer: columnrenderer
             }, {
               text: 'Actions',
               cellsalign: 'center',
               align: 'center',
-              minwidth: 120,
+              width: 120,
               datafield: 'isReversed',
               cellsrenderer: function cellsrenderer(row, coloumn, value) {
                 var elemId = 'invoiceReverse' + row;
@@ -655,6 +677,7 @@
             this.sharedService.apartmentpiccast.subscribe(function (apartmentPicUrl) {
               _this5.apartmentPicUrl = apartmentPicUrl;
             });
+            this.fromDate = moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().subtract(1, 'months').toISOString(), this.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString();
             this.getAllInvoicesData(this.fromDate, this.toDate); // Subscribe to the resolved route data
 
             this._activatedRoute.parent.parent.parent.data.subscribe(function (data) {

@@ -362,14 +362,16 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              if (res) {
+              if (Array.isArray(res)) {
                 _this.categoryList = res ? res : [];
 
                 _this.categoryList.filter(function (key) {
                   key['bg'] = _this.getRandomColor();
                 });
 
-                _this.subMenuList = _this.categoryList[0].subCategory;
+                if (_this.categoryList.length > 0) {
+                  _this.subMenuList = _this.categoryList[0].subCategory;
+                }
               }
             });
           }

@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" (backdropClick)=\"onBackdropClicked()\">\n    <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" [disableClose]=\"true\" #matDrawer>\n        <router-outlet></router-outlet>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"mainMenu bg-card shadow\">\n            <div class=\"menu\">\n                <div class=\"d-flex justify-content-between\">\n                    <h4 class=\"mb-3\">\n                        Assets\n                    </h4>\n                    <div class=\"input-group input-group-sm mt-4\">\n                        <span class=\"input-group-addon \" id=\"sizing-addon3\">\n                            <img src=\"assets/icons/search.png\" alt=\"\">\n                        </span>\n                        <input type=\"text\" class=\"form-control\" tabindex=\"-1\" placeholder=\"Search\"\n                            aria-describedby=\"sizing-addon3\">\n                    </div>\n                </div>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"menuList\">\n                    <a *ngFor=\"let menu of categoryList;let i=index;\" class=\"slide menuCard mb-5\"\n                        (click)=\"sortSubCategory(menu)\"\n                        [style.border]=\"'2px solid '+menu.bg\">\n                        <label class=\"font-bold text-secondary text-uppercase\">{{menu.name}}</label>\n                        <div *ngIf=\"menu.id == selectedCategory\" class=\"activeTri\"\n                            [style.border-bottom]=\"'10px solid '+menu.bg\"></div>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>\n";
+      __webpack_exports__["default"] = "\n<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" (backdropClick)=\"onBackdropClicked()\">\n    <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" [disableClose]=\"true\" #matDrawer>\n        <router-outlet></router-outlet>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"mainMenu bg-card shadow\">\n            <div class=\"menu\">\n                <div class=\"d-flex justify-content-between\">\n                    <h4 class=\"mb-3\">\n                        Assets\n                    </h4>\n                    <div class=\"input-group input-group-sm mt-4\">\n                        <span class=\"input-group-addon \" id=\"sizing-addon3\">\n                            <img src=\"assets/icons/search.png\" alt=\"\">\n                        </span>\n                        <input type=\"text\" class=\"form-control\" tabindex=\"-1\" placeholder=\"Search\"\n                            aria-describedby=\"sizing-addon3\">\n                    </div>\n                </div>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"menuList\">\n                    <a *ngFor=\"let menu of categoryList;let i=index;\" class=\"slide menuCard mb-5\"\n                        (click)=\"sortSubCategory(menu)\"\n                        [style.border]=\"'2px solid '+menu.bg\">\n                        <label class=\"font-bold text-secondary text-uppercase\">{{menu.name}}</label>\n                        <div *ngIf=\"menu.id == selectedCategory\" class=\"activeTri\"\n                            [style.border-bottom]=\"'10px solid '+menu.bg\"></div>\n                    </a>\n                </div>\n                <div class=\"text-center text-muted\" *ngIf=\"categoryList.length == 0 && isDataLoaded\">\n                    <p>No Data Found</p>\n                </div>\n            </div>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>\n";
       /***/
     },
 
@@ -482,16 +482,19 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              if (res) {
+              if (Array.isArray(res)) {
                 _this2.categoryList = res ? res : [];
 
                 _this2.categoryList.filter(function (key) {
                   key['bg'] = _this2.getRandomColor();
                 });
 
-                _this2.subMenuList = _this2.categoryList[0].subCategory;
-                _this2.isDataLoaded = true;
+                if (_this2.categoryList.length > 0) {
+                  _this2.subMenuList = _this2.categoryList[0].subCategory;
+                }
               }
+
+              _this2.isDataLoaded = true;
             });
           }
         }, {

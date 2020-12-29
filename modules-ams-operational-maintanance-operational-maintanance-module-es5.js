@@ -443,7 +443,10 @@
           value: function getAllCategory() {
             var _this = this;
 
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this.categoriesData = res ? res : [];
               }
@@ -454,7 +457,10 @@
           value: function getAllSubCategory() {
             var _this2 = this;
 
-            this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this2.subCategoriesData = res ? res : [];
               }
@@ -804,12 +810,18 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            return this.genMaintService.getAllGenMaintenanceCategory().toPromise();
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            return this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).toPromise();
           }
         }, {
           key: "getAllSubCategory",
           value: function getAllSubCategory() {
-            return this.genMaintService.getAllGenMaintenanceSubCategory().toPromise();
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            return this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).toPromise();
           }
         }, {
           key: "getTitleList",
@@ -1468,7 +1480,10 @@
           value: function getAllCategory() {
             var _this17 = this;
 
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
@@ -1486,7 +1501,10 @@
           value: function getAllSubCategory() {
             var _this18 = this;
 
-            this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
@@ -2604,7 +2622,10 @@
             var _this26 = this;
 
             this.isCategoryLoaded = false;
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               if (Array.isArray(res)) {
                 _this26.fullCategoriesData = res;
 
@@ -2978,7 +2999,10 @@
           value: function getAllCategory() {
             var _this30 = this;
 
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               _this30.categoriesData = res;
             });
           }
@@ -2988,7 +3012,10 @@
             var _this31 = this;
 
             this.isCategoryLoaded = false;
-            this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe(function (res) {
               if (Array.isArray(res)) {
                 _this31.fullSubCategoriesData = res;
 
@@ -3696,12 +3723,15 @@
             var _this42 = this;
 
             this.getTitleList();
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               if (res.length > 0) {
                 _this42.categoriesData = res;
               }
             });
-            this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe(function (res) {
               if (res.length > 0) {
                 _this42.subCategoriesData = res;
               }
@@ -4338,13 +4368,16 @@
               return _this45.timeZone = timeZone;
             }); //category List
 
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this45.categoryList = res;
               }
             }); //sub-category List
 
-            this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this45.subCategoryList = res;
               }
@@ -4600,15 +4633,18 @@
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this48.timeZone = timeZone;
-            }); //category List
+            });
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId
+            }; //category List
 
-            this.genMaintService.getAllGenMaintenanceCategory().subscribe(function (res) {
+            this.genMaintService.getAllGenMaintenanceCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this48.categoryList = res;
               }
             }); //sub-category List
 
-            this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
+            this.genMaintService.getAllGenMaintenanceSubCategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this48.subCategoryList = res;
               }

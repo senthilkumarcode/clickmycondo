@@ -304,7 +304,7 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
     ngOnInit() {
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
-            roleTypeIds: this.sessionService.roleTypeId
+            roleTypeIds: '1,3,5'
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             if (res.length) {

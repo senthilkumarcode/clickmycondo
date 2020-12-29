@@ -448,6 +448,7 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
         let staffParms = {};
         if (this.viewMode == 'edit') {
             staffParms.apartmentId = this.sessionService.apartmentId;
+            staffParms.roleTypeIds = '1,3';
         }
         else {
             staffParms.apartmentId = this.sessionService.apartmentId;

@@ -201,12 +201,14 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
             subCategoryLookupTypeId: 68,
         };
         this.lookupService.getSubcategory(queryParamBase).subscribe((res) => {
-            if (res) {
+            if (Array.isArray(res)) {
                 this.categoryList = res ? res : [];
                 this.categoryList.filter(key => {
                     key['bg'] = this.getRandomColor();
                 });
-                this.subMenuList = this.categoryList[0].subCategory;
+                if (this.categoryList.length > 0) {
+                    this.subMenuList = this.categoryList[0].subCategory;
+                }
             }
         });
     }

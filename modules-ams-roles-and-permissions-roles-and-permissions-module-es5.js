@@ -864,9 +864,10 @@
 
             this.isShowRoleList = false;
             var param = {
-              ApartmentId: this.sessionService.apartmentId
+              ApartmentId: this.sessionService.apartmentId,
+              roleTypeIDs: '1,3,5'
             };
-            this.userService.getAllRoles(param).subscribe(function (resp) {
+            this.userService.getAllRolesbyMultipleRoleTypeId(param).subscribe(function (resp) {
               var refMenuData = resp.filter(function (data) {
                 return data.isActive;
               });
@@ -914,11 +915,16 @@
               minwidth: 120
             }, {
               text: 'action',
+              datafield: 'roleTypeId',
               cellsalign: 'center',
               align: 'center',
               width: 120,
-              cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-2" onClick="onDeleteRole(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>' + '</div>';
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                if (value != 5) {
+                  return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-2" onClick="onDeleteRole(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>' + '</div>';
+                } else {
+                  return '';
+                }
               },
               renderer: columnrenderer
             }];

@@ -591,9 +591,10 @@ let RoleTypeListComponent = class RoleTypeListComponent {
     getRolePermissionList() {
         this.isShowRoleList = false;
         let param = {
-            ApartmentId: this.sessionService.apartmentId
+            ApartmentId: this.sessionService.apartmentId,
+            roleTypeIDs: '1,3,5',
         };
-        this.userService.getAllRoles(param).subscribe((resp) => {
+        this.userService.getAllRolesbyMultipleRoleTypeId(param).subscribe((resp) => {
             let refMenuData = resp.filter(data => {
                 return data.isActive;
             });
@@ -634,13 +635,19 @@ let RoleTypeListComponent = class RoleTypeListComponent {
                 minwidth: 120
             }, {
                 text: 'action',
+                datafield: 'roleTypeId',
                 cellsalign: 'center',
                 align: 'center',
                 width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" class="mr-2" onClick="onDeleteRole(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>'
-                        + '</div>';
+                cellsrenderer: (row, column, value) => {
+                    if (value != 5) {
+                        return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                            + '<a href="javascript:void(0)" class="mr-2" onClick="onDeleteRole(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>'
+                            + '</div>';
+                    }
+                    else {
+                        return '';
+                    }
                 },
                 renderer: columnrenderer
             }];

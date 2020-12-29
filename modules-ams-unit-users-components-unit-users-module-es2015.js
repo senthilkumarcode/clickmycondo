@@ -1540,7 +1540,7 @@ const routes = [
                     initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_4__["ProfileResolversService"]
                 },
                 canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~1a2ee943"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~8ec89514"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
         ]
     },
     { path: 'add-users', component: _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_7__["AddUsersResidentComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
