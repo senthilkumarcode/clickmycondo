@@ -1179,8 +1179,6 @@
               _this6.phoneDetails.number = _this6.property.phoneNumber;
               _this6.phoneDetails.countryCode = _this6.property.country;
               _this6.phoneDetails.dialCode = _this6.property.phonecountrycode;
-              console.log(_this6.property);
-              console.log(_this6.phoneDetails);
             });
 
             var propertyParams = {

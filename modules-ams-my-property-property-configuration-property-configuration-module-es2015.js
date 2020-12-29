@@ -746,8 +746,6 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             this.phoneDetails.number = this.property.phoneNumber;
             this.phoneDetails.countryCode = this.property.country;
             this.phoneDetails.dialCode = this.property.phonecountrycode;
-            console.log(this.property);
-            console.log(this.phoneDetails);
         });
         let propertyParams = {
             LookupTypeId: 65,
