@@ -649,7 +649,6 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.updateApartment();
     }
     updateApartment() {
-        console.log(this.phoneDetails);
         var details = {
             "apartmentId": this.sessionService.apartmentId,
             "apartmentName": this.property.apartmentName,

@@ -1073,7 +1073,6 @@
           value: function updateApartment() {
             var _this5 = this;
 
-            console.log(this.phoneDetails);
             var details = {
               "apartmentId": this.sessionService.apartmentId,
               "apartmentName": this.property.apartmentName,
