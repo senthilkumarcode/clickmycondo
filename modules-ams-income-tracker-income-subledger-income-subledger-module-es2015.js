@@ -206,61 +206,54 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
-                text: 'Primary Contact',
-                datafield: 'primayContact',
-                width: 180,
+                text: 'Tower Unit',
+                datafield: 'block_Unit',
+                width: 190,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
-                text: 'Bill to Party',
-                datafield: 'billToParty',
-                width: 180,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            },
-            {
-                text: 'Tower Unit',
-                datafield: 'block_Unit',
-                width: 120,
+                text: 'Primary Contact',
+                datafield: 'primayContact',
+                width: 210,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Due',
                 datafield: 'due',
-                width: 150,
+                width: 170,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'advance',
                 datafield: 'advance',
-                width: 150,
+                width: 170,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'credits',
                 datafield: 'credits',
-                width: 150,
+                width: 170,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Status',
                 datafield: 'due_Indicator',
-                width: 150,
+                width: 180,
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell"><span class="dots mt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
                 },
                 renderer: columnrenderer
             }, {
                 text: '',
-                width: 240,
                 sortable: false,
                 menu: false,
+                minwidth: 280,
                 cellclassname: 'action-cell',
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions simple-action-index' + row + '">'

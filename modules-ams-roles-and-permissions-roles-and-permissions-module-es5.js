@@ -1,4 +1,18 @@
 (function () {
+  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+  function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+  function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+  function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+  function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -102,7 +116,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                        <p>{{menuList.length}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <button mat-flat-button \n                        routerLink=\"/ams/roles-permissions/role-permissions-list\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Back to Role List</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"p-5\" *ngIf=\"isDataLoaded\" > \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Menu</h5>\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [value]=\"item\"\n                                    [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Sub-Menu</h5>\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [value]=\"item\"\n                                    [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\">\n                            <h5 class=\"mb-4\">Action</h5>\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\"\n                                    [value]=\"item\">\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                        <p>{{menuList.length}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <button mat-flat-button \n                        routerLink=\"/ams/roles-permissions/role-permissions-list\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Back to Role List</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"p-5\" *ngIf=\"isDataLoaded\" > \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Menu</h5>\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [value]=\"item\"\n                                    [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Sub-Menu</h5>\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [value]=\"item\"\n                                    [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\">\n                            <h5 class=\"mb-4\">Action</h5>\n                            <!-- Temporary Solution -->\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option [selected]=\"isEnabled\" [value]=\"actionList\">\n                                    Enable  \n                                </mat-list-option>\n                            </mat-selection-list>\n\n                            <!-- Permanent Solution -->\n\n                            <!-- <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\"\n                                    [value]=\"item\">\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list> -->\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>";
       /***/
     },
 
@@ -1662,17 +1676,25 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
 
       var SetPermissionsComponent = /*#__PURE__*/function () {
-        function SetPermissionsComponent(screenService, sharedService, activatedRoute, sessionService) {
+        function SetPermissionsComponent(screenService, sharedService, activatedRoute, changeDetection, sessionService) {
           _classCallCheck(this, SetPermissionsComponent);
 
           this.screenService = screenService;
           this.sharedService = sharedService;
           this.activatedRoute = activatedRoute;
+          this.changeDetection = changeDetection;
           this.sessionService = sessionService;
           this.menuList = [];
           this.isDataLoaded = false;
+          this.isEnabled = false;
         }
 
         _createClass(SetPermissionsComponent, [{
@@ -1739,7 +1761,7 @@
             if (this.selectedMenuName) {
               this.menuList.filter(function (key) {
                 if (key.menuName == _this16.selectedMenuName) {
-                  _this16.subMenuList = key.subMenuNames;
+                  _this16.subMenuList = _toConsumableArray(key.subMenuNames);
                   _this16.selectedSubMenuName = _this16.subMenuList.length ? _this16.subMenuList[0].subMenuName : '';
 
                   _this16.changeSubMenu('');
@@ -1758,7 +1780,7 @@
             } else {
               this.subMenuList.filter(function (key) {
                 if (_this17.selectedSubMenuName == key.subMenuName) {
-                  _this17.actions = key.actions;
+                  _this17.actions = Object.assign({}, key.actions);
 
                   _this17.mapActions();
                 }
@@ -1775,24 +1797,97 @@
             this.actionList[0].checked = this.actions.add;
             this.actionList[1].checked = this.actions.edit;
             this.actionList[2].checked = this.actions.display;
-            this.actionList[3].checked = this.actions["delete"];
+            this.actionList[3].checked = this.actions["delete"]; //Temporary Solution
+
+            this.isEnabled = this.actionList.every(function (data) {
+              return data.checked;
+            });
           }
         }, {
           key: "changeActions",
           value: function changeActions(event) {
             var _this18 = this;
 
-            if (event.option.value) {
-              var queryParamBase = {
-                apartmentId: this.sessionService.apartmentId,
-                menuSecLevelFunctionId: event.option.value.functionId,
-                isActive: !event.option.value.checked,
-                updatedBy: this.sessionService.roleId
-              };
-              this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase).subscribe(function (resp) {
-                _this18.sharedService.openSnackBar("".concat(event.option.value.name, " Permission Updated!"), 'success');
+            var isActive = event.option._selected;
+            this.isDataLoaded = false;
+            var multipleApiCall = [];
+            this.actionList.forEach(function (data) {
+              if (data.functionId != 0) {
+                var queryParamBase = {
+                  apartmentId: _this18.sessionService.apartmentId,
+                  menuSecLevelFunctionId: data.functionId,
+                  isActive: isActive,
+                  updatedBy: _this18.sessionService.roleId
+                };
+                multipleApiCall.push(_this18.screenService.updateMenuSecLevelFunctionMapping(queryParamBase));
+              }
+            });
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
+              var success;
+              success = res.every(function (data) {
+                if (data.message) return true;else return false;
               });
-            }
+
+              if (success) {
+                _this18.changeDetection.detectChanges();
+
+                var operation = ['add', 'edit', 'display', 'delete'];
+
+                var _iterator = _createForOfIteratorHelper(_this18.menuList),
+                    _step;
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    var menu = _step.value;
+
+                    if (menu.menuName == _this18.selectedMenuName) {
+                      var _iterator2 = _createForOfIteratorHelper(menu.subMenuNames),
+                          _step2;
+
+                      try {
+                        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                          var submenu = _step2.value;
+
+                          if (submenu.subMenuName == _this18.selectedSubMenuName) {
+                            for (var key in submenu.actions) {
+                              if (operation.includes(key)) {
+                                submenu.actions[key] = isActive;
+                              }
+                            }
+                          }
+
+                          break;
+                        }
+                      } catch (err) {
+                        _iterator2.e(err);
+                      } finally {
+                        _iterator2.f();
+                      }
+
+                      break;
+                    }
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+
+                _this18.sharedService.openSnackBar("Permission Updated!", 'success');
+              } else _this18.sharedService.openSnackBar("Permission Not Updated!", 'error');
+
+              _this18.isDataLoaded = true;
+              _this18.isEnabled = isActive;
+            }); // let queryParamBase = {
+            //   apartmentId: this.sessionService.apartmentId,
+            //   menuSecLevelFunctionId: event.option.value.functionId,
+            //   isActive: !event.option.value.checked,
+            //   updatedBy: this.sessionService.roleId,
+            // };
+            // this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase).subscribe(
+            //   (resp: any) => {
+            //     this.sharedService.openSnackBar(`${event.option.value.name} Permission Updated!`, 'success')
+            //   });
           }
         }]);
 
@@ -1807,6 +1902,8 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
@@ -1819,7 +1916,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./set-permissions.component.scss */
         "./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], SetPermissionsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], SetPermissionsComponent);
       /***/
     }
   }]);

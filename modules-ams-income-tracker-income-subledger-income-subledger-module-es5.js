@@ -348,55 +348,49 @@
             };
 
             this.columnData = [{
-              text: 'Primary Contact',
-              datafield: 'primayContact',
-              width: 180,
+              text: 'Tower Unit',
+              datafield: 'block_Unit',
+              width: 190,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Bill to Party',
-              datafield: 'billToParty',
-              width: 180,
-              cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
-            }, {
-              text: 'Tower Unit',
-              datafield: 'block_Unit',
-              width: 120,
+              text: 'Primary Contact',
+              datafield: 'primayContact',
+              width: 210,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Due',
               datafield: 'due',
-              width: 150,
+              width: 170,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'advance',
               datafield: 'advance',
-              width: 150,
+              width: 170,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'credits',
               datafield: 'credits',
-              width: 150,
+              width: 170,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Status',
               datafield: 'due_Indicator',
-              width: 150,
+              width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
                 return '<div class="jqx-custom-inner-cell"><span class="dots mt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: '',
-              width: 240,
               sortable: false,
               menu: false,
+              minwidth: 280,
               cellclassname: 'action-cell',
               cellsrenderer: function cellsrenderer(row) {
                 return '<div class="simple-actions simple-action-index' + row + '">' + '<a href="javascript:void(0)" class="mat-flat-button button-md n-text bg-pink-800 text-gray-200 mr-2" onClick="invoiceDropDownEvent(' + row + ')" id="invoiceDropDown">' + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>' + '</a>' + '<a href="javascript:void(0)" class="mat-flat-button button-md n-text bg-gray-500 text-gray-100" onClick="actionEvent(' + row + ')">' + '<div class="text-smr">Action</div>' + '</a>' + '</div>';

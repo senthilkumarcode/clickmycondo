@@ -288,7 +288,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"utility-group-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n        <mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n                <mat-drawer #utility mode=\"over\" position=\"end\">\n                    <div class=\"add-utility-category\">\n                        <div class=\"title\">\n                            <h4>\n                                <span *ngIf=\"!isEdit\">Add Group</span>\n                                <span *ngIf=\"isEdit\">Update Group</span>\n                            </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"closePopUp()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <form #addUtilityGroupForm=\"ngForm\" name=\"addUtilityGroupForm\"\n                            (ngSubmit)=\"addOrUpdateGroupForm(addUtilityGroupForm)\" novalidate>\n                            <div class=\"row\">\n                                    <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Group Name<span class=\"mandatory\">*</span></label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                            [(ngModel)]=\"categoryName\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Description<span class=\"mandatory\">*</span></label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                            [(ngModel)]=\"categoryDescription\" required>\n                                    </div>\n                                </div>\n            \n                            </div>\n\n                            <div class=\"float-right mt-4\">\n                                <submit-button [isSubmit]=\"isUtilityCategorySubmitted\">Submit</submit-button>\n                            </div>\n            \n                        </form>\n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n                        <div class=\"main p-0 pr-5\">\n                           \n\n            <app-loader *ngIf=\"!isUtilityCategoryLoaded\"></app-loader>\n            \n                <ng-container *ngIf=\"isUtilityCategoryLoaded\">\n                    <!-- Document Header -->\n                    <div class=\"bg-card shadow d-flex mb-4\">\n                        <div>\n                            <h4>Groups</h4>\n                            <p class=\"text-secondary\">{{utilityCategoryData.length}} Items</p>\n                        </div>\n                        <div class=\"ml-auto d-none d-md-block mr-3\">\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n                        </div>\n                        <div>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addNewGroup()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                                Add Group\n                            </button>\n                        </div>\n                    </div>\n                    <!-- Document List -->\n                    <div class=\"bg-card-list\">\n                        <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                            *ngFor=\"let item of utilityCategoryData | simpleSearch: categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                            <div class=\"desp mt-3 d-flex flex-column \">\n                                <h6 class=\"ellipse\" >{{item.lookupValueName}}</h6>\n                                <!-- <span>{{item?.ratePerUnit}} </span> -->\n                            </div>\n                            <div class=\"mt-3 ml-n4 button-wrapper\">\n                                <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"updateGroup(item, i)\">\n                                    <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n                                </button>\n                                <button class=\"px-3\" mat-button [color]=\"'warn'\" (click)=\"showRemoveGroupConfirmModal(item.lookupValueId)\">\n                                    <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"utilityCategoryData.length > 0\">\n                            <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                            </app-pagination>\n                        </div>\n                    <!-- Document Create -->\n                </ng-container>\n            \n      \n            </div>\n\n\n</mat-drawer-content>\n</mat-drawer-container>\n    \n</div>";
+      __webpack_exports__["default"] = "<div class=\"utility-group-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n        <mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n                <mat-drawer #utility mode=\"over\" position=\"end\">\n                    <div class=\"add-utility-category\">\n                        <div class=\"title\">\n                            <h4>\n                                <span *ngIf=\"!isEdit\">Add Group</span>\n                                <span *ngIf=\"isEdit\">Update Group</span>\n                            </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"closePopUp()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <form #addUtilityGroupForm=\"ngForm\" name=\"addUtilityGroupForm\"\n                            (ngSubmit)=\"addOrUpdateGroupForm(addUtilityGroupForm)\" novalidate>\n                            <div class=\"row\">\n                                    <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Group Name<span class=\"mandatory\">*</span></label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                            [(ngModel)]=\"categoryName\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                    <div class=\"input-box\">\n                                        <label>Description<span class=\"mandatory\">*</span></label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                            [(ngModel)]=\"categoryDescription\" required>\n                                    </div>\n                                </div>\n            \n                            </div>\n\n                            <div class=\"float-right mt-4\">\n                                <submit-button [isSubmit]=\"isUtilityCategorySubmitted\">Submit</submit-button>\n                            </div>\n            \n                        </form>\n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n                        <div class=\"main p-5\">\n                           \n\n            <app-loader *ngIf=\"!isUtilityCategoryLoaded\"></app-loader>\n            \n                <ng-container *ngIf=\"isUtilityCategoryLoaded\">\n                    <!-- Document Header -->\n                    <div class=\"bg-card shadow d-flex justify-content-between mb-4\">\n                        <div>\n                            <h4>Groups</h4>\n                            <p class=\"text-secondary\">{{utilityCategoryData.length}} Items</p>\n                        </div>\n                        <div class=\"ml-auto mr-3\">\n                            <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\"> -->\n                            <app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div>\n                            <button mat-flat-button class=\"d-md-block d-none\" [color]=\"'primary'\" (click)=\"addNewGroup()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                                Add Group\n                            </button>\n                            <button mat-flat-button class=\"d-md-none d-block col-sm-1\" [color]=\"'primary'\" (click)=\"addNewGroup()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                            </button>\n                        </div>\n                    </div>\n                    <!-- Document List -->\n                    <div class=\"row\">\n                        <div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\"\n                            *ngFor=\"let item of utilityCategoryData | simpleSearch: categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                            <div class=\"bg-card shadow overflow-hidden text-nowrap\">\n                                <h6 class=\"ellipse mt-2\" >{{item.lookupValueName}}</h6>\n                                <!-- <span>{{item?.ratePerUnit}} </span> -->\n                           \n                            <div class=\"d-flex mt-3 ml-n4 button-wrapper\">\n                                <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"updateGroup(item, i)\">\n                                    <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n                                </button>\n                                <button class=\"px-3\" mat-button [color]=\"'warn'\" (click)=\"showRemoveGroupConfirmModal(item.lookupValueId)\">\n                                    <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n                                </button>\n                            </div>\n                        </div>\n                        </div>\n                    </div>\n                    <div class=\"bg-card shadow\" *ngIf=\"utilityCategoryData.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"utilityCategoryData.length > 0\">\n                            <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                            </app-pagination>\n                        </div>\n                    <!-- Document Create -->\n                </ng-container>\n            \n      \n            </div>\n\n\n</mat-drawer-content>\n</mat-drawer-container>\n    \n</div>";
       /***/
     },
 
@@ -348,7 +348,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"utility-common-meter-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n        <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #openForm mode=\"over\" position=\"end\">\n                    <div class=\"meter-setup-list-drawer p-3\">\n                        <div class=\"title row\">\n                            <h4 *ngIf=\"!isFilter\"> Meter SetUp</h4>\n                            <h4 *ngIf=\"isFilter\">Filter By</h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"!isFilter ? closePopUp() : goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                                <div CondoCardHeader> \n                        <form #addMeterSetup = \"ngForm\" name=\"addMeterSetup\" novalidate>\n                                <ng-container *ngIf=\"isFilter\">\n                                <div class=\"filter-box cleafix\">\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterGroupSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllGroupData('all')\">All\n                                                    Group</button>\n                                                <button mat-flat-button [ngClass]=\"filterGroupSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleGroup}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let group of groupData\">\n                                                        <button mat-menu-item (click)=\"getSingleGroup(group)\">\n                                                            {{group.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterLocationSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllLocationData('all')\">All\n                                                    Location</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterLocationSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleLocationActions\">{{singleLocation}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleLocationActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let location of locationData\">\n                                                        <button mat-menu-item (click)=\"getSingleLocation(location)\">\n                                                            {{location.name}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterTypeSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllTypeData('all')\">All\n                                                    Type</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterTypeSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTypeActions\">{{singleType}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTypeActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let type of blockData\">\n                                                        <button mat-menu-item (click)=\"getSingleType(type)\">\n                                                            {{type.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                    </div>\n                                </ng-container>\n                                    <ng-container *ngIf=\"!isFilter\">\n                                <div class=\"row\">\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                                                    labelText=\"Utility Type\"\n                                                                    fieldPlaceholder=\"Select Utility Type\"\n                                                                    [fieldRequired]=\"'required'\"\n                                                                    [fieldList]=\"blockData\"\n                                                                    fieldValue=\"lookupValueName\"\n                                                                    [fieldModel]=\"utilityTypeId\"\n                                                                    fieldId=\"lookupValueId\"\n                                                                    (fieldParams)=\"getSelectedBlock($event)\"\n                                                                ></condo-select>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <label>Meter Name/No:</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"meterName\"\n                                        [(ngModel)]=\"meterName\" required>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                                                    labelText=\"Meter Location\"\n                                                                    fieldPlaceholder=\"Select Location\"\n                                                                    [fieldRequired]=\"'required'\"\n                                                                    [fieldList]=\"locationData | orderBy : 'name'\"\n                                                                    fieldValue=\"name\"\n                                                                    [fieldModel]=\"locationId\"\n                                                                    fieldId=\"id\"\n                                                                    (fieldParams)=\"setLocationId($event)\"\n                                                                ></condo-select>\n    \n                                                                \n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Meter Sub Location\"\n                                        fieldPlaceholder=\"Select Sub Location\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"sublocationData | orderBy : 'name'\"\n                                        fieldValue=\"name\"\n                                        [fieldModel]=\"sublocationId\"\n                                        fieldId=\"id\"\n                                        (fieldParams)=\"setsubLocationId($event)\"\n                                    ></condo-select>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Assign Group\"\n                                        fieldPlaceholder=\"Select Group\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"groupData | orderBy : 'lookupValueName'\"\n                                        fieldValue=\"lookupValueName\"\n                                        [fieldModel]=\"groupId\"\n                                        fieldId=\"lookupValueId\"\n                                        (fieldParams)=\"setgroupId($event)\"\n                                    ></condo-select>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                <label>Frequency in Days:</label>\n                                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                                [(ngModel)]=\"frequencyDays\" required>\n                                                </div>\n                                                </div>\n                                                <div class=\"col-sm-12\">\n                                                        <div class=\"input-box\">\n                                                        <condo-select\n                                                        labelText=\"Tower\"\n                                                        fieldPlaceholder=\"Select Tower\"\n                                                        [fieldRequired]=\"'required'\"\n                                                        [fieldList]=\"blocktowerData\"\n                                                        fieldValue=\"apartmentBlockNumber\"\n                                                        [fieldModel]=\"blockId\"\n                                                        fieldId=\"apartmentBlockId\"\n                                                        (fieldParams)=\"getTowerSelectedBlock($event)\"\n                                                    ></condo-select>\n                                                        </div>\n                                                        </div>\n                \n                                                        <div class=\"col-sm-12\">\n                                                                <div class=\"input-box\">\n                                                                <condo-select\n                                                                labelText=\"Unit No\"\n                                                                fieldPlaceholder=\"Select Unit\"\n                                                                [fieldRequired]=\"'required'\"\n                                                                [fieldList]=\"blockUnitData\"\n                                                                fieldValue=\"apartmentBlockUnitNumber\"\n                                                                [fieldModel]=\"unitId\"\n                                                                fieldId=\"apartmentBlockUnitId\"\n                                                                [isDisabled]=\"!isBlockSelected\"\n                                                                (fieldParams)=\"getSelectedBlockUnit($event)\"\n                                                            ></condo-select>\n                                                                </div>\n                                                                </div>\n                                        </div>\n                        \n    \n                            <div class=\"float-right mt-4\">\n                                <submit-button (click)=\"addorupdateMeterSetup(addMeterSetup)\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                            </div>\n                        </ng-container>\n                        </form>\n                        </div>\n                        </condo-card>\n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\n                    <div class=\"main p-0\">\n                        <div class=\"bg-card shadow d-flex mb-4\">\n                            <div>\n                                <h4>Common MeterSetup </h4>\n                                <p class=\"text-secondary\">{{totalItems}} Items</p>\n                            </div>\n                            <div class=\"ml-auto d-none d-md-block mr-3\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                            </div>\n                            \n                            <div>\n                                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addMeter()\">\n                                        <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                                        Add Meter\n                                    </button>\n                                </div>\n                                <div class=\"mr-3 ml-3\">\n                                        <button mat-flat-button [color]=\"'accent'\" (click)=\"openFilter()\" class=\"d-none d-md-block\">\n                                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                        </button>\n                                        <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"matDrawer.toggle()\">\n                                                <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                              </button>\n                                    </div>\n                        </div>\n\n\n\n                        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n                        <form>\n        \n\n                            <div class=\"bg-card shadow\" *ngIf=\"utilityMeterList.length == 0\">\n                                <h6 class=\"text-secondary\">No Results found</h6>\n                            </div>\n        \n    \n                        <div class=\"bg-card shadow mb-1\" *ngFor=\"let item of utilityMeterList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                            <div class=\"d-sm-flex justify-content-sm-between\">\n                                    <div class=\"col-sm-2 mb-sm-2 mx-auto my-auto text-left\">\n                                            <p class=\"ellipse\">{{item.utilityType}}</p>\n                                        </div>\n                                    <div class=\"col-sm-2\">\n                                            <label>Meter No</label>\n                                            <p class=\"ellipse\">{{item.meterName}}</p>\n                                        </div>\n                                        <div class=\"col-sm-3\">\n                                            <label>Location</label>\n                                            <p class=\"ellipse\">{{item.locationName}}->{{item.subLocationName}}</p>\n                                        </div>\n                                        <div class=\"col-sm-1 mx-auto my-auto text-left\">\n                                                <p class=\"ellipse\">{{item.meterGroupName}}</p>\n                                            </div>\n                                            <div class=\"col-sm-2 my-auto medium-icon\">\n                                                    <mat-icon [svgIcon]=\"'feather:edit'\" class=\"mr-1\" [color]=\"'primary'\" (click)=\"editmeter(item)\" ></mat-icon>\n                                                </div>\n                                  \n                            </div>\n                           \n                        </div>\n    \n                        <div class=\"bg-card shadow p-0\" *ngIf=\"utilityMeterList.length > 0\">\n                                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                                </app-pagination>\n                            </div>\n    \n                        </form>\n                    </div>\n                </mat-drawer-content>\n            </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"utility-common-meter-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n        <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #openForm mode=\"over\" position=\"end\" [disableClose]=\"true\">\n                    <div class=\"meter-setup-list-drawer p-3\">\n                        <div class=\"title row\">\n                            <h4 *ngIf=\"!isFilter\">Meter SetUp</h4>\n                            <h4 *ngIf=\"isFilter\">Filter By</h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"!isFilter ? closePopUp() : goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                                <div CondoCardHeader> \n                        <form #addMeterSetup = \"ngForm\" name=\"addMeterSetup\" novalidate>\n                                <ng-container *ngIf=\"isFilter\">\n                                <div class=\"filter-box cleafix\">\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterGroupSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllGroupData('all')\">All\n                                                    Group</button>\n                                                <button mat-flat-button [ngClass]=\"filterGroupSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleGroup}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let group of groupData\">\n                                                        <button mat-menu-item (click)=\"getSingleGroup(group)\">\n                                                            {{group.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterLocationSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllLocationData('all')\">All\n                                                    Location</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterLocationSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleLocationActions\">{{singleLocation}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleLocationActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let location of locationData\">\n                                                        <button mat-menu-item (click)=\"getSingleLocation(location)\">\n                                                            {{location.name}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterTypeSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllTypeData('all')\">All\n                                                    Type</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterTypeSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTypeActions\">{{singleType}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTypeActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let type of blockData\">\n                                                        <button mat-menu-item (click)=\"getSingleType(type)\">\n                                                            {{type.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                    </div>\n                                </ng-container>\n                                    <ng-container *ngIf=\"!isFilter\">\n                                <div class=\"row\">\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                                                    labelText=\"Utility Type\"\n                                                                    fieldPlaceholder=\"Select Utility Type\"\n                                                                    [fieldRequired]=\"'required'\"\n                                                                    [fieldList]=\"blockData\"\n                                                                    fieldValue=\"lookupValueName\"\n                                                                    [fieldModel]=\"utilityTypeId\"\n                                                                    fieldId=\"lookupValueId\"\n                                                                    (fieldParams)=\"getSelectedBlock($event)\"\n                                                                ></condo-select>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <label>Meter Name/No:</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"meterName\"\n                                        [(ngModel)]=\"meterName\" required>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                                                    labelText=\"Meter Location\"\n                                                                    fieldPlaceholder=\"Select Location\"\n                                                                    [fieldRequired]=\"'required'\"\n                                                                    [fieldList]=\"locationData | orderBy : 'name'\"\n                                                                    fieldValue=\"name\"\n                                                                    [fieldModel]=\"locationId\"\n                                                                    fieldId=\"id\"\n                                                                    (fieldParams)=\"setLocationId($event)\"\n                                                                ></condo-select>\n    \n                                                                \n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Meter Sub Location\"\n                                        fieldPlaceholder=\"Select Sub Location\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"sublocationData | orderBy : 'name'\"\n                                        fieldValue=\"name\"\n                                        [fieldModel]=\"sublocationId\"\n                                        fieldId=\"id\"\n                                        (fieldParams)=\"setsubLocationId($event)\"\n                                    ></condo-select>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Assign Group\"\n                                        fieldPlaceholder=\"Select Group\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"groupData | orderBy : 'lookupValueName'\"\n                                        fieldValue=\"lookupValueName\"\n                                        [fieldModel]=\"groupId\"\n                                        fieldId=\"lookupValueId\"\n                                        (fieldParams)=\"setgroupId($event)\"\n                                    ></condo-select>\n                                        </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                <label>Frequency in Days:</label>\n                                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                                [(ngModel)]=\"frequencyDays\" required>\n                                                </div>\n                                                </div>\n                                                <div class=\"col-sm-12\">\n                                                        <div class=\"input-box\">\n                                                        <condo-select\n                                                        labelText=\"Tower\"\n                                                        fieldPlaceholder=\"Select Tower\"\n                                                        [fieldRequired]=\"'required'\"\n                                                        [fieldList]=\"blocktowerData\"\n                                                        fieldValue=\"apartmentBlockNumber\"\n                                                        [fieldModel]=\"blockId\"\n                                                        fieldId=\"apartmentBlockId\"\n                                                        (fieldParams)=\"getTowerSelectedBlock($event)\"\n                                                    ></condo-select>\n                                                        </div>\n                                                        </div>\n                \n                                                        \n                                        </div>\n                        \n    \n                            <div class=\"float-right mt-4\">\n                                <submit-button (click)=\"addorupdateMeterSetup(addMeterSetup)\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                            </div>\n                        </ng-container>\n                        </form>\n                        </div>\n                        </condo-card>\n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\n                    <div class=\"main p-0\">\n                        <div class=\"bg-card shadow d-flex mb-4\">\n                            <div>\n                                <h4>Common MeterSetup </h4>\n                                <p class=\"text-secondary\">{{totalItems}} Items</p>\n                            </div>\n                            <div class=\"ml-auto d-none d-md-block mr-3\">\n                                <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\"> -->\n                                <app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            \n                            <div>\n                                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addMeter()\">\n                                        <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                                        Add Meter\n                                    </button>\n                                </div>\n                                <div class=\"mr-3 ml-3\">\n                                        <button mat-flat-button [color]=\"'accent'\" (click)=\"openFilter()\" class=\"d-none d-md-block\">\n                                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                        </button>\n                                        <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"matDrawer.toggle()\">\n                                                <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                              </button>\n                                    </div>\n                        </div>\n\n\n\n                        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n                        <form>\n        \n\n                            <div class=\"bg-card shadow\" *ngIf=\"utilityMeterList.length == 0\">\n                                <h6 class=\"text-secondary\">No Results found</h6>\n                            </div>\n        \n    \n                        <div class=\"bg-card shadow mb-1\" *ngFor=\"let item of utilityMeterList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                            <div class=\"d-sm-flex justify-content-sm-between\">\n                                    <div class=\"col-sm-2 mb-sm-2 mx-auto my-auto text-left\">\n                                            <p class=\"ellipse\">{{item.utilityType}}</p>\n                                        </div>\n                                    <div class=\"col-sm-2\">\n                                            <label>Meter No</label>\n                                            <p class=\"ellipse\">{{item.meterName}}</p>\n                                        </div>\n                                        <div class=\"col-sm-3\">\n                                            <label>Location</label>\n                                            <p class=\"ellipse\">{{item.locationName}}->{{item.subLocationName}}</p>\n                                        </div>\n                                        <div class=\"col-sm-2 text-center\">\n                                                <p class=\"ellipse pt-4 mt-2\">{{item.meterGroupName}}</p>\n                                            </div>\n                                            <div class=\"col-sm-2 my-auto medium-icon\">\n                                                    <mat-icon [svgIcon]=\"'feather:edit'\" class=\"mr-1 pull-right\" [color]=\"'primary'\" (click)=\"editmeter(item)\" ></mat-icon>\n                                                </div>\n                                  \n                            </div>\n                           \n                        </div>\n    \n                        <div class=\"bg-card shadow p-0\" *ngIf=\"utilityMeterList.length > 0\">\n                                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                                </app-pagination>\n                            </div>\n    \n                        </form>\n                    </div>\n                </mat-drawer-content>\n            </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -388,7 +388,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"utility-common-meter-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawerSpecific>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #openForm mode=\"over\" position=\"end\">\n            <div class=\"unit-specific-list-drawer p-3\">\n                <div class=\"title row\">\n                    <h4 *ngIf=\"!isFilter\">Unit Specific</h4>\n                    <h4 *ngIf=\"isFilter\">Filter By</h4>\n                    <div class=\"ml-auto\">\n                        <button mat-icon-button (click)=\"!isFilter ? closePopUp() : goBack()\">\n                            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                        </button>\n                    </div>\n                </div>\n                <condo-card>\n                        <div CondoCardHeader> \n                <form #addUnitSpecific = \"ngForm\" name=\"addUnitSpecific\" novalidate>\n                        <ng-container *ngIf=\"isFilter\">\n                                <div class=\"filter-box cleafix\">\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterGroupSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllGroupData('all')\">All\n                                                    Group</button>\n                                                <button mat-flat-button [ngClass]=\"filterGroupSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleGroup}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let group of groupData\">\n                                                        <button mat-menu-item (click)=\"getSingleGroup(group)\">\n                                                            {{group.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterLocationSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllLocationData('all')\">All\n                                                    Location</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterLocationSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleLocationActions\">{{singleLocation}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleLocationActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let location of locationData\">\n                                                        <button mat-menu-item (click)=\"getSingleLocation(location)\">\n                                                            {{location.name}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterTypeSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllTypeData('all')\">All\n                                                    Type</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterTypeSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTypeActions\">{{singleType}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTypeActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let type of blockData\">\n                                                        <button mat-menu-item (click)=\"getSingleType(type)\">\n                                                            {{type.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                                    \n                                            \n                                                <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterTowerSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                    Towers</button>\n                                                <button mat-flat-button [ngClass]=\"filterTowerSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTowerActions\">{{singleBlock}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTowerActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let block of blocktowerData\">\n                                                        <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                            {{block.apartmentBlockNumber}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                            \n                                        </div>\n                                    </div>\n                                </ng-container>\n                                    <ng-container *ngIf=\"!isFilter\">\n                        <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <condo-select\n                                                            labelText=\"Utility Type\"\n                                                            fieldPlaceholder=\"Select Utility Type\"\n                                                            [fieldRequired]=\"'required'\"\n                                                            [fieldList]=\"blockData\"\n                                                            fieldValue=\"lookupValueName\"\n                                                            [fieldModel]=\"utilityTypeId\"\n                                                            fieldId=\"lookupValueId\"\n                                                            (fieldParams)=\"getSelectedBlock($event)\"\n                                                        ></condo-select>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <label>Meter Name/No:</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"meterName\"\n                                [(ngModel)]=\"meterName\" required>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <condo-select\n                                                            labelText=\"Meter Location\"\n                                                            fieldPlaceholder=\"Select Location\"\n                                                            [fieldRequired]=\"'required'\"\n                                                            [fieldList]=\"locationData | orderBy : 'name'\"\n                                                            fieldValue=\"name\"\n                                                            [fieldModel]=\"locationId\"\n                                                            fieldId=\"id\"\n                                                            (fieldParams)=\"setLocationId($event)\"\n                                                        ></condo-select>\n\n                                                        \n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <condo-select\n                                labelText=\"Meter Sub Location\"\n                                fieldPlaceholder=\"Select Sub Location\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"sublocationData | orderBy : 'name'\"\n                                fieldValue=\"name\"\n                                [fieldModel]=\"sublocationId\"\n                                fieldId=\"id\"\n                                (fieldParams)=\"setsubLocationId($event)\"\n                            ></condo-select>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Assign Group\"\n                                        fieldPlaceholder=\"Select Group\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"groupData | orderBy : 'lookupValueName'\"\n                                        fieldValue=\"lookupValueName\"\n                                        [fieldModel]=\"groupId\"\n                                        fieldId=\"lookupValueId\"\n                                        (fieldParams)=\"setgroupId($event)\"\n                                    ></condo-select>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <label>Frequency in Days:</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                        [(ngModel)]=\"frequencyDays\" required>\n                                        </div>\n                                        </div>\n                                <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Tower\"\n                                        fieldPlaceholder=\"Select Tower\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"blocktowerData\"\n                                        fieldValue=\"apartmentBlockNumber\"\n                                        [fieldModel]=\"blockId\"\n                                        fieldId=\"apartmentBlockId\"\n                                        (fieldParams)=\"getTowerSelectedBlock($event)\"\n                                    ></condo-select>\n                                        </div>\n                                        </div>\n\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                <condo-select\n                                                labelText=\"Unit No\"\n                                                fieldPlaceholder=\"Select Unit\"\n                                                [fieldRequired]=\"'required'\"\n                                                [fieldList]=\"blockUnitData\"\n                                                fieldValue=\"apartmentBlockUnitNumber\"\n                                                [fieldModel]=\"unitId\"\n                                                fieldId=\"apartmentBlockUnitId\"\n                                                [isDisabled]=\"!isBlockSelected\"\n                                                (fieldParams)=\"getSelectedBlockUnit($event)\"\n                                            ></condo-select>\n                                                </div>\n                                                </div>\n\n                                                <div class=\"col-sm-12\">\n                                                        <div class=\"input-box\">\n                                                        <label>Unit Name:</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitName\" readonly\n                                                        [(ngModel)]=\"unitName\" required>\n                                                        </div>\n                                                        </div>\n\n                                </div>\n                  \n                    <div class=\"float-right mt-4\">\n                        <submit-button (click)=\"addorupdateUnitSpecific(addUnitSpecific)\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                    </div>\n                </ng-container>\n                </form>\n                </div>\n                </condo-card>\n            </div>\n        </mat-drawer>\n        <mat-drawer-content>\n                <div class=\"main p-0\">\n\n                <div class=\"bg-card shadow d-flex mb-4\">\n                    <div>\n                        <h4>Unit Specific </h4>\n                        <p class=\"text-secondary\">{{totalUnitItems}} Items</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n\n                    <div>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addUnit()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                                Add Unit Specific\n                            </button>\n                        </div>\n                        <div class=\"mr-3 ml-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"openFilter()\" class=\"d-none d-md-block\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                </button>\n                                <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"matDrawerSpecific.toggle()\">\n                                        <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                      </button>\n                            </div>\n                </div>\n                <app-loader *ngIf=\"isUnitLoaded\"></app-loader>\n                <form>\n\n                        <div class=\"bg-card shadow\" *ngIf=\"unitSpecificList.length == 0\">\n                            <h6 class=\"text-secondary\">No Results found</h6>\n                        </div>\n    \n\n                    <div class=\"bg-card shadow mb-1\" *ngFor=\"let item of unitSpecificList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                        <div class=\"d-sm-flex justify-content-sm-between\">\n                                <div class=\"col-sm-2 mx-auto my-auto text-left\">\n                                        <p class=\"ellipse\">{{item.utilityType}}</p>\n                                    </div>\n                                <div class=\"col-sm-2\">\n                                        <label>Meter No</label>\n                                        <p class=\"ellipse\">{{item.meterName}}</p>\n                                    </div>\n                                    <div class=\"col-sm-3\">\n                                        <label>Location</label>\n                                        <p class=\"ellipse\">{{item.locationName}} -> {{item.subLocationName}}</p>\n                                    </div>\n                                    <div class=\"col-sm-2\">\n                                            <label>Tower - Unit</label>\n                                            <p class=\"ellipse\">{{item.tower_Unit}}</p>\n                                        </div>\n                                       \n                                    <div class=\"col-sm-1 mx-auto my-auto text-left\">\n                                            <p class=\"ellipse\">{{item.meterGroupName}}</p>\n                                        </div>\n                                        <div class=\"col-sm-2 my-auto\">\n                                                <mat-icon [svgIcon]=\"'feather:edit'\" class=\"mr-1\" [color]=\"'primary'\" (click)=\"editUnit(item)\" ></mat-icon>\n                                            </div>\n                              \n                        </div>\n                       \n                    </div>\n\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"unitSpecificList.length > 0\">\n                            <app-pagination [totalItems]=\"totalUnitItems\" [ItemStartIndex]=\"UnitItemStartIndex\"\n                                [ItemEndIndex]=\"UnitItemEndIndex\" [itemLimit]=\"itemUnitLimit\" (outputParams)=\"getUnitIndexParams($event)\">\n                            </app-pagination>\n                        </div>\n\n                    </form>\n              </div>\n            \n        </mat-drawer-content>\n    </mat-drawer-container>\n    </div>";
+      __webpack_exports__["default"] = "<div class=\"utility-common-meter-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawerSpecific>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #openForm mode=\"over\" position=\"end\" [disableClose]=\"true\">\n            <div class=\"unit-specific-list-drawer p-3\">\n                <div class=\"title row\">\n                    <h4 *ngIf=\"!isFilter\">Unit Specific</h4>\n                    <h4 *ngIf=\"isFilter\">Filter By</h4>\n                    <div class=\"ml-auto\">\n                        <button mat-icon-button (click)=\"!isFilter ? closePopUp() : goBack()\">\n                            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                        </button>\n                    </div>\n                </div>\n                <condo-card>\n                        <div CondoCardHeader> \n                <form #addUnitSpecific = \"ngForm\" name=\"addUnitSpecific\" novalidate>\n                        <ng-container *ngIf=\"isFilter\">\n                                <div class=\"filter-box cleafix\">\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterGroupSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllGroupData('all')\">All\n                                                    Group</button>\n                                                <button mat-flat-button [ngClass]=\"filterGroupSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleGroup}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let group of groupData\">\n                                                        <button mat-menu-item (click)=\"getSingleGroup(group)\">\n                                                            {{group.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterLocationSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllLocationData('all')\">All\n                                                    Location</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterLocationSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleLocationActions\">{{singleLocation}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleLocationActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let location of locationData\">\n                                                        <button mat-menu-item (click)=\"getSingleLocation(location)\">\n                                                            {{location.name}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                            \n                                    \n                                                <button mat-flat-button class=\"mr-3 d-flex pl-4 pr-4\" [ngClass]=\"filterTypeSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllTypeData('all')\">All\n                                                    Type</button>\n                                                <button mat-flat-button class=\"ml-3\" [ngClass]=\"filterTypeSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTypeActions\">{{singleType}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTypeActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let type of blockData\">\n                                                        <button mat-menu-item (click)=\"getSingleType(type)\">\n                                                            {{type.lookupValueName}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                    \n                                                <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                     [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                            \n                                        </div>\n                                        <div class=\"d-flex align-items-center mb-4\">\n                                                    \n                                            \n                                                <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterTowerSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                    Towers</button>\n                                                <button mat-flat-button [ngClass]=\"filterTowerSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTowerActions\">{{singleBlock}}</button>\n                                                <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTowerActions=\"matMenu\">\n                                                    <ng-container *ngFor=\"let block of blocktowerData\">\n                                                        <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                            {{block.apartmentBlockNumber}}\n                                                        </button>\n                                                    </ng-container>\n                                                </mat-menu>\n                                            \n                                        </div>\n                                    </div>\n                                </ng-container>\n                                    <ng-container *ngIf=\"!isFilter\">\n                        <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <condo-select\n                                                            labelText=\"Utility Type\"\n                                                            fieldPlaceholder=\"Select Utility Type\"\n                                                            [fieldRequired]=\"'required'\"\n                                                            [fieldList]=\"blockData\"\n                                                            fieldValue=\"lookupValueName\"\n                                                            [fieldModel]=\"utilityTypeId\"\n                                                            fieldId=\"lookupValueId\"\n                                                            (fieldParams)=\"getSelectedBlock($event)\"\n                                                        ></condo-select>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <label>Meter Name/No:</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"meterName\"\n                                [(ngModel)]=\"meterName\" required>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <condo-select\n                                                            labelText=\"Meter Location\"\n                                                            fieldPlaceholder=\"Select Location\"\n                                                            [fieldRequired]=\"'required'\"\n                                                            [fieldList]=\"locationData | orderBy : 'name'\"\n                                                            fieldValue=\"name\"\n                                                            [fieldModel]=\"locationId\"\n                                                            fieldId=\"id\"\n                                                            (fieldParams)=\"setLocationId($event)\"\n                                                        ></condo-select>\n\n                                                        \n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                <condo-select\n                                labelText=\"Meter Sub Location\"\n                                fieldPlaceholder=\"Select Sub Location\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"sublocationData | orderBy : 'name'\"\n                                fieldValue=\"name\"\n                                [fieldModel]=\"sublocationId\"\n                                fieldId=\"id\"\n                                (fieldParams)=\"setsubLocationId($event)\"\n                            ></condo-select>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Assign Group\"\n                                        fieldPlaceholder=\"Select Group\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"groupData | orderBy : 'lookupValueName'\"\n                                        fieldValue=\"lookupValueName\"\n                                        [fieldModel]=\"groupId\"\n                                        fieldId=\"lookupValueId\"\n                                        (fieldParams)=\"setgroupId($event)\"\n                                    ></condo-select>\n                                </div>\n                                </div>\n                                <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <label>Frequency in Days:</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                        [(ngModel)]=\"frequencyDays\" required>\n                                        </div>\n                                        </div>\n                                <div class=\"col-sm-12\">\n                                        <div class=\"input-box\">\n                                        <condo-select\n                                        labelText=\"Tower\"\n                                        fieldPlaceholder=\"Select Tower\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"blocktowerData\"\n                                        fieldValue=\"apartmentBlockNumber\"\n                                        [fieldModel]=\"blockId\"\n                                        fieldId=\"apartmentBlockId\"\n                                        (fieldParams)=\"getTowerSelectedBlock($event)\"\n                                    ></condo-select>\n                                        </div>\n                                        </div>\n\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                <condo-select\n                                                labelText=\"Unit No\"\n                                                fieldPlaceholder=\"Select Unit\"\n                                                [fieldRequired]=\"'required'\"\n                                                [fieldList]=\"blockUnitData\"\n                                                fieldValue=\"apartmentBlockUnitNumber\"\n                                                [fieldModel]=\"unitId\"\n                                                fieldId=\"apartmentBlockUnitId\"\n                                                [isDisabled]=\"!isBlockSelected\"\n                                                (fieldParams)=\"getSelectedBlockUnit($event)\"\n                                            ></condo-select>\n                                                </div>\n                                                </div>\n\n                                                <div class=\"col-sm-12\">\n                                                        <div class=\"input-box\">\n                                                        <label>Unit Name:</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitName\" readonly\n                                                        [(ngModel)]=\"unitName\" required>\n                                                        </div>\n                                                        </div>\n\n                                </div>\n                  \n                    <div class=\"float-right mt-4\">\n                        <submit-button (click)=\"addorupdateUnitSpecific(addUnitSpecific)\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n                    </div>\n                </ng-container>\n                </form>\n                </div>\n                </condo-card>\n            </div>\n        </mat-drawer>\n        <mat-drawer-content>\n                <div class=\"main p-0\">\n\n                <div class=\"bg-card shadow d-flex mb-4\">\n                    <div>\n                        <h4>Unit Specific </h4>\n                        <p class=\"text-secondary\">{{totalUnitItems}} Items</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n\n                    <div>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addUnit()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                                Add Unit Specific\n                            </button>\n                        </div>\n                        <div class=\"mr-3 ml-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"openFilter()\" class=\"d-none d-md-block\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                                </button>\n                                <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"matDrawerSpecific.toggle()\">\n                                        <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                      </button>\n                            </div>\n                </div>\n                <app-loader *ngIf=\"isUnitLoaded\"></app-loader>\n                <form>\n\n                        <div class=\"bg-card shadow\" *ngIf=\"unitSpecificList.length == 0\">\n                            <h6 class=\"text-secondary\">No Results found</h6>\n                        </div>\n    \n\n                    <div class=\"bg-card shadow mb-1\" *ngFor=\"let item of unitSpecificList | simpleSearch: searchData | slice:UnitItemStartIndex:UnitItemEndIndex; let i = index\">\n                        <div class=\"d-sm-flex justify-content-sm-between\">\n                                <div class=\"col-sm-2 mx-auto my-auto text-left\">\n                                        <p class=\"ellipse\">{{item.utilityType}}</p>\n                                    </div>\n                                <div class=\"col-sm-2\">\n                                        <label>Meter No</label>\n                                        <p class=\"ellipse\">{{item.meterName}}</p>\n                                    </div>\n                                    <div class=\"col-sm-3\">\n                                        <label>Location</label>\n                                        <p class=\"ellipse\">{{item.locationName}} -> {{item.subLocationName}}</p>\n                                    </div>\n                                    <div class=\"col-sm-2\">\n                                            <label>Tower - Unit</label>\n                                            <p class=\"ellipse\">{{item.tower_Unit}}</p>\n                                        </div>\n                                       \n                                    <div class=\"col-sm-2 text-center\">\n                                            <p class=\"ellipse pt-4 mt-2\">{{item.meterGroupName}}</p>\n                                        </div>\n                                        <div class=\"col-sm-1 my-auto medium-icon\">\n                                                <mat-icon [svgIcon]=\"'feather:edit'\" class=\"mr-1 pull-right\" [color]=\"'primary'\" (click)=\"editUnit(item)\" ></mat-icon>\n                                            </div>\n                              \n                        </div>\n                       \n                    </div>\n\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"unitSpecificList.length > 0\">\n                            <app-pagination [totalItems]=\"totalUnitItems\" [ItemStartIndex]=\"UnitItemStartIndex\"\n                                [ItemEndIndex]=\"UnitItemEndIndex\" [itemLimit]=\"itemUnitLimit\" (outputParams)=\"getUnitIndexParams($event)\">\n                            </app-pagination>\n                        </div>\n\n                    </form>\n              </div>\n            \n        </mat-drawer-content>\n    </mat-drawer-container>\n    </div>";
       /***/
     },
 
@@ -4961,6 +4961,7 @@
             apartmentId: this.sessionService.apartmentId
           };
           this.hover = null;
+          this.groupData = "";
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -5126,6 +5127,9 @@
                       _this43.utilityCategoryData = res.filter(function (item) {
                         return item.isActive;
                       });
+                      _this43.allData = res.filter(function (item) {
+                        return item.isActive;
+                      });
                     });
                   } else if (res.code === 404) {
                     _this43.isUtilityCategorySubmitted = false;
@@ -5170,6 +5174,9 @@
                       _this43.utilityCategoryData = res.filter(function (item) {
                         return item.isActive;
                       });
+                      _this43.allData = res.filter(function (item) {
+                        return item.isActive;
+                      });
                       _this43.isUtilityCategoryNew = false;
                       _this43.isUtilityCategoryUpdate = false;
                     });
@@ -5195,6 +5202,9 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this44.utilityCategoryData = res.filter(function (item) {
+                return item.isActive;
+              });
+              _this44.allData = res.filter(function (item) {
                 return item.isActive;
               });
               _this44.totalItems = _this44.utilityCategoryData.length;
@@ -5238,6 +5248,22 @@
                 _this45.matDrawer.close();
               }
             });
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            console.log(event);
+
+            if (event != "") {
+              console.log(event);
+              this.utilityCategoryData = this.allData.filter(function (item) {
+                return item.isActive && item.lookupValueName.toLowerCase().startsWith(event);
+              });
+            } else {
+              this.utilityCategoryData = this.allData.filter(function (item) {
+                return item.isActive;
+              });
+            }
           }
         }]);
 
@@ -6034,6 +6060,7 @@
           this.itemLimit = 10;
           this.meterName = "";
           this.isDataSubmitted = false;
+          this.searchListData = "";
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         }
 
@@ -6105,6 +6132,7 @@
         }, {
           key: "getSelectedBlock",
           value: function getSelectedBlock(event) {
+            console.log(event);
             this.utilityTypeId = event[0].lookupValueId;
           }
         }, {
@@ -6196,6 +6224,30 @@
             });
           }
         }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            console.log(event);
+
+            if (event != "") {
+              console.log(event);
+              this.utilityMeterList = this.allList.filter(function (x) {
+                return x.typeId === 297 && x.utilityType.toLowerCase().startsWith(event) || x.meterName.toLowerCase().startsWith(event) || x.meterGroupName.toLowerCase().startsWith(event) || x.locationName.toLowerCase().startsWith(event) || x.subLocationName.toLowerCase().startsWith(event);
+              }).reverse();
+            } else {
+              this.utilityMeterList = this.allList.filter(function (x) {
+                return x.typeId === 297;
+              }).reverse();
+            }
+
+            this.totalItems = this.utilityMeterList.length;
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+            } else {
+              this.ItemEndIndex = this.totalItems;
+            }
+          }
+        }, {
           key: "getDateTimeFormat",
           value: function getDateTimeFormat(date) {
             if (date) {
@@ -6238,6 +6290,15 @@
             this.isFilter = false;
             this.matDrawer.open();
             console.log(item);
+            this.utilityTypeId = null;
+            this.meterName = "";
+            this.locationId = null;
+            this.sublocationId = null;
+            this.groupId = null;
+            this.frequencyDays = "";
+            this.utilityMeterSetupId = null;
+            this.blockId = null;
+            this.unitId = null;
             this.utilityTypeId = item.utilityTypeId;
             this.meterName = item.meterName;
             this.locationId = item.locationId;
@@ -6252,21 +6313,21 @@
             this.groupId = item.meterGroupId;
             this.frequencyDays = item.freqDays;
             this.utilityMeterSetupId = item.utilityMeterSetupId;
+            this.blockId = item.apartmentBlockId;
 
-            if (item.tower_Unit != null) {
-              var blockno = item.tower_Unit.split(' - ');
+            if (item.apartmentBlockId != null) {
+              // let blockno = item.tower_Unit.split(' - ');
               var tower = this.blocktowerData.filter(function (x) {
-                return x.apartmentBlockNumber === blockno[0];
-              });
-              this.blockId = tower[0].apartmentBlockId;
+                return x.apartmentBlockId === item.apartmentBlockId;
+              }); // this.blockId = tower[0].apartmentBlockId;
+
               this.towerName = tower[0].apartmentBlockNumber;
               this.unitName = item.tower_Unit;
-            }
+            } //  if(this.blockId != null){
+            //  this.getUnits(this.blockId);
+            //  this.unitId = item.apartmentBlockUnitId;
+            //  }
 
-            if (this.blockId != null) {
-              this.getUnits(this.blockId);
-              this.unitId = item.apartmentBlockUnitId;
-            }
           }
         }, {
           key: "goBack",
@@ -6278,7 +6339,7 @@
           value: function addorupdateMeterSetup(form) {
             var _this56 = this;
 
-            if (this.meterName !== "" && this.utilityTypeId !== null && this.locationId !== null && this.sublocationId !== null && this.unitId !== null && this.groupId !== null && this.frequencyDays !== "") {
+            if (this.meterName !== "" && this.utilityTypeId !== null && this.locationId !== null && this.sublocationId !== null && this.blockId !== null && this.groupId !== null && this.frequencyDays !== "") {
               this.isDataSubmitted = true;
               var queryParamBase = {};
               var queryParams = {};
@@ -6298,9 +6359,10 @@
                 updatedOn: new Date(),
                 locationId: parseInt(this.locationId),
                 subLocationId: parseInt(this.sublocationId),
-                apartmentBlockUnitId: parseInt(this.unitId),
+                apartmentBlockUnitId: null,
                 meterGroupId: parseInt(this.groupId),
-                freqDays: parseInt(this.frequencyDays)
+                freqDays: parseInt(this.frequencyDays),
+                apartmentBlockId: parseInt(this.blockId)
               };
               this.isMeterLoaded = true;
 
@@ -6454,20 +6516,6 @@
           value: function getTowerSelectedBlock(event) {
             this.blockId = event[0].apartmentBlockId;
             this.towerName = event[0].apartmentBlockNumber;
-            if (this.blockId != null) this.getUnits(this.blockId);
-          }
-        }, {
-          key: "getUnits",
-          value: function getUnits(id) {
-            var _this58 = this;
-
-            var params = {
-              apartmentBlockId: parseInt(id)
-            };
-            this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this58.blockUnitData = res;
-              _this58.isBlockSelected = true;
-            });
           }
         }, {
           key: "openFilter",
@@ -6478,10 +6526,10 @@
         }, {
           key: "closePopUp",
           value: function closePopUp() {
-            var _this59 = this;
+            var _this58 = this;
 
-            this.form.reset();
-            var message = "Are you sure, you want to clear the data ?";
+            // this.form.reset();
+            var message = "Are you sure, you want to close the meter setup ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
             var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
@@ -6490,7 +6538,19 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this59.matDrawer.close();
+                _this58.form.reset();
+
+                _this58.utilityTypeId = null;
+                _this58.meterName = "";
+                _this58.locationId = null;
+                _this58.sublocationId = null;
+                _this58.groupId = null;
+                _this58.frequencyDays = "";
+                _this58.utilityMeterSetupId = null;
+                _this58.blockId = null;
+                _this58.unitId = null;
+
+                _this58.matDrawer.close();
               }
             });
           }
@@ -6833,16 +6893,17 @@
           this.itemUnitLimit = 10;
           this.meterName = "";
           this.isDataSubmitted = false;
+          this.searchListData = "";
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         }
 
         _createClass(UtilityUnitSpecificComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this60 = this;
+            var _this59 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this60.timeZone = timeZone;
+              return _this59.timeZone = timeZone;
             });
             var queryParamBase = {};
             queryParamBase = {
@@ -6851,7 +6912,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this60.blockData = res ? res : [];
+                _this59.blockData = res ? res : [];
               }
             });
             var locationParamBase = {};
@@ -6862,7 +6923,7 @@
             };
             this.lookupService.getSubcategory(locationParamBase).subscribe(function (res) {
               if (res) {
-                _this60.locationData = res ? res : [];
+                _this59.locationData = res ? res : [];
               }
             });
             var groupParamBase = {};
@@ -6872,18 +6933,18 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParamBase).subscribe(function (res) {
               if (res) {
-                _this60.groupData = res ? res : [];
+                _this59.groupData = res ? res : [];
               }
             });
             var blockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this60.blocktowerData = res;
+              _this59.blocktowerData = res;
             }); //TimeZone
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this60.timeZone = timeZone;
+              return _this59.timeZone = timeZone;
             }); //Status List
 
             var ParamBase = {
@@ -6893,9 +6954,9 @@
             this.lookupService.getLookupValueByLookupTypeId(ParamBase).subscribe(function (res) {
               if (res.length < 7) {
                 var status = [res[3], res[2], res[4], res[5], res[1], res[0]];
-                _this60.statusData = status;
+                _this59.statusData = status;
               } else {
-                _this60.statusData = res;
+                _this59.statusData = res;
               }
             }); // this.getAllMaitainList();
 
@@ -6916,14 +6977,14 @@
         }, {
           key: "getUnits",
           value: function getUnits(id) {
-            var _this61 = this;
+            var _this60 = this;
 
             var params = {
               apartmentBlockId: parseInt(id)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this61.blockUnitData = res;
-              _this61.isBlockSelected = true;
+              _this60.blockUnitData = res;
+              _this60.isBlockSelected = true;
             });
           }
         }, {
@@ -6935,12 +6996,12 @@
         }, {
           key: "setLocationId",
           value: function setLocationId(event) {
-            var _this62 = this;
+            var _this61 = this;
 
             this.locationId = event[0].id;
             this.locationName = event[0].name;
             this.sublocationData = this.locationData.filter(function (val) {
-              return val.id === _this62.locationId;
+              return val.id === _this61.locationId;
             })[0].subCategory;
           }
         }, {
@@ -6956,7 +7017,7 @@
         }, {
           key: "getallGroup",
           value: function getallGroup() {
-            var _this63 = this;
+            var _this62 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -6965,7 +7026,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this63.groupData = res ? res : [];
+                _this62.groupData = res ? res : [];
               }
             });
           }
@@ -6990,34 +7051,34 @@
         }, {
           key: "getAllUnitSpecific",
           value: function getAllUnitSpecific() {
-            var _this64 = this;
+            var _this63 = this;
 
             this.isUnitLoaded = true;
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityCommonService.getUtilityMeterSetupByApartmentId(queryParamBase).subscribe(function (res) {
-              _this64.isUnitLoaded = false;
+              _this63.isUnitLoaded = false;
 
               if (res.length > 0) {
-                _this64.unitSpecificList = res.filter(function (x) {
+                _this63.unitSpecificList = res.filter(function (x) {
                   return x.typeId === 298;
                 }).reverse();
-                _this64.allList = res.filter(function (x) {
+                _this63.allList = res.filter(function (x) {
                   return x.typeId === 298;
                 }).reverse();
-                _this64.totalUnitItems = _this64.unitSpecificList.length;
+                _this63.totalUnitItems = _this63.unitSpecificList.length;
 
-                if (_this64.totalUnitItems > _this64.itemUnitLimit) {
-                  _this64.UnitItemEndIndex = _this64.UnitItemStartIndex;
+                if (_this63.totalUnitItems > _this63.itemUnitLimit) {
+                  _this63.UnitItemEndIndex = _this63.itemUnitLimit;
                 } else {
-                  _this64.UnitItemEndIndex = _this64.totalUnitItems;
+                  _this63.UnitItemEndIndex = _this63.totalUnitItems;
                 }
               }
             }, function (error) {
-              _this64.isUnitLoaded = false;
+              _this63.isUnitLoaded = false;
 
-              _this64.sharedService.openSnackBar('Server Error', 'error');
+              _this63.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -7068,6 +7129,15 @@
           value: function editUnit(item) {
             this.isFilter = false;
             this.matDrawerSpecific.open();
+            this.utilityTypeId = null;
+            this.meterName = "";
+            this.locationId = null;
+            this.sublocationId = null;
+            this.groupId = null;
+            this.frequencyDays = "";
+            this.utilityMeterSetupId = null;
+            this.blockId = null;
+            this.unitId = null;
             this.utilityTypeId = item.utilityTypeId;
             this.meterName = item.meterName;
             this.locationId = item.locationId;
@@ -7078,15 +7148,16 @@
             this.groupId = item.meterGroupId;
             this.frequencyDays = item.freqDays;
             this.utilityMeterSetupId = item.utilityMeterSetupId;
+            this.blockId = item.apartmentBlockId;
+            this.unitName = item.tower_Unit;
 
-            if (item.tower_Unit != null) {
-              var blockno = item.tower_Unit.split(' - ');
+            if (item.apartmentBlockId != null) {
+              // let blockno = item.tower_Unit.split(' - ');
               var tower = this.blocktowerData.filter(function (x) {
-                return x.apartmentBlockNumber === blockno[0];
-              });
-              this.blockId = tower[0].apartmentBlockId;
+                return x.apartmentBlockId === item.apartmentBlockId;
+              }); // this.blockId = tower[0].apartmentBlockId;
+
               this.towerName = tower[0].apartmentBlockNumber;
-              this.unitName = item.tower_Unit;
             }
 
             if (this.blockId != null) {
@@ -7097,7 +7168,7 @@
         }, {
           key: "addorupdateUnitSpecific",
           value: function addorupdateUnitSpecific(form) {
-            var _this65 = this;
+            var _this64 = this;
 
             if (this.meterName !== "" && this.utilityTypeId !== null && this.locationId !== null && this.sublocationId !== null && this.unitId !== null && this.groupId !== null && this.frequencyDays !== "") {
               this.isDataSubmitted = true;
@@ -7121,62 +7192,62 @@
                 subLocationId: parseInt(this.sublocationId),
                 apartmentBlockUnitId: parseInt(this.unitId),
                 meterGroupId: parseInt(this.groupId),
-                freqDays: parseInt(this.frequencyDays)
+                freqDays: parseInt(this.frequencyDays),
+                apartmentBlockId: parseInt(this.blockId)
               };
               this.isMeterLoaded = true;
 
               if (this.utilityMeterSetupId === null) {
                 this.utilityCommonService.addUtilityMeterSetup(queryParams).subscribe(function (res) {
-                  _this65.isDataSubmitted = false;
+                  _this64.isDataSubmitted = false;
 
                   if (res.errorMessage === undefined) {
-                    _this65.sharedService.openSnackBar("Unit Specific added Successfully!", 'success');
+                    _this64.sharedService.openSnackBar("Unit Specific added Successfully!", 'success');
 
-                    _this65.isMeterLoaded = false;
+                    _this64.isMeterLoaded = false;
 
-                    _this65.matDrawerSpecific.close();
+                    _this64.matDrawerSpecific.close();
 
-                    _this65.getAllUnitSpecific();
+                    _this64.getAllUnitSpecific();
 
                     form.reset();
-                    _this65.utilityTypeId = null;
-                    _this65.meterName = null;
-                    _this65.locationId = null;
-                    _this65.sublocationId = null;
-                    _this65.groupId = null;
-                    _this65.frequencyDays = null;
-                    _this65.utilityMeterSetupId = null;
-                    _this65.blockId = null;
-                    _this65.unitId = null;
-                    _this65.unitName = "";
+                    _this64.utilityTypeId = null;
+                    _this64.meterName = null;
+                    _this64.locationId = null;
+                    _this64.sublocationId = null;
+                    _this64.groupId = null;
+                    _this64.frequencyDays = null;
+                    _this64.utilityMeterSetupId = null;
+                    _this64.blockId = null;
+                    _this64.unitId = null;
+                    _this64.unitName = "";
                   } else if (res.errorMessage !== undefined) {
-                    _this65.isMeterLoaded = false;
+                    _this64.isMeterLoaded = false;
 
-                    _this65.sharedService.openSnackBar("Unit Specific already exists for selected Apartment.", 'failure');
+                    _this64.sharedService.openSnackBar("Unit Specific already exists for selected Apartment.", 'failure');
                   }
                 }, function (error) {
-                  _this65.isDataSubmitted = false;
+                  _this64.isDataSubmitted = false;
                 });
               } else {
                 this.utilityCommonService.updateUtilityMeterSetup(queryParams).subscribe(function (res) {
-                  _this65.isDataSubmitted = false;
+                  _this64.isDataSubmitted = false;
 
                   if (res.errorMessage === undefined) {
-                    _this65.sharedService.openSnackBar("Unit Specific updated Successfully!", 'success');
+                    _this64.sharedService.openSnackBar("Unit Specific updated Successfully!", 'success');
 
-                    _this65.matDrawerSpecific.close();
+                    _this64.matDrawerSpecific.close();
 
-                    form.reset();
-                    _this65.isMeterLoaded = false;
+                    _this64.isMeterLoaded = false;
 
-                    _this65.getAllUnitSpecific();
+                    _this64.getAllUnitSpecific();
                   } else if (res.errorMessage !== undefined) {
-                    _this65.isMeterLoaded = false;
+                    _this64.isMeterLoaded = false;
 
-                    _this65.sharedService.openSnackBar("Unit Specific already exists for selected Apartment.", 'failure');
+                    _this64.sharedService.openSnackBar("Unit Specific already exists for selected Apartment.", 'failure');
                   }
                 }, function (error) {
-                  _this65.isDataSubmitted = false;
+                  _this64.isDataSubmitted = false;
                 });
               }
             } else {
@@ -7258,7 +7329,7 @@
         }, {
           key: "filterData",
           value: function filterData() {
-            var _this66 = this;
+            var _this65 = this;
 
             var listData = this.allList.filter(function (x) {
               return x.typeId === 298;
@@ -7266,25 +7337,25 @@
 
             if (this.selectedGroupId > 0) {
               listData = listData.filter(function (x) {
-                return x.meterGroupId === _this66.selectedGroupId;
+                return x.meterGroupId === _this65.selectedGroupId;
               });
             }
 
             if (this.selectedLocationId > 0) {
               listData = listData.filter(function (x) {
-                return x.locationId === _this66.selectedLocationId;
+                return x.locationId === _this65.selectedLocationId;
               });
             }
 
             if (this.selectedTypeId > 0) {
               listData = listData.filter(function (x) {
-                return x.utilityTypeId === _this66.selectedTypeId;
+                return x.utilityTypeId === _this65.selectedTypeId;
               });
             }
 
             if (this.selectedBlockId !== "") {
               listData = listData.filter(function (x) {
-                return String(x.tower_Unit).startsWith(_this66.selectedBlockId);
+                return String(x.tower_Unit).startsWith(_this65.selectedBlockId);
               });
             }
 
@@ -7306,10 +7377,10 @@
         }, {
           key: "closePopUp",
           value: function closePopUp() {
-            var _this67 = this;
+            var _this66 = this;
 
-            this.form.reset();
-            var message = "Are you sure, you want to clear the data ?";
+            // this.form.reset();
+            var message = "Are you sure, you want to close the unit specific ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
             var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
@@ -7318,9 +7389,45 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this67.matDrawerSpecific.close();
+                _this66.form.reset();
+
+                _this66.utilityTypeId = null;
+                _this66.meterName = "";
+                _this66.locationId = null;
+                _this66.sublocationId = null;
+                _this66.groupId = null;
+                _this66.frequencyDays = "";
+                _this66.utilityMeterSetupId = null;
+                _this66.blockId = null;
+                _this66.unitId = null;
+
+                _this66.matDrawerSpecific.close();
               }
             });
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            console.log(event);
+
+            if (event != "") {
+              console.log(event);
+              this.unitSpecificList = this.allList.filter(function (x) {
+                return x.typeId === 298 && x.utilityType.toLowerCase().startsWith(event) || x.meterName.toLowerCase().startsWith(event) || x.meterGroupName.toLowerCase().startsWith(event) || x.locationName.toLowerCase().startsWith(event) || x.subLocationName.toLowerCase().startsWith(event);
+              }).reverse();
+            } else {
+              this.unitSpecificList = this.allList.filter(function (x) {
+                return x.typeId === 298;
+              }).reverse();
+            }
+
+            this.totalUnitItems = this.unitSpecificList.length;
+
+            if (this.totalUnitItems > this.itemUnitLimit) {
+              this.UnitItemEndIndex = this.itemUnitLimit;
+            } else {
+              this.UnitItemEndIndex = this.totalUnitItems;
+            }
           }
         }]);
 
@@ -7535,7 +7642,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this68 = this;
+            var _this67 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -7543,9 +7650,9 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this68.sharedService.setUnitListDeleteIndex(null);
+              _this67.sharedService.setUnitListDeleteIndex(null);
 
-              _this68.loadUtilityCategory();
+              _this67.loadUtilityCategory();
             });
           }
         }, {
@@ -7594,7 +7701,7 @@
         }, {
           key: "addOrUpdateUtilityCategoryForm",
           value: function addOrUpdateUtilityCategoryForm(form) {
-            var _this69 = this;
+            var _this68 = this;
 
             this.isUtilityCategorySubmitted = true;
             this.isError = false;
@@ -7615,26 +7722,26 @@
                 utilityTrackerCategory: details
               };
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
-                _this69.isUtilityCategorySubmitted = false;
+                _this68.isUtilityCategorySubmitted = false;
 
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: _this69.sessionService.apartmentId
+                    apartmentId: _this68.sessionService.apartmentId
                   };
 
-                  _this69.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                    _this69.sharedService.openSnackBar("Category added Successfully!", 'success');
+                  _this68.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                    _this68.sharedService.openSnackBar("Category added Successfully!", 'success');
 
-                    _this69.matDrawer.toggle();
+                    _this68.matDrawer.toggle();
 
-                    _this69.utilityCategoryData = res.filter(function (item) {
+                    _this68.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this69.isUtilityCategorySubmitted = false;
-                  _this69.isError = true;
-                  _this69.alertMessage = res.errorMessage;
+                  _this68.isUtilityCategorySubmitted = false;
+                  _this68.isError = true;
+                  _this68.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -7654,28 +7761,28 @@
                 utilityTrackerCategory: _details2
               };
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
-                _this69.isUtilityCategorySubmitted = false;
+                _this68.isUtilityCategorySubmitted = false;
 
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: _this69.sessionService.apartmentId
+                    apartmentId: _this68.sessionService.apartmentId
                   };
 
-                  _this69.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                    _this69.sharedService.openSnackBar("Category updated Successfully!", 'success');
+                  _this68.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                    _this68.sharedService.openSnackBar("Category updated Successfully!", 'success');
 
-                    _this69.matDrawer.toggle();
+                    _this68.matDrawer.toggle();
 
-                    _this69.utilityCategoryData = res.filter(function (item) {
+                    _this68.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this69.isUtilityCategoryNew = false;
-                    _this69.isUtilityCategoryUpdate = false;
+                    _this68.isUtilityCategoryNew = false;
+                    _this68.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this69.isUtilityCategorySubmitted = false;
-                  _this69.isError = true;
-                  _this69.alertMessage = res.errorMessage;
+                  _this68.isUtilityCategorySubmitted = false;
+                  _this68.isError = true;
+                  _this68.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -7683,33 +7790,33 @@
         }, {
           key: "loadUtilityCategory",
           value: function loadUtilityCategory() {
-            var _this70 = this;
+            var _this69 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this70.utilityCategoryData = res.filter(function (item) {
+              _this69.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this70.isUtilityCategoryLoaded = true;
+              _this69.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this71 = this;
+            var _this70 = this;
 
             this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this71.submitUtilityCategoryForm(is_category_form);
+                _this70.submitUtilityCategoryForm(is_category_form);
               }
             });
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this71.deleteUtilityCategory(item_id);
+                _this70.deleteUtilityCategory(item_id);
               }
             });
           }
@@ -7899,7 +8006,7 @@
         }, {
           key: "addStaffGrouping",
           value: function addStaffGrouping(data) {
-            var _this72 = this;
+            var _this71 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -7922,24 +8029,24 @@
             };
             this.UtilityCommonService.upsertUtilityGroupStaff(params).subscribe(function (res) {
               if (res.message) {
-                _this72.isDataLoaded = false;
+                _this71.isDataLoaded = false;
 
-                _this72.sharedService.openSnackBar('Staff Grouping Created Successfully', 'success');
+                _this71.sharedService.openSnackBar('Staff Grouping Created Successfully', 'success');
               } else {
-                _this72.isDataLoaded = false;
+                _this71.isDataLoaded = false;
 
-                _this72.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this71.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this72.isDataLoaded = false;
+              _this71.isDataLoaded = false;
 
-              _this72.sharedService.openSnackBar('Server Error', 'error');
+              _this71.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getStaffGroupingList",
           value: function getStaffGroupingList() {
-            var _this73 = this;
+            var _this72 = this;
 
             this.staffGroupingList = []; // Grouping Staff List
 
@@ -7949,15 +8056,15 @@
             this.UtilityCommonService.getAllMeterGroupStaffbyApartmentId(meterStaff).subscribe(function (res) {
               var staffGroupItems = res;
 
-              _this73.groupsList.forEach(function (group) {
+              _this72.groupsList.forEach(function (group) {
                 var staffGroup = staffGroupItems.find(function (list) {
                   return list.meterGroupId == group.lookupValueId;
                 });
 
                 if (staffGroup) {
-                  _this73.staffGroupingList.push(staffGroup);
+                  _this72.staffGroupingList.push(staffGroup);
                 } else {
-                  _this73.staffGroupingList.push({
+                  _this72.staffGroupingList.push({
                     "meterGroupId": group.lookupValueId,
                     "stafflistbackup": [],
                     "stafflistprimary": []
@@ -7965,17 +8072,17 @@
                 }
               });
 
-              _this73.isDataLoaded = false;
+              _this72.isDataLoaded = false;
             }, function (error) {
-              _this73.isDataLoaded = false;
+              _this72.isDataLoaded = false;
 
-              _this73.sharedService.openSnackBar('Server Error', 'error');
+              _this72.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this74 = this;
+            var _this73 = this;
 
             //Groups List
             var groupParams = {
@@ -7983,9 +8090,9 @@
               LookupTypeId: 207
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this74.groupsList = res;
+              _this73.groupsList = res;
 
-              _this74.getStaffGroupingList();
+              _this73.getStaffGroupingList();
             }); // Staff List
 
             var staffParms = {
@@ -7994,7 +8101,7 @@
 
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this74.staffsList = res;
+              _this73.staffsList = res;
             });
           }
         }]);
@@ -8192,7 +8299,7 @@
         }, {
           key: "createTrackingTask",
           value: function createTrackingTask() {
-            var _this75 = this;
+            var _this74 = this;
 
             this.message = null;
 
@@ -8231,26 +8338,26 @@
                 }
               };
               this.UtilityCommonService.addUtilityTrackerPeriod(params).subscribe(function (res) {
-                _this75.isSubmitted = false;
+                _this74.isSubmitted = false;
 
                 if (res.message) {
-                  _this75.resetField();
+                  _this74.resetField();
 
-                  _this75.sharedService.openSnackBar('Task Created for Staff', 'success');
+                  _this74.sharedService.openSnackBar('Task Created for Staff', 'success');
                 } else {
-                  _this75.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this74.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this75.isSubmitted = false;
+                _this74.isSubmitted = false;
 
-                _this75.sharedService.openSnackBar('Server Error', 'error');
+                _this74.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this76 = this;
+            var _this75 = this;
 
             // Grouping List
             var groupParams = {
@@ -8258,7 +8365,7 @@
               LookupTypeId: 207
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this76.groupsList = res;
+              _this75.groupsList = res;
             });
           }
         }]);

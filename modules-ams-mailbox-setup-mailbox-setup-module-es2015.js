@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\" (onSelect)=\"selectPrimaryStaff($event)\" (onDeSelect)=\"deSelectPrimaryStaff($event)\"\n                                (onSelectAll)=\"selectPrimaryStaff($event)\" (onDeSelectAll)=\"deSelectPrimaryStaff($event)\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <!-- <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"createTrackingTask()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div> -->\n            </div>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\" (onSelect)=\"selectPrimaryStaff()\" (onDeSelect)=\"selectPrimaryStaff()\"\n                                (onSelectAll)=\"selectPrimaryStaff()\" (onDeSelectAll)=\"selectPrimaryStaff()\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <!-- <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"createTrackingTask()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div> -->\n            </div>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -96,7 +96,32 @@ let MailboxSetupComponent = class MailboxSetupComponent {
             maxHeight: 240
         };
     }
-    selectPrimaryStaff(event) {
+    getSelectedId() {
+        return this.staffId.map((data) => {
+            return {
+                'staffId': data.staffId
+            };
+        });
+    }
+    selectPrimaryStaff() {
+        let params = {
+            staffInchargeMailbox: {
+                "apartmentId": this.sessionService.apartmentId,
+                "description": "string",
+                "comment1": "string",
+                "comment2": "string",
+                "insertedBy": this.sessionService.userId,
+                "updatedBy": this.sessionService.userId,
+                "stafflist": this.getSelectedId()
+            }
+        };
+        this.staffService.upsertStaffInchargeMailbox(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.openSnackBar('Staff Added Successfully', 'success');
+            }
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
     }
     deSelectPrimaryStaff(event) {
     }
@@ -108,6 +133,20 @@ let MailboxSetupComponent = class MailboxSetupComponent {
         };
         this.staffService.getAllStaffs(staffParms).subscribe((res) => {
             this.staffsList = res;
+        });
+        // get Staff Mail Box
+        let parmas = {
+            apartmentID: this.sessionService.apartmentId,
+        };
+        this.staffService.getStaffInchargeMailboxByApartmentId(parmas).subscribe((res) => {
+            if (Array.isArray) {
+                this.staffId = res.map((data) => {
+                    return {
+                        'staffId': data.staffId,
+                        'staffName': data.staffName
+                    };
+                });
+            }
         });
     }
 };

@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                        <p>{{menuList.length}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <button mat-flat-button \n                        routerLink=\"/ams/roles-permissions/role-permissions-list\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Back to Role List</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"p-5\" *ngIf=\"isDataLoaded\" > \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Menu</h5>\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [value]=\"item\"\n                                    [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Sub-Menu</h5>\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [value]=\"item\"\n                                    [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\">\n                            <h5 class=\"mb-4\">Action</h5>\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\"\n                                    [value]=\"item\">\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                        <p>{{menuList.length}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <button mat-flat-button \n                        routerLink=\"/ams/roles-permissions/role-permissions-list\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Back to Role List</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"p-5\" *ngIf=\"isDataLoaded\" > \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Menu</h5>\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [value]=\"item\"\n                                    [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Sub-Menu</h5>\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [value]=\"item\"\n                                    [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\">\n                            <h5 class=\"mb-4\">Action</h5>\n                            <!-- Temporary Solution -->\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option [selected]=\"isEnabled\" [value]=\"actionList\">\n                                    Enable  \n                                </mat-list-option>\n                            </mat-selection-list>\n\n                            <!-- Permanent Solution -->\n\n                            <!-- <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\"\n                                    [value]=\"item\">\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list> -->\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1091,6 +1091,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
 
 
 
@@ -1098,13 +1100,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SetPermissionsComponent = class SetPermissionsComponent {
-    constructor(screenService, sharedService, activatedRoute, sessionService) {
+    constructor(screenService, sharedService, activatedRoute, changeDetection, sessionService) {
         this.screenService = screenService;
         this.sharedService = sharedService;
         this.activatedRoute = activatedRoute;
+        this.changeDetection = changeDetection;
         this.sessionService = sessionService;
         this.menuList = [];
         this.isDataLoaded = false;
+        this.isEnabled = false;
     }
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe(params => {
@@ -1158,7 +1162,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
         if (this.selectedMenuName) {
             this.menuList.filter(key => {
                 if (key.menuName == this.selectedMenuName) {
-                    this.subMenuList = key.subMenuNames;
+                    this.subMenuList = [...key.subMenuNames];
                     this.selectedSubMenuName = this.subMenuList.length ? this.subMenuList[0].subMenuName : '';
                     this.changeSubMenu('');
                 }
@@ -1173,7 +1177,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
         else {
             this.subMenuList.filter(key => {
                 if (this.selectedSubMenuName == key.subMenuName) {
-                    this.actions = key.actions;
+                    this.actions = Object.assign({}, key.actions);
                     this.mapActions();
                 }
             });
@@ -1188,25 +1192,74 @@ let SetPermissionsComponent = class SetPermissionsComponent {
         this.actionList[1].checked = this.actions.edit;
         this.actionList[2].checked = this.actions.display;
         this.actionList[3].checked = this.actions.delete;
+        //Temporary Solution
+        this.isEnabled = this.actionList.every((data) => data.checked);
     }
     changeActions(event) {
-        if (event.option.value) {
-            let queryParamBase = {
-                apartmentId: this.sessionService.apartmentId,
-                menuSecLevelFunctionId: event.option.value.functionId,
-                isActive: !event.option.value.checked,
-                updatedBy: this.sessionService.roleId,
-            };
-            this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase).subscribe((resp) => {
-                this.sharedService.openSnackBar(`${event.option.value.name} Permission Updated!`, 'success');
+        let isActive = event.option._selected;
+        this.isDataLoaded = false;
+        let multipleApiCall = [];
+        this.actionList.forEach((data) => {
+            if (data.functionId != 0) {
+                let queryParamBase = {
+                    apartmentId: this.sessionService.apartmentId,
+                    menuSecLevelFunctionId: data.functionId,
+                    isActive: isActive,
+                    updatedBy: this.sessionService.roleId,
+                };
+                multipleApiCall.push(this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase));
+            }
+        });
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["forkJoin"])(...multipleApiCall).subscribe((res) => {
+            let success;
+            success = res.every((data) => {
+                if (data.message)
+                    return true;
+                else
+                    return false;
             });
-        }
+            if (success) {
+                this.changeDetection.detectChanges();
+                let operation = ['add', 'edit', 'display', 'delete'];
+                for (let menu of this.menuList) {
+                    if (menu.menuName == this.selectedMenuName) {
+                        for (let submenu of menu.subMenuNames) {
+                            if (submenu.subMenuName == this.selectedSubMenuName) {
+                                for (let key in submenu.actions) {
+                                    if (operation.includes(key)) {
+                                        submenu.actions[key] = isActive;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                        break;
+                    }
+                }
+                this.sharedService.openSnackBar(`Permission Updated!`, 'success');
+            }
+            else
+                this.sharedService.openSnackBar(`Permission Not Updated!`, 'error');
+            this.isDataLoaded = true;
+            this.isEnabled = isActive;
+        });
+        // let queryParamBase = {
+        //   apartmentId: this.sessionService.apartmentId,
+        //   menuSecLevelFunctionId: event.option.value.functionId,
+        //   isActive: !event.option.value.checked,
+        //   updatedBy: this.sessionService.roleId,
+        // };
+        // this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase).subscribe(
+        //   (resp: any) => {
+        //     this.sharedService.openSnackBar(`${event.option.value.name} Permission Updated!`, 'success')
+        //   });
     }
 };
 SetPermissionsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 SetPermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1218,6 +1271,7 @@ SetPermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], SetPermissionsComponent);
 
