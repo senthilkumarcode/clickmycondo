@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-pic-wrapper\">\n    <div class=\"profile-picture\">\n        <img class=\"svg\" [src]=\"profilePicUrl\" id=\"userProfile\">\n    </div>\n    <button mat-mini-fab [color]=\"'accent'\" class=\"upload-icon\" (click)=\"fileInput.click()\">\n        <input hidden type=\"file\" #fileInput [accept]=\"imageFormats\" (change)=\"uploadFile($event.target.files)\">\n        <mat-icon svgIcon=\"feather:plus\"></mat-icon>\n    </button>\n    <svg class=\"progress-ring\" width=\"102\" height=\"102\">\n        <circle class=\"progress-ring__circle\" stroke-width=\"4\" fill=\"transparent\" r=\"48\" cx=\"50\" cy=\"50\"/>\n    </svg>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-pic-wrapper\">\n    <div class=\"profile-picture\">\n        <img [src]=\"profilePicUrl\" />\n        <canvas id=\"canvasElem\" width=100 height=100 class=\"d-none\"></canvas>\n    </div>\n    <button mat-mini-fab [color]=\"'accent'\" class=\"upload-icon\" (click)=\"fileInput.click()\">\n        <input hidden type=\"file\" #fileInput [accept]=\"imageFormats\" (change)=\"uploadFile($event.target.files)\">\n        <mat-icon svgIcon=\"feather:plus\" *ngIf=\"!isImageAvailable()\"></mat-icon>\n        <mat-icon svgIcon=\"feather:edit-2\" *ngIf=\"isImageAvailable()\"></mat-icon>\n    </button>\n    <div id=\"loader\" *ngIf=\"!isImageLoaded\"></div>\n</div>\n");
 
 /***/ }),
 
@@ -2894,56 +2894,59 @@ let ProfilePicComponent = class ProfilePicComponent {
         this.sharedService = sharedService;
         this.constantsService = constantsService;
         this.profilePicUrl = "";
-        this.userPicUrl = "";
-        this.progessbarWidth = 0;
-        this.uploadResponse = { status: '', message: '', response: '' };
-        this.error = "";
+        this.isImageLoaded = true;
         this.isProfile = false;
     }
-    isAdmin() {
-        return this.sessionService.isAdmin();
-    }
-    isUploadCompleted() {
-        return this.uploadResponse.status == "completed" ? true : false;
+    isImageAvailable() {
+        return this.user.image != "null" ? true : false;
     }
     uploadFile(event) {
+        this.isImageLoaded = false;
         var file = event[0];
-        this.profilepPicUploadService.upload(file, this.user.emailId).subscribe((res) => {
-            if (res != undefined) {
-                this.uploadResponse = res;
-                const offset = this.circumference - this.uploadResponse.message / 100 * this.circumference;
-                this.circle.style.strokeDashoffset = offset;
-            }
-            if (this.isUploadCompleted()) {
-                let userParams = {
-                    userid: this.user.userId
-                };
-                this.userService.getUserById(userParams).subscribe((res) => {
-                    var imagePath = 'data:image/png;base64,' + res[0].image;
-                    this.sharedService.setProfilePic(imagePath);
+        var canvas = document.getElementById("canvasElem");
+        var ctx = canvas.getContext("2d");
+        var cw = canvas.width;
+        var ch = canvas.height;
+        var maxW = 100;
+        var maxH = 100;
+        var img = new Image();
+        img.onload = () => {
+            var iw = img.width;
+            var ih = img.height;
+            var scale = Math.min((maxW / iw), (maxH / ih));
+            var iwScaled = iw * scale;
+            var ihScaled = ih * scale;
+            canvas.width = iwScaled;
+            canvas.height = ihScaled;
+            ctx.drawImage(img, 0, 0, iwScaled, ihScaled);
+            let params = {
+                emailId: this.user.emailId,
+                imageId: canvas.toDataURL('image/jpeg')
+            };
+            this.userService.updateUserPic(params).subscribe((res) => {
+                this.isImageLoaded = true;
+                if (res.message) {
+                    this.sharedService.openSnackBar('Picture updated', 'success');
                     //if its not a profile interface update the user
                     if (!this.isProfile) {
-                        this.sharedService.setUserPic(imagePath);
+                        this.sharedService.setUserPic(canvas.toDataURL('image/jpeg'));
                     }
-                    this.initialiseProgressRing();
-                }, error => {
-                    console.log(error);
-                });
-            }
-        }, (err) => {
-            this.error = err;
-        });
-    }
-    initialiseProgressRing() {
-        const radius = this.circle.r.baseVal.value;
-        this.circumference = radius * 2 * Math.PI;
-        this.circle.style.strokeDasharray = `${this.circumference} ${this.circumference}`;
-        this.circle.style.strokeDashoffset = this.circumference;
+                    else {
+                        this.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
+                    }
+                }
+                else {
+                    this.sharedService.openSnackBar('Some error occured', 'error');
+                }
+            }, err => {
+                this.isImageLoaded = true;
+                this.sharedService.openSnackBar('Some error occured', 'error');
+            });
+        };
+        img.src = URL.createObjectURL(file);
     }
     ngOnInit() {
         this.imageFormats = this.constantsService.imageFormats.join(',');
-        this.circle = document.querySelector('.progress-ring__circle');
-        this.initialiseProgressRing();
         this.sharedService.profilepiccast.subscribe(profilePicUrl => {
             this.profilePicUrl = profilePicUrl;
         });

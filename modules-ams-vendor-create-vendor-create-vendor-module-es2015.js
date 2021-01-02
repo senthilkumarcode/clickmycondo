@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"vendor-create-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isVendorAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isVendorAdded\">\n\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"!isEditVendor\">Create Vendor</span>\n\t\t\t\t<span *ngIf=\"isEditVendor\">Update Vendor</span>\n\t\t\t</h4>\n\n\t\t\t<form #addVendorForm=\"ngForm\" name=\"addVendorForm\" (ngSubmit)=\"addOrUpdateVendor(addVendorForm)\" novalidate>\n\t\t\t\t<mat-accordion>\n\t\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>General</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor name<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.vendorName\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Contact Person</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.contactPerson\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Phone Number<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\" [(ngModel)]=\"vendor.phone1\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>vendor Fax Number</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"faxNumber\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.fax\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.address1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" #emailId=\"ngModel\"\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"{'invalid-border' : emailId.invalid}\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"email\" [(ngModel)]=\"vendor.email\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\" [(ngModel)]=\"vendor.phone2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>vendor Category<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"vendorCategory\" id=\"vendorCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.vendorCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorCategoryList\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>vendor Legal Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"vendorType\" id=\"vendorType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.legalTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorTypeList\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"legalType\" id=\"goods\" [(ngModel)]=\"vendorTypeId\" value=\"225\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"goods\">Goods</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"legalType\" id=\"services\" [(ngModel)]=\"vendorTypeId\" value=\"226\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"services\">Services</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Status<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorStatus\" id=\"active\" [(ngModel)]=\"vendorStatus\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorStatus\" id=\"inactive\" [(ngModel)]=\"vendorStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"false\" type=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Payment Details</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>VAT/TIN<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vatorTin\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.vatorTin\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax1\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax2\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax3</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax3\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax3\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax4</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax4\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax4\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>GL Account Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"accountType\" id=\"accountType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.glaccountTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes1\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.notes1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes2\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.notes2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Bank Details</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Payee Name</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorPayeeName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.payeeName\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Account No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankAccNo\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.accountNumber\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Name</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.bankName\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Branch</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankBranch\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.bankBranch\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Code</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankCode\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.bankCode\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t</mat-accordion>\n\t\t\t\t\n\t\t\t\t<submit-button class=\"mt-4 float-right\" [isSubmit]=\"isVendorSubmitted\">Submit</submit-button>\n\t\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\t\n\t\t\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"vendor-create-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isVendorAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isVendorAdded\">\n\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"!isEditVendor\">Create Vendor</span>\n\t\t\t\t<span *ngIf=\"isEditVendor\">Update Vendor</span>\n\t\t\t</h4>\n\n\t\t\t<form #addVendorForm=\"ngForm\" name=\"addVendorForm\" (ngSubmit)=\"addOrUpdateVendor(addVendorForm)\" novalidate>\n\t\t\t\t<mat-accordion>\n\t\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>General</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor name<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.vendorName\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Contact Person</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.contactPerson\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Phone Number<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\" [(ngModel)]=\"vendor.phone1\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>vendor Fax Number</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"faxNumber\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.fax\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.address1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" #emailId=\"ngModel\"\n\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"{'invalid-border' : emailId.invalid}\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"email\" [(ngModel)]=\"vendor.email\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\" [(ngModel)]=\"vendor.phone2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>vendor Category<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"vendorCategory\" id=\"vendorCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.vendorCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorCategoryList\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>vendor Legal Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"vendorType\" id=\"vendorType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.legalTypeId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorTypeList\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Type<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"legalType\" id=\"goods\" [(ngModel)]=\"vendorTypeId\" value=\"225\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"goods\">Goods</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"legalType\" id=\"services\" [(ngModel)]=\"vendorTypeId\" value=\"226\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"services\">Services</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Status<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorStatus\" id=\"active\" [(ngModel)]=\"vendorStatus\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorStatus\" id=\"inactive\" [(ngModel)]=\"vendorStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"false\" type=\"radio\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Payment Details</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>VAT/TIN</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vatorTin\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.vatorTin\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax1\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax2\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax3</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax3\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax3\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tax4</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorTax4\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.tax4\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>GL Account Type</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"accountType\" id=\"accountType\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.glaccountTypeId\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of glAccountListData\" [value]=\"item.glaccountId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.glaccountName }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes1\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.notes1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Notes2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorNotes2\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.notes2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Bank Details</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Payee Name</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorPayeeName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.accountHolderName\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Account No</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankAccNo\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.accountNumber\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Name</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.bankName\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Branch</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankBranch\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.branchName\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vendor Bank Code</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vendorBankCode\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"vendor.bankCode\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t</mat-accordion>\n\t\t\t\t\n\t\t\t\t<submit-button class=\"mt-4 float-right\" [isSubmit]=\"isVendorSubmitted\">Submit</submit-button>\n\t\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\t\n\t\t\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -133,14 +133,13 @@ let CreateVendorComponent = class CreateVendorComponent {
     }
     submitAddVendorForm(form) {
         this.isVendorSubmitted = true;
-        this.isError = false;
         if (!this.isEditVendor) {
             let bank_details = {
                 "apartmentId": this.sessionService.apartmentId,
                 "bankName": this.vendor.bankName,
-                "branchName": this.vendor.bankBranch,
+                "branchName": this.vendor.branchName,
                 "accountNumber": this.vendor.accountNumber,
-                "accountHolderName": this.vendor.payeeName,
+                "accountHolderName": this.vendor.accountHolderName,
                 "ifsc": this.vendor.bankCode,
                 "isPrimary": true,
                 "isActive": true,
@@ -152,73 +151,69 @@ let CreateVendorComponent = class CreateVendorComponent {
             let params = {
                 bankAccountDetails: bank_details
             };
-            this.bankAccountService.addBankAccountDetails(params).subscribe((bank_res) => {
-                if (bank_res) {
-                    //map vendor bankAccountDetailsId from resp
+            this.bankAccountService.addBankAccountDetails(params).subscribe((res) => {
+                if (res.message) {
+                    let details = {
+                        "vendorTypeId": parseInt(this.vendorTypeId),
+                        "vendorName": this.vendor.vendorName,
+                        "apartmentId": this.sessionService.apartmentId,
+                        "legalTypeId": parseInt(this.vendor.legalTypeId),
+                        "vatorTin": this.vendor.vatorTin,
+                        "tax1": this.vendor.tax1 || " ",
+                        "tax2": this.vendor.tax2 || " ",
+                        "tax3": this.vendor.tax3 || " ",
+                        "tax4": this.vendor.tax4 || " ",
+                        "contactPerson": this.vendor.contactPerson,
+                        "email": this.vendor.email || " ",
+                        "phone1": this.vendor.phone1 || " ",
+                        "phone2": this.vendor.phone2 || " ",
+                        "fax": this.vendor.fax || " ",
+                        "address1": this.vendor.address1 || " ",
+                        "address2": "string",
+                        "city": "string",
+                        "state": "string",
+                        "pin": "string",
+                        "vendorCategoryId": parseInt(this.vendor.vendorCategoryId),
+                        "vendorStatus": this.vendorStatus,
+                        "notes1": this.vendor.notes1 || " ",
+                        "notes2": this.vendor.notes2 || " ",
+                        "glaccountTypeId": parseInt(this.vendor.glaccountTypeId),
+                        "bankAccountDetailsId": res.message,
+                        "isActive": this.vendorStatus,
+                        "insertedBy": parseInt(this.sessionService.userId),
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                        "updatedBy": null,
+                        "updatedOn": null,
+                        "isWorkPermitVendor": true
+                    };
+                    let params = {
+                        vendor: details
+                    };
+                    this.vendorService.addVendor(params).subscribe((res) => {
+                        this.isVendorSubmitted = false;
+                        if (res.message) {
+                            this.sharedService.openSnackBar("Vendor updated successfully", 'success');
+                            this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
+                        }
+                        else {
+                            this.sharedService.openSnackBar("some error occured", 'error');
+                        }
+                    }, error => {
+                        this.isVendorSubmitted = false;
+                        this.sharedService.openSnackBar("some error occured", 'error');
+                    });
                 }
             }, error => {
             });
-            let details = {
-                "vendorTypeId": this.vendorTypeId,
-                "vendorName": this.vendor.vendorName,
-                "apartmentId": this.sessionService.apartmentId,
-                "legalTypeId": parseInt(this.vendor.legalTypeId),
-                "vatorTin": this.vendor.vatorTin,
-                "tax1": this.vendor.tax1 || " ",
-                "tax2": this.vendor.tax2 || " ",
-                "tax3": this.vendor.tax3 || " ",
-                "tax4": this.vendor.tax4 || " ",
-                "contactPerson": this.vendor.contactPerson,
-                "email": this.vendor.email || " ",
-                "phone1": this.vendor.phone1 || " ",
-                "phone2": this.vendor.phone2 || " ",
-                "fax": this.vendor.fax,
-                "address1": this.vendor.address1 || " ",
-                "address2": "string",
-                "city": "string",
-                "state": "string",
-                "pin": "string",
-                "vendorCategoryId": parseInt(this.vendor.vendorCategoryId),
-                "vendorStatus": this.vendorStatus,
-                "notes1": this.vendor.notes1 || " ",
-                "notes2": this.vendor.notes2 || " ",
-                "glaccountTypeId": parseInt(this.vendor.glaccountTypeId),
-                "bankAccountDetailsId": null,
-                "isActive": this.vendorStatus,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null,
-            };
-            let vendorParams = {
-                vendor: details
-            };
-            // this.vendorService.addVendor(vendorParams).subscribe((res:any) => {
-            //   if(res.message) {
-            //     this.isVendorSubmitted = false;
-            //     this.sharedService.setAlertMessage("Vendor added successfully");
-            //     this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
-            //   }
-            //   else {
-            //     this.isVendorSubmitted = false;
-            //     this.isError = true;
-            //     this.alertMessage = res.errorMessage;
-            //   }
-            // },
-            // error => {
-            //   this.isVendorSubmitted = false;
-            //   this.isError = true;
-            //   this.alertMessage = "Some error occured";
-            // });
         }
         else {
             let bank_details = {
                 "bankAccountDetailsId": this.vendor.bankAccountDetailsId,
                 "apartmentId": this.sessionService.apartmentId,
                 "bankName": this.vendor.bankName,
-                "branchName": this.vendor.bankBranch,
+                "branchName": this.vendor.branchName,
                 "accountNumber": this.vendor.accountNumber,
-                "accountHolderName": this.vendor.payeeName,
+                "accountHolderName": this.vendor.accountHolderName,
                 "ifsc": this.vendor.bankCode,
                 "isPrimary": true,
                 "isActive": true,
@@ -230,61 +225,9 @@ let CreateVendorComponent = class CreateVendorComponent {
             let bankAccParams = {
                 bankAccountDetails: bank_details
             };
-            this.bankAccountService.updateBankAccountDetails(bankAccParams).subscribe((bank_res) => {
-                if (bank_res) {
-                }
+            this.bankAccountService.updateBankAccountDetails(bankAccParams).subscribe((res) => {
             }, error => {
             });
-            let details = {
-                "vendorId": parseInt(this.vendor.vendorId),
-                "vendorTypeId": this.vendorTypeId,
-                "vendorName": this.vendor.vendorName,
-                "apartmentId": this.sessionService.apartmentId,
-                "legalTypeId": parseInt(this.vendor.legalTypeId),
-                "vatorTin": this.vendor.vatorTin,
-                "tax1": this.vendor.tax1 || " ",
-                "tax2": this.vendor.tax2 || " ",
-                "tax3": this.vendor.tax3 || " ",
-                "tax4": this.vendor.tax4 || " ",
-                "contactPerson": this.vendor.contactPerson,
-                "email": this.vendor.email || " ",
-                "phone1": this.vendor.phone1 || " ",
-                "phone2": this.vendor.phone2 || " ",
-                "fax": this.vendor.fax,
-                "address1": this.vendor.address1 || " ",
-                "address2": "string",
-                "city": "string",
-                "state": "string",
-                "pin": "string",
-                "vendorCategoryId": parseInt(this.vendor.vendorCategoryId),
-                "vendorStatus": this.vendorStatus,
-                "notes1": this.vendor.notes1 || " ",
-                "notes2": this.vendor.notes2 || " ",
-                "glaccountTypeId": parseInt(this.vendor.glaccountTypeId),
-                "bankAccountDetailsId": null,
-                "isActive": this.vendorStatus,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
-                "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
-            };
-            // this.vendorService.updateVendor(vendorParams).subscribe((res:any) => {
-            //   if(res.message) {
-            //     this.isVendorSubmitted = false;
-            //     this.sharedService.setAlertMessage("Vendor updated successfully");
-            //     this.router.navigate(['ams/vendor/all-vendors', parseInt(this.vendor.vendorCategoryId)]);
-            //   }
-            //   else {
-            //     this.isVendorSubmitted = false;
-            //     this.isError = true;
-            //     this.alertMessage = res.errorMessage;
-            //   }
-            // },
-            // error => {
-            //   this.isVendorSubmitted = false;
-            //   this.isError = true;
-            //   this.alertMessage = "Some error occured";
-            // });
         }
     }
     ngOnInit() {
@@ -292,6 +235,7 @@ let CreateVendorComponent = class CreateVendorComponent {
         this.vendor.glaccountTypeId = "";
         this.vendor.vendorCategoryId = "";
         this.vendor.legalTypeId = "";
+        this.vendor.contactPerson = "";
         this.vendorTypeId = "";
         if (this.route.params['value'].id != undefined) {
             this.isEditVendor = true;
