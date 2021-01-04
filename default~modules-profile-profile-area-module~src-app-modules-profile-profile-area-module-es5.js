@@ -4533,11 +4533,13 @@
               canvas.height = ihScaled;
               ctx.drawImage(img, 0, 0, iwScaled, ihScaled);
               var params = {
-                emailId: _this39.user.emailId,
-                imageId: canvas.toDataURL('image/jpeg')
+                user: {
+                  emailId: _this39.user.emailId,
+                  image: canvas.toDataURL('image/jpeg')
+                }
               };
 
-              _this39.userService.updateUserPic(params).subscribe(function (res) {
+              _this39.userService.updateUserPic2(params).subscribe(function (res) {
                 _this39.isImageLoaded = true;
 
                 if (res.message) {
@@ -4549,6 +4551,8 @@
                   } else {
                     _this39.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
                   }
+
+                  _this39.profilePicUrl = canvas.toDataURL('image/jpeg');
                 } else {
                   _this39.sharedService.openSnackBar('Some error occured', 'error');
                 }

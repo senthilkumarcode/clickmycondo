@@ -2920,10 +2920,12 @@ let ProfilePicComponent = class ProfilePicComponent {
             canvas.height = ihScaled;
             ctx.drawImage(img, 0, 0, iwScaled, ihScaled);
             let params = {
-                emailId: this.user.emailId,
-                imageId: canvas.toDataURL('image/jpeg')
+                user: {
+                    emailId: this.user.emailId,
+                    image: canvas.toDataURL('image/jpeg')
+                }
             };
-            this.userService.updateUserPic(params).subscribe((res) => {
+            this.userService.updateUserPic2(params).subscribe((res) => {
                 this.isImageLoaded = true;
                 if (res.message) {
                     this.sharedService.openSnackBar('Picture updated', 'success');
@@ -2934,6 +2936,7 @@ let ProfilePicComponent = class ProfilePicComponent {
                     else {
                         this.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
                     }
+                    this.profilePicUrl = canvas.toDataURL('image/jpeg');
                 }
                 else {
                     this.sharedService.openSnackBar('Some error occured', 'error');

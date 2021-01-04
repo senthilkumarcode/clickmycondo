@@ -1286,7 +1286,7 @@ let AddStaffComponent = class AddStaffComponent {
                     this.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedEntryTime, 'HH:mm:ss').format();
                 }
                 if (image) {
-                    this.profilePicUrl = 'data:image/png;base64,' + image;
+                    this.profilePicUrl = image;
                     this.isFileUploaded = true;
                 }
             }, (error) => {

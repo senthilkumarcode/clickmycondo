@@ -1702,7 +1702,7 @@
                 }
 
                 if (image) {
-                  _this19.profilePicUrl = 'data:image/png;base64,' + image;
+                  _this19.profilePicUrl = image;
                   _this19.isFileUploaded = true;
                 }
               }, function (error) {
