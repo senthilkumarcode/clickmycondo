@@ -1100,7 +1100,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SetPermissionsComponent = class SetPermissionsComponent {
-    constructor(screenService, sharedService, activatedRoute, changeDetection, sessionService) {
+    constructor(_router, screenService, sharedService, activatedRoute, changeDetection, sessionService) {
+        this._router = _router;
         this.screenService = screenService;
         this.sharedService = sharedService;
         this.activatedRoute = activatedRoute;
@@ -1206,7 +1207,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
                     apartmentId: this.sessionService.apartmentId,
                     menuSecLevelFunctionId: data.functionId,
                     isActive: isActive,
-                    updatedBy: this.sessionService.userId,
+                    updatedBy: this.sessionService.roleId,
                 };
                 multipleApiCall.push(this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase));
             }
@@ -1220,6 +1221,10 @@ let SetPermissionsComponent = class SetPermissionsComponent {
                     return false;
             });
             if (success) {
+                let url = this._router.url;
+                this._router.navigateByUrl('/ams/dummy', { skipLocationChange: true }).then(() => {
+                    this._router.navigate(['/ams']);
+                });
                 this.changeDetection.detectChanges();
                 let operation = ['add', 'edit', 'display', 'delete'];
                 for (let menu of this.menuList) {
@@ -1257,6 +1262,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
     }
 };
 SetPermissionsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
@@ -1269,7 +1275,8 @@ SetPermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./set-permissions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./set-permissions.component.scss */ "./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],

@@ -1684,9 +1684,10 @@
       "./node_modules/rxjs/_esm2015/index.js");
 
       var SetPermissionsComponent = /*#__PURE__*/function () {
-        function SetPermissionsComponent(screenService, sharedService, activatedRoute, changeDetection, sessionService) {
+        function SetPermissionsComponent(_router, screenService, sharedService, activatedRoute, changeDetection, sessionService) {
           _classCallCheck(this, SetPermissionsComponent);
 
+          this._router = _router;
           this.screenService = screenService;
           this.sharedService = sharedService;
           this.activatedRoute = activatedRoute;
@@ -1818,7 +1819,7 @@
                   apartmentId: _this18.sessionService.apartmentId,
                   menuSecLevelFunctionId: data.functionId,
                   isActive: isActive,
-                  updatedBy: _this18.sessionService.userId
+                  updatedBy: _this18.sessionService.roleId
                 };
                 multipleApiCall.push(_this18.screenService.updateMenuSecLevelFunctionMapping(queryParamBase));
               }
@@ -1830,6 +1831,14 @@
               });
 
               if (success) {
+                var url = _this18._router.url;
+
+                _this18._router.navigateByUrl('/ams/dummy', {
+                  skipLocationChange: true
+                }).then(function () {
+                  _this18._router.navigate(['/ams']);
+                });
+
                 _this18.changeDetection.detectChanges();
 
                 var operation = ['add', 'edit', 'display', 'delete'];
@@ -1897,6 +1906,8 @@
 
       SetPermissionsComponent.ctorParameters = function () {
         return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        }, {
           type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
@@ -1917,7 +1928,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./set-permissions.component.scss */
         "./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], SetPermissionsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], SetPermissionsComponent);
       /***/
     }
   }]);
