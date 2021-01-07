@@ -1196,6 +1196,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
         this.isEnabled = this.actionList.every((data) => data.checked);
     }
     changeActions(event) {
+        console.log(event);
         let isActive = event.option._selected;
         this.isDataLoaded = false;
         let multipleApiCall = [];
@@ -1205,7 +1206,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
                     apartmentId: this.sessionService.apartmentId,
                     menuSecLevelFunctionId: data.functionId,
                     isActive: isActive,
-                    updatedBy: this.sessionService.roleId,
+                    updatedBy: this.sessionService.userId,
                 };
                 multipleApiCall.push(this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase));
             }

@@ -1808,6 +1808,7 @@
           value: function changeActions(event) {
             var _this18 = this;
 
+            console.log(event);
             var isActive = event.option._selected;
             this.isDataLoaded = false;
             var multipleApiCall = [];
@@ -1817,7 +1818,7 @@
                   apartmentId: _this18.sessionService.apartmentId,
                   menuSecLevelFunctionId: data.functionId,
                   isActive: isActive,
-                  updatedBy: _this18.sessionService.roleId
+                  updatedBy: _this18.sessionService.userId
                 };
                 multipleApiCall.push(_this18.screenService.updateMenuSecLevelFunctionMapping(queryParamBase));
               }
