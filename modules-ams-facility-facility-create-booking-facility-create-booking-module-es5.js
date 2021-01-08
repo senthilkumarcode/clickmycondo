@@ -48,7 +48,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"facility-create-booking-wrapper\">\n\t<div class=\"main\">\n\t\t<form #facilityBookingForm = \"ngForm\" name=\"facilityBookingForm\" novalidate>\n\t\t\t<!-- create,edit and view using Router -->\n\t\t\t<h4 class=\"mb-4\" *ngIf=\"!info.type\">\n\t\t\t\t<span *ngIf=\"urlType == 'create'\">Create Booking</span>\n\t\t\t\t<span *ngIf=\"urlType == 'edit'\">Edit Booking</span>\n\t\t\t\t<span *ngIf=\"urlType == 'view'\">View Booking</span>\n\t\t\t</h4>\n\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t\t</condo-message>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<!--Create,edit and view using popup -->\n\t\t\t\t<div class=\"d-flex mb-4\" *ngIf=\"info.type\">\n\t\t\t\t\t<h4>\n\t\t\t\t\t\t<span *ngIf=\"urlType == 'create'\">Create Booking</span>\n\t\t\t\t\t\t<span *ngIf=\"urlType == 'view'\">View Booking</span>\n\t\t\t\t\t</h4>\n\t\t\t\t\t<mat-icon class=\"ml-auto\" *ngIf=\"info.type\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t\t</div>\n\t\t\t\t<!-- Facility Details -->\n\t\t\t\t<div class=\"row text-center\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t\t\t<label>Booking For </label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input  name=\"isBookingforGuest\" id=\"Yes\" [(ngModel)]=\"booking.isBookingforGuest\" (click)=\"bookedForChange()\" [value]=\"true\" type=\"radio\"\n\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Guest</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input  name=\"isBookingforGuest\" id=\"No\" [(ngModel)]=\"booking.isBookingforGuest\" (click)=\"bookedForChange()\" [value]=\"false\" type=\"radio\"\n\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">User</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<h6 class=\"mb-4\">Facility Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Facility Name\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Facility Name\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"facilityCatList\"\n\t\t\t\t\t\t\tfieldValue=\"facilityName\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.apartmentFacilityId\"\n\t\t\t\t\t\t\tfieldId=\"apartmentFacilityId\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setFacility($event)\" \n\t\t\t\t\t\t  ></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<a *ngIf=\"booking.apartmentFacilityId && !info.type\" class=\"float-right\"  href=\"javascript:void(0)\" (click)=\"viewBookingDetails()\">View Booking Details</a>\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Select Date\"\n\t\t\t\t\t\t\tfieldName=\"eventDateTo\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.bookedForDate\"\n\t\t\t\t\t\t\t[min]=\"advanceBookingDate\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setBookedForDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t<!-- <input placeholder=\"Date:\"\n               [(ngModel)]=\"booking.bookedForDate\"\n               [owlDateTimeTrigger]=\"dt1\" [owlDateTime]=\"dt1\">\n        <owl-date-time [pickerType]=\"'calendar'\" #dt1></owl-date-time> -->\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentFacilityId && facilitySlotData?.length > 0\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Select Slot<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"slotId\" id=\"slotId\" class=\"form-control\" [(ngModel)]=\"booking.slotId\" (ngModelChange)=\"selectSlot()\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of facilitySlotData\" [ngValue]=\"item.apartmentFacilitySlotId\">\n\t\t\t\t\t\t\t\t{{getSlotTime(item.slotBeginTime)}} - {{getSlotTime(item.slotEndTime)}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentFacilityId && facilitySlotData?.length == 0 && booking.rateBaseId == 138\"> \n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>From Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"bookedFromTime\" [owlDateTime]=\"bookedFromTime\" [owlDateTimeTrigger]=\"bookedFromTime\" placeholder=\"Time\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"booking.bookedFromTime\" (dateTimeInput)=\"setMinTime()\" [disabled]=\"isDisable()\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #bookedFromTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookedFromTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentFacilityId && facilitySlotData?.length == 0 && booking.rateBaseId == 138\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>To Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"bookedToTime\" [owlDateTime]=\"bookedToTime\" [owlDateTimeTrigger]=\"bookedToTime\" placeholder=\"Time\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"booking.bookedToTime\" (dateTimeInput)=\"setMinTime()\" [disabled]=\"isDisable()\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #bookedToTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookedToTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<p class=\"error\" *ngIf=\"facilityBookingForm.controls.bookedToTime?.errors?.min\">Please Enter Min {{facilityBookingDetail.minHoursBooking}} Hours or Max {{facilityBookingDetail.minHoursBooking}} Hours</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Event Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Event Name\" name=\"eventName\" [(ngModel)]=\"booking.eventName\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t<help-tooltip title=\"eventName\"></help-tooltip>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Payment Details -->\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"showBookingDetail()\">\n\t\t\t\t<h6 class=\"mb-4\">Booking Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Security Amount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"securityDepositAmount\" [value]=\"booking.securityDepositAmount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"facilityBookingDetail\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Booking Amount Per {{ booking.rateBaseId == 138 ? 'Hour' : 'Day'}} ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"bookingAmoutPerRate\" [value]=\"facilityBookingDetail.amount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Cost ({{pesoValue}})*</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\" [value]=\"booking.amount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Tax ({{taxPecentage}}%)</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\" [value]=\"booking.tax\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Discount Amount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" (keyup)=\"calcDiscount()\" class=\"form-control\" placeholder=\"Discount\" name=\"discountAmt\" [(ngModel)]=\"booking.discount\" [disabled]=\"isDisable()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<!-- Need to integrate -->\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Membership Discount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" (keyup)=\"calcDiscount()\" class=\"form-control\" placeholder=\"MemberShip Discount\"  [(ngModel)]=\"booking.membershipDiscountAmount\" name=\"memberDiscount\" [disabled]=\"isDisable()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Final Booking Amount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total\" name=\"totalBillAmount\" [value]=\"booking.totalBillAmount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Unit Details -->\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t<h6 class=\"mb-4\">Unit Resident Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.apartmentBlockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentBlockId\">\n\t\t\t\t\t\t  <condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentBlockUnitId\">\n\t\t\t\t\t  <div class=\"input-box\">\n\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [value]=\"primaryName\" readonly>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Guest Details -->\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"booking.isBookingforGuest\">\n\t\t\t\t<h6 class=\"mb-4\">Guest Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Guest Name <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Guest Name\" name=\"guestName\" [(ngModel)]=\"booking.guestName\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t<help-tooltip title=\"guestName\"></help-tooltip>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Guest Phone <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Guest Phone\" name=\"guestPhone\" [(ngModel)]=\"booking.guestPhone\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relatioship To Guest <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Relationship\" name=\"guestRelation\" [(ngModel)]=\"booking.guestRelation\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No Of Guest To Attend <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Guest\" name=\"totalofguestsforevent\" [(ngModel)]=\"booking.totalofguestsforevent\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- booked for, comment box and status -->\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"booking.apartmentBlockUnitId && booking.isBookingforGuest\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<a *ngIf=\"urlType != 'view'\" class=\"ml-auto\" href=\"javascript:void(0)\" (click)=\"createVisitor()\">Create Visitor Pass</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Visitor Pass\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Visitor Pass\"\n\t\t\t\t\t\t\t[fieldList]=\"visitorsList | orderBy : 'expectedVisitorName'\"\n\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.neededUserId\"\n\t\t\t\t\t\t\tfieldId=\"expectedVisitorId\"\n\t\t\t\t\t\t\ttoolTip=\"visitorPass\"\n\t\t\t\t\t\t\t(fieldParams)=\"setVisitor($event)\" \n\t\t\t\t\t\t></condo-select> \n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Status\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Status\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"facilityStatus\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.facilityBookingStatusId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setStatus($event)\" \n\t\t\t\t\t\t  ></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Comment</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"Enter Comment\" name=\"comment\" [(ngModel)]=\"booking.comment\" [disabled]=\"isDisable()\"></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"termsCondion\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t  <label>Terms and Condition</label>\n\t\t\t\t\t\t  <textarea name=\"terms\" [value]=\"termsCondion\" readonly></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right mt-5\">\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isBookingSubmitted\"*ngIf=\"urlType=='create'\" (click)=\"createFacilityBooking()\">Create</submit-button>\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isBookingSubmitted\"*ngIf=\"urlType=='edit'\" (click)=\"updateFacilityBooking()\">Update</submit-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"facility-create-booking-wrapper\">\n\t<div class=\"main\">\n\t\t<form #facilityBookingForm = \"ngForm\" name=\"facilityBookingForm\" novalidate>\n\t\t\t<!-- create,edit and view using Router -->\n\t\t\t<h4 class=\"mb-4\" *ngIf=\"!info.type\">\n\t\t\t\t<span *ngIf=\"urlType == 'create'\">Create Booking</span>\n\t\t\t\t<span *ngIf=\"urlType == 'edit'\">Edit Booking</span>\n\t\t\t\t<span *ngIf=\"urlType == 'view'\">View Booking</span>\n\t\t\t</h4>\n\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t\t</condo-message>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<!--Create,edit and view using popup -->\n\t\t\t\t<div class=\"d-flex mb-4\" *ngIf=\"info.type\">\n\t\t\t\t\t<h4>\n\t\t\t\t\t\t<span *ngIf=\"urlType == 'create'\">Create Booking</span>\n\t\t\t\t\t\t<span *ngIf=\"urlType == 'view'\">View Booking</span>\n\t\t\t\t\t</h4>\n\t\t\t\t\t<mat-icon class=\"ml-auto\" *ngIf=\"info.type\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t\t</div>\n\t\t\t\t<!-- Facility Details -->\n\t\t\t\t<div class=\"row text-center\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t\t\t<label>Booking For </label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input  name=\"isBookingforGuest\" id=\"Yes\" [(ngModel)]=\"booking.isBookingforGuest\" (click)=\"bookedForChange()\" [value]=\"true\" type=\"radio\"\n\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Guest</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input  name=\"isBookingforGuest\" id=\"No\" [(ngModel)]=\"booking.isBookingforGuest\" (click)=\"bookedForChange()\" [value]=\"false\" type=\"radio\"\n\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">User</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<h6 class=\"mb-4\">Facility Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Facility Name\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Facility Name\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"facilityCatList\"\n\t\t\t\t\t\t\tfieldValue=\"facilityName\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.apartmentFacilityId\"\n\t\t\t\t\t\t\tfieldId=\"apartmentFacilityId\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setFacility($event)\" \n\t\t\t\t\t\t  ></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<a *ngIf=\"booking.apartmentFacilityId && !info.type\" class=\"float-right\"  href=\"javascript:void(0)\" (click)=\"viewBookingDetails()\">View Booking Details</a>\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Select Date\"\n\t\t\t\t\t\t\tfieldName=\"eventDateTo\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.bookedForDate\"\n\t\t\t\t\t\t\t[min]=\"advanceBookingDate\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setBookedForDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentFacilityId && facilitySlotData?.length > 0\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Select Slot<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"slotId\" id=\"slotId\" class=\"form-control\" [(ngModel)]=\"booking.slotId\" (ngModelChange)=\"selectSlot()\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of facilitySlotData\" [ngValue]=\"item.apartmentFacilitySlotId\">\n\t\t\t\t\t\t\t\t{{getSlotTime(item.slotBeginTime)}} - {{getSlotTime(item.slotEndTime)}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentFacilityId && facilitySlotData?.length == 0 && booking.rateBaseId == 138\"> \n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>From Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"bookedFromTime\" [owlDateTime]=\"bookedFromTime\" [owlDateTimeTrigger]=\"bookedFromTime\" placeholder=\"Time\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"booking.bookedFromTime\" (dateTimeInput)=\"setMinTime()\" [disabled]=\"isDisable()\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #bookedFromTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookedFromTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentFacilityId && facilitySlotData?.length == 0 && booking.rateBaseId == 138\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>To Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"bookedToTime\" [owlDateTime]=\"bookedToTime\" [owlDateTimeTrigger]=\"bookedToTime\" placeholder=\"Time\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"booking.bookedToTime\" (dateTimeInput)=\"setMinTime()\" [disabled]=\"isDisable()\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #bookedToTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"bookedToTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<p class=\"error\" *ngIf=\"facilityBookingForm.controls.bookedToTime?.errors?.min\">Please Enter Min {{facilityBookingDetail.minHoursBooking}} Hours or Max {{facilityBookingDetail.minHoursBooking}} Hours</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Event Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Event Name\" name=\"eventName\" [(ngModel)]=\"booking.eventName\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t<help-tooltip title=\"eventName\"></help-tooltip>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Payment Details -->\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"showBookingDetail()\">\n\t\t\t\t<h6 class=\"mb-4\">Booking Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Security Amount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"securityDepositAmount\" [value]=\"booking.securityDepositAmount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"facilityBookingDetail\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Booking Amount Per {{ booking.rateBaseId == 138 ? 'Hour' : 'Day'}} ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"bookingAmoutPerRate\" [value]=\"facilityBookingDetail.amount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Cost ({{pesoValue}})*</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\" [value]=\"booking.amount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Tax ({{taxPecentage}}%)</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\" [value]=\"booking.tax\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Discount Amount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" (keyup)=\"calcDiscount()\" class=\"form-control\" placeholder=\"Discount\" name=\"discountAmt\" [(ngModel)]=\"booking.discount\" [disabled]=\"isDisable()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<!-- Need to integrate -->\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Membership Discount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" (keyup)=\"calcDiscount()\" class=\"form-control\" placeholder=\"MemberShip Discount\"  [(ngModel)]=\"booking.membershipDiscountAmount\" name=\"memberDiscount\" [disabled]=\"isDisable()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Final Booking Amount ({{pesoValue}})</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total\" name=\"totalBillAmount\" [value]=\"booking.totalBillAmount\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Unit Details -->\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t<h6 class=\"mb-4\">Unit Resident Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.apartmentBlockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentBlockId\">\n\t\t\t\t\t\t  <condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"booking.apartmentBlockUnitId\">\n\t\t\t\t\t  <div class=\"input-box\">\n\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [value]=\"primaryName\" readonly>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Guest Details -->\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"booking.isBookingforGuest\">\n\t\t\t\t<h6 class=\"mb-4\">Guest Details</h6>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Guest Name <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Guest Name\" name=\"guestName\" [(ngModel)]=\"booking.guestName\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t<help-tooltip title=\"guestName\"></help-tooltip>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Guest Phone <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Guest Phone\" name=\"guestPhone\" [(ngModel)]=\"booking.guestPhone\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relatioship To Guest <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input  type=\"text\"  class=\"form-control\" placeholder=\"Relationship\" name=\"guestRelation\" [(ngModel)]=\"booking.guestRelation\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No Of Guest To Attend <span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Guest\" name=\"totalofguestsforevent\" [(ngModel)]=\"booking.totalofguestsforevent\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- booked for, comment box and status -->\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"booking.apartmentBlockUnitId && booking.isBookingforGuest\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<a *ngIf=\"urlType != 'view'\" class=\"ml-auto\" href=\"javascript:void(0)\" (click)=\"createVisitor()\">Create Visitor Pass</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Visitor Pass\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Visitor Pass\"\n\t\t\t\t\t\t\t[fieldList]=\"visitorsList | orderBy : 'expectedVisitorName'\"\n\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.neededUserId\"\n\t\t\t\t\t\t\tfieldId=\"expectedVisitorId\"\n\t\t\t\t\t\t\ttoolTip=\"visitorPass\"\n\t\t\t\t\t\t\t(fieldParams)=\"setVisitor($event)\" \n\t\t\t\t\t\t></condo-select> \n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Status\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Status\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"facilityStatus\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"booking.facilityBookingStatusId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"isDisable()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setStatus($event)\" \n\t\t\t\t\t\t  ></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Comment</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"Enter Comment\" name=\"comment\" [(ngModel)]=\"booking.comment\" [disabled]=\"isDisable()\"></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"termsCondion\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t  <label>Terms and Condition</label>\n\t\t\t\t\t\t  <textarea name=\"terms\" [value]=\"termsCondion\" readonly></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t\t<button class=\"mr-2\" *ngIf=\"urlType == 'create'\" class=\"ml-2\" mat-button (click)=\"resetField()\">Clear</button>\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isBookingSubmitted\"*ngIf=\"urlType=='create'\" (click)=\"createFacilityBooking()\">Create</submit-button>\n\t\t\t\t\t\t<button class=\"mr-2\" *ngIf=\"urlType == 'edit'\" class=\"ml-2\" mat-button (click)=\"back()\">Back</button>\n\t\t\t\t\t\t<submit-button [isSubmit]=\"isBookingSubmitted\"*ngIf=\"urlType=='edit'\" (click)=\"updateFacilityBooking()\">Update</submit-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -68,7 +68,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<form #expectedVisitorForm=\"ngForm\">\n\t\t\t<div class=\"bg-card shadow mb-0\">\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<h4 class=\"mb-4\">Create Expected Visitor</h4>\n\t\t\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t[min]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList | orderBy : 'lookupValueName'\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 float-right\">\n\t\t\t\t\t\t<submit-button (click)=\"createExpectedVisitor()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<form #expectedVisitorForm=\"ngForm\">\n\t\t\t<div class=\"bg-card shadow mb-0\">\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<h4 class=\"mb-4\">Create Expected Visitor</h4>\n\t\t\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t\t</div>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Expected Date/Time of Visit\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorInDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Expected Out/Time of Visit\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorOutDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList | orderBy : 'lookupValueName'\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 float-right\">\n\t\t\t\t\t\t<submit-button (click)=\"createExpectedVisitor()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -789,6 +789,12 @@
       var _facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ../facility-modal/facility-modal.component */
       "./src/app/modules/ams/facility/facility-create-booking/facility-modal/facility-modal.component.ts");
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var FacilityCreateBookingComponent = /*#__PURE__*/function () {
         function FacilityCreateBookingComponent(router, route, userService, changeDetect, facilityService, lookupService, sharedService, apartmentService, sessionService, dialog, visitorService) {
@@ -826,7 +832,7 @@
             tax: null
           };
           this.primaryName = '';
-          this.advanceBookingDate = new Date();
+          this.advanceBookingDate = moment__WEBPACK_IMPORTED_MODULE_10__();
           this.route.url.subscribe(function (data) {
             var path = data[0].path;
             if (path == 'create-booking') _this5.urlType = 'create';else if (path == 'edit-booking') _this5.urlType = 'edit';else if (path == 'view-booking') _this5.urlType = 'view';
@@ -834,6 +840,15 @@
         }
 
         _createClass(FacilityCreateBookingComponent, [{
+          key: "resetField",
+          value: function resetField() {
+            var radio = this.booking.isBookingforGuest;
+            this.booking = {};
+            this.facilityBookingForm.reset();
+            this.booking.isBookingforGuest = radio;
+            this.booking.bookedForDate = moment__WEBPACK_IMPORTED_MODULE_10__();
+          }
+        }, {
           key: "setBookedForDate",
           value: function setBookedForDate(event) {
             this.booking.bookedForDate = event;
@@ -912,7 +927,12 @@
             if (selectedFacility.length > 0) {
               this.facilityBookingDetail = selectedFacility[0];
               var advanceBookingDays = selectedFacility[0].advanceBookingindays;
-              if (advanceBookingDays) this.advanceBookingDate = moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).add(advanceBookingDays, 'days').utc().format();
+
+              if (advanceBookingDays) {
+                this.advanceBookingDate = moment__WEBPACK_IMPORTED_MODULE_10__().add(advanceBookingDays, 'days');
+                this.booking.bookedForDate = this.advanceBookingDate;
+              }
+
               this.booking.securityDepositAmount = this.facilityBookingDetail.cautionDeposit;
               this.booking.rateBaseId = this.facilityBookingDetail.rateBaseId;
               if (this.facilityBookingDetail.apartmentFacilitySlot.length > 0) this.facilitySlotData = selectedFacility[0].apartmentFacilitySlot;else {
@@ -953,7 +973,7 @@
           key: "getSlotTime",
           value: function getSlotTime(time) {
             var date = moment__WEBPACK_IMPORTED_MODULE_10__(time, 'HH:mm:ss').toDate();
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format('HH:mm A');
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format('hh:mm A');
           }
         }, {
           key: "selectSlot",
@@ -1129,18 +1149,22 @@
             this.booking.neededUserId = event[0].expectedVisitorId;
           }
         }, {
+          key: "routerConfig",
+          value: function routerConfig() {
+            if (this.isAdmin()) {
+              if (this.booking.facilityBookingStatusId == 188) this.router.navigate(['/ams/facility/bookings-status/confirmed']);else if (this.booking.facilityBookingStatusId == 189) this.router.navigate(['/ams/facility/bookings-status/pending']);else if (this.booking.facilityBookingStatusId == 208) this.router.navigate(['/ams/facility/bookings-status/cancelled']);else if (this.booking.facilityBookingStatusId == 385) this.router.navigate(['/ams/facility/bookings-status/rejected']);
+            } else {
+              this.router.navigate(['/user/facility/bookings/all-bookings']);
+            }
+          }
+        }, {
           key: "pageNavigate",
           value: function pageNavigate(res, type) {
             if (res.message) {
               if (this.info.type == 'create') //popup
                 this.modalResult.emit(true);else {
                 if (type == 'create') this.sharedService.openSnackBar('ApartmentFacilityBooking Created', 'success');else this.sharedService.openSnackBar('ApartmentFacilityBooking Updated', 'success');
-
-                if (this.isAdmin()) {
-                  if (this.booking.facilityBookingStatusId == 188) this.router.navigate(['/ams/facility/bookings-status/confirmed']);else if (this.booking.facilityBookingStatusId == 189) this.router.navigate(['/ams/facility/bookings-status/pending']);else if (this.booking.facilityBookingStatusId == 208) this.router.navigate(['/ams/facility/bookings-status/cancelled']);else if (this.booking.facilityBookingStatusId == 385) this.router.navigate(['/ams/facility/bookings-status/rejected']);
-                } else {
-                  this.router.navigate(['/user/facility/bookings/all-bookings']);
-                }
+                this.routerConfig();
               }
             } else {
               this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -1299,9 +1323,27 @@
             }
           }
         }, {
+          key: "back",
+          value: function back() {
+            var _this12 = this;
+
+            var message = "Are you sure, you want to exit the screen ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                _this12.routerConfig();
+              }
+            });
+          }
+        }, {
           key: "editFacilityBooking",
           value: function editFacilityBooking(id) {
-            var _this12 = this;
+            var _this13 = this;
 
             var params = {
               apartmentFacilityBookingId: id
@@ -1312,24 +1354,23 @@
                   bookedToTime = _a.bookedToTime,
                   bookedForDate = _a.bookedForDate,
                   response = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["bookedFromTime", "bookedToTime", "bookedForDate"]);
-              _this12.booking = response;
-              _this12.booking.bookedFromTime = moment__WEBPACK_IMPORTED_MODULE_10__(bookedFromTime, 'HH:mm:ss');
-              _this12.booking.bookedToTime = moment__WEBPACK_IMPORTED_MODULE_10__(bookedToTime, 'HH:mm:ss');
-              _this12.booking.bookedForDate = moment__WEBPACK_IMPORTED_MODULE_10__(bookedForDate);
+              _this13.booking = response;
+              _this13.booking.bookedFromTime = moment__WEBPACK_IMPORTED_MODULE_10__(bookedFromTime, 'HH:mm:ss');
+              _this13.booking.bookedToTime = moment__WEBPACK_IMPORTED_MODULE_10__(bookedToTime, 'HH:mm:ss');
 
-              _this12.getFacilityCategoryList().subscribe(function (facility) {
+              _this13.getFacilityCategoryList().subscribe(function (facility) {
                 if (res.length > 0) {
-                  _this12.facilityCatList = facility;
+                  _this13.facilityCatList = facility;
 
-                  _this12.selectFacility(null);
+                  _this13.selectFacility(null);
                 }
               });
 
-              _this12.getTower().subscribe(function (tower) {
+              _this13.getTower().subscribe(function (tower) {
                 if (res.length > 0) {
-                  _this12.towerList = tower;
+                  _this13.towerList = tower;
 
-                  _this12.getUnits('edit');
+                  _this13.getUnits('edit');
                 }
               });
             });
@@ -1337,18 +1378,21 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this13.timeZone = timeZone;
+              return _this14.timeZone = timeZone;
             }); // Set TimeZone 
 
-            this.route.parent.parent.parent.data.subscribe(function (data) {
-              if (data) {
-                var response = data.initialData.apartment;
-                _this13.selectedCountryISO = response.country.toLowerCase();
-              }
-            }); //User Login
+            if (this.route.parent) {
+              this.route.parent.parent.parent.data.subscribe(function (data) {
+                if (data) {
+                  var response = data.initialData.apartment;
+                  _this14.selectedCountryISO = response.country.toLowerCase();
+                }
+              });
+            } //User Login
+
 
             if (!this.isAdmin()) {
               this.booking.apartmentBlockId = this.sessionService.apartmentBlockID;
@@ -1362,7 +1406,7 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                if (res.length > 0) _this13.facilityStatus = res;
+                if (res.length > 0) _this14.facilityStatus = res;
               });
             }
 
@@ -1375,18 +1419,18 @@
               // Facility Category List 
               this.getFacilityCategoryList().subscribe(function (res) {
                 if (res.length > 0) {
-                  _this13.facilityCatList = res;
+                  _this14.facilityCatList = res;
 
-                  if (_this13.info.type) {
-                    var calendarInfo = _this13.info.calendarData;
-                    _this13.booking.apartmentFacilityId = Number(calendarInfo.resource._resource.id);
-                    _this13.booking.bookedForDate = moment__WEBPACK_IMPORTED_MODULE_10__(calendarInfo.startStr).format(), _this13.selectFacility(null);
+                  if (_this14.info.type) {
+                    var calendarInfo = _this14.info.calendarData;
+                    _this14.booking.apartmentFacilityId = Number(calendarInfo.resource._resource.id);
+                    _this14.booking.bookedForDate = moment__WEBPACK_IMPORTED_MODULE_10__(calendarInfo.startStr).format(), _this14.selectFacility(null);
                   }
                 }
               }); // Tower List
 
               this.getTower().subscribe(function (res) {
-                if (res.length > 0) _this13.towerList = res;
+                if (res.length > 0) _this14.towerList = res;
               });
             } // Currency Type
 
@@ -1396,7 +1440,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(pesoParams).subscribe(function (res) {
-              if (res.length > 0) _this13.pesoValue = res[0].lookupValueName;
+              if (res.length > 0) _this14.pesoValue = res[0].lookupValueName;
             }); // Tax List
 
             var taxListParams = {
@@ -1405,7 +1449,7 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(taxListParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this13.taxPecentage = parseInt(res[0].lookupValueName);
+                _this14.taxPecentage = parseInt(res[0].lookupValueName);
               }
             });
 
@@ -1609,10 +1653,21 @@
           this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
           this.message = null;
           this.selectedCountryISO = "";
-          this.selectedCountryISO = this.info.location;
         }
 
         _createClass(FacilityExpectedVisitorComponent, [{
+          key: "getExpectedVisitorInDate",
+          value: function getExpectedVisitorInDate(event) {
+            this.visitor.expectedVisitorInTime = event;
+            this.expectedDurationChange();
+          }
+        }, {
+          key: "getExpectedVisitorOutDate",
+          value: function getExpectedVisitorOutDate(event) {
+            this.visitor.expectedVisitorOutTime = event;
+            this.expectedDurationChange();
+          }
+        }, {
           key: "expectedDurationChange",
           value: function expectedDurationChange() {
             if (this.visitor.expectedVisitorInTime && this.visitor.expectedVisitorOutTime) {
@@ -1622,7 +1677,7 @@
               this.expectedDurationInfo = diffDuration.days() + " days " + this.isSingleDigit(diffDuration.hours()) + ":" + this.isSingleDigit(diffDuration.minutes()) + " hours";
               var hours = diffDuration.asHours();
               this.visitor.expectedDuration = Math.round(hours);
-            } else this.visitor.expectedVisitorOutTime = '';
+            }
           }
         }, {
           key: "isSingleDigit",
@@ -1644,7 +1699,7 @@
         }, {
           key: "createExpectedVisitor",
           value: function createExpectedVisitor() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.isDataSubmitted = true;
             this.message = null;
@@ -1685,10 +1740,10 @@
                 })
               };
               this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
-                _this14.isDataSubmitted = false;
+                _this15.isDataSubmitted = false;
 
                 if (res.message) {
-                  _this14.modalResult.emit({
+                  _this15.modalResult.emit({
                     message: 'success',
                     id: res.message
                   });
@@ -1699,10 +1754,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this15.timeZone = timeZone;
+              return _this16.timeZone = timeZone;
             });
             this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_4__().add(this.timeZone.offset, 'hours');
             this.resetField(); //visit type
@@ -1712,7 +1767,7 @@
               LookupTypeId: 15
             };
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this15.visitTypeList = res;
+              _this16.visitTypeList = res;
             }); //Visit Category
 
             var visitCategoryParams = {
@@ -1720,8 +1775,9 @@
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this15.visitCategoryList = res;
+              _this16.visitCategoryList = res;
             });
+            this.selectedCountryISO = this.info.location;
           }
         }]);
 
@@ -2008,7 +2064,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this16 = this;
+            var _this17 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2021,7 +2077,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this16.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this17.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2037,7 +2093,7 @@
         }, {
           key: "getBookingList",
           value: function getBookingList() {
-            var _this17 = this;
+            var _this18 = this;
 
             this.isBookingDataLoaded = false;
             var params = {
@@ -2050,17 +2106,17 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this17.totalItems = facility.localdata.length;
-                _this17.bookingListData = new jqx.dataAdapter(facility);
+                _this18.totalItems = facility.localdata.length;
+                _this18.bookingListData = new jqx.dataAdapter(facility);
               }
 
-              _this17.isBookingDataLoaded = true;
+              _this18.isBookingDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this19 = this;
 
             this.getBookingList();
 
@@ -2098,7 +2154,7 @@
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var time,
                     fromTime,
-                    toTime = _this18.bookingListData.loadedData[row].bookedToTime;
+                    toTime = _this19.bookingListData.loadedData[row].bookedToTime;
 
                 if (value && toTime) {
                   fromTime = moment__WEBPACK_IMPORTED_MODULE_6__(value, 'HH:mm:ss').format('hh:mm A');
@@ -2120,7 +2176,7 @@
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var time,
                     toTime,
-                    fromTime = _this18.bookingListData.loadedData[row].bookedFromTime;
+                    fromTime = _this19.bookingListData.loadedData[row].bookedFromTime;
 
                 if (fromTime && value) {
                   fromTime = moment__WEBPACK_IMPORTED_MODULE_6__(fromTime, 'HH:mm:ss').format();
@@ -2196,7 +2252,7 @@
                   status = 'red';
                 }
 
-                return "<div class=\"jqx-custom-inner-cell\">\n          <div class=\"status-badge bg-status-".concat(status, "-700\">\n            <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this18.bookingListData.loadedData[row].facilityBookingStatusId_Label, "</span>\n          </div>\n        </div>");
+                return "<div class=\"jqx-custom-inner-cell\">\n          <div class=\"status-badge bg-status-".concat(status, "-700\">\n            <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this19.bookingListData.loadedData[row].facilityBookingStatusId_Label, "</span>\n          </div>\n        </div>");
               },
               cellsalign: 'center',
               align: 'center',
@@ -2214,24 +2270,24 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this18.datagrid.getrowdata(id);
+                var dataRecord = _this19.datagrid.getrowdata(id);
 
                 var params = {
                   apartmentFacilityBookingId: dataRecord.apartmentFacilityBookingId,
-                  deleteBy: parseInt(_this18.sessionService.userId)
+                  deleteBy: parseInt(_this19.sessionService.userId)
                 };
 
-                _this18.facilityService.deleteApartmentFacilityBooking(params).subscribe(function (res) {
-                  _this18.sharedService.setUnitListDeleteIndex(null);
+                _this19.facilityService.deleteApartmentFacilityBooking(params).subscribe(function (res) {
+                  _this19.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this18.datagrid.deleterow(id);
+                    _this19.datagrid.deleterow(id);
 
-                    _this18.datagrid.refresh();
+                    _this19.datagrid.refresh();
 
-                    _this18.sharedService.openSnackBar(res.message, 'success');
+                    _this19.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this19.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
