@@ -117,19 +117,25 @@
   <script src="assets/graph-creator/d3.v3.min.js" charset="utf-8"></script>
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
   <script>
+   
    var OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-      OneSignal.init({
-        appId: 'e48df6c5-a9e0-43f8-8177-c84f57b9a130',
-        autoRegister: false, 
-        httpPermissionRequest: {
-            enable: true
-        },
-        notifyButton: {
-            enable: true 
-        }
-      });
+
+   OneSignal.push(() => {
+    OneSignal.init({
+      appId: "e48df6c5-a9e0-43f8-8177-c84f57b9a130",
+      autoRegister: false,
+      notifyButton: {
+        enable: true,
+      },
     });
+    OneSignal.registerForPushNotifications();
+  });
+
+  OneSignal.push(() => {
+      OneSignal.getUserId(userId => {
+        console.log(userId)
+      });
+  });
 
 
   </script>
