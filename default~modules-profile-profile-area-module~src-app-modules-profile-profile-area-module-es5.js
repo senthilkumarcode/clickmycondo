@@ -199,6 +199,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html":
+    /*!******************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html ***!
+      \******************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesProfileProfilePermissionsProfilePermissionsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"profile-permissions-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Permissions</h4>\n\n    <div class=\"bg-card\">\n        <div class=\"py-2\">\n            <mat-checkbox [color]=\"'primary'\" [formControlName]=\"'pushNotifications'\">Push Notifications</mat-checkbox>\n        </div>\n    </div> \n\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-pet-details/profile-pet-details.component.html":
     /*!******************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-pet-details/profile-pet-details.component.html ***!
@@ -1486,10 +1506,15 @@
         slug: 'password',
         icon: 'feather:lock'
       }, {
-        id: '7c004a19-4506-a3c7-93ab-f16381302e3b',
+        id: '7c004a19-4506-a3c7-93ab-g54738902e3b',
         title: 'Time Zone',
         slug: 'timezone',
         icon: 'feather:clock'
+      }, {
+        id: '7c004a19-4506-a3c7-93ab-h943568e3b',
+        title: 'Permissions',
+        slug: 'permissions',
+        icon: 'feather:shield'
       }];
       /***/
     },
@@ -1627,6 +1652,12 @@
       var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./profile-document/profile-document.component */
       "./src/app/modules/profile/profile-document/profile-document.component.ts");
+      /* harmony import */
+
+
+      var _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      /*! ./profile-permissions/profile-permissions.component */
+      "./src/app/modules/profile/profile-permissions/profile-permissions.component.ts");
 
       var routes = [{
         path: '',
@@ -1677,6 +1708,9 @@
         }, {
           path: 'timezone',
           component: _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__["ProfileTimezoneComponent"]
+        }, {
+          path: 'permissions',
+          component: _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_18__["ProfilePermissionsComponent"]
         }, {
           path: '**',
           redirectTo: 'basic',
@@ -2131,13 +2165,19 @@
       var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
+      /* harmony import */
+
+
+      var _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
+      /*! ./profile-permissions/profile-permissions.component */
+      "./src/app/modules/profile/profile-permissions/profile-permissions.component.ts");
 
       var ProfileAreaModule = function ProfileAreaModule() {
         _classCallCheck(this, ProfileAreaModule);
       };
 
       ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_14__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_17__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_19__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_21__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_23__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_24__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_26__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_27__["ProfileLeaseInfoComponent"], _create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_28__["CreateLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_29__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_30__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_31__["PropertyManagerCreateComponent"], _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_32__["ProfileUserAbsenceHistoryComponent"], _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_34__["ProfileTimezoneComponent"], _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_35__["ProfileDocumentComponent"]],
+        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_14__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_17__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_19__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_21__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_23__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_24__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_26__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_27__["ProfileLeaseInfoComponent"], _create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_28__["CreateLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_29__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_30__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_31__["PropertyManagerCreateComponent"], _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_32__["ProfileUserAbsenceHistoryComponent"], _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_34__["ProfileTimezoneComponent"], _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_35__["ProfileDocumentComponent"], _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_38__["ProfilePermissionsComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]), _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProfileAreaRoutingModule"], src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_37__["CondoMessageModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_12__["DatepickerModule"].forRoot(), src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__["CondoScrollbarModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_33__["NgxIntlTelInputModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_36__["HelpTooltipModule"]],
         bootstrap: [_profile_area_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaComponent"]]
       })], ProfileAreaModule);
@@ -3780,6 +3820,87 @@
         /*! ./profile-password.component.scss */
         "./src/app/modules/profile/profile-password/profile-password.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"]])], ProfilePasswordComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-permissions/profile-permissions.component.scss":
+    /*!****************************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-permissions/profile-permissions.component.scss ***!
+      \****************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesProfileProfilePermissionsProfilePermissionsComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLXBlcm1pc3Npb25zL3Byb2ZpbGUtcGVybWlzc2lvbnMuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-permissions/profile-permissions.component.ts":
+    /*!**************************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-permissions/profile-permissions.component.ts ***!
+      \**************************************************************************************/
+
+    /*! exports provided: ProfilePermissionsComponent */
+
+    /***/
+    function srcAppModulesProfileProfilePermissionsProfilePermissionsComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ProfilePermissionsComponent", function () {
+        return ProfilePermissionsComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+      var ProfilePermissionsComponent = /*#__PURE__*/function () {
+        function ProfilePermissionsComponent() {
+          _classCallCheck(this, ProfilePermissionsComponent);
+        }
+
+        _createClass(ProfilePermissionsComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return ProfilePermissionsComponent;
+      }();
+
+      ProfilePermissionsComponent.ctorParameters = function () {
+        return [];
+      };
+
+      ProfilePermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile-permissions',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./profile-permissions.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./profile-permissions.component.scss */
+        "./src/app/modules/profile/profile-permissions/profile-permissions.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ProfilePermissionsComponent);
       /***/
     },
 

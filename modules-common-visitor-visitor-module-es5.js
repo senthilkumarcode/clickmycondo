@@ -48,7 +48,7 @@
 
       var qrcode__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! qrcode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/browser.js");
+      "./node_modules/qrcode/lib/browser.js");
       /* harmony import */
 
 
@@ -548,49 +548,197 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/isarray/index.js":
-    /*!********************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/isarray/index.js ***!
-      \********************************************************************/
+    "./node_modules/dijkstrajs/dijkstra.js":
+    /*!*********************************************!*\
+      !*** ./node_modules/dijkstrajs/dijkstra.js ***!
+      \*********************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesIsarrayIndexJs(module, exports) {
-      var toString = {}.toString;
+    function node_modulesDijkstrajsDijkstraJs(module, exports, __webpack_require__) {
+      "use strict";
+      /******************************************************************************
+       * Created 2008-08-19.
+       *
+       * Dijkstra path-finding functions. Adapted from the Dijkstar Python project.
+       *
+       * Copyright (C) 2008
+       *   Wyatt Baldwin <self@wyattbaldwin.com>
+       *   All rights reserved
+       *
+       * Licensed under the MIT license.
+       *
+       *   http://www.opensource.org/licenses/mit-license.php
+       *
+       * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+       * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+       * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+       * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+       * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+       * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+       * THE SOFTWARE.
+       *****************************************************************************/
 
-      module.exports = Array.isArray || function (arr) {
-        return toString.call(arr) == '[object Array]';
-      };
+      var dijkstra = {
+        single_source_shortest_paths: function single_source_shortest_paths(graph, s, d) {
+          // Predecessor map for each node that has been encountered.
+          // node ID => predecessor node ID
+          var predecessors = {}; // Costs of shortest paths from s to all nodes encountered.
+          // node ID => cost
+
+          var costs = {};
+          costs[s] = 0; // Costs of shortest paths from s to all nodes encountered; differs from
+          // `costs` in that it provides easy access to the node that currently has
+          // the known shortest path from s.
+          // XXX: Do we actually need both `costs` and `open`?
+
+          var open = dijkstra.PriorityQueue.make();
+          open.push(s, 0);
+          var closest, u, v, cost_of_s_to_u, adjacent_nodes, cost_of_e, cost_of_s_to_u_plus_cost_of_e, cost_of_s_to_v, first_visit;
+
+          while (!open.empty()) {
+            // In the nodes remaining in graph that have a known cost from s,
+            // find the node, u, that currently has the shortest path from s.
+            closest = open.pop();
+            u = closest.value;
+            cost_of_s_to_u = closest.cost; // Get nodes adjacent to u...
+
+            adjacent_nodes = graph[u] || {}; // ...and explore the edges that connect u to those nodes, updating
+            // the cost of the shortest paths to any or all of those nodes as
+            // necessary. v is the node across the current edge from u.
+
+            for (v in adjacent_nodes) {
+              if (adjacent_nodes.hasOwnProperty(v)) {
+                // Get the cost of the edge running from u to v.
+                cost_of_e = adjacent_nodes[v]; // Cost of s to u plus the cost of u to v across e--this is *a*
+                // cost from s to v that may or may not be less than the current
+                // known cost to v.
+
+                cost_of_s_to_u_plus_cost_of_e = cost_of_s_to_u + cost_of_e; // If we haven't visited v yet OR if the current known cost from s to
+                // v is greater than the new cost we just found (cost of s to u plus
+                // cost of u to v across e), update v's cost in the cost list and
+                // update v's predecessor in the predecessor list (it's now u).
+
+                cost_of_s_to_v = costs[v];
+                first_visit = typeof costs[v] === 'undefined';
+
+                if (first_visit || cost_of_s_to_v > cost_of_s_to_u_plus_cost_of_e) {
+                  costs[v] = cost_of_s_to_u_plus_cost_of_e;
+                  open.push(v, cost_of_s_to_u_plus_cost_of_e);
+                  predecessors[v] = u;
+                }
+              }
+            }
+          }
+
+          if (typeof d !== 'undefined' && typeof costs[d] === 'undefined') {
+            var msg = ['Could not find a path from ', s, ' to ', d, '.'].join('');
+            throw new Error(msg);
+          }
+
+          return predecessors;
+        },
+        extract_shortest_path_from_predecessor_list: function extract_shortest_path_from_predecessor_list(predecessors, d) {
+          var nodes = [];
+          var u = d;
+          var predecessor;
+
+          while (u) {
+            nodes.push(u);
+            predecessor = predecessors[u];
+            u = predecessors[u];
+          }
+
+          nodes.reverse();
+          return nodes;
+        },
+        find_path: function find_path(graph, s, d) {
+          var predecessors = dijkstra.single_source_shortest_paths(graph, s, d);
+          return dijkstra.extract_shortest_path_from_predecessor_list(predecessors, d);
+        },
+
+        /**
+         * A very naive priority queue implementation.
+         */
+        PriorityQueue: {
+          make: function make(opts) {
+            var T = dijkstra.PriorityQueue,
+                t = {},
+                key;
+            opts = opts || {};
+
+            for (key in T) {
+              if (T.hasOwnProperty(key)) {
+                t[key] = T[key];
+              }
+            }
+
+            t.queue = [];
+            t.sorter = opts.sorter || T.default_sorter;
+            return t;
+          },
+          default_sorter: function default_sorter(a, b) {
+            return a.cost - b.cost;
+          },
+
+          /**
+           * Add a new item to the queue and ensure the highest priority element
+           * is at the front of the queue.
+           */
+          push: function push(value, cost) {
+            var item = {
+              value: value,
+              cost: cost
+            };
+            this.queue.push(item);
+            this.queue.sort(this.sorter);
+          },
+
+          /**
+           * Return the highest priority element in the queue.
+           */
+          pop: function pop() {
+            return this.queue.shift();
+          },
+          empty: function empty() {
+            return this.queue.length === 0;
+          }
+        }
+      }; // node.js module exports
+
+      if (true) {
+        module.exports = dijkstra;
+      }
       /***/
 
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/browser.js":
-    /*!*************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/browser.js ***!
-      \*************************************************************************/
+    "./node_modules/qrcode/lib/browser.js":
+    /*!********************************************!*\
+      !*** ./node_modules/qrcode/lib/browser.js ***!
+      \********************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibBrowserJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibBrowserJs(module, exports, __webpack_require__) {
       var canPromise = __webpack_require__(
       /*! ./can-promise */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/can-promise.js");
+      "./node_modules/qrcode/lib/can-promise.js");
 
       var QRCode = __webpack_require__(
       /*! ./core/qrcode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/qrcode.js");
+      "./node_modules/qrcode/lib/core/qrcode.js");
 
       var CanvasRenderer = __webpack_require__(
       /*! ./renderer/canvas */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/canvas.js");
+      "./node_modules/qrcode/lib/renderer/canvas.js");
 
       var SvgRenderer = __webpack_require__(
       /*! ./renderer/svg-tag.js */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/svg-tag.js");
+      "./node_modules/qrcode/lib/renderer/svg-tag.js");
 
       function renderCanvas(renderFunc, canvas, text, opts, cb) {
         var args = [].slice.call(arguments, 1);
@@ -664,15 +812,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/can-promise.js":
-    /*!*****************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/can-promise.js ***!
-      \*****************************************************************************/
+    "./node_modules/qrcode/lib/can-promise.js":
+    /*!************************************************!*\
+      !*** ./node_modules/qrcode/lib/can-promise.js ***!
+      \************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCanPromiseJs(module, exports) {
+    function node_modulesQrcodeLibCanPromiseJs(module, exports) {
       // can-promise has a crash in some versions of react native that dont have
       // standard global objects
       // https://github.com/soldair/node-qrcode/issues/157
@@ -684,15 +832,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/alignment-pattern.js":
-    /*!****************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/alignment-pattern.js ***!
-      \****************************************************************************************/
+    "./node_modules/qrcode/lib/core/alignment-pattern.js":
+    /*!***********************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/alignment-pattern.js ***!
+      \***********************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreAlignmentPatternJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreAlignmentPatternJs(module, exports, __webpack_require__) {
       /**
        * Alignment pattern are fixed reference pattern in defined positions
        * in a matrix symbology, which enables the decode software to re-synchronise
@@ -704,7 +852,7 @@
        */
       var getSymbolSize = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js").getSymbolSize;
+      "./node_modules/qrcode/lib/core/utils.js").getSymbolSize;
       /**
        * Calculate the row/column coordinates of the center module of each alignment pattern
        * for the specified QR Code version.
@@ -784,18 +932,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/alphanumeric-data.js":
-    /*!****************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/alphanumeric-data.js ***!
-      \****************************************************************************************/
+    "./node_modules/qrcode/lib/core/alphanumeric-data.js":
+    /*!***********************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/alphanumeric-data.js ***!
+      \***********************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreAlphanumericDataJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreAlphanumericDataJs(module, exports, __webpack_require__) {
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
       /**
        * Array of characters available in alphanumeric mode
        *
@@ -851,15 +999,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/bit-buffer.js":
-    /*!*********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/bit-buffer.js ***!
-      \*********************************************************************************/
+    "./node_modules/qrcode/lib/core/bit-buffer.js":
+    /*!****************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/bit-buffer.js ***!
+      \****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreBitBufferJs(module, exports) {
+    function node_modulesQrcodeLibCoreBitBufferJs(module, exports) {
       function BitBuffer() {
         this.buffer = [];
         this.length = 0;
@@ -897,18 +1045,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/bit-matrix.js":
-    /*!*********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/bit-matrix.js ***!
-      \*********************************************************************************/
+    "./node_modules/qrcode/lib/core/bit-matrix.js":
+    /*!****************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/bit-matrix.js ***!
+      \****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreBitMatrixJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreBitMatrixJs(module, exports, __webpack_require__) {
       var Buffer = __webpack_require__(
       /*! ../utils/buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js");
+      "./node_modules/qrcode/lib/utils/typedarray-buffer.js");
       /**
        * Helper class to handle QR Code symbol modules
        *
@@ -986,22 +1134,22 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/byte-data.js":
-    /*!********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/byte-data.js ***!
-      \********************************************************************************/
+    "./node_modules/qrcode/lib/core/byte-data.js":
+    /*!***************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/byte-data.js ***!
+      \***************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreByteDataJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreByteDataJs(module, exports, __webpack_require__) {
       var Buffer = __webpack_require__(
       /*! ../utils/buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js");
+      "./node_modules/qrcode/lib/utils/typedarray-buffer.js");
 
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
 
       function ByteData(data) {
         this.mode = Mode.BYTE;
@@ -1031,18 +1179,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-code.js":
-    /*!********************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-code.js ***!
-      \********************************************************************************************/
+    "./node_modules/qrcode/lib/core/error-correction-code.js":
+    /*!***************************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/error-correction-code.js ***!
+      \***************************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreErrorCorrectionCodeJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreErrorCorrectionCodeJs(module, exports, __webpack_require__) {
       var ECLevel = __webpack_require__(
       /*! ./error-correction-level */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-level.js");
+      "./node_modules/qrcode/lib/core/error-correction-level.js");
 
       var EC_BLOCKS_TABLE = [// L  M  Q  H
       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 2, 2, 4, 1, 2, 4, 4, 2, 4, 4, 4, 2, 4, 6, 5, 2, 4, 6, 6, 2, 5, 8, 8, 4, 5, 8, 8, 4, 5, 8, 11, 4, 8, 10, 11, 4, 9, 12, 16, 4, 9, 16, 16, 6, 10, 12, 18, 6, 10, 17, 16, 6, 11, 16, 19, 6, 13, 18, 21, 7, 14, 21, 25, 8, 16, 20, 25, 8, 17, 23, 25, 9, 17, 23, 34, 9, 18, 25, 30, 10, 20, 27, 32, 12, 21, 29, 35, 12, 23, 34, 37, 12, 25, 34, 40, 13, 26, 35, 42, 14, 28, 38, 45, 15, 29, 40, 48, 16, 31, 43, 51, 17, 33, 45, 54, 18, 35, 48, 57, 19, 37, 51, 60, 19, 38, 53, 63, 20, 40, 56, 66, 21, 43, 59, 70, 22, 45, 62, 74, 24, 47, 65, 77, 25, 49, 68, 81];
@@ -1108,15 +1256,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-level.js":
-    /*!*********************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-level.js ***!
-      \*********************************************************************************************/
+    "./node_modules/qrcode/lib/core/error-correction-level.js":
+    /*!****************************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/error-correction-level.js ***!
+      \****************************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreErrorCorrectionLevelJs(module, exports) {
+    function node_modulesQrcodeLibCoreErrorCorrectionLevelJs(module, exports) {
       exports.L = {
         bit: 1
       };
@@ -1179,18 +1327,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/finder-pattern.js":
-    /*!*************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/finder-pattern.js ***!
-      \*************************************************************************************/
+    "./node_modules/qrcode/lib/core/finder-pattern.js":
+    /*!********************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/finder-pattern.js ***!
+      \********************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreFinderPatternJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreFinderPatternJs(module, exports, __webpack_require__) {
       var getSymbolSize = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js").getSymbolSize;
+      "./node_modules/qrcode/lib/core/utils.js").getSymbolSize;
 
       var FINDER_PATTERN_SIZE = 7;
       /**
@@ -1213,18 +1361,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/format-info.js":
-    /*!**********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/format-info.js ***!
-      \**********************************************************************************/
+    "./node_modules/qrcode/lib/core/format-info.js":
+    /*!*****************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/format-info.js ***!
+      \*****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreFormatInfoJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreFormatInfoJs(module, exports, __webpack_require__) {
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js");
+      "./node_modules/qrcode/lib/core/utils.js");
 
       var G15 = 1 << 10 | 1 << 8 | 1 << 5 | 1 << 4 | 1 << 2 | 1 << 1 | 1 << 0;
       var G15_MASK = 1 << 14 | 1 << 12 | 1 << 10 | 1 << 4 | 1 << 1;
@@ -1258,18 +1406,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/galois-field.js":
-    /*!***********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/galois-field.js ***!
-      \***********************************************************************************/
+    "./node_modules/qrcode/lib/core/galois-field.js":
+    /*!******************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/galois-field.js ***!
+      \******************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreGaloisFieldJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreGaloisFieldJs(module, exports, __webpack_require__) {
       var Buffer = __webpack_require__(
       /*! ../utils/buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js");
+      "./node_modules/qrcode/lib/utils/typedarray-buffer.js");
 
       var EXP_TABLE;
       var LOG_TABLE;
@@ -1360,22 +1508,22 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/kanji-data.js":
-    /*!*********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/kanji-data.js ***!
-      \*********************************************************************************/
+    "./node_modules/qrcode/lib/core/kanji-data.js":
+    /*!****************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/kanji-data.js ***!
+      \****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreKanjiDataJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreKanjiDataJs(module, exports, __webpack_require__) {
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
 
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js");
+      "./node_modules/qrcode/lib/core/utils.js");
 
       function KanjiData(data) {
         this.mode = Mode.KANJI;
@@ -1425,15 +1573,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mask-pattern.js":
-    /*!***********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mask-pattern.js ***!
-      \***********************************************************************************/
+    "./node_modules/qrcode/lib/core/mask-pattern.js":
+    /*!******************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/mask-pattern.js ***!
+      \******************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreMaskPatternJs(module, exports) {
+    function node_modulesQrcodeLibCoreMaskPatternJs(module, exports) {
       /**
        * Data mask pattern reference
        * @type {Object}
@@ -1690,22 +1838,22 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js":
-    /*!***************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js ***!
-      \***************************************************************************/
+    "./node_modules/qrcode/lib/core/mode.js":
+    /*!**********************************************!*\
+      !*** ./node_modules/qrcode/lib/core/mode.js ***!
+      \**********************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreModeJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreModeJs(module, exports, __webpack_require__) {
       var VersionCheck = __webpack_require__(
       /*! ./version-check */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version-check.js");
+      "./node_modules/qrcode/lib/core/version-check.js");
 
       var Regex = __webpack_require__(
       /*! ./regex */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/regex.js");
+      "./node_modules/qrcode/lib/core/regex.js");
       /**
        * Numeric mode encodes data from the decimal digit set (0 - 9)
        * (byte values 30HEX to 39HEX).
@@ -1882,18 +2030,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/numeric-data.js":
-    /*!***********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/numeric-data.js ***!
-      \***********************************************************************************/
+    "./node_modules/qrcode/lib/core/numeric-data.js":
+    /*!******************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/numeric-data.js ***!
+      \******************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreNumericDataJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreNumericDataJs(module, exports, __webpack_require__) {
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
 
       function NumericData(data) {
         this.mode = Mode.NUMERIC;
@@ -1938,22 +2086,22 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/polynomial.js":
-    /*!*********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/polynomial.js ***!
-      \*********************************************************************************/
+    "./node_modules/qrcode/lib/core/polynomial.js":
+    /*!****************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/polynomial.js ***!
+      \****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCorePolynomialJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCorePolynomialJs(module, exports, __webpack_require__) {
       var Buffer = __webpack_require__(
       /*! ../utils/buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js");
+      "./node_modules/qrcode/lib/utils/typedarray-buffer.js");
 
       var GF = __webpack_require__(
       /*! ./galois-field */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/galois-field.js");
+      "./node_modules/qrcode/lib/core/galois-field.js");
       /**
        * Multiplies two polynomials inside Galois Field
        *
@@ -2029,74 +2177,74 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/qrcode.js":
-    /*!*****************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/qrcode.js ***!
-      \*****************************************************************************/
+    "./node_modules/qrcode/lib/core/qrcode.js":
+    /*!************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/qrcode.js ***!
+      \************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreQrcodeJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreQrcodeJs(module, exports, __webpack_require__) {
       var Buffer = __webpack_require__(
       /*! ../utils/buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js");
+      "./node_modules/qrcode/lib/utils/typedarray-buffer.js");
 
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js");
+      "./node_modules/qrcode/lib/core/utils.js");
 
       var ECLevel = __webpack_require__(
       /*! ./error-correction-level */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-level.js");
+      "./node_modules/qrcode/lib/core/error-correction-level.js");
 
       var BitBuffer = __webpack_require__(
       /*! ./bit-buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/bit-buffer.js");
+      "./node_modules/qrcode/lib/core/bit-buffer.js");
 
       var BitMatrix = __webpack_require__(
       /*! ./bit-matrix */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/bit-matrix.js");
+      "./node_modules/qrcode/lib/core/bit-matrix.js");
 
       var AlignmentPattern = __webpack_require__(
       /*! ./alignment-pattern */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/alignment-pattern.js");
+      "./node_modules/qrcode/lib/core/alignment-pattern.js");
 
       var FinderPattern = __webpack_require__(
       /*! ./finder-pattern */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/finder-pattern.js");
+      "./node_modules/qrcode/lib/core/finder-pattern.js");
 
       var MaskPattern = __webpack_require__(
       /*! ./mask-pattern */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mask-pattern.js");
+      "./node_modules/qrcode/lib/core/mask-pattern.js");
 
       var ECCode = __webpack_require__(
       /*! ./error-correction-code */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-code.js");
+      "./node_modules/qrcode/lib/core/error-correction-code.js");
 
       var ReedSolomonEncoder = __webpack_require__(
       /*! ./reed-solomon-encoder */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/reed-solomon-encoder.js");
+      "./node_modules/qrcode/lib/core/reed-solomon-encoder.js");
 
       var Version = __webpack_require__(
       /*! ./version */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version.js");
+      "./node_modules/qrcode/lib/core/version.js");
 
       var FormatInfo = __webpack_require__(
       /*! ./format-info */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/format-info.js");
+      "./node_modules/qrcode/lib/core/format-info.js");
 
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
 
       var Segments = __webpack_require__(
       /*! ./segments */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/segments.js");
+      "./node_modules/qrcode/lib/core/segments.js");
 
       var isArray = __webpack_require__(
       /*! isarray */
-      "./node_modules/angularx-qrcode/node_modules/isarray/index.js");
+      "./node_modules/qrcode/node_modules/isarray/index.js");
       /**
        * QRCode for JavaScript
        *
@@ -2557,22 +2705,22 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/reed-solomon-encoder.js":
-    /*!*******************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/reed-solomon-encoder.js ***!
-      \*******************************************************************************************/
+    "./node_modules/qrcode/lib/core/reed-solomon-encoder.js":
+    /*!**************************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/reed-solomon-encoder.js ***!
+      \**************************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreReedSolomonEncoderJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreReedSolomonEncoderJs(module, exports, __webpack_require__) {
       var Buffer = __webpack_require__(
       /*! ../utils/buffer */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js");
+      "./node_modules/qrcode/lib/utils/typedarray-buffer.js");
 
       var Polynomial = __webpack_require__(
       /*! ./polynomial */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/polynomial.js");
+      "./node_modules/qrcode/lib/core/polynomial.js");
 
       function ReedSolomonEncoder(degree) {
         this.genPoly = undefined;
@@ -2633,15 +2781,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/regex.js":
-    /*!****************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/regex.js ***!
-      \****************************************************************************/
+    "./node_modules/qrcode/lib/core/regex.js":
+    /*!***********************************************!*\
+      !*** ./node_modules/qrcode/lib/core/regex.js ***!
+      \***********************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreRegexJs(module, exports) {
+    function node_modulesQrcodeLibCoreRegexJs(module, exports) {
       var numeric = '[0-9]+';
       var alphanumeric = '[A-Z $%*+\\-./:]+';
       var kanji = '(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|' + '[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|' + '[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|' + '[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+';
@@ -2674,42 +2822,42 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/segments.js":
-    /*!*******************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/segments.js ***!
-      \*******************************************************************************/
+    "./node_modules/qrcode/lib/core/segments.js":
+    /*!**************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/segments.js ***!
+      \**************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreSegmentsJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreSegmentsJs(module, exports, __webpack_require__) {
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
 
       var NumericData = __webpack_require__(
       /*! ./numeric-data */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/numeric-data.js");
+      "./node_modules/qrcode/lib/core/numeric-data.js");
 
       var AlphanumericData = __webpack_require__(
       /*! ./alphanumeric-data */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/alphanumeric-data.js");
+      "./node_modules/qrcode/lib/core/alphanumeric-data.js");
 
       var ByteData = __webpack_require__(
       /*! ./byte-data */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/byte-data.js");
+      "./node_modules/qrcode/lib/core/byte-data.js");
 
       var KanjiData = __webpack_require__(
       /*! ./kanji-data */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/kanji-data.js");
+      "./node_modules/qrcode/lib/core/kanji-data.js");
 
       var Regex = __webpack_require__(
       /*! ./regex */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/regex.js");
+      "./node_modules/qrcode/lib/core/regex.js");
 
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js");
+      "./node_modules/qrcode/lib/core/utils.js");
 
       var dijkstra = __webpack_require__(
       /*! dijkstrajs */
@@ -3063,15 +3211,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js":
-    /*!****************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js ***!
-      \****************************************************************************/
+    "./node_modules/qrcode/lib/core/utils.js":
+    /*!***********************************************!*\
+      !*** ./node_modules/qrcode/lib/core/utils.js ***!
+      \***********************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreUtilsJs(module, exports) {
+    function node_modulesQrcodeLibCoreUtilsJs(module, exports) {
       var toSJISFunction;
       var CODEWORDS_COUNT = [0, // Not used
       26, 44, 70, 100, 134, 172, 196, 242, 292, 346, 404, 466, 532, 581, 655, 733, 815, 901, 991, 1085, 1156, 1258, 1364, 1474, 1588, 1706, 1828, 1921, 2051, 2185, 2323, 2465, 2611, 2761, 2876, 3034, 3196, 3362, 3532, 3706];
@@ -3137,15 +3285,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version-check.js":
-    /*!************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version-check.js ***!
-      \************************************************************************************/
+    "./node_modules/qrcode/lib/core/version-check.js":
+    /*!*******************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/version-check.js ***!
+      \*******************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreVersionCheckJs(module, exports) {
+    function node_modulesQrcodeLibCoreVersionCheckJs(module, exports) {
       /**
        * Check if QR Code version is valid
        *
@@ -3160,38 +3308,38 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version.js":
-    /*!******************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version.js ***!
-      \******************************************************************************/
+    "./node_modules/qrcode/lib/core/version.js":
+    /*!*************************************************!*\
+      !*** ./node_modules/qrcode/lib/core/version.js ***!
+      \*************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibCoreVersionJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibCoreVersionJs(module, exports, __webpack_require__) {
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/utils.js");
+      "./node_modules/qrcode/lib/core/utils.js");
 
       var ECCode = __webpack_require__(
       /*! ./error-correction-code */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-code.js");
+      "./node_modules/qrcode/lib/core/error-correction-code.js");
 
       var ECLevel = __webpack_require__(
       /*! ./error-correction-level */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/error-correction-level.js");
+      "./node_modules/qrcode/lib/core/error-correction-level.js");
 
       var Mode = __webpack_require__(
       /*! ./mode */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/mode.js");
+      "./node_modules/qrcode/lib/core/mode.js");
 
       var VersionCheck = __webpack_require__(
       /*! ./version-check */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/core/version-check.js");
+      "./node_modules/qrcode/lib/core/version-check.js");
 
       var isArray = __webpack_require__(
       /*! isarray */
-      "./node_modules/angularx-qrcode/node_modules/isarray/index.js"); // Generator polynomial used to encode version information
+      "./node_modules/qrcode/node_modules/isarray/index.js"); // Generator polynomial used to encode version information
 
 
       var G18 = 1 << 12 | 1 << 11 | 1 << 10 | 1 << 9 | 1 << 8 | 1 << 5 | 1 << 2 | 1 << 0;
@@ -3351,18 +3499,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/canvas.js":
-    /*!*********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/canvas.js ***!
-      \*********************************************************************************/
+    "./node_modules/qrcode/lib/renderer/canvas.js":
+    /*!****************************************************!*\
+      !*** ./node_modules/qrcode/lib/renderer/canvas.js ***!
+      \****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibRendererCanvasJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibRendererCanvasJs(module, exports, __webpack_require__) {
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/utils.js");
+      "./node_modules/qrcode/lib/renderer/utils.js");
 
       function clearCanvas(ctx, canvas, size) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -3423,18 +3571,18 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/svg-tag.js":
-    /*!**********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/svg-tag.js ***!
-      \**********************************************************************************/
+    "./node_modules/qrcode/lib/renderer/svg-tag.js":
+    /*!*****************************************************!*\
+      !*** ./node_modules/qrcode/lib/renderer/svg-tag.js ***!
+      \*****************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibRendererSvgTagJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibRendererSvgTagJs(module, exports, __webpack_require__) {
       var Utils = __webpack_require__(
       /*! ./utils */
-      "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/utils.js");
+      "./node_modules/qrcode/lib/renderer/utils.js");
 
       function getColorAttrib(color, attrib) {
         var alpha = color.a / 255;
@@ -3502,15 +3650,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/utils.js":
-    /*!********************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/renderer/utils.js ***!
-      \********************************************************************************/
+    "./node_modules/qrcode/lib/renderer/utils.js":
+    /*!***************************************************!*\
+      !*** ./node_modules/qrcode/lib/renderer/utils.js ***!
+      \***************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibRendererUtilsJs(module, exports) {
+    function node_modulesQrcodeLibRendererUtilsJs(module, exports) {
       function hex2rgba(hex) {
         if (typeof hex === 'number') {
           hex = hex.toString();
@@ -3604,15 +3752,15 @@
     },
 
     /***/
-    "./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js":
-    /*!*****************************************************************************************!*\
-      !*** ./node_modules/angularx-qrcode/node_modules/qrcode/lib/utils/typedarray-buffer.js ***!
-      \*****************************************************************************************/
+    "./node_modules/qrcode/lib/utils/typedarray-buffer.js":
+    /*!************************************************************!*\
+      !*** ./node_modules/qrcode/lib/utils/typedarray-buffer.js ***!
+      \************************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesAngularxQrcodeNode_modulesQrcodeLibUtilsTypedarrayBufferJs(module, exports, __webpack_require__) {
+    function node_modulesQrcodeLibUtilsTypedarrayBufferJs(module, exports, __webpack_require__) {
       "use strict";
       /**
        * Implementation of a subset of node.js Buffer methods for the browser.
@@ -3623,7 +3771,7 @@
 
       var isArray = __webpack_require__(
       /*! isarray */
-      "./node_modules/angularx-qrcode/node_modules/isarray/index.js");
+      "./node_modules/qrcode/node_modules/isarray/index.js");
 
       function typedArraySupport() {
         // Can typed array instances be augmented?
@@ -4122,168 +4270,20 @@
     },
 
     /***/
-    "./node_modules/dijkstrajs/dijkstra.js":
-    /*!*********************************************!*\
-      !*** ./node_modules/dijkstrajs/dijkstra.js ***!
-      \*********************************************/
+    "./node_modules/qrcode/node_modules/isarray/index.js":
+    /*!***********************************************************!*\
+      !*** ./node_modules/qrcode/node_modules/isarray/index.js ***!
+      \***********************************************************/
 
     /*! no static exports found */
 
     /***/
-    function node_modulesDijkstrajsDijkstraJs(module, exports, __webpack_require__) {
-      "use strict";
-      /******************************************************************************
-       * Created 2008-08-19.
-       *
-       * Dijkstra path-finding functions. Adapted from the Dijkstar Python project.
-       *
-       * Copyright (C) 2008
-       *   Wyatt Baldwin <self@wyattbaldwin.com>
-       *   All rights reserved
-       *
-       * Licensed under the MIT license.
-       *
-       *   http://www.opensource.org/licenses/mit-license.php
-       *
-       * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-       * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-       * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-       * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-       * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-       * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-       * THE SOFTWARE.
-       *****************************************************************************/
+    function node_modulesQrcodeNode_modulesIsarrayIndexJs(module, exports) {
+      var toString = {}.toString;
 
-      var dijkstra = {
-        single_source_shortest_paths: function single_source_shortest_paths(graph, s, d) {
-          // Predecessor map for each node that has been encountered.
-          // node ID => predecessor node ID
-          var predecessors = {}; // Costs of shortest paths from s to all nodes encountered.
-          // node ID => cost
-
-          var costs = {};
-          costs[s] = 0; // Costs of shortest paths from s to all nodes encountered; differs from
-          // `costs` in that it provides easy access to the node that currently has
-          // the known shortest path from s.
-          // XXX: Do we actually need both `costs` and `open`?
-
-          var open = dijkstra.PriorityQueue.make();
-          open.push(s, 0);
-          var closest, u, v, cost_of_s_to_u, adjacent_nodes, cost_of_e, cost_of_s_to_u_plus_cost_of_e, cost_of_s_to_v, first_visit;
-
-          while (!open.empty()) {
-            // In the nodes remaining in graph that have a known cost from s,
-            // find the node, u, that currently has the shortest path from s.
-            closest = open.pop();
-            u = closest.value;
-            cost_of_s_to_u = closest.cost; // Get nodes adjacent to u...
-
-            adjacent_nodes = graph[u] || {}; // ...and explore the edges that connect u to those nodes, updating
-            // the cost of the shortest paths to any or all of those nodes as
-            // necessary. v is the node across the current edge from u.
-
-            for (v in adjacent_nodes) {
-              if (adjacent_nodes.hasOwnProperty(v)) {
-                // Get the cost of the edge running from u to v.
-                cost_of_e = adjacent_nodes[v]; // Cost of s to u plus the cost of u to v across e--this is *a*
-                // cost from s to v that may or may not be less than the current
-                // known cost to v.
-
-                cost_of_s_to_u_plus_cost_of_e = cost_of_s_to_u + cost_of_e; // If we haven't visited v yet OR if the current known cost from s to
-                // v is greater than the new cost we just found (cost of s to u plus
-                // cost of u to v across e), update v's cost in the cost list and
-                // update v's predecessor in the predecessor list (it's now u).
-
-                cost_of_s_to_v = costs[v];
-                first_visit = typeof costs[v] === 'undefined';
-
-                if (first_visit || cost_of_s_to_v > cost_of_s_to_u_plus_cost_of_e) {
-                  costs[v] = cost_of_s_to_u_plus_cost_of_e;
-                  open.push(v, cost_of_s_to_u_plus_cost_of_e);
-                  predecessors[v] = u;
-                }
-              }
-            }
-          }
-
-          if (typeof d !== 'undefined' && typeof costs[d] === 'undefined') {
-            var msg = ['Could not find a path from ', s, ' to ', d, '.'].join('');
-            throw new Error(msg);
-          }
-
-          return predecessors;
-        },
-        extract_shortest_path_from_predecessor_list: function extract_shortest_path_from_predecessor_list(predecessors, d) {
-          var nodes = [];
-          var u = d;
-          var predecessor;
-
-          while (u) {
-            nodes.push(u);
-            predecessor = predecessors[u];
-            u = predecessors[u];
-          }
-
-          nodes.reverse();
-          return nodes;
-        },
-        find_path: function find_path(graph, s, d) {
-          var predecessors = dijkstra.single_source_shortest_paths(graph, s, d);
-          return dijkstra.extract_shortest_path_from_predecessor_list(predecessors, d);
-        },
-
-        /**
-         * A very naive priority queue implementation.
-         */
-        PriorityQueue: {
-          make: function make(opts) {
-            var T = dijkstra.PriorityQueue,
-                t = {},
-                key;
-            opts = opts || {};
-
-            for (key in T) {
-              if (T.hasOwnProperty(key)) {
-                t[key] = T[key];
-              }
-            }
-
-            t.queue = [];
-            t.sorter = opts.sorter || T.default_sorter;
-            return t;
-          },
-          default_sorter: function default_sorter(a, b) {
-            return a.cost - b.cost;
-          },
-
-          /**
-           * Add a new item to the queue and ensure the highest priority element
-           * is at the front of the queue.
-           */
-          push: function push(value, cost) {
-            var item = {
-              value: value,
-              cost: cost
-            };
-            this.queue.push(item);
-            this.queue.sort(this.sorter);
-          },
-
-          /**
-           * Return the highest priority element in the queue.
-           */
-          pop: function pop() {
-            return this.queue.shift();
-          },
-          empty: function empty() {
-            return this.queue.length === 0;
-          }
-        }
-      }; // node.js module exports
-
-      if (true) {
-        module.exports = dijkstra;
-      }
+      module.exports = Array.isArray || function (arr) {
+        return toString.call(arr) == '[object Array]';
+      };
       /***/
 
     },

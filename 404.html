@@ -115,5 +115,23 @@
 
   <app-root></app-root>
   <script src="assets/graph-creator/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+  <script>
+   var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: 'e48df6c5-a9e0-43f8-8177-c84f57b9a130',
+        autoRegister: false, 
+        httpPermissionRequest: {
+            enable: true
+        },
+        notifyButton: {
+            enable: true 
+        }
+      });
+    });
+
+
+  </script>
 <script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="scripts.js" defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
 </html>

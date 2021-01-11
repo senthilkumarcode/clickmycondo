@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\" (onSelect)=\"selectPrimaryStaff()\" (onDeSelect)=\"selectPrimaryStaff()\"\n                                (onSelectAll)=\"selectPrimaryStaff()\" (onDeSelectAll)=\"selectPrimaryStaff()\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <!-- <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"createTrackingTask()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div> -->\n            </div>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"selectPrimaryStaff()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -95,6 +95,7 @@ let MailboxSetupComponent = class MailboxSetupComponent {
             autoPosition: false,
             maxHeight: 240
         };
+        this.isSubmitted = false;
     }
     getSelectedId() {
         return this.staffId.map((data) => {
@@ -104,6 +105,7 @@ let MailboxSetupComponent = class MailboxSetupComponent {
         });
     }
     selectPrimaryStaff() {
+        this.isSubmitted = true;
         let params = {
             staffInchargeMailbox: {
                 "apartmentId": this.sessionService.apartmentId,
@@ -119,11 +121,14 @@ let MailboxSetupComponent = class MailboxSetupComponent {
             if (res.message) {
                 this.sharedService.openSnackBar('Staff Added Successfully', 'success');
             }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+            this.isSubmitted = false;
         }, (error) => {
+            this.isSubmitted = false;
             this.sharedService.openSnackBar('Server Error', 'error');
         });
-    }
-    deSelectPrimaryStaff(event) {
     }
     ngOnInit() {
         // Staff List

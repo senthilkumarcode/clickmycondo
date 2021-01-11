@@ -117,6 +117,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html ***!
+  \******************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-permissions-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Permissions</h4>\n\n    <div class=\"bg-card\">\n        <div class=\"py-2\">\n            <mat-checkbox [color]=\"'primary'\" [formControlName]=\"'pushNotifications'\">Push Notifications</mat-checkbox>\n        </div>\n    </div> \n\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-pet-details/profile-pet-details.component.html":
 /*!******************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-pet-details/profile-pet-details.component.html ***!
@@ -999,10 +1012,16 @@ const settings = [
         icon: 'feather:lock'
     },
     {
-        id: '7c004a19-4506-a3c7-93ab-f16381302e3b',
+        id: '7c004a19-4506-a3c7-93ab-g54738902e3b',
         title: 'Time Zone',
         slug: 'timezone',
         icon: 'feather:clock'
+    },
+    {
+        id: '7c004a19-4506-a3c7-93ab-h943568e3b',
+        title: 'Permissions',
+        slug: 'permissions',
+        icon: 'feather:shield'
     }
 ];
 
@@ -1038,6 +1057,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./property-manager/property-manager-create/property-manager-create.component */ "./src/app/modules/profile/property-manager/property-manager-create/property-manager-create.component.ts");
 /* harmony import */ var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./profile-timezone/profile-timezone.component */ "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
 /* harmony import */ var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./profile-document/profile-document.component */ "./src/app/modules/profile/profile-document/profile-document.component.ts");
+/* harmony import */ var _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./profile-permissions/profile-permissions.component */ "./src/app/modules/profile/profile-permissions/profile-permissions.component.ts");
+
 
 
 
@@ -1074,6 +1095,7 @@ const routes = [
             { path: 'absence', component: _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_14__["ProfileUserAbsenceComponent"] },
             { path: 'document', component: _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__["ProfileDocumentComponent"] },
             { path: 'timezone', component: _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__["ProfileTimezoneComponent"] },
+            { path: 'permissions', component: _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_18__["ProfilePermissionsComponent"] },
             { path: '**', redirectTo: 'basic', pathMatch: 'full' },
             { path: 'basic/:id', component: _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_4__["ProfileAreaBasicComponent"] },
         ]
@@ -1260,6 +1282,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./profile-document/profile-document.component */ "./src/app/modules/profile/profile-document/profile-document.component.ts");
 /* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
 /* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./profile-permissions/profile-permissions.component */ "./src/app/modules/profile/profile-permissions/profile-permissions.component.ts");
+
 
 
 
@@ -1325,7 +1349,8 @@ ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_31__["PropertyManagerCreateComponent"],
             _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_32__["ProfileUserAbsenceHistoryComponent"],
             _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_34__["ProfileTimezoneComponent"],
-            _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_35__["ProfileDocumentComponent"]
+            _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_35__["ProfileDocumentComponent"],
+            _profile_permissions_profile_permissions_component__WEBPACK_IMPORTED_MODULE_38__["ProfilePermissionsComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -2426,6 +2451,52 @@ ProfilePasswordComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_3__["LoginCheckService"]])
 ], ProfilePasswordComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/profile/profile-permissions/profile-permissions.component.scss":
+/*!****************************************************************************************!*\
+  !*** ./src/app/modules/profile/profile-permissions/profile-permissions.component.scss ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLXBlcm1pc3Npb25zL3Byb2ZpbGUtcGVybWlzc2lvbnMuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/modules/profile/profile-permissions/profile-permissions.component.ts":
+/*!**************************************************************************************!*\
+  !*** ./src/app/modules/profile/profile-permissions/profile-permissions.component.ts ***!
+  \**************************************************************************************/
+/*! exports provided: ProfilePermissionsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePermissionsComponent", function() { return ProfilePermissionsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let ProfilePermissionsComponent = class ProfilePermissionsComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+ProfilePermissionsComponent.ctorParameters = () => [];
+ProfilePermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile-permissions',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-permissions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-permissions.component.scss */ "./src/app/modules/profile/profile-permissions/profile-permissions.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], ProfilePermissionsComponent);
 
 
 

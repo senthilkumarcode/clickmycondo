@@ -115,7 +115,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-asset-usage-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <!-- <app-loader *ngIf=\"isAssetLoaded\"></app-loader> -->\n    <form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n        <div class=\"bg-card shadow\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <condo-select\n                    labelText=\"Select Asset\"  \n                        fieldPlaceholder=\"Select Asset\"\n                        [fieldList]=\"assetList\"                                     \n                        fieldValue=\"customLabel\"\n                        fieldId=\"assetId\"\n                        [fieldModel]=\"usage.assetId\"\n                        (fieldParams)=\"setAssetId($event)\"></condo-select>\n                </div>\n            </div>\n        </div>\n        <div class=\"bg-card shadow\">\n            <div class=\"row\">\t\t\t\t\t\t\t\t\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"Machine Start Time\"\n                        fieldName=\"startDateTime\"\n                        type=\"dateTime\"\n                        [fieldModel]=\"usage.assetStarttime\"\n                        (fieldParams)=\"setStartTime($event)\">\n                    </app-datepicker>\n                </div>\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"Machine End Time\"\n                        fieldName=\"endDateTime\"\n                        type=\"dateTime\"\n                        [fieldModel]=\"usage.assetEndtime\"\n                        (fieldParams)=\"setEndTime($event)\">\n                    </app-datepicker>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Run TIme (HH:MM)</label>\n                        <input class=\"form-control\" placeholder=\"Total Run Time\" name=\"totalRunTime\" [value]=\"usage.totalhoursRan\" disabled>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Meter Reading Start</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading Start\" name=\"meterReadingStart\"\n                            [(ngModel)]=\"usage.assetMeterStart\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Meter Reading End</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading End\" name=\"meterReadingEnd\"\n                            [(ngModel)]=\"usage.assetMeterEnd\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Meter Reading</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Meter Reading\" name=\"totalMeterReading\"\n                            [(ngModel)]=\"usage.totalMeterreading\" disabled>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Fuel Added Count</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Fuel Added Count\" name=\"fuelAddedCount\"\n                            [(ngModel)]=\"usage.fuelAddedCount\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <condo-select\n                        labelText=\"Unit Of Measure\"  \n                        fieldPlaceholder=\"Select Unit Measure\"\n                        [fieldList]=\"unitOfMeasureList\"                                     \n                        fieldValue=\"lookupValueName\"\n                        fieldId=\"lookupValueId\"\n                        [fieldModel]=\"usage.fuelAddedId\"\n                        (fieldParams)=\"setUnitOfMeasure($event)\">\n                    </condo-select>\n                </div>\n                <div class=\"col-sm-4\">\n                    <condo-select\n                        labelText=\"Fuel Added By\" \n                        fieldPlaceholder=\"Select Fuel Added By\"\n                        [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n                        fieldValue=\"customLabel\"\n                        fieldId=\"staffId\"\n                        [fieldModel]=\"usage.fuelAddedby\"\n                        (fieldParams)=\"setFuelAddedBy($event)\">\n                    </condo-select>\n                </div>\t\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"Fuel Added On\"\n                        fieldName=\"fuelAddedOn\"\n                        [fieldRequired]=\"'null'\"\n                        type=\"date\"\n                        [fieldModel]=\"usage.fuelAddedon\"\n                        (fieldParams)=\"setFuelAddedOn($event)\">\n                    </app-datepicker>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Amount</label>\n                        <input OnlyNumber=\"true\" (input)=\"calculateFinalAmout()\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\"\n                            [(ngModel)]=\"usage.amount\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Tax</label>\n                        <input OnlyNumber=\"true\" (input)=\"calculateFinalAmout()\" class=\"form-control\" placeholder=\"Tax\" name=\"tax\"\n                            [(ngModel)]=\"usage.tax\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Bill</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Bill\" name=\"totalBill\"\n                            [value]=\"usage.totalBill\" disabled>\n                    </div>\n                </div>  \n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Comments</label>\n                        <textarea placeholder=\"Enter Comments\" name=\"comments\" [(ngModel)]=\"usage.comments\"></textarea>\n                    </div>\t\t\t\t\t\t\t\t\t\n                </div>                                \n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"d-flex justify-content-end\">\n                        <submit-button *ngIf=\"!isEdit\" (click)=\"addAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                        <submit-button *ngIf=\"isEdit\" (click)=\"updateAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                        <button class=\"ml-2\" mat-button (click)=\"resetField()\">{{isEdit ? 'Cancel' : 'Clear'}}</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"add-asset-usage-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <!-- <app-loader *ngIf=\"isAssetLoaded\"></app-loader> -->\n    <form name=\"assetUsageForm\" #assetUsageForm=\"ngForm\" novalidate>\n        <div class=\"bg-card shadow\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <condo-select\n                    labelText=\"Select Asset\"  \n                        fieldPlaceholder=\"Select Asset\"\n                        [fieldList]=\"assetList\"                                     \n                        fieldValue=\"customLabel\"\n                        fieldId=\"assetId\"\n                        [fieldModel]=\"usage.assetId\"\n                        (fieldParams)=\"setAssetId($event)\"></condo-select>\n                </div>\n            </div>\n        </div>\n        <div class=\"bg-card shadow\" *ngIf=\"usage.assetId\">\n            <div class=\"row\">\t\t\t\t\t\t\t\t\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"Machine Start Time\"\n                        fieldName=\"startDateTime\"\n                        type=\"dateTime\"\n                        [fieldModel]=\"usage.assetStarttime\"\n                        (fieldParams)=\"setStartTime($event)\">\n                    </app-datepicker>\n                </div>\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"Machine End Time\"\n                        fieldName=\"endDateTime\"\n                        type=\"dateTime\"\n                        [fieldModel]=\"usage.assetEndtime\"\n                        (fieldParams)=\"setEndTime($event)\">\n                    </app-datepicker>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Run TIme (HH:MM)</label>\n                        <input class=\"form-control\" placeholder=\"Total Run Time\" name=\"totalRunTime\" [value]=\"usage.totalhoursRan\" disabled>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Meter Reading Start</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading Start\" name=\"meterReadingStart\"\n                            [(ngModel)]=\"usage.assetMeterStart\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Meter Reading End</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"totalReadingCalc()\" placeholder=\"Reading End\" name=\"meterReadingEnd\"\n                            [(ngModel)]=\"usage.assetMeterEnd\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Meter Reading</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Meter Reading\" name=\"totalMeterReading\"\n                            [(ngModel)]=\"usage.totalMeterreading\" disabled>\n                    </div>\n                </div>  \n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <div class=\"form-check recur-check float-left mr-4\">\n                            <input type=\"checkbox\" class=\"form-check-input\" id=\"fuelAdded\"\n                                name=\"fuelAdded\" [(ngModel)]=\"usage.fuelAdded\" (change)=\"fuelInfo()\">\n                            <label class=\"form-check-label tiny\"\n                                for=\"fuelAdded\">Has fuel been added ?</label>\n                        </div>\n                    </div>\n                </div>           \n            </div>\n        </div>\n        <div class=\"bg-card shadow\" *ngIf=\"usage.assetId && usage.fuelAdded\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Fuel Added</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Fuel Added Count\" name=\"fuelAddedCount\"\n                            [(ngModel)]=\"usage.fuelAddedCount\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <condo-select\n                        labelText=\"Fuel Units\"  \n                        fieldPlaceholder=\"Select Fuel Units\"\n                        [fieldList]=\"unitOfMeasureList\"                                     \n                        fieldValue=\"lookupValueName\"\n                        fieldId=\"lookupValueId\"\n                        [fieldModel]=\"usage.fuelAddedId\"\n                        (fieldParams)=\"setUnitOfMeasure($event)\">\n                    </condo-select>\n                </div>\n                <div class=\"col-sm-4\">\n                    <condo-select\n                        labelText=\"Fuel Added By\" \n                        fieldPlaceholder=\"Select Fuel Added By\"\n                        [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n                        fieldValue=\"customLabel\"\n                        fieldId=\"staffId\"\n                        [fieldModel]=\"usage.fuelAddedby\"\n                        (fieldParams)=\"setFuelAddedBy($event)\">\n                    </condo-select>\n                </div>\t\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"Fuel Added On\"\n                        fieldName=\"fuelAddedOn\"\n                        [fieldRequired]=\"'null'\"\n                        type=\"date\"\n                        [fieldModel]=\"usage.fuelAddedon\"\n                        (fieldParams)=\"setFuelAddedOn($event)\">\n                    </app-datepicker>\n                </div> \n            </div>\n        </div>\n        <div class=\"bg-card shadow\" *ngIf=\"usage.assetId\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Amount</label>\n                        <input OnlyNumber=\"true\" (input)=\"calculateFinalAmout()\" class=\"form-control\" placeholder=\"Amount\" name=\"amount\"\n                            [(ngModel)]=\"usage.amount\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Tax</label>\n                        <input OnlyNumber=\"true\" (input)=\"calculateFinalAmout()\" class=\"form-control\" placeholder=\"Tax\" name=\"tax\"\n                            [(ngModel)]=\"usage.tax\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Total Bill</label>\n                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Total Bill\" name=\"totalBill\"\n                            [value]=\"usage.totalBill\" disabled>\n                    </div>\n                </div>  \n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Comments</label>\n                        <textarea placeholder=\"Enter Comments\" name=\"comments\" [(ngModel)]=\"usage.comments\"></textarea>\n                    </div>\t\t\t\t\t\t\t\t\t\n                </div> \n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"d-flex justify-content-end\">\n                        <submit-button *ngIf=\"!isEdit\" (click)=\"addAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                        <submit-button *ngIf=\"isEdit\" (click)=\"updateAssertUsage()\" [isSubmit]=\"isAssetLoaded\">Submit</submit-button>\n                        <button class=\"ml-2\" mat-button (click)=\"resetField()\">{{isEdit ? 'Cancel' : 'Clear'}}</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </form>\n</div>";
       /***/
     },
 
@@ -312,6 +312,13 @@
         _createClass(AddAssetUtilizationComponent, [{
           key: "setAssetId",
           value: function setAssetId(event) {
+            this.usage = {
+              'assetEndtime': null,
+              'assetStarttime': null,
+              'totalhoursRan': null,
+              'totalBill': null,
+              'fuelAdded': false
+            };
             this.usage.assetId = event[0].assetId;
           }
         }, {
@@ -340,6 +347,16 @@
           key: "setFuelAddedBy",
           value: function setFuelAddedBy(event) {
             this.usage.fuelAddedby = event[0].staffId;
+          }
+        }, {
+          key: "fuelInfo",
+          value: function fuelInfo() {
+            if (this.usage.fuelAdded) {
+              this.usage.fuelAddedCount = null;
+              this.usage.fuelAddedId = null;
+              this.usage.fuelAddedby = null;
+              this.usage.fuelAddedon = moment__WEBPACK_IMPORTED_MODULE_7__();
+            }
           }
         }, {
           key: "isSingleDigit",
@@ -498,7 +515,7 @@
                 'assetStarttime': null,
                 'totalhoursRan': null,
                 'totalBill': null,
-                'fuelAddedon': moment__WEBPACK_IMPORTED_MODULE_7__()
+                'fuelAdded': false
               };
             }
           }
@@ -512,7 +529,7 @@
               assetEndtime: null,
               totalhoursRan: null,
               totalBill: null,
-              fuelAddedOn: moment__WEBPACK_IMPORTED_MODULE_7__()
+              fuelAdded: false
             }; //Staff List
 
             var staffParms = {
@@ -532,12 +549,14 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-              if (res) {
-                _this4.assetList = res ? res : [];
+              if (Array.isArray(res)) {
+                _this4.assetList = res;
 
                 _this4.assetList.forEach(function (data) {
                   data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
                 });
+              } else {
+                _this4.assetList = [];
               }
             }); // 
             //Status List
@@ -558,6 +577,10 @@
               };
               this.assetService.getAssetUsagebyAssetUsageId(assertUsageInfo).subscribe(function (res) {
                 _this4.usage = res[0];
+
+                if (_this4.usage.fuelAddedCount) {
+                  _this4.usage.fuelAdded = true;
+                }
               });
             }
           }
@@ -865,12 +888,14 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
-                if (res) {
-                  _this7.assetList = res ? res : [];
+                if (Array.isArray(res)) {
+                  _this7.assetList = res;
 
                   _this7.assetList.forEach(function (data) {
                     data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
                   });
+                } else {
+                  _this7.assetList = [];
                 }
               });
             } // delete maintenance
@@ -1423,6 +1448,8 @@
                 _this9.assetList.forEach(function (data) {
                   data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
                 });
+              } else {
+                _this9.assetList = [];
               }
             });
             this.getAssetUsageList();

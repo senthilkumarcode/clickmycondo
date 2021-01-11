@@ -34,7 +34,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"header primary\">\n    <div class=\"title\">New Message</div>\n    <button class=\"close-button\" mat-icon-button (click)=\"saveAndClose()\" [tabIndex]=\"-1\">\n        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    </button>\n</div>\n\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n\n<form [formGroup]=\"composeForm\">\n    <!-- To -->\n    <mat-form-field>\n        <mat-label>To</mat-label>\n        <mat-chip-list #receiptList>\n            <mat-chip [color]=\"'primary'\"  *ngFor=\"let user of selectedUsers\" [selectable]=\"selectable\" [removable]=\"removable\"\n                (removed)=\"remove(user)\">  \n                {{ user.userName}} ( {{ user.roleName }}, {{ user.apartmentBlockNumber }} - {{ user.apartmentBlockUnitNumber  }} )\n                <mat-icon [color]=\"'warn'\" matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n            </mat-chip>\n            <input class=\"bg-none\" [formControlName]=\"'to'\" (change)=\"searchUser()\" #receiptInput placeholder=\"Enter First 3 Characters of User Name or Unit Number\" [matAutocomplete]=\"receipt\"\n                [matChipInputFor]=\"receiptList\">\n        </mat-chip-list>\n        <mat-autocomplete #receipt=\"matAutocomplete\"  (optionSelected)=\"selected($event)\">\n            <mat-option *ngFor=\"let user of allUsers\" [value]=\"user\">\n                {{ user.userName}} ( {{ user.roleName }}, {{ user.apartmentBlockNumber }} - {{ user.apartmentBlockUnitNumber  }} )\n            </mat-option>\n        </mat-autocomplete>\n        <!-- <input matInput [formControl]=\"myControl\" [matAutocomplete]=\"receipt\" [formControlName]=\"'to'\"> -->\n        <!-- <div class=\"copy-fields-toggles\"\n             matSuffix>\n            <span class=\"cc-toggle\"\n                  *ngIf=\"!copyFields.cc\"\n                  (click)=\"showCopyField('cc')\">\n                Cc\n            </span>\n            <span class=\"bcc-toggle\"\n                  *ngIf=\"!copyFields.bcc\"\n                  (click)=\"showCopyField('bcc')\">\n                Bcc\n            </span>\n        </div> -->\n    </mat-form-field>\n\n    <!-- Cc -->\n    <!-- <mat-form-field class=\"cc\"\n                    *ngIf=\"copyFields.cc\">\n        <mat-label>Cc</mat-label>\n        <input matInput\n               [formControlName]=\"'cc'\">\n    </mat-form-field> -->\n\n    <!-- Bcc -->\n    <!-- <mat-form-field class=\"bcc\"\n                    *ngIf=\"copyFields.bcc\">\n        <mat-label>Bcc</mat-label>\n        <input matInput\n               [formControlName]=\"'bcc'\">\n    </mat-form-field> -->\n\n    <!-- Subject -->\n    <mat-form-field class=\"subject\">\n        <mat-label>Subject</mat-label>\n        <input matInput [formControlName]=\"'subject'\"  required >\n        <help-tooltip title=\"composeSubject\"></help-tooltip>\n    </mat-form-field>\n\n    <!-- Body -->\n    <quill-editor [modules]=\"quillModules\" [formControlName]=\"'body'\" required></quill-editor>\n\n    <div class=\"actions\">\n\n        <div class=\"formatting\">\n\n            <!-- Attach file -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'attach_file'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert link -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'link'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert emoji -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'insert_emoticon'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert image -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'image'\"></mat-icon>\n            </button> -->\n\n        </div>\n\n        <div class=\"buttons\">\n\n            <!-- Discard -->\n            <button class=\"discard-button\" mat-button (click)=\"discard()\">\n                <mat-icon [svgIcon]=\"'delete'\"></mat-icon>\n                <span>Discard</span>\n            </button>\n\n            <!-- Save as draft -->\n            <!-- <button class=\"save-button\"\n                    mat-button\n                    (click)=\"saveAsDraft()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span>Save as draft</span>\n            </button> -->\n\n            <!-- Send -->\n            <button class=\"send-button\" mat-flat-button [color]=\"'primary'\" (click)=\"send()\" [disabled]=\"selectedUsers.length == 0\">\n                <span>Send</span>\n            </button>\n\n        </div>\n\n    </div>\n\n</form>";
+      __webpack_exports__["default"] = "<div class=\"header primary\">\n    <div class=\"title\">New Message</div>\n    <button class=\"close-button\" mat-icon-button (click)=\"saveAndClose()\" [tabIndex]=\"-1\">\n        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    </button>\n</div>\n\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n\n<form [formGroup]=\"composeForm\">\n    <!-- To -->\n    <mat-form-field *ngIf=\"isAdmin\">\n        <mat-label>To</mat-label>\n        <mat-chip-list #receiptList>\n            <mat-chip [color]=\"'primary'\"  *ngFor=\"let user of selectedUsers\" [selectable]=\"selectable\" [removable]=\"removable\"\n                (removed)=\"remove(user)\">  \n                {{ user.userName}} ( {{ user.roleName }}, {{ user.apartmentBlockNumber }} - {{ user.apartmentBlockUnitNumber  }} )\n                <mat-icon [color]=\"'warn'\" matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n            </mat-chip>\n            <input class=\"bg-none\" [formControlName]=\"'to'\" (change)=\"searchUser()\" #receiptInput placeholder=\"Enter First 3 Characters of User Name or Unit Number\" [matAutocomplete]=\"receipt\"\n                [matChipInputFor]=\"receiptList\">\n        </mat-chip-list>\n        <mat-autocomplete #receipt=\"matAutocomplete\"  (optionSelected)=\"selected($event)\">\n            <mat-option *ngFor=\"let user of allUsers\" [value]=\"user\">\n                {{ user.userName}} ( {{ user.roleName }}, {{ user.apartmentBlockNumber }} - {{ user.apartmentBlockUnitNumber  }} )\n            </mat-option>\n        </mat-autocomplete>\n        <!-- <input matInput [formControl]=\"myControl\" [matAutocomplete]=\"receipt\" [formControlName]=\"'to'\"> -->\n        <!-- <div class=\"copy-fields-toggles\"\n             matSuffix>\n            <span class=\"cc-toggle\"\n                  *ngIf=\"!copyFields.cc\"\n                  (click)=\"showCopyField('cc')\">\n                Cc\n            </span>\n            <span class=\"bcc-toggle\"\n                  *ngIf=\"!copyFields.bcc\"\n                  (click)=\"showCopyField('bcc')\">\n                Bcc\n            </span>\n        </div> -->\n    </mat-form-field>\n\n    <!-- Cc -->\n    <!-- <mat-form-field class=\"cc\"\n                    *ngIf=\"copyFields.cc\">\n        <mat-label>Cc</mat-label>\n        <input matInput\n               [formControlName]=\"'cc'\">\n    </mat-form-field> -->\n\n    <!-- Bcc -->\n    <!-- <mat-form-field class=\"bcc\"\n                    *ngIf=\"copyFields.bcc\">\n        <mat-label>Bcc</mat-label>\n        <input matInput\n               [formControlName]=\"'bcc'\">\n    </mat-form-field> -->\n\n    <!-- Subject -->\n    <mat-form-field class=\"subject\">\n        <mat-label>Subject</mat-label>\n        <input matInput [formControlName]=\"'subject'\"  required >\n        <help-tooltip title=\"composeSubject\"></help-tooltip>\n    </mat-form-field>\n\n    <!-- Body -->\n    <quill-editor [modules]=\"quillModules\" [formControlName]=\"'body'\" required></quill-editor>\n\n    <div class=\"actions\">\n\n        <div class=\"formatting\">\n\n            <!-- Attach file -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'attach_file'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert link -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'link'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert emoji -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'insert_emoticon'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert image -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'image'\"></mat-icon>\n            </button> -->\n\n        </div>\n\n        <div class=\"buttons\">\n\n            <!-- Discard -->\n            <button class=\"discard-button\" mat-button (click)=\"discard()\">\n                <mat-icon [svgIcon]=\"'delete'\"></mat-icon>\n                <span>Discard</span>\n            </button>\n\n            <!-- Save as draft -->\n            <!-- <button class=\"save-button\"\n                    mat-button\n                    (click)=\"saveAsDraft()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span>Save as draft</span>\n            </button> -->\n\n            <!-- Send -->\n            <button class=\"send-button\" mat-flat-button [color]=\"'primary'\" (click)=\"send()\" [disabled]=\"selectedUsers.length == 0\">\n                <span>Send</span>\n            </button>\n\n        </div>\n\n    </div>\n\n</form>";
       /***/
     },
 
@@ -482,6 +482,12 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/api/controllers/Staff */
+      "./src/app/api/controllers/Staff.ts");
 
       var MailboxComposeComponent = /*#__PURE__*/function () {
         /**
@@ -490,7 +496,7 @@
          * @param {MatDialogRef} matDialogRef
          * @param {FormBuilder} _formBuilder
          */
-        function MailboxComposeComponent(matDialogRef, _formBuilder, userService, messageInbox, sessionService, sharedService, _changeDetectorRef) {
+        function MailboxComposeComponent(matDialogRef, _formBuilder, userService, messageInbox, sessionService, sharedService, staffService, _changeDetectorRef) {
           _classCallCheck(this, MailboxComposeComponent);
 
           this.matDialogRef = matDialogRef;
@@ -499,6 +505,7 @@
           this.messageInbox = messageInbox;
           this.sessionService = sessionService;
           this.sharedService = sharedService;
+          this.staffService = staffService;
           this._changeDetectorRef = _changeDetectorRef;
           this.selectedUsers = [];
           this.allUsers = [];
@@ -532,17 +539,17 @@
               indent: '+1'
             }], ['blockquote', 'code-block', 'strike'], ['clean']]
           };
-        } // -----------------------------------------------------------------------------------------------------
-        // @ Lifecycle hooks
-        // -----------------------------------------------------------------------------------------------------
-
-        /**
-         * On init
-         */
-
+        }
 
         _createClass(MailboxComposeComponent, [{
           key: "ngOnInit",
+          // -----------------------------------------------------------------------------------------------------
+          // @ Lifecycle hooks
+          // -----------------------------------------------------------------------------------------------------
+
+          /**
+           * On init
+           */
           value: function ngOnInit() {
             var _this = this;
 
@@ -580,6 +587,17 @@
                 });
               }
             });
+
+            if (!this.isAdmin) {
+              var parmas = {
+                apartmentID: this.sessionService.apartmentId
+              };
+              this.staffService.getStaffInchargeMailboxByApartmentId(parmas).subscribe(function (res) {
+                if (Array.isArray) {
+                  _this.selectedUsers = res;
+                }
+              });
+            }
           }
         }, {
           key: "searchUser",
@@ -686,7 +704,7 @@
               this.selectedUsers.forEach(function (item) {
                 var obj = {
                   "userId": item.userId,
-                  "roleid": item.roleID
+                  "roleid": _this2.isAdmin ? item.roleID : item.roleId
                 };
 
                 _this2.composeMail.recipients.push(obj);
@@ -700,6 +718,11 @@
                 _this2.matDialogRef.close();
               });
             }
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -719,6 +742,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+        }, {
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
@@ -744,7 +769,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./compose.component.scss */
         "./src/app/modules/common/mailbox/compose/compose.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_6__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MailboxComposeComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_6__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MailboxComposeComponent);
       /***/
     },
 

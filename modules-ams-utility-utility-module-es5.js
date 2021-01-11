@@ -408,7 +408,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-grouping-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<form #groupForm=\"ngForm\" *ngIf=\"!isDataLoaded\">\n\t\t\t<h4 class=\"mb-4\">Staff Groups</h4>\n\t\t\t<div class=\"bg-card shadow\">\n                <div class=\"mb-4\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-3\">\n                            <p>Groups</p>\n                        </div>\n                        <div class=\"col-sm-3\">\n                            <p>Primary</p>\n                        </div>\n                        <div class=\"col-sm-5\">\n                            <p>Backup</p>\n                        </div>\n                        <div class=\"col-sm-1\">\n                            <p>Action</p>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"mb-5 grouping\" *ngFor=\"let item of staffGroupingList;let i = index\"> \n                    <div class=\"row\">\n                        <div class=\"col-sm-3\">\n                            <condo-select \n                                labelText=\"Groups{{i}}\"\n                                fieldPlaceholder=\"Select Groups...\"\n                                [fieldList]=\"groupsList\"\n                                fieldValue=\"lookupValueName\"\n                                [fieldModel]=\"item.meterGroupId\"\n                                fieldId=\"lookupValueId\"\n                                [isLabel]=\"'false'\"\n                                [isDisabled] = \"true\"\n                            ></condo-select>\n                        </div>\n                        \n                        <div class=\"col-sm-3\">\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff{{i}}\" [(ngModel)]=\"item.stafflistprimary\" \n                                [settings]=\"StaffSetting\" (onSelect)=\"selectPrimaryStaff($event,'single',item)\" (onDeSelect)=\"deSelectPrimaryStaff($event,'single',item)\"\n                                (onSelectAll)=\"selectPrimaryStaff($event,'all',item)\" (onDeSelectAll)=\"deSelectPrimaryStaff($event,'all',item)\">\n                            </angular2-multiselect> \n                        </div>\n                        <div class=\"col-sm-5\">\n                            <angular2-multiselect [data]=\"staffsList\" name=\"backStaff{{i}}\" [(ngModel)]=\"item.stafflistbackup\" \n                                [settings]=\"StaffSetting\" (onSelect)=\"selectBackUpStaff($event,'single',item)\" (onDeSelect)=\"deSelectBackUpStaff($event,'single',item)\"\n                                (onSelectAll)=\"selectBackUpStaff($event,'all',item)\" (onDeSelectAll)=\"deSelectBackUpStaff($event,'all',item)\">\n                            </angular2-multiselect> \n                        </div>\n                        <div class=\"col-sm-1\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addStaffGrouping(item)\">Save</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-grouping-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<form #groupForm=\"ngForm\" *ngIf=\"!isDataLoaded\">\n\t\t\t<h4 class=\"mb-4\">Staff Groups</h4>\n\t\t\t<div class=\"bg-card shadow\">\n                <div class=\"mb-4\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-3\">\n                            <p>Groups</p>\n                        </div>\n                        <div class=\"col-sm-3\">\n                            <p>Primary</p>\n                        </div>\n                        <div class=\"col-sm-5\">\n                            <p>Backup</p>\n                        </div>\n                        <div class=\"col-sm-1\">\n                            <p>Action</p>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"mb-5 grouping\" *ngFor=\"let item of staffGroupingList;let i = index\"> \n                    <div class=\"row\">\n                        <div class=\"col-sm-3\">\n                            <condo-select \n                                labelText=\"Groups{{i}}\"\n                                fieldPlaceholder=\"Select Groups...\"\n                                [fieldList]=\"groupsList\"\n                                fieldValue=\"lookupValueName\"\n                                [fieldModel]=\"item.meterGroupId\"\n                                fieldId=\"lookupValueId\"\n                                [isLabel]=\"'false'\"\n                                [isDisabled] = \"true\"\n                            ></condo-select>\n                        </div>\n                        \n                        <div class=\"col-sm-3\">\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff{{i}}\" [(ngModel)]=\"item.stafflistprimary\" \n                                [settings]=\"StaffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff(item)\">\n                            </angular2-multiselect> \n                        </div>\n                        <div class=\"col-sm-5\">\n                            <angular2-multiselect [data]=\"staffsList\" name=\"backStaff{{i}}\" [(ngModel)]=\"item.stafflistbackup\" \n                                [settings]=\"StaffSetting\" (onDeSelectAll)=\"deSelectBackUpStaff(item)\">\n                            </angular2-multiselect> \n                        </div>\n                        <div class=\"col-sm-1\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addStaffGrouping(item)\">Save</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -7424,37 +7424,14 @@
         }
 
         _createClass(UtilityStaffGroupingComponent, [{
-          key: "selectPrimaryStaff",
-          value: function selectPrimaryStaff(event, type, data) {// if(type=='single') {
-            //   data.stafflistbackup.push({staffId:event.staffId})
-            // } else {
-            //   data.stafflistbackup = [];
-            //   event.forEach((staff)=>{
-            //     data.stafflistbackup.push({staffId:staff.staffId})
-            //   })
-            // }
-            // console.log(data);
-          }
-        }, {
           key: "deSelectPrimaryStaff",
-          value: function deSelectPrimaryStaff(event, type, data) {// if(type=='single') {
-            //   let index = data.stafflistbackup.find((staff)=>staff.staffId == event.staffId);
-            //   if(index >= 0) 
-            //   data.stafflistbackup.splice(index,1);
-            // } else {
-            //   data.stafflistbackup = [];
-            // }
-            // console.log(data);
-          }
-        }, {
-          key: "selectBackUpStaff",
-          value: function selectBackUpStaff(event, type, data) {// console.log(event);
-            // console.log(type)
+          value: function deSelectPrimaryStaff(data) {
+            data.stafflistprimary = [];
           }
         }, {
           key: "deSelectBackUpStaff",
-          value: function deSelectBackUpStaff(event, type, data) {// console.log(event);
-            // console.log(type);
+          value: function deSelectBackUpStaff(data) {
+            data.stafflistbackup = [];
           }
         }, {
           key: "addStaffGrouping",
