@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n\n    <h5 class=\"mb-4\">\n        <span *ngIf=\"!isEditUser\">Create TODO</span>\n    </h5>\n    <div class=\"row\">\n        <div class=\"col-lg-9 col-md-9 col-xs-12 col-sm-6\">\n            <div class=\"bg-card shadow\">\n                <full-calendar #calendar [options]=\"calendarOptions\"></full-calendar>\n            </div>\n        </div>\n        <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <!-- <button mat-raised-button class=\"w-100\" color=\"primary\" (click)=\"openCategory()\">Create Category</button> -->\n            <!-- <div class=\"todo-category-list mt-3\">\n                <mat-card class=\"mt-12 todo-category bg-card shadow\" *ngFor=\"let category of categoryList;let i = index\"\n                    (click)=\"editCategory(category.todoListCategoryId)\" (mouseenter)=\"isShowRemove=i\" (mouseleave)=\"isShowRemove=null\">\n                    <div *ngIf=\"isShowRemove == i\" class=\"todo-action\"\n                        (click)=\"removeCategory(category.todoListCategoryId)\">\n                        <i class=\"fa fa-times icon\" aria-hidden=\"true\"></i>\n                    </div>\n                    {{category.categoryName}}\n                </mat-card>\n            </div> -->\n            <div class=\"todo-category-list mt-3\">\n                <div class=\"bg-card-list w-100\">\n                    <div class=\"bg-card m-0 pt-4 w-100 shadow\" *ngFor=\"let item of categoryList;let i = index\">\n                        <div class=\"desp\">\n                            <h6>{{item.categoryName}}</h6>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n\n    <h5 class=\"mb-4\">\n        <span *ngIf=\"!isEditUser\">Create TODO</span>\n    </h5>\n    <div class=\"row\">\n        <div class=\"col-lg-9 col-md-9 col-xs-12 col-sm-6\">\n            <!-- <div class=\"bg-card shadow\">\n                <full-calendar #calendar [options]=\"calendarOptions\"></full-calendar>\n            </div> -->\n        </div>\n        <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <!-- <button mat-raised-button class=\"w-100\" color=\"primary\" (click)=\"openCategory()\">Create Category</button> -->\n            <!-- <div class=\"todo-category-list mt-3\">\n                <mat-card class=\"mt-12 todo-category bg-card shadow\" *ngFor=\"let category of categoryList;let i = index\"\n                    (click)=\"editCategory(category.todoListCategoryId)\" (mouseenter)=\"isShowRemove=i\" (mouseleave)=\"isShowRemove=null\">\n                    <div *ngIf=\"isShowRemove == i\" class=\"todo-action\"\n                        (click)=\"removeCategory(category.todoListCategoryId)\">\n                        <i class=\"fa fa-times icon\" aria-hidden=\"true\"></i>\n                    </div>\n                    {{category.categoryName}}\n                </mat-card>\n            </div> -->\n            <div class=\"todo-category-list mt-3\">\n                <div class=\"bg-card-list w-100\">\n                    <div class=\"bg-card m-0 pt-4 w-100 shadow\" *ngFor=\"let item of categoryList;let i = index\">\n                        <div class=\"desp\">\n                            <h6>{{item.categoryName}}</h6>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -442,20 +442,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../todo-create-dialog/todo-create-dialog.component */ "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.ts");
-/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 
 
 
 
 
 
-
-
+// import { CalendarOptions } from '@fullcalendar/angular';
 
 
 let TodoCreateComponent = class TodoCreateComponent {
@@ -466,20 +462,20 @@ let TodoCreateComponent = class TodoCreateComponent {
         this.todoService = todoService;
         this.dialog = dialog;
         this.modalService = modalService;
-        this.calendarOptions = {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-            },
-            aspectRatio: 2,
-            resourceAreaHeaderContent: 'Facility',
-            selectable: true,
-            select: this.appointmentAdd.bind(this),
-            eventClick: this.appointmentClick.bind(this),
-            schedulerLicenseKey: "CC-Attribution-NonCommercial-NoDerivatives"
-        };
+        // calendarOptions: CalendarOptions = {
+        //   initialView: 'dayGridMonth',
+        //   headerToolbar: {
+        //     left: 'prev,next',
+        //     center: 'title',
+        //     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        //   },
+        //   aspectRatio: 2,
+        //   resourceAreaHeaderContent: 'Facility',
+        //   selectable: true,
+        //   select: this.appointmentAdd.bind(this),
+        //   eventClick: this.appointmentClick.bind(this),
+        //   schedulerLicenseKey: "CC-Attribution-NonCommercial-NoDerivatives"
+        // };
         this.printButton = null;
         this.isShowRemove = null;
         this.categoryList = [];
@@ -488,9 +484,9 @@ let TodoCreateComponent = class TodoCreateComponent {
         return '100%';
     }
     ngOnInit() {
-        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        this.getCategoryList();
-        this.getMeetingList();
+        // this.sharedService.timezonecast.subscribe( timeZone => this.timeZone = timeZone )
+        // this.getCategoryList();
+        // this.getMeetingList();
     }
     getCategoryList() {
         let getCategoryParam = {
@@ -501,68 +497,69 @@ let TodoCreateComponent = class TodoCreateComponent {
         }, error => {
         });
     }
-    appointmentClick(info) {
-        if (info.event && info.event.extendedProps) {
-            let data = JSON.parse(JSON.stringify(info.event.extendedProps));
-            data['type'] = 'edit';
-            const dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateDialogComponent"], {
-                width: 'auto',
-                height: 'auto',
-                data: data
-            });
-            dialogRef.afterClosed().subscribe(result => {
-                if (result) {
-                    this.getMeetingList();
-                }
-            });
-        }
-        else {
-            this.sharedService.openSnackBar('data not found', 'error');
-        }
-    }
-    appointmentAdd(event) {
-        // this.myScheduler.closeDialog();
-        let data = { type: 'create' };
-        const dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateDialogComponent"], {
-            width: 'auto',
-            height: 'auto',
-            data: data
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-                this.getMeetingList();
-            }
-        });
-    }
+    // appointmentClick(info) {
+    //   if(info.event && info.event.extendedProps){
+    //     let data: any = JSON.parse(JSON.stringify(info.event.extendedProps));
+    //     data['type'] = 'edit';
+    //     const dialogRef = this.dialog.open(TodoCreateDialogComponent, {
+    //       width: 'auto',
+    //       height: 'auto',
+    //       data: data
+    //     });
+    //     dialogRef.afterClosed().subscribe(result => {
+    //       if (result) {
+    //         this.getMeetingList();
+    //       }
+    //     });
+    //   }else{
+    //     this.sharedService.openSnackBar('data not found','error');
+    //   }
+    // }
+    // appointmentAdd(event) {
+    //   // this.myScheduler.closeDialog();
+    //   let data = { type: 'create' };
+    //   const dialogRef = this.dialog.open(TodoCreateDialogComponent, {
+    //     width: 'auto',
+    //     height: 'auto',
+    //     data: data
+    //   });
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     if (result) {
+    //       this.getMeetingList();
+    //     }
+    //   });
+    // }
     onDialogClose(event) {
     }
-    getMeetingList() {
-        let params = {
-            apartmentId: this.sessionService.apartmentId,
-            staffId: 1
-        };
-        this.todoService.getTodoListByStaffId(params).subscribe((resp) => {
-            if (resp.length > 0) {
-                resp.forEach((data, i) => {
-                    data.start = `${moment__WEBPACK_IMPORTED_MODULE_9__(data.beginOn).format(this.timeZone.time)} ${data.fromTime}`;
-                    data.end = `${moment__WEBPACK_IMPORTED_MODULE_9__(data.finishOn).format(this.timeZone.time)} ${data.toTime}`;
-                    data.color = 'red';
-                });
-                this.calendarOptions.events = resp;
-                //this.resources.source = new jqx.dataAdapter(this.source);
-            }
-        });
-    }
+    // getMeetingList() {
+    //   let params = {
+    //     apartmentId: this.sessionService.apartmentId,
+    //     staffId: 1
+    //   }
+    //   this.todoService.getTodoListByStaffId(params).subscribe(
+    //     (resp: any) => {
+    //       if (resp.length > 0) {
+    //         resp.forEach((data, i) => {
+    //           data.start = `${moment(data.beginOn).format(this.timeZone.time)} ${data.fromTime}`
+    //           data.end = `${moment(data.finishOn).format(this.timeZone.time)} ${data.toTime}`
+    //           data.color = 'red'
+    //         });
+    //         this.calendarOptions.events = resp;
+    //         //this.resources.source = new jqx.dataAdapter(this.source);
+    //       }
+    //     }
+    //   )
+    // }
     ngAfterViewInit() {
     }
 };
 TodoCreateComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__["TodoListService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
-    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"] }
+    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"] }
 ];
 TodoCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -572,10 +569,10 @@ TodoCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__["TodoListService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
-        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])
+        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]])
 ], TodoCreateComponent);
 
 
@@ -1125,11 +1122,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
 /* harmony import */ var _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./todo-list/todo-list.component */ "./src/app/modules/ams/todo/todo-list/todo-list.component.ts");
-/* harmony import */ var _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./todo-create/todo-create.component */ "./src/app/modules/ams/todo/todo-create/todo-create.component.ts");
-/* harmony import */ var _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo-reminder/todo-reminder.component */ "./src/app/modules/ams/todo/todo-reminder/todo-reminder.component.ts");
-/* harmony import */ var _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./todo-history/todo-history.component */ "./src/app/modules/ams/todo/todo-history/todo-history.component.ts");
-/* harmony import */ var _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./todo-setup/todo-setup.component */ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.ts");
-
+/* harmony import */ var _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./todo-reminder/todo-reminder.component */ "./src/app/modules/ams/todo/todo-reminder/todo-reminder.component.ts");
+/* harmony import */ var _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo-history/todo-history.component */ "./src/app/modules/ams/todo/todo-history/todo-history.component.ts");
+/* harmony import */ var _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./todo-setup/todo-setup.component */ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.ts");
 
 
 
@@ -1140,11 +1135,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'todo-creation', pathMatch: 'full' },
-    { path: 'todo-setup', component: _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_8__["TodoSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'todo-creation', component: _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'todo-setup', component: _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_7__["TodoSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    // { path: 'todo-creation', component: TodoCreateComponent, canActivate: [AuthGuard]},
     { path: 'todo-list', component: _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__["TodoListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'todo-reminder', component: _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_6__["TodoReminderComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'todo-history', component: _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_7__["TodoHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'todo-reminder', component: _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_5__["TodoReminderComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'todo-history', component: _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_6__["TodoHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'todo-creation', pathMatch: 'full' }
 ];
 let TodoRouting = class TodoRouting {

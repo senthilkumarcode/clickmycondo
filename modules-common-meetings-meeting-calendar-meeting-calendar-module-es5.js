@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"meeting-view-calendar-wrapper\">\n    <div class=\"main\">\n        <app-loader *ngIf=\"!loadingData\"></app-loader>\n        <div class=\"bg-card shadow\" *ngIf=\"loadingData\">\n            <full-calendar #calendar [options]=\"calendarOptions\"></full-calendar>\n        </div>\n    </div>\n</div>\n\n";
+      __webpack_exports__["default"] = "<!-- <div class=\"meeting-view-calendar-wrapper\">\n    <div class=\"main\">\n        <app-loader *ngIf=\"!loadingData\"></app-loader>\n        <div class=\"bg-card shadow\" *ngIf=\"loadingData\">\n            <full-calendar #calendar [options]=\"calendarOptions\"></full-calendar>\n        </div>\n    </div>\n</div> -->\n\n";
       /***/
     },
 
@@ -158,27 +158,27 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-      /* harmony import */
-
-
-      var _meeting_setting_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ../meeting-setting/meeting-edit-display/meeting-edit-display.component */
-      "./src/app/modules/common/meetings/meeting-setting/meeting-edit-display/meeting-edit-display.component.ts");
 
       var MeetingCalendarComponent = /*#__PURE__*/function () {
+        // loadingData = false;
+        // calendarOptions: CalendarOptions = {
+        //   initialView: 'dayGridMonth',
+        //   headerToolbar: {
+        //     left: 'prev,next',
+        //     center: 'title',
+        //     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        //   },
+        //   aspectRatio: 2,
+        //   resourceAreaHeaderContent: 'Facility',
+        //   selectable : true, 
+        //   select : this.appointmentAdd.bind(this),
+        //   eventClick: this.appointmentClick.bind(this),
+        //   schedulerLicenseKey: "CC-Attribution-NonCommercial-NoDerivatives"
+        // };
+        //timeZone:any;
         function MeetingCalendarComponent(meetingService, sharedService, sessionService, dialog) {
           _classCallCheck(this, MeetingCalendarComponent);
 
@@ -186,101 +186,61 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.dialog = dialog;
-          this.loadingData = false;
-          this.calendarOptions = {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-              left: 'prev,next',
-              center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-            },
-            aspectRatio: 2,
-            resourceAreaHeaderContent: 'Facility',
-            selectable: true,
-            select: this.appointmentAdd.bind(this),
-            eventClick: this.appointmentClick.bind(this),
-            schedulerLicenseKey: "CC-Attribution-NonCommercial-NoDerivatives"
-          };
-        }
+        } // appointmentClick(info) {
+        //   if(this.sessionService.isAdmin()) {
+        //     let data:any = {id:info.event.extendedProps.meetingId,type:'edit',from:'calendar'};
+        //     const dialogRef = this.dialog.open(MeetingEditDisplayComponent, {
+        //       panelClass: 'material-dialog-big',
+        //       height:'inherit',
+        //       width:'auto',
+        //       data:data
+        //     });
+        //     dialogRef.afterClosed().subscribe(result => {
+        //       if(result) {
+        //         this.getMeetingList();
+        //       }
+        //     });
+        //   }
+        // }
+        // appointmentAdd(event) {
+        //   if(this.sessionService.isAdmin()) {
+        //     let data = {type:'create',from:'calendar',event:event} 
+        //     const dialogRef = this.dialog.open(MeetingEditDisplayComponent, {
+        //       panelClass: 'material-dialog-big',
+        //       height:'inherit',
+        //       width:'auto',
+        //       data:data
+        //     });
+        //     dialogRef.afterClosed().subscribe(result => {
+        //       if(result) {
+        //         this.getMeetingList();
+        //       }
+        //     });
+        //   }
+        // }
+        // getMeetingList() {
+        //   let params = {
+        //     apartmentId : this.sessionService.apartmentId
+        //   }
+        //   this.meetingService.getMeetingByApartmentId(params).subscribe((res : any) => {
+        //     if(res.length > 0) {
+        //       res.forEach((data)=>{
+        //         data.title = data.subject,
+        //         data.start =  `${moment(data.meetingDate).format('YYYY-MM-DD')} ${data.fromTime}`
+        //         data.end =  `${moment(data.meetingDate).format('YYYY-MM-DD')} ${data.toTime}`
+        //         data.color = 'red'
+        //       })
+        //       this.calendarOptions.events = res;
+        //     }
+        //     this.loadingData = true;
+        //   })
+        // }
+
 
         _createClass(MeetingCalendarComponent, [{
-          key: "appointmentClick",
-          value: function appointmentClick(info) {
-            var _this = this;
-
-            if (this.sessionService.isAdmin()) {
-              var data = {
-                id: info.event.extendedProps.meetingId,
-                type: 'edit',
-                from: 'calendar'
-              };
-              var dialogRef = this.dialog.open(_meeting_setting_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
-                panelClass: 'material-dialog-big',
-                height: 'inherit',
-                width: 'auto',
-                data: data
-              });
-              dialogRef.afterClosed().subscribe(function (result) {
-                if (result) {
-                  _this.getMeetingList();
-                }
-              });
-            }
-          }
-        }, {
-          key: "appointmentAdd",
-          value: function appointmentAdd(event) {
-            var _this2 = this;
-
-            if (this.sessionService.isAdmin()) {
-              var data = {
-                type: 'create',
-                from: 'calendar',
-                event: event
-              };
-              var dialogRef = this.dialog.open(_meeting_setting_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
-                panelClass: 'material-dialog-big',
-                height: 'inherit',
-                width: 'auto',
-                data: data
-              });
-              dialogRef.afterClosed().subscribe(function (result) {
-                if (result) {
-                  _this2.getMeetingList();
-                }
-              });
-            }
-          }
-        }, {
-          key: "getMeetingList",
-          value: function getMeetingList() {
-            var _this3 = this;
-
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
-              if (res.length > 0) {
-                res.forEach(function (data) {
-                  data.title = data.subject, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.fromTime);
-                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.toTime);
-                  data.color = 'red';
-                });
-                _this3.calendarOptions.events = res;
-              }
-
-              _this3.loadingData = true;
-            });
-          }
-        }, {
           key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this4 = this;
-
-            this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this4.timeZone = timeZone;
-            });
-            this.getMeetingList();
+          value: function ngOnInit() {// this.sharedService.timezonecast.subscribe( timeZone => this.timeZone = timeZone )
+            // this.getMeetingList();
           }
         }]);
 
@@ -295,7 +255,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
         }];
       };
 
@@ -307,7 +267,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./meeting-calendar.component.scss */
         "./src/app/modules/common/meetings/meeting-calendar/meeting-calendar.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])], MeetingCalendarComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], MeetingCalendarComponent);
       /***/
     },
 

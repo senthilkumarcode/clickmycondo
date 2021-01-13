@@ -1435,7 +1435,7 @@
 
       var _fullcalendar_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @fullcalendar/common */
-      "./node_modules/@fullcalendar/common/main.js");
+      "./node_modules/@fullcalendar/interaction/node_modules/@fullcalendar/common/main.js");
       /*!
       FullCalendar v5.5.0
       Docs & License: https://fullcalendar.io/
@@ -1582,7 +1582,7 @@
 
       var _fullcalendar_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @fullcalendar/common */
-      "./node_modules/@fullcalendar/common/main.js");
+      "./node_modules/@fullcalendar/interaction/node_modules/@fullcalendar/common/main.js");
       /*!
       FullCalendar v5.5.0
       Docs & License: https://fullcalendar.io/

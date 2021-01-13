@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"selectPrimaryStaff()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff()\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"selectPrimaryStaff()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -177,13 +177,20 @@
         }
 
         _createClass(MailboxSetupComponent, [{
+          key: "deSelectPrimaryStaff",
+          value: function deSelectPrimaryStaff() {
+            this.staffId = null;
+          }
+        }, {
           key: "getSelectedId",
           value: function getSelectedId() {
-            return this.staffId.map(function (data) {
-              return {
-                'staffId': data.staffId
-              };
-            });
+            if (this.staffId) {
+              return this.staffId.map(function (data) {
+                return {
+                  'staffId': data.staffId
+                };
+              });
+            } else this.staffId = '';
           }
         }, {
           key: "selectPrimaryStaff",
