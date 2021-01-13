@@ -4074,18 +4074,6 @@
         component: _components_staff_hierarchy_staff_hierarchy_component__WEBPACK_IMPORTED_MODULE_13__["StaffHierarchyComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
-        path: 'attendance',
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() | src-app-modules-common-calendar-calendar-module */
-          "src-app-modules-common-calendar-calendar-module").then(__webpack_require__.bind(null,
-          /*! src/app/modules/common/calendar/calendar.module */
-          "./src/app/modules/common/calendar/calendar.module.ts")).then(function (m) {
-            return m.CalendarModule;
-          });
-        }
-      }, {
         path: 'payroll',
         component: _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_7__["StaffPayrollComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]

@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-attendance-wrapper\">  \n    <div class=\"main\">\n      <div class=\"bg-card shadow p-0\">\n        <nav mat-tab-nav-bar>\n          <a mat-tab-link *ngFor=\"let link of navArray\" [routerLink]=\"link.link\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n          {{link.name}}\n          </a>\n        </nav>\n      </div>\n      <div class=\"mt-4\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-attendance-wrapper\">  \n    <div class=\"main\">\n      <div class=\"bg-card shadow p-0\">\n        <nav mat-tab-nav-bar>\n          <a mat-tab-link *ngFor=\"let link of navArray\" [routerLink]=\"link.link\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n          {{link.name}}\n          </a>\n        </nav>\n      </div>\n      <div class=\"mt-5\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n</div>");
 
 /***/ }),
 
