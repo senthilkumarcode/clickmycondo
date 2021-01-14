@@ -1,0 +1,32 @@
+{
+    "HEADER": {
+        "SWITCHLANGUAGE" : {
+            "TITLE" : "Switch Language"
+        },
+        "SWITCHCONDO" : {
+            "TITLE" : "Switch Condo",
+            "ADMIN_STAFF" : "Admin/Staff",
+            "OWNER_TENANT" : "Owner/Tenant"
+        },
+        "SETTINGS" : {
+            "SWITCHTHEME": {
+                "TITLE" : "Switch Theme"
+            },
+            "SWITCHLAYOUT": {
+                "TITLE" : "Switch Layout"
+            }
+        },
+        "TODO" : {
+            "TITLE" : "Todo"
+        },
+        "NOTIFICATIONS" : {
+            "TITLE" : "Notifications",
+            "NODATA": "No Recent data"
+        },
+        "USER" : {
+            "SIGNED_IN" : "Signed in as",
+            "PROFILE" : "Profile",
+            "LOGOUT" : "Logout"
+        }
+    }
+}

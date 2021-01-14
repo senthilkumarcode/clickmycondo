@@ -1,0 +1,32 @@
+{
+    "HEADER": {
+        "SWITCHLANGUAGE" : {
+            "TITLE" : "Cambiar idioma"
+        },
+        "SWITCHCONDO" : {
+            "TITLE" : "Cambiar Condo",
+            "ADMIN_STAFF" : "Administrador/Personal",
+            "OWNER_TENANT" : "Propietario/Inquilino"
+        },
+        "SETTINGS" : {
+            "SWITCHTHEME": {
+                "TITLE" : "Cambiar tema"
+            },
+            "SWITCHLAYOUT": {
+                "TITLE" : "Diseño del interruptor"
+            }
+        },
+        "TODO" : {
+            "TITLE" : "que hacer"
+        },
+        "NOTIFICATIONS" : {
+            "TITLE" : "Notificaciones",
+            "NODATA": "Sin datos recientes"
+        },
+        "USER" : {
+            "SIGNED_IN" : "Registrado como",
+            "PROFILE" : "perfil",
+            "LOGOUT" : "cerrar sesión"
+        }
+    }
+}
