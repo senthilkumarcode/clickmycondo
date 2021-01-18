@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"inventory-view-wrapper\">\n\t\t<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n\t\t\t\t\t\t\t[disableClose]=\"true\"\n\t\t\t\t\t\t\t#packageHistory\n                            >\n\n\t\t\t\t\t\t\t<div class=\"bg-card shadow\">\n    \n\t\t\t\t\t\t\t\t<div class=\"title row p-2\">\n\t\t\t\t\t\t\t\t\t<h4 class=\"mt-3\">View Delivery History</h4>\n\t\t\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form #viewdeliveryHistory = \"ngForm\" name=\"viewdeliveryHistory\" (ngSubmit)=\"submitAddCreditNoteForm(viewdeliveryHistory)\"\n\t\t\t\t\t\t\t\t\tnovalidate>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Package No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.packageNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Type</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.type}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.comments}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Image</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.image}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Slot No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.slotNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n\t\t\t\t\t<div class=\"main\" *ngIf=\"isDeliveryHistoryLoaded\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- Tips -->\n\t\t\t\t\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t\t\t\t\t<mat-accordion>\n\t\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t\t<mat-panel-title>Tips</mat-panel-title>\n\t\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t\t\t\t\t<p> Tips: <i class=\"icon fa fa-eye\" aria-hidden=\"true\"></i> - View parcel delivery.</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t</mat-accordion>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"inventory-view-wrapper\">\n\t\t<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n\t\t\t\t\t\t\t[disableClose]=\"true\"\n\t\t\t\t\t\t\t#packageHistory\n                            >\n\n\t\t\t\t\t\t\t<div class=\"bg-card shadow\">\n    \n\t\t\t\t\t\t\t\t<div class=\"title row p-2\">\n\t\t\t\t\t\t\t\t\t<h4 class=\"mt-3\">View Delivery History</h4>\n\t\t\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form #viewdeliveryHistory = \"ngForm\" name=\"viewdeliveryHistory\" (ngSubmit)=\"submitAddCreditNoteForm(viewdeliveryHistory)\"\n\t\t\t\t\t\t\t\t\tnovalidate>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Package No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.packageNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Type</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.type}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.comments}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Image</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.image}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Slot No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.slotNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n\t\t\t\t\t<div class=\"main\" *ngIf=\"isDeliveryHistoryLoaded\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- Tips -->\n\t\t\t\t\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t\t\t\t\t<mat-accordion>\n\t\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t\t<mat-panel-title>Tips</mat-panel-title>\n\t\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t\t\t\t\t<p> Tips: <i class=\"icon fa fa-eye\" aria-hidden=\"true\"></i> - View parcel delivery.</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t</mat-accordion>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #delivery mode=\"over\" position=\"end\">\n        <div class=\"add-delivery-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Delivery Type</span>\n                    <span *ngIf=\"isEdit\">Update Delivery Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\" >\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Delivery Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <button mat-flat-button [color]=\"'primary'\" class=\"mr-3\" (click)=\"addCategory()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add New\n                </button>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of deliveryTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editCategory(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #delivery mode=\"over\" position=\"end\">\n        <div class=\"add-delivery-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Delivery Type</span>\n                    <span *ngIf=\"isEdit\">Update Delivery Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\" >\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Delivery Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <button mat-flat-button [color]=\"'primary'\" class=\"mr-3\" (click)=\"addCategory()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add New\n                </button>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"deliveryTypeList.length == 0\">\n                    <h6 class=\"text-secondary\">No Results found</h6>\n                </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of deliveryTypeList | simpleSearch: categorySearchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editCategory(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"deliveryTypeList.length > 0\">\n                    <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                            [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n        </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Package Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Package Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n            <div class=\"bg-card shadow\" *ngIf=\"packageTypeList.length == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n            <div class=\"bg-card-list col-sm-12\">\n        \n                <div class=\"category-list list-boxes\">\n        \n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\" *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\" (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n        \n                </div>\n        \n            </div>\n        \n            <div class=\"bg-card shadow p-0\" *ngIf=\"packageTypeList.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n                    [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #slot mode=\"over\" position=\"end\">\n        <div class=\"add-slot-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Slot</span>\n                    <span *ngIf=\"isEdit\">Update Slot</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                                <help-tooltip title=\"slotName\"></help-tooltip>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Slot</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of slotList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #slot mode=\"over\" position=\"end\">\n        <div class=\"add-slot-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Slot</span>\n                    <span *ngIf=\"isEdit\">Update Slot</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                                <help-tooltip title=\"slotName\"></help-tooltip>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Slot</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"slotList.length == 0\">\n                    <h6 class=\"text-secondary\">No Results found</h6>\n                </div>\n                \n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of slotList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n            <div class=\"bg-card shadow p-0\" *ngIf=\"slotList.length > 0\">\n                    <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n                        [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                </div>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -491,6 +491,7 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         this.columnField = {};
         this.isEditCredit = false;
         this.deliveryData = {};
+        this.searchListData = "";
         this.params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -713,6 +714,27 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
     }
     goBack() {
         this.matDrawer.close();
+    }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = event;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
     }
 };
 DeliveryHistoryComponent.ctorParameters = () => [
@@ -1209,6 +1231,10 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
         this.categorySearchData = '';
         this.categoryName = '';
         this.categoryDescription = '';
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.searchListData = "";
+        this.allList = [];
     }
     ngOnInit() {
         this.getDeliveryTypeData();
@@ -1236,7 +1262,16 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
             this.deliveryTypeList = res.filter(item => {
                 return item.isActive;
             });
+            this.allList = res.filter(item => {
+                return item.isActive;
+            });
             this.totalItems = this.deliveryTypeList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
         });
     }
     addCategory() {
@@ -1347,6 +1382,38 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
     goBack() {
         this.matDrawer.toggle();
     }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let newData = this.allList.filter(item => {
+                for (let field in item) {
+                    if (item[field] === null || item[field] === undefined) {
+                        continue;
+                    }
+                    if (item[field].toString().toLowerCase().includes(event.toString().toLowerCase())) {
+                        return item;
+                    }
+                }
+            });
+            this.deliveryTypeList = newData.reverse();
+        }
+        else {
+            this.deliveryTypeList = this.allList.reverse();
+            ;
+        }
+        this.totalItems = this.deliveryTypeList.length;
+        this.ItemStartIndex = 0;
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+        }
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
+    }
 };
 DeliveryTypeComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
@@ -1426,6 +1493,10 @@ let PackageTypeComponent = class PackageTypeComponent {
         this.categorySearchData = '';
         this.categoryName = '';
         this.categoryDescription = '';
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.searchListData = "";
+        this.allList = [];
     }
     ngOnInit() {
         this.getCategoryData();
@@ -1453,7 +1524,16 @@ let PackageTypeComponent = class PackageTypeComponent {
             this.packageTypeList = res.filter(item => {
                 return item.isActive;
             });
+            this.allList = res.filter(item => {
+                return item.isActive;
+            });
             this.totalItems = this.packageTypeList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
         });
     }
     addCategory() {
@@ -1563,6 +1643,38 @@ let PackageTypeComponent = class PackageTypeComponent {
     }
     goBack() {
         this.matDrawer.toggle();
+    }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let newData = this.allList.filter(item => {
+                for (let field in item) {
+                    if (item[field] === null || item[field] === undefined) {
+                        continue;
+                    }
+                    if (item[field].toString().toLowerCase().includes(event.toString().toLowerCase())) {
+                        return item;
+                    }
+                }
+            });
+            this.packageTypeList = newData.reverse();
+        }
+        else {
+            this.packageTypeList = this.allList.reverse();
+            ;
+        }
+        this.totalItems = this.packageTypeList.length;
+        this.ItemStartIndex = 0;
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+        }
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
     }
 };
 PackageTypeComponent.ctorParameters = () => [
@@ -1643,6 +1755,10 @@ let SlotTypeComponent = class SlotTypeComponent {
         this.categorySearchData = '';
         this.categoryName = '';
         this.categoryDescription = '';
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.searchListData = "";
+        this.allList = [];
     }
     ngOnInit() {
         this.getSlotData();
@@ -1670,7 +1786,16 @@ let SlotTypeComponent = class SlotTypeComponent {
             this.slotList = res.filter(item => {
                 return item.isActive;
             });
+            this.allList = res.filter(item => {
+                return item.isActive;
+            });
             this.totalItems = this.slotList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
         });
     }
     addCategory() {
@@ -1780,6 +1905,38 @@ let SlotTypeComponent = class SlotTypeComponent {
     }
     goBack() {
         this.matDrawer.toggle();
+    }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let newData = this.allList.filter(item => {
+                for (let field in item) {
+                    if (item[field] === null || item[field] === undefined) {
+                        continue;
+                    }
+                    if (item[field].toString().toLowerCase().includes(event.toString().toLowerCase())) {
+                        return item;
+                    }
+                }
+            });
+            this.slotList = newData.reverse();
+        }
+        else {
+            this.slotList = this.allList.reverse();
+            ;
+        }
+        this.totalItems = this.slotList.length;
+        this.ItemStartIndex = 0;
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+        }
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
     }
 };
 SlotTypeComponent.ctorParameters = () => [

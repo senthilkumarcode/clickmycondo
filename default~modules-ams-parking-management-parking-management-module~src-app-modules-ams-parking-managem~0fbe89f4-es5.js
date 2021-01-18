@@ -108,7 +108,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-view-available-slots-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"mt-3\" >View Available lots</h5> \n\t\t\t</div>\n\t\t\t<!-- <div class=\"float-right\">\n\t\t\t\t<ul class=\"list-inline float-left\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n    \t\t</div> -->\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #searchBooking = \"ngForm\" name=\"searchBooking\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [(ngModel)]=\"searchBookingHistory.StartDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [(ngModel)]=\"searchBookingHistory.StartTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [(ngModel)]=\"searchBookingHistory.EndDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [(ngModel)]=\"searchBookingHistory.EndTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                    </div>\n\n\t\t\t\t\t<!-- <div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Tower</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"tower\" \n\t\t\t\t\t\t\t        id=\"tower\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div> \n                     \n                        <div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Type </label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"stype\" \n\t\t\t\t\t\t\t        id=\"stype\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div>\n                    </div> -->\n \n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-left mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"searchBooking.invalid\" (click)=\"getBookingHistoryList()\"   >Search</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form> \n\t\t\t\n\t\t</div>\n\n\t</div>\n \n\n\t<div class=\"card table-card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Add and Edit the slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:printer\"></mat-icon>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> \n    \t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body p-0\"> \n\t\t\t<div class=\"scrolling outer\">\n                <div class=\"inner\">\n\t\t\t\t\t<table class=\"table\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t  <th scope=\"col\">Slot No<span></span></th>\n\t\t\t\t\t\t\t  <th scope=\"col\">Slot Location<span ></span></th>\n\t\t\t\t\t\t\t  <th scope=\"col\">Parking Type<span></span></th>  \n\t\t\t\t\t\t\t  <th scope=\"col\">From Date</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">From Time</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">To Date</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">To Time</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">Visitor ID</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t <tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">Car</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">03:57</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">05:50</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">100001</td> \n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">Car</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">03:57</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">05:50</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">100001</td> \n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">Car</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">03:57</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">05:50</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">100001</td> \n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\n\t\t\t\t\t\t </tbody> \n\t\t\t\t\t\t</table> \n\t\t\t</div>\n\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"10\"  \n\t\t\t\t[ItemStartIndex]=\"1\"\n\t\t\t\t[ItemEndIndex] = \"10\"\n\t\t\t\t[itemLimit] = \"5\"\n\t\t\t\t(outputParams) = \"1\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-view-available-slots-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"mt-3\" >View Available lots</h5> \n\t\t\t</div>\n\t\t\t<!-- <div class=\"float-right\">\n\t\t\t\t<ul class=\"list-inline float-left\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n    \t\t</div> -->\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #searchBooking = \"ngForm\" name=\"searchBooking\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [(ngModel)]=\"searchBookingHistory.StartDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [(ngModel)]=\"searchBookingHistory.StartTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"startTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [(ngModel)]=\"searchBookingHistory.EndDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [(ngModel)]=\"searchBookingHistory.EndTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                    </div>\n\n\t\t\t\t\t<!-- <div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Tower</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"tower\" \n\t\t\t\t\t\t\t        id=\"tower\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div> \n                     \n                        <div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Type </label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"stype\" \n\t\t\t\t\t\t\t        id=\"stype\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div>\n                    </div> -->\n \n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-left mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"searchBooking.invalid\" (click)=\"getBookingHistoryList()\"   >Search</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form> \n\t\t\t\n\t\t</div>\n\n\t</div>\n \n\n\t<div class=\"card table-card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Add and Edit the slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:printer\"></mat-icon>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> \n    \t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body p-0\"> \n\t\t\t<div class=\"scrolling outer\">\n                <div class=\"inner\">\n\t\t\t\t\t<table class=\"table\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t  <th scope=\"col\">Slot No<span></span></th>\n\t\t\t\t\t\t\t  <th scope=\"col\">Slot Location<span ></span></th>\n\t\t\t\t\t\t\t  <th scope=\"col\">Parking Type<span></span></th>  \n\t\t\t\t\t\t\t  <th scope=\"col\">From Date</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">From Time</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">To Date</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">To Time</th>\n\t\t\t\t\t\t\t  <th scope=\"col\">Visitor ID</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t <tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">Car</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">03:57</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">05:50</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">100001</td> \n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">Car</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">03:57</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">05:50</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">100001</td> \n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">Car</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">03:57</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">5/12/2020</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">05:50</td> \n\t\t\t\t\t\t\t\t<td class=\"grey\">100001</td> \n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\n\t\t\t\t\t\t </tbody> \n\t\t\t\t\t\t</table> \n\t\t\t</div>\n\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"10\"  \n\t\t\t\t[ItemStartIndex]=\"1\"\n\t\t\t\t[ItemEndIndex] = \"10\"\n\t\t\t\t[itemLimit] = \"5\"\n\t\t\t\t(outputParams) = \"1\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -208,7 +208,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-aa-community-unit-list-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Community to Unit Allocation - Manage Allocation Availability</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" >\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-allocation','community-unit']\" routerLinkActive=\"active\">Allocate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"parking-aa-community-unit-list-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Community to Unit Allocation - Manage Allocation Availability</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"groupData\" (outputParams)=\"communitySearch($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-allocation','community-unit']\" routerLinkActive=\"active\">Allocate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n";
       /***/
     },
 
@@ -228,7 +228,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-community-list-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Unit to Community Allocation - Manage Allocation Availability</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" >\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-allocation','unit-community']\" routerLinkActive=\"active\">Allocate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n    ";
+      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-community-list-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Unit to Community Allocation - Manage Allocation Availability</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"groupData\" (outputParams)=\"unitSearch($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-allocation','unit-community']\" routerLinkActive=\"active\">Allocate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n    ";
       /***/
     },
 
@@ -248,7 +248,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-unit-list-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Unit to Unit Allocation - Manage Allocation Availability</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" >\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-allocation','unit-unit']\" routerLinkActive=\"active\">Allocate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-unit-list-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Unit to Unit Allocation - Manage Allocation Availability</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"groupData\" (outputParams)=\"unitSearch($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-allocation','unit-unit']\" routerLinkActive=\"active\">Allocate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>";
       /***/
     },
 
@@ -368,7 +368,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-view-available-slots-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"mt-3\" >View Available lots</h5> \n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n\t\t\t\t<ul class=\"list-inline float-left\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                    </div>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Tower</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"tower\" \n\t\t\t\t\t\t\t        id=\"tower\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div> \n                     \n                        <div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Type </label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"stype\" \n\t\t\t\t\t\t\t        id=\"stype\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div>\n                    </div>\n \n\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-left mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\n\t\t\t\t</form> \n\t\t\t\n\t\t</div>\n\n\t</div>\n \n\n\t<div class=\"card table-card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Add and Edit the slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:printer\"></mat-icon>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> \n    \t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body p-0\"> \n\t\t\t<div class=\"scrolling outer\">\n                <div class=\"inner\">\n\t\t\t<table class=\"table\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Available Slot<span></span></th>\n\t\t\t\t      <th scope=\"col\">Tower <span ></span></th>\n\t\t\t\t      <th scope=\"col\">Community Owned/Community Temp Owned<span></span></th>  \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t     <tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\t (click)=\"openConfirmation()\"  >\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A102</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A103</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-3</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t     </tbody> \n\t\t\t\t</table> \n\t\t\t</div>\n\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"10\"  \n\t\t\t\t[ItemStartIndex]=\"1\"\n\t\t\t\t[ItemEndIndex] = \"10\"\n\t\t\t\t[itemLimit] = \"5\"\n\t\t\t\t(outputParams) = \"1\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-view-available-slots-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"mt-3\" >View Available lots</h5> \n\t\t\t</div>\n\t\t\t<div class=\"float-right\">\n\t\t\t\t<ul class=\"list-inline float-left\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                    </div>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Tower</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"tower\" \n\t\t\t\t\t\t\t        id=\"tower\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div> \n                     \n                        <div class=\"col-sm-3\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Type </label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"stype\" \n\t\t\t\t\t\t\t        id=\"stype\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\" Community Owned\" > Community Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div>\n                    </div>\n \n\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-left mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\n\t\t\t\t</form> \n\t\t\t\n\t\t</div>\n\n\t</div>\n \n\n\t<div class=\"card table-card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Add and Edit the slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:printer\"></mat-icon>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> \n    \t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body p-0\"> \n\t\t\t<div class=\"scrolling outer\">\n                <div class=\"inner\">\n\t\t\t<table class=\"table\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Available Slot<span></span></th>\n\t\t\t\t      <th scope=\"col\">Tower <span ></span></th>\n\t\t\t\t      <th scope=\"col\">Community Owned/Community Temp Owned<span></span></th>  \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t     <tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\t (click)=\"openConfirmation()\"  >\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A102</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A103</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-3</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\"> Community Owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t     </tbody> \n\t\t\t\t</table> \n\t\t\t</div>\n\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"10\"  \n\t\t\t\t[ItemStartIndex]=\"1\"\n\t\t\t\t[ItemEndIndex] = \"10\"\n\t\t\t\t[itemLimit] = \"5\"\n\t\t\t\t(outputParams) = \"1\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -588,7 +588,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-setup-slot-rate-wrapper\">\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Create Slot -->\n    <div class=\"bg-card shadow\" *ngIf=\"isShowCreateSlot\">\n        <h4 class=\"mb-4\">Create Slot Rate Type</h4>\n        <form #addslotypeForm=\"ngForm\" name=\"addslotypeForm\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Slot Rate Type*</label>\n                        <select name=\"SlotRateType\" id=\"SlotRateType\" class=\"form-control\"\n                            [(ngModel)]=\"slotRateParam.name\" required>\n                            <option value=\"Per Hour\">Per Hour</option>\n                            <option value=\"Daily 24 Hrs\">Daily 24 Hrs</option>\n                            <option value=\"Monthly\">Monthly</option>\n                            <option value=\"Yearly\">Yearly</option>\n                            <option value=\"Quaterly\">Quarterly</option>\n                            <option value=\"Overnight 12 Hrs\">Overnight 12 Hrs</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label> Rate*</label>\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"slotRateParam.fee\"\n                            placeholder=\"Enter text\" name=\"rate\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Calculation Type *</label>\n                        <select name=\"CalculationType \" id=\"CalculationType\" class=\"form-control\"\n                            [(ngModel)]=\"slotRateParam.feeCalcultionType\" required>\n                            <option value=\"One Time\">Onetime</option>\n                            <option value=\"Daily\">Daily</option>\n                            <option value=\"Monthly\">Monthly</option>\n                        </select>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 d-flex justify-content-end\">\n                    <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"  [disabled]=\"addslotypeForm.invalid\"\n                        (click)=\"slotRateType()\">{{isCreateSlot ? 'Submit' : 'Update'}}</button>\n                    <button class=\"btn\" (click)=\"isShowCreateSlot=false\"  >Cancel</button>\n                </div>\n            </div>\n        </form>    \n    </div>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Slot Rate Type</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"filterSlotRate\" (ngModelChange)=\"searchSlotRate()\" >\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"isShowCreateSlot=true;isCreateSlot=true;\">\n                        <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                        Create Slot Rate</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n             <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotRateData\" [columns]=\"slotRateHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n        ";
+      __webpack_exports__["default"] = "<div class=\"parking-setup-slot-rate-wrapper\">\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Create Slot -->\n    <div class=\"bg-card shadow\" *ngIf=\"isShowCreateSlot\">\n        <h4 class=\"mb-4\">Create Slot Rate Type</h4>\n        <form #addslotypeForm=\"ngForm\" name=\"addslotypeForm\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Slot Rate Type*</label>\n                        <select name=\"SlotRateType\" id=\"SlotRateType\" class=\"form-control\"\n                            [(ngModel)]=\"slotRateParam.name\" required>\n                            <option value=\"Per Hour\">Per Hour</option>\n                            <option value=\"Daily 24 Hrs\">Daily 24 Hrs</option>\n                            <option value=\"Monthly\">Monthly</option>\n                            <option value=\"Yearly\">Yearly</option>\n                            <option value=\"Quaterly\">Quarterly</option>\n                            <option value=\"Overnight 12 Hrs\">Overnight 12 Hrs</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label> Rate*</label>\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"slotRateParam.fee\"\n                            placeholder=\"Enter text\" name=\"rate\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Calculation Type *</label>\n                        <select name=\"CalculationType \" id=\"CalculationType\" class=\"form-control\"\n                            [(ngModel)]=\"slotRateParam.feeCalcultionType\" required>\n                            <option value=\"One Time\">Onetime</option>\n                            <option value=\"Daily\">Daily</option>\n                            <option value=\"Monthly\">Monthly</option>\n                        </select>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 d-flex justify-content-end\">\n                    <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"  [disabled]=\"addslotypeForm.invalid\"\n                        (click)=\"slotRateType()\">{{isCreateSlot ? 'Submit' : 'Update'}}</button>\n                    <button class=\"btn\" (click)=\"isShowCreateSlot=false\"  >Cancel</button>\n                </div>\n            </div>\n        </form>    \n    </div>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Slot Rate Type</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"searchData\" (outputParams)=\"searchSlotRate($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3 ml-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div class=\"ml-3\">\n                    <button mat-flat-button class=\"d-none d-md-block\" [color]=\"'primary'\" (click)=\"isShowCreateSlot=true;isCreateSlot=true;\">\n                        <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                        Create Slot Rate</button>\n                        <button mat-flat-button class=\"d-block d-md-none\" [color]=\"'primary'\" (click)=\"isShowCreateSlot=true;isCreateSlot=true;\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                            </button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n             <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"slotRateData\" [columns]=\"slotRateHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n        ";
       /***/
     },
 
@@ -608,7 +608,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-view-available-slots-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>View Available lots</h5> \n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                    </div>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Tower</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"tower\" \n\t\t\t\t\t\t\t        id=\"tower\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div> \n                     \n                        <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Type </label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"stype\" \n\t\t\t\t\t\t\t        id=\"stype\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Unit Owned\" >Unit Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div>\n                    </div>\n \n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-left mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form> \n\t\t\t\n\t\t</div>\n\n\t</div>\n \n\n\t<div class=\"card table-card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Add and Edit the slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\"  >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:printer\"></mat-icon>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> \n    \t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body p-0\"> \n\t\t\t<div class=\"scrolling outer\">\n                <div class=\"inner\">\n\t\t\t<table class=\"table\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Available Slot<span></span></th>\n\t\t\t\t      <th scope=\"col\">Tower <span ></span></th>\n\t\t\t\t      <th scope=\"col\">Unit owned/Community Owned<span></span></th>  \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t     <tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A102</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A103</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-3</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t     </tbody> \n\t\t\t\t</table> \n\t\t\t</div>\n\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"10\"  \n\t\t\t\t[ItemStartIndex]=\"1\"\n\t\t\t\t[ItemEndIndex] = \"10\"\n\t\t\t\t[itemLimit] = \"5\"\n\t\t\t\t(outputParams) = \"1\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-view-available-slots-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>View Available lots</h5> \n    \t\t</div>\n\t\t</div>\n\t\t<div class=\"card-body\"> \n\n\t\t\t\t<form #addStaffForm = \"ngForm\" name=\"addStaffForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Date</label>\n                                <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Start Date\" >\n                                <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>Start Time</label>\n                                <input class=\"form-control\" name=\"startTime\" [owlDateTime]=\"startTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"Start Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #startTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Date</label>\n                                <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"End Date\" >\n                                <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div> \n\n                        <div class=\"col-sm-3\">\n                            <div class=\"input-box\">\n                                <label>End Time</label>\n                                <input class=\"form-control\" name=\"endTime\" [owlDateTime]=\"endTime\" [owlDateTimeTrigger]=\"endTime\" placeholder=\"End Time\">\n\t\t\t\t\t\t\t\t<owl-date-time #endTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endTime\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n                            </div>\n                        </div> \n\n                    </div>\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Tower</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"tower\" \n\t\t\t\t\t\t\t        id=\"tower\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Tower-1\" >Tower-1</option>\n                                    <option value=\"Tower-2\" >Tower-2</option>\n                                    <option value=\"Tower-3\" >Tower-3</option>\n                                    <option value=\"Tower-4\" >Tower-4</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div> \n                     \n                        <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Type </label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"stype\" \n\t\t\t\t\t\t\t        id=\"stype\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n                                    <option value=\"Unit Owned\" >Unit Owned</option>\n                                    <option value=\"Community Owned\" >Community Owned</option> \n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n                        </div>\n                    </div>\n \n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-left mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"addStaffForm.invalid\">Search</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</form> \n\t\t\t\n\t\t</div>\n\n\t</div>\n \n\n\t<div class=\"card table-card mb-5\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Slots</h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Add and Edit the slots</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n\t\t\t\t\t<app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:printer\"></mat-icon>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li> \n    \t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body p-0\"> \n\t\t\t<div class=\"scrolling outer\">\n                <div class=\"inner\">\n\t\t\t<table class=\"table\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n\t\t\t\t      <th scope=\"col\">Available Slot<span></span></th>\n\t\t\t\t      <th scope=\"col\">Tower <span ></span></th>\n\t\t\t\t      <th scope=\"col\">Unit owned/Community Owned<span></span></th>  \n\t\t\t\t      <th scope=\"col\">Action</th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t     <tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A102</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A101</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A103</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-3</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-2</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>A104</td>\n\t\t\t\t\t\t<td class=\"grey text-capitalize\">Tower-1</td>\n\t\t\t\t\t\t<td class=\"grey\">Unit owned </td> \n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\"btn lime-green \"\n\t\t\t\t\t\t\trouterLink=\"/ams/parking-management/add-slot\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<span>Book</span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t     </tbody> \n\t\t\t\t</table> \n\t\t\t</div>\n\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"10\"  \n\t\t\t\t[ItemStartIndex]=\"1\"\n\t\t\t\t[ItemEndIndex] = \"10\"\n\t\t\t\t[itemLimit] = \"5\"\n\t\t\t\t(outputParams) = \"1\">\t\n\t\t\t</app-pagination>\n\n\t\t</div>\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -628,7 +628,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"community-parking-availability-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Make Community Parking Available</h4>\n                    <p>You are making Community Parking Available for Booking</p>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"communityFilter\" (ngModelChange)=\"communitySearch()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-availability','community']\" routerLinkActive=\"active\">Set Availablity</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"communityAllocationData\" [columns]=\"communityAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"community-parking-availability-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Make Community Parking Available</h4>\n                    <p>You are making Community Parking Available for Booking</p>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"groupData\" (outputParams)=\"communitySearch($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-availability','community']\" routerLinkActive=\"active\">Set Availablity</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"communityAllocationData\" [columns]=\"communityAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>";
       /***/
     },
 
@@ -688,7 +688,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"unit-parking-availability-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Make Unit Parking Available</h4>\n                    <p>You are making Resident Parking Available(on behalf ofresident)</p>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitFilter\" (ngModelChange)=\"unitSearch()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-availability','unit']\" routerLinkActive=\"active\">Set Availablity</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ";
+      __webpack_exports__["default"] = "<div class=\"unit-parking-availability-wrapper\">\n    <!-- Filter -->\n    <div class=\"bg-card shadow p-0\"> \n        <app-parking-manage-filter [type]=\"'unit'\" (filterObj)=\"filterData($event)\"></app-parking-manage-filter>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Make Unit Parking Available</h4>\n                    <p>You are making Resident Parking Available(on behalf ofresident)</p>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <app-table-search [input]=\"groupData\" (outputParams)=\"unitSearch($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" [routerLink]=\"['/ams/parking-management/create-availability','unit']\" routerLinkActive=\"active\">Set Availablity</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"unitAllocationData\" [columns]=\"unitAllocationHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ";
       /***/
     },
 
@@ -1698,6 +1698,7 @@
 
           this.sessionService = sessionService;
           this.parkingService = parkingService;
+          this.groupData = "";
         }
 
         _createClass(ParkingAdminViewBookingComponent, [{
@@ -1722,6 +1723,25 @@
               EndTime: moment__WEBPACK_IMPORTED_MODULE_4__(this.searchBookingHistory.EndTime, 'hh:mm a').format()
             };
             this.parkingService.getParkingAllocationSummary(searchHistoryParam).subscribe(function (resp) {}, function (error) {});
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {// if (event != "") {
+            //   let newData = this.allData.filter(item => {
+            //     for (let field in item) {
+            //       if (item[field] === null || item[field] === undefined) {
+            //         continue;
+            //       }
+            //       if (item[field].toString().toLowerCase().indexOf(event.toString().toLowerCase()) !== -1) {
+            //         return item;
+            //       }
+            //     }
+            //   })
+            //   this._visitorList.next(newData.reverse());
+            // } else {
+            //   this.fullVisitorList = this.allData;
+            //   this._visitorList.next(this.fullVisitorList.reverse());
+            // }
           }
         }]);
 
@@ -2438,6 +2458,7 @@
 
           //isDataLoaded:boolean = true;
           this.totalItems = 0;
+          this.groupData = "";
         }
 
         _createClass(ParkingAaCommunityToOthersComponent, [{
@@ -2526,6 +2547,30 @@
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }];
+          }
+        }, {
+          key: "communitySearch",
+          value: function communitySearch(event) {
+            var _this12 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.unitAllocationHeader.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
           }
         }]);
 
@@ -2644,12 +2689,13 @@
           this.sessionService = sessionService;
           this.isDataLoaded = true;
           this.totalItems = 0;
+          this.groupData = "";
         }
 
         _createClass(ParkingAaUnitToCommunityComponent, [{
           key: "getUnitAvailability",
           value: function getUnitAvailability() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -2665,15 +2711,15 @@
             };
             this.parkingService.getAllRentedParkingAllocation(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this12.totalItems = res.length;
-                _this12.gridSourceData = {
+                _this13.totalItems = res.length;
+                _this13.gridSourceData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this12.unitAllocationData = new jqx.dataAdapter(_this12.gridSourceData);
+                _this13.unitAllocationData = new jqx.dataAdapter(_this13.gridSourceData);
               }
 
-              _this12.isDataLoaded = false;
+              _this13.isDataLoaded = false;
             });
           }
         }, {
@@ -2764,6 +2810,30 @@
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }];
+          }
+        }, {
+          key: "unitSearch",
+          value: function unitSearch(event) {
+            var _this14 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.unitAllocationHeader.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
           }
         }]);
 
@@ -2886,12 +2956,13 @@
           this.sessionService = sessionService;
           this.isDataLoaded = true;
           this.totalItems = 0;
+          this.groupData = "";
         }
 
         _createClass(ParkingAaUnitToUnitAllocationComponent, [{
           key: "getUnitAvailability",
           value: function getUnitAvailability() {
-            var _this13 = this;
+            var _this15 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -2907,15 +2978,15 @@
             };
             this.parkingService.getAllRentedParkingAllocation(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this13.totalItems = res.length;
-                _this13.gridSourceData = {
+                _this15.totalItems = res.length;
+                _this15.gridSourceData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this13.unitAllocationData = new jqx.dataAdapter(_this13.gridSourceData);
+                _this15.unitAllocationData = new jqx.dataAdapter(_this15.gridSourceData);
               }
 
-              _this13.isDataLoaded = false;
+              _this15.isDataLoaded = false;
             });
           }
         }, {
@@ -3020,6 +3091,30 @@
               EndTime: ""
             };
             this.parkingService.getAllRentedParkingAllocation(searchParam).subscribe(function (resp) {}, function (error) {});
+          }
+        }, {
+          key: "unitSearch",
+          value: function unitSearch(event) {
+            var _this16 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.unitAllocationHeader.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this16.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
           }
         }]);
 
@@ -3265,7 +3360,7 @@
         }, {
           key: "oneditSlot",
           value: function oneditSlot(detail) {
-            var _this14 = this;
+            var _this17 = this;
 
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var dialogRef = this.dialog.open(_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_2__["AllocatedSlotConfirmationComponent"], {
@@ -3274,14 +3369,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this14.getAllocatedSlot();
+                _this17.getAllocatedSlot();
               }
             });
           }
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this15 = this;
+            var _this18 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3294,7 +3389,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.allocatedSlotHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this18.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3305,7 +3400,7 @@
         }, {
           key: "getAllocatedSlot",
           value: function getAllocatedSlot() {
-            var _this16 = this;
+            var _this19 = this;
 
             this.isDataLoaded = true;
             var getParam = {
@@ -3313,15 +3408,15 @@
             };
             this.vehicleService.getParkingSlotByApartmentId(getParam).subscribe(function (res) {
               if (res.length > 0) {
-                _this16.totalItems = res.length;
+                _this19.totalItems = res.length;
                 var arrangeSlotRawData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this16.allocatedSlotData = new jqx.dataAdapter(arrangeSlotRawData);
+                _this19.allocatedSlotData = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this16.isDataLoaded = false;
+              _this19.isDataLoaded = false;
             });
           }
         }, {
@@ -3332,7 +3427,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this20 = this;
 
             this.getAllocatedSlot();
 
@@ -3364,7 +3459,7 @@
               align: 'center',
               datafield: 'apartmentBlockUnitNumber',
               cellsrenderer: function cellsrenderer(row, column, unit) {
-                var block = _this17.allocatedSlotData.loadedData[row].apartmentBlockNumber;
+                var block = _this20.allocatedSlotData.loadedData[row].apartmentBlockNumber;
                 block = block == null ? '' : block;
                 unit = unit == null ? '' : unit;
                 return "<div class=\"jqx-custom-inner-cell\">".concat(block, " ").concat(unit, "</div>");
@@ -3389,7 +3484,7 @@
               cellsalign: 'center',
               align: 'center',
               cellsrenderer: function cellsrenderer(row, column, typeId) {
-                if (typeId == 299 && _this17.allocatedSlotData.loadedData[row].apartmentBlockUnitId || typeId == 300 && _this17.allocatedSlotData.loadedData[row].staffId) {
+                if (typeId == 299 && _this20.allocatedSlotData.loadedData[row].apartmentBlockUnitId || typeId == 300 && _this20.allocatedSlotData.loadedData[row].staffId) {
                   return '<div class="simple-actions"><span class="dots bg-green-900"></div>';
                 } else {
                   return '<div class="simple-actions"><span class="dots bg-red-900 link" onClick="editAllocateSlot(' + row + ')"></div>';
@@ -3412,13 +3507,13 @@
               if (item != null) {
                 var params = {
                   parkingSlotId: item,
-                  deleteBy: parseInt(_this17.sessionService.userId)
+                  deleteBy: parseInt(_this20.sessionService.userId)
                 };
 
-                _this17.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
-                  _this17.sharedService.setUnitListDeleteIndex(null);
+                _this20.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
+                  _this20.sharedService.setUnitListDeleteIndex(null);
 
-                  _this17.getAllocatedSlot();
+                  _this20.getAllocatedSlot();
                 });
               }
             });
@@ -3829,6 +3924,7 @@
           _classCallCheck(this, ParkingManageBookingComponent);
 
           this.dialog = dialog;
+          this.groupData = "";
         }
 
         _createClass(ParkingManageBookingComponent, [{
@@ -3838,6 +3934,25 @@
           key: "openConfirmation",
           value: function openConfirmation() {
             var dialogRef = this.dialog.open(_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_3__["BookingConfirmationComponent"], {});
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {// if (event != "") {
+            //   let newData = this.allData.filter(item => {
+            //     for (let field in item) {
+            //       if (item[field] === null || item[field] === undefined) {
+            //         continue;
+            //       }
+            //       if (item[field].toString().toLowerCase().indexOf(event.toString().toLowerCase()) !== -1) {
+            //         return item;
+            //       }
+            //     }
+            //   })
+            //   this._visitorList.next(newData.reverse());
+            // } else {
+            //   this.fullVisitorList = this.allData;
+            //   this._visitorList.next(this.fullVisitorList.reverse());
+            // }
           }
         }]);
 
@@ -4119,7 +4234,7 @@
         }, {
           key: "getMasterData",
           value: function getMasterData() {
-            var _this18 = this;
+            var _this21 = this;
 
             var mainTypeParam = {
               LookupTypeId: 71,
@@ -4127,7 +4242,7 @@
             }; //slot main type
 
             this.lookupService.getLookupValueByLookupTypeId(mainTypeParam).subscribe(function (res) {
-              _this18.slotMainTypeList = res.filter(function (item) {
+              _this21.slotMainTypeList = res.filter(function (item) {
                 return item.isActive;
               });
             }); //slot type
@@ -4137,37 +4252,37 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe(function (res) {
-              _this18.slotTypeList = res.filter(function (item) {
+              _this21.slotTypeList = res.filter(function (item) {
                 return item.isActive;
               });
             }); //parking type
 
             this.parkingService.getParkingType().subscribe(function (resp) {
-              _this18.parkingTypeList = resp;
+              _this21.parkingTypeList = resp;
             });
             var towerParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
-              _this18.towerList = res;
+              _this21.towerList = res;
             });
           }
         }, {
           key: "getParkingSlot",
           value: function getParkingSlot() {
-            var _this19 = this;
+            var _this22 = this;
 
             var params = {
               parkingSlotId: this.slotId
             };
             this.vehicleService.getParkingSlotById(params).subscribe(function (resp) {
-              _this19.createSlot = resp[0];
+              _this22.createSlot = resp[0];
             });
           }
         }, {
           key: "selectSlotType",
           value: function selectSlotType() {
-            var _this20 = this;
+            var _this23 = this;
 
             if (this.createSlot.slotMainTypeId == 299) {
               //  Unit Slot Type is applicable for Unit Owned
@@ -4175,7 +4290,7 @@
             } else {
               this.slotTypeList.forEach(function (data, index) {
                 if (data.lookupValueId == 81) {
-                  _this20.slotTypeList.splice(index, 1);
+                  _this23.slotTypeList.splice(index, 1);
                 }
               });
             }
@@ -4183,7 +4298,7 @@
         }, {
           key: "parkingSlot",
           value: function parkingSlot() {
-            var _this21 = this;
+            var _this24 = this;
 
             var entity = {
               parkingSlot: this.createSlot
@@ -4193,18 +4308,18 @@
               this.createSlot.sqrFt = parseFloat(this.createSlot.sqrFt);
               this.vehicleService.addParkingSlot(entity).subscribe(function (resp) {
                 if (!isNaN(resp.message)) {
-                  _this21.router.navigate(['/ams/parking-management/manage-parking-slots']);
+                  _this24.router.navigate(['/ams/parking-management/manage-parking-slots']);
 
-                  _this21.sharedService.setAlertMessage("Parking Slot Created successfully");
-                } else if (resp.message) _this21.sharedService.setAlertMessage(resp.message);else _this21.sharedService.setAlertMessage(resp.errorMessage);
+                  _this24.sharedService.setAlertMessage("Parking Slot Created successfully");
+                } else if (resp.message) _this24.sharedService.setAlertMessage(resp.message);else _this24.sharedService.setAlertMessage(resp.errorMessage);
               });
             } else {
               this.vehicleService.updateParkingSlot(entity).subscribe(function (resp) {
                 if (resp.message) {
-                  _this21.router.navigate(['/ams/parking-management/manage-parking-slots']);
+                  _this24.router.navigate(['/ams/parking-management/manage-parking-slots']);
 
-                  _this21.sharedService.setAlertMessage("Parking Slot Updated successfully");
-                } else _this21.sharedService.setAlertMessage(resp.errorMessage);
+                  _this24.sharedService.setAlertMessage("Parking Slot Updated successfully");
+                } else _this24.sharedService.setAlertMessage(resp.errorMessage);
               });
             }
           }
@@ -4379,7 +4494,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this22 = this;
+            var _this25 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -4392,7 +4507,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.slotHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this25.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4403,7 +4518,7 @@
         }, {
           key: "getParkingSlot",
           value: function getParkingSlot() {
-            var _this23 = this;
+            var _this26 = this;
 
             this.isDataLoaded = true;
             var parkingSlotParams = {
@@ -4411,15 +4526,15 @@
             };
             this.vehicleService.getParkingSlotByApartmentId(parkingSlotParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this23.totalItems = res.length;
+                _this26.totalItems = res.length;
                 var arrangeSlotRawData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this23.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
+                _this26.slotDataList = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this23.isDataLoaded = false;
+              _this26.isDataLoaded = false;
             });
           }
         }, {
@@ -4430,7 +4545,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this27 = this;
 
             this.getParkingSlot();
 
@@ -4493,13 +4608,13 @@
               if (item != null) {
                 var params = {
                   parkingSlotId: item,
-                  deleteBy: parseInt(_this24.sessionService.userId)
+                  deleteBy: parseInt(_this27.sessionService.userId)
                 };
 
-                _this24.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
-                  _this24.sharedService.setUnitListDeleteIndex(null);
+                _this27.vehicleService.deleteParkingSlot(params).subscribe(function (res) {
+                  _this27.sharedService.setUnitListDeleteIndex(null);
 
-                  _this24.getParkingSlot();
+                  _this27.getParkingSlot();
                 });
               }
             });
@@ -4738,12 +4853,12 @@
         }, {
           key: "showVehicleInfo",
           value: function showVehicleInfo(index) {
-            var _this25 = this;
+            var _this28 = this;
 
             var vehicleId = this.allSlotsData[index].vehicleId;
             this.vehicleService.getVehicleByVehicleId(vehicleId).subscribe(function (res) {
               var vehicleData = res[0];
-              var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](_this25.vehicleTypeData, function (item) {
+              var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](_this28.vehicleTypeData, function (item) {
                 if (item.lookupValueId === vehicleData.vehicleTypeId) {
                   return item;
                 }
@@ -4755,7 +4870,7 @@
                 vehicleData.type = data[0].lookupValueName;
               }
 
-              _this25.dialog.open(_this25.viewVehicleRef, {
+              _this28.dialog.open(_this28.viewVehicleRef, {
                 panelClass: 'material',
                 disableClose: true,
                 data: vehicleData
@@ -4765,7 +4880,7 @@
         }, {
           key: "showSelectedBlockSlots",
           value: function showSelectedBlockSlots() {
-            var _this26 = this;
+            var _this29 = this;
 
             this.isBlockSelected = true;
             this.isDataLoaded = false;
@@ -4774,28 +4889,28 @@
               var data = item.slotName.split(' ');
               var blockName = data[0];
 
-              if (_this26.apartmentBlockNumber == blockName) {
-                _this26.allottedSlotListData.push(item);
+              if (_this29.apartmentBlockNumber == blockName) {
+                _this29.allottedSlotListData.push(item);
               }
 
-              _this26.totalUserItems = _this26.allottedSlotListData.length;
+              _this29.totalUserItems = _this29.allottedSlotListData.length;
 
-              if (_this26.totalUserItems > _this26.itemUserLimit) {
-                _this26.ItemUserEndIndex = _this26.itemUserLimit;
+              if (_this29.totalUserItems > _this29.itemUserLimit) {
+                _this29.ItemUserEndIndex = _this29.itemUserLimit;
               } else {
-                _this26.ItemUserEndIndex = _this26.totalUserItems;
+                _this29.ItemUserEndIndex = _this29.totalUserItems;
               }
 
-              _this26.vehicleService.getAllVehiclesByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (data) {
+              _this29.vehicleService.getAllVehiclesByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (data) {
                 if (data == undefined || data.length == 0) {
-                  _this26.allSlotsData[index].isVehicleAvailable = false;
+                  _this29.allSlotsData[index].isVehicleAvailable = false;
                 } else {
-                  _this26.allSlotsData[index].isVehicleAvailable = true;
-                  _this26.allSlotsData[index].vehicleId = data[0].vehicleId;
+                  _this29.allSlotsData[index].isVehicleAvailable = true;
+                  _this29.allSlotsData[index].vehicleId = data[0].vehicleId;
                 }
               });
 
-              _this26.isDataLoaded = true;
+              _this29.isDataLoaded = true;
             });
           }
         }, {
@@ -4819,7 +4934,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this30 = this;
 
             var slotParams = {
               LookupTypeId: 18,
@@ -4827,7 +4942,7 @@
             }; //get slot type
 
             this.lookupService.getLookupValueByLookupTypeId(slotParams).subscribe(function (res) {
-              _this27.slotTypeData = res;
+              _this30.slotTypeData = res;
             }, function (error) {});
             var vehicleParams = {
               LookupTypeId: 2,
@@ -4835,28 +4950,28 @@
             }; //get vehicle type
 
             this.lookupService.getLookupValueByLookupTypeId(vehicleParams).subscribe(function (res) {
-              _this27.vehicleTypeData = res;
+              _this30.vehicleTypeData = res;
             }, function (error) {});
             var allSlotParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vehicleService.getParkingSlotByApartmentId(allSlotParams).subscribe(function (res) {
-              _this27.allSlotsData = res.filter(function (item) {
+              _this30.allSlotsData = res.filter(function (item) {
                 return item.isActive;
               });
-              underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this27.allSlotsData, function (item, index) {
-                _this27.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (res) {
-                  _this27.allSlotsData[index].blockNo = res[0].apartmentBlockNumber;
-                  _this27.allSlotsData[index].unitNo = res[0].apartmentBlockUnitNumber;
+              underscore__WEBPACK_IMPORTED_MODULE_11__["each"](_this30.allSlotsData, function (item, index) {
+                _this30.apartmentService.getApartmentBlockUnitById(item.apartmentBlockUnitId).subscribe(function (res) {
+                  _this30.allSlotsData[index].blockNo = res[0].apartmentBlockNumber;
+                  _this30.allSlotsData[index].unitNo = res[0].apartmentBlockUnitNumber;
 
-                  _this27.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (res) {
+                  _this30.apartmentService.getAllApartmentBlockUnitUsersByApartmentBlockUnitId(item.apartmentBlockUnitId).subscribe(function (res) {
                     if (res == undefined || res.length == 0) {
                       return '';
                     } else {
                       var userId = res[0].userId;
 
-                      _this27.userService.getUserById(userId).subscribe(function (res) {
-                        _this27.allSlotsData[index].userName = res[0].firstName + ' ' + res[0].lastName;
+                      _this30.userService.getUserById(userId).subscribe(function (res) {
+                        _this30.allSlotsData[index].userName = res[0].firstName + ' ' + res[0].lastName;
                         ;
                       });
                     }
@@ -4868,7 +4983,7 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this27.blocksData = res;
+              _this30.blocksData = res;
             }, function (error) {
               console.log(error);
             });
@@ -5177,7 +5292,7 @@
         }, {
           key: "deleteSlotType",
           value: function deleteSlotType(item, index) {
-            var _this28 = this;
+            var _this31 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -5185,7 +5300,7 @@
               updateUserId: parseInt(this.sessionService.userId)
             };
             this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-              _this28.getSlotType(); // this.slotDataList.splice(index, 1);
+              _this31.getSlotType(); // this.slotDataList.splice(index, 1);
               // this.isDataLoaded = true;
 
             });
@@ -5208,7 +5323,7 @@
         }, {
           key: "submitAddSlotTypeForm",
           value: function submitAddSlotTypeForm(form) {
-            var _this29 = this;
+            var _this32 = this;
 
             this.isSlotTypeSubmitted = false;
 
@@ -5228,17 +5343,17 @@
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
                 if (res.message) {
-                  _this29.isSlotTypeSubmitted = true;
+                  _this32.isSlotTypeSubmitted = true;
 
-                  _this29.sharedService.setAlertMessage("Slot Type added successfully");
+                  _this32.sharedService.setAlertMessage("Slot Type added successfully");
 
-                  _this29.isSlotTypeNew = !_this29.isSlotTypeNew;
+                  _this32.isSlotTypeNew = !_this32.isSlotTypeNew;
 
-                  _this29.getSlotType();
+                  _this32.getSlotType();
                 } else {
-                  _this29.isSlotTypeSubmitted = true;
-                  _this29.isError = true;
-                  _this29.alertMessage = res.errorMessage;
+                  _this32.isSlotTypeSubmitted = true;
+                  _this32.isError = true;
+                  _this32.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -5258,17 +5373,17 @@
               };
               this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
                 if (res.message) {
-                  _this29.isSlotTypeSubmitted = true;
+                  _this32.isSlotTypeSubmitted = true;
 
-                  _this29.sharedService.setAlertMessage("Vehicle Type updated successfully");
+                  _this32.sharedService.setAlertMessage("Vehicle Type updated successfully");
 
-                  _this29.isSlotTypeUpdate = !_this29.isSlotTypeUpdate;
+                  _this32.isSlotTypeUpdate = !_this32.isSlotTypeUpdate;
 
-                  _this29.getSlotType();
+                  _this32.getSlotType();
                 } else {
-                  _this29.isSlotTypeSubmitted = true;
-                  _this29.isError = true;
-                  _this29.alertMessage = res.errorMessage;
+                  _this32.isSlotTypeSubmitted = true;
+                  _this32.isError = true;
+                  _this32.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -5276,7 +5391,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this33 = this;
 
             this.getSlotType();
             var slotMainParams = {
@@ -5284,7 +5399,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe(function (res) {
-              _this30.slotMainTypeDataList = res.filter(function (item) {
+              _this33.slotMainTypeDataList = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -5296,25 +5411,25 @@
         }, {
           key: "getSlotType",
           value: function getSlotType() {
-            var _this31 = this;
+            var _this34 = this;
 
             var slotListParams = {
               LookupTypeId: 18,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotListParams).subscribe(function (res) {
-              _this31.slotDataList = res.filter(function (item) {
+              _this34.slotDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this31.totalItems = _this31.slotDataList.length;
+              _this34.totalItems = _this34.slotDataList.length;
 
-              if (_this31.totalItems > _this31.itemLimit) {
-                _this31.ItemEndIndex = _this31.itemLimit;
+              if (_this34.totalItems > _this34.itemLimit) {
+                _this34.ItemEndIndex = _this34.itemLimit;
               } else {
-                _this31.ItemEndIndex = _this31.totalItems;
+                _this34.ItemEndIndex = _this34.totalItems;
               }
 
-              _this31.isDataLoaded = true;
+              _this34.isDataLoaded = true;
             });
           }
         }]);
@@ -5613,7 +5728,7 @@
         }, {
           key: "submitAddvehicleTypeForm",
           value: function submitAddvehicleTypeForm(form) {
-            var _this32 = this;
+            var _this35 = this;
 
             this.isVehicleTypeSubmitted = false;
 
@@ -5633,17 +5748,17 @@
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
                 if (res.message) {
-                  _this32.isVehicleTypeSubmitted = true;
+                  _this35.isVehicleTypeSubmitted = true;
 
-                  _this32.sharedService.setAlertMessage("Vehicle Type added successfully");
+                  _this35.sharedService.setAlertMessage("Vehicle Type added successfully");
 
-                  _this32.isVehicleTypeNew = !_this32.isVehicleTypeNew;
+                  _this35.isVehicleTypeNew = !_this35.isVehicleTypeNew;
 
-                  _this32.getVehicleTypeList();
+                  _this35.getVehicleTypeList();
                 } else {
-                  _this32.isVehicleTypeSubmitted = true;
-                  _this32.isError = true;
-                  _this32.alertMessage = res.errorMessage;
+                  _this35.isVehicleTypeSubmitted = true;
+                  _this35.isError = true;
+                  _this35.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -5663,16 +5778,16 @@
               };
               this.lookupService.updateLookupValue(_params5).subscribe(function (res) {
                 if (res.message) {
-                  _this32.isVehicleTypeSubmitted = true;
-                  _this32.isVehicleTypeUpdate = !_this32.isVehicleTypeUpdate;
+                  _this35.isVehicleTypeSubmitted = true;
+                  _this35.isVehicleTypeUpdate = !_this35.isVehicleTypeUpdate;
 
-                  _this32.sharedService.setAlertMessage("Vehicle Type updated successfully");
+                  _this35.sharedService.setAlertMessage("Vehicle Type updated successfully");
 
-                  _this32.getVehicleTypeList();
+                  _this35.getVehicleTypeList();
                 } else {
-                  _this32.isVehicleTypeSubmitted = true;
-                  _this32.isError = true;
-                  _this32.alertMessage = res.errorMessage;
+                  _this35.isVehicleTypeSubmitted = true;
+                  _this35.isError = true;
+                  _this35.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -5680,7 +5795,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this33 = this;
+            var _this36 = this;
 
             this.getVehicleTypeList(); // delete item
 
@@ -5689,17 +5804,17 @@
                 // this.isDataLoaded = false;
                 var params = {
                   lookupValueId: item.lookupValueId,
-                  updateUserId: parseInt(_this33.sessionService.userId)
+                  updateUserId: parseInt(_this36.sessionService.userId)
                 };
 
-                _this33.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this33.vehicleDataList = _this33.vehicleDataList.filter(function (type) {
+                _this36.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this36.vehicleDataList = _this36.vehicleDataList.filter(function (type) {
                     return type.lookupValueId !== item.lookupValueId;
                   });
 
-                  _this33.sharedService.setUnitListDeleteIndex(null);
+                  _this36.sharedService.setUnitListDeleteIndex(null);
 
-                  _this33.getVehicleTypeList();
+                  _this36.getVehicleTypeList();
                 });
               }
             });
@@ -5707,25 +5822,25 @@
         }, {
           key: "getVehicleTypeList",
           value: function getVehicleTypeList() {
-            var _this34 = this;
+            var _this37 = this;
 
             var vehicleDataListParams = {
               LookupTypeId: 2,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleDataListParams).subscribe(function (res) {
-              _this34.vehicleDataList = res.filter(function (item) {
+              _this37.vehicleDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this34.totalItems = _this34.vehicleDataList.length;
+              _this37.totalItems = _this37.vehicleDataList.length;
 
-              if (_this34.totalItems > _this34.itemLimit) {
-                _this34.ItemEndIndex = _this34.itemLimit;
+              if (_this37.totalItems > _this37.itemLimit) {
+                _this37.ItemEndIndex = _this37.itemLimit;
               } else {
-                _this34.ItemEndIndex = _this34.totalItems;
+                _this37.ItemEndIndex = _this37.totalItems;
               }
 
-              _this34.isDataLoaded = true;
+              _this37.isDataLoaded = true;
             });
           }
         }]);
@@ -5857,7 +5972,7 @@
         _createClass(ParkingManagementSettingsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this38 = this;
 
             this.getVehicleType();
             this.getMainSlotType();
@@ -5867,16 +5982,16 @@
               if (item != null) {
                 var params = {
                   lookupValueId: item.lookupValueId,
-                  updateUserId: parseInt(_this35.sessionService.userId)
+                  updateUserId: parseInt(_this38.sessionService.userId)
                 };
 
-                _this35.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this38.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   // if (res.message) {
-                  _this35.refreshList({
+                  _this38.refreshList({
                     type: item.typeId
                   });
 
-                  _this35.sharedService.setUnitListDeleteIndex(null); // }
+                  _this38.sharedService.setUnitListDeleteIndex(null); // }
 
                 });
               }
@@ -5885,7 +6000,7 @@
         }, {
           key: "getVehicleType",
           value: function getVehicleType() {
-            var _this36 = this;
+            var _this39 = this;
 
             var categoryParams = {
               LookupTypeId: 2,
@@ -5893,8 +6008,8 @@
             }; //get vehcile type
 
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this36.isVehicleDataLoaded = true;
-              _this36.vehicleCategoryData = res.filter(function (item) {
+              _this39.isVehicleDataLoaded = true;
+              _this39.vehicleCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -5902,7 +6017,7 @@
         }, {
           key: "getMainSlotType",
           value: function getMainSlotType() {
-            var _this37 = this;
+            var _this40 = this;
 
             var slotCategoryParams = {
               LookupTypeId: 71,
@@ -5910,8 +6025,8 @@
             }; //get main slot type
 
             this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe(function (res) {
-              _this37.isSlotMainDataLoaded = true;
-              _this37.slotMainCategoryData = res.filter(function (item) {
+              _this40.isSlotMainDataLoaded = true;
+              _this40.slotMainCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -5919,7 +6034,7 @@
         }, {
           key: "getSlotType",
           value: function getSlotType() {
-            var _this38 = this;
+            var _this41 = this;
 
             var slotCategoryParams = {
               LookupTypeId: 18,
@@ -5927,8 +6042,8 @@
             }; //get slot type
 
             this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe(function (res) {
-              _this38.isSlotDataLoaded = true;
-              _this38.slotCategoryData = res.filter(function (item) {
+              _this41.isSlotDataLoaded = true;
+              _this41.slotCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -6188,6 +6303,7 @@
             "finePercent": 1,
             "feeCalcultionType": ""
           };
+          this.searchData = "";
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -6212,7 +6328,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this39 = this;
+            var _this42 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -6227,14 +6343,14 @@
               if (item != null) {
                 var params = {
                   parkingSlotId: item,
-                  deleteBy: parseInt(_this39.sessionService.userId)
+                  deleteBy: parseInt(_this42.sessionService.userId)
                 };
 
-                _this39.parkingService.deleteParkingSlotType(params).subscribe(function (res) {
+                _this42.parkingService.deleteParkingSlotType(params).subscribe(function (res) {
                   // if (res.message) {
-                  _this39.getSlotRateType();
+                  _this42.getSlotRateType();
 
-                  _this39.sharedService.setUnitListDeleteIndex(null); // }
+                  _this42.sharedService.setUnitListDeleteIndex(null); // }
 
                 });
               }
@@ -6279,7 +6395,7 @@
         }, {
           key: "getSlotRateType",
           value: function getSlotRateType() {
-            var _this40 = this;
+            var _this43 = this;
 
             this.isDataLoaded = true;
             var getParam = {
@@ -6287,7 +6403,7 @@
             };
             this.parkingService.getParkingAllocationType(getParam).subscribe(function (resp) {
               if (resp.length > 0) {
-                _this40.totalItems = resp.length;
+                _this43.totalItems = resp.length;
                 var rawSlotRateType = resp.filter(function (data) {
                   return data.isActive;
                 });
@@ -6295,21 +6411,21 @@
                   localdata: rawSlotRateType,
                   datatype: "array"
                 };
-                _this40.slotRateData = new jqx.dataAdapter(arrangeSlotRawData);
+                _this43.slotRateData = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this40.isDataLoaded = false;
+              _this43.isDataLoaded = false;
             });
           }
         }, {
           key: "searchSlotRate",
-          value: function searchSlotRate() {
-            var _this41 = this;
+          value: function searchSlotRate(event) {
+            var _this44 = this;
 
-            if (this.filterSlotRate != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.filterSlotRate;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -6317,7 +6433,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.slotRateHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this41.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this44.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -6328,7 +6444,7 @@
         }, {
           key: "slotRateType",
           value: function slotRateType() {
-            var _this42 = this;
+            var _this45 = this;
 
             if (this.isCreateSlot) {
               this.slotRateParam.insertedBy = parseInt(this.sessionService.userId);
@@ -6337,11 +6453,11 @@
                 parkingAllocationTypeDto: this.slotRateParam
               };
               this.parkingService.upsertParkingSlotType(addParam).subscribe(function (resp) {
-                _this42.sharedService.setAlertMessage("Slot Rate Type Created Successfully");
+                _this45.sharedService.setAlertMessage("Slot Rate Type Created Successfully");
 
-                _this42.isShowCreateSlot = !_this42.isShowCreateSlot;
+                _this45.isShowCreateSlot = !_this45.isShowCreateSlot;
 
-                _this42.getSlotRateType();
+                _this45.getSlotRateType();
               }, function (error) {});
             } else {
               this.slotRateParam.updatedBy = parseInt(this.sessionService.userId);
@@ -6350,11 +6466,11 @@
                 parkingAllocationTypeDto: this.slotRateParam
               };
               this.parkingService.upsertParkingSlotType(updateParam).subscribe(function (resp) {
-                _this42.sharedService.setAlertMessage("Slot Rate Type Updated Successfully");
+                _this45.sharedService.setAlertMessage("Slot Rate Type Updated Successfully");
 
-                _this42.isShowCreateSlot = !_this42.isShowCreateSlot;
+                _this45.isShowCreateSlot = !_this45.isShowCreateSlot;
 
-                _this42.getSlotRateType();
+                _this45.getSlotRateType();
               }, function (error) {});
             }
           }
@@ -6480,11 +6596,16 @@
       var ParkingViewAvailableSlotsComponent = /*#__PURE__*/function () {
         function ParkingViewAvailableSlotsComponent() {
           _classCallCheck(this, ParkingViewAvailableSlotsComponent);
+
+          this.groupData = "";
         }
 
         _createClass(ParkingViewAvailableSlotsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {}
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {}
         }]);
 
         return ParkingViewAvailableSlotsComponent;
@@ -6593,17 +6714,18 @@
           this.parkingService = parkingService;
           this.sessionService = sessionService;
           this.isDataLoaded = true;
+          this.groupData = "";
         }
 
         _createClass(CommunityParkingAvailablityComponent, [{
           key: "communitySearch",
-          value: function communitySearch() {
-            var _this43 = this;
+          value: function communitySearch(event) {
+            var _this46 = this;
 
-            if (this.communityFilter != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.communityFilter;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -6611,7 +6733,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.communityAllocationHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this43.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this46.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -6625,7 +6747,7 @@
         }, {
           key: "getCommunityAvailability",
           value: function getCommunityAvailability() {
-            var _this44 = this;
+            var _this47 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -6640,13 +6762,13 @@
 
             };
             this.parkingService.getAllRentedParking(params).subscribe(function (res) {
-              _this44.communityAllocationData = res;
-              _this44.gridSourceData = {
-                localdata: _this44.communityAllocationData,
+              _this47.communityAllocationData = res;
+              _this47.gridSourceData = {
+                localdata: _this47.communityAllocationData,
                 datatype: "array"
               };
-              _this44.communityAllocationData = new jqx.dataAdapter(_this44.gridSourceData);
-              _this44.isDataLoaded = false;
+              _this47.communityAllocationData = new jqx.dataAdapter(_this47.gridSourceData);
+              _this47.isDataLoaded = false;
             });
           }
         }, {
@@ -6898,7 +7020,7 @@
         }, {
           key: "submitParkingSlot",
           value: function submitParkingSlot() {
-            var _this45 = this;
+            var _this48 = this;
 
             var entity = {
               "id": 0,
@@ -6928,36 +7050,36 @@
             };
             this.parkingService.addAvailableParking(parking).subscribe(function (res) {
               if (!isNaN(res.message)) {
-                _this45.sharedService.setAlertMessage("Parking Slot Created successfully");
+                _this48.sharedService.setAlertMessage("Parking Slot Created successfully");
 
-                _this45.router.navigate(['/ams/parking-management/set-parking-availablity/unit-parking-availablity']);
+                _this48.router.navigate(['/ams/parking-management/set-parking-availablity/unit-parking-availablity']);
               } else if (res.message) {
-                _this45.sharedService.setAlertMessage(res.message);
+                _this48.sharedService.setAlertMessage(res.message);
               } else {
-                _this45.sharedService.setAlertMessage(res.errorMessage);
+                _this48.sharedService.setAlertMessage(res.errorMessage);
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this46 = this;
+            var _this49 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this46.timeZone = timeZone;
+              return _this49.timeZone = timeZone;
             });
             this.activateRouter.params.subscribe(function (param) {
-              return _this46.type = param['type'];
+              return _this49.type = param['type'];
             });
             this.slotData$ = this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (data) {
               return data.length > 2;
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (term) {
               var entity = {
-                ApartmentID: _this46.sessionService.apartmentId,
+                ApartmentID: _this49.sessionService.apartmentId,
                 KeywordSlotNo: term,
-                SlotMainTypeId: _this46.type == 'unit' ? 299 : 300
+                SlotMainTypeId: _this49.type == 'unit' ? 299 : 300
               };
-              return _this46.parkingService.getParkingSlotNoByKeyword(entity);
+              return _this49.parkingService.getParkingSlotNoByKeyword(entity);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (e) {
               if (e) {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(e);
@@ -6965,7 +7087,7 @@
             }));
             this.slotData$.subscribe(function (res) {
               if (res.length > 0) {
-                _this46.parkingSlotList = res;
+                _this49.parkingSlotList = res;
               }
             }, function (error) {});
           }
@@ -7176,17 +7298,18 @@
           this.parkingService = parkingService;
           this.sessionService = sessionService;
           this.isDataLoaded = true;
+          this.groupData = "";
         }
 
         _createClass(UnitParkingAvailablityComponent, [{
           key: "unitSearch",
-          value: function unitSearch() {
-            var _this47 = this;
+          value: function unitSearch(event) {
+            var _this50 = this;
 
-            if (this.unitFilter != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.unitFilter;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -7194,7 +7317,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.unitAllocationHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this47.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this50.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -7208,7 +7331,7 @@
         }, {
           key: "getUnitAvailability",
           value: function getUnitAvailability() {
-            var _this48 = this;
+            var _this51 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -7223,13 +7346,13 @@
 
             };
             this.parkingService.getAllRentedParking(params).subscribe(function (res) {
-              _this48.unitAllocationData = res;
-              _this48.gridSourceData = {
-                localdata: _this48.unitAllocationData,
+              _this51.unitAllocationData = res;
+              _this51.gridSourceData = {
+                localdata: _this51.unitAllocationData,
                 datatype: "array"
               };
-              _this48.unitAllocationData = new jqx.dataAdapter(_this48.gridSourceData);
-              _this48.isDataLoaded = false;
+              _this51.unitAllocationData = new jqx.dataAdapter(_this51.gridSourceData);
+              _this51.isDataLoaded = false;
             });
           }
         }, {

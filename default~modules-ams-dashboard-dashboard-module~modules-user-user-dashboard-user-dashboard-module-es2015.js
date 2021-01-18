@@ -10060,7 +10060,7 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
                 type: '',
                 isFlip: true
             }, {
-                front: 'Is Living',
+                front: 'Total residents',
                 back: 'Is PrimaryContact',
                 frontValue: '',
                 backValue: '',
@@ -10151,7 +10151,7 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
                 name = name.replace('/', '#');
                 this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2028/true`]);
             }
-            else if (item === "Is Living") {
+            else if (item === "Total residents") {
                 let name = "List of Living";
                 name = name.replace('/', '#');
                 this._router.navigate([`/ams/dashboard/main/unit&user/reports/${name}/2030/true`]);

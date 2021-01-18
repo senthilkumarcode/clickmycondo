@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"facility-setup-wrapper\">\n    <div class=\"main\">\n        <div class=\"d-flex mb-4\">\n            <div>\n                <h4>Facilities</h4>\n                <p class=\"text-secondary\">{{totalItems}} Items</p>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"facilitySearch\">\n            </div>\n            <div>\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"addNewFacilityCategory()\">Add New Facility</button>\n            </div>\n        </div>\n        <app-loader *ngIf=\"!isFacilityCategoryLoaded\"></app-loader>\n        <div class=\"row\" *ngIf=\"isFacilityCategoryLoaded\">\n\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of facilityCategoryData | columnSearch : 'facilityName':facilitySearch;; let i = index\">\n\t\t\t\t<div class=\"bg-card shadow facility-container\">\n\t\t\t\t\t<div class=\"d-flex mb-2\">\n                        <mat-icon class=\"ml-auto mr-2 link\" [svgIcon]=\"'feather:eye'\" (click)=\"viewFacility(item)\"></mat-icon>\n                        <mat-icon class=\"mr-2 link\" [svgIcon]=\"'feather:edit'\" (click)=\"editFacility(item)\"></mat-icon>\n                        <mat-icon class=\"link\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteFacility(item,i)\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mb-4\">\n                        <h6 class=\"mb-1\">{{item.facilityName}}</h6>\n                        <p *ngIf=\"item.amount>0\" class=\"text-secondary\">{{item.amount}} Per {{getRateBase(item.rateBaseId)}} ({{pesoValue}})</p>\n                        <p *ngIf=\"item.amount==0\" class=\"text-secondary\">Free</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"item.rateBaseId == 138 && item.isSlotBooking\">\n                        <p class=\"align-self-center\">{{getSlots(item.apartmentFacilitySlot).length}} Slot(s)</p>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-flat-button [color]=\"'accent'\" (click)=\"addSlotFacility(item)\">\n                            <mat-icon class=\"mr-1\" svgIcon=\"heroicons_solid:plus\"></mat-icon>Add Slot\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"facility-setup-wrapper\">\n    <div class=\"main\">\n        <div class=\"d-flex mb-4\">\n            <div>\n                <h4>Facilities</h4>\n                <p class=\"text-secondary\">{{totalItems}} Items</p>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n                <!-- <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"facilitySearch\"> -->\n                <app-table-search [input]=\"searchListData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n            </div>\n            <div>\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"addNewFacilityCategory()\">Add New Facility</button>\n            </div>\n        </div>\n        <app-loader *ngIf=\"!isFacilityCategoryLoaded\"></app-loader>\n        <div class=\"bg-card shadow\" *ngIf=\"facilityCategoryData.length == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n        <div class=\"row\" *ngIf=\"isFacilityCategoryLoaded\">\n\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of facilityCategoryData | columnSearch : 'facilityName':facilitySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t<div class=\"bg-card shadow facility-container\">\n\t\t\t\t\t<div class=\"d-flex mb-2\">\n                        <mat-icon class=\"ml-auto mr-2 link\" [svgIcon]=\"'feather:eye'\" (click)=\"viewFacility(item)\"></mat-icon>\n                        <mat-icon class=\"mr-2 link\" [svgIcon]=\"'feather:edit'\" (click)=\"editFacility(item)\"></mat-icon>\n                        <mat-icon class=\"link\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteFacility(item,i)\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mb-4\">\n                        <h6 class=\"mb-1\">{{item.facilityName}}</h6>\n                        <p *ngIf=\"item.amount>0\" class=\"text-secondary\">{{item.amount}} Per {{getRateBase(item.rateBaseId)}} ({{pesoValue}})</p>\n                        <p *ngIf=\"item.amount==0\" class=\"text-secondary\">Free</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"item.rateBaseId == 138 && item.isSlotBooking\">\n                        <p class=\"align-self-center\">{{getSlots(item.apartmentFacilitySlot).length}} Slot(s)</p>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-flat-button [color]=\"'accent'\" (click)=\"addSlotFacility(item)\">\n                            <mat-icon class=\"mr-1\" svgIcon=\"heroicons_solid:plus\"></mat-icon>Add Slot\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </div>\n\n        <div class=\"bg-card shadow p-0\" *ngIf=\"facilityCategoryData.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n                    [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -653,6 +653,10 @@ let FacilityListComponent = class FacilityListComponent {
         this.injector = injector;
         this.isFacilityCategoryLoaded = false;
         this.totalItems = 0;
+        this.searchListData = "";
+        this.allList = [];
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     addNewFacilityCategory() {
@@ -697,7 +701,14 @@ let FacilityListComponent = class FacilityListComponent {
         this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe((res) => {
             if (res.length > 0) {
                 this.facilityCategoryData = res;
+                this.allList = res;
                 this.totalItems = res.length;
+                if (this.totalItems > this.itemLimit) {
+                    this.ItemEndIndex = this.itemLimit;
+                }
+                else {
+                    this.ItemEndIndex = this.totalItems;
+                }
             }
             this.isFacilityCategoryLoaded = true;
         }, (error) => {
@@ -736,6 +747,38 @@ let FacilityListComponent = class FacilityListComponent {
     }
     ngOnDestroy() {
         this.apiSubscibe.unsubscribe();
+    }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let newData = this.allList.filter(item => {
+                for (let field in item) {
+                    if (item[field] === null || item[field] === undefined) {
+                        continue;
+                    }
+                    if (item[field].toString().toLowerCase().includes(event.toString().toLowerCase())) {
+                        return item;
+                    }
+                }
+            });
+            this.facilityCategoryData = newData.reverse();
+        }
+        else {
+            this.facilityCategoryData = this.allList.reverse();
+            ;
+        }
+        this.totalItems = this.facilityCategoryData.length;
+        this.ItemStartIndex = 0;
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+        }
+    }
+    getIndexParams(event) {
+        this.ItemStartIndex = event.ItemStartIndex;
+        this.ItemEndIndex = event.ItemEndIndex;
+        this.itemLimit = event.itemLimit;
     }
 };
 FacilityListComponent.ctorParameters = () => [

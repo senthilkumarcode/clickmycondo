@@ -14229,7 +14229,7 @@
             type: '',
             isFlip: true
           }, {
-            front: 'Is Living',
+            front: 'Total residents',
             back: 'Is PrimaryContact',
             frontValue: '',
             backValue: '',
@@ -14326,7 +14326,7 @@
                 _name9 = _name9.replace('/', '#');
 
                 _this67._router.navigate(["/ams/dashboard/main/unit&user/reports/".concat(_name9, "/2028/true")]);
-              } else if (item === "Is Living") {
+              } else if (item === "Total residents") {
                 var _name10 = "List of Living";
                 _name10 = _name10.replace('/', '#');
 
