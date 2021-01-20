@@ -6623,7 +6623,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.isDataLoaded = true;
         let visitorDetails = {
             "visitorId": this.visitor.visitorId,
-            "checkOutTime": this.visitor.visitorOutTime,
+            "checkOutTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.visitor.visitorOutTime).toISOString(),
             "updatedBy": this.sessionService.userId,
         };
         this.visitorService.checkOutVisitor(visitorDetails).subscribe((res) => {

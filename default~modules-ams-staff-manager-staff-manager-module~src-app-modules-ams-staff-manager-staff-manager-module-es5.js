@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #association mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Association Staff</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Association Staff</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Association Staff Title</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"staffCategory\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitAssociate()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\">\n\t\t\t<div *ngIf=\"isCategoryDataLoaded\">\n\t\t\t\t<!-- Document Header -->\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Association Staff Title</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{categoryOffcialListData.length}} Items</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon> Job Title\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div> \n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"categoryOffcialListData.length == 0\">\n\t\t\t\t\t\t<h6 class=\"text-secondary\">No Results found</h6>\n\t\t\t\t\t</div>\n\t\t\t\t<!-- staff List -->\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of categoryOffcialListData | columnSearch : 'lookupValueName': categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editStaffCategory(item)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteAssociate(item.lookupValueId)\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"categoryOffcialListData.length > 0\">\n\t\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>";
+      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #association mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Association Staff</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Association Staff</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Association Staff Title</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"staffCategory\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitAssociate()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\">\n\t\t\t<div *ngIf=\"isCategoryDataLoaded\">\n\t\t\t\t<!-- Document Header -->\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Association Staff Title</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{categoryOffcialListData.length}} Items</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon> Job Title\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div> \n\t\t\t\t</div>\n\t\t\t\t<!-- staff List -->\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of categoryOffcialListData | columnSearch : 'lookupValueName': categorySearch; let i = index\">\n\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editStaffCategory(item)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteAssociate(item.lookupValueId)\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>";
       /***/
     },
 
@@ -182,7 +182,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #association mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Personal Staff</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Personal Staff</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Personal Staff Title</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"staffCategory\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitAssociate()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\">\n\t\t\t<div *ngIf=\"isCategoryDataLoaded\">\n\t\t\t\t<!-- Document Header -->\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Personal Staff Title</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{categoryOffcialListData.length}} Items</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon> Job Title\t\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"categoryOffcialListData.length == 0\">\n\t\t\t\t\t\t<h6 class=\"text-secondary\">No Results found</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t<!-- Staff List -->\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of categoryOffcialListData | columnSearch : 'lookupValueName': categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editStaffCategory(item)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteAssociate(item.lookupValueId)\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"categoryOffcialListData.length > 0\">\n\t\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>";
+      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #association mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Personal Staff</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Personal Staff</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Personal Staff Title</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"staffCategory\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitAssociate()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\">\n\t\t\t<div *ngIf=\"isCategoryDataLoaded\">\n\t\t\t\t<!-- Document Header -->\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Personal Staff Title</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{categoryOffcialListData.length}} Items</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon> Job Title\t\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Staff List -->\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of categoryOffcialListData | columnSearch : 'lookupValueName': categorySearch; let i = index\">\n\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editStaffCategory(item)\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteAssociate(item.lookupValueId)\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>";
       /***/
     },
 
@@ -2969,10 +2969,6 @@
           this.isEdit = false;
           this.isShowForm = false;
           this.categorySearch = '';
-          this.ItemStartIndex = 0;
-          this.totalItems = 0;
-          this.itemLimit = 10;
-          this.allList = [];
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -3022,17 +3018,7 @@
               _this29.categoryOffcialListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this29.allList = res.filter(function (item) {
-                return item.isActive;
-              });
               _this29.isCategoryDataLoaded = true;
-              _this29.totalItems = _this29.categoryOffcialListData.length;
-
-              if (_this29.totalItems > _this29.itemLimit) {
-                _this29.ItemEndIndex = _this29.itemLimit;
-              } else {
-                _this29.ItemEndIndex = _this29.totalItems;
-              }
             }, function (error) {});
           }
         }, {
@@ -3128,42 +3114,6 @@
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
             this.apiSubscribe.unsubscribe();
-          }
-        }, {
-          key: "onGlSearchFilter",
-          value: function onGlSearchFilter(event) {
-            if (event != "") {
-              var newData = this.allList.filter(function (item) {
-                for (var field in item) {
-                  if (item[field] === null || item[field] === undefined) {
-                    continue;
-                  }
-
-                  if (item[field].toString().toLowerCase().includes(event.toString().toLowerCase())) {
-                    return item;
-                  }
-                }
-              });
-              this.categoryOffcialListData = newData.reverse();
-            } else {
-              this.categoryOffcialListData = this.allList.reverse();
-              ;
-            }
-
-            this.totalItems = this.categoryOffcialListData.length;
-
-            if (this.totalItems > this.itemLimit) {
-              this.ItemEndIndex = this.itemLimit;
-            } else {
-              this.ItemEndIndex = this.totalItems;
-            }
-          }
-        }, {
-          key: "getIndexParams",
-          value: function getIndexParams(event) {
-            this.ItemStartIndex = event.ItemStartIndex;
-            this.ItemEndIndex = event.ItemEndIndex;
-            this.itemLimit = event.itemLimit;
           }
         }]);
 
@@ -3308,10 +3258,6 @@
           this.isEdit = false;
           this.isShowForm = false;
           this.categorySearch = '';
-          this.ItemStartIndex = 0;
-          this.totalItems = 0;
-          this.itemLimit = 10;
-          this.allList = [];
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -3361,17 +3307,7 @@
               _this32.categoryOffcialListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this32.allList = res.filter(function (item) {
-                return item.isActive;
-              });
               _this32.isCategoryDataLoaded = true;
-              _this32.totalItems = _this32.categoryOffcialListData.length;
-
-              if (_this32.totalItems > _this32.itemLimit) {
-                _this32.ItemEndIndex = _this32.itemLimit;
-              } else {
-                _this32.ItemEndIndex = _this32.totalItems;
-              }
             }, function (error) {});
           }
         }, {
@@ -3467,42 +3403,6 @@
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
             this.apiSubscribe.unsubscribe();
-          }
-        }, {
-          key: "onGlSearchFilter",
-          value: function onGlSearchFilter(event) {
-            if (event != "") {
-              var newData = this.allList.filter(function (item) {
-                for (var field in item) {
-                  if (item[field] === null || item[field] === undefined) {
-                    continue;
-                  }
-
-                  if (item[field].toString().toLowerCase().includes(event.toString().toLowerCase())) {
-                    return item;
-                  }
-                }
-              });
-              this.categoryOffcialListData = newData.reverse();
-            } else {
-              this.categoryOffcialListData = this.allList.reverse();
-              ;
-            }
-
-            this.totalItems = this.categoryOffcialListData.length;
-
-            if (this.totalItems > this.itemLimit) {
-              this.ItemEndIndex = this.itemLimit;
-            } else {
-              this.ItemEndIndex = this.totalItems;
-            }
-          }
-        }, {
-          key: "getIndexParams",
-          value: function getIndexParams(event) {
-            this.ItemStartIndex = event.ItemStartIndex;
-            this.ItemEndIndex = event.ItemEndIndex;
-            this.itemLimit = event.itemLimit;
           }
         }]);
 

@@ -8428,7 +8428,7 @@
             this.isDataLoaded = true;
             var visitorDetails = {
               "visitorId": this.visitor.visitorId,
-              "checkOutTime": this.visitor.visitorOutTime,
+              "checkOutTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.visitor.visitorOutTime).toISOString(),
               "updatedBy": this.sessionService.userId
             };
             this.visitorService.checkOutVisitor(visitorDetails).subscribe(function (res) {

@@ -340,6 +340,9 @@
             });
           }
         }, {
+          key: "minHoursBooking",
+          value: function minHoursBooking() {}
+        }, {
           key: "addSlot",
           value: function addSlot(method) {
             var entity = {

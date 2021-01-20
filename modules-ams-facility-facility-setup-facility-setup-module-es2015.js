@@ -213,6 +213,8 @@ let FacilityCreateComponent = class FacilityCreateComponent {
             }
         });
     }
+    minHoursBooking() {
+    }
     addSlot(method) {
         let entity = {
             slotBeginTime: null,
