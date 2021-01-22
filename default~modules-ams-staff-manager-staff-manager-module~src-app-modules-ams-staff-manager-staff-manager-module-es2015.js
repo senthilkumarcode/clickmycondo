@@ -635,8 +635,8 @@ let AddStaffComponent = class AddStaffComponent {
                 "photoId": null,
                 "idcardImg1": null,
                 "idcardImg2": null,
-                "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
-                "sickLeaveDays": parseInt(this.staff.sickLeaveDays),
+                "vacationLeaveDays": this.staff.vacationLeaveDays ? parseInt(this.staff.vacationLeaveDays) : 0,
+                "sickLeaveDays": this.staff.sickLeaveDays ? parseInt(this.staff.sickLeaveDays) : 0,
                 "basePay": this.staff.basePay,
                 "overtimePayperhour": this.staff.overtimePayperhour,
                 "allowance1": this.staff.allowance1,
@@ -723,8 +723,8 @@ let AddStaffComponent = class AddStaffComponent {
             "photoId": null,
             "idcardImg1": null,
             "idcardImg2": null,
-            "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
-            "sickLeaveDays": parseInt(this.staff.sickLeaveDays),
+            "vacationLeaveDays": this.staff.vacationLeaveDays ? parseInt(this.staff.vacationLeaveDays) : 0,
+            "sickLeaveDays": this.staff.sickLeaveDays ? parseInt(this.staff.sickLeaveDays) : 0,
             "basePay": this.staff.basePay,
             "overtimePayperhour": this.staff.overtimePayperhour,
             "allowance1": this.staff.allowance1,
@@ -933,7 +933,7 @@ let AddStaffComponent = class AddStaffComponent {
     ngOnInit() {
         // Set TimeZone 
         this.activateRouter.parent.parent.data.subscribe((data) => {
-            if (data) {
+            if (data && data.initialData) {
                 this.staff.timeZone = data.initialData.apartment.timesettings;
                 let response = data.initialData.apartment;
                 this.apartmentName = response.apartmentName;
@@ -1467,9 +1467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
 
 
@@ -1485,90 +1483,12 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.router = router;
+        this.totalItems = 0;
         this.isStaffDataLoaded = false;
-        this.unitFieldType = "unitno";
-        this.unitOrder = true;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
         this.staffData = "";
-        this.selectedInput = "";
-        this.columnField = {};
-        this.params = {
-            apartmentId: this.sessionService.apartmentId
-        };
-    }
-    getIndexParams(event) {
-        this.ItemStartIndex = event.ItemStartIndex;
-        this.ItemEndIndex = event.ItemEndIndex;
-        this.itemLimit = event.itemLimit;
     }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'Staff');
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-        }
-        else
-            return '';
-    }
-    selectColInput(value) {
-        this.selectedInput = value;
-    }
-    onSelectChange(event, type, name) {
-        if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
-            this.selectedInput = type;
-            this.columnField[type] = event[name];
-        }
-        else {
-            this.columnField = {};
-        }
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    getStaffCategory(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffTypeData, function (item) {
-            if (item.lookupValueId === id)
-                return item;
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            this.staffTypeId = data[0].lookupValueId;
-            return data[0].lookupValueName.toLowerCase();
-        }
-    }
-    getStaffSubCategory(id) {
-        if (this.staffTypeId == 115) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffOfficalCategoryData, function (item) {
-                if (item.lookupValueId === id)
-                    return item;
-            });
-            if (data === undefined || data.length == 0) {
-                return '';
-            }
-            else {
-                return data[0].lookupValueName;
-            }
-        }
-        else {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffPersonalCategoryData, function (item) {
-                if (item.lookupValueId === id)
-                    return item;
-            });
-            if (data === undefined || data.length == 0) {
-                return '';
-            }
-            else {
-                return data[0].lookupValueName;
-            }
-        }
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -1604,97 +1524,58 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
-                text: 'Staff Name',
-                datafield: 'ticketId',
-                width: 100,
+                text: 'StaffNo',
+                datafield: 'serialNo',
+                width: 120,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
-                text: 'Email ID',
-                datafield: 'ticketTypeId_Label',
+                text: 'Staff Name',
+                datafield: 'firstName',
+                width: 160,
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
                 renderer: columnrenderer
             }, {
-                text: 'Category',
-                datafield: 'ticketStatusId_Label',
+                text: 'Email Id',
+                datafield: 'emailId',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Sub Category',
-                datafield: 'ticketCategoryId_Label',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                width: 270,
                 renderer: columnrenderer
             }, {
                 text: 'Phone Number',
-                datafield: 'ticketPriorityId_Label',
+                datafield: 'phoneNumber_Label',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                width: 220,
                 renderer: columnrenderer
             }, {
-                text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
-                width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i></a></div>';
-                },
+                text: 'Job Title',
+                datafield: 'staffCategory_Label',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
                 renderer: columnrenderer
-            }];
-        this.staffService.getAllStaffsByApartmentId(this.params).subscribe((res) => {
-            //filter inactive true items
-            this.staffListData = res.filter(data => {
-                return !data.isActive;
-            });
-            this.gridSourceData = {
-                localdata: this.staffListData,
-                datatype: "array"
-            };
-            this.staffListData = new jqx.dataAdapter(this.gridSourceData);
-            this.totalItems = this.staffListData.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
+            }, {
+                text: 'Sub Category',
+                datafield: 'staffSubcategory_Label',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
+                renderer: columnrenderer
+            },
+        ];
+        let params = {
+            apartmentId: this.sessionService.apartmentId,
+            isActive: false,
+        };
+        this.staffService.getAllStaffsByApartmentId(params).subscribe((res) => {
+            if (Array.isArray(res)) {
+                let tableData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.staffListData = new jqx.dataAdapter(tableData);
+                this.totalItems = res.length;
             }
             this.isStaffDataLoaded = true;
-        });
-        let staffParams = {
-            LookupTypeId: 25,
-            ApartmentId: this.sessionService.apartmentId
-        };
-        //staff type
-        this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe((res) => {
-            this.staffTypeData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
-        let staffOfficialParams = {
-            LookupTypeId: 26,
-            ApartmentId: this.sessionService.apartmentId
-        };
-        //offical category type
-        this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe((res) => {
-            this.staffOfficalCategoryData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
-        let staffPersonalParams = {
-            LookupTypeId: 27,
-            ApartmentId: this.sessionService.apartmentId
-        };
-        //personal category type
-        this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe((res) => {
-            this.staffPersonalCategoryData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
         });
     }
 };
@@ -1873,33 +1754,39 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.columnData = [{
                 text: 'StaffNo',
                 datafield: 'serialNo',
-                width: 150,
+                width: 120,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Staff Name',
                 datafield: 'firstName',
-                width: 150,
+                width: 160,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Email Id',
                 datafield: 'emailId',
                 cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'Job Title',
-                datafield: 'staffCategory_Label',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
+                width: 270,
                 renderer: columnrenderer
             }, {
                 text: 'Phone Number',
                 datafield: 'phoneNumber_Label',
                 cellsrenderer: cellsrenderer,
-                width: 150,
+                width: 220,
+                renderer: columnrenderer
+            }, {
+                text: 'Job Title',
+                datafield: 'staffCategory_Label',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
+                renderer: columnrenderer
+            }, {
+                text: 'Sub Category',
+                datafield: 'staffSubcategory_Label',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
                 renderer: columnrenderer
             }, {
                 text: 'Actions',

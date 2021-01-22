@@ -920,8 +920,8 @@
                 "photoId": null,
                 "idcardImg1": null,
                 "idcardImg2": null,
-                "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
-                "sickLeaveDays": parseInt(this.staff.sickLeaveDays),
+                "vacationLeaveDays": this.staff.vacationLeaveDays ? parseInt(this.staff.vacationLeaveDays) : 0,
+                "sickLeaveDays": this.staff.sickLeaveDays ? parseInt(this.staff.sickLeaveDays) : 0,
                 "basePay": this.staff.basePay,
                 "overtimePayperhour": this.staff.overtimePayperhour,
                 "allowance1": this.staff.allowance1,
@@ -1015,8 +1015,8 @@
               "photoId": null,
               "idcardImg1": null,
               "idcardImg2": null,
-              "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
-              "sickLeaveDays": parseInt(this.staff.sickLeaveDays),
+              "vacationLeaveDays": this.staff.vacationLeaveDays ? parseInt(this.staff.vacationLeaveDays) : 0,
+              "sickLeaveDays": this.staff.sickLeaveDays ? parseInt(this.staff.sickLeaveDays) : 0,
               "basePay": this.staff.basePay,
               "overtimePayperhour": this.staff.overtimePayperhour,
               "allowance1": this.staff.allowance1,
@@ -1249,7 +1249,7 @@
 
             // Set TimeZone 
             this.activateRouter.parent.parent.data.subscribe(function (data) {
-              if (data) {
+              if (data && data.initialData) {
                 _this15.staff.timeZone = data.initialData.apartment.timesettings;
                 var response = data.initialData.apartment;
                 _this15.apartmentName = response.apartmentName;
@@ -2038,13 +2038,7 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
@@ -2057,102 +2051,15 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.router = router;
+          this.totalItems = 0;
           this.isStaffDataLoaded = false;
-          this.unitFieldType = "unitno";
-          this.unitOrder = true;
-          this.ItemStartIndex = 0;
-          this.itemLimit = 10;
           this.staffData = "";
-          this.selectedInput = "";
-          this.columnField = {};
-          this.params = {
-            apartmentId: this.sessionService.apartmentId
-          };
         }
 
         _createClass(StaffInactiveStaffComponent, [{
-          key: "getIndexParams",
-          value: function getIndexParams(event) {
-            this.ItemStartIndex = event.ItemStartIndex;
-            this.ItemEndIndex = event.ItemEndIndex;
-            this.itemLimit = event.itemLimit;
-          }
-        }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
             this.datagrid.exportdata(event, 'Staff');
-          }
-        }, {
-          key: "sortUnitData",
-          value: function sortUnitData(type) {
-            this.unitFieldType = type;
-            this.unitOrder = !this.unitOrder;
-          }
-        }, {
-          key: "getFieldOrderBy",
-          value: function getFieldOrderBy(type) {
-            if (this.unitFieldType == type) {
-              return this.unitOrder ? 'asc' : 'desc';
-            } else return '';
-          }
-        }, {
-          key: "selectColInput",
-          value: function selectColInput(value) {
-            this.selectedInput = value;
-          }
-        }, {
-          key: "onSelectChange",
-          value: function onSelectChange(event, type, name) {
-            if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
-              this.selectedInput = type;
-              this.columnField[type] = event[name];
-            } else {
-              this.columnField = {};
-            }
-          }
-        }, {
-          key: "isMobileView",
-          value: function isMobileView() {
-            return window.innerWidth <= 767 ? 'table-responsive' : '';
-          }
-        }, {
-          key: "getStaffCategory",
-          value: function getStaffCategory(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffTypeData, function (item) {
-              if (item.lookupValueId === id) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.staffTypeId = data[0].lookupValueId;
-              return data[0].lookupValueName.toLowerCase();
-            }
-          }
-        }, {
-          key: "getStaffSubCategory",
-          value: function getStaffSubCategory(id) {
-            if (this.staffTypeId == 115) {
-              var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffOfficalCategoryData, function (item) {
-                if (item.lookupValueId === id) return item;
-              });
-
-              if (data === undefined || data.length == 0) {
-                return '';
-              } else {
-                return data[0].lookupValueName;
-              }
-            } else {
-              var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.staffPersonalCategoryData, function (item) {
-                if (item.lookupValueId === id) return item;
-              });
-
-              if (data === undefined || data.length == 0) {
-                return '';
-              } else {
-                return data[0].lookupValueName;
-              }
-            }
           }
         }, {
           key: "onGlSearchFilter",
@@ -2199,96 +2106,59 @@
             };
 
             this.columnData = [{
-              text: 'Staff Name',
-              datafield: 'ticketId',
-              width: 100,
+              text: 'StaffNo',
+              datafield: 'serialNo',
+              width: 120,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Email ID',
-              datafield: 'ticketTypeId_Label',
+              text: 'Staff Name',
+              datafield: 'firstName',
+              width: 160,
               cellsrenderer: cellsrenderer,
-              minwidth: 80,
               renderer: columnrenderer
             }, {
-              text: 'Category',
-              datafield: 'ticketStatusId_Label',
+              text: 'Email Id',
+              datafield: 'emailId',
               cellsrenderer: cellsrenderer,
-              minwidth: 170,
-              renderer: columnrenderer
-            }, {
-              text: 'Sub Category',
-              datafield: 'ticketCategoryId_Label',
-              cellsrenderer: cellsrenderer,
-              minwidth: 170,
+              width: 270,
               renderer: columnrenderer
             }, {
               text: 'Phone Number',
-              datafield: 'ticketPriorityId_Label',
+              datafield: 'phoneNumber_Label',
               cellsrenderer: cellsrenderer,
-              minwidth: 80,
+              width: 220,
               renderer: columnrenderer
             }, {
-              text: 'Actions',
-              cellsalign: 'center',
-              align: 'center',
-              width: 120,
-              cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i></a></div>';
-              },
+              text: 'Job Title',
+              datafield: 'staffCategory_Label',
+              cellsrenderer: cellsrenderer,
+              minwidth: 150,
+              renderer: columnrenderer
+            }, {
+              text: 'Sub Category',
+              datafield: 'staffSubcategory_Label',
+              cellsrenderer: cellsrenderer,
+              minwidth: 150,
               renderer: columnrenderer
             }];
-            this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              //filter inactive true items
-              _this24.staffListData = res.filter(function (data) {
-                return !data.isActive;
-              });
-              _this24.gridSourceData = {
-                localdata: _this24.staffListData,
-                datatype: "array"
-              };
-              _this24.staffListData = new jqx.dataAdapter(_this24.gridSourceData);
-              _this24.totalItems = _this24.staffListData.length;
-
-              if (_this24.totalItems > _this24.itemLimit) {
-                _this24.ItemEndIndex = _this24.itemLimit;
-              } else {
-                _this24.ItemEndIndex = _this24.totalItems;
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              isActive: false
+            };
+            this.staffService.getAllStaffsByApartmentId(params).subscribe(function (res) {
+              if (Array.isArray(res)) {
+                var tableData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this24.staffListData = new jqx.dataAdapter(tableData);
+                _this24.totalItems = res.length;
               }
 
               _this24.isStaffDataLoaded = true;
             });
-            var staffParams = {
-              LookupTypeId: 25,
-              ApartmentId: this.sessionService.apartmentId
-            }; //staff type
-
-            this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-              _this24.staffTypeData = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
-            var staffOfficialParams = {
-              LookupTypeId: 26,
-              ApartmentId: this.sessionService.apartmentId
-            }; //offical category type
-
-            this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe(function (res) {
-              _this24.staffOfficalCategoryData = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
-            var staffPersonalParams = {
-              LookupTypeId: 27,
-              ApartmentId: this.sessionService.apartmentId
-            }; //personal category type
-
-            this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe(function (res) {
-              _this24.staffPersonalCategoryData = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
           }
         }]);
 
@@ -2572,33 +2442,39 @@
             this.columnData = [{
               text: 'StaffNo',
               datafield: 'serialNo',
-              width: 150,
+              width: 120,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Staff Name',
               datafield: 'firstName',
-              width: 150,
+              width: 160,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Email Id',
               datafield: 'emailId',
               cellsrenderer: cellsrenderer,
-              minwidth: 100,
-              renderer: columnrenderer
-            }, {
-              text: 'Job Title',
-              datafield: 'staffCategory_Label',
-              cellsrenderer: cellsrenderer,
-              minwidth: 100,
+              width: 270,
               renderer: columnrenderer
             }, {
               text: 'Phone Number',
               datafield: 'phoneNumber_Label',
               cellsrenderer: cellsrenderer,
-              width: 150,
+              width: 220,
+              renderer: columnrenderer
+            }, {
+              text: 'Job Title',
+              datafield: 'staffCategory_Label',
+              cellsrenderer: cellsrenderer,
+              minwidth: 150,
+              renderer: columnrenderer
+            }, {
+              text: 'Sub Category',
+              datafield: 'staffSubcategory_Label',
+              cellsrenderer: cellsrenderer,
+              minwidth: 150,
               renderer: columnrenderer
             }, {
               text: 'Actions',
