@@ -5308,6 +5308,10 @@ let CalendarComponent = class CalendarComponent {
      * On init
      */
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => {
+            this.timeZone = timeZone;
+            console.log('timezone: ', timeZone);
+        });
         // Create the event form
         this.eventForm = this._formBuilder.group({
             id: [''],
@@ -6229,40 +6233,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
-/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
-/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button-toggle.js");
-/* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/checkbox.js");
-/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/datepicker.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/menu.js");
-/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/radio.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
-/* harmony import */ var _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @fullcalendar/angular */ "./node_modules/@fullcalendar/angular/__ivy_ngcc__/fesm2015/fullcalendar-angular.js");
-/* harmony import */ var src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/@condo/components/date-range/date-range.module */ "./src/@condo/components/date-range/date-range.module.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var src_app_modules_common_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/modules/common/calendar/calendar.component */ "./src/app/modules/common/calendar/calendar.component.ts");
-/* harmony import */ var src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! src/app/modules/common/calendar/recurrence/recurrence.component */ "./src/app/modules/common/calendar/recurrence/recurrence.component.ts");
-/* harmony import */ var src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! src/app/modules/common/calendar/settings/settings.component */ "./src/app/modules/common/calendar/settings/settings.component.ts");
-/* harmony import */ var src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! src/app/modules/common/calendar/sidebar/sidebar.component */ "./src/app/modules/common/calendar/sidebar/sidebar.component.ts");
-/* harmony import */ var _calendar_routing__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./calendar.routing */ "./src/app/modules/common/calendar/calendar.routing.ts");
-
-
-
-
-
-
-
-
-
-
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/menu.js");
+/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/radio.js");
+/* harmony import */ var _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fullcalendar/angular */ "./node_modules/@fullcalendar/angular/__ivy_ngcc__/fesm2015/fullcalendar-angular.js");
+/* harmony import */ var src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/@condo/components/date-range/date-range.module */ "./src/@condo/components/date-range/date-range.module.ts");
+/* harmony import */ var src_app_modules_common_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/modules/common/calendar/calendar.component */ "./src/app/modules/common/calendar/calendar.component.ts");
+/* harmony import */ var src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/common/calendar/recurrence/recurrence.component */ "./src/app/modules/common/calendar/recurrence/recurrence.component.ts");
+/* harmony import */ var src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/common/calendar/settings/settings.component */ "./src/app/modules/common/calendar/settings/settings.component.ts");
+/* harmony import */ var src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/common/calendar/sidebar/sidebar.component */ "./src/app/modules/common/calendar/sidebar/sidebar.component.ts");
+/* harmony import */ var _calendar_routing__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./calendar.routing */ "./src/app/modules/common/calendar/calendar.routing.ts");
 
 
 
@@ -6285,38 +6269,28 @@ let CalendarModule = class CalendarModule {
 CalendarModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            src_app_modules_common_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_22__["CalendarComponent"],
-            src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_23__["CalendarRecurrenceComponent"],
-            src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_24__["CalendarSettingsComponent"],
-            src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_25__["CalendarSidebarComponent"]
+            src_app_modules_common_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_12__["CalendarComponent"],
+            src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__["CalendarRecurrenceComponent"],
+            src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_14__["CalendarSettingsComponent"],
+            src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["CalendarSidebarComponent"]
         ],
         entryComponents: [
-            src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_23__["CalendarRecurrenceComponent"]
+            src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__["CalendarRecurrenceComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(_calendar_routing__WEBPACK_IMPORTED_MODULE_26__["calendarRoutes"]),
-            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_4__["ScrollingModule"],
-            _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
-            _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_7__["MatButtonToggleModule"],
-            _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
-            _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_9__["MatDatepickerModule"],
-            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialogModule"],
-            _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"],
-            _angular_material_icon__WEBPACK_IMPORTED_MODULE_12__["MatIconModule"],
-            _angular_material_input__WEBPACK_IMPORTED_MODULE_13__["MatInputModule"],
-            _angular_material_menu__WEBPACK_IMPORTED_MODULE_14__["MatMenuModule"],
-            _angular_material_radio__WEBPACK_IMPORTED_MODULE_15__["MatRadioModule"],
-            _angular_material_select__WEBPACK_IMPORTED_MODULE_16__["MatSelectModule"],
-            _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__["MatSidenavModule"],
-            _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_18__["MatTooltipModule"],
-            _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_19__["FullCalendarModule"],
-            src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_20__["CondoDateRangeModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_21__["SharedModule"].forRoot()
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_calendar_routing__WEBPACK_IMPORTED_MODULE_16__["calendarRoutes"]),
+            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"],
+            _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
+            _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"],
+            _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"],
+            _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"],
+            src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"]
         ],
         providers: [
             {
-                provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_5__["MAT_DATE_FORMATS"],
+                provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_6__["MAT_DATE_FORMATS"],
                 useValue: {
                     parse: {
                         dateInput: 'DD.MM.YYYY'

@@ -1809,7 +1809,7 @@
           value: function changeActions(event) {
             var _this18 = this;
 
-            console.log(event);
+            ;
             var isActive = event.option._selected;
             this.isDataLoaded = false;
             var multipleApiCall = [];

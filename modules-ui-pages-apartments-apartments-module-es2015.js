@@ -150,7 +150,6 @@ let ApartmentsComponent = class ApartmentsComponent {
         };
         this.isRouting = true;
         this.staffService.getStaffByUserId(params).subscribe((res) => {
-            //console.log(res);
             if (!isNaN(this.sessionService.secLevelId)) {
                 this.sessionService.secLevelId = res[0].secLevelId;
                 // Hide the message

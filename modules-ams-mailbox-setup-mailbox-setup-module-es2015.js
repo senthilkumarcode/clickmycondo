@@ -138,6 +138,14 @@ let MailboxSetupComponent = class MailboxSetupComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.userpiccast.subscribe((res) => {
+            console.log(res);
+        });
+        this.sharedService.timezonecast
+            .subscribe(timeZone => {
+            this.timeZone = timeZone;
+            console.log(timeZone);
+        });
         // Staff List
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,

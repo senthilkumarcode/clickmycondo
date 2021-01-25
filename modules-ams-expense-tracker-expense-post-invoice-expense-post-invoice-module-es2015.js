@@ -229,7 +229,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             this.invoiceVendorAccountsData.discountAmount = 0;
             this.invoiceVendorAccountsData.discountDirectAmt = 0;
         }
-        console.log(event);
+        ;
         this.invoiceVendorAccountsData.discountId = parseInt(event[0].lookupValueId);
         this.invoiceVendorAccountsData.discountTypeId = event[0].lookupValueName;
         this.onDiscountAdded(this.invoiceVendorAccountsData.discountDirectAmt, index);
@@ -333,7 +333,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
         }
     }
     onWithHoldingTaxChange(event, index) {
-        console.log(event);
+        ;
         if (event[0].lookupValueId != null) {
             this.invoiceVendorAccountsData.isWthtaxAmount = true;
             this.invoiceVendorAccountsData.wthtaxAmount = parseInt(event[0].lookupValueName);
@@ -580,7 +580,6 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         });
     }
     getFieldParams(event) {
-        console.log(event);
         this.invoiceVendorAccountsArray = event;
         this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceVendorAccountsArray, item => {
             return !item.form;

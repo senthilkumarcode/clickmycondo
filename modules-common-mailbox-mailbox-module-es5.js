@@ -1546,57 +1546,6 @@
           key: "getDate",
           value: function getDate(value) {
             return moment__WEBPACK_IMPORTED_MODULE_4__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time);
-          }
-        }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this10 = this;
-
-            this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this10.timeZone = timeZone;
-            }); // Category
-
-            this._mailboxService.category$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (category) {
-              _this10.category = category;
-            }); // Mails
-
-
-            this._mailboxService.mails$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mails) {
-              _this10.mails = mails;
-            }); // Mails loading
-
-
-            this._mailboxService.mailsLoading$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mailsLoading) {
-              _this10.mailsLoading = mailsLoading; // If the mail list element is available & the mails are loaded...
-
-              if (_this10.mailList && !mailsLoading) {
-                // Reset the mail list element scroll position to top
-                _this10.mailList.nativeElement.scrollTo(0, 0);
-              }
-            }); // Pagination
-
-
-            this._mailboxService.pagination$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (pagination) {
-              _this10.pagination = pagination;
-            }); // Selected mail
-
-
-            this._mailboxService.mail$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mail) {
-              _this10.selectedMail = mail;
-              console.log(_this10.selectedMail);
-            });
-          }
-          /**
-           * On destroy
-           */
-
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            // Unsubscribe from all subscriptions
-            this._unsubscribeAll.next();
-
-            this._unsubscribeAll.complete();
           } // -----------------------------------------------------------------------------------------------------
           // @ Public methods
           // -----------------------------------------------------------------------------------------------------
@@ -1610,7 +1559,7 @@
         }, {
           key: "onMailSelected",
           value: function onMailSelected(mail) {
-            var _this11 = this;
+            var _this10 = this;
 
             // If the mail is unread...
             if (!mail.isRead) {
@@ -1624,17 +1573,17 @@
                   // Update the mail object
                   mail.isRead = true; //get mailbox unread messages
 
-                  _this11._mailboxService.getUnreadMessages().subscribe(function (res) {
+                  _this10._mailboxService.getUnreadMessages().subscribe(function (res) {
                     var count;
                     if (res.message) count = 0;else count = res[0].totalUnreadMessage; // Get the component -> navigation data -> item
 
-                    var mainNavigationComponent = _this11._condoNavigationService.getComponent('mainNavigation'); // If the main navigation component exists...
+                    var mainNavigationComponent = _this10._condoNavigationService.getComponent('mainNavigation'); // If the main navigation component exists...
 
 
                     if (mainNavigationComponent) {
                       var menuItemId;
 
-                      if (_this11.sessionService.isAdmin()) {
+                      if (_this10.sessionService.isAdmin()) {
                         menuItemId = 'Admin_Main_inbox';
                       } else {
                         menuItemId = 'Mail Box';
@@ -1642,7 +1591,7 @@
 
                       var mainNavigation = mainNavigationComponent.navigation;
 
-                      var menuItem = _this11._condoNavigationService.getItem(menuItemId, mainNavigation); // Update the badge title of the item
+                      var menuItem = _this10._condoNavigationService.getItem(menuItemId, mainNavigation); // Update the badge title of the item
 
 
                       menuItem.badge.title = count + ''; // Refresh the navigation
@@ -1732,6 +1681,56 @@
           key: "trackByFn",
           value: function trackByFn(index, item) {
             return item.id || index;
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this11 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              _this11.timeZone = timeZone;
+            }); // Category
+
+            this._mailboxService.category$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (category) {
+              _this11.category = category;
+            }); // Mails
+
+
+            this._mailboxService.mails$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mails) {
+              _this11.mails = mails;
+            }); // Mails loading
+
+
+            this._mailboxService.mailsLoading$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mailsLoading) {
+              _this11.mailsLoading = mailsLoading; // If the mail list element is available & the mails are loaded...
+
+              if (_this11.mailList && !mailsLoading) {
+                // Reset the mail list element scroll position to top
+                _this11.mailList.nativeElement.scrollTo(0, 0);
+              }
+            }); // Pagination
+
+
+            this._mailboxService.pagination$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (pagination) {
+              _this11.pagination = pagination;
+            }); // Selected mail
+
+
+            this._mailboxService.mail$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mail) {
+              _this11.selectedMail = mail;
+            });
+          }
+          /**
+           * On destroy
+           */
+
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            // Unsubscribe from all subscriptions
+            this._unsubscribeAll.next();
+
+            this._unsubscribeAll.complete();
           }
         }]);
 
@@ -2171,8 +2170,8 @@
       /* harmony import */
 
 
-      var src_app_modules_common_mailbox_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/modules/common/mailbox/mailbox-routing.module */
+      var _mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./mailbox-routing.module */
       "./src/app/modules/common/mailbox/mailbox-routing.module.ts");
       /* harmony import */
 
@@ -2183,9 +2182,9 @@
       /* harmony import */
 
 
-      var src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/layout/regulars/regulars.module */
-      "./src/app/layout/regulars/regulars.module.ts");
+      var src_app_layout_regulars_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/layout/regulars/navigation/navigation.module */
+      "./src/app/layout/regulars/navigation/navigation.module.ts");
       /* harmony import */
 
 
@@ -2231,25 +2230,19 @@
       /* harmony import */
 
 
-      var _angular_material_chips__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
-      /*! @angular/material/chips */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/chips.js");
-      /* harmony import */
-
-
-      var ngx_quill__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var ngx_quill__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ngx-quill */
       "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
       /* harmony import */
 
 
-      var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! src/app/modules/ui/help-tooltip/help-tooltip.module */
       "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
 
@@ -2259,8 +2252,7 @@
 
       MailboxModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_mailbox_component__WEBPACK_IMPORTED_MODULE_9__["MailboxComponent"], src_app_modules_common_mailbox_compose_compose_component__WEBPACK_IMPORTED_MODULE_10__["MailboxComposeComponent"], src_app_modules_common_mailbox_details_details_component__WEBPACK_IMPORTED_MODULE_11__["MailboxDetailsComponent"], src_app_modules_common_mailbox_list_list_component__WEBPACK_IMPORTED_MODULE_12__["MailboxListComponent"], src_app_modules_common_mailbox_settings_settings_component__WEBPACK_IMPORTED_MODULE_13__["MailboxSettingsComponent"], src_app_modules_common_mailbox_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["MailboxSidebarComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__["CondoMessageModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(src_app_modules_common_mailbox_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__["mailboxRoutes"]), src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_15__["MatChipsModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_16__["QuillModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_17__["HelpTooltipModule"]],
-        bootstrap: [_mailbox_component__WEBPACK_IMPORTED_MODULE_9__["MailboxComponent"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__["mailboxRoutes"]), src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__["CondoMessageModule"], src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_7__["NavigationModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_15__["QuillModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_16__["HelpTooltipModule"]]
       })], MailboxModule);
       /***/
     },
@@ -2688,7 +2680,13 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
 
@@ -2698,12 +2696,13 @@
          *
          * @param {HttpClient} _httpClient
          */
-        function MailboxService(_httpClient, messageInbox, sessionService) {
+        function MailboxService(_httpClient, messageInbox, sessionService, sharedService) {
           _classCallCheck(this, MailboxService);
 
           this._httpClient = _httpClient;
           this.messageInbox = messageInbox;
-          this.sessionService = sessionService; // Set the private defaults
+          this.sessionService = sessionService;
+          this.sharedService = sharedService; // Set the private defaults
 
           this._category = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
           this._filters = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
@@ -3225,13 +3224,15 @@
         }, {
           type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }];
       };
 
       MailboxService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], MailboxService);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])], MailboxService);
       /***/
     },
 
@@ -3840,9 +3841,7 @@
               panelClass: 'mailbox-compose-dialog'
             });
 
-            dialogRef.afterClosed().subscribe(function (result) {
-              console.log('Compose dialog was closed!');
-            });
+            dialogRef.afterClosed().subscribe(function (result) {});
           }
         }]);
 

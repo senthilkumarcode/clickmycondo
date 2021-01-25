@@ -3206,7 +3206,6 @@ let CommunicationManagementComponent = class CommunicationManagementComponent {
         router.events.subscribe((event) => {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
                 let selectedBlock = this._activatedRoute.params['value'].type + 'CommunicationContainer';
-                console.log(selectedBlock);
                 if (document.getElementById(selectedBlock)) {
                     setTimeout(() => {
                         const el = document.getElementById(selectedBlock).getBoundingClientRect().top + window.scrollY;
@@ -3432,7 +3431,6 @@ let FinanceManagementComponent = class FinanceManagementComponent {
         router.events.subscribe((event) => {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
                 let selectedBlock = this._activatedRoute.params['value'].type + 'FinanceContainer';
-                console.log(selectedBlock);
                 if (document.getElementById(selectedBlock)) {
                     setTimeout(() => {
                         const el = document.getElementById(selectedBlock).getBoundingClientRect().top + window.scrollY;

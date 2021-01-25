@@ -174,6 +174,8 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
         else
             return '(' + type + ')';
     }
+    getPrintParams(event) {
+    }
     printInvoice() {
         var data = document.getElementById('InvoiceElement');
         html2canvas__WEBPACK_IMPORTED_MODULE_16___default()(data).then(canvas => {
@@ -541,6 +543,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
             if (res.code == 200) {
                 this.message = null;
                 var invoiceDataList = res.responseData.value;
+                console.log(invoiceDataList);
                 underscore__WEBPACK_IMPORTED_MODULE_13__["each"](invoiceDataList, item => {
                     item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
                 });

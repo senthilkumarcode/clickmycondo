@@ -1404,7 +1404,6 @@ let StaffHierarchyComponent = class StaffHierarchyComponent {
                     });
                 });
                 this.staffHierarchyList = res;
-                console.log(this.staffHierarchyList);
             }
             else {
                 this.sharedService.openSnackBar(res.errorMessage, 'error');

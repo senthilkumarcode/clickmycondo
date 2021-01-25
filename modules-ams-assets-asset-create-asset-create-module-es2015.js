@@ -289,7 +289,6 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         });
     }
     setCategoryLocation(event) {
-        console.log(event);
         this.asset.locationId = event[0].id;
         this.asset.assetLocationName = event[0].name;
         this.subLocationCategoryList = event[0].subCategory;
@@ -424,7 +423,6 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                     file: null,
                     asset: addAssetDetails
                 };
-                console.log(addAssetDetails);
                 this.assetService.addAsset(addAssetParams).subscribe((res) => {
                     if (res.message) {
                         this.addInsurance(res.message);
@@ -614,7 +612,9 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         return this.lookupService.getSubcategory(queryParamBase);
     }
     ngOnInit() {
-        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+        this.sharedService.timezonecast.subscribe(timeZone => {
+            this.timeZone = timeZone;
+        });
         this.asset = {};
         this.asset.assetCategoryId = "";
         this.asset.assetConditionId = "";

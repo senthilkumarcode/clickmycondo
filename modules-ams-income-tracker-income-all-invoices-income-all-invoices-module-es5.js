@@ -341,6 +341,9 @@
             if (type == "") return '';else return '(' + type + ')';
           }
         }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {}
+        }, {
           key: "printInvoice",
           value: function printInvoice() {
             var data = document.getElementById('InvoiceElement');
@@ -724,6 +727,7 @@
               if (res.code == 200) {
                 _this6.message = null;
                 var invoiceDataList = res.responseData.value;
+                console.log(invoiceDataList);
                 underscore__WEBPACK_IMPORTED_MODULE_13__["each"](invoiceDataList, function (item) {
                   item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
                 });

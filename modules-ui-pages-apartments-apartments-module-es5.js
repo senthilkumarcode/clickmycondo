@@ -286,7 +286,6 @@
             };
             this.isRouting = true;
             this.staffService.getStaffByUserId(params).subscribe(function (res) {
-              //console.log(res);
               if (!isNaN(_this2.sessionService.secLevelId)) {
                 _this2.sessionService.secLevelId = res[0].secLevelId; // Hide the message
 

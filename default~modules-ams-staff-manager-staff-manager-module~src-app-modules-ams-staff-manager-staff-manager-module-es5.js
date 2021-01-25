@@ -1914,7 +1914,6 @@
                   });
                 });
                 _this22.staffHierarchyList = res;
-                console.log(_this22.staffHierarchyList);
               } else {
                 _this22.sharedService.openSnackBar(res.errorMessage, 'error');
               }

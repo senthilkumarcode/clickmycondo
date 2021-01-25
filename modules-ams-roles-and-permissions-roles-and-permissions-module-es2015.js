@@ -1197,7 +1197,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
         this.isEnabled = this.actionList.every((data) => data.checked);
     }
     changeActions(event) {
-        console.log(event);
+        ;
         let isActive = event.option._selected;
         this.isDataLoaded = false;
         let multipleApiCall = [];

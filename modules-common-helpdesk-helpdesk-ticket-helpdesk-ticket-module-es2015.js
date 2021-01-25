@@ -535,7 +535,10 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
         });
     }
     ngOnInit() {
-        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+        this.sharedService.timezonecast.subscribe(timeZone => {
+            this.timeZone = timeZone;
+            console.log(this.timeZone);
+        });
         // Login Based View for admin or owner
         if (!this.isAdmin()) {
             this.createdBY = 'owner';
@@ -1367,7 +1370,6 @@ let HelpdeskUserTicketListComponent = class HelpdeskUserTicketListComponent {
                     return b.serialNo - a.serialNo;
                 });
                 this.ticketListData = res;
-                console.log(res);
                 if (this.totalItems > this.itemLimit) {
                     this.ItemEndIndex = this.itemLimit;
                 }

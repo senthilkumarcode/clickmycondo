@@ -5672,7 +5672,7 @@
         }, {
           key: "getSelectedBlock",
           value: function getSelectedBlock(event) {
-            console.log(event);
+            ;
             this.utilityTypeId = event[0].lookupValueId;
           }
         }, {
@@ -5766,10 +5766,10 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            console.log(event);
+            ;
 
             if (event != "") {
-              console.log(event);
+              ;
               this.utilityMeterList = this.allList.filter(function (x) {
                 return x.typeId === 297 && x.utilityType.toLowerCase().startsWith(event) || x.meterName.toLowerCase().startsWith(event) || x.meterGroupName.toLowerCase().startsWith(event) || x.locationName.toLowerCase().startsWith(event) || x.subLocationName.toLowerCase().startsWith(event);
               }).reverse();
@@ -6948,10 +6948,10 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            console.log(event);
+            ;
 
             if (event != "") {
-              console.log(event);
+              ;
               this.unitSpecificList = this.allList.filter(function (x) {
                 return x.typeId === 298 && x.utilityType.toLowerCase().startsWith(event) || x.meterName.toLowerCase().startsWith(event) || x.meterGroupName.toLowerCase().startsWith(event) || x.locationName.toLowerCase().startsWith(event) || x.subLocationName.toLowerCase().startsWith(event);
               }).reverse();

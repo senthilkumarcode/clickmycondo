@@ -333,9 +333,6 @@
           value: function ngOnChanges() {
             var _this6 = this;
 
-            console.log(this.isEdit);
-            console.log(this.fileIds);
-
             if (this.isEdit && this.fileIds != undefined && !this.isFileIdChanged) {
               var temp = new Array();
               temp = this.fileIds.split(",");

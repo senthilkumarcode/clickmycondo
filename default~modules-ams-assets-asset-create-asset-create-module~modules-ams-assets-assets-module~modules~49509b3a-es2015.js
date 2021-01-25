@@ -200,8 +200,6 @@ let UploadComponent = class UploadComponent {
             this.downloadSubscription.unsubscribe();
     }
     ngOnChanges() {
-        console.log(this.isEdit);
-        console.log(this.fileIds);
         if (this.isEdit && this.fileIds != undefined && !this.isFileIdChanged) {
             let temp = new Array();
             temp = this.fileIds.split(",");

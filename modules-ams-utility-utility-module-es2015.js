@@ -3898,7 +3898,7 @@ let UtilityCommonMeterSetupComponent = class UtilityCommonMeterSetupComponent {
         this.getAllUtilityMeterSetup();
     }
     getSelectedBlock(event) {
-        console.log(event);
+        ;
         this.utilityTypeId = event[0].lookupValueId;
     }
     setLocationId(event) {
@@ -3958,9 +3958,9 @@ let UtilityCommonMeterSetupComponent = class UtilityCommonMeterSetupComponent {
         });
     }
     onGlSearchFilter(event) {
-        console.log(event);
+        ;
         if (event != "") {
-            console.log(event);
+            ;
             this.utilityMeterList = this.allList.filter(x => x.typeId === 297 && x.utilityType.toLowerCase().startsWith(event) || x.meterName.toLowerCase().startsWith(event) || x.meterGroupName.toLowerCase().startsWith(event) || x.locationName.toLowerCase().startsWith(event) || x.subLocationName.toLowerCase().startsWith(event)).reverse();
         }
         else {
@@ -4798,9 +4798,9 @@ let UtilityUnitSpecificComponent = class UtilityUnitSpecificComponent {
         });
     }
     onGlSearchFilter(event) {
-        console.log(event);
+        ;
         if (event != "") {
-            console.log(event);
+            ;
             this.unitSpecificList = this.allList.filter(x => x.typeId === 298 && x.utilityType.toLowerCase().startsWith(event) || x.meterName.toLowerCase().startsWith(event) || x.meterGroupName.toLowerCase().startsWith(event) || x.locationName.toLowerCase().startsWith(event) || x.subLocationName.toLowerCase().startsWith(event)).reverse();
         }
         else {

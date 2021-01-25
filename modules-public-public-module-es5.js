@@ -4961,7 +4961,6 @@
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
               var selectedBlock = _this11._activatedRoute.params['value'].type + 'CommunicationContainer';
-              console.log(selectedBlock);
 
               if (document.getElementById(selectedBlock)) {
                 setTimeout(function () {
@@ -5338,7 +5337,6 @@
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
               var selectedBlock = _this12._activatedRoute.params['value'].type + 'FinanceContainer';
-              console.log(selectedBlock);
 
               if (document.getElementById(selectedBlock)) {
                 setTimeout(function () {

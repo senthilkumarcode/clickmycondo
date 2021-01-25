@@ -1020,53 +1020,6 @@ let MailboxListComponent = class MailboxListComponent {
     getDate(value) {
         return moment__WEBPACK_IMPORTED_MODULE_4__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time);
     }
-    ngOnInit() {
-        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        // Category
-        this._mailboxService.category$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
-            .subscribe((category) => {
-            this.category = category;
-        });
-        // Mails
-        this._mailboxService.mails$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
-            .subscribe((mails) => {
-            this.mails = mails;
-        });
-        // Mails loading
-        this._mailboxService.mailsLoading$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
-            .subscribe((mailsLoading) => {
-            this.mailsLoading = mailsLoading;
-            // If the mail list element is available & the mails are loaded...
-            if (this.mailList && !mailsLoading) {
-                // Reset the mail list element scroll position to top
-                this.mailList.nativeElement.scrollTo(0, 0);
-            }
-        });
-        // Pagination
-        this._mailboxService.pagination$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
-            .subscribe((pagination) => {
-            this.pagination = pagination;
-        });
-        // Selected mail
-        this._mailboxService.mail$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
-            .subscribe((mail) => {
-            this.selectedMail = mail;
-            console.log(this.selectedMail);
-        });
-    }
-    /**
-     * On destroy
-     */
-    ngOnDestroy() {
-        // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
-        this._unsubscribeAll.complete();
-    }
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
@@ -1180,6 +1133,52 @@ let MailboxListComponent = class MailboxListComponent {
      */
     trackByFn(index, item) {
         return item.id || index;
+    }
+    ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => { this.timeZone = timeZone; });
+        // Category
+        this._mailboxService.category$
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
+            .subscribe((category) => {
+            this.category = category;
+        });
+        // Mails
+        this._mailboxService.mails$
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
+            .subscribe((mails) => {
+            this.mails = mails;
+        });
+        // Mails loading
+        this._mailboxService.mailsLoading$
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
+            .subscribe((mailsLoading) => {
+            this.mailsLoading = mailsLoading;
+            // If the mail list element is available & the mails are loaded...
+            if (this.mailList && !mailsLoading) {
+                // Reset the mail list element scroll position to top
+                this.mailList.nativeElement.scrollTo(0, 0);
+            }
+        });
+        // Pagination
+        this._mailboxService.pagination$
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
+            .subscribe((pagination) => {
+            this.pagination = pagination;
+        });
+        // Selected mail
+        this._mailboxService.mail$
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
+            .subscribe((mail) => {
+            this.selectedMail = mail;
+        });
+    }
+    /**
+     * On destroy
+     */
+    ngOnDestroy() {
+        // Unsubscribe from all subscriptions
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
     }
 };
 MailboxListComponent.ctorParameters = () => [
@@ -1473,9 +1472,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_modules_common_mailbox_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/common/mailbox/mailbox-routing.module */ "./src/app/modules/common/mailbox/mailbox-routing.module.ts");
+/* harmony import */ var _mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mailbox-routing.module */ "./src/app/modules/common/mailbox/mailbox-routing.module.ts");
 /* harmony import */ var src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/@condo/pipes/find-by-key */ "./src/@condo/pipes/find-by-key/index.ts");
-/* harmony import */ var src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/layout/regulars/regulars.module */ "./src/app/layout/regulars/regulars.module.ts");
+/* harmony import */ var src_app_layout_regulars_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/layout/regulars/navigation/navigation.module */ "./src/app/layout/regulars/navigation/navigation.module.ts");
 /* harmony import */ var src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/directives/scrollbar */ "./src/@condo/directives/scrollbar/index.ts");
 /* harmony import */ var _mailbox_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mailbox.component */ "./src/app/modules/common/mailbox/mailbox.component.ts");
 /* harmony import */ var src_app_modules_common_mailbox_compose_compose_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/modules/common/mailbox/compose/compose.component */ "./src/app/modules/common/mailbox/compose/compose.component.ts");
@@ -1483,11 +1482,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_common_mailbox_list_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/modules/common/mailbox/list/list.component */ "./src/app/modules/common/mailbox/list/list.component.ts");
 /* harmony import */ var src_app_modules_common_mailbox_settings_settings_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/common/mailbox/settings/settings.component */ "./src/app/modules/common/mailbox/settings/settings.component.ts");
 /* harmony import */ var src_app_modules_common_mailbox_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/common/mailbox/sidebar/sidebar.component */ "./src/app/modules/common/mailbox/sidebar/sidebar.component.ts");
-/* harmony import */ var _angular_material_chips__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/chips */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/chips.js");
-/* harmony import */ var ngx_quill__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-quill */ "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
-/* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
-/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
-
+/* harmony import */ var ngx_quill__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-quill */ "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
+/* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
 
 
 
@@ -1521,17 +1518,13 @@ MailboxModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
-            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__["CondoMessageModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(src_app_modules_common_mailbox_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__["mailboxRoutes"]),
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__["mailboxRoutes"]),
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__["CondoMessageModule"],
             src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"],
-            src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"],
-            _angular_material_chips__WEBPACK_IMPORTED_MODULE_15__["MatChipsModule"],
+            src_app_layout_regulars_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_7__["NavigationModule"],
             src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"],
-            ngx_quill__WEBPACK_IMPORTED_MODULE_16__["QuillModule"],
-            src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_17__["HelpTooltipModule"]
-        ],
-        bootstrap: [
-            _mailbox_component__WEBPACK_IMPORTED_MODULE_9__["MailboxComponent"]
+            ngx_quill__WEBPACK_IMPORTED_MODULE_15__["QuillModule"],
+            src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_16__["HelpTooltipModule"]
         ]
     })
 ], MailboxModule);
@@ -1812,7 +1805,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/MessageInbox */ "./src/app/api/controllers/MessageInbox.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
@@ -1826,10 +1821,11 @@ let MailboxService = class MailboxService {
      *
      * @param {HttpClient} _httpClient
      */
-    constructor(_httpClient, messageInbox, sessionService) {
+    constructor(_httpClient, messageInbox, sessionService, sharedService) {
         this._httpClient = _httpClient;
         this.messageInbox = messageInbox;
         this.sessionService = sessionService;
+        this.sharedService = sharedService;
         // Set the private defaults
         this._category = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
         this._filters = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
@@ -2217,7 +2213,8 @@ let MailboxService = class MailboxService {
 MailboxService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
     { type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] }
 ];
 MailboxService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -2225,7 +2222,8 @@ MailboxService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
         src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])
 ], MailboxService);
 
 
@@ -2676,7 +2674,6 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
         });
         dialogRef.afterClosed()
             .subscribe(result => {
-            console.log('Compose dialog was closed!');
         });
     }
 };

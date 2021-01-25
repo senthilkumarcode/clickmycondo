@@ -1491,7 +1491,6 @@
               return _this4.timeZone = timeZone;
             });
             this.pageName = this.route.params['value'].name.replace('#', '/');
-            console.log(this.pageName);
             this.allLink = this.route.params['value'].link;
             this.pageId = this.route.params['value'].id;
             var unitBlockParams = {

@@ -520,7 +520,6 @@
         }, {
           key: "setCategoryLocation",
           value: function setCategoryLocation(event) {
-            console.log(event);
             this.asset.locationId = event[0].id;
             this.asset.assetLocationName = event[0].name;
             this.subLocationCategoryList = event[0].subCategory;
@@ -684,7 +683,6 @@
                   file: null,
                   asset: addAssetDetails
                 };
-                console.log(addAssetDetails);
                 this.assetService.addAsset(addAssetParams).subscribe(function (res) {
                   if (res.message) {
                     _this2.addInsurance(res.message);
@@ -896,7 +894,7 @@
             var _this6 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this6.timeZone = timeZone;
+              _this6.timeZone = timeZone;
             });
             this.asset = {};
             this.asset.assetCategoryId = "";

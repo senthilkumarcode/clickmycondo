@@ -228,7 +228,14 @@
           value: function ngOnInit() {
             var _this2 = this;
 
-            // Staff List
+            this.sharedService.userpiccast.subscribe(function (res) {
+              console.log(res);
+            });
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              _this2.timeZone = timeZone;
+              console.log(timeZone);
+            }); // Staff List
+
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
               roleTypeIds: '1,3' //Admin and Staff Id

@@ -752,7 +752,8 @@
             var _this10 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this10.timeZone = timeZone;
+              _this10.timeZone = timeZone;
+              console.log(_this10.timeZone);
             }); // Login Based View for admin or owner
 
             if (!this.isAdmin()) {
@@ -1938,7 +1939,6 @@
                   return b.serialNo - a.serialNo;
                 });
                 _this17.ticketListData = res;
-                console.log(res);
 
                 if (_this17.totalItems > _this17.itemLimit) {
                   _this17.ItemEndIndex = _this17.itemLimit;

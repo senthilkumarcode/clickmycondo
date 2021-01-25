@@ -401,7 +401,7 @@
               this.invoiceVendorAccountsData.discountDirectAmt = 0;
             }
 
-            console.log(event);
+            ;
             this.invoiceVendorAccountsData.discountId = parseInt(event[0].lookupValueId);
             this.invoiceVendorAccountsData.discountTypeId = event[0].lookupValueName;
             this.onDiscountAdded(this.invoiceVendorAccountsData.discountDirectAmt, index);
@@ -518,7 +518,7 @@
         }, {
           key: "onWithHoldingTaxChange",
           value: function onWithHoldingTaxChange(event, index) {
-            console.log(event);
+            ;
 
             if (event[0].lookupValueId != null) {
               this.invoiceVendorAccountsData.isWthtaxAmount = true;
@@ -882,7 +882,6 @@
         }, {
           key: "getFieldParams",
           value: function getFieldParams(event) {
-            console.log(event);
             this.invoiceVendorAccountsArray = event;
             this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceVendorAccountsArray, function (item) {
               return !item.form;

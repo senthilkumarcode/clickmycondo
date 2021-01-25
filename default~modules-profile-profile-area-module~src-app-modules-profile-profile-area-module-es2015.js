@@ -1251,7 +1251,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./profile-area-routing.module */ "./src/app/modules/profile/profile-area-routing.module.ts");
 /* harmony import */ var src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/@condo/pipes/find-by-key */ "./src/@condo/pipes/find-by-key/index.ts");
-/* harmony import */ var src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/layout/regulars/regulars.module */ "./src/app/layout/regulars/regulars.module.ts");
+/* harmony import */ var src_app_layout_regulars_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/layout/regulars/navigation/navigation.module */ "./src/app/layout/regulars/navigation/navigation.module.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 /* harmony import */ var src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/@condo/directives/scrollbar */ "./src/@condo/directives/scrollbar/index.ts");
@@ -1358,7 +1358,7 @@ ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]),
             _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProfileAreaRoutingModule"],
             src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"],
-            src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"],
+            src_app_layout_regulars_navigation_navigation_module__WEBPACK_IMPORTED_MODULE_7__["NavigationModule"],
             _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__["MatChipsModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"],
             src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_37__["CondoMessageModule"],
