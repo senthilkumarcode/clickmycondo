@@ -284,6 +284,12 @@
       var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
 
       var MeetingSettingModule = function MeetingSettingModule() {
         _classCallCheck(this, MeetingSettingModule);
@@ -291,7 +297,7 @@
 
       MeetingSettingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_meetings_setup_meetings_setup_component__WEBPACK_IMPORTED_MODULE_4__["MeetingsSetupComponent"], _meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsCreateComponent"], _meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_6__["MeetingsListComponent"], _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _meeting_setting_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingSettingRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_11__["NgSelectModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_10__["SelectModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_12__["QuillModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__["CondoMessageModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _meeting_setting_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingSettingRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_11__["NgSelectModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_10__["SelectModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_12__["QuillModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__["CondoMessageModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_14__["DatepickerModule"].forRoot()]
       })], MeetingSettingModule);
       /***/
     },

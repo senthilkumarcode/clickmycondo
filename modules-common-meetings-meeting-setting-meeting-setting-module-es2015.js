@@ -109,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ng-select/ng-select */ "./node_modules/@ng-select/ng-select/__ivy_ngcc__/fesm2015/ng-select-ng-select.js");
 /* harmony import */ var ngx_quill__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-quill */ "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
 /* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+
 
 
 
@@ -141,7 +143,8 @@ MeetingSettingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_10__["SelectModule"],
             ngx_quill__WEBPACK_IMPORTED_MODULE_12__["QuillModule"],
-            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__["CondoMessageModule"]
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__["CondoMessageModule"],
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_14__["DatepickerModule"].forRoot()
         ]
     })
 ], MeetingSettingModule);
