@@ -28,5 +28,30 @@
             "PROFILE" : "perfil",
             "LOGOUT" : "cerrar sesión"
         }
+    },
+    "MAIN": {
+            "UNITUSER": {
+                "ADDUSER": {
+                    "TITLE": "Agregar usuario",
+                    "EMAIL": "Email",
+                    "CHANGEBUTTON": "Cambio",
+                    "CHECKBUTTON": "Checo",
+                    "USERTYPE": "Tipo de usuario",
+                    "OWNER": "Propietario",
+                    "TENANT": "Inquilino",
+                    "FIRSTNAME": "Primer nombre",
+                    "LASTNAME": "Apellido",
+                    "TOWERNO": "Torre No",
+                    "MOBILENO": "No móviles",
+                    "GENDER": "Género",
+                    "MALE": "Masculino",
+                    "FEMALE": "Hembra",
+                    "NOTIFICATION": "Notificación",
+                    "AUTOGENERATEPASSWORD":"Generar contraseña automáticamente",
+                    "SETUPPASSWORD": "Configurar una contraseña",
+                    "ISRESIDINGINCONDO":"Está residiendo en condominio",
+                    "ISPRIMARYCONTACTFORBILLING": "Es el contacto principal para la facturación"
+                }
+            }
     }
 }

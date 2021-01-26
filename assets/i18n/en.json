@@ -28,5 +28,30 @@
             "PROFILE" : "Profile",
             "LOGOUT" : "Logout"
         }
+    },
+    "MAIN": {
+            "UNITUSER": {
+                "ADDUSER": {
+                    "TITLE": "Add User",
+                    "EMAIL": "Email",
+                    "CHANGEBUTTON": "Change",
+                    "CHECKBUTTON": "Check",
+                    "USERTYPE": "User Type",
+                    "OWNER": "Owner",
+                    "TENANT": "Tenant",
+                    "FIRSTNAME": "First Name",
+                    "LASTNAME": "Last Name",
+                    "TOWERNO": "Tower No",
+                    "MOBILENO": "Mobile No",
+                    "GENDER": "Gender",
+                    "MALE": "Male",
+                    "FEMALE": "Female",
+                    "NOTIFICATION": "Notification",
+                    "AUTOGENERATEPASSWORD":"Auto Generate password",
+                    "SETUPPASSWORD": "Setup a Password",
+                    "ISRESIDINGINCONDO":"Is Residing In Condo",
+                    "ISPRIMARYCONTACTFORBILLING": "Is Primary Contact for Billing"
+                }
+            }
     }
 }
