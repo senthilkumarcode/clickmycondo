@@ -111,12 +111,12 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
         this.user = {};
         this.emailResponse = [];
         this.isAddUserForm = true;
-        this.selectedCountryISO = "";
         //mobile number
         this.separateDialCode = true;
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"];
         this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedKingdom];
+        this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].Philippines;
         this.message = null;
         //Tower and Unit
         this.towerList = [];

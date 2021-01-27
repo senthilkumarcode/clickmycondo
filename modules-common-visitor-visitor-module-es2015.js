@@ -4211,8 +4211,8 @@ let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorCompon
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
         this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+        this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].Philippines;
         this.currentDate = new Date();
-        this.selectedCountryISO = "";
         this.activateRouter.url.subscribe((data) => {
             this.urlType = data[0].path;
             if (this.urlType == 'vendor-pass-create' || this.urlType == 'vendor-pass') {
@@ -5130,13 +5130,13 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
         this.block = {};
         this.isDataLoaded = true;
         this.urlType = 'create';
+        this.message = null;
+        this.isEdit = false;
         this.separateDialCode = true;
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].Philippines, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].India];
-        this.message = null;
-        this.isEdit = false;
-        this.selectedCountryISO = "";
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+        this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].Philippines;
         //dateTimeAdapter.setLocale('ja-JP'); // change locale to Japanese
     }
     isAdmin() {
@@ -6311,12 +6311,12 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.block = {};
         this.isDataLoaded = true;
         this.urlType = 'create';
+        this.message = null;
         this.separateDialCode = true;
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
         this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
-        this.message = null;
-        this.selectedCountryISO = "";
+        this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].Philippines;
         //check in and checkout edit
         this.activateRouter.params.subscribe((param) => {
             if (param.id && param.type) {

@@ -7662,11 +7662,12 @@
           this.visitTypeList = [];
           this.visitCategoryList = [];
           this.isDataSubmitted = false;
+          this.separateDialCode = true;
           this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
           this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"];
           this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
+          this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].Philippines;
           this.message = null;
-          this.selectedCountryISO = "";
         }
 
         _createClass(FacilityExpectedVisitorComponent, [{

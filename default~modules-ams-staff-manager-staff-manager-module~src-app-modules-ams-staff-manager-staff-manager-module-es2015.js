@@ -188,23 +188,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/api/controllers/EmailSend */ "./src/app/api/controllers/EmailSend.ts");
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
-/* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/api/controllers/LoginCheck */ "./src/app/api/controllers/LoginCheck.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
-/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/EmailSend */ "./src/app/api/controllers/EmailSend.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+/* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/api/controllers/LoginCheck */ "./src/app/api/controllers/LoginCheck.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_23__);
+
 
 
 
@@ -229,7 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddStaffComponent = class AddStaffComponent {
-    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService, vendor, dialog, logInCheckService, _changeDetectorRef, activateRouter, _overlay, _viewContainerRef) {
+    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, constantsService, emailSendService, screenService, vendor, dialog, logInCheckService, _changeDetectorRef, activateRouter, _overlay, _viewContainerRef) {
         this.router = router;
         this.route = route;
         this.userService = userService;
@@ -237,6 +239,7 @@ let AddStaffComponent = class AddStaffComponent {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.constantsService = constantsService;
         this.emailSendService = emailSendService;
         this.screenService = screenService;
         this.vendor = vendor;
@@ -260,14 +263,14 @@ let AddStaffComponent = class AddStaffComponent {
         this.userRolesData = [];
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_12__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_12__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_12__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_12__["CountryISO"].UnitedKingdom];
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"].UnitedKingdom];
+        this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"].Philippines;
         this.menuControlList = [];
         this.menuControlDropDownList = [];
         this.staff = {};
         this.message = null;
-        this.selectedCountryISO = "";
         //Drawer
         this.isDrawerLoader = false;
         this.password = {};
@@ -405,8 +408,8 @@ let AddStaffComponent = class AddStaffComponent {
     }
     resetField() {
         this.staff = {
-            dob: moment__WEBPACK_IMPORTED_MODULE_9__(),
-            jobStartDate: moment__WEBPACK_IMPORTED_MODULE_9__(),
+            dob: moment__WEBPACK_IMPORTED_MODULE_10__(),
+            jobStartDate: moment__WEBPACK_IMPORTED_MODULE_10__(),
         };
         this.userId = null;
         this.roleTypeId = null;
@@ -510,7 +513,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "zipCode": "",
                 "genderId": this.staff.genderId,
                 "dob": this.staff.dob,
-                "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "bloodGroup": this.staff.bloodGroup,
                 "phoneNumber": this.staff.userPhoneNumber ? this.staff.userPhoneNumber.number : '',
                 "emergencyContactNumber": "",
@@ -566,7 +569,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "zipCode": "string",
                 "genderId": this.staff.genderId,
                 "dob": this.staff.dob,
-                "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "bloodGroup": this.staff.bloodGroup,
                 "phoneNumber": this.staff.userPhoneNumber ? this.staff.userPhoneNumber.number : '',
                 "emergencyContactNumber": "string",
@@ -627,8 +630,8 @@ let AddStaffComponent = class AddStaffComponent {
                 "vehicleId": this.staff.vehicleId,
                 "healthIssue": this.staff.healthIssue,
                 "comments": this.staff.comments,
-                "plannedEntryTime": this.staff.plannedEntryTime ? moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedEntryTime).format('HH:mm') : '',
-                "plannedExitTime": this.staff.plannedExitTime ? moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedExitTime).format('HH:mm') : '',
+                "plannedEntryTime": this.staff.plannedEntryTime ? moment__WEBPACK_IMPORTED_MODULE_10__(this.staff.plannedEntryTime).format('HH:mm') : '',
+                "plannedExitTime": this.staff.plannedExitTime ? moment__WEBPACK_IMPORTED_MODULE_10__(this.staff.plannedExitTime).format('HH:mm') : '',
                 "jobStartDate": this.staff.jobStartDate,
                 "jobEndDate": this.staff.jobEndDate,
                 "mtwtfss": "",
@@ -650,7 +653,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "jobTitleId": parseInt(this.staff.staffSubCategoryId),
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "secLevelId": this.staff.secLevelId,
@@ -666,7 +669,7 @@ let AddStaffComponent = class AddStaffComponent {
                         "roleId": Number(this.roleId),
                         "isActive": true,
                         "insertedBy": parseInt(this.sessionService.userId),
-                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                         "updatedBy": null,
                         "updatedOn": null,
                         "staffId": res.message
@@ -715,8 +718,8 @@ let AddStaffComponent = class AddStaffComponent {
             "vehicleId": this.staff.vehicleId,
             "healthIssue": this.staff.healthIssue,
             "comments": this.staff.comments,
-            "plannedEntryTime": this.staff.plannedEntryTime ? moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedEntryTime).format('HH:mm') : '',
-            "plannedExitTime": this.staff.plannedExitTime ? moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedExitTime).format('HH:mm') : '',
+            "plannedEntryTime": this.staff.plannedEntryTime ? moment__WEBPACK_IMPORTED_MODULE_10__(this.staff.plannedEntryTime).format('HH:mm') : '',
+            "plannedExitTime": this.staff.plannedExitTime ? moment__WEBPACK_IMPORTED_MODULE_10__(this.staff.plannedExitTime).format('HH:mm') : '',
             "jobStartDate": this.staff.jobStartDate,
             "jobEndDate": this.staff.jobEndDate,
             "mtwtfss": "string",
@@ -738,9 +741,9 @@ let AddStaffComponent = class AddStaffComponent {
             "jobTitleId": parseInt(this.staff.staffSubCategoryId),
             "isActive": true,
             "insertedBy": 0,
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
             "updatedBy": this.sessionService.userId,
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
             "secLevelId": this.staff.secLevelId,
             "userPhoneNumber": this.staff.userPhoneNumber ? this.staff.userPhoneNumber.number : '',
             "userPhonecountrycode": this.staff.userPhoneNumber ? this.staff.userPhoneNumber.countryCode : ''
@@ -758,9 +761,9 @@ let AddStaffComponent = class AddStaffComponent {
                         "roleId": Number(this.roleId),
                         "isActive": true,
                         "insertedBy": parseInt(this.sessionService.userId),
-                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                         "updatedBy": parseInt(this.sessionService.userId),
-                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                         "staffId": Number(this.staffId)
                     }
                 };
@@ -850,8 +853,8 @@ let AddStaffComponent = class AddStaffComponent {
     }
     back() {
         const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["CommonConfirmModalComponent"], {
             panelClass: 'material-dialog-medium',
             disableClose: true,
             data: dialogData
@@ -921,7 +924,7 @@ let AddStaffComponent = class AddStaffComponent {
     downloadIdCard() {
         var data = document.getElementById('id-card');
         data.fillStyle = 'blue';
-        html2canvas__WEBPACK_IMPORTED_MODULE_22___default()(data).then(canvas => {
+        html2canvas__WEBPACK_IMPORTED_MODULE_23___default()(data).then(canvas => {
             var link = document.createElement("a");
             document.body.appendChild(link);
             link.download = "id-card.png";
@@ -931,6 +934,7 @@ let AddStaffComponent = class AddStaffComponent {
         });
     }
     ngOnInit() {
+        this.imageFormats = this.constantsService.imageFormats.join(',');
         // Set TimeZone 
         this.activateRouter.parent.parent.data.subscribe((data) => {
             if (data && data.initialData) {
@@ -969,10 +973,10 @@ let AddStaffComponent = class AddStaffComponent {
                     this.vendorType = false;
                 }
                 if (this.staff.plannedEntryTime) {
-                    this.staff.plannedEntryTime = moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedEntryTime, 'HH:mm:ss').format();
+                    this.staff.plannedEntryTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.staff.plannedEntryTime, 'HH:mm:ss').format();
                 }
                 if (this.staff.plannedExitTime) {
-                    this.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_9__(this.staff.plannedExitTime, 'HH:mm:ss').format();
+                    this.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.staff.plannedExitTime, 'HH:mm:ss').format();
                 }
                 if (image) {
                     this.profilePicUrl = image;
@@ -1011,14 +1015,15 @@ AddStaffComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
-    { type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_11__["EmailSendService"] },
-    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_13__["ScreenService"] },
-    { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_14__["VendorService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"] },
-    { type: src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_18__["LoginCheckService"] },
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"] },
+    { type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_12__["EmailSendService"] },
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_14__["ScreenService"] },
+    { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_15__["VendorService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__["MatDialog"] },
+    { type: src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_19__["LoginCheckService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_21__["Overlay"] },
+    { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] }
 ];
 AddStaffComponent.propDecorators = {
@@ -1036,7 +1041,7 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         selector: 'app-add-staff',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-staff.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_15__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_16__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-staff.component.scss */ "./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
@@ -1046,14 +1051,15 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
-        src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_11__["EmailSendService"],
-        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_13__["ScreenService"],
-        src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_14__["VendorService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"],
-        src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_18__["LoginCheckService"],
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"],
+        src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_12__["EmailSendService"],
+        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_14__["ScreenService"],
+        src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_15__["VendorService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__["MatDialog"],
+        src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_19__["LoginCheckService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_21__["Overlay"],
+        _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]])
 ], AddStaffComponent);
 
