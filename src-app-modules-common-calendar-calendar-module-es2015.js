@@ -5268,6 +5268,7 @@ let CalendarComponent = class CalendarComponent {
         this.selectedIds = [];
         this.year = new Date().getFullYear();
         this.isYearChanged = false;
+        this.yearInfo = {};
         // Set the private defaults
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_17__["Subject"]();
         // Set the defaults
@@ -5459,8 +5460,8 @@ let CalendarComponent = class CalendarComponent {
         // 60 days to create a ~150 days period to fetch the data for
         const viewStart = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentStart).subtract(60, 'days');
         const viewEnd = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentEnd).add(60, 'days');
-        // Get events
-        this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
+        // // Get events
+        // this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
         this._changeDetectorRef.detectChanges();
     }
     /**
@@ -5773,15 +5774,23 @@ let CalendarComponent = class CalendarComponent {
         const start = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentStart);
         // Prefetch past events
         this._calendarService.prefetchPastEvents(start).subscribe();
-        // let year = this._fullCalendarApi.getDate().getFullYear();
+        let year = this._fullCalendarApi.getDate().getFullYear();
         // if(year == this.year) {
         //      // Get the view's current start date
         //     const start = moment(this._fullCalendarApi.view.currentStart);
         //     // Prefetch past events
         //     this._calendarService.prefetchPastEvents(start).subscribe();
         // } else {
+        //      // Get the view's current start date
+        //      const start = moment(this._fullCalendarApi.view.currentStart);
+        //      // Prefetch past events
+        //      this._calendarService.prefetchPastEvents(start).subscribe();
         //     this.year = year;
         //     this.isYearChanged = true;
+        //     this.yearInfo = {
+        //         activeStart :  this._fullCalendarApi.view.currentStart,
+        //         activeEnd : this._fullCalendarApi.view.currentEnd
+        //     }
         //     this.getStaffAttendaceList();
         // }
     }
@@ -5980,13 +5989,29 @@ let CalendarComponent = class CalendarComponent {
         }
         // If current view is not month list...
         else {
+            let color = 'pink';
+            if (this.urlType == 'staff-calendar') {
+                let status = calendarEvent.event.extendedProps.status;
+                if (status && status == 'Present')
+                    color = 'teal';
+                else if (status && status == 'Absent')
+                    color = 'pink';
+                else if (status && status == 'Half Day Present')
+                    color = 'purple';
+                else if (status && status == 'Holiday')
+                    color = 'indigo';
+                else
+                    color = 'gray';
+            }
+            calendarEvent.el.classList.add(color);
             // Set the color class of the event
             //calendarEvent.el.classList.add(calendar.color);
-            calendarEvent.el.classList.add('pink');
             // Set the event's title to '(No title)' if event title is not available
             if (!calendarEvent.event.title && calendarEvent.el.querySelector('.fc-title')) {
                 calendarEvent.el.querySelector('.fc-title').innerText = '(No title)';
             }
+            if (calendarEvent.event.title && calendarEvent.event.title == 'null')
+                calendarEvent.el.querySelector('.fc-title').innerText = '(No Data)';
         }
         // Set the event's visibility
         //calendarEvent.el.style.display = calendar.visible ? 'flex' : 'none';
@@ -6005,6 +6030,7 @@ let CalendarComponent = class CalendarComponent {
         }
         else if (this.urlType == 'staff-calendar') {
             this.staffId = selectedIds;
+            this.isYearChanged = false;
             this.getStaffAttendaceList();
         }
     }
@@ -6179,6 +6205,15 @@ let CalendarComponent = class CalendarComponent {
             if (!this.isYearChanged) {
                 this.afterView();
             }
+            // if(!this.isYearChanged) {
+            //     this.afterView();
+            // } else {
+            //     const viewStart = moment(this.yearInfo.activeStart).subtract(60, 'days');
+            //     const viewEnd = moment(this.yearInfo.activeEnd).add(60, 'days');
+            //     // Get events
+            //     this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
+            // }
+            //this._changeDetectorRef.detectChanges();
         }, (error) => {
             this.isDataLoaded = false;
             this.sharedService.openSnackBar('Server Error', 'error');

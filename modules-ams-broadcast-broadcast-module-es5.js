@@ -114,7 +114,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"broadcast-history\">\n\t<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t\t<div class=\"view-receipients\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!isMessage\">Recipient</h4>\n\t\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t\t<h4>{{messageDetails?.broadcastBy_UserName}}</h4>\n\t\t\t\t\t\t<p class=\"text-muted\">{{getDateFormat(messageDetails?.broadcastOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<mat-chip-list *ngIf=\"!isMessage\">\n\t\t\t\t\t<mat-chip *ngFor=\"let user of broadCastFilters\">\n\t\t\t\t\t\t{{user.roletypeId_Label}}\n\t\t\t\t\t</mat-chip>\n\t\t\t\t</mat-chip-list>\n\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t<h5 class=\"mb-3\"*ngIf=\"isMessage\">Subject : {{messageDetails?.subject}}</h5>\n\t\t\t\t\t<div class=\"detail-content\" [innerHTML]=\"transFormData(messageDetails?.broadcastMessage1)\"></div>\n\t\t\t\t\t<div class=\"detail-image\">\n\t\t\t\t\t\t<app-loader *ngIf=\"isBusy\" ></app-loader>\n\t\t\t\t\t\t<img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t\t\t<ng-container *ngIf=\"!isDataLoaded\">\n\t\t\t\t\t<div class=\"bg-card shadow mb-4\" *ngFor=\"let item of broadcastHistoryList;let i = index\">\n\t\t\t\t\t\t<div class=\"dues d-flex align-items-center\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t<div class=\"row mb-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Broadcast On</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateFormat(item.broadcastOn)}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Sender</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.broadcastBy_UserName}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-8 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Subject</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.subject}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12 col-md-5 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\" [innerHTML]=\"item.broadcastMessage1\"></p>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex\">\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,false)\" class=\"pay-btn font-medium mt-2 mr-3\">\n\t\t\t\t\t\t\t\t\t\t\tView recipients</div>\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,true)\" class=\"pay-btn font-medium mt-2\">\n\t\t\t\t\t\t\t\t\t\t\tView Message</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ng-container>\n\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"broadcastHistoryList.length\">\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer-content>\n\t</mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"broadcast-history\">\n\t<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t\t<div class=\"view-receipients\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!isMessage\">Recipient</h4>\n\t\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t\t<h4>{{messageDetails?.broadcastBy_UserName}}</h4>\n\t\t\t\t\t\t<p class=\"text-muted\">{{getDateTimeFormat(messageDetails?.broadcastOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<mat-chip-list *ngIf=\"!isMessage\">\n\t\t\t\t\t<mat-chip *ngFor=\"let user of broadCastFilters\">\n\t\t\t\t\t\t{{user.roletypeId_Label}}\n\t\t\t\t\t</mat-chip>\n\t\t\t\t</mat-chip-list>\n\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t<h5 class=\"mb-3\"*ngIf=\"isMessage\">Subject : {{messageDetails?.subject}}</h5>\n\t\t\t\t\t<div class=\"detail-content\" [innerHTML]=\"transFormData(messageDetails?.broadcastMessage1)\"></div>\n\t\t\t\t\t<div class=\"detail-image\">\n\t\t\t\t\t\t<app-loader *ngIf=\"isBusy\" ></app-loader>\n\t\t\t\t\t\t<img *ngIf=\"filePath && isImage(fileType)\" [src]=\"filePath\" alt=\"\">\n\t\t\t\t\t\t<a [href]=\"filePath\" target=\"_blank\" *ngIf=\"filePath && !isImage(fileType)\">\n\t\t\t\t\t\t\t<mat-icon class=\"w-25 h-25\" svgIcon=\"feather:file-text\"></mat-icon>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"text-secondary file-name pt-2\">{{fileName}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t\t\t<ng-container *ngIf=\"!isDataLoaded\">\n\t\t\t\t\t<div class=\"bg-card shadow mb-4\" *ngFor=\"let item of broadcastHistoryList;let i = index\">\n\t\t\t\t\t\t<div class=\"dues d-flex align-items-center\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t<div class=\"row mb-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Broadcast On</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateFormat(item.broadcastOn)}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Sender</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.broadcastBy_UserName}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-8 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Subject</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.subject}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12 col-md-5 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\" [innerHTML]=\"item.broadcastMessage1\"></p>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex\">\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,false)\" class=\"pay-btn font-medium mt-2 mr-3\">\n\t\t\t\t\t\t\t\t\t\t\tView recipients</div>\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,true)\" class=\"pay-btn font-medium mt-2\">\n\t\t\t\t\t\t\t\t\t\t\tView Message</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ng-container>\n\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"broadcastHistoryList.length\">\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer-content>\n\t</mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -2109,9 +2109,15 @@
       var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/shared/services/file-download.service */
       "./src/app/shared/services/file-download.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! src/app/shared/services/constants.service */
+      "./src/app/shared/services/constants.service.ts");
 
       var BroadcastHistoryComponent = /*#__PURE__*/function () {
-        function BroadcastHistoryComponent(broadcastService, sharedService, fileDetailsService, fileDownloadService, sanitizer, lookupService, userService, sessionService) {
+        function BroadcastHistoryComponent(broadcastService, sharedService, fileDetailsService, fileDownloadService, sanitizer, lookupService, userService, constantsService, sessionService) {
           _classCallCheck(this, BroadcastHistoryComponent);
 
           this.broadcastService = broadcastService;
@@ -2121,6 +2127,7 @@
           this.sanitizer = sanitizer;
           this.lookupService = lookupService;
           this.userService = userService;
+          this.constantsService = constantsService;
           this.sessionService = sessionService;
           this.bcData = "";
           this.unitFieldType = "broadcastOn";
@@ -2160,12 +2167,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this14 = this;
+
             //this.getAllUser();
             // this.getAllGroup();
             //this.getAllCategory();
             this.getAllType(); // this.getAllBroadcastMessage();
 
             this.getHistoryList(1);
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this14.timeZone = timeZone;
+            });
           }
         }, {
           key: "getIndexParams",
@@ -2186,12 +2198,25 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY"); // return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+          }
+        }, {
+          key: "getDateTimeFormat",
+          value: function getDateTimeFormat(date) {
+            //return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY hh:mm a");
+          }
+        }, {
+          key: "isImage",
+          value: function isImage(type) {
+            var splitFile = type.split('/');
+            var ext = splitFile[1].replace(/^/, '.');
+            return this.constantsService.imageFormats.includes(ext);
           }
         }, {
           key: "getHistoryList",
           value: function getHistoryList(pageNo) {
-            var _this14 = this;
+            var _this15 = this;
 
             this.isDataLoaded = true;
             var getParam = {
@@ -2200,18 +2225,18 @@
               PageSize: 10
             };
             this.broadcastService.getAllBroadcastMessagesByApartmentId(getParam).subscribe(function (resp) {
-              _this14.broadcastHistoryList = resp.message.filter(function (data) {
+              _this15.broadcastHistoryList = resp.message.filter(function (data) {
                 return data.isActive;
               });
-              _this14.isDataLoaded = false;
+              _this15.isDataLoaded = false;
 
               if (pageNo == 1) {
-                _this14.totalItems = resp.totalRecords;
+                _this15.totalItems = resp.totalRecords;
 
-                if (_this14.totalItems > _this14.itemLimit) {
-                  _this14.ItemEndIndex = _this14.itemLimit;
+                if (_this15.totalItems > _this15.itemLimit) {
+                  _this15.ItemEndIndex = _this15.itemLimit;
                 } else {
-                  _this14.ItemEndIndex = _this14.totalItems;
+                  _this15.ItemEndIndex = _this15.totalItems;
                 }
               }
             }, function (error) {});
@@ -2219,7 +2244,7 @@
         }, {
           key: "viewReceipts",
           value: function viewReceipts(item, flag) {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isMessage = flag;
             this.messageDetails = item;
@@ -2232,15 +2257,18 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                _this16.fileName = res[0].fileName;
+
                 if (res && res[0]) {
-                  _this15.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
+                  _this16.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
                     var blob = res.body;
+                    _this16.fileType = res.body.type;
                     var objectURL = URL.createObjectURL(blob);
 
-                    var sanitizeUrl = _this15.sanitizer.bypassSecurityTrustUrl(objectURL);
+                    var sanitizeUrl = _this16.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-                    _this15.filePath = sanitizeUrl;
-                    _this15.isBusy = false;
+                    _this16.filePath = sanitizeUrl;
+                    _this16.isBusy = false;
                   });
                 }
               });
@@ -2259,37 +2287,37 @@
         }, {
           key: "getAllGroup",
           value: function getAllGroup() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.broadcastService.getAllBroadcastGroups().subscribe(function (res) {
-              _this16.allgroup = res;
+              _this17.allgroup = res;
             });
           } //Get All Category
 
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this17 = this;
+            var _this18 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
-              _this17.allCategory = res;
+              _this18.allCategory = res;
             });
           } //Get All Type
 
         }, {
           key: "getAllType",
           value: function getAllType() {
-            var _this18 = this;
+            var _this19 = this;
 
             var queryParamBase = {
               LookupTypeId: 11,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
-              _this18.allType = res;
+              _this19.allType = res;
             });
           } // getGroupName(name){
           //   var data = _.filter( this.allgroup, function( item ) {
@@ -2371,37 +2399,37 @@
         }, {
           key: "getAllBroadcastMessage",
           value: function getAllBroadcastMessage() {
-            var _this19 = this;
+            var _this20 = this;
 
             var users$ = this.userService.getAllUsers();
             var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])(function (users) {
-              _this19.allUser = users;
+              _this20.allUser = users;
               var queryParamBase = {
-                apartmentId: _this19.sessionService.apartmentId
+                apartmentId: _this20.sessionService.apartmentId
               };
-              return _this19.broadcastService.getAllBroadcastMessages(queryParamBase);
+              return _this20.broadcastService.getAllBroadcastMessages(queryParamBase);
             }));
             allBroadCastmessages$.subscribe(function (res) {
-              _this19.broadCastMessages = [];
+              _this20.broadCastMessages = [];
               res.forEach(function (element) {
-                _this19.broadCastMessages.push({
+                _this20.broadCastMessages.push({
                   'broadcastOn': element.broadcastOn,
                   'subject': element.subject,
-                  'CategoryName': _this19.getCategoryName(element.broadcastMessageCategoryId),
-                  'BroadCastMode': _this19.getBroadCastMode(element.broadcastModeIds),
-                  'UserName': _this19.getUserName(element.broadcastBy)
+                  'CategoryName': _this20.getCategoryName(element.broadcastMessageCategoryId),
+                  'BroadCastMode': _this20.getBroadCastMode(element.broadcastModeIds),
+                  'UserName': _this20.getUserName(element.broadcastBy)
                 }); // element.CategoryName=this.getCategoryName(element.broadcastMessageCategoryId);
                 // element.BroadCastMode=this.getBroadCastMode(element.broadcastModeIds);
                 // element.UserName=this.getUserName(element.broadcastBy);
 
               });
-              _this19.isDataLoaded = true;
-              _this19.totalItems = _this19.broadCastMessages.length;
+              _this20.isDataLoaded = true;
+              _this20.totalItems = _this20.broadCastMessages.length;
 
-              if (_this19.totalItems > _this19.itemLimit) {
-                _this19.ItemEndIndex = _this19.itemLimit;
+              if (_this20.totalItems > _this20.itemLimit) {
+                _this20.ItemEndIndex = _this20.itemLimit;
               } else {
-                _this19.ItemEndIndex = _this19.totalItems;
+                _this20.ItemEndIndex = _this20.totalItems;
               }
             });
           }
@@ -2426,6 +2454,8 @@
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
         }, {
+          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_14__["ConstantsService"]
+        }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
@@ -2447,7 +2477,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./broadcast-history.component.scss */
         "./src/app/modules/ams/broadcast/components/broadcast-history/broadcast-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_12__["FileDetailsService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_13__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], BroadcastHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_12__["FileDetailsService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_13__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_14__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], BroadcastHistoryComponent);
       /***/
     },
 
@@ -2577,7 +2607,7 @@
         _createClass(BroadcastRemoveuserComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.loginUserId = parseInt(this.sessionService.userId);
             this.apartmentID = this.sessionService.apartmentId;
@@ -2595,16 +2625,16 @@
               if (index != null) {
                 var params = {
                   broadCastGroupCategoryUserId: index,
-                  deleteBy: _this20.loginUserId
+                  deleteBy: _this21.loginUserId
                 };
 
-                _this20.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
-                  _this20.sharedService.openSnackBar("User has been removed from interest group successfully", 'success');
+                _this21.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
+                  _this21.sharedService.openSnackBar("User has been removed from interest group successfully", 'success');
 
-                  _this20.allGroupUser = _this20.allGroupUser.filter(function (obj) {
+                  _this21.allGroupUser = _this21.allGroupUser.filter(function (obj) {
                     return obj.broadCastGroupCategoryUserId !== index;
                   });
-                  _this20.interestGroupUsers = _this20.interestGroupUsers.filter(function (obj) {
+                  _this21.interestGroupUsers = _this21.interestGroupUsers.filter(function (obj) {
                     return obj.broadCastGroupCategoryUserId !== index;
                   });
                 });
@@ -2640,14 +2670,14 @@
         }, {
           key: "getUnits",
           value: function getUnits() {
-            var _this21 = this;
+            var _this22 = this;
 
             var params = {
               apartmentBlockId: parseInt(this.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this21.unitData = res;
-              _this21.apartmentBlockUnitId = null;
+              _this22.unitData = res;
+              _this22.apartmentBlockUnitId = null;
             }, function (error) {});
           }
         }, {
@@ -2697,7 +2727,7 @@
         }, {
           key: "getAllGoupUsers",
           value: function getAllGoupUsers() {
-            var _this22 = this;
+            var _this23 = this;
 
             this.isDataLoaded = false;
             var queryParamBase = {
@@ -2707,10 +2737,10 @@
               GroupCategoryID: parseInt(this.categoryId)
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this22.interestGroupUsers = res;
+              _this23.interestGroupUsers = res;
 
-              _this22.interestGroupUsers.forEach(function (element) {
-                var currentUser = _this22.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
+              _this23.interestGroupUsers.forEach(function (element) {
+                var currentUser = _this23.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
 
                 if (currentUser != undefined) {
                   element.role = currentUser.roleName;
@@ -2724,17 +2754,17 @@
                   element.user = element.userId;
                 }
 
-                element.groupCategory = _this22.getGroupCategory(element.broadCastGroupCategoryId);
+                element.groupCategory = _this23.getGroupCategory(element.broadCastGroupCategoryId);
               });
 
-              _this22.allGroupUser = _toConsumableArray(_this22.interestGroupUsers);
-              _this22.isDataLoaded = true;
-              _this22.totalItems = _this22.allGroupUser.length;
+              _this23.allGroupUser = _toConsumableArray(_this23.interestGroupUsers);
+              _this23.isDataLoaded = true;
+              _this23.totalItems = _this23.allGroupUser.length;
 
-              if (_this22.totalItems > _this22.itemLimit) {
-                _this22.ItemEndIndex = _this22.itemLimit;
+              if (_this23.totalItems > _this23.itemLimit) {
+                _this23.ItemEndIndex = _this23.itemLimit;
               } else {
-                _this22.ItemEndIndex = _this22.totalItems;
+                _this23.ItemEndIndex = _this23.totalItems;
               }
             });
           }
@@ -2775,13 +2805,13 @@
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this23 = this;
+            var _this24 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this23.apartmentBlockList = res;
+              _this24.apartmentBlockList = res;
             });
           }
         }, {
@@ -2801,13 +2831,13 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this24 = this;
+            var _this25 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this24.broadCastGroupCategory.dropdownList = res;
+              _this25.broadCastGroupCategory.dropdownList = res;
             });
           }
         }, {
@@ -3120,7 +3150,7 @@
         }, {
           key: "getInterestGroupUsers",
           value: function getInterestGroupUsers(e) {
-            var _this25 = this;
+            var _this26 = this;
 
             this.categoryId = e[0].broadCastGroupCategoryId;
             var queryParamBase = {
@@ -3128,35 +3158,35 @@
               GroupCategoryID: this.categoryId
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this25.interestGroupUsers = res;
+              _this26.interestGroupUsers = res;
 
-              _this25.selectInterestGroup(_this25.interestGroupUsers);
+              _this26.selectInterestGroup(_this26.interestGroupUsers);
             });
           } //Get Group Category
 
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this26 = this;
+            var _this27 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this26.broadCastGroupCategory.dropdownList = res;
+              _this27.broadCastGroupCategory.dropdownList = res;
             });
           }
         }, {
           key: "getAllInterestGroupUser",
           value: function getAllInterestGroupUser() {
-            var _this27 = this;
+            var _this28 = this;
 
             this.filterOptions.ApartmentId = this.apartmentID;
             this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
               res.forEach(function (element) {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
-              _this27.allnterestGroupUsers = res;
+              _this28.allnterestGroupUsers = res;
             }, function (error) {});
           }
         }, {
@@ -3199,15 +3229,15 @@
         }, {
           key: "updateUsers",
           value: function updateUsers() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.getUserIds$().subscribe(function (res) {
               if (res.length > 0) {
-                _this28.users = _this28.allUsers.filter(function (obj) {
+                _this29.users = _this29.allUsers.filter(function (obj) {
                   return res.includes(obj.userId);
                 });
               } else {
-                _this28.users = [];
+                _this29.users = [];
               }
             });
           }
@@ -3248,7 +3278,7 @@
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this29 = this;
+            var _this30 = this;
 
             var broadCastGroupCategoryIDs = this.categoryId;
             var broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) {
@@ -3298,10 +3328,10 @@
                     // 'roleIds': roleIds,
                     // 'conditions': conditionIds,
                     // 'appartmentbBlockIds': blockIds,
-                    'apartmentId': _this29.apartmentID,
+                    'apartmentId': _this30.apartmentID,
                     // 'staffCategoryIds': staffcategoryIds,
                     // 'subStaffCategoryIds': staffSubCategoryIds,
-                    "insertedBy": _this29.loginedUser,
+                    "insertedBy": _this30.loginedUser,
                     "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null,
@@ -3316,8 +3346,8 @@
                     "broadCastFilters_model": upsertParam
                   };
 
-                  _this29.broadcastService.upsertBroadCastFilters(upsertBroadcastParam).subscribe(function (res) {
-                    _this29.router.navigate(['/ams/broadcast/announcement-success/interest-based']);
+                  _this30.broadcastService.upsertBroadCastFilters(upsertBroadcastParam).subscribe(function (res) {
+                    _this30.router.navigate(['/ams/broadcast/announcement-success/interest-based']);
                   });
                 }
               });
@@ -3336,7 +3366,7 @@
         }, {
           key: "clearAll",
           value: function clearAll() {
-            var _this30 = this;
+            var _this31 = this;
 
             var message = "Are you sure, you want to clear the data ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
@@ -3347,7 +3377,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this30.clearData();
+                _this31.clearData();
               }
             });
           }
@@ -3782,7 +3812,7 @@
         }, {
           key: "getAllUsers",
           value: function getAllUsers() {
-            var _this31 = this;
+            var _this32 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -3791,7 +3821,7 @@
               res.forEach(function (element) {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
-              _this31.allUsers = res; // this.users = [];
+              _this32.allUsers = res; // this.users = [];
               //this.updateUsers();
             });
           } //Get All Broadcast Category
@@ -3799,7 +3829,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this32 = this;
+            var _this33 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -3808,54 +3838,54 @@
               var allBroadCastCategory = res.filter(function (obj) {
                 return obj.isActive;
               });
-              _this32.allcategory = allBroadCastCategory; // this.broadCastCategory.dropdownList = allBroadCastCategory;
+              _this33.allcategory = allBroadCastCategory; // this.broadCastCategory.dropdownList = allBroadCastCategory;
             });
           } //Get User Role
 
         }, {
           key: "getAllRoleTypesList",
           value: function getAllRoleTypesList() {
-            var _this33 = this;
+            var _this34 = this;
 
             this.userService.getAllRoleTypes().subscribe(function (res) {
               // this.roleTypeArr.dropdownList = res;
-              _this33.roleList = res;
+              _this34.roleList = res;
             });
           } //Get All Apartment Block(Tower)
 
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this34 = this;
+            var _this35 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this34.apartmentBlock.dropdownList = res;
-              _this34.ownerApartmentBlock.dropdownList = res;
-              _this34.adminApartmentBlock.dropdownList = res;
-              _this34.staffApartmentBlock.dropdownList = res;
+              _this35.apartmentBlock.dropdownList = res;
+              _this35.ownerApartmentBlock.dropdownList = res;
+              _this35.adminApartmentBlock.dropdownList = res;
+              _this35.staffApartmentBlock.dropdownList = res;
             });
           } //Get Group Category
 
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this35 = this;
+            var _this36 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this35.broadCastGroupCategory.dropdownList = res;
+              _this36.broadCastGroupCategory.dropdownList = res;
             });
           } //Get User Role Type
 
         }, {
           key: "getApartmentRole",
           value: function getApartmentRole(item, selectedType) {
-            var _this36 = this;
+            var _this37 = this;
 
             if (selectedType == 'admin') {
               this.roleCategory.selectedItems = [];
@@ -3871,9 +3901,9 @@
             this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
               // this.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
               if (selectedType == 'admin') {
-                _this36.roleCategory.dropdownList = res;
+                _this37.roleCategory.dropdownList = res;
               } else if (selectedType == 'staff') {
-                _this36.staffRoleCategory.dropdownList = res;
+                _this37.staffRoleCategory.dropdownList = res;
               } // if (this.apartmentBlock.selectedItems.length > 0) {
               //   this.updateUsers();
               // }
@@ -3935,30 +3965,30 @@
         }, {
           key: "updateUsers",
           value: function updateUsers(category) {
-            var _this37 = this;
+            var _this38 = this;
 
             this.getUsersByCategories(category).subscribe(function (res) {
               if (res.length > 0) {
                 if (category == 'tenant') {
-                  _this37.users = res;
+                  _this38.users = res;
                 } else if (category == 'owner') {
-                  _this37.usersOwner = res;
+                  _this38.usersOwner = res;
                 } else if (category == 'admin') {
-                  _this37.usersAdmin = res;
+                  _this38.usersAdmin = res;
                 } else if (category == 'staff') {
-                  _this37.usersStaff = res;
+                  _this38.usersStaff = res;
                 }
               } else {
-                _this37.sharedService.openSnackBar("".concat(category, " Not Found"), 'error');
+                _this38.sharedService.openSnackBar("".concat(category, " Not Found"), 'error');
 
                 if (category == 'tenant') {
-                  _this37.users = [];
+                  _this38.users = [];
                 } else if (category == 'owner') {
-                  _this37.usersOwner = [];
+                  _this38.usersOwner = [];
                 } else if (category == 'admin') {
-                  _this37.usersAdmin = [];
+                  _this38.usersAdmin = [];
                 } else if (category == 'staff') {
-                  _this37.usersStaff = [];
+                  _this38.usersStaff = [];
                 }
               }
             });
@@ -3966,7 +3996,7 @@
         }, {
           key: "getstaffCategories",
           value: function getstaffCategories(item) {
-            var _this38 = this;
+            var _this39 = this;
 
             // if (this.staffCategoryMap.get(item.value) == undefined) {
             var params = {
@@ -3974,16 +4004,16 @@
               'apartmentId': this.apartmentID
             };
             this.staffService.getStaffCategoryByRole(params).subscribe(function (res) {
-              var temp = _toConsumableArray(_this38.staffCategory.dropdownList);
+              var temp = _toConsumableArray(_this39.staffCategory.dropdownList);
 
               res.forEach(function (element) {
                 element.category = item.name;
                 temp.push(element);
               }); // this.staffCategoryMap.set(item.value, res);
 
-              _this38.staffCategory.dropdownList = temp;
+              _this39.staffCategory.dropdownList = temp;
 
-              _this38.updateUsers('staff');
+              _this39.updateUsers('staff');
             }); // } else {
             //   let temp = [...this.staffCategory.dropdownList];
             //   let addStaffCategory = this.staffCategoryMap.get(item.value);
@@ -3996,20 +4026,20 @@
         }, {
           key: "getAllStaffCategories",
           value: function getAllStaffCategories(items) {
-            var _this39 = this;
+            var _this40 = this;
 
             items.forEach(function (element) {
-              _this39.getstaffCategories(element);
+              _this40.getstaffCategories(element);
             });
           }
         }, {
           key: "removeStaffCategories",
           value: function removeStaffCategories(item) {
-            var _this40 = this;
+            var _this41 = this;
 
             var removeStaffCategory = this.staffCategoryMap.get(item.value);
             removeStaffCategory.forEach(function (element) {
-              _this40.staffCategory.dropdownList = _this40.staffCategory.dropdownList.filter(function (obj) {
+              _this41.staffCategory.dropdownList = _this41.staffCategory.dropdownList.filter(function (obj) {
                 return obj.value !== element.value;
               });
             }); // this.updateUsers();
@@ -4081,7 +4111,7 @@
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this41 = this;
+            var _this42 = this;
 
             if (this.selectedUserType == 1 || this.selectedUserType == 2 || this.selectedUserType == 4) {
               //Tenant
@@ -4115,10 +4145,10 @@
                       'roleIds': roleIds,
                       'conditions': conditionIds,
                       'appartmentbBlockIds': blockIds,
-                      'apartmentId': _this41.apartmentID,
+                      'apartmentId': _this42.apartmentID,
                       'staffCategoryIds': staffcategoryIds,
                       'subStaffCategoryIds': staffSubCategoryIds,
-                      "insertedBy": _this41.loginedUser,
+                      "insertedBy": _this42.loginedUser,
                       "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                       "updatedBy": null,
                       "updatedOn": null,
@@ -4131,8 +4161,8 @@
                       "broadCastFilters_model": upsertParam
                     };
 
-                    _this41.broadcastService.upsertBroadCastFilters(upsertBroadcastParam).subscribe(function (res) {
-                      _this41.router.navigate(['/ams/broadcast/announcement-success/role-based']);
+                    _this42.broadcastService.upsertBroadCastFilters(upsertBroadcastParam).subscribe(function (res) {
+                      _this42.router.navigate(['/ams/broadcast/announcement-success/role-based']);
                     });
                   }
                 });
@@ -4175,10 +4205,10 @@
                       'roleIds': _roleIds,
                       'conditions': _conditionIds,
                       'appartmentbBlockIds': _blockIds,
-                      'apartmentId': _this41.apartmentID,
+                      'apartmentId': _this42.apartmentID,
                       'staffCategoryIds': _staffcategoryIds,
                       'subStaffCategoryIds': _staffSubCategoryIds,
-                      "insertedBy": _this41.loginedUser,
+                      "insertedBy": _this42.loginedUser,
                       "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                       "updatedBy": null,
                       "updatedOn": null,
@@ -4191,8 +4221,8 @@
                       "broadCastFilters_model": _params
                     };
 
-                    _this41.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
-                      _this41.router.navigate(['/ams/broadcast/announcement-success/role-based']);
+                    _this42.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
+                      _this42.router.navigate(['/ams/broadcast/announcement-success/role-based']);
                     });
                   }
                 });
@@ -4235,10 +4265,10 @@
                       'roleIds': _roleIds2,
                       'conditions': _conditionIds2,
                       'appartmentbBlockIds': _blockIds2,
-                      'apartmentId': _this41.apartmentID,
+                      'apartmentId': _this42.apartmentID,
                       'staffCategoryIds': _staffcategoryIds2,
                       'subStaffCategoryIds': _staffSubCategoryIds2,
-                      "insertedBy": _this41.loginedUser,
+                      "insertedBy": _this42.loginedUser,
                       "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                       "updatedBy": null,
                       "updatedOn": null,
@@ -4251,8 +4281,8 @@
                       "broadCastFilters_model": _params3
                     };
 
-                    _this41.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
-                      _this41.router.navigate(['/ams/broadcast/announcement-success/role-based']);
+                    _this42.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
+                      _this42.router.navigate(['/ams/broadcast/announcement-success/role-based']);
                     });
                   }
                 });
@@ -4299,10 +4329,10 @@
                       'roleIds': _roleIds3,
                       'conditions': _conditionIds3,
                       'appartmentbBlockIds': _blockIds3,
-                      'apartmentId': _this41.apartmentID,
+                      'apartmentId': _this42.apartmentID,
                       'staffCategoryIds': _staffcategoryIds3,
                       'subStaffCategoryIds': _staffSubCategoryIds3,
-                      "insertedBy": _this41.loginedUser,
+                      "insertedBy": _this42.loginedUser,
                       "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                       "updatedBy": null,
                       "updatedOn": null,
@@ -4315,8 +4345,8 @@
                       "broadCastFilters_model": _params5
                     };
 
-                    _this41.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
-                      _this41.router.navigate(['/ams/broadcast/announcement-success/role-based']);
+                    _this42.broadcastService.upsertBroadCastFilters(params2).subscribe(function (res) {
+                      _this42.router.navigate(['/ams/broadcast/announcement-success/role-based']);
                     });
                   }
                 });
@@ -4390,7 +4420,7 @@
         }, {
           key: "clearAll",
           value: function clearAll() {
-            var _this42 = this;
+            var _this43 = this;
 
             var message = "Are you sure, you want to clear the data ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
@@ -4401,7 +4431,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this42.removeAll('', 'clear');
+                _this43.removeAll('', 'clear');
               }
             });
           }
@@ -4427,7 +4457,7 @@
         }, {
           key: "removeAll",
           value: function removeAll(category, flag) {
-            var _this43 = this;
+            var _this44 = this;
 
             this.apartmentBlock.selectedItems = [];
             this.ownerApartmentBlock.selectedItems = [];
@@ -4465,7 +4495,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this43.roleCategory.dropdownList = res;
+                _this44.roleCategory.dropdownList = res;
               });
             }
 
@@ -4477,7 +4507,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this43.staffRoleCategory.dropdownList = res;
+                _this44.staffRoleCategory.dropdownList = res;
               });
             }
           }
@@ -4725,32 +4755,32 @@
         _createClass(BroadcastSuccessMessageComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this44 = this;
+            var _this45 = this;
 
             this.activateRouter.params.subscribe(function (data) {
               if (data.type == 'role-based') {
-                _this44.addAnnouncement = {
+                _this45.addAnnouncement = {
                   name: 'Send another Announcement',
                   url: '/ams/broadcast/sendmessage/role-based'
                 };
-                _this44.viewAnnouncement = {
+                _this45.viewAnnouncement = {
                   name: 'View Announcement',
                   url: '/ams/broadcast/announcements/group-based-announcement/group'
                 };
-                _this44.viewHistory = {
+                _this45.viewHistory = {
                   name: 'View History',
                   url: '/ams/broadcast/history'
                 };
               } else if (data.type == 'interest-based') {
-                _this44.addAnnouncement = {
+                _this45.addAnnouncement = {
                   name: 'Send another Announcement',
                   url: '/ams/broadcast/sendmessage/group-based'
                 };
-                _this44.viewAnnouncement = {
+                _this45.viewAnnouncement = {
                   name: 'View Announcement',
                   url: '/ams/broadcast/announcements/group-based-announcement/interest'
                 };
-                _this44.viewHistory = {
+                _this45.viewHistory = {
                   name: 'View History',
                   url: '/ams/broadcast/history'
                 };
@@ -4939,7 +4969,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this46 = this;
 
             this.category = {
               broadCastMessageCategory1: '',
@@ -4988,26 +5018,26 @@
               if (id != null) {
                 var params = {
                   broadcastId: id,
-                  deleteBy: _this45.sessionService.userId
+                  deleteBy: _this46.sessionService.userId
                 };
-                _this45.isDataLoaded = false;
+                _this46.isDataLoaded = false;
 
-                _this45.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
-                  _this45.isDataLoaded = true;
+                _this46.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
+                  _this46.isDataLoaded = true;
 
-                  _this45.sharedService.setUnitListDeleteIndex(null);
+                  _this46.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this45.sharedService.openSnackBar('Broadcast Setup Deleted Successfully', 'success');
+                    _this46.sharedService.openSnackBar('Broadcast Setup Deleted Successfully', 'success');
 
-                    _this45.getAllCategory();
+                    _this46.getAllCategory();
                   } else {
-                    _this45.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this46.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this45.isDataLoaded = true;
+                  _this46.isDataLoaded = true;
 
-                  _this45.sharedService.openSnackBar('Server Error', 'error');
+                  _this46.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -5020,7 +5050,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this46 = this;
+            var _this47 = this;
 
             if (this.searchCategory != "") {
               var filtergroup = new jqx.filter();
@@ -5033,7 +5063,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.broadcastCategoryHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this46.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this47.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5045,22 +5075,22 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this47 = this;
+            var _this48 = this;
 
             this.isDataLoaded = false;
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
-              _this47.isDataLoaded = true;
+              _this48.isDataLoaded = true;
 
               if (Array.isArray(res)) {
                 var categorySourceData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this47.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
-                _this47.totalItems = res.length;
+                _this48.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
+                _this48.totalItems = res.length;
               }
             });
           } //Insert/Update Category
@@ -5068,7 +5098,7 @@
         }, {
           key: "UpsertBroadcastMessageCategory",
           value: function UpsertBroadcastMessageCategory() {
-            var _this48 = this;
+            var _this49 = this;
 
             this.isDrawerLoader = false;
             var broadcastCategory = {
@@ -5099,22 +5129,22 @@
             };
             this.broadcastService.upsertBroadCastMessageCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this48.clickMode == 'edit') {
-                  _this48.sharedService.openSnackBar("Broadcast category updated successfully", 'success');
+                if (_this49.clickMode == 'edit') {
+                  _this49.sharedService.openSnackBar("Broadcast category updated successfully", 'success');
                 } else {
-                  _this48.sharedService.openSnackBar("Broadcast category added successfully", 'success');
+                  _this49.sharedService.openSnackBar("Broadcast category added successfully", 'success');
                 }
 
-                _this48.closeDrawer();
+                _this49.closeDrawer();
 
-                _this48.getAllCategory();
+                _this49.getAllCategory();
               } else {
-                _this48.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this49.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this48.isDrawerLoader = true;
+              _this49.isDrawerLoader = true;
             }, function (error) {
-              _this48.isDrawerLoader = true;
+              _this49.isDrawerLoader = true;
             });
           }
         }]);
@@ -5380,7 +5410,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this49 = this;
+            var _this50 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -5393,7 +5423,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.broadcastGroupHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this49.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this50.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5404,7 +5434,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this50 = this;
+            var _this51 = this;
 
             this.groupCategory = {};
             this.getAllGroupCategory();
@@ -5450,33 +5480,33 @@
               if (id != null) {
                 var params = {
                   broadCastGroupCategoryId: id,
-                  deleteBy: _this50.sessionService.userId
+                  deleteBy: _this51.sessionService.userId
                 };
-                _this50.isDataLoaded = false;
+                _this51.isDataLoaded = false;
 
-                _this50.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
-                  _this50.isDataLoaded = true;
+                _this51.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
+                  _this51.isDataLoaded = true;
 
-                  _this50.sharedService.setUnitListDeleteIndex(null);
+                  _this51.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this50.sharedService.openSnackBar('Interest Group Deleted Successfully', 'success');
+                    _this51.sharedService.openSnackBar('Interest Group Deleted Successfully', 'success');
 
-                    _this50.getAllGroupCategory();
+                    _this51.getAllGroupCategory();
                   } else {
-                    _this50.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this51.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this50.isDataLoaded = true;
+                  _this51.isDataLoaded = true;
 
-                  _this50.sharedService.openSnackBar('Server Error', 'error');
+                  _this51.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             }); //queryParams 
 
             this.activateRouter.queryParams.subscribe(function (params) {
               if (params && params.type == 'create') {
-                _this50.addCategory();
+                _this51.addCategory();
               }
             });
           }
@@ -5489,7 +5519,7 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this51 = this;
+            var _this52 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
@@ -5500,18 +5530,18 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this51.totalItems = res.length;
-                _this51.broadcastGroupList = new jqx.dataAdapter(groupSourceData);
+                _this52.totalItems = res.length;
+                _this52.broadcastGroupList = new jqx.dataAdapter(groupSourceData);
               }
 
-              _this51.isDataLoaded = true;
+              _this52.isDataLoaded = true;
             });
           } //Submit Category
 
         }, {
           key: "submitcreateBroadcastGroupCategoryForm",
           value: function submitcreateBroadcastGroupCategoryForm() {
-            var _this52 = this;
+            var _this53 = this;
 
             this.isDrawerLoader = false;
             var broadcastGroupCategory = {
@@ -5542,22 +5572,22 @@
             };
             this.broadcastService.addBroadCastGroupCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this52.clickMode == 'edit') {
-                  _this52.sharedService.openSnackBar("Broadcast category updated successfully", 'success');
+                if (_this53.clickMode == 'edit') {
+                  _this53.sharedService.openSnackBar("Broadcast category updated successfully", 'success');
                 } else {
-                  _this52.sharedService.openSnackBar("Broadcast Group category added successfully", 'success');
+                  _this53.sharedService.openSnackBar("Broadcast Group category added successfully", 'success');
                 }
 
-                _this52.closeDrawer();
+                _this53.closeDrawer();
 
-                _this52.getAllGroupCategory();
+                _this53.getAllGroupCategory();
               } else {
-                _this52.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this53.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this52.isDrawerLoader = true;
+              _this53.isDrawerLoader = true;
             }, function (error) {
-              _this52.isDrawerLoader = true;
+              _this53.isDrawerLoader = true;
             });
           }
         }]);

@@ -502,6 +502,8 @@
           value: function openDrawer() {
             this.password.userId = this.staff.userId;
             this.password.emailId = this.staff.emailId;
+            this.password.password = null;
+            this.password.confirmPassword = null;
             window.scroll({
               top: 0,
               behavior: 'smooth'
@@ -841,7 +843,7 @@
                 "userId": this.userId,
                 "apartmentId": this.sessionService.apartmentId,
                 "firstName": this.staff.firstName,
-                "middleName": "string",
+                "middleName": "",
                 "lastName": this.staff.lastName,
                 "emailId": this.staff.emailId,
                 "password": this.staff.password,
@@ -999,7 +1001,7 @@
               "apartmentId": this.sessionService.apartmentId,
               "userId": this.userId,
               "firstName": this.staff.firstName,
-              "middleName": "string",
+              "middleName": "",
               "lastName": this.staff.lastName,
               "emailId": this.staff.emailId,
               "contactNumber": this.staff.userPhoneNumber ? this.staff.userPhoneNumber.number : '',

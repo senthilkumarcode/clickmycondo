@@ -7260,7 +7260,8 @@
           this.isDataLoaded = false;
           this.selectedIds = [];
           this.year = new Date().getFullYear();
-          this.isYearChanged = false; // Set the private defaults
+          this.isYearChanged = false;
+          this.yearInfo = {}; // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_17__["Subject"](); // Set the defaults
 
@@ -7445,9 +7446,8 @@
             // 60 days to create a ~150 days period to fetch the data for
 
             var viewStart = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentStart).subtract(60, 'days');
-            var viewEnd = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentEnd).add(60, 'days'); // Get events
-
-            this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
+            var viewEnd = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentEnd).add(60, 'days'); // // Get events
+            // this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
 
             this._changeDetectorRef.detectChanges();
           }
@@ -7812,15 +7812,24 @@
 
             var start = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentStart); // Prefetch past events
 
-            this._calendarService.prefetchPastEvents(start).subscribe(); // let year = this._fullCalendarApi.getDate().getFullYear();
-            // if(year == this.year) {
+            this._calendarService.prefetchPastEvents(start).subscribe();
+
+            var year = this._fullCalendarApi.getDate().getFullYear(); // if(year == this.year) {
             //      // Get the view's current start date
             //     const start = moment(this._fullCalendarApi.view.currentStart);
             //     // Prefetch past events
             //     this._calendarService.prefetchPastEvents(start).subscribe();
             // } else {
+            //      // Get the view's current start date
+            //      const start = moment(this._fullCalendarApi.view.currentStart);
+            //      // Prefetch past events
+            //      this._calendarService.prefetchPastEvents(start).subscribe();
             //     this.year = year;
             //     this.isYearChanged = true;
+            //     this.yearInfo = {
+            //         activeStart :  this._fullCalendarApi.view.currentStart,
+            //         activeEnd : this._fullCalendarApi.view.currentEnd
+            //     }
             //     this.getStaffAttendaceList();
             // }
 
@@ -8065,13 +8074,22 @@
               }
             } // If current view is not month list...
             else {
-                // Set the color class of the event
+                var color = 'pink';
+
+                if (this.urlType == 'staff-calendar') {
+                  var status = calendarEvent.event.extendedProps.status;
+                  if (status && status == 'Present') color = 'teal';else if (status && status == 'Absent') color = 'pink';else if (status && status == 'Half Day Present') color = 'purple';else if (status && status == 'Holiday') color = 'indigo';else color = 'gray';
+                }
+
+                calendarEvent.el.classList.add(color); // Set the color class of the event
                 //calendarEvent.el.classList.add(calendar.color);
-                calendarEvent.el.classList.add('pink'); // Set the event's title to '(No title)' if event title is not available
+                // Set the event's title to '(No title)' if event title is not available
 
                 if (!calendarEvent.event.title && calendarEvent.el.querySelector('.fc-title')) {
                   calendarEvent.el.querySelector('.fc-title').innerText = '(No title)';
                 }
+
+                if (calendarEvent.event.title && calendarEvent.event.title == 'null') calendarEvent.el.querySelector('.fc-title').innerText = '(No Data)';
               } // Set the event's visibility
             //calendarEvent.el.style.display = calendar.visible ? 'flex' : 'none';
 
@@ -8093,6 +8111,7 @@
               this._fullCalendarApi.rerenderEvents();
             } else if (this.urlType == 'staff-calendar') {
               this.staffId = selectedIds;
+              this.isYearChanged = false;
               this.getStaffAttendaceList();
             }
           }
@@ -8309,7 +8328,16 @@
 
               if (!_this20.isYearChanged) {
                 _this20.afterView();
-              }
+              } // if(!this.isYearChanged) {
+              //     this.afterView();
+              // } else {
+              //     const viewStart = moment(this.yearInfo.activeStart).subtract(60, 'days');
+              //     const viewEnd = moment(this.yearInfo.activeEnd).add(60, 'days');
+              //     // Get events
+              //     this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
+              // }
+              //this._changeDetectorRef.detectChanges();
+
             }, function (error) {
               _this20.isDataLoaded = false;
 

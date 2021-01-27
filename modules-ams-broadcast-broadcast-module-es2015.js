@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-history\">\n\t<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t\t<div class=\"view-receipients\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!isMessage\">Recipient</h4>\n\t\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t\t<h4>{{messageDetails?.broadcastBy_UserName}}</h4>\n\t\t\t\t\t\t<p class=\"text-muted\">{{getDateFormat(messageDetails?.broadcastOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<mat-chip-list *ngIf=\"!isMessage\">\n\t\t\t\t\t<mat-chip *ngFor=\"let user of broadCastFilters\">\n\t\t\t\t\t\t{{user.roletypeId_Label}}\n\t\t\t\t\t</mat-chip>\n\t\t\t\t</mat-chip-list>\n\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t<h5 class=\"mb-3\"*ngIf=\"isMessage\">Subject : {{messageDetails?.subject}}</h5>\n\t\t\t\t\t<div class=\"detail-content\" [innerHTML]=\"transFormData(messageDetails?.broadcastMessage1)\"></div>\n\t\t\t\t\t<div class=\"detail-image\">\n\t\t\t\t\t\t<app-loader *ngIf=\"isBusy\" ></app-loader>\n\t\t\t\t\t\t<img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t\t\t<ng-container *ngIf=\"!isDataLoaded\">\n\t\t\t\t\t<div class=\"bg-card shadow mb-4\" *ngFor=\"let item of broadcastHistoryList;let i = index\">\n\t\t\t\t\t\t<div class=\"dues d-flex align-items-center\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t<div class=\"row mb-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Broadcast On</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateFormat(item.broadcastOn)}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Sender</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.broadcastBy_UserName}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-8 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Subject</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.subject}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12 col-md-5 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\" [innerHTML]=\"item.broadcastMessage1\"></p>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex\">\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,false)\" class=\"pay-btn font-medium mt-2 mr-3\">\n\t\t\t\t\t\t\t\t\t\t\tView recipients</div>\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,true)\" class=\"pay-btn font-medium mt-2\">\n\t\t\t\t\t\t\t\t\t\t\tView Message</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ng-container>\n\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"broadcastHistoryList.length\">\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer-content>\n\t</mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-history\">\n\t<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t\t<div class=\"view-receipients\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!isMessage\">Recipient</h4>\n\t\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t\t<h4>{{messageDetails?.broadcastBy_UserName}}</h4>\n\t\t\t\t\t\t<p class=\"text-muted\">{{getDateTimeFormat(messageDetails?.broadcastOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<mat-chip-list *ngIf=\"!isMessage\">\n\t\t\t\t\t<mat-chip *ngFor=\"let user of broadCastFilters\">\n\t\t\t\t\t\t{{user.roletypeId_Label}}\n\t\t\t\t\t</mat-chip>\n\t\t\t\t</mat-chip-list>\n\t\t\t\t<div *ngIf=\"isMessage\">\n\t\t\t\t\t<h5 class=\"mb-3\"*ngIf=\"isMessage\">Subject : {{messageDetails?.subject}}</h5>\n\t\t\t\t\t<div class=\"detail-content\" [innerHTML]=\"transFormData(messageDetails?.broadcastMessage1)\"></div>\n\t\t\t\t\t<div class=\"detail-image\">\n\t\t\t\t\t\t<app-loader *ngIf=\"isBusy\" ></app-loader>\n\t\t\t\t\t\t<img *ngIf=\"filePath && isImage(fileType)\" [src]=\"filePath\" alt=\"\">\n\t\t\t\t\t\t<a [href]=\"filePath\" target=\"_blank\" *ngIf=\"filePath && !isImage(fileType)\">\n\t\t\t\t\t\t\t<mat-icon class=\"w-25 h-25\" svgIcon=\"feather:file-text\"></mat-icon>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"text-secondary file-name pt-2\">{{fileName}}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t\t\t<ng-container *ngIf=\"!isDataLoaded\">\n\t\t\t\t\t<div class=\"bg-card shadow mb-4\" *ngFor=\"let item of broadcastHistoryList;let i = index\">\n\t\t\t\t\t\t<div class=\"dues d-flex align-items-center\">\n\t\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t\t<div class=\"row mb-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Broadcast On</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateFormat(item.broadcastOn)}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Sender</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.broadcastBy_UserName}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-8 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"font-medium\">Subject</p>\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.subject}}</p>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12 col-md-5 column\">\n\t\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\" [innerHTML]=\"item.broadcastMessage1\"></p>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex\">\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,false)\" class=\"pay-btn font-medium mt-2 mr-3\">\n\t\t\t\t\t\t\t\t\t\t\tView recipients</div>\n\t\t\t\t\t\t\t\t\t\t<div (click)=\"viewReceipts(item,true)\" class=\"pay-btn font-medium mt-2\">\n\t\t\t\t\t\t\t\t\t\t\tView Message</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ng-container>\n\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"broadcastHistoryList.length\">\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</mat-drawer-content>\n\t</mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -1278,6 +1278,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
 /* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+
 
 
 
@@ -1293,7 +1295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BroadcastHistoryComponent = class BroadcastHistoryComponent {
-    constructor(broadcastService, sharedService, fileDetailsService, fileDownloadService, sanitizer, lookupService, userService, sessionService) {
+    constructor(broadcastService, sharedService, fileDetailsService, fileDownloadService, sanitizer, lookupService, userService, constantsService, sessionService) {
         this.broadcastService = broadcastService;
         this.sharedService = sharedService;
         this.fileDetailsService = fileDetailsService;
@@ -1301,6 +1303,7 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
         this.sanitizer = sanitizer;
         this.lookupService = lookupService;
         this.userService = userService;
+        this.constantsService = constantsService;
         this.sessionService = sessionService;
         this.bcData = "";
         this.unitFieldType = "broadcastOn";
@@ -1337,6 +1340,7 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
         this.getAllType();
         // this.getAllBroadcastMessage();
         this.getHistoryList(1);
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1353,6 +1357,16 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
     }
     getDateFormat(date) {
         return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY");
+        // return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+    }
+    getDateTimeFormat(date) {
+        //return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY hh:mm a");
+    }
+    isImage(type) {
+        let splitFile = type.split('/');
+        var ext = splitFile[1].replace(/^/, '.');
+        return this.constantsService.imageFormats.includes(ext);
     }
     getHistoryList(pageNo) {
         this.isDataLoaded = true;
@@ -1389,9 +1403,11 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
                 apartmentId: this.sessionService.apartmentId
             };
             this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
+                this.fileName = res[0].fileName;
                 if (res && res[0]) {
                     this.fileDownloadService.downloadFile(res[0].filePath).subscribe((res) => {
                         const blob = res.body;
+                        this.fileType = res.body.type;
                         let objectURL = URL.createObjectURL(blob);
                         let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
                         this.filePath = sanitizeUrl;
@@ -1543,6 +1559,7 @@ BroadcastHistoryComponent.ctorParameters = () => [
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_14__["ConstantsService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 BroadcastHistoryComponent.propDecorators = {
@@ -1562,6 +1579,7 @@ BroadcastHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_14__["ConstantsService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], BroadcastHistoryComponent);
 
