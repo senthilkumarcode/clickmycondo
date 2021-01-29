@@ -6061,7 +6061,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"content-layout\"\n     cdkScrollable>\n\n    <mat-drawer-container>\n\n        <!-- Drawer -->\n        <mat-drawer [autoFocus]=\"false\" [mode]=\"drawerMode\" [opened]=\"drawerOpened\"\n                    #drawer>\n\n            <calendar-sidebar (calendarUpdated)=\"onCalendarUpdated($event)\"></calendar-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader> \n\n                <div class=\"header\" *ngIf=\"!isDataLoaded\">\n\n                    <button class=\"drawer-toggle\" mat-icon-button (click)=\"toggleDrawer()\">\n                        <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                    </button>\n\n                    <h4 class=\"title\">\n                        {{viewTitle}}\n                    </h4>\n\n                    <button class=\"previous\"\n                            mat-icon-button\n                            (click)=\"previous()\">\n                        <mat-icon [svgIcon]=\"'chevron_left'\"></mat-icon>\n                    </button>\n\n                    <button class=\"next\"\n                            mat-icon-button\n                            (click)=\"next()\">\n                        <mat-icon [svgIcon]=\"'chevron_right'\"></mat-icon>\n                    </button>\n\n                    <button class=\"today lt-md:hidden\"\n                            mat-icon-button\n                            (click)=\"today()\">\n                        <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                    </button>\n\n                    <mat-form-field class=\"lt-md:hidden condo-mat-dense condo-mat-no-subscript view-changer\" *ngIf=\"urlType != 'staff-calendar'\">\n                        <mat-select (selectionChange)=\"changeView(viewChanger.value)\"\n                                    [value]=\"view\"\n                                    #viewChanger=\"matSelect\">\n                            <mat-option [value]=\"'dayGridMonth'\">Month</mat-option>\n                            <mat-option [value]=\"'timeGridWeek'\">Week</mat-option>\n                            <mat-option [value]=\"'timeGridDay'\">Day</mat-option>\n                            <mat-option [value]=\"'listYear'\">Schedule</mat-option>\n                        </mat-select>\n                    </mat-form-field>\n\n                    <button class=\"actions-menu hidden lt-md:inline-flex\" *ngIf=\"urlType != 'staff-calendar'\"\n                            [matMenuTriggerFor]=\"actionsMenu\"\n                            mat-icon-button>\n                        <mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\n                        <mat-menu #actionsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    (click)=\"today()\">\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                                <span>Go to today</span>\n                            </button>\n                            <button [matMenuTriggerFor]=\"actionsViewsMenu\"\n                                    mat-menu-item>\n                                <mat-icon [svgIcon]=\"'tune'\"></mat-icon>\n                                <span>View</span>\n                            </button>\n                        </mat-menu>\n\n                        <mat-menu #actionsViewsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'dayGridMonth'\"\n                                    (click)=\"changeView('dayGridMonth')\">\n                                <mat-icon [svgIcon]=\"'view_comfy'\"></mat-icon>\n                                <span>Month</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridWeek'\"\n                                    (click)=\"changeView('timeGridWeek')\">\n                                <mat-icon [svgIcon]=\"'view_week'\"></mat-icon>\n                                <span>Week</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridDay'\"\n                                    (click)=\"changeView('timeGridDay')\">\n                                <mat-icon [svgIcon]=\"'view_day'\"></mat-icon>\n                                <span>Day</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'listYear'\"\n                                    (click)=\"changeView('listYear')\">\n                                <mat-icon [svgIcon]=\"'view_agenda'\"></mat-icon>\n                                <span>Schedule</span>\n                            </button>\n                        </mat-menu>\n                    </button>\n\n                </div>\n\n                \n\n                <div class=\"calendar\" *ngIf=\"!isDataLoaded\">\n\n                    <!-- FullCalendar -->\n                    <full-calendar [defaultView]=\"view\"\n                                   [events]=\"events\"\n                                   [firstDay]=\"settings.startWeekOn\"\n                                   [handleWindowResize]=\"false\"\n                                   [header]=\"false\"\n                                   [height]=\"'parent'\"\n                                   [plugins]=\"calendarPlugins\"\n                                   [views]=\"views\"\n                                   (dateClick)=\"onDateClick($event)\"\n                                   (eventClick)=\"onEventClick($event)\"\n                                   (eventRender)=\"onEventRender($event)\"\n                                   #fullCalendar></full-calendar>\n\n\n                </div>\n\n                <!-- Event panel -->\n                <ng-template #eventPanel>\n\n                    <!-- Preview mode -->\n                    <ng-container *ngIf=\"panelMode === 'view'\">\n\n                        <ng-container *ngIf=\" urlType== 'meeting-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.meetingTypeName }}</h3>\n                                        <div class=\"date\">{{event.meetingDate | date:'EEEE, MMMM d'}}</div>\n                                        <div class=\"date\">{{event.start | date:'shortTime'}} to {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"meetingEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.subject}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <ng-container *ngIf=\" urlType== 'todo-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.title }}</h3>\n                                        <div class=\"date\">{{event.start | date:'EEEE, MMMM d'}} {{event.start | date:'shortTime'}}</div>\n                                        <div class=\"date\">{{event.end | date:'EEEE, MMMM d'}} {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"todoEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.categoryName}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <!-- <div class=\"row calendar\">\n                            <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                            <div class=\"row-content\">\n                                <div class=\"color\"\n                                     [ngClass]=\"getCalendar(event.calendarId).color\"></div>\n                                <div class=\"title\">{{getCalendar(event.calendarId).title}}</div>\n                            </div>\n                        </div> -->\n\n                    </ng-container>\n\n                    <!-- Add / Edit mode -->\n                    <ng-container *ngIf=\"panelMode === 'add' || panelMode === 'edit'\">\n\n                        <form [formGroup]=\"eventForm\">\n\n                            <!-- Title -->\n                            <!-- <div class=\"row title\">\n\n                                <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <input matInput\n                                           [formControlName]=\"'title'\"\n                                           [placeholder]=\"'Event title'\">\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Dates -->\n                            <!-- <div class=\"row dates\">\n\n                                <mat-icon [svgIcon]=\"'date_range'\"></mat-icon>\n\n                                <div class=\"field\">\n\n                                    <condo-date-range [formControlName]=\"'range'\"\n                                                    [dateFormat]=\"settings.dateFormat\"\n                                                    [timeRange]=\"!eventForm.get('allDay').value\"\n                                                    [timeFormat]=\"settings.timeFormat\"></condo-date-range>\n\n                                    <mat-checkbox [color]=\"'primary'\"\n                                                  [formControlName]=\"'allDay'\">\n                                        All day\n                                    </mat-checkbox>\n\n                                </div>\n\n                            </div> -->\n\n                            <!-- Recurrence -->\n                            <!-- <div class=\"row recurrence\"\n                                 *ngIf=\"!event.recurrence || eventEditMode !== 'single'\">\n\n                                <mat-icon class=\"mirror\"\n                                          [svgIcon]=\"'cached'\"></mat-icon>\n\n                                <div class=\"field\"\n                                     (click)=\"openRecurrenceDialog()\">\n                                    <div class=\"status\">\n                                        {{recurrenceStatus || 'Does not repeat'}}\n                                    </div>\n                                </div>\n\n                            </div> -->\n\n                            <!-- Calendar -->\n                            <!-- <div class=\"row calendar\">\n\n                                <mat-icon [svgIcon]=\"'event'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <mat-select [formControlName]=\"'calendarId'\"\n                                                [panelClass]=\"'calendar-event-panel-calendar-selector'\"\n                                                (change)=\"$event.stopImmediatePropagation()\">\n                                        <mat-select-trigger>\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"getCalendar(eventForm.get('calendarId').value)?.color\"></span>\n                                            <span class=\"calendar-title\">{{getCalendar(eventForm.get('calendarId').value)?.title}}</span>\n                                        </mat-select-trigger>\n                                        <mat-option *ngFor=\"let calendar of calendars\"\n                                                    [value]=\"calendar.id\">\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"calendar.color\"></span>\n                                            <span class=\"calendar-title\">{{calendar.title}}</span>\n                                        </mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Description -->\n                            <!-- <div class=\"row description\">\n\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-textarea condo-mat-no-subscript\">\n                                    <textarea matInput\n                                              cdkTextareaAutosize\n                                              [cdkAutosizeMinRows]=\"1\"\n                                              [formControlName]=\"'description'\"\n                                              [placeholder]=\"'Event description'\">\n                                    </textarea>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Actions -->\n                            <!-- <button class=\"add\"\n                                    *ngIf=\"panelMode === 'add'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"addEvent()\">\n                                Add\n                            </button>\n\n                            <button class=\"save\"\n                                    *ngIf=\"panelMode === 'edit'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"updateEvent()\">\n                                Save\n                            </button> -->\n\n                        </form>\n\n                    </ng-container>\n\n                </ng-template>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>\n\n\n";
+      __webpack_exports__["default"] = "<div class=\"content-layout\"\n     cdkScrollable>\n\n    <mat-drawer-container>\n\n        <!-- Drawer -->\n        <mat-drawer [autoFocus]=\"false\" [mode]=\"drawerMode\" [opened]=\"drawerOpened\"\n                    #drawer>\n\n            <calendar-sidebar (calendarUpdated)=\"onCalendarUpdated($event)\"></calendar-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader> \n\n                <div class=\"header\" *ngIf=\"!isDataLoaded\">\n\n                    <button class=\"drawer-toggle\" mat-icon-button (click)=\"toggleDrawer()\">\n                        <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                    </button>\n\n                    <h4 class=\"title\">\n                        {{viewTitle}}\n                    </h4>\n\n                    <button class=\"previous\"\n                            mat-icon-button\n                            (click)=\"previous()\">\n                        <mat-icon [svgIcon]=\"'chevron_left'\"></mat-icon>\n                    </button>\n\n                    <button class=\"next\"\n                            mat-icon-button\n                            (click)=\"next()\">\n                        <mat-icon [svgIcon]=\"'chevron_right'\"></mat-icon>\n                    </button>\n\n                    <button class=\"today lt-md:hidden\"\n                            mat-icon-button\n                            (click)=\"today()\">\n                        <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                    </button>\n\n                    <mat-form-field class=\"lt-md:hidden condo-mat-dense condo-mat-no-subscript view-changer\" *ngIf=\"urlType != 'staff-calendar'\">\n                        <mat-select (selectionChange)=\"changeView(viewChanger.value)\"\n                                    [value]=\"view\"\n                                    #viewChanger=\"matSelect\">\n                            <mat-option [value]=\"'dayGridMonth'\">Month</mat-option>\n                            <mat-option [value]=\"'timeGridWeek'\">Week</mat-option>\n                            <mat-option [value]=\"'timeGridDay'\">Day</mat-option>\n                            <mat-option [value]=\"'listYear'\">Schedule</mat-option>\n                        </mat-select>\n                    </mat-form-field>\n\n                    <button class=\"actions-menu hidden lt-md:inline-flex\" *ngIf=\"urlType != 'staff-calendar'\"\n                            [matMenuTriggerFor]=\"actionsMenu\"\n                            mat-icon-button>\n                        <mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\n                        <mat-menu #actionsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    (click)=\"today()\">\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                                <span>Go to today</span>\n                            </button>\n                            <button [matMenuTriggerFor]=\"actionsViewsMenu\"\n                                    mat-menu-item>\n                                <mat-icon [svgIcon]=\"'tune'\"></mat-icon>\n                                <span>View</span>\n                            </button>\n                        </mat-menu>\n\n                        <mat-menu #actionsViewsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'dayGridMonth'\"\n                                    (click)=\"changeView('dayGridMonth')\">\n                                <mat-icon [svgIcon]=\"'view_comfy'\"></mat-icon>\n                                <span>Month</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridWeek'\"\n                                    (click)=\"changeView('timeGridWeek')\">\n                                <mat-icon [svgIcon]=\"'view_week'\"></mat-icon>\n                                <span>Week</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridDay'\"\n                                    (click)=\"changeView('timeGridDay')\">\n                                <mat-icon [svgIcon]=\"'view_day'\"></mat-icon>\n                                <span>Day</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'listYear'\"\n                                    (click)=\"changeView('listYear')\">\n                                <mat-icon [svgIcon]=\"'view_agenda'\"></mat-icon>\n                                <span>Schedule</span>\n                            </button>\n                        </mat-menu>\n                    </button>\n\n                </div>\n\n                \n\n                <div class=\"calendar\" *ngIf=\"!isDataLoaded\">\n\n                    <!-- FullCalendar -->\n                    <full-calendar [defaultView]=\"view\"\n                        [events]=\"events\"\n                        [firstDay]=\"settings.startWeekOn\"\n                        [handleWindowResize]=\"false\"\n                        [header]=\"false\"\n                        [height]=\"'parent'\"\n                        [plugins]=\"calendarPlugins\"\n                        [views]=\"views\"\n                        (dateClick)=\"onDateClick($event)\"\n                        (eventClick)=\"onEventClick($event)\"\n                        (eventRender)=\"onEventRender($event)\"\n                        #fullCalendar>\n                    </full-calendar>\n\n\n                </div>\n\n                <!-- Event panel -->\n                <ng-template #eventPanel>\n\n                    <!-- Preview mode -->\n                    <ng-container *ngIf=\"panelMode === 'view'\">\n\n                        <ng-container *ngIf=\" urlType== 'meeting-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.meetingTypeName }}</h3>\n                                        <div class=\"date\">{{event.meetingDate | date:'EEEE, MMMM d'}}</div>\n                                        <div class=\"date\">{{event.start | date:'shortTime'}} to {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"meetingEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.subject}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <ng-container *ngIf=\" urlType== 'todo-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.title }}</h3>\n                                        <div class=\"date\">{{event.start | date:'EEEE, MMMM d'}} {{event.start | date:'shortTime'}}</div>\n                                        <div class=\"date\">{{event.end | date:'EEEE, MMMM d'}} {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"todoEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.categoryName}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <!-- <div class=\"row calendar\">\n                            <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                            <div class=\"row-content\">\n                                <div class=\"color\"\n                                     [ngClass]=\"getCalendar(event.calendarId).color\"></div>\n                                <div class=\"title\">{{getCalendar(event.calendarId).title}}</div>\n                            </div>\n                        </div> -->\n\n                    </ng-container>\n\n                    <!-- Add / Edit mode -->\n                    <ng-container *ngIf=\"panelMode === 'add' || panelMode === 'edit'\">\n\n                        <form [formGroup]=\"eventForm\">\n\n                            <!-- Title -->\n                            <!-- <div class=\"row title\">\n\n                                <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <input matInput\n                                           [formControlName]=\"'title'\"\n                                           [placeholder]=\"'Event title'\">\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Dates -->\n                            <!-- <div class=\"row dates\">\n\n                                <mat-icon [svgIcon]=\"'date_range'\"></mat-icon>\n\n                                <div class=\"field\">\n\n                                    <condo-date-range [formControlName]=\"'range'\"\n                                                    [dateFormat]=\"settings.dateFormat\"\n                                                    [timeRange]=\"!eventForm.get('allDay').value\"\n                                                    [timeFormat]=\"settings.timeFormat\"></condo-date-range>\n\n                                    <mat-checkbox [color]=\"'primary'\"\n                                                  [formControlName]=\"'allDay'\">\n                                        All day\n                                    </mat-checkbox>\n\n                                </div>\n\n                            </div> -->\n\n                            <!-- Recurrence -->\n                            <!-- <div class=\"row recurrence\"\n                                 *ngIf=\"!event.recurrence || eventEditMode !== 'single'\">\n\n                                <mat-icon class=\"mirror\"\n                                          [svgIcon]=\"'cached'\"></mat-icon>\n\n                                <div class=\"field\"\n                                     (click)=\"openRecurrenceDialog()\">\n                                    <div class=\"status\">\n                                        {{recurrenceStatus || 'Does not repeat'}}\n                                    </div>\n                                </div>\n\n                            </div> -->\n\n                            <!-- Calendar -->\n                            <!-- <div class=\"row calendar\">\n\n                                <mat-icon [svgIcon]=\"'event'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <mat-select [formControlName]=\"'calendarId'\"\n                                                [panelClass]=\"'calendar-event-panel-calendar-selector'\"\n                                                (change)=\"$event.stopImmediatePropagation()\">\n                                        <mat-select-trigger>\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"getCalendar(eventForm.get('calendarId').value)?.color\"></span>\n                                            <span class=\"calendar-title\">{{getCalendar(eventForm.get('calendarId').value)?.title}}</span>\n                                        </mat-select-trigger>\n                                        <mat-option *ngFor=\"let calendar of calendars\"\n                                                    [value]=\"calendar.id\">\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"calendar.color\"></span>\n                                            <span class=\"calendar-title\">{{calendar.title}}</span>\n                                        </mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Description -->\n                            <!-- <div class=\"row description\">\n\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-textarea condo-mat-no-subscript\">\n                                    <textarea matInput\n                                              cdkTextareaAutosize\n                                              [cdkAutosizeMinRows]=\"1\"\n                                              [formControlName]=\"'description'\"\n                                              [placeholder]=\"'Event description'\">\n                                    </textarea>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Actions -->\n                            <!-- <button class=\"add\"\n                                    *ngIf=\"panelMode === 'add'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"addEvent()\">\n                                Add\n                            </button>\n\n                            <button class=\"save\"\n                                    *ngIf=\"panelMode === 'edit'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"updateEvent()\">\n                                Save\n                            </button> -->\n\n                        </form>\n\n                    </ng-container>\n\n                </ng-template>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>\n\n\n";
       /***/
     },
 
@@ -7259,9 +7259,7 @@
           this.event = {};
           this.isDataLoaded = false;
           this.selectedIds = [];
-          this.year = new Date().getFullYear();
-          this.isYearChanged = false;
-          this.yearInfo = {}; // Set the private defaults
+          this.year = new Date().getFullYear(); // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_17__["Subject"](); // Set the defaults
 
@@ -7306,47 +7304,41 @@
               recurrence: [null],
               range: [{}]
             }); // Subscribe to 'range' field value changes
-
-            this.eventForm.get('range').valueChanges.subscribe(function (value) {
-              if (!value) {
-                return;
-              } // Set the 'start' field value from the range
-
-
-              _this9.eventForm.get('start').setValue(value.start, {
-                emitEvent: false
-              }); // If this is a recurring event...
-
-
-              if (_this9.eventForm.get('recurrence').value) {
-                // Update the recurrence rules if needed
-                _this9._updateRecurrenceRule(); // Set the duration field
-
-
-                var duration = moment__WEBPACK_IMPORTED_MODULE_15__(value.end).diff(moment__WEBPACK_IMPORTED_MODULE_15__(value.start), 'minutes');
-
-                _this9.eventForm.get('duration').setValue(duration, {
-                  emitEvent: false
-                }); // Update the end value
-
-
-                _this9._updateEndValue();
-              } // Otherwise...
-              else {
-                  // Set the end field
-                  _this9.eventForm.get('end').setValue(value.end, {
-                    emitEvent: false
-                  });
-                }
-            }); // Subscribe to 'recurrence' field changes
-
-            this.eventForm.get('recurrence').valueChanges.subscribe(function (value) {
-              // If this is a recurring event...
-              if (value) {
-                // Update the end value
-                _this9._updateEndValue();
-              }
-            }); // Get calendars
+            // this.eventForm.get('range').valueChanges.subscribe((value) => {
+            //     if ( !value )
+            //     {
+            //         return;
+            //     }
+            //     // Set the 'start' field value from the range
+            //     this.eventForm.get('start').setValue(value.start, {emitEvent: false});
+            //     // If this is a recurring event...
+            //     if ( this.eventForm.get('recurrence').value )
+            //     {
+            //         // Update the recurrence rules if needed
+            //         this._updateRecurrenceRule();
+            //         // Set the duration field
+            //         const duration = moment(value.end).diff(moment(value.start), 'minutes');
+            //         this.eventForm.get('duration').setValue(duration, {emitEvent: false});
+            //         // Update the end value
+            //         this._updateEndValue();
+            //     }
+            //     // Otherwise...
+            //     else
+            //     {
+            //         // Set the end field
+            //         this.eventForm.get('end').setValue(value.end, {emitEvent: false});
+            //     }
+            // });
+            // // Subscribe to 'recurrence' field changes
+            // this.eventForm.get('recurrence').valueChanges.subscribe((value) => {
+            //     // If this is a recurring event...
+            //     if ( value )
+            //     {
+            //         // Update the end value
+            //         this._updateEndValue();
+            //     }
+            // });
+            // Get calendars
             // this._calendarService.calendars$
             //     .pipe(takeUntil(this._unsubscribeAll))
             //     .subscribe((calendars) => {
@@ -7551,121 +7543,119 @@
             this.eventEditMode = 'single'; // Mark for check
 
             this._changeDetectorRef.markForCheck();
-          }
-          /**
-           * Update the recurrence rule based on the event if needed
-           *
-           * @private
-           */
-
-        }, {
-          key: "_updateRecurrenceRule",
-          value: function _updateRecurrenceRule() {
-            // Get the event
-            var event = this.eventForm.value; // Return, if this is a non-recurring event
-
-            if (!event.recurrence) {
-              return;
-            } // Parse the recurrence rule
-
-
-            var parsedRules = {};
-            event.recurrence.split(';').forEach(function (rule) {
-              // Split the rule
-              var parsedRule = rule.split('='); // Add the rule to the parsed rules
-
-              parsedRules[parsedRule[0]] = parsedRule[1];
-            }); // If there is a BYDAY rule, split that as well
-
-            if (parsedRules['BYDAY']) {
-              parsedRules['BYDAY'] = parsedRules['BYDAY'].split(',');
-            } // Do not update the recurrence rule if ...
-            // ... the frequency is DAILY,
-            // ... the frequency is WEEKLY and BYDAY has multiple values,
-            // ... the frequency is MONTHLY and there isn't a BYDAY rule,
-            // ... the frequency is YEARLY,
-
-
-            if (parsedRules['FREQ'] === 'DAILY' || parsedRules['FREQ'] === 'WEEKLY' && parsedRules['BYDAY'].length > 1 || parsedRules['FREQ'] === 'MONTHLY' && !parsedRules['BYDAY'] || parsedRules['FREQ'] === 'YEARLY') {
-              return;
-            } // If the frequency is WEEKLY, update the BYDAY value with the new one
-
-
-            if (parsedRules['FREQ'] === 'WEEKLY') {
-              parsedRules['BYDAY'] = [moment__WEBPACK_IMPORTED_MODULE_15__(event.start).format('dd').toUpperCase()];
-            } // If the frequency is MONTHLY, update the BYDAY value with the new one
-
-
-            if (parsedRules['FREQ'] === 'MONTHLY') {
-              // Calculate the weekday
-              var weekday = moment__WEBPACK_IMPORTED_MODULE_15__(event.start).format('dd').toUpperCase(); // Calculate the nthWeekday
-
-              var nthWeekdayNo = 1;
-
-              while (moment__WEBPACK_IMPORTED_MODULE_15__(event.start).isSame(moment__WEBPACK_IMPORTED_MODULE_15__(event.start).subtract(nthWeekdayNo, 'week'), 'month')) {
-                nthWeekdayNo++;
-              } // Set the BYDAY
-
-
-              parsedRules['BYDAY'] = [nthWeekdayNo + weekday];
-            } // Generate the rule string from the parsed rules
-
-
-            var rules = [];
-            Object.keys(parsedRules).forEach(function (key) {
-              rules.push(key + '=' + (Array.isArray(parsedRules[key]) ? parsedRules[key].join(',') : parsedRules[key]));
-            });
-            var rrule = rules.join(';'); // Update the recurrence rule
-
-            this.eventForm.get('recurrence').setValue(rrule);
-          }
-          /**
-           * Update the end value based on the recurrence and duration
-           *
-           * @private
-           */
-
-        }, {
-          key: "_updateEndValue",
-          value: function _updateEndValue() {
-            // Get the event recurrence
-            var recurrence = this.eventForm.get('recurrence').value; // Return, if this is a non-recurring event
-
-            if (!recurrence) {
-              return;
-            } // Parse the recurrence rule
-
-
-            var parsedRules = {};
-            recurrence.split(';').forEach(function (rule) {
-              // Split the rule
-              var parsedRule = rule.split('='); // Add the rule to the parsed rules
-
-              parsedRules[parsedRule[0]] = parsedRule[1];
-            }); // If there is an UNTIL rule...
-
-            if (parsedRules['UNTIL']) {
-              // Use that to set the end date
-              this.eventForm.get('end').setValue(parsedRules['UNTIL']); // Return
-
-              return;
-            } // If there is a COUNT rule...
-
-
-            if (parsedRules['COUNT']) {
-              // Generate the RRule string
-              var rrule = 'DTSTART=' + moment__WEBPACK_IMPORTED_MODULE_15__(this.eventForm.get('start').value).utc().format('YYYYMMDD[T]HHmmss[Z]') + '\nRRULE:' + recurrence; // Use RRule string to generate dates
-
-              var dates = rrule__WEBPACK_IMPORTED_MODULE_16__["RRule"].fromString(rrule).all(); // Get the last date from dates array and set that as the end date
-
-              this.eventForm.get('end').setValue(moment__WEBPACK_IMPORTED_MODULE_15__(dates[dates.length - 1]).toISOString()); // Return
-
-              return;
-            } // If there are no UNTIL or COUNT, set the end date to a fixed value
-
-
-            this.eventForm.get('end').setValue(moment__WEBPACK_IMPORTED_MODULE_15__().year(9999).endOf('year').toISOString());
-          } // -----------------------------------------------------------------------------------------------------
+          } // /**
+          //  * Update the recurrence rule based on the event if needed
+          //  *
+          //  * @private
+          //  */
+          // private _updateRecurrenceRule(): void
+          // {
+          //     // Get the event
+          //     const event = this.eventForm.value;
+          //     // Return, if this is a non-recurring event
+          //     if ( !event.recurrence )
+          //     {
+          //         return;
+          //     }
+          //     // Parse the recurrence rule
+          //     const parsedRules = {};
+          //     event.recurrence.split(';').forEach((rule) => {
+          //         // Split the rule
+          //         const parsedRule = rule.split('=');
+          //         // Add the rule to the parsed rules
+          //         parsedRules[parsedRule[0]] = parsedRule[1];
+          //     });
+          //     // If there is a BYDAY rule, split that as well
+          //     if ( parsedRules['BYDAY'] )
+          //     {
+          //         parsedRules['BYDAY'] = parsedRules['BYDAY'].split(',');
+          //     }
+          //     // Do not update the recurrence rule if ...
+          //     // ... the frequency is DAILY,
+          //     // ... the frequency is WEEKLY and BYDAY has multiple values,
+          //     // ... the frequency is MONTHLY and there isn't a BYDAY rule,
+          //     // ... the frequency is YEARLY,
+          //     if ( parsedRules['FREQ'] === 'DAILY' ||
+          //         (parsedRules['FREQ'] === 'WEEKLY' && parsedRules['BYDAY'].length > 1) ||
+          //         (parsedRules['FREQ'] === 'MONTHLY' && !parsedRules['BYDAY']) ||
+          //         parsedRules['FREQ'] === 'YEARLY' )
+          //     {
+          //         return;
+          //     }
+          //     // If the frequency is WEEKLY, update the BYDAY value with the new one
+          //     if ( parsedRules['FREQ'] === 'WEEKLY' )
+          //     {
+          //         parsedRules['BYDAY'] = [moment(event.start).format('dd').toUpperCase()];
+          //     }
+          //     // If the frequency is MONTHLY, update the BYDAY value with the new one
+          //     if ( parsedRules['FREQ'] === 'MONTHLY' )
+          //     {
+          //         // Calculate the weekday
+          //         const weekday = moment(event.start).format('dd').toUpperCase();
+          //         // Calculate the nthWeekday
+          //         let nthWeekdayNo = 1;
+          //         while ( moment(event.start).isSame(moment(event.start).subtract(nthWeekdayNo, 'week'), 'month') )
+          //         {
+          //             nthWeekdayNo++;
+          //         }
+          //         // Set the BYDAY
+          //         parsedRules['BYDAY'] = [nthWeekdayNo + weekday];
+          //     }
+          //     // Generate the rule string from the parsed rules
+          //     const rules = [];
+          //     Object.keys(parsedRules).forEach((key) => {
+          //         rules.push(key + '=' + (Array.isArray(parsedRules[key]) ? parsedRules[key].join(',') : parsedRules[key]));
+          //     });
+          //     const rrule = rules.join(';');
+          //     // Update the recurrence rule
+          //     this.eventForm.get('recurrence').setValue(rrule);
+          // }
+          // /**
+          //  * Update the end value based on the recurrence and duration
+          //  *
+          //  * @private
+          //  */
+          // private _updateEndValue(): void
+          // {
+          //     // Get the event recurrence
+          //     const recurrence = this.eventForm.get('recurrence').value;
+          //     // Return, if this is a non-recurring event
+          //     if ( !recurrence )
+          //     {
+          //         return;
+          //     }
+          //     // Parse the recurrence rule
+          //     const parsedRules = {};
+          //     recurrence.split(';').forEach((rule) => {
+          //         // Split the rule
+          //         const parsedRule = rule.split('=');
+          //         // Add the rule to the parsed rules
+          //         parsedRules[parsedRule[0]] = parsedRule[1];
+          //     });
+          //     // If there is an UNTIL rule...
+          //     if ( parsedRules['UNTIL'] )
+          //     {
+          //         // Use that to set the end date
+          //         this.eventForm.get('end').setValue(parsedRules['UNTIL']);
+          //         // Return
+          //         return;
+          //     }
+          //     // If there is a COUNT rule...
+          //     if ( parsedRules['COUNT'] )
+          //     {
+          //         // Generate the RRule string
+          //         const rrule = 'DTSTART=' + moment(this.eventForm.get('start').value).utc().format('YYYYMMDD[T]HHmmss[Z]') + '\nRRULE:' + recurrence;
+          //         // Use RRule string to generate dates
+          //         const dates = RRule.fromString(rrule).all();
+          //         // Get the last date from dates array and set that as the end date
+          //         this.eventForm.get('end').setValue(moment(dates[dates.length - 1]).toISOString());
+          //         // Return
+          //         return;
+          //     }
+          //     // If there are no UNTIL or COUNT, set the end date to a fixed value
+          //     this.eventForm.get('end').setValue(moment().year(9999).endOf('year').toISOString());
+          // }
+          // -----------------------------------------------------------------------------------------------------
           // @ Public methods
           // -----------------------------------------------------------------------------------------------------
 
@@ -7811,28 +7801,11 @@
             this.viewTitle = this._fullCalendarApi.view.title; // Get the view's current start date
 
             var start = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentStart); // Prefetch past events
+            //this._calendarService.prefetchPastEvents(start).subscribe();
 
-            this._calendarService.prefetchPastEvents(start).subscribe();
+            var year = this._fullCalendarApi.getDate().getFullYear();
 
-            var year = this._fullCalendarApi.getDate().getFullYear(); // if(year == this.year) {
-            //      // Get the view's current start date
-            //     const start = moment(this._fullCalendarApi.view.currentStart);
-            //     // Prefetch past events
-            //     this._calendarService.prefetchPastEvents(start).subscribe();
-            // } else {
-            //      // Get the view's current start date
-            //      const start = moment(this._fullCalendarApi.view.currentStart);
-            //      // Prefetch past events
-            //      this._calendarService.prefetchPastEvents(start).subscribe();
-            //     this.year = year;
-            //     this.isYearChanged = true;
-            //     this.yearInfo = {
-            //         activeStart :  this._fullCalendarApi.view.currentStart,
-            //         activeEnd : this._fullCalendarApi.view.currentEnd
-            //     }
-            //     this.getStaffAttendaceList();
-            // }
-
+            this.year = year;
           }
           /**
            * Moves the calendar to the current date
@@ -7861,8 +7834,7 @@
             this.viewTitle = this._fullCalendarApi.view.title; // Get the view's current end date
 
             var end = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentEnd); // Prefetch future events
-
-            this._calendarService.prefetchFutureEvents(end).subscribe();
+            //this._calendarService.prefetchFutureEvents(end).subscribe();
           }
           /**
            * On date click
@@ -8111,197 +8083,173 @@
               this._fullCalendarApi.rerenderEvents();
             } else if (this.urlType == 'staff-calendar') {
               this.staffId = selectedIds;
-              this.isYearChanged = false;
               this.getStaffAttendaceList();
             }
-          }
-          /**
-           * Add event
-           */
-
-        }, {
-          key: "addEvent",
-          value: function addEvent() {
-            var _this16 = this;
-
-            // Get the clone of the event form value
-            var newEvent = lodash__WEBPACK_IMPORTED_MODULE_21__["clone"](this.eventForm.value); // If the event is a recurring event...
-
-            if (newEvent.recurrence) {
-              // Set the event duration
-              newEvent.duration = moment__WEBPACK_IMPORTED_MODULE_15__(newEvent.range.end).diff(moment__WEBPACK_IMPORTED_MODULE_15__(newEvent.range.start), 'minutes');
-            } // Modify the event before sending it to the server
-
-
-            newEvent = lodash__WEBPACK_IMPORTED_MODULE_21__["omit"](newEvent, ['range', 'recurringEventId']); // Add the event
-
-            this._calendarService.addEvent(newEvent).subscribe(function () {
-              // Reload events
-              _this16._calendarService.reloadEvents().subscribe(); // Close the event panel
-
-
-              _this16._closeEventPanel();
-            });
-          }
-          /**
-           * Update the event
-           */
-
-        }, {
-          key: "updateEvent",
-          value: function updateEvent() {
-            var _this17 = this;
-
-            // Get the clone of the event form value
-            var event = lodash__WEBPACK_IMPORTED_MODULE_21__["clone"](this.eventForm.value);
-            var _event = event,
-                range = _event.range,
-                eventWithoutRange = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(event, ["range"]); // Get the original event
-
-            var originalEvent = this.events.find(function (item) {
-              return item.id === event.id;
-            }); // Return, if there are no changes made to the event
-
-            if (lodash__WEBPACK_IMPORTED_MODULE_21__["isEqual"](eventWithoutRange, originalEvent)) {
-              // Close the event panel
-              this._closeEventPanel(); // Return
-
-
-              return;
-            } // If the event is a recurring event...
-
-
-            if (event.recurrence && event.recurringEventId) {
-              // Update the recurring event on the server
-              this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(function () {
-                // Reload events
-                _this17._calendarService.reloadEvents().subscribe(); // Close the event panel
-
-
-                _this17._closeEventPanel();
-              }); // Return
-
-
-              return;
-            } // If the event is a non-recurring event...
-
-
-            if (!event.recurrence && !event.recurringEventId) {
-              // Update the event on the server
-              this._calendarService.updateEvent(event.id, event).subscribe(function () {
-                // Close the event panel
-                _this17._closeEventPanel();
-              }); // Return
-
-
-              return;
-            } // If the event was a non-recurring event but now it will be a recurring event...
-
-
-            if (event.recurrence && !event.recurringEventId) {
-              // Set the event duration
-              event.duration = moment__WEBPACK_IMPORTED_MODULE_15__(event.range.end).diff(moment__WEBPACK_IMPORTED_MODULE_15__(event.range.start), 'minutes'); // Omit unnecessary fields
-
-              event = lodash__WEBPACK_IMPORTED_MODULE_21__["omit"](event, ['range', 'recurringEventId']); // Update the event on the server
-
-              this._calendarService.updateEvent(event.id, event).subscribe(function () {
-                // Reload events
-                _this17._calendarService.reloadEvents().subscribe(); // Close the event panel
-
-
-                _this17._closeEventPanel();
-              }); // Return
-
-
-              return;
-            } // If the event was a recurring event but now it will be a non-recurring event...
-
-
-            if (!event.recurrence && event.recurringEventId) {
-              // Set the end date
-              event.end = moment__WEBPACK_IMPORTED_MODULE_15__(event.start).add(event.duration, 'minutes').toISOString(); // Set the duration as null
-
-              event.duration = null; // Update the recurring event on the server
-
-              this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(function () {
-                // Reload events
-                _this17._calendarService.reloadEvents().subscribe(); // Close the event panel
-
-
-                _this17._closeEventPanel();
-              });
-            }
-          }
-          /**
-           * Delete the given event
-           *
-           * @param event
-           * @param mode
-           */
-
-        }, {
-          key: "deleteEvent",
-          value: function deleteEvent(event) {
-            var _this18 = this;
-
-            var mode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'single';
-
-            // If the event is a recurring event...
-            if (event.recurrence) {
-              // Delete the recurring event on the server
-              this._calendarService.deleteRecurringEvent(event, mode).subscribe(function () {
-                // Reload events
-                _this18._calendarService.reloadEvents().subscribe(); // Close the event panel
-
-
-                _this18._closeEventPanel();
-              });
-            } // If the event is a non-recurring, normal event...
-            else {
-                // Update the event on the server
-                this._calendarService.deleteEvent(event.id).subscribe(function () {
-                  // Close the event panel
-                  _this18._closeEventPanel();
-                });
-              }
-          } // Meeting List 
+          } // /**
+          //  * Add event
+          //  */
+          // addEvent(): void
+          // {
+          //     // Get the clone of the event form value
+          //     let newEvent = _.clone(this.eventForm.value);
+          //     // If the event is a recurring event...
+          //     if ( newEvent.recurrence )
+          //     {
+          //         // Set the event duration
+          //         newEvent.duration = moment(newEvent.range.end).diff(moment(newEvent.range.start), 'minutes');
+          //     }
+          //     // Modify the event before sending it to the server
+          //     newEvent = _.omit(newEvent, ['range', 'recurringEventId']);
+          //     // Add the event
+          //     this._calendarService.addEvent(newEvent).subscribe(() => {
+          //         // Reload events
+          //         this._calendarService.reloadEvents().subscribe();
+          //         // Close the event panel
+          //         this._closeEventPanel();
+          //     });
+          // }
+          // /**
+          //  * Update the event
+          //  */
+          // updateEvent(): void
+          // {
+          //     // Get the clone of the event form value
+          //     let event = _.clone(this.eventForm.value);
+          //     const {range, ...eventWithoutRange} = event;
+          //     // Get the original event
+          //     const originalEvent = this.events.find(item => item.id === event.id);
+          //     // Return, if there are no changes made to the event
+          //     if ( _.isEqual(eventWithoutRange, originalEvent) )
+          //     {
+          //         // Close the event panel
+          //         this._closeEventPanel();
+          //         // Return
+          //         return;
+          //     }
+          //     // If the event is a recurring event...
+          //     if ( event.recurrence && event.recurringEventId )
+          //     {
+          //         // Update the recurring event on the server
+          //         this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(() => {
+          //             // Reload events
+          //             this._calendarService.reloadEvents().subscribe();
+          //             // Close the event panel
+          //             this._closeEventPanel();
+          //         });
+          //         // Return
+          //         return;
+          //     }
+          //     // If the event is a non-recurring event...
+          //     if ( !event.recurrence && !event.recurringEventId )
+          //     {
+          //         // Update the event on the server
+          //         this._calendarService.updateEvent(event.id, event).subscribe(() => {
+          //             // Close the event panel
+          //             this._closeEventPanel();
+          //         });
+          //         // Return
+          //         return;
+          //     }
+          //     // If the event was a non-recurring event but now it will be a recurring event...
+          //     if ( event.recurrence && !event.recurringEventId )
+          //     {
+          //         // Set the event duration
+          //         event.duration = moment(event.range.end).diff(moment(event.range.start), 'minutes');
+          //         // Omit unnecessary fields
+          //         event = _.omit(event, ['range', 'recurringEventId']);
+          //         // Update the event on the server
+          //         this._calendarService.updateEvent(event.id, event).subscribe(() => {
+          //             // Reload events
+          //             this._calendarService.reloadEvents().subscribe();
+          //             // Close the event panel
+          //             this._closeEventPanel();
+          //         });
+          //         // Return
+          //         return;
+          //     }
+          //     // If the event was a recurring event but now it will be a non-recurring event...
+          //     if ( !event.recurrence && event.recurringEventId )
+          //     {
+          //         // Set the end date
+          //         event.end = moment(event.start).add(event.duration, 'minutes').toISOString();
+          //         // Set the duration as null
+          //         event.duration = null;
+          //         // Update the recurring event on the server
+          //         this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(() => {
+          //             // Reload events
+          //             this._calendarService.reloadEvents().subscribe();
+          //             // Close the event panel
+          //             this._closeEventPanel();
+          //         });
+          //     }
+          // }
+          // /**
+          //  * Delete the given event
+          //  *
+          //  * @param event
+          //  * @param mode
+          //  */
+          // deleteEvent(event, mode: CalendarEventEditMode = 'single'): void
+          // {
+          //     // If the event is a recurring event...
+          //     if ( event.recurrence )
+          //     {
+          //         // Delete the recurring event on the server
+          //         this._calendarService.deleteRecurringEvent(event, mode).subscribe(() => {
+          //             // Reload events
+          //             this._calendarService.reloadEvents().subscribe();
+          //             // Close the event panel
+          //             this._closeEventPanel();
+          //         });
+          //     }
+          //     // If the event is a non-recurring, normal event...
+          //     else
+          //     {
+          //         // Update the event on the server
+          //         this._calendarService.deleteEvent(event.id).subscribe(() => {
+          //             // Close the event panel
+          //             this._closeEventPanel();
+          //         });
+          //     }
+          // }
+          // Meeting List 
 
         }, {
           key: "getMeetingList",
           value: function getMeetingList() {
-            var _this19 = this;
+            var _this16 = this;
 
             this.isDataLoaded = true;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
-              _this19.isDataLoaded = false;
+              _this16.isDataLoaded = false;
 
               if (Array.isArray(res) && res.length > 0) {
                 res.forEach(function (data) {
                   data.id = data.meetingId, data.title = data.subject, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.fromTime);
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.toTime);
                 });
-                _this19.events = res;
+                _this16.events = res;
               } else {
-                _this19.events = [];
+                _this16.events = [];
               }
 
-              _this19._changeDetectorRef.detectChanges();
+              _this16._changeDetectorRef.detectChanges();
 
-              _this19.afterView();
+              _this16.afterView();
             }, function (error) {
-              _this19.isDataLoaded = false;
+              _this16.isDataLoaded = false;
 
-              _this19.sharedService.openSnackBar('Server Error', 'error');
+              _this16.sharedService.openSnackBar('Server Error', 'error');
             });
           } //StaffAttendance List
 
         }, {
           key: "getStaffAttendaceList",
           value: function getStaffAttendaceList() {
-            var _this20 = this;
+            var _this17 = this;
 
             this.isDataLoaded = true;
             var queryParamBase = {
@@ -8312,43 +8260,32 @@
               Year: this.year
             };
             this.staffService.getAttendanceByStaffDayWise(queryParamBase).subscribe(function (res) {
-              _this20.isDataLoaded = false;
+              _this17.isDataLoaded = false;
 
               if (Array.isArray(res) && res.length > 0) {
                 res.forEach(function (data) {
                   data.id = data.staffId, data.title = data.status, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.attendanceforDate).format('YYYY-MM-DD'));
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.attendanceforDate).format('YYYY-MM-DD'));
                 });
-                _this20.events = res;
+                _this17.events = res;
               } else {
-                _this20.events = [];
+                _this17.events = [];
               }
 
-              _this20._changeDetectorRef.detectChanges();
+              _this17._changeDetectorRef.detectChanges();
 
-              if (!_this20.isYearChanged) {
-                _this20.afterView();
-              } // if(!this.isYearChanged) {
-              //     this.afterView();
-              // } else {
-              //     const viewStart = moment(this.yearInfo.activeStart).subtract(60, 'days');
-              //     const viewEnd = moment(this.yearInfo.activeEnd).add(60, 'days');
-              //     // Get events
-              //     this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
-              // }
-              //this._changeDetectorRef.detectChanges();
-
+              _this17.afterView();
             }, function (error) {
-              _this20.isDataLoaded = false;
+              _this17.isDataLoaded = false;
 
-              _this20.sharedService.openSnackBar('Server Error', 'error');
+              _this17.sharedService.openSnackBar('Server Error', 'error');
             });
           } // Todo List
 
         }, {
           key: "getTodoList",
           value: function getTodoList() {
-            var _this21 = this;
+            var _this18 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -8356,25 +8293,25 @@
               staffId: this.sessionService.staffId
             };
             this.todoService.getTodoListByStaffId(params).subscribe(function (resp) {
-              _this21.isDataLoaded = false;
+              _this18.isDataLoaded = false;
 
               if (Array.isArray(resp) && resp.length > 0) {
                 resp.forEach(function (data, i) {
                   data.id = data.todoListId, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD'), " ").concat(data.fromTime);
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.finishOn).format('YYYY-MM-DD'), " ").concat(data.toTime);
                 });
-                _this21.events = resp;
+                _this18.events = resp;
               } else {
-                _this21.events = [];
+                _this18.events = [];
               }
 
-              _this21._changeDetectorRef.detectChanges();
+              _this18._changeDetectorRef.detectChanges();
 
-              _this21.afterView();
+              _this18.afterView();
             }, function (error) {
-              _this21.isDataLoaded = false;
+              _this18.isDataLoaded = false;
 
-              _this21.sharedService.openSnackBar('Server Error', 'error');
+              _this18.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -8945,10 +8882,10 @@
            * Get calendars
            */
           value: function getCalendars() {
-            var _this22 = this;
+            var _this19 = this;
 
             return this._httpClient.get('api/apps/calendar/calendars').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this22._calendars.next(response);
+              _this19._calendars.next(response);
             }));
           }
           /**
@@ -8960,16 +8897,16 @@
         }, {
           key: "addCalendar",
           value: function addCalendar(calendar) {
-            var _this23 = this;
+            var _this20 = this;
 
             return this.calendars$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (calendars) {
-              return _this23._httpClient.post('api/apps/calendar/calendars', {
+              return _this20._httpClient.post('api/apps/calendar/calendars', {
                 calendar: calendar
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (addedCalendar) {
                 // Add the calendar
                 calendars.push(addedCalendar); // Update the calendars
 
-                _this23._calendars.next(calendars); // Return the added calendar
+                _this20._calendars.next(calendars); // Return the added calendar
 
 
                 return addedCalendar;
@@ -8986,10 +8923,10 @@
         }, {
           key: "updateCalendar",
           value: function updateCalendar(id, calendar) {
-            var _this24 = this;
+            var _this21 = this;
 
             return this.calendars$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (calendars) {
-              return _this24._httpClient.patch('api/apps/calendar/calendars', {
+              return _this21._httpClient.patch('api/apps/calendar/calendars', {
                 id: id,
                 calendar: calendar
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedCalendar) {
@@ -9000,7 +8937,7 @@
 
                 calendars[index] = updatedCalendar; // Update the calendars
 
-                _this24._calendars.next(calendars); // Return the updated calendar
+                _this21._calendars.next(calendars); // Return the updated calendar
 
 
                 return updatedCalendar;
@@ -9016,10 +8953,10 @@
         }, {
           key: "deleteCalendar",
           value: function deleteCalendar(id) {
-            var _this25 = this;
+            var _this22 = this;
 
             return this.calendars$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (calendars) {
-              return _this25._httpClient["delete"]('api/apps/calendar/calendars', {
+              return _this22._httpClient["delete"]('api/apps/calendar/calendars', {
                 params: {
                   id: id
                 }
@@ -9031,15 +8968,15 @@
 
                 calendars.splice(index, 1); // Update the calendars
 
-                _this25._calendars.next(calendars); // Remove the events belong to deleted calendar
+                _this22._calendars.next(calendars); // Remove the events belong to deleted calendar
 
 
-                var events = _this25._events.value.filter(function (event) {
+                var events = _this22._events.value.filter(function (event) {
                   return event.calendarId !== id;
                 }); // Update the events
 
 
-                _this25._events.next(events); // Return the deleted status
+                _this22._events.next(events); // Return the deleted status
 
 
                 return isDeleted;
@@ -9057,7 +8994,7 @@
         }, {
           key: "getEvents",
           value: function getEvents(start, end) {
-            var _this26 = this;
+            var _this23 = this;
 
             var replace = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
@@ -9078,17 +9015,17 @@
                 end: end.toISOString(true)
               }
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-              return _this26._events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (events) {
+              return _this23._events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (events) {
                 // If replace...
                 if (replace) {
                   // Execute the observable with the response replacing the events object
-                  _this26._events.next(response);
+                  _this23._events.next(response);
                 } // Otherwise...
                 else {
                     // If events is null, replace it with an empty array
                     events = events || []; // Execute the observable by appending the response to the current events
 
-                    _this26._events.next([].concat(_toConsumableArray(events), _toConsumableArray(response)));
+                    _this23._events.next([].concat(_toConsumableArray(events), _toConsumableArray(response)));
                   } // Return the response
 
 
@@ -9103,7 +9040,7 @@
         }, {
           key: "reloadEvents",
           value: function reloadEvents() {
-            var _this27 = this;
+            var _this24 = this;
 
             // Get the events
             return this._httpClient.get('api/apps/calendar/events', {
@@ -9113,7 +9050,7 @@
               }
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
               // Execute the observable with the response replacing the events object
-              _this27._events.next(response); // Return the response
+              _this24._events.next(response); // Return the response
 
 
               return response;
@@ -9182,14 +9119,14 @@
         }, {
           key: "addEvent",
           value: function addEvent(event) {
-            var _this28 = this;
+            var _this25 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this28._httpClient.post('api/apps/calendar/event', {
+              return _this25._httpClient.post('api/apps/calendar/event', {
                 event: event
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (addedEvent) {
                 // Update the events
-                _this28._events.next(events); // Return the added event
+                _this25._events.next(events); // Return the added event
 
 
                 return addedEvent;
@@ -9206,10 +9143,10 @@
         }, {
           key: "updateEvent",
           value: function updateEvent(id, event) {
-            var _this29 = this;
+            var _this26 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this29._httpClient.patch('api/apps/calendar/event', {
+              return _this26._httpClient.patch('api/apps/calendar/event', {
                 id: id,
                 event: event
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedEvent) {
@@ -9220,7 +9157,7 @@
 
                 events[index] = updatedEvent; // Update the events
 
-                _this29._events.next(events); // Return the updated event
+                _this26._events.next(events); // Return the updated event
 
 
                 return updatedEvent;
@@ -9253,10 +9190,10 @@
         }, {
           key: "deleteEvent",
           value: function deleteEvent(id) {
-            var _this30 = this;
+            var _this27 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this30._httpClient["delete"]('api/apps/calendar/event', {
+              return _this27._httpClient["delete"]('api/apps/calendar/event', {
                 params: {
                   id: id
                 }
@@ -9268,7 +9205,7 @@
 
                 events.splice(index, 1); // Update the events
 
-                _this30._events.next(events); // Return the deleted status
+                _this27._events.next(events); // Return the deleted status
 
 
                 return isDeleted;
@@ -9299,10 +9236,10 @@
         }, {
           key: "getSettings",
           value: function getSettings() {
-            var _this31 = this;
+            var _this28 = this;
 
             return this._httpClient.get('api/apps/calendar/settings').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this31._settings.next(response);
+              _this28._settings.next(response);
             }));
           }
           /**
@@ -9312,18 +9249,18 @@
         }, {
           key: "updateSettings",
           value: function updateSettings(settings) {
-            var _this32 = this;
+            var _this29 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this32._httpClient.patch('api/apps/calendar/settings', {
+              return _this29._httpClient.patch('api/apps/calendar/settings', {
                 settings: settings
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedSettings) {
                 // Update the settings
-                _this32._settings.next(settings); // Get weekdays again to get them in correct order
+                _this29._settings.next(settings); // Get weekdays again to get them in correct order
                 // in case the startWeekOn setting changes
 
 
-                _this32.getWeekdays().subscribe(); // Return the updated settings
+                _this29.getWeekdays().subscribe(); // Return the updated settings
 
 
                 return updatedSettings;
@@ -9337,10 +9274,10 @@
         }, {
           key: "getWeekdays",
           value: function getWeekdays() {
-            var _this33 = this;
+            var _this30 = this;
 
             return this._httpClient.get('api/apps/calendar/weekdays').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this33._weekdays.next(response);
+              _this30._weekdays.next(response);
             }));
           }
         }, {
@@ -9514,12 +9451,12 @@
         _createClass(CalendarRecurrenceComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this31 = this;
 
             // Get weekdays
             this._calendarService.weekdays$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(this._unsubscribeAll)).subscribe(function (weekdays) {
               // Store the weekdays
-              _this34.weekdays = weekdays;
+              _this31.weekdays = weekdays;
             }); // Initialize
 
 
@@ -9546,12 +9483,12 @@
 
             this.recurrenceForm.get('freq').valueChanges.subscribe(function (value) {
               // Set the end values
-              _this34._setEndValues(value);
+              _this31._setEndValues(value);
             }); // Subscribe to 'weekly.byDay' field value changes
 
             this.recurrenceForm.get('weekly.byDay').valueChanges.subscribe(function (value) {
               // Get the event's start date
-              var startDate = moment__WEBPACK_IMPORTED_MODULE_4__(_this34.data.event.start); // If nothing is selected, select the original value from
+              var startDate = moment__WEBPACK_IMPORTED_MODULE_4__(_this31.data.event.start); // If nothing is selected, select the original value from
               // the event form to prevent an empty value on the field
 
               if (!value || !value.length) {
@@ -9559,7 +9496,7 @@
                 var eventStartDay = startDate.format('dd').toUpperCase(); // Set the original value back without emitting a
                 // change event to prevent an infinite loop
 
-                _this34.recurrenceForm.get('weekly.byDay').setValue([eventStartDay], {
+                _this31.recurrenceForm.get('weekly.byDay').setValue([eventStartDay], {
                   emitEvent: false
                 });
               }
@@ -9925,7 +9862,7 @@
            * On init
            */
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this32 = this;
 
             // Create the event form
             this.settingsForm = this._formBuilder.group({
@@ -9936,10 +9873,10 @@
 
             this._calendarService.settings$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (settings) {
               // Fill the settings form
-              _this35.settingsForm.patchValue(settings); // Mark for check
+              _this32.settingsForm.patchValue(settings); // Mark for check
 
 
-              _this35._changeDetectorRef.markForCheck();
+              _this32._changeDetectorRef.markForCheck();
             });
           }
           /**
@@ -9960,14 +9897,14 @@
         }, {
           key: "updateSettings",
           value: function updateSettings() {
-            var _this36 = this;
+            var _this33 = this;
 
             // Get the settings
             var settings = this.settingsForm.value; // Update the settings on the server
 
             this._calendarService.updateSettings(settings).subscribe(function (updatedSettings) {
               // Reset the form with the updated settings
-              _this36.settingsForm.reset(updatedSettings);
+              _this33.settingsForm.reset(updatedSettings);
             });
           }
         }, {
@@ -10159,7 +10096,7 @@
          * @param {ViewContainerRef} _viewContainerRef
          */
         function CalendarSidebarComponent(lookupService, staffService, sessionService, _calendarService, _overlay, _viewContainerRef, activateRouter, changeDetector, todoService) {
-          var _this37 = this;
+          var _this34 = this;
 
           _classCallCheck(this, CalendarSidebarComponent);
 
@@ -10182,7 +10119,7 @@
           this.calendarColors = src_app_modules_common_calendar_sidebar_calendar_colors__WEBPACK_IMPORTED_MODULE_6__["calendarColors"];
           this.calendarUpdated = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.activateRouter.parent.url.subscribe(function (data) {
-            _this37.urlType = data[0].path;
+            _this34.urlType = data[0].path;
           });
         } // -----------------------------------------------------------------------------------------------------
         // @ Lifecycle hooks
@@ -10196,7 +10133,7 @@
         _createClass(CalendarSidebarComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this38 = this;
+            var _this35 = this;
 
             // // Get calendars
             // this._calendarService.calendars$
@@ -10212,13 +10149,13 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-                _this38.meetingCategoryList = res;
+                _this35.meetingCategoryList = res;
 
-                _this38.meetingCategoryList.forEach(function (data) {
+                _this35.meetingCategoryList.forEach(function (data) {
                   data.visible = true;
                 });
 
-                _this38.changeDetector.detectChanges();
+                _this35.changeDetector.detectChanges();
               });
             } else if (this.urlType == 'staff-calendar') {
               // Staff List
@@ -10228,12 +10165,12 @@
 
               };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-                _this38.staffsList = res;
-                _this38.selectedIndex = _this38.staffsList.findIndex(function (staff) {
-                  return staff.staffId == _this38.sessionService.staffId;
+                _this35.staffsList = res;
+                _this35.selectedIndex = _this35.staffsList.findIndex(function (staff) {
+                  return staff.staffId == _this35.sessionService.staffId;
                 });
 
-                _this38.changeDetector.detectChanges();
+                _this35.changeDetector.detectChanges();
 
                 setTimeout(function () {
                   var content = document.querySelector(".scroll");
@@ -10251,13 +10188,13 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.todoService.getAllTodoListCategorysByApartmentId(_params).subscribe(function (res) {
-                _this38.todoList = res;
+                _this35.todoList = res;
 
-                _this38.todoList.forEach(function (data) {
+                _this35.todoList.forEach(function (data) {
                   data.visible = true;
                 });
 
-                _this38.changeDetector.detectChanges();
+                _this35.changeDetector.detectChanges();
               });
             }
           }
@@ -10319,7 +10256,7 @@
         }, {
           key: "openEditPanel",
           value: function openEditPanel(calendar) {
-            var _this39 = this;
+            var _this36 = this;
 
             // Set the calendar
             this.calendar = lodash__WEBPACK_IMPORTED_MODULE_7__["cloneDeep"](calendar); // Create the overlay
@@ -10335,10 +10272,10 @@
 
             this._editPanelOverlayRef.backdropClick().subscribe(function () {
               // Close the edit panel
-              _this39.closeEditPanel(); // Set the calendar as null
+              _this36.closeEditPanel(); // Set the calendar as null
 
 
-              _this39.calendar = null;
+              _this36.calendar = null;
             }); // Attach the portal to the overlay
 
 
@@ -10405,27 +10342,27 @@
         }, {
           key: "saveCalendar",
           value: function saveCalendar(calendar) {
-            var _this40 = this;
+            var _this37 = this;
 
             // If there is no id on the calendar...
             if (!calendar.id) {
               // Add calendar to the server
               this._calendarService.addCalendar(calendar).subscribe(function () {
                 // Close the edit panel
-                _this40.closeEditPanel(); // Emit the calendarUpdated event
+                _this37.closeEditPanel(); // Emit the calendarUpdated event
 
 
-                _this40.calendarUpdated.emit();
+                _this37.calendarUpdated.emit();
               });
             } // Otherwise...
             else {
                 // Update the calendar on the server
                 this._calendarService.updateCalendar(calendar.id, calendar).subscribe(function () {
                   // Close the edit panel
-                  _this40.closeEditPanel(); // Emit the calendarUpdated event
+                  _this37.closeEditPanel(); // Emit the calendarUpdated event
 
 
-                  _this40.calendarUpdated.emit();
+                  _this37.calendarUpdated.emit();
                 });
               }
           }
@@ -10438,15 +10375,15 @@
         }, {
           key: "deleteCalendar",
           value: function deleteCalendar(calendar) {
-            var _this41 = this;
+            var _this38 = this;
 
             // Delete the calendar on the server
             this._calendarService.deleteCalendar(calendar.id).subscribe(function () {
               // Close the edit panel
-              _this41.closeEditPanel(); // Emit the calendarUpdated event
+              _this38.closeEditPanel(); // Emit the calendarUpdated event
 
 
-              _this41.calendarUpdated.emit();
+              _this38.calendarUpdated.emit();
             });
           }
         }]);

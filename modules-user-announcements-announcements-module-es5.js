@@ -54,7 +54,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <div>\n            <span class=\"d-flex align-items-center\" ><span class=\"text-primary mr-1\" >Sender :</span> {{messageDetails?.insertedby_label}}</span>\n            <small class=\"font-bold text-status-purple-900 text-uppercase mr-4\">{{messageDetails?.broadCastGroupcategory_label}}</small>\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <app-loader *ngIf=\"isBusy\" ></app-loader>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span *ngIf=\"messageDetails\">{{getDateFormat(messageDetails.broadcastOn)}}</span>\n        <span>\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <div>\n            <span class=\"d-flex align-items-center\" ><span class=\"text-primary mr-1\" >Sender :</span> {{messageDetails?.insertedby_label}}</span>\n            <small class=\"font-bold text-status-purple-900 text-uppercase mr-4\">{{messageDetails?.broadCastGroupcategory_label}}</small>\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <app-loader *ngIf=\"isBusy\" ></app-loader>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>";
       /***/
     },
 
@@ -598,6 +598,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var UserGroupAnnouncementDetailsComponent = /*#__PURE__*/function () {
         function UserGroupAnnouncementDetailsComponent(_changeDetectorRef, sharedService, groupBasedAnnouncement, broadcastService, fileDetailsService, fileDownloadService, sanitizer, router, sessionService) {
@@ -619,7 +629,13 @@
 
         _createClass(UserGroupAnnouncementDetailsComponent, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            var _this = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              _this.timeZone = timeZone;
+            });
+          }
         }, {
           key: "ngOnChanges",
           value: function ngOnChanges(change) {
@@ -628,41 +644,46 @@
             }
           }
         }, {
+          key: "getDateFormat",
+          value: function getDateFormat(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_10___default()(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+          }
+        }, {
           key: "getMessageDetails",
           value: function getMessageDetails(id) {
-            var _this = this;
+            var _this2 = this;
 
             var param = {
               apartmentId: this.sessionService.apartmentId,
               broadcastmessageID: id
             };
             this.broadcastService.getBroadcastsMessagesByMessageId(param).subscribe(function (resp) {
-              _this.messageDetails = resp[0]; //Mark for check
+              _this2.messageDetails = resp[0]; //Mark for check
 
-              _this._changeDetectorRef.markForCheck();
+              _this2._changeDetectorRef.markForCheck();
 
-              if (_this.messageDetails && _this.messageDetails.fileDetailId1) {
-                _this.isBusy = true;
+              if (_this2.messageDetails && _this2.messageDetails.fileDetailId1) {
+                _this2.isBusy = true;
                 var newParams = {
-                  fileDetailsId: _this.messageDetails.fileDetailId1,
-                  apartmentId: _this.sessionService.apartmentId
+                  fileDetailsId: _this2.messageDetails.fileDetailId1,
+                  apartmentId: _this2.sessionService.apartmentId
                 };
 
-                _this.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                _this2.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
                   if (res && res[0]) {
-                    _this.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
+                    _this2.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
                       var blob = res.body;
                       var objectURL = URL.createObjectURL(blob);
 
-                      var sanitizeUrl = _this.sanitizer.bypassSecurityTrustUrl(objectURL);
+                      var sanitizeUrl = _this2.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-                      _this.filePath = sanitizeUrl;
-                      _this.isBusy = false;
+                      _this2.filePath = sanitizeUrl;
+                      _this2.isBusy = false;
                     });
 
-                    _this.isBusy = false;
+                    _this2.isBusy = false;
                   } else {
-                    _this.filePath = _this.messageDetails.fileDetailId1;
+                    _this2.filePath = _this2.messageDetails.fileDetailId1;
                   }
                 });
               }
@@ -698,15 +719,15 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.groupBasedAnnouncement.matDrawer.openedChange.subscribe(function () {
               if (localStorage.getItem('messageIds')) {
-                _this2.messageIds = JSON.parse(localStorage.getItem('messageIds'));
+                _this3.messageIds = JSON.parse(localStorage.getItem('messageIds'));
               }
 
-              if (_this2.detailId != undefined) {
-                _this2.getMessageDetails(_this2.detailId);
+              if (_this3.detailId != undefined) {
+                _this3.getMessageDetails(_this3.detailId);
               }
             });
           }
@@ -903,10 +924,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              _this3.timeZone = timeZone;
+              _this4.timeZone = timeZone;
             });
             this.apartmentID = this.sessionService.apartmentId;
             this.getAllCategory();
@@ -943,13 +964,13 @@
               var category = routeParams.category;
 
               if (category == 'group') {
-                _this3.resetAll();
+                _this4.resetAll();
 
-                _this3.getAllBroadcastMessage();
+                _this4.getAllBroadcastMessage();
               } else if (category == 'interest') {
-                _this3.resetAll();
+                _this4.resetAll();
 
-                _this3.getInterestGroup();
+                _this4.getInterestGroup();
               }
             });
           }
@@ -969,25 +990,25 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this4 = this;
+            var _this5 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
-              _this4.allCategory = res;
+              _this5.allCategory = res;
             });
           }
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this5 = this;
+            var _this6 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
-              _this5.broadCastGroupCategory = res;
+              _this6.broadCastGroupCategory = res;
             });
           }
         }, {
@@ -1026,7 +1047,7 @@
         }, {
           key: "getAllBroadcastMessage",
           value: function getAllBroadcastMessage() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.isDataLoaded = true;
             var queryParamBase = {
@@ -1039,27 +1060,27 @@
             };
             this.broadcastService.getAllBroadcastMessagesByUserAndRole(queryParamBase).subscribe(function (resp) {
               if (resp && resp[0] && resp[0].broadCastMessageResult.length) {
-                var _this6$broadCastMessa, _this6$messageIds;
+                var _this7$broadCastMessa, _this7$messageIds;
 
-                (_this6$broadCastMessa = _this6.broadCastMessages).push.apply(_this6$broadCastMessa, _toConsumableArray(resp[0].broadCastMessageResult));
+                (_this7$broadCastMessa = _this7.broadCastMessages).push.apply(_this7$broadCastMessa, _toConsumableArray(resp[0].broadCastMessageResult));
 
                 var messageIds = underscore__WEBPACK_IMPORTED_MODULE_8__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
 
-                (_this6$messageIds = _this6.messageIds).push.apply(_this6$messageIds, _toConsumableArray(messageIds));
+                (_this7$messageIds = _this7.messageIds).push.apply(_this7$messageIds, _toConsumableArray(messageIds));
 
-                _this6.pagination.totalResult = resp[0].totalRecords;
-                _this6.pagination.lastPage = Math.max(Math.ceil(_this6.pagination.totalResult / 10), 1);
+                _this7.pagination.totalResult = resp[0].totalRecords;
+                _this7.pagination.lastPage = Math.max(Math.ceil(_this7.pagination.totalResult / 10), 1);
 
-                _this6.openAnnouncement(_this6.broadCastMessages[0].broadCastMessageId);
+                _this7.openAnnouncement(_this7.broadCastMessages[0].broadCastMessageId);
               }
 
-              _this6.isDataLoaded = false;
+              _this7.isDataLoaded = false;
             });
           }
         }, {
           key: "getInterestGroup",
           value: function getInterestGroup() {
-            var _this7 = this;
+            var _this8 = this;
 
             this.isDataLoaded = true;
             var queryParamBase = {
@@ -1073,21 +1094,21 @@
             };
             this.broadcastService.getAllInterestGroupBroadcastMessagesByUserAndRole(queryParamBase).subscribe(function (resp) {
               if (resp && resp.length) {
-                var _this7$broadCastMessa, _this7$messageIds;
+                var _this8$broadCastMessa, _this8$messageIds;
 
-                (_this7$broadCastMessa = _this7.broadCastMessages).push.apply(_this7$broadCastMessa, _toConsumableArray(resp));
+                (_this8$broadCastMessa = _this8.broadCastMessages).push.apply(_this8$broadCastMessa, _toConsumableArray(resp));
 
                 var messageIds = underscore__WEBPACK_IMPORTED_MODULE_8__["pluck"](resp, 'broadCastMessageId');
 
-                (_this7$messageIds = _this7.messageIds).push.apply(_this7$messageIds, _toConsumableArray(messageIds));
+                (_this8$messageIds = _this8.messageIds).push.apply(_this8$messageIds, _toConsumableArray(messageIds));
 
-                _this7.pagination.totalResult = resp[0].totalRecords;
-                _this7.pagination.lastPage = Math.max(Math.ceil(_this7.pagination.totalResult / 10), 1);
+                _this8.pagination.totalResult = resp[0].totalRecords;
+                _this8.pagination.lastPage = Math.max(Math.ceil(_this8.pagination.totalResult / 10), 1);
 
-                _this7.openAnnouncement(_this7.broadCastMessages[0].broadCastMessageId);
+                _this8.openAnnouncement(_this8.broadCastMessages[0].broadCastMessageId);
               }
 
-              _this7.isDataLoaded = false;
+              _this8.isDataLoaded = false;
             });
           }
         }, {

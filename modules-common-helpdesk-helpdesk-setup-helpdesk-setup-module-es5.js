@@ -1203,6 +1203,12 @@
       var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/modules/ui/select/select.module */
       "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/app/modules/ui/message/message.module */
+      "./src/app/modules/ui/message/message.module.ts");
 
       var HelpdeskSetupModule = function HelpdeskSetupModule() {
         _classCallCheck(this, HelpdeskSetupModule);
@@ -1210,7 +1216,7 @@
 
       HelpdeskSetupModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskSetupComponent"], _add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_5__["AddTicketCategoryComponent"], _common_category_common_category_component__WEBPACK_IMPORTED_MODULE_6__["CommonCategoryComponent"], _private_category_private_category_component__WEBPACK_IMPORTED_MODULE_7__["PrivateCategoryComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_10__["SelectModule"], _helpdesk_setup_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskSetupRoutingModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_11__["CondoMessageModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_10__["SelectModule"], _helpdesk_setup_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskSetupRoutingModule"]]
       })], HelpdeskSetupModule);
       /***/
     },

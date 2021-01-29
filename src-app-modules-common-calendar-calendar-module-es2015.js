@@ -4460,7 +4460,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-layout\"\n     cdkScrollable>\n\n    <mat-drawer-container>\n\n        <!-- Drawer -->\n        <mat-drawer [autoFocus]=\"false\" [mode]=\"drawerMode\" [opened]=\"drawerOpened\"\n                    #drawer>\n\n            <calendar-sidebar (calendarUpdated)=\"onCalendarUpdated($event)\"></calendar-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader> \n\n                <div class=\"header\" *ngIf=\"!isDataLoaded\">\n\n                    <button class=\"drawer-toggle\" mat-icon-button (click)=\"toggleDrawer()\">\n                        <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                    </button>\n\n                    <h4 class=\"title\">\n                        {{viewTitle}}\n                    </h4>\n\n                    <button class=\"previous\"\n                            mat-icon-button\n                            (click)=\"previous()\">\n                        <mat-icon [svgIcon]=\"'chevron_left'\"></mat-icon>\n                    </button>\n\n                    <button class=\"next\"\n                            mat-icon-button\n                            (click)=\"next()\">\n                        <mat-icon [svgIcon]=\"'chevron_right'\"></mat-icon>\n                    </button>\n\n                    <button class=\"today lt-md:hidden\"\n                            mat-icon-button\n                            (click)=\"today()\">\n                        <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                    </button>\n\n                    <mat-form-field class=\"lt-md:hidden condo-mat-dense condo-mat-no-subscript view-changer\" *ngIf=\"urlType != 'staff-calendar'\">\n                        <mat-select (selectionChange)=\"changeView(viewChanger.value)\"\n                                    [value]=\"view\"\n                                    #viewChanger=\"matSelect\">\n                            <mat-option [value]=\"'dayGridMonth'\">Month</mat-option>\n                            <mat-option [value]=\"'timeGridWeek'\">Week</mat-option>\n                            <mat-option [value]=\"'timeGridDay'\">Day</mat-option>\n                            <mat-option [value]=\"'listYear'\">Schedule</mat-option>\n                        </mat-select>\n                    </mat-form-field>\n\n                    <button class=\"actions-menu hidden lt-md:inline-flex\" *ngIf=\"urlType != 'staff-calendar'\"\n                            [matMenuTriggerFor]=\"actionsMenu\"\n                            mat-icon-button>\n                        <mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\n                        <mat-menu #actionsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    (click)=\"today()\">\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                                <span>Go to today</span>\n                            </button>\n                            <button [matMenuTriggerFor]=\"actionsViewsMenu\"\n                                    mat-menu-item>\n                                <mat-icon [svgIcon]=\"'tune'\"></mat-icon>\n                                <span>View</span>\n                            </button>\n                        </mat-menu>\n\n                        <mat-menu #actionsViewsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'dayGridMonth'\"\n                                    (click)=\"changeView('dayGridMonth')\">\n                                <mat-icon [svgIcon]=\"'view_comfy'\"></mat-icon>\n                                <span>Month</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridWeek'\"\n                                    (click)=\"changeView('timeGridWeek')\">\n                                <mat-icon [svgIcon]=\"'view_week'\"></mat-icon>\n                                <span>Week</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridDay'\"\n                                    (click)=\"changeView('timeGridDay')\">\n                                <mat-icon [svgIcon]=\"'view_day'\"></mat-icon>\n                                <span>Day</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'listYear'\"\n                                    (click)=\"changeView('listYear')\">\n                                <mat-icon [svgIcon]=\"'view_agenda'\"></mat-icon>\n                                <span>Schedule</span>\n                            </button>\n                        </mat-menu>\n                    </button>\n\n                </div>\n\n                \n\n                <div class=\"calendar\" *ngIf=\"!isDataLoaded\">\n\n                    <!-- FullCalendar -->\n                    <full-calendar [defaultView]=\"view\"\n                                   [events]=\"events\"\n                                   [firstDay]=\"settings.startWeekOn\"\n                                   [handleWindowResize]=\"false\"\n                                   [header]=\"false\"\n                                   [height]=\"'parent'\"\n                                   [plugins]=\"calendarPlugins\"\n                                   [views]=\"views\"\n                                   (dateClick)=\"onDateClick($event)\"\n                                   (eventClick)=\"onEventClick($event)\"\n                                   (eventRender)=\"onEventRender($event)\"\n                                   #fullCalendar></full-calendar>\n\n\n                </div>\n\n                <!-- Event panel -->\n                <ng-template #eventPanel>\n\n                    <!-- Preview mode -->\n                    <ng-container *ngIf=\"panelMode === 'view'\">\n\n                        <ng-container *ngIf=\" urlType== 'meeting-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.meetingTypeName }}</h3>\n                                        <div class=\"date\">{{event.meetingDate | date:'EEEE, MMMM d'}}</div>\n                                        <div class=\"date\">{{event.start | date:'shortTime'}} to {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"meetingEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.subject}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <ng-container *ngIf=\" urlType== 'todo-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.title }}</h3>\n                                        <div class=\"date\">{{event.start | date:'EEEE, MMMM d'}} {{event.start | date:'shortTime'}}</div>\n                                        <div class=\"date\">{{event.end | date:'EEEE, MMMM d'}} {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"todoEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.categoryName}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <!-- <div class=\"row calendar\">\n                            <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                            <div class=\"row-content\">\n                                <div class=\"color\"\n                                     [ngClass]=\"getCalendar(event.calendarId).color\"></div>\n                                <div class=\"title\">{{getCalendar(event.calendarId).title}}</div>\n                            </div>\n                        </div> -->\n\n                    </ng-container>\n\n                    <!-- Add / Edit mode -->\n                    <ng-container *ngIf=\"panelMode === 'add' || panelMode === 'edit'\">\n\n                        <form [formGroup]=\"eventForm\">\n\n                            <!-- Title -->\n                            <!-- <div class=\"row title\">\n\n                                <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <input matInput\n                                           [formControlName]=\"'title'\"\n                                           [placeholder]=\"'Event title'\">\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Dates -->\n                            <!-- <div class=\"row dates\">\n\n                                <mat-icon [svgIcon]=\"'date_range'\"></mat-icon>\n\n                                <div class=\"field\">\n\n                                    <condo-date-range [formControlName]=\"'range'\"\n                                                    [dateFormat]=\"settings.dateFormat\"\n                                                    [timeRange]=\"!eventForm.get('allDay').value\"\n                                                    [timeFormat]=\"settings.timeFormat\"></condo-date-range>\n\n                                    <mat-checkbox [color]=\"'primary'\"\n                                                  [formControlName]=\"'allDay'\">\n                                        All day\n                                    </mat-checkbox>\n\n                                </div>\n\n                            </div> -->\n\n                            <!-- Recurrence -->\n                            <!-- <div class=\"row recurrence\"\n                                 *ngIf=\"!event.recurrence || eventEditMode !== 'single'\">\n\n                                <mat-icon class=\"mirror\"\n                                          [svgIcon]=\"'cached'\"></mat-icon>\n\n                                <div class=\"field\"\n                                     (click)=\"openRecurrenceDialog()\">\n                                    <div class=\"status\">\n                                        {{recurrenceStatus || 'Does not repeat'}}\n                                    </div>\n                                </div>\n\n                            </div> -->\n\n                            <!-- Calendar -->\n                            <!-- <div class=\"row calendar\">\n\n                                <mat-icon [svgIcon]=\"'event'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <mat-select [formControlName]=\"'calendarId'\"\n                                                [panelClass]=\"'calendar-event-panel-calendar-selector'\"\n                                                (change)=\"$event.stopImmediatePropagation()\">\n                                        <mat-select-trigger>\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"getCalendar(eventForm.get('calendarId').value)?.color\"></span>\n                                            <span class=\"calendar-title\">{{getCalendar(eventForm.get('calendarId').value)?.title}}</span>\n                                        </mat-select-trigger>\n                                        <mat-option *ngFor=\"let calendar of calendars\"\n                                                    [value]=\"calendar.id\">\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"calendar.color\"></span>\n                                            <span class=\"calendar-title\">{{calendar.title}}</span>\n                                        </mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Description -->\n                            <!-- <div class=\"row description\">\n\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-textarea condo-mat-no-subscript\">\n                                    <textarea matInput\n                                              cdkTextareaAutosize\n                                              [cdkAutosizeMinRows]=\"1\"\n                                              [formControlName]=\"'description'\"\n                                              [placeholder]=\"'Event description'\">\n                                    </textarea>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Actions -->\n                            <!-- <button class=\"add\"\n                                    *ngIf=\"panelMode === 'add'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"addEvent()\">\n                                Add\n                            </button>\n\n                            <button class=\"save\"\n                                    *ngIf=\"panelMode === 'edit'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"updateEvent()\">\n                                Save\n                            </button> -->\n\n                        </form>\n\n                    </ng-container>\n\n                </ng-template>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-layout\"\n     cdkScrollable>\n\n    <mat-drawer-container>\n\n        <!-- Drawer -->\n        <mat-drawer [autoFocus]=\"false\" [mode]=\"drawerMode\" [opened]=\"drawerOpened\"\n                    #drawer>\n\n            <calendar-sidebar (calendarUpdated)=\"onCalendarUpdated($event)\"></calendar-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader> \n\n                <div class=\"header\" *ngIf=\"!isDataLoaded\">\n\n                    <button class=\"drawer-toggle\" mat-icon-button (click)=\"toggleDrawer()\">\n                        <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                    </button>\n\n                    <h4 class=\"title\">\n                        {{viewTitle}}\n                    </h4>\n\n                    <button class=\"previous\"\n                            mat-icon-button\n                            (click)=\"previous()\">\n                        <mat-icon [svgIcon]=\"'chevron_left'\"></mat-icon>\n                    </button>\n\n                    <button class=\"next\"\n                            mat-icon-button\n                            (click)=\"next()\">\n                        <mat-icon [svgIcon]=\"'chevron_right'\"></mat-icon>\n                    </button>\n\n                    <button class=\"today lt-md:hidden\"\n                            mat-icon-button\n                            (click)=\"today()\">\n                        <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                    </button>\n\n                    <mat-form-field class=\"lt-md:hidden condo-mat-dense condo-mat-no-subscript view-changer\" *ngIf=\"urlType != 'staff-calendar'\">\n                        <mat-select (selectionChange)=\"changeView(viewChanger.value)\"\n                                    [value]=\"view\"\n                                    #viewChanger=\"matSelect\">\n                            <mat-option [value]=\"'dayGridMonth'\">Month</mat-option>\n                            <mat-option [value]=\"'timeGridWeek'\">Week</mat-option>\n                            <mat-option [value]=\"'timeGridDay'\">Day</mat-option>\n                            <mat-option [value]=\"'listYear'\">Schedule</mat-option>\n                        </mat-select>\n                    </mat-form-field>\n\n                    <button class=\"actions-menu hidden lt-md:inline-flex\" *ngIf=\"urlType != 'staff-calendar'\"\n                            [matMenuTriggerFor]=\"actionsMenu\"\n                            mat-icon-button>\n                        <mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\n                        <mat-menu #actionsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    (click)=\"today()\">\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                                <span>Go to today</span>\n                            </button>\n                            <button [matMenuTriggerFor]=\"actionsViewsMenu\"\n                                    mat-menu-item>\n                                <mat-icon [svgIcon]=\"'tune'\"></mat-icon>\n                                <span>View</span>\n                            </button>\n                        </mat-menu>\n\n                        <mat-menu #actionsViewsMenu=\"matMenu\">\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'dayGridMonth'\"\n                                    (click)=\"changeView('dayGridMonth')\">\n                                <mat-icon [svgIcon]=\"'view_comfy'\"></mat-icon>\n                                <span>Month</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridWeek'\"\n                                    (click)=\"changeView('timeGridWeek')\">\n                                <mat-icon [svgIcon]=\"'view_week'\"></mat-icon>\n                                <span>Week</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'timeGridDay'\"\n                                    (click)=\"changeView('timeGridDay')\">\n                                <mat-icon [svgIcon]=\"'view_day'\"></mat-icon>\n                                <span>Day</span>\n                            </button>\n                            <button mat-menu-item\n                                    [disabled]=\"view === 'listYear'\"\n                                    (click)=\"changeView('listYear')\">\n                                <mat-icon [svgIcon]=\"'view_agenda'\"></mat-icon>\n                                <span>Schedule</span>\n                            </button>\n                        </mat-menu>\n                    </button>\n\n                </div>\n\n                \n\n                <div class=\"calendar\" *ngIf=\"!isDataLoaded\">\n\n                    <!-- FullCalendar -->\n                    <full-calendar [defaultView]=\"view\"\n                        [events]=\"events\"\n                        [firstDay]=\"settings.startWeekOn\"\n                        [handleWindowResize]=\"false\"\n                        [header]=\"false\"\n                        [height]=\"'parent'\"\n                        [plugins]=\"calendarPlugins\"\n                        [views]=\"views\"\n                        (dateClick)=\"onDateClick($event)\"\n                        (eventClick)=\"onEventClick($event)\"\n                        (eventRender)=\"onEventRender($event)\"\n                        #fullCalendar>\n                    </full-calendar>\n\n\n                </div>\n\n                <!-- Event panel -->\n                <ng-template #eventPanel>\n\n                    <!-- Preview mode -->\n                    <ng-container *ngIf=\"panelMode === 'view'\">\n\n                        <ng-container *ngIf=\" urlType== 'meeting-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.meetingTypeName }}</h3>\n                                        <div class=\"date\">{{event.meetingDate | date:'EEEE, MMMM d'}}</div>\n                                        <div class=\"date\">{{event.start | date:'shortTime'}} to {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"meetingEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.subject}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <ng-container *ngIf=\" urlType== 'todo-calendar'\">\n\n                            <div class=\"row header\">\n\n                                <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n    \n                                <div class=\"row-content\">\n    \n                                    <div class=\"info\">\n                                        <h3 class=\"title\">{{event.title }}</h3>\n                                        <div class=\"date\">{{event.start | date:'EEEE, MMMM d'}} {{event.start | date:'shortTime'}}</div>\n                                        <div class=\"date\">{{event.end | date:'EEEE, MMMM d'}} {{event.end | date:'shortTime'}}</div>\n                                        <div class=\"recurrence\">{{recurrenceStatus}}</div>\n                                    </div>\n    \n                                    <div class=\"actions\" *ngIf=\"isAdmin\">\n                                         <!-- Edit -->\n                                        <button mat-icon-button (click)=\"todoEditPopup()\">\n                                            <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n                                        </button>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n    \n                            <div class=\"row description\">\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n                                <div class=\"row-content\">{{event.categoryName}}</div>\n                            </div>\n\n                        </ng-container>\n\n                        <!-- <div class=\"row calendar\">\n                            <mat-icon [svgIcon]=\"'today'\"></mat-icon>\n                            <div class=\"row-content\">\n                                <div class=\"color\"\n                                     [ngClass]=\"getCalendar(event.calendarId).color\"></div>\n                                <div class=\"title\">{{getCalendar(event.calendarId).title}}</div>\n                            </div>\n                        </div> -->\n\n                    </ng-container>\n\n                    <!-- Add / Edit mode -->\n                    <ng-container *ngIf=\"panelMode === 'add' || panelMode === 'edit'\">\n\n                        <form [formGroup]=\"eventForm\">\n\n                            <!-- Title -->\n                            <!-- <div class=\"row title\">\n\n                                <mat-icon [svgIcon]=\"'edit'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <input matInput\n                                           [formControlName]=\"'title'\"\n                                           [placeholder]=\"'Event title'\">\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Dates -->\n                            <!-- <div class=\"row dates\">\n\n                                <mat-icon [svgIcon]=\"'date_range'\"></mat-icon>\n\n                                <div class=\"field\">\n\n                                    <condo-date-range [formControlName]=\"'range'\"\n                                                    [dateFormat]=\"settings.dateFormat\"\n                                                    [timeRange]=\"!eventForm.get('allDay').value\"\n                                                    [timeFormat]=\"settings.timeFormat\"></condo-date-range>\n\n                                    <mat-checkbox [color]=\"'primary'\"\n                                                  [formControlName]=\"'allDay'\">\n                                        All day\n                                    </mat-checkbox>\n\n                                </div>\n\n                            </div> -->\n\n                            <!-- Recurrence -->\n                            <!-- <div class=\"row recurrence\"\n                                 *ngIf=\"!event.recurrence || eventEditMode !== 'single'\">\n\n                                <mat-icon class=\"mirror\"\n                                          [svgIcon]=\"'cached'\"></mat-icon>\n\n                                <div class=\"field\"\n                                     (click)=\"openRecurrenceDialog()\">\n                                    <div class=\"status\">\n                                        {{recurrenceStatus || 'Does not repeat'}}\n                                    </div>\n                                </div>\n\n                            </div> -->\n\n                            <!-- Calendar -->\n                            <!-- <div class=\"row calendar\">\n\n                                <mat-icon [svgIcon]=\"'event'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-no-subscript\">\n                                    <mat-select [formControlName]=\"'calendarId'\"\n                                                [panelClass]=\"'calendar-event-panel-calendar-selector'\"\n                                                (change)=\"$event.stopImmediatePropagation()\">\n                                        <mat-select-trigger>\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"getCalendar(eventForm.get('calendarId').value)?.color\"></span>\n                                            <span class=\"calendar-title\">{{getCalendar(eventForm.get('calendarId').value)?.title}}</span>\n                                        </mat-select-trigger>\n                                        <mat-option *ngFor=\"let calendar of calendars\"\n                                                    [value]=\"calendar.id\">\n                                            <span class=\"calendar-color\"\n                                                  [ngClass]=\"calendar.color\"></span>\n                                            <span class=\"calendar-title\">{{calendar.title}}</span>\n                                        </mat-option>\n                                    </mat-select>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Description -->\n                            <!-- <div class=\"row description\">\n\n                                <mat-icon [svgIcon]=\"'notes'\"></mat-icon>\n\n                                <mat-form-field class=\"field condo-mat-textarea condo-mat-no-subscript\">\n                                    <textarea matInput\n                                              cdkTextareaAutosize\n                                              [cdkAutosizeMinRows]=\"1\"\n                                              [formControlName]=\"'description'\"\n                                              [placeholder]=\"'Event description'\">\n                                    </textarea>\n                                </mat-form-field>\n\n                            </div> -->\n\n                            <!-- Actions -->\n                            <!-- <button class=\"add\"\n                                    *ngIf=\"panelMode === 'add'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"addEvent()\">\n                                Add\n                            </button>\n\n                            <button class=\"save\"\n                                    *ngIf=\"panelMode === 'edit'\"\n                                    mat-flat-button\n                                    type=\"button\"\n                                    [color]=\"'primary'\"\n                                    (click)=\"updateEvent()\">\n                                Save\n                            </button> -->\n\n                        </form>\n\n                    </ng-container>\n\n                </ng-template>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>\n\n\n");
 
 /***/ }),
 
@@ -5267,8 +5267,6 @@ let CalendarComponent = class CalendarComponent {
         this.isDataLoaded = false;
         this.selectedIds = [];
         this.year = new Date().getFullYear();
-        this.isYearChanged = false;
-        this.yearInfo = {};
         // Set the private defaults
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_17__["Subject"]();
         // Set the defaults
@@ -5328,36 +5326,40 @@ let CalendarComponent = class CalendarComponent {
             range: [{}]
         });
         // Subscribe to 'range' field value changes
-        this.eventForm.get('range').valueChanges.subscribe((value) => {
-            if (!value) {
-                return;
-            }
-            // Set the 'start' field value from the range
-            this.eventForm.get('start').setValue(value.start, { emitEvent: false });
-            // If this is a recurring event...
-            if (this.eventForm.get('recurrence').value) {
-                // Update the recurrence rules if needed
-                this._updateRecurrenceRule();
-                // Set the duration field
-                const duration = moment__WEBPACK_IMPORTED_MODULE_15__(value.end).diff(moment__WEBPACK_IMPORTED_MODULE_15__(value.start), 'minutes');
-                this.eventForm.get('duration').setValue(duration, { emitEvent: false });
-                // Update the end value
-                this._updateEndValue();
-            }
-            // Otherwise...
-            else {
-                // Set the end field
-                this.eventForm.get('end').setValue(value.end, { emitEvent: false });
-            }
-        });
-        // Subscribe to 'recurrence' field changes
-        this.eventForm.get('recurrence').valueChanges.subscribe((value) => {
-            // If this is a recurring event...
-            if (value) {
-                // Update the end value
-                this._updateEndValue();
-            }
-        });
+        // this.eventForm.get('range').valueChanges.subscribe((value) => {
+        //     if ( !value )
+        //     {
+        //         return;
+        //     }
+        //     // Set the 'start' field value from the range
+        //     this.eventForm.get('start').setValue(value.start, {emitEvent: false});
+        //     // If this is a recurring event...
+        //     if ( this.eventForm.get('recurrence').value )
+        //     {
+        //         // Update the recurrence rules if needed
+        //         this._updateRecurrenceRule();
+        //         // Set the duration field
+        //         const duration = moment(value.end).diff(moment(value.start), 'minutes');
+        //         this.eventForm.get('duration').setValue(duration, {emitEvent: false});
+        //         // Update the end value
+        //         this._updateEndValue();
+        //     }
+        //     // Otherwise...
+        //     else
+        //     {
+        //         // Set the end field
+        //         this.eventForm.get('end').setValue(value.end, {emitEvent: false});
+        //     }
+        // });
+        // // Subscribe to 'recurrence' field changes
+        // this.eventForm.get('recurrence').valueChanges.subscribe((value) => {
+        //     // If this is a recurring event...
+        //     if ( value )
+        //     {
+        //         // Update the end value
+        //         this._updateEndValue();
+        //     }
+        // });
         // Get calendars
         // this._calendarService.calendars$
         //     .pipe(takeUntil(this._unsubscribeAll))
@@ -5556,107 +5558,118 @@ let CalendarComponent = class CalendarComponent {
         // Mark for check
         this._changeDetectorRef.markForCheck();
     }
-    /**
-     * Update the recurrence rule based on the event if needed
-     *
-     * @private
-     */
-    _updateRecurrenceRule() {
-        // Get the event
-        const event = this.eventForm.value;
-        // Return, if this is a non-recurring event
-        if (!event.recurrence) {
-            return;
-        }
-        // Parse the recurrence rule
-        const parsedRules = {};
-        event.recurrence.split(';').forEach((rule) => {
-            // Split the rule
-            const parsedRule = rule.split('=');
-            // Add the rule to the parsed rules
-            parsedRules[parsedRule[0]] = parsedRule[1];
-        });
-        // If there is a BYDAY rule, split that as well
-        if (parsedRules['BYDAY']) {
-            parsedRules['BYDAY'] = parsedRules['BYDAY'].split(',');
-        }
-        // Do not update the recurrence rule if ...
-        // ... the frequency is DAILY,
-        // ... the frequency is WEEKLY and BYDAY has multiple values,
-        // ... the frequency is MONTHLY and there isn't a BYDAY rule,
-        // ... the frequency is YEARLY,
-        if (parsedRules['FREQ'] === 'DAILY' ||
-            (parsedRules['FREQ'] === 'WEEKLY' && parsedRules['BYDAY'].length > 1) ||
-            (parsedRules['FREQ'] === 'MONTHLY' && !parsedRules['BYDAY']) ||
-            parsedRules['FREQ'] === 'YEARLY') {
-            return;
-        }
-        // If the frequency is WEEKLY, update the BYDAY value with the new one
-        if (parsedRules['FREQ'] === 'WEEKLY') {
-            parsedRules['BYDAY'] = [moment__WEBPACK_IMPORTED_MODULE_15__(event.start).format('dd').toUpperCase()];
-        }
-        // If the frequency is MONTHLY, update the BYDAY value with the new one
-        if (parsedRules['FREQ'] === 'MONTHLY') {
-            // Calculate the weekday
-            const weekday = moment__WEBPACK_IMPORTED_MODULE_15__(event.start).format('dd').toUpperCase();
-            // Calculate the nthWeekday
-            let nthWeekdayNo = 1;
-            while (moment__WEBPACK_IMPORTED_MODULE_15__(event.start).isSame(moment__WEBPACK_IMPORTED_MODULE_15__(event.start).subtract(nthWeekdayNo, 'week'), 'month')) {
-                nthWeekdayNo++;
-            }
-            // Set the BYDAY
-            parsedRules['BYDAY'] = [nthWeekdayNo + weekday];
-        }
-        // Generate the rule string from the parsed rules
-        const rules = [];
-        Object.keys(parsedRules).forEach((key) => {
-            rules.push(key + '=' + (Array.isArray(parsedRules[key]) ? parsedRules[key].join(',') : parsedRules[key]));
-        });
-        const rrule = rules.join(';');
-        // Update the recurrence rule
-        this.eventForm.get('recurrence').setValue(rrule);
-    }
-    /**
-     * Update the end value based on the recurrence and duration
-     *
-     * @private
-     */
-    _updateEndValue() {
-        // Get the event recurrence
-        const recurrence = this.eventForm.get('recurrence').value;
-        // Return, if this is a non-recurring event
-        if (!recurrence) {
-            return;
-        }
-        // Parse the recurrence rule
-        const parsedRules = {};
-        recurrence.split(';').forEach((rule) => {
-            // Split the rule
-            const parsedRule = rule.split('=');
-            // Add the rule to the parsed rules
-            parsedRules[parsedRule[0]] = parsedRule[1];
-        });
-        // If there is an UNTIL rule...
-        if (parsedRules['UNTIL']) {
-            // Use that to set the end date
-            this.eventForm.get('end').setValue(parsedRules['UNTIL']);
-            // Return
-            return;
-        }
-        // If there is a COUNT rule...
-        if (parsedRules['COUNT']) {
-            // Generate the RRule string
-            const rrule = 'DTSTART=' + moment__WEBPACK_IMPORTED_MODULE_15__(this.eventForm.get('start').value).utc().format('YYYYMMDD[T]HHmmss[Z]') + '\nRRULE:' + recurrence;
-            // Use RRule string to generate dates
-            const dates = rrule__WEBPACK_IMPORTED_MODULE_16__["RRule"].fromString(rrule).all();
-            // Get the last date from dates array and set that as the end date
-            this.eventForm.get('end').setValue(moment__WEBPACK_IMPORTED_MODULE_15__(dates[dates.length - 1]).toISOString());
-            // Return
-            return;
-        }
-        // If there are no UNTIL or COUNT, set the end date to a fixed value
-        this.eventForm.get('end').setValue(moment__WEBPACK_IMPORTED_MODULE_15__().year(9999).endOf('year').toISOString());
-    }
+    // /**
+    //  * Update the recurrence rule based on the event if needed
+    //  *
+    //  * @private
+    //  */
+    // private _updateRecurrenceRule(): void
+    // {
+    //     // Get the event
+    //     const event = this.eventForm.value;
+    //     // Return, if this is a non-recurring event
+    //     if ( !event.recurrence )
+    //     {
+    //         return;
+    //     }
+    //     // Parse the recurrence rule
+    //     const parsedRules = {};
+    //     event.recurrence.split(';').forEach((rule) => {
+    //         // Split the rule
+    //         const parsedRule = rule.split('=');
+    //         // Add the rule to the parsed rules
+    //         parsedRules[parsedRule[0]] = parsedRule[1];
+    //     });
+    //     // If there is a BYDAY rule, split that as well
+    //     if ( parsedRules['BYDAY'] )
+    //     {
+    //         parsedRules['BYDAY'] = parsedRules['BYDAY'].split(',');
+    //     }
+    //     // Do not update the recurrence rule if ...
+    //     // ... the frequency is DAILY,
+    //     // ... the frequency is WEEKLY and BYDAY has multiple values,
+    //     // ... the frequency is MONTHLY and there isn't a BYDAY rule,
+    //     // ... the frequency is YEARLY,
+    //     if ( parsedRules['FREQ'] === 'DAILY' ||
+    //         (parsedRules['FREQ'] === 'WEEKLY' && parsedRules['BYDAY'].length > 1) ||
+    //         (parsedRules['FREQ'] === 'MONTHLY' && !parsedRules['BYDAY']) ||
+    //         parsedRules['FREQ'] === 'YEARLY' )
+    //     {
+    //         return;
+    //     }
+    //     // If the frequency is WEEKLY, update the BYDAY value with the new one
+    //     if ( parsedRules['FREQ'] === 'WEEKLY' )
+    //     {
+    //         parsedRules['BYDAY'] = [moment(event.start).format('dd').toUpperCase()];
+    //     }
+    //     // If the frequency is MONTHLY, update the BYDAY value with the new one
+    //     if ( parsedRules['FREQ'] === 'MONTHLY' )
+    //     {
+    //         // Calculate the weekday
+    //         const weekday = moment(event.start).format('dd').toUpperCase();
+    //         // Calculate the nthWeekday
+    //         let nthWeekdayNo = 1;
+    //         while ( moment(event.start).isSame(moment(event.start).subtract(nthWeekdayNo, 'week'), 'month') )
+    //         {
+    //             nthWeekdayNo++;
+    //         }
+    //         // Set the BYDAY
+    //         parsedRules['BYDAY'] = [nthWeekdayNo + weekday];
+    //     }
+    //     // Generate the rule string from the parsed rules
+    //     const rules = [];
+    //     Object.keys(parsedRules).forEach((key) => {
+    //         rules.push(key + '=' + (Array.isArray(parsedRules[key]) ? parsedRules[key].join(',') : parsedRules[key]));
+    //     });
+    //     const rrule = rules.join(';');
+    //     // Update the recurrence rule
+    //     this.eventForm.get('recurrence').setValue(rrule);
+    // }
+    // /**
+    //  * Update the end value based on the recurrence and duration
+    //  *
+    //  * @private
+    //  */
+    // private _updateEndValue(): void
+    // {
+    //     // Get the event recurrence
+    //     const recurrence = this.eventForm.get('recurrence').value;
+    //     // Return, if this is a non-recurring event
+    //     if ( !recurrence )
+    //     {
+    //         return;
+    //     }
+    //     // Parse the recurrence rule
+    //     const parsedRules = {};
+    //     recurrence.split(';').forEach((rule) => {
+    //         // Split the rule
+    //         const parsedRule = rule.split('=');
+    //         // Add the rule to the parsed rules
+    //         parsedRules[parsedRule[0]] = parsedRule[1];
+    //     });
+    //     // If there is an UNTIL rule...
+    //     if ( parsedRules['UNTIL'] )
+    //     {
+    //         // Use that to set the end date
+    //         this.eventForm.get('end').setValue(parsedRules['UNTIL']);
+    //         // Return
+    //         return;
+    //     }
+    //     // If there is a COUNT rule...
+    //     if ( parsedRules['COUNT'] )
+    //     {
+    //         // Generate the RRule string
+    //         const rrule = 'DTSTART=' + moment(this.eventForm.get('start').value).utc().format('YYYYMMDD[T]HHmmss[Z]') + '\nRRULE:' + recurrence;
+    //         // Use RRule string to generate dates
+    //         const dates = RRule.fromString(rrule).all();
+    //         // Get the last date from dates array and set that as the end date
+    //         this.eventForm.get('end').setValue(moment(dates[dates.length - 1]).toISOString());
+    //         // Return
+    //         return;
+    //     }
+    //     // If there are no UNTIL or COUNT, set the end date to a fixed value
+    //     this.eventForm.get('end').setValue(moment().year(9999).endOf('year').toISOString());
+    // }
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
@@ -5773,26 +5786,9 @@ let CalendarComponent = class CalendarComponent {
         // Get the view's current start date
         const start = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentStart);
         // Prefetch past events
-        this._calendarService.prefetchPastEvents(start).subscribe();
+        //this._calendarService.prefetchPastEvents(start).subscribe();
         let year = this._fullCalendarApi.getDate().getFullYear();
-        // if(year == this.year) {
-        //      // Get the view's current start date
-        //     const start = moment(this._fullCalendarApi.view.currentStart);
-        //     // Prefetch past events
-        //     this._calendarService.prefetchPastEvents(start).subscribe();
-        // } else {
-        //      // Get the view's current start date
-        //      const start = moment(this._fullCalendarApi.view.currentStart);
-        //      // Prefetch past events
-        //      this._calendarService.prefetchPastEvents(start).subscribe();
-        //     this.year = year;
-        //     this.isYearChanged = true;
-        //     this.yearInfo = {
-        //         activeStart :  this._fullCalendarApi.view.currentStart,
-        //         activeEnd : this._fullCalendarApi.view.currentEnd
-        //     }
-        //     this.getStaffAttendaceList();
-        // }
+        this.year = year;
     }
     /**
      * Moves the calendar to the current date
@@ -5814,7 +5810,7 @@ let CalendarComponent = class CalendarComponent {
         // Get the view's current end date
         const end = moment__WEBPACK_IMPORTED_MODULE_15__(this._fullCalendarApi.view.currentEnd);
         // Prefetch future events
-        this._calendarService.prefetchFutureEvents(end).subscribe();
+        //this._calendarService.prefetchFutureEvents(end).subscribe();
     }
     /**
      * On date click
@@ -6030,126 +6026,136 @@ let CalendarComponent = class CalendarComponent {
         }
         else if (this.urlType == 'staff-calendar') {
             this.staffId = selectedIds;
-            this.isYearChanged = false;
             this.getStaffAttendaceList();
         }
     }
-    /**
-     * Add event
-     */
-    addEvent() {
-        // Get the clone of the event form value
-        let newEvent = lodash__WEBPACK_IMPORTED_MODULE_21__["clone"](this.eventForm.value);
-        // If the event is a recurring event...
-        if (newEvent.recurrence) {
-            // Set the event duration
-            newEvent.duration = moment__WEBPACK_IMPORTED_MODULE_15__(newEvent.range.end).diff(moment__WEBPACK_IMPORTED_MODULE_15__(newEvent.range.start), 'minutes');
-        }
-        // Modify the event before sending it to the server
-        newEvent = lodash__WEBPACK_IMPORTED_MODULE_21__["omit"](newEvent, ['range', 'recurringEventId']);
-        // Add the event
-        this._calendarService.addEvent(newEvent).subscribe(() => {
-            // Reload events
-            this._calendarService.reloadEvents().subscribe();
-            // Close the event panel
-            this._closeEventPanel();
-        });
-    }
-    /**
-     * Update the event
-     */
-    updateEvent() {
-        // Get the clone of the event form value
-        let event = lodash__WEBPACK_IMPORTED_MODULE_21__["clone"](this.eventForm.value);
-        const { range } = event, eventWithoutRange = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(event, ["range"]);
-        // Get the original event
-        const originalEvent = this.events.find(item => item.id === event.id);
-        // Return, if there are no changes made to the event
-        if (lodash__WEBPACK_IMPORTED_MODULE_21__["isEqual"](eventWithoutRange, originalEvent)) {
-            // Close the event panel
-            this._closeEventPanel();
-            // Return
-            return;
-        }
-        // If the event is a recurring event...
-        if (event.recurrence && event.recurringEventId) {
-            // Update the recurring event on the server
-            this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(() => {
-                // Reload events
-                this._calendarService.reloadEvents().subscribe();
-                // Close the event panel
-                this._closeEventPanel();
-            });
-            // Return
-            return;
-        }
-        // If the event is a non-recurring event...
-        if (!event.recurrence && !event.recurringEventId) {
-            // Update the event on the server
-            this._calendarService.updateEvent(event.id, event).subscribe(() => {
-                // Close the event panel
-                this._closeEventPanel();
-            });
-            // Return
-            return;
-        }
-        // If the event was a non-recurring event but now it will be a recurring event...
-        if (event.recurrence && !event.recurringEventId) {
-            // Set the event duration
-            event.duration = moment__WEBPACK_IMPORTED_MODULE_15__(event.range.end).diff(moment__WEBPACK_IMPORTED_MODULE_15__(event.range.start), 'minutes');
-            // Omit unnecessary fields
-            event = lodash__WEBPACK_IMPORTED_MODULE_21__["omit"](event, ['range', 'recurringEventId']);
-            // Update the event on the server
-            this._calendarService.updateEvent(event.id, event).subscribe(() => {
-                // Reload events
-                this._calendarService.reloadEvents().subscribe();
-                // Close the event panel
-                this._closeEventPanel();
-            });
-            // Return
-            return;
-        }
-        // If the event was a recurring event but now it will be a non-recurring event...
-        if (!event.recurrence && event.recurringEventId) {
-            // Set the end date
-            event.end = moment__WEBPACK_IMPORTED_MODULE_15__(event.start).add(event.duration, 'minutes').toISOString();
-            // Set the duration as null
-            event.duration = null;
-            // Update the recurring event on the server
-            this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(() => {
-                // Reload events
-                this._calendarService.reloadEvents().subscribe();
-                // Close the event panel
-                this._closeEventPanel();
-            });
-        }
-    }
-    /**
-     * Delete the given event
-     *
-     * @param event
-     * @param mode
-     */
-    deleteEvent(event, mode = 'single') {
-        // If the event is a recurring event...
-        if (event.recurrence) {
-            // Delete the recurring event on the server
-            this._calendarService.deleteRecurringEvent(event, mode).subscribe(() => {
-                // Reload events
-                this._calendarService.reloadEvents().subscribe();
-                // Close the event panel
-                this._closeEventPanel();
-            });
-        }
-        // If the event is a non-recurring, normal event...
-        else {
-            // Update the event on the server
-            this._calendarService.deleteEvent(event.id).subscribe(() => {
-                // Close the event panel
-                this._closeEventPanel();
-            });
-        }
-    }
+    // /**
+    //  * Add event
+    //  */
+    // addEvent(): void
+    // {
+    //     // Get the clone of the event form value
+    //     let newEvent = _.clone(this.eventForm.value);
+    //     // If the event is a recurring event...
+    //     if ( newEvent.recurrence )
+    //     {
+    //         // Set the event duration
+    //         newEvent.duration = moment(newEvent.range.end).diff(moment(newEvent.range.start), 'minutes');
+    //     }
+    //     // Modify the event before sending it to the server
+    //     newEvent = _.omit(newEvent, ['range', 'recurringEventId']);
+    //     // Add the event
+    //     this._calendarService.addEvent(newEvent).subscribe(() => {
+    //         // Reload events
+    //         this._calendarService.reloadEvents().subscribe();
+    //         // Close the event panel
+    //         this._closeEventPanel();
+    //     });
+    // }
+    // /**
+    //  * Update the event
+    //  */
+    // updateEvent(): void
+    // {
+    //     // Get the clone of the event form value
+    //     let event = _.clone(this.eventForm.value);
+    //     const {range, ...eventWithoutRange} = event;
+    //     // Get the original event
+    //     const originalEvent = this.events.find(item => item.id === event.id);
+    //     // Return, if there are no changes made to the event
+    //     if ( _.isEqual(eventWithoutRange, originalEvent) )
+    //     {
+    //         // Close the event panel
+    //         this._closeEventPanel();
+    //         // Return
+    //         return;
+    //     }
+    //     // If the event is a recurring event...
+    //     if ( event.recurrence && event.recurringEventId )
+    //     {
+    //         // Update the recurring event on the server
+    //         this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(() => {
+    //             // Reload events
+    //             this._calendarService.reloadEvents().subscribe();
+    //             // Close the event panel
+    //             this._closeEventPanel();
+    //         });
+    //         // Return
+    //         return;
+    //     }
+    //     // If the event is a non-recurring event...
+    //     if ( !event.recurrence && !event.recurringEventId )
+    //     {
+    //         // Update the event on the server
+    //         this._calendarService.updateEvent(event.id, event).subscribe(() => {
+    //             // Close the event panel
+    //             this._closeEventPanel();
+    //         });
+    //         // Return
+    //         return;
+    //     }
+    //     // If the event was a non-recurring event but now it will be a recurring event...
+    //     if ( event.recurrence && !event.recurringEventId )
+    //     {
+    //         // Set the event duration
+    //         event.duration = moment(event.range.end).diff(moment(event.range.start), 'minutes');
+    //         // Omit unnecessary fields
+    //         event = _.omit(event, ['range', 'recurringEventId']);
+    //         // Update the event on the server
+    //         this._calendarService.updateEvent(event.id, event).subscribe(() => {
+    //             // Reload events
+    //             this._calendarService.reloadEvents().subscribe();
+    //             // Close the event panel
+    //             this._closeEventPanel();
+    //         });
+    //         // Return
+    //         return;
+    //     }
+    //     // If the event was a recurring event but now it will be a non-recurring event...
+    //     if ( !event.recurrence && event.recurringEventId )
+    //     {
+    //         // Set the end date
+    //         event.end = moment(event.start).add(event.duration, 'minutes').toISOString();
+    //         // Set the duration as null
+    //         event.duration = null;
+    //         // Update the recurring event on the server
+    //         this._calendarService.updateRecurringEvent(event, originalEvent, this.eventEditMode).subscribe(() => {
+    //             // Reload events
+    //             this._calendarService.reloadEvents().subscribe();
+    //             // Close the event panel
+    //             this._closeEventPanel();
+    //         });
+    //     }
+    // }
+    // /**
+    //  * Delete the given event
+    //  *
+    //  * @param event
+    //  * @param mode
+    //  */
+    // deleteEvent(event, mode: CalendarEventEditMode = 'single'): void
+    // {
+    //     // If the event is a recurring event...
+    //     if ( event.recurrence )
+    //     {
+    //         // Delete the recurring event on the server
+    //         this._calendarService.deleteRecurringEvent(event, mode).subscribe(() => {
+    //             // Reload events
+    //             this._calendarService.reloadEvents().subscribe();
+    //             // Close the event panel
+    //             this._closeEventPanel();
+    //         });
+    //     }
+    //     // If the event is a non-recurring, normal event...
+    //     else
+    //     {
+    //         // Update the event on the server
+    //         this._calendarService.deleteEvent(event.id).subscribe(() => {
+    //             // Close the event panel
+    //             this._closeEventPanel();
+    //         });
+    //     }
+    // }
     // Meeting List 
     getMeetingList() {
         this.isDataLoaded = true;
@@ -6202,18 +6208,7 @@ let CalendarComponent = class CalendarComponent {
                 this.events = [];
             }
             this._changeDetectorRef.detectChanges();
-            if (!this.isYearChanged) {
-                this.afterView();
-            }
-            // if(!this.isYearChanged) {
-            //     this.afterView();
-            // } else {
-            //     const viewStart = moment(this.yearInfo.activeStart).subtract(60, 'days');
-            //     const viewEnd = moment(this.yearInfo.activeEnd).add(60, 'days');
-            //     // Get events
-            //     this._calendarService.getEvents(viewStart, viewEnd, true).subscribe();
-            // }
-            //this._changeDetectorRef.detectChanges();
+            this.afterView();
         }, (error) => {
             this.isDataLoaded = false;
             this.sharedService.openSnackBar('Server Error', 'error');

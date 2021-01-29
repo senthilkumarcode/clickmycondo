@@ -1356,12 +1356,10 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
         this.getHistoryList(pageNoIndex / 10);
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY");
-        // return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getDateTimeFormat(date) {
-        //return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YYYY hh:mm a");
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isImage(type) {
         let splitFile = type.split('/');
@@ -3418,21 +3416,12 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
             {
                 text: 'category id',
                 datafield: 'broadCastMessageCategoryId',
-                width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'broadcast category',
                 datafield: 'broadCastMessageCategory1',
-                minwidth: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            },
-            {
-                text: 'description',
-                datafield: 'template',
-                minwidth: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
@@ -3440,7 +3429,7 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
                 text: 'Actions',
                 cellsalign: 'center',
                 align: 'center',
-                minWidth: 100,
+                width: 120,
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="onEditCategory(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="openDeleteModal(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
                 },

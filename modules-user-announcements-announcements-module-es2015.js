@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <div>\n            <span class=\"d-flex align-items-center\" ><span class=\"text-primary mr-1\" >Sender :</span> {{messageDetails?.insertedby_label}}</span>\n            <small class=\"font-bold text-status-purple-900 text-uppercase mr-4\">{{messageDetails?.broadCastGroupcategory_label}}</small>\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <app-loader *ngIf=\"isBusy\" ></app-loader>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span *ngIf=\"messageDetails\">{{getDateFormat(messageDetails.broadcastOn)}}</span>\n        <span>\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <div>\n            <span class=\"d-flex align-items-center\" ><span class=\"text-primary mr-1\" >Sender :</span> {{messageDetails?.insertedby_label}}</span>\n            <small class=\"font-bold text-status-purple-900 text-uppercase mr-4\">{{messageDetails?.broadCastGroupcategory_label}}</small>\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <app-loader *ngIf=\"isBusy\" ></app-loader>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -380,6 +380,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _user_group_announcement_list_user_group_announcement_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../user-group-announcement-list/user-group-announcement-list.component */ "./src/app/modules/user/announcements/user-group-announcement-list/user-group-announcement-list.component.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -406,11 +409,17 @@ let UserGroupAnnouncementDetailsComponent = class UserGroupAnnouncementDetailsCo
         this.messageIds = [];
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => {
+            this.timeZone = timeZone;
+        });
     }
     ngOnChanges(change) {
         if (!change.detailId.firsChange) {
             this.getMessageDetails(this.detailId);
         }
+    }
+    getDateFormat(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_10___default()(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getMessageDetails(id) {
         let param = {

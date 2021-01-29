@@ -1283,9 +1283,9 @@
               renderer: columnrenderer
             }, {
               text: 'Type',
-              datafield: 'ticketTypeId',
+              datafield: 'ticketTypeId_Label',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                if (value == 24) {
+                if (value == 'Common') {
                   return '<div class="jqx-custom-inner-cell"><img src="assets/images/common-ticket-icon.svg"></div>';
                 } else {
                   return '<div class="jqx-custom-inner-cell"><img src="assets/images/private-ticket-icon.svg"></div>';
@@ -1295,28 +1295,23 @@
               renderer: columnrenderer
             }, {
               text: 'Status',
-              datafield: 'ticketStatusId',
+              datafield: 'ticketStatusId_Label',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var status, label;
+                var status;
 
                 if (value == 32) {
-                  status = 'purple';
-                  label = 'New';
-                } else if (value == 33) {
+                  status = 'New';
+                } else if (value == 'Assigned - Inprogress') {
                   status = 'orange';
-                  label = 'Assigned';
-                } else if (value == 34) {
+                } else if (value == 'Closed') {
                   status = 'green';
-                  label = 'Closed';
-                } else if (value == 45) {
+                } else if (value == 'Resolved ') {
                   status = 'green';
-                  label = 'Resolved';
-                } else if (value == 46) {
+                } else if (value == 'On Hold') {
                   status = 'red';
-                  label = 'On Hold';
                 }
 
-                return "<div class=\"jqx-custom-inner-cell\">\n            <div class=\"status-badge bg-status-".concat(status, "-700\">\n              <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(label ? label : '', "</span>\n            </div>\n        </div>");
+                return "<div class=\"jqx-custom-inner-cell\">\n            <div class=\"status-badge bg-status-".concat(status, "-700\">\n              <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(value ? value : '', "</span>\n            </div>\n        </div>");
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1328,16 +1323,16 @@
               renderer: columnrenderer
             }, {
               text: 'Priority',
-              datafield: 'ticketPriorityId',
+              datafield: 'ticketPriorityId_Label',
               cellsrenderer: function cellsrenderer(row, column, value) {
                 //47==High 48==Medium 49==Low
                 var priority;
 
-                if (value == 47) {
+                if (value == 'High') {
                   priority = 'bg-orange-900';
-                } else if (value == 48) {
+                } else if (value == 'Medium') {
                   priority = 'bg-green-900';
-                } else if (value == 49) {
+                } else if (value == 'Low') {
                   priority = 'bg-purple-900';
                 }
 
