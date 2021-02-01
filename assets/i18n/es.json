@@ -50,8 +50,32 @@
                     "AUTOGENERATEPASSWORD":"Generar contraseña automáticamente",
                     "SETUPPASSWORD": "Configurar una contraseña",
                     "ISRESIDINGINCONDO":"Está residiendo en condominio",
-                    "ISPRIMARYCONTACTFORBILLING": "Es el contacto principal para la facturación"
+                    "ISPRIMARYCONTACTFORBILLING": "Es el contacto principal para la facturación",
+                    "PASSWORD": "Contraseña",
+                    "SMS": "SMS",
+                    "SUBMITBUTTON": "Enviar",
+                    "CLEARBUTTON": "Claro"
                 }
             }
+    },
+    "PLACEHOLDER": {
+        "TOWER": "Seleccionar torre",
+        "UNIT": "Seleccionar unidad"
+    },
+    "BUTTONS": {
+        "CHANGEBUTTON": "Cambio",
+        "CHECKBUTTON": "Cheque",
+        "SUBMITBUTTON": "Enviar",
+        "CLEARBUTTON": "Clara"
+    },
+    "VALIDATION": {
+        "CHECKEMAIL": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",
+        "USER": "Usuario",
+        "TITLE": "Confirmar acción",
+        "TYPE": "correo electrónico"
+    },
+    "CONFIRMDLG": {
+        "YES": "Yes",
+        "NO": "No"
     }
 }

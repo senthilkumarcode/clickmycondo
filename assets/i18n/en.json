@@ -50,8 +50,32 @@
                     "AUTOGENERATEPASSWORD":"Auto Generate password",
                     "SETUPPASSWORD": "Setup a Password",
                     "ISRESIDINGINCONDO":"Is Residing In Condo",
-                    "ISPRIMARYCONTACTFORBILLING": "Is Primary Contact for Billing"
+                    "ISPRIMARYCONTACTFORBILLING": "Is Primary Contact for Billing",
+                    "PASSWORD": "Password",
+                    "SMS": "SMS",
+                    "SUBMITBUTTON": "Submit",
+                    "CLEARBUTTON": "Clear"
                 }
             }
+    },
+    "PLACEHOLDER": {
+        "TOWER": "Select Tower",
+        "UNIT": "Select Unit"
+    },
+    "BUTTONS": {
+        "CHANGEBUTTON": "Change",
+        "CHECKBUTTON": "Check",
+        "SUBMITBUTTON": "Submit",
+        "CLEARBUTTON": "Clear"
+    },
+    "VALIDATION": {
+        "CHECKEMAIL": "already exists in the below units. Do you want to add this user to another unit in your condo",
+        "USER": "User",
+        "TITLE": "Confirm Action",
+        "TYPE": "email"
+    },
+    "CONFIRMDLG": {
+        "YES": "Yes",
+        "NO": "No"
     }
 }

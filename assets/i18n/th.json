@@ -1,0 +1,77 @@
+{
+    "HEADER": {
+        "SWITCHLANGUAGE" : {
+            "TITLE" : "เปลี่ยนภาษา"
+        },
+        "SWITCHCONDO" : {
+            "TITLE" : "สวิทช์คอนโด",
+            "ADMIN_STAFF" : "ธุรการ / เจ้าหน้าที่",
+            "OWNER_TENANT" : "เจ้าของ / ผู้เช่า"
+        },
+        "SETTINGS" : {
+            "SWITCHTHEME": {
+                "TITLE" : "เปลี่ยนธีม"
+            },
+            "SWITCHLAYOUT": {
+                "TITLE" : "สลับเค้าโครง"
+            }
+        },
+        "TODO" : {
+            "TITLE" : "ทำ"
+        },
+        "NOTIFICATIONS" : {
+            "TITLE" : "การแจ้งเตือน",
+            "NODATA": "ไม่มีข้อมูลล่าสุด"
+        },
+        "USER" : {
+            "SIGNED_IN" : "ลงชื่อเข้าใช้ด้วย",
+            "PROFILE" : "ข้อมูลส่วนตัว",
+            "LOGOUT" : "ออกจากระบบ"
+        }
+    },
+    "MAIN": {
+            "UNITUSER": {
+                "ADDUSER": {
+                    "TITLE": "เพิ่มผู้ใช้",
+                    "EMAIL": "อีเมล์",
+                    "CHANGEBUTTON": "เปลี่ยน",
+                    "CHECKBUTTON": "ตรวจสอบ",
+                    "USERTYPE": "ประเภทผู้ใช้",
+                    "OWNER": "เจ้าของ",
+                    "TENANT": "ผู้เช่า",
+                    "FIRSTNAME": "ชื่อจริง",
+                    "LASTNAME": "นามสกุล",
+                    "TOWERNO": "หมายเลขทาวเวอร์",
+                    "MOBILENO": "เบอร์มือถือ",
+                    "GENDER": "เพศ",
+                    "MALE": "ชาย",
+                    "FEMALE": "หญิง",
+                    "NOTIFICATION": "การแจ้งเตือน",
+                    "AUTOGENERATEPASSWORD":"สร้างรหัสผ่านอัตโนมัติ",
+                    "SETUPPASSWORD": "ตั้งรหัสผ่าน",
+                    "ISRESIDINGINCONDO":"กำลังพักอาศัยอยู่ในคอนโด",
+                    "ISPRIMARYCONTACTFORBILLING": "เป็นผู้ติดต่อหลักสำหรับการเรียกเก็บเงิน",
+                    "PASSWORD": "รหัสผ่าน",
+                    "SMS": "ข้อความ",
+                    "SUBMITBUTTON": "ส่ง",
+                    "CLEARBUTTON": "ชัดเจน"
+                }
+            }
+    },
+    "PLACEHOLDER": {
+        "TOWER": "เลือกทาวเวอร์",
+        "UNIT": "เลือกหน่วย"
+    },
+    "BUTTONS": {
+        "CHANGEBUTTON": "เปลี่ยน",
+        "CHECKBUTTON": "ตรวจสอบ",
+        "SUBMITBUTTON": "ส่ง",
+        "CLEARBUTTON": "ชัดเจน"
+    },
+    "VALIDATION": {
+        "CHECKEMAIL": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",
+        "USER": "ผู้ใช้",
+        "TITLE": "ยืนยันการดำเนินการ",
+        "TYPE": "อีเมล์"
+    }
+}
