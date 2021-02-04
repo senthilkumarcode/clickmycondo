@@ -58,20 +58,69 @@
                 }
             }
     },
+    "SERVICE": {
+        "HELPDESK": {
+            "CREATETICKET": {
+                "CREATETITLE": "สร้างตั๋ว",
+                "EDITTITLE":"แก้ไขตั๋ว",
+                "TICKETFOR":"สร้างตั๋วสำหรับ",
+                "FORSELF": "ตนเอง",
+                "FOROWNER": "เจ้าของ",
+                "FORTENANT": "ผู้เช่า",
+                "FORSTAFF": "เจ้าหน้าที่",
+                "FORADMIN": "ธุรการ",
+                "TICKETID": "รหัสตั๋ว",
+                "DATEOFCREATION": "วันที่สร้าง",
+                "CREATEDBY": "สร้างโดย",
+                "TICKETTYPE": "ประเภทตั๋ว",
+                "CATEGORY": "ประเภท",
+                "PRIORITY": "ลำดับความสำคัญ",
+                "SUPERVISOR": "หัวหน้างาน",
+                "ASSIGNEDSTAFF": "มอบหมายให้กับเจ้าหน้าที่",
+                "TICKETFORADMIN": "ตั๋วสำหรับผู้ดูแลระบบ",
+                "TICKETFORSTAFF": "ตั๋วสำหรับพนักงาน",
+                "STATUS": "สถานะ",
+                "TOWERNO": "ทาวเวอร์เลขที่",
+                "UNITNO": "เลขที่หน่วย",
+                "PRIMARYNAME": "ชื่อหลัก",
+                "SUBJECT": "เรื่อง",
+                "DESCRIPTION": "คำอธิบาย",
+                "ADDCOMMENT": "เพิ่มความเห็น"
+            }
+        }
+    },
     "PLACEHOLDER": {
         "TOWER": "เลือกทาวเวอร์",
-        "UNIT": "เลือกหน่วย"
+        "UNIT": "เลือกหน่วย",
+        "TICKETTYPE": "เลือกประเภทตั๋ว",
+        "CATEGORY": "เลือกหมวดหมู่",
+        "PRIORITY": "เลือกลำดับความสำคัญ",
+        "SUPERVISOR":"เลือกหัวหน้างาน",
+        "STAFFLABEL": "เลือกพนักงาน",
+        "STATUS": "เลือกสถานะ",
+        "TEXT": "ป้อนข้อความ",
+        "DESCRIPTION": "ป้อนคำอธิบาย",
+        "SOMETEXT": "ข้อความบางส่วนที่นี่"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "เปลี่ยน",
         "CHECKBUTTON": "ตรวจสอบ",
         "SUBMITBUTTON": "ส่ง",
-        "CLEARBUTTON": "ชัดเจน"
+        "CLEARBUTTON": "ชัดเจน",
+        "UPDATEBUTTON": "อัปเดต",
+        "BACKBUTTON": "กลับ",
+        "ADDCOMMENT": "เพิ่มความเห็น"
     },
     "VALIDATION": {
-        "CHECKEMAIL": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",
+        "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",
+        "EXISTSUSERWITHOUTUNITS": "",
         "USER": "ผู้ใช้",
         "TITLE": "ยืนยันการดำเนินการ",
         "TYPE": "อีเมล์"
+    },
+    "CONFIRMDLG": {
+        "YES": "ใช่",
+        "NO": "ไม่",
+        "OK": "ตกลง"
     }
 }

@@ -342,7 +342,7 @@
                   _this2.translateService.get('VALIDATION').subscribe(function (data) {
                     console.log(data);
                     var confirmBoxData = {
-                      message: "".concat(data.USER, "  ").concat(_this2.user.emailId, "  ").concat(data.CHECKEMAIL, " ?"),
+                      message: "".concat(data.USER, "  ").concat(_this2.user.emailId, "  ").concat(data.EXISTSUSERWITHUNITS, " ?"),
                       title: "".concat(data.TITLE),
                       type: 'email',
                       response: respone[0].blockunitUserDetails
@@ -359,13 +359,15 @@
 
                   _this2.cd.markForCheck();
                 } else {
-                  var confirmBoxData = {
-                    message: "User ".concat(_this2.user.emailId, " already exists and not assigned to any units. Do you want to add this emailId to an unit of your community?"),
-                    title: 'Confirm Action',
-                    type: 'email'
-                  };
+                  _this2.translateService.get('VALIDATION').subscribe(function (data) {
+                    var confirmBoxData = {
+                      message: "User ".concat(_this2.user.emailId, " already exists and not assigned to any units. Do you want to add this emailId to an unit of your community?"),
+                      title: "".concat(data.TITLE),
+                      type: 'email'
+                    };
 
-                  _this2.confirmBox(confirmBoxData, respone[0]);
+                    _this2.confirmBox(confirmBoxData, respone[0]);
+                  });
                 }
               }, function (error) {
                 _this2.isValidEmail = false;

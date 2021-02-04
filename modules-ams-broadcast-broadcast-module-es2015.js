@@ -1097,7 +1097,7 @@ let BroadcastGroupBasedAnnouncementComponent = class BroadcastGroupBasedAnnounce
         let queryParamBase = {
             apartmentId: Number(this.sessionService.apartmentId),
             UnituserId: null,
-            staffId: this.sessionService.userId,
+            staffId: this.sessionService.staffId,
             RoleTypeId: this.sessionService.roleTypeId,
             // fromDate: moment(moment().subtract(160, 'days')).format(this.timeZone.time),
             // toDate: moment().format(this.timeZone.time),
@@ -1124,7 +1124,7 @@ let BroadcastGroupBasedAnnouncementComponent = class BroadcastGroupBasedAnnounce
         let queryParamBase = {
             apartmentId: Number(this.sessionService.apartmentId),
             UnituserId: null,
-            staffId: this.sessionService.userId,
+            staffId: this.sessionService.staffId,
             RoleId: 50,
             // fromDate: moment(moment().subtract(160, 'days')).format(this.timeZone.time),
             // toDate: moment().format(this.timeZone.time),
@@ -3791,7 +3791,9 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
         //queryParams 
         this.activateRouter.queryParams.subscribe((params) => {
             if (params && params.type == 'create') {
-                this.addCategory();
+                setTimeout(() => {
+                    this.addCategory();
+                }, 1000);
             }
         });
     }

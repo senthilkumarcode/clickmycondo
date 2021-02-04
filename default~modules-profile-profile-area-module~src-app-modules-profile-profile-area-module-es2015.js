@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-interest-Group-wrapper p-5\">\n\n  <div class=\"d-flex mb-4\">\n    <h4>My Interest Group</h4>\n  </div>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <form *ngIf=\"isDataLoaded\">\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <h6 class=\"mb-4 text-secondary\">User previleged</h6>\n        <div class=\"bg-card shadow p-4 mb-3 d-flex justify-content-between align-items-center\" *ngFor=\"let interestGroup of userInterestGroupCategory\">\n          <label>{{interestGroup.groupName}}</label>\n          <div class=\"custom-checkbox\">\n            <label class=\"custom-switch custom-switch-flat\">\n              <input class=\"custom-switch-input\" type=\"checkbox\" id=\"userPrevileged{{i}}\" name=\"userPrevileged{{i}}\" [(ngModel)]=\"interestGroup.IsAssigned\" (change)=\"updateGroupUser(interestGroup)\"/>\n              <span class=\"custom-switch-label\" data-on=\"On\" data-off=\"Off\"></span> \n              <span class=\"custom-switch-handle\"></span> \n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-sm-6\">\n        <h6 class=\"mb-4 text-secondary\">Admin previleged</h6>\n        <div class=\"bg-card shadow p-4 mb-3 d-flex justify-content-between align-items-center\" *ngFor=\"let interestGroup of adminInterestGroupCategory\">\n          <label>{{interestGroup.groupName}}</label>\n          <div class=\"custom-checkbox\">\n            <label class=\"custom-switch custom-switch-flat\">\n                <input class=\"custom-switch-input\" type=\"checkbox\" id=\"interest{{i}}\" name=\"interest{{i}}\" [(ngModel)]=\"interestGroup.IsAssigned\" (change)=\"updateGroupUser(interestGroup)\" [disabled]=\"!isAdmin\"/>\n                <span class=\"custom-switch-label\" data-on=\"On\" data-off=\"Off\"></span> \n                <span class=\"custom-switch-handle\"></span> \n            </label>\n          </div>\n        </div>\n      </div>\n    </div>\n  </form>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-interest-Group-wrapper p-5\">\n\n  <div class=\"d-flex mb-4\">\n    <h4>My Interest Group</h4>\n  </div>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <form *ngIf=\"isDataLoaded\">\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <h6 class=\"mb-4 text-secondary\">Controlled By User (Public)</h6>\n        <div class=\"bg-card shadow p-4 mb-3 d-flex justify-content-between align-items-center\" *ngFor=\"let interestGroup of userInterestGroupCategory;let i=index\">\n          <label>{{interestGroup.groupName}}</label>\n          <div class=\"custom-checkbox\">\n            <label class=\"custom-switch custom-switch-flat\">\n              <input class=\"custom-switch-input\" type=\"checkbox\" id=\"userPrevileged{{i}}\" name=\"userPrevileged{{i}}\" [(ngModel)]=\"interestGroup.isActive\" (change)=\"updateGroupUser(interestGroup)\"/>\n              <span class=\"custom-switch-label\" data-on=\"On\" data-off=\"Off\"></span> \n              <span class=\"custom-switch-handle\"></span> \n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-sm-6\">\n        <h6 class=\"mb-4 text-secondary\">Controlled By Admin (Private)</h6>\n        <div class=\"bg-card shadow p-4 mb-3 d-flex justify-content-between align-items-center\" *ngFor=\"let interestGroup of adminInterestGroupCategory;let i=index\">\n          <label>{{interestGroup.groupName}}</label>\n          <div class=\"custom-checkbox\">\n            <label class=\"custom-switch custom-switch-flat\">\n                <input class=\"custom-switch-input\" type=\"checkbox\" id=\"interest{{i}}\" name=\"interest{{i}}\" [(ngModel)]=\"interestGroup.isActive\" (change)=\"updateGroupUser(interestGroup)\" [disabled]=\"!isAdmin\"/>\n                <span class=\"custom-switch-label\" data-on=\"On\" data-off=\"Off\"></span> \n                <span class=\"custom-switch-handle\"></span> \n            </label>\n          </div>\n        </div>\n      </div>\n    </div>\n  </form>\n\n</div>");
 
 /***/ }),
 
@@ -1957,68 +1957,23 @@ let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
         this.sessionService = sessionService;
         this.apartmentService = apartmentService;
         this.isDataLoaded = false;
+        this.adminInterestGroupCategory = [];
+        this.userInterestGroupCategory = [];
     }
     get isAdmin() {
         return this.sessionService.isAdmin();
     }
-    getUserDetails() {
-        let queryParamBase = {
-            userId: this.userId,
-        };
-        this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe((res) => {
-            this.userDetails = res.filter(function (obj) {
-                return obj.apartmentId == this.apartmentId && obj.userid == this.userId;
-            });
-        });
-    }
-    // ChangeInterestGroup(interestGroup) {
-    //   if (interestGroup.IsAssigned) {
-    //     let categoryUser = this.interestGroupUsers.filter((obj) => {
-    //       return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId &&
-    //         obj.userId == this.userId;
-    //     })
-    //     if(categoryUser.length > 0)
-    //     this.removeUser(categoryUser[0].broadCastGroupCategoryUserId);
-    //   } else {
-    //     let queryParamBase = {
-    //       userId: this.userId,
-    //     };
-    //     this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe((res: any) => {
-    //       var currentAppUserUnits = res.filter((obj) => {
-    //         return obj.apartmentId == this.apartmentID;
-    //       })
-    //       if (currentAppUserUnits != undefined && currentAppUserUnits.length > 0) {
-    //         let userAppUnit = currentAppUserUnits[0];
-    //         this.insertGroupUser(this.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
-    //       }
-    //     })
-    //   }
-    //   // interestGroup.IsAssigned=!interestGroup.IsAssigned;
-    // }
-    // removeUser(broadCastGroupCategoryUserId) {
-    //   var params = {
-    //     broadCastGroupCategoryUserId: broadCastGroupCategoryUserId,
-    //     deleteBy: this.userId
-    //   }
-    //   this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(
-    //     (res: any) => {
-    //       this.sharedService.setAlertMessage("User has been removed from interest group successfully");
-    //       this.getAllGoupUsers();
-    //     }
-    //   );
-    //   //}
-    // }
     updateGroupUser(data) {
         let params = {
             'broadcast': {
                 'broadCastGroupCategoryId': data.broadCastGroupCategoryId,
                 'userId': this.userId,
-                'roleId': 2,
+                'roleId': this.roleId,
                 'apartmentBlockId': this.apartmentBlockId,
                 'unitId': this.apartmentBlockUnitId,
-                'isActive': true,
-                'insertedBy': data.insertedBy,
-                'insertedOn': data.insertedOn,
+                'isActive': data.isActive,
+                'insertedBy': this.sessionService.userId,
+                'insertedOn': new Date().toISOString(),
                 'updatedBy': this.sessionService.userId,
                 'updatedOn': new Date().toISOString(),
                 'apartmentId': this.sessionService.apartmentId,
@@ -2026,52 +1981,43 @@ let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
         };
         this.broadcastService.upsertBroadCastGroupCategoryUser(params).subscribe((res) => {
             if (res.message)
-                this.sharedService.openSnackBar("Interest groups mapping to user(s) added successfully", 'success');
-            else
+                this.sharedService.openSnackBar("Interest groups added successfully", 'success');
+            else {
+                data.isActive = !data.isActive;
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
-            //this.getAllGoupUsers();
+            }
+        }, (error) => {
+            data.isActive = !data.isActive;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
-    // getAllGoupUsers() {
-    //   let queryParamBase = {
-    //     apartmentId: this.apartmentID
-    //   };
-    //   this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe((res: any) => {
-    //     this.interestGroupUsers = res;
-    //     this.assignedInterestGroupUsers = this.interestGroupUsers.filter(data => {
-    //       return data.userId == this.userId && data.isActive;
-    //     });
-    //     this.assignedInterestGroupsToUser = [];
-    //     this.assignedInterestGroupUsers.forEach(element => {
-    //       this.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
-    //     });
-    //     this.adminInterestGroupCategory.forEach(element => {
-    //       element.IsAssigned = this.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
-    //     });
-    //     this.userInterestGroupCategory.forEach(element => {
-    //       element.IsAssigned = this.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
-    //     });
-    //     this.isDataLoaded = true;
-    //   });
-    // }
     getAllGroupCategory() {
         let queryParamBase = {
-            apartmentId: this.sessionService.apartmentId
+            apartmentId: this.sessionService.apartmentId,
+            UserId: this.userId
         };
-        this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe((res) => {
-            var allBroadcastGroupCategory = res;
-            //filter active true items
-            this.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(data => {
-                return data.isActive;
+        this.broadcastService.getAssignedbroadcastgroupbyUserId(queryParamBase).subscribe((res) => {
+            let allBroadcastGroupCategory = res;
+            allBroadcastGroupCategory.forEach((data) => {
+                let privilege = data.privilege.split(',');
+                if (privilege.includes('All'))
+                    this.userInterestGroupCategory.push(data);
+                if (privilege.includes('Admin'))
+                    this.adminInterestGroupCategory.push(data);
             });
-            this.adminInterestGroupCategory = this.allBroadcastGroupCategory.filter(data => data.privilege == "Admin");
-            this.userInterestGroupCategory = this.allBroadcastGroupCategory.filter(data => data.privilege == "All");
             this.isDataLoaded = true;
-            //this.getAllGoupUsers();
+        }, (error) => {
+            this.isDataLoaded = true;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {
-        this.getAllGroupCategory();
+        this._activatedRoute.parent.data.subscribe((data) => {
+            let user = data.initialData.profileUser;
+            if (user.roleId) {
+                this.roleId = user.roleId;
+            }
+        });
         if (!this.isAdmin) {
             this.apartmentBlockId = this.sessionService.apartmentBlockID;
             this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -2084,6 +2030,7 @@ let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
                 this.userId = Number(params.id);
             }
         });
+        this.getAllGroupCategory();
     }
 };
 ProfileInterestGroupComponent.ctorParameters = () => [

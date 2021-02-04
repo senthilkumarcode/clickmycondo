@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<h4 class=\"mb-4\">Mail Box Settings</h4>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff()\">\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"selectPrimaryStaff()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"utility-task-tracking-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Mail Box Settings</h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n            {{message.content}}\n        </condo-message>\n\t\t<form name=\"taskForm\" #taskForm=\"ngForm\" novalidate>\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Select the Staff / Admin List*</label>\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"staffId\" \n                                [settings]=\"staffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff()\" required>\n                            </angular2-multiselect> \n                        </div>\n                    </div>         \n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <submit-button (click)=\"selectPrimaryStaff()\" [isSubmit]=\"isSubmitted\">Submit</submit-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -155,14 +155,21 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var MailboxSetupComponent = /*#__PURE__*/function () {
-        function MailboxSetupComponent(sessionService, sharedService, staffService) {
+        function MailboxSetupComponent(sessionService, sharedService, staffService, _changeDetectorRef) {
           _classCallCheck(this, MailboxSetupComponent);
 
           this.sessionService = sessionService;
           this.sharedService = sharedService;
           this.staffService = staffService;
+          this._changeDetectorRef = _changeDetectorRef;
           this.staffsList = [];
           this.staffSetting = {
             singleSelection: false,
@@ -174,6 +181,7 @@
             maxHeight: 240
           };
           this.isSubmitted = false;
+          this.message = null;
         }
 
         _createClass(MailboxSetupComponent, [{
@@ -197,31 +205,50 @@
           value: function selectPrimaryStaff() {
             var _this = this;
 
-            this.isSubmitted = true;
-            var params = {
-              staffInchargeMailbox: {
-                "apartmentId": this.sessionService.apartmentId,
-                "description": "string",
-                "comment1": "string",
-                "comment2": "string",
-                "insertedBy": this.sessionService.userId,
-                "updatedBy": this.sessionService.userId,
-                "stafflist": this.getSelectedId()
-              }
-            };
-            this.staffService.upsertStaffInchargeMailbox(params).subscribe(function (res) {
-              if (res.message) {
-                _this.sharedService.openSnackBar('Staff Added Successfully', 'success');
-              } else {
-                _this.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
+            this.message = null;
 
-              _this.isSubmitted = false;
-            }, function (error) {
-              _this.isSubmitted = false;
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
 
-              _this.sharedService.openSnackBar('Server Error', 'error');
-            });
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
+
+              this._changeDetectorRef.markForCheck();
+            } else {
+              this.isSubmitted = true;
+              var params = {
+                staffInchargeMailbox: {
+                  "apartmentId": this.sessionService.apartmentId,
+                  "description": "string",
+                  "comment1": "string",
+                  "comment2": "string",
+                  "insertedBy": this.sessionService.userId,
+                  "updatedBy": this.sessionService.userId,
+                  "stafflist": this.getSelectedId()
+                }
+              };
+              this.staffService.upsertStaffInchargeMailbox(params).subscribe(function (res) {
+                if (res.message) {
+                  _this.sharedService.openSnackBar('Staff Added Successfully', 'success');
+                } else {
+                  _this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+
+                _this.isSubmitted = false;
+              }, function (error) {
+                _this.isSubmitted = false;
+
+                _this.sharedService.openSnackBar('Server Error', 'error');
+              });
+            }
           }
         }, {
           key: "ngOnInit",
@@ -271,19 +298,28 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
         }, {
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
 
+      MailboxSetupComponent.propDecorators = {
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['taskForm']
+        }]
+      };
       MailboxSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-mailbox-setup',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./mailbox-setup.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/mailbox-setup/mailbox-setup.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_5__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./mailbox-setup.component.scss */
         "./src/app/modules/ams/mailbox-setup/mailbox-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"]])], MailboxSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MailboxSetupComponent);
       /***/
     },
 
@@ -342,6 +378,12 @@
       var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/shared.module */
       "./src/app/shared/shared.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/modules/ui/message/message.module */
+      "./src/app/modules/ui/message/message.module.ts");
 
       var MailboxSetupModule = function MailboxSetupModule() {
         _classCallCheck(this, MailboxSetupModule);
@@ -349,7 +391,7 @@
 
       MailboxSetupModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_mailbox_setup_component__WEBPACK_IMPORTED_MODULE_4__["MailboxSetupComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], _mailbox_setup_routing_module__WEBPACK_IMPORTED_MODULE_3__["MailboxSetupRoutingModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_6__["CondoMessageModule"], _mailbox_setup_routing_module__WEBPACK_IMPORTED_MODULE_3__["MailboxSetupRoutingModule"]]
       })], MailboxSetupModule);
       /***/
     }

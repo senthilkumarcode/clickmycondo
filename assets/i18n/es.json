@@ -58,24 +58,69 @@
                 }
             }
     },
+    "SERVICE": {
+        "HELPDESK": {
+            "CREATETICKET": {
+                "CREATETITLE": "Crear Ticket",
+                "EDITTITLE":"Editar ticket",
+                "TICKETFOR":"Crear ticket para",
+                "FORSELF": "Yo",
+                "FOROWNER": "Propietaria",
+                "FORTENANT": "Inquilina",
+                "FORSTAFF": "Personal",
+                "FORADMIN": "Administradora",
+                "TICKETID": "Identificación de entradas",
+                "DATEOFCREATION": "Fecha de creación",
+                "CREATEDBY": "Creado por",
+                "TICKETTYPE": "Tipo de entrada",
+                "CATEGORY": "Categoría",
+                "PRIORITY": "Prioridad",
+                "SUPERVISOR": "Supervisora",
+                "ASSIGNEDSTAFF": "Asignado al personal",
+                "TICKETFORADMIN": "Ticket para administrador",
+                "TICKETFORSTAFF": "Boleto para el personal",
+                "STATUS": "Estado",
+                "TOWERNO": "Torre No",
+                "UNITNO": "Unidad numérica",
+                "PRIMARYNAME": "Nombre principal",
+                "SUBJECT": "Sujeta",
+                "DESCRIPTION": "Descripción",
+                "ADDCOMMENT": "Agregar comentario"
+            }
+        }
+    },
     "PLACEHOLDER": {
         "TOWER": "Seleccionar torre",
-        "UNIT": "Seleccionar unidad"
+        "UNIT": "Seleccionar unidad",
+        "TICKETTYPE": "Seleccione el tipo de entrada",
+        "CATEGORY": "selecciona una categoría",
+        "PRIORITY": "Seleccionar prioridad",
+        "SUPERVISOR":"Seleccionar Supervisora",
+        "STAFFLABEL": "Seleccionar personal",
+        "STATUS": "Seleccionar estado",
+        "TEXT": "Ingrese texto",
+        "DESCRIPTION": "Ingrese descripción",
+        "SOMETEXT": "algo de texto aquí"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "Cambio",
         "CHECKBUTTON": "Cheque",
         "SUBMITBUTTON": "Enviar",
-        "CLEARBUTTON": "Clara"
+        "CLEARBUTTON": "Clara",
+        "UPDATEBUTTON": "Actualizar",
+        "BACKBUTTON": "atrás",
+        "ADDCOMMENT": "Agregar comentario"
     },
     "VALIDATION": {
-        "CHECKEMAIL": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",
+        "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",
+        "EXISTSUSERWITHOUTUNITS": "",
         "USER": "Usuario",
         "TITLE": "Confirmar acción",
         "TYPE": "correo electrónico"
     },
     "CONFIRMDLG": {
-        "YES": "Yes",
-        "NO": "No"
+        "YES": "si",
+        "NO": "No",
+        "OK": "Okay"
     }
 }

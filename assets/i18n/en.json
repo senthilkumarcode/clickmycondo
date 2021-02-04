@@ -57,25 +57,72 @@
                     "CLEARBUTTON": "Clear"
                 }
             }
+            
+    },
+    "SERVICE": {
+        "HELPDESK": {
+            "CREATETICKET": {
+                "CREATETITLE": "Create Ticket",
+                "EDITTITLE":"Edit Ticket",
+                "TICKETFOR":"Create Ticket For",
+                "FORSELF": "Self",
+                "FOROWNER": "Owner",
+                "FORTENANT": "Tenant",
+                "FORSTAFF": "Staff",
+                "FORADMIN": "Admin",
+                "TICKETID": "Ticket ID",
+                "DATEOFCREATION": "Date Of Creation",
+                "CREATEDBY": "Created By",
+                "TICKETTYPE": "Ticket Type",
+                "CATEGORY": "Category",
+                "PRIORITY": "Priority",
+                "SUPERVISOR": "Supervisor",
+                "ASSIGNEDSTAFF": "Assigned To Staff",
+                "TICKETFORADMIN": "Ticket For Admin",
+                "TICKETFORSTAFF": "Ticket For Staff",
+                "STATUS": "Status",
+                "TOWERNO": "Tower No",
+                "UNITNO": "Unit No",
+                "PRIMARYNAME": "Primary Name",
+                "SUBJECT": "Subject",
+                "DESCRIPTION": "Description",
+                "ADDCOMMENT": "Add Comment"
+            }
+        }
     },
     "PLACEHOLDER": {
         "TOWER": "Select Tower",
-        "UNIT": "Select Unit"
+        "UNIT": "Select Unit",
+        "TICKETTYPE": "Select Ticket Type",
+        "CATEGORY": "Select Category",
+        "PRIORITY": "Select Priority",
+        "SUPERVISOR":"Select Supervisor",
+        "STAFFLABEL": "Select Staff",
+        "STATUS": "Select Status",
+        "TEXT": "Enter text",
+        "DESCRIPTION": "Enter Description",
+        "SOMETEXT": "some text here"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "Change",
         "CHECKBUTTON": "Check",
         "SUBMITBUTTON": "Submit",
-        "CLEARBUTTON": "Clear"
+        "CLEARBUTTON": "Clear",
+        "CREATEBUTTON": "Create",
+        "UPDATEBUTTON": "Update",
+        "BACKBUTTON": "Back",
+        "ADDCOMMENT": "Add Comment"
     },
     "VALIDATION": {
-        "CHECKEMAIL": "already exists in the below units. Do you want to add this user to another unit in your condo",
+        "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",
+        "EXISTSUSERWITHOUTUNITS": "",
         "USER": "User",
         "TITLE": "Confirm Action",
         "TYPE": "email"
     },
     "CONFIRMDLG": {
         "YES": "Yes",
-        "NO": "No"
+        "NO": "No",
+        "OK": "Ok"
     }
 }

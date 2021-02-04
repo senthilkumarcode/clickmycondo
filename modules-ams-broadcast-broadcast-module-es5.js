@@ -1788,7 +1788,7 @@
             var queryParamBase = {
               apartmentId: Number(this.sessionService.apartmentId),
               UnituserId: null,
-              staffId: this.sessionService.userId,
+              staffId: this.sessionService.staffId,
               RoleTypeId: this.sessionService.roleTypeId,
               // fromDate: moment(moment().subtract(160, 'days')).format(this.timeZone.time),
               // toDate: moment().format(this.timeZone.time),
@@ -1827,7 +1827,7 @@
             var queryParamBase = {
               apartmentId: Number(this.sessionService.apartmentId),
               UnituserId: null,
-              staffId: this.sessionService.userId,
+              staffId: this.sessionService.staffId,
               RoleId: 50,
               // fromDate: moment(moment().subtract(160, 'days')).format(this.timeZone.time),
               // toDate: moment().format(this.timeZone.time),
@@ -5497,7 +5497,9 @@
 
             this.activateRouter.queryParams.subscribe(function (params) {
               if (params && params.type == 'create') {
-                _this51.addCategory();
+                setTimeout(function () {
+                  _this51.addCategory();
+                }, 1000);
               }
             });
           }
