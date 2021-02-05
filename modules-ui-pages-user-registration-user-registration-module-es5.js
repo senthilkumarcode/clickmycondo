@@ -669,7 +669,7 @@
             }).subscribe(function (res) {
               if (res.length > 0) {
                 _this10.termsConditions = res[0].termsTemplate;
-              }
+              } else _this10.termsConditions = '';
             });
           }
         }]);

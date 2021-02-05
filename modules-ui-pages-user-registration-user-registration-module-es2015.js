@@ -417,6 +417,8 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
             if (res.length > 0) {
                 this.termsConditions = res[0].termsTemplate;
             }
+            else
+                this.termsConditions = '';
         });
     }
 };

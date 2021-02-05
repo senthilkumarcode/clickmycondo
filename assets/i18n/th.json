@@ -86,6 +86,27 @@
                 "SUBJECT": "เรื่อง",
                 "DESCRIPTION": "คำอธิบาย",
                 "ADDCOMMENT": "เพิ่มความเห็น"
+            },
+            "VIEWTICKET": {
+                "TITLE": "ตั๋วทั้งหมด",
+                "TOTALRESULTS": "ผล",
+                "CREATETICKET": "สร้างตั๋ว",
+                "TICKETCREATED": "สร้างตั๋วแล้ว",
+                "ASSIGNEDTO": "ได้รับมอบหมายให้",
+                "CATEGORY": "ประเภท",
+                "NORESULTSFOUND": "ไม่พบผลลัพธ์",
+                "PRIORITY": {
+                    "HIGH": "สูง",
+                    "LOW": "ต่ำ",
+                    "MEDIUM": "ปานกลาง"
+                },
+                "STATUS": {
+                    "NEW": "ใหม่",
+                    "ASSIGNED": "ที่ได้รับมอบหมาย",
+                    "RESOLVED": "แก้ไขแล้ว",
+                    "ONHOLD": "พักสาย",
+                    "CLOSED": "ปิด"
+                }
             }
         }
     },

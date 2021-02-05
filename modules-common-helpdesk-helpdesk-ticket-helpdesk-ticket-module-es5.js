@@ -68,7 +68,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"helpdesk-user-ticket-list-wrapper\">\n    \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">All Tickets</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <app-table-search [input]=\"ticketData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <a class=\"nav-link\" routerLink=\"create-ticket\"  mat-flat-button [color]=\"'primary'\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Create Ticket</span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of ticketListData$ | async | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"ticket-item\">\n\n                    <div class=\"d-flex\">\n\n                        <div>\n                            <h5>#{{item.ticketId}}</h5>\n                            <div class=\"ticket-others d-flex pt-3 align-items-center\">\n                                <div class=\"status-badge bg-status-{{getTicketStatus(item.ticketStatusId)}}-700\">\n                                    <span class=\"font-bold text-status-{{getTicketStatus(item.ticketStatusId)}}-900 text-uppercase\">{{item.ticketStatusId_Label}}</span>\n                                </div>\n                                <h6 class=\"text-secondary pl-3 \">{{item.title}}</h6>\n                            </div>\n                            <div class=\"d-flex pt-3\" *ngIf=\"isTicketPriortyLoaded\">\n                                <p class=\"priority\" [ngClass]=\"getPriority(item.ticketPriorityId_Label)\"></p>\n                                <p class=\"text-secondary text-smr font-medium text-capitalize\">{{item.ticketPriorityId_Label}}</p>\n                            </div>\n                        </div>\n\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editTicket(item.ticketId)\"></mat-icon>\n                        </div>\n\n                    </div>\n\n                    <div class=\"border-top ticket-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Ticket Created</p>\n                                <p class=\"right\">{{getDateTime(item.insertedOn)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Assigned to</p>\n                                <p class=\"right\">{{item.staffId_Label | nill}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Category</p>\n                                <p class=\"right text-capitalize\">{{item.ticketCategoryId_Label}}</p>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"totalItems != 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngIf=\"totalItems == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n\n        </ng-container>\n\n\n    </div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"helpdesk-user-ticket-list-wrapper\">\n    \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">{{'SERVICE.HELPDESK.VIEWTICKET.TITLE' | translate}}</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} {{'SERVICE.HELPDESK.VIEWTICKET.TOTALRESULTS' | translate}}</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <app-table-search [input]=\"ticketData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <a class=\"nav-link\" routerLink=\"create-ticket\"  mat-flat-button [color]=\"'primary'\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">{{'SERVICE.HELPDESK.VIEWTICKET.CREATETICKET' | translate}}</span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of ticketListData$ | async | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"ticket-item\">\n\n                    <div class=\"d-flex\">\n\n                        <div>\n                            <h5>#{{item.ticketId}}</h5>\n                            <div class=\"ticket-others d-flex pt-3 align-items-center\">\n                                <div class=\"status-badge bg-status-{{getTicketStatus(item.ticketStatusId)}}-700\">\n                                    <span class=\"font-bold text-status-{{getTicketStatus(item.ticketStatusId)}}-900 text-uppercase\">{{getTicketLabel(item.ticketStatusId_Label)}}</span>\n                                </div>\n                                <h6 class=\"text-secondary pl-3 \">{{item.title}}</h6>\n                            </div>\n                            <div class=\"d-flex pt-3\">\n                                <p class=\"priority\" [ngClass]=\"getPriority(item.ticketPriorityId_Label)\"></p>\n                                <p class=\"text-secondary text-smr font-medium text-capitalize\">{{getPriorityTranslate(item.ticketPriorityId_Label)}}</p>\n                            </div>\n                        </div>\n\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editTicket(item.ticketId)\"></mat-icon>\n                        </div>\n\n                    </div>\n\n                    <div class=\"border-top ticket-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'SERVICE.HELPDESK.VIEWTICKET.TICKETCREATED' | translate}}</p>\n                                <p class=\"right\">{{getDateTime(item.insertedOn)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'SERVICE.HELPDESK.VIEWTICKET.ASSIGNEDTO' | translate}}</p>\n                                <p class=\"right\">{{item.staffId_Label | nill}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'SERVICE.HELPDESK.VIEWTICKET.CATEGORY' | translate}}</p>\n                                <p class=\"right text-capitalize\">{{item.ticketCategoryId_Label}}</p>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"totalItems != 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngIf=\"totalItems == 0\">\n                <h6 class=\"text-secondary\">{{'SERVICE.HELPDESK.VIEWTICKET.NORESULTSFOUND' | translate}}</h6>\n            </div>\n\n        </ng-container>\n\n\n    </div>\n\n</div>";
       /***/
     },
 
@@ -1878,32 +1878,39 @@
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
       var HelpdeskUserTicketListComponent = /*#__PURE__*/function () {
-        function HelpdeskUserTicketListComponent(router, ticketService, sharedService, sessionService) {
+        function HelpdeskUserTicketListComponent(router, ticketService, sharedService, sessionService, translateService) {
           _classCallCheck(this, HelpdeskUserTicketListComponent);
 
           this.router = router;
           this.ticketService = ticketService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.isDataLoaded = false;
           this.ticketData = '';
           this.ItemStartIndex = 0;
           this.totalItems = 0;
           this.itemLimit = 10;
           this.fullticketDataList = [];
-          this.ticketDataList = new rxjs__WEBPACK_IMPORTED_MODULE_8__["BehaviorSubject"](null);
-          this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"]('');
+          this.ticketDataList = new rxjs__WEBPACK_IMPORTED_MODULE_9__["BehaviorSubject"](null);
+          this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]('');
         }
 
         _createClass(HelpdeskUserTicketListComponent, [{
@@ -1945,6 +1952,36 @@
           key: "getPriority",
           value: function getPriority(data) {
             if (data) return data.toLowerCase();else return '';
+          }
+        }, {
+          key: "getPriorityTranslate",
+          value: function getPriorityTranslate(label) {
+            if (label) {
+              var retLabel = "";
+              this.translateService.get('SERVICE.HELPDESK.VIEWTICKET.PRIORITY').subscribe(function (data) {
+                if (label == "High") retLabel = "".concat(data.HIGH);else if (label == "Low") retLabel = "".concat(data.LOW);else if (label == "Medium") retLabel = "".concat(data.MEDIUM);
+              });
+              return retLabel;
+            } else return '';
+          }
+        }, {
+          key: "getTicketLabel",
+          value: function getTicketLabel(label) {
+            var retLabel = "";
+            this.translateService.get('SERVICE.HELPDESK.VIEWTICKET.STATUS').subscribe(function (data) {
+              if (label == 'New') {
+                retLabel = "".concat(data.NEW);
+              } else if (label == 'Assigned - Inprogress') {
+                retLabel = "".concat(data.ASSIGNED);
+              } else if (label == 'Resolved') {
+                retLabel = "".concat(data.RESOLVED);
+              } else if (label == 'On Hold') {
+                retLabel = "".concat(data.ONHOLD);
+              } else if (label == 'Closed') {
+                retLabel = "".concat(data.CLOSED);
+              }
+            });
+            return retLabel;
           }
         }, {
           key: "getTicketList",
@@ -2029,6 +2066,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
         }];
       };
 
@@ -2041,7 +2080,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./helpdesk-user-ticket-list.component.scss */
         "./src/app/modules/common/helpdesk/helpdesk-ticket/helpdesk-user-ticket-list/helpdesk-user-ticket-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_3__["TicketService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], HelpdeskUserTicketListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_3__["TicketService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], HelpdeskUserTicketListComponent);
       /***/
     }
   }]);

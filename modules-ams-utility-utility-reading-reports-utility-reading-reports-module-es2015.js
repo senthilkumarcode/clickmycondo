@@ -161,8 +161,8 @@ let UtilityDetailsReadingsComponent = class UtilityDetailsReadingsComponent {
         this.isDataLoaded = true;
         const queryParamBase = {
             ApartmentID: this.sessionService.apartmentId,
-            StartDate: this.filterField.StartDate,
-            EndDate: this.filterField.EndDate,
+            StartDate: moment__WEBPACK_IMPORTED_MODULE_9__(this.filterField.StartDate).toISOString(),
+            EndDate: moment__WEBPACK_IMPORTED_MODULE_9__(this.filterField.EndDate).toISOString(),
             MeterIds: this.meterField.utilityMeterSetupId,
             MetergroupIDs: (this.meterField.meterGroupId).toString(),
             TypeIds: this.pageType == 'unit-details' ? 298 : 297
@@ -215,6 +215,7 @@ let UtilityDetailsReadingsComponent = class UtilityDetailsReadingsComponent {
                 text: 'Recorded By',
                 datafield: 'unitsRecordedby',
                 cellsrenderer: cellsrenderer,
+                width: 220,
                 renderer: columnrenderer
             }];
         let queryParamBase = {
@@ -547,6 +548,7 @@ let UtilityTotalReadingsDetailsComponent = class UtilityTotalReadingsDetailsComp
             }, {
                 text: 'Recorded By',
                 datafield: 'unitsRecordedby',
+                width: 250,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }];

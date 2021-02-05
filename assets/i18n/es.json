@@ -86,6 +86,27 @@
                 "SUBJECT": "Sujeta",
                 "DESCRIPTION": "Descripción",
                 "ADDCOMMENT": "Agregar comentario"
+            },
+            "VIEWTICKET": {
+                "TITLE": "Todas las entradas",
+                "TOTALRESULTS": "resultados",
+                "CREATETICKET": "Crear Ticket",
+                "TICKETCREATED": "Ticket creado",
+                "ASSIGNEDTO": "Asignado a",
+                "CATEGORY": "Categoría",
+                "NORESULTSFOUND": "No se han encontrado resultados",
+                "PRIORITY": {
+                    "HIGH": "Alta",
+                    "LOW": "Baja",
+                    "MEDIUM": "Medio"
+                },
+                "STATUS": {
+                    "NEW": "nueva",
+                    "ASSIGNED": "Asignada",
+                    "RESOLVED": "Resuelta",
+                    "ONHOLD": "En espera",
+                    "CLOSED": "Cerrada"
+                }
             }
         }
     },

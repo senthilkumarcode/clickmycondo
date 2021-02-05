@@ -87,8 +87,32 @@
                 "SUBJECT": "Subject",
                 "DESCRIPTION": "Description",
                 "ADDCOMMENT": "Add Comment"
+            },
+            "VIEWTICKET": {
+                "TITLE": "All Tickets",
+                "TOTALRESULTS": "results",
+                "CREATETICKET": "Create Ticket",
+                "TICKETCREATED": "Ticket Created",
+                "ASSIGNEDTO": "Assigned to",
+                "CATEGORY": "Category",
+                "NORESULTSFOUND": "No Results found",
+                "PRIORITY": {
+                    "HIGH": "High",
+                    "LOW": "Low",
+                    "MEDIUM": "Medium"
+                },
+                "STATUS": {
+                    "NEW": "New",
+                    "ASSIGNED": "Assigned - Inprogress",
+                    "RESOLVED": "Resolved",
+                    "ONHOLD": "On Hold",
+                    "CLOSED": "Closed"
+                }
             }
         }
+    },
+    "VISITOR": {
+
     },
     "PLACEHOLDER": {
         "TOWER": "Select Tower",
