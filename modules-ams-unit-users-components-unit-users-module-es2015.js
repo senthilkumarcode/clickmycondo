@@ -177,7 +177,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
         this.isTenantOrOwnerInfo = {};
     }
     clearAllField() {
-        const message = `Are you sure, you want to clear the data ?`;
+        const message = `Do you want to cancel user creation ?`;
         const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
         const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
             panelClass: 'material-dialog-medium',

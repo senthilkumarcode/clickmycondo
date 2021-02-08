@@ -7725,49 +7725,41 @@
           //         }
           //     });
           // }
+          // /**
+          //  * Change the event panel mode between view and edit
+          //  * mode while setting the event edit mode
+          //  *
+          //  * @param panelMode
+          //  * @param eventEditMode
+          //  */
+          // changeEventPanelMode(panelMode: CalendarEventPanelMode, eventEditMode: CalendarEventEditMode = 'single'): void
+          // {
+          //     // Set the panel mode
+          //     this.panelMode = panelMode;
+          //     // Set the event edit mode
+          //     this.eventEditMode = eventEditMode;
+          //     // Update the panel class
+          //     if ( panelMode === 'view' )
+          //     {
+          //         this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-edit']);
+          //         this._eventPanelOverlayRef.addPanelClass('panel-mode-view');
+          //     }
+          //     if ( panelMode === 'add' )
+          //     {
+          //         this._eventPanelOverlayRef.removePanelClass(['panel-mode-edit', 'panel-mode-view']);
+          //         this._eventPanelOverlayRef.addPanelClass('panel-mode-add');
+          //     }
+          //     if ( panelMode === 'edit' )
+          //     {
+          //         this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-view']);
+          //         this._eventPanelOverlayRef.addPanelClass('panel-mode-edit');
+          //     }
+          //     // Update the panel position
+          //     setTimeout(() => {
+          //         this._eventPanelOverlayRef.updatePosition();
+          //     });
+          // }
 
-          /**
-           * Change the event panel mode between view and edit
-           * mode while setting the event edit mode
-           *
-           * @param panelMode
-           * @param eventEditMode
-           */
-
-        }, {
-          key: "changeEventPanelMode",
-          value: function changeEventPanelMode(panelMode) {
-            var _this11 = this;
-
-            var eventEditMode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'single';
-            // Set the panel mode
-            this.panelMode = panelMode; // Set the event edit mode
-
-            this.eventEditMode = eventEditMode; // Update the panel class
-
-            if (panelMode === 'view') {
-              this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-edit']);
-
-              this._eventPanelOverlayRef.addPanelClass('panel-mode-view');
-            }
-
-            if (panelMode === 'add') {
-              this._eventPanelOverlayRef.removePanelClass(['panel-mode-edit', 'panel-mode-view']);
-
-              this._eventPanelOverlayRef.addPanelClass('panel-mode-add');
-            }
-
-            if (panelMode === 'edit') {
-              this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-view']);
-
-              this._eventPanelOverlayRef.addPanelClass('panel-mode-edit');
-            } // Update the panel position
-
-
-            setTimeout(function () {
-              _this11._eventPanelOverlayRef.updatePosition();
-            });
-          }
           /**
            * Get calendar by id
            *
@@ -7898,7 +7890,7 @@
         }, {
           key: "meetingCreatePopup",
           value: function meetingCreatePopup(event) {
-            var _this12 = this;
+            var _this11 = this;
 
             if (this.sessionService.isAdmin()) {
               var data = {
@@ -7916,7 +7908,7 @@
 
               dialogRef.afterClosed().subscribe(function (result) {
                 if (result) {
-                  _this12.getMeetingList();
+                  _this11.getMeetingList();
                 }
               });
             }
@@ -7924,7 +7916,7 @@
         }, {
           key: "meetingEditPopup",
           value: function meetingEditPopup() {
-            var _this13 = this;
+            var _this12 = this;
 
             if (this.sessionService.isAdmin()) {
               var data = {
@@ -7942,7 +7934,7 @@
 
               dialogRef.afterClosed().subscribe(function (result) {
                 if (result) {
-                  _this13.getMeetingList();
+                  _this12.getMeetingList();
                 }
               });
             }
@@ -7950,7 +7942,7 @@
         }, {
           key: "todoCreatePopup",
           value: function todoCreatePopup() {
-            var _this14 = this;
+            var _this13 = this;
 
             var data = {
               type: 'create'
@@ -7964,14 +7956,14 @@
 
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this14.getTodoList();
+                _this13.getTodoList();
               }
             });
           }
         }, {
           key: "todoEditPopup",
           value: function todoEditPopup() {
-            var _this15 = this;
+            var _this14 = this;
 
             var data = this.event;
             data['type'] = 'edit';
@@ -7984,7 +7976,7 @@
 
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this15.getTodoList();
+                _this14.getTodoList();
               }
             });
           }
@@ -8236,32 +8228,32 @@
         }, {
           key: "getMeetingList",
           value: function getMeetingList() {
-            var _this16 = this;
+            var _this15 = this;
 
             this.isDataLoaded = true;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.meetingService.getMeetingByApartmentId(params).subscribe(function (res) {
-              _this16.isDataLoaded = false;
+              _this15.isDataLoaded = false;
 
               if (Array.isArray(res) && res.length > 0) {
                 res.forEach(function (data) {
                   data.id = data.meetingId, data.title = data.subject, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.fromTime);
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.toTime);
                 });
-                _this16.events = res;
+                _this15.events = res;
               } else {
-                _this16.events = [];
+                _this15.events = [];
               }
 
-              _this16._changeDetectorRef.detectChanges();
+              _this15._changeDetectorRef.detectChanges();
 
-              _this16.afterView();
+              _this15.afterView();
             }, function (error) {
-              _this16.isDataLoaded = false;
+              _this15.isDataLoaded = false;
 
-              _this16.sharedService.openSnackBar('Server Error', 'error');
+              _this15.sharedService.openSnackBar('Server Error', 'error');
             });
           } //StaffAttendance List
 
@@ -8280,7 +8272,7 @@
         }, {
           key: "getStaffAttendaceList",
           value: function getStaffAttendaceList() {
-            var _this17 = this;
+            var _this16 = this;
 
             this.getStaffAttendaceListApi().subscribe(function (res) {
               if (Array.isArray(res) && res.length > 0) {
@@ -8288,7 +8280,38 @@
                   data.id = index, data.title = data.status, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.attendanceforDate).format('YYYY-MM-DD'));
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.attendanceforDate).format('YYYY-MM-DD'));
                 });
-                _this17.events = res;
+                _this16.events = res;
+              } else {
+                _this16.events = [];
+              }
+
+              _this16._changeDetectorRef.detectChanges();
+
+              _this16.afterView();
+            }, function (error) {
+              _this16.sharedService.openSnackBar('Server Error', 'error');
+            });
+          } // Todo List
+
+        }, {
+          key: "getTodoList",
+          value: function getTodoList() {
+            var _this17 = this;
+
+            this.isDataLoaded = true;
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              staffId: this.sessionService.staffId
+            };
+            this.todoService.getTodoListByStaffId(params).subscribe(function (resp) {
+              _this17.isDataLoaded = false;
+
+              if (Array.isArray(resp) && resp.length > 0) {
+                resp.forEach(function (data, i) {
+                  data.id = data.todoListId, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD'), " ").concat(data.fromTime);
+                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.finishOn).format('YYYY-MM-DD'), " ").concat(data.toTime);
+                });
+                _this17.events = resp;
               } else {
                 _this17.events = [];
               }
@@ -8297,40 +8320,9 @@
 
               _this17.afterView();
             }, function (error) {
+              _this17.isDataLoaded = false;
+
               _this17.sharedService.openSnackBar('Server Error', 'error');
-            });
-          } // Todo List
-
-        }, {
-          key: "getTodoList",
-          value: function getTodoList() {
-            var _this18 = this;
-
-            this.isDataLoaded = true;
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              staffId: this.sessionService.staffId
-            };
-            this.todoService.getTodoListByStaffId(params).subscribe(function (resp) {
-              _this18.isDataLoaded = false;
-
-              if (Array.isArray(resp) && resp.length > 0) {
-                resp.forEach(function (data, i) {
-                  data.id = data.todoListId, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD'), " ").concat(data.fromTime);
-                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.finishOn).format('YYYY-MM-DD'), " ").concat(data.toTime);
-                });
-                _this18.events = resp;
-              } else {
-                _this18.events = [];
-              }
-
-              _this18._changeDetectorRef.detectChanges();
-
-              _this18.afterView();
-            }, function (error) {
-              _this18.isDataLoaded = false;
-
-              _this18.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -8906,10 +8898,10 @@
            * Get calendars
            */
           value: function getCalendars() {
-            var _this19 = this;
+            var _this18 = this;
 
             return this._httpClient.get('api/apps/calendar/calendars').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this19._calendars.next(response);
+              _this18._calendars.next(response);
             }));
           }
           /**
@@ -8921,16 +8913,16 @@
         }, {
           key: "addCalendar",
           value: function addCalendar(calendar) {
-            var _this20 = this;
+            var _this19 = this;
 
             return this.calendars$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (calendars) {
-              return _this20._httpClient.post('api/apps/calendar/calendars', {
+              return _this19._httpClient.post('api/apps/calendar/calendars', {
                 calendar: calendar
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (addedCalendar) {
                 // Add the calendar
                 calendars.push(addedCalendar); // Update the calendars
 
-                _this20._calendars.next(calendars); // Return the added calendar
+                _this19._calendars.next(calendars); // Return the added calendar
 
 
                 return addedCalendar;
@@ -8947,10 +8939,10 @@
         }, {
           key: "updateCalendar",
           value: function updateCalendar(id, calendar) {
-            var _this21 = this;
+            var _this20 = this;
 
             return this.calendars$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (calendars) {
-              return _this21._httpClient.patch('api/apps/calendar/calendars', {
+              return _this20._httpClient.patch('api/apps/calendar/calendars', {
                 id: id,
                 calendar: calendar
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedCalendar) {
@@ -8961,7 +8953,7 @@
 
                 calendars[index] = updatedCalendar; // Update the calendars
 
-                _this21._calendars.next(calendars); // Return the updated calendar
+                _this20._calendars.next(calendars); // Return the updated calendar
 
 
                 return updatedCalendar;
@@ -8977,10 +8969,10 @@
         }, {
           key: "deleteCalendar",
           value: function deleteCalendar(id) {
-            var _this22 = this;
+            var _this21 = this;
 
             return this.calendars$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (calendars) {
-              return _this22._httpClient["delete"]('api/apps/calendar/calendars', {
+              return _this21._httpClient["delete"]('api/apps/calendar/calendars', {
                 params: {
                   id: id
                 }
@@ -8992,15 +8984,15 @@
 
                 calendars.splice(index, 1); // Update the calendars
 
-                _this22._calendars.next(calendars); // Remove the events belong to deleted calendar
+                _this21._calendars.next(calendars); // Remove the events belong to deleted calendar
 
 
-                var events = _this22._events.value.filter(function (event) {
+                var events = _this21._events.value.filter(function (event) {
                   return event.calendarId !== id;
                 }); // Update the events
 
 
-                _this22._events.next(events); // Return the deleted status
+                _this21._events.next(events); // Return the deleted status
 
 
                 return isDeleted;
@@ -9018,7 +9010,7 @@
         }, {
           key: "getEvents",
           value: function getEvents(start, end) {
-            var _this23 = this;
+            var _this22 = this;
 
             var replace = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
@@ -9039,17 +9031,17 @@
                 end: end.toISOString(true)
               }
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-              return _this23._events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (events) {
+              return _this22._events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (events) {
                 // If replace...
                 if (replace) {
                   // Execute the observable with the response replacing the events object
-                  _this23._events.next(response);
+                  _this22._events.next(response);
                 } // Otherwise...
                 else {
                     // If events is null, replace it with an empty array
                     events = events || []; // Execute the observable by appending the response to the current events
 
-                    _this23._events.next([].concat(_toConsumableArray(events), _toConsumableArray(response)));
+                    _this22._events.next([].concat(_toConsumableArray(events), _toConsumableArray(response)));
                   } // Return the response
 
 
@@ -9064,7 +9056,7 @@
         }, {
           key: "reloadEvents",
           value: function reloadEvents() {
-            var _this24 = this;
+            var _this23 = this;
 
             // Get the events
             return this._httpClient.get('api/apps/calendar/events', {
@@ -9074,7 +9066,7 @@
               }
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
               // Execute the observable with the response replacing the events object
-              _this24._events.next(response); // Return the response
+              _this23._events.next(response); // Return the response
 
 
               return response;
@@ -9143,14 +9135,14 @@
         }, {
           key: "addEvent",
           value: function addEvent(event) {
-            var _this25 = this;
+            var _this24 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this25._httpClient.post('api/apps/calendar/event', {
+              return _this24._httpClient.post('api/apps/calendar/event', {
                 event: event
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (addedEvent) {
                 // Update the events
-                _this25._events.next(events); // Return the added event
+                _this24._events.next(events); // Return the added event
 
 
                 return addedEvent;
@@ -9167,10 +9159,10 @@
         }, {
           key: "updateEvent",
           value: function updateEvent(id, event) {
-            var _this26 = this;
+            var _this25 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this26._httpClient.patch('api/apps/calendar/event', {
+              return _this25._httpClient.patch('api/apps/calendar/event', {
                 id: id,
                 event: event
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedEvent) {
@@ -9181,7 +9173,7 @@
 
                 events[index] = updatedEvent; // Update the events
 
-                _this26._events.next(events); // Return the updated event
+                _this25._events.next(events); // Return the updated event
 
 
                 return updatedEvent;
@@ -9214,10 +9206,10 @@
         }, {
           key: "deleteEvent",
           value: function deleteEvent(id) {
-            var _this27 = this;
+            var _this26 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this27._httpClient["delete"]('api/apps/calendar/event', {
+              return _this26._httpClient["delete"]('api/apps/calendar/event', {
                 params: {
                   id: id
                 }
@@ -9229,7 +9221,7 @@
 
                 events.splice(index, 1); // Update the events
 
-                _this27._events.next(events); // Return the deleted status
+                _this26._events.next(events); // Return the deleted status
 
 
                 return isDeleted;
@@ -9260,10 +9252,10 @@
         }, {
           key: "getSettings",
           value: function getSettings() {
-            var _this28 = this;
+            var _this27 = this;
 
             return this._httpClient.get('api/apps/calendar/settings').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this28._settings.next(response);
+              _this27._settings.next(response);
             }));
           }
           /**
@@ -9273,18 +9265,18 @@
         }, {
           key: "updateSettings",
           value: function updateSettings(settings) {
-            var _this29 = this;
+            var _this28 = this;
 
             return this.events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (events) {
-              return _this29._httpClient.patch('api/apps/calendar/settings', {
+              return _this28._httpClient.patch('api/apps/calendar/settings', {
                 settings: settings
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedSettings) {
                 // Update the settings
-                _this29._settings.next(settings); // Get weekdays again to get them in correct order
+                _this28._settings.next(settings); // Get weekdays again to get them in correct order
                 // in case the startWeekOn setting changes
 
 
-                _this29.getWeekdays().subscribe(); // Return the updated settings
+                _this28.getWeekdays().subscribe(); // Return the updated settings
 
 
                 return updatedSettings;
@@ -9298,10 +9290,10 @@
         }, {
           key: "getWeekdays",
           value: function getWeekdays() {
-            var _this30 = this;
+            var _this29 = this;
 
             return this._httpClient.get('api/apps/calendar/weekdays').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this30._weekdays.next(response);
+              _this29._weekdays.next(response);
             }));
           }
         }, {
@@ -9475,12 +9467,12 @@
         _createClass(CalendarRecurrenceComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this30 = this;
 
             // Get weekdays
             this._calendarService.weekdays$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["takeUntil"])(this._unsubscribeAll)).subscribe(function (weekdays) {
               // Store the weekdays
-              _this31.weekdays = weekdays;
+              _this30.weekdays = weekdays;
             }); // Initialize
 
 
@@ -9507,12 +9499,12 @@
 
             this.recurrenceForm.get('freq').valueChanges.subscribe(function (value) {
               // Set the end values
-              _this31._setEndValues(value);
+              _this30._setEndValues(value);
             }); // Subscribe to 'weekly.byDay' field value changes
 
             this.recurrenceForm.get('weekly.byDay').valueChanges.subscribe(function (value) {
               // Get the event's start date
-              var startDate = moment__WEBPACK_IMPORTED_MODULE_4__(_this31.data.event.start); // If nothing is selected, select the original value from
+              var startDate = moment__WEBPACK_IMPORTED_MODULE_4__(_this30.data.event.start); // If nothing is selected, select the original value from
               // the event form to prevent an empty value on the field
 
               if (!value || !value.length) {
@@ -9520,7 +9512,7 @@
                 var eventStartDay = startDate.format('dd').toUpperCase(); // Set the original value back without emitting a
                 // change event to prevent an infinite loop
 
-                _this31.recurrenceForm.get('weekly.byDay').setValue([eventStartDay], {
+                _this30.recurrenceForm.get('weekly.byDay').setValue([eventStartDay], {
                   emitEvent: false
                 });
               }
@@ -9886,7 +9878,7 @@
            * On init
            */
           value: function ngOnInit() {
-            var _this32 = this;
+            var _this31 = this;
 
             // Create the event form
             this.settingsForm = this._formBuilder.group({
@@ -9897,10 +9889,10 @@
 
             this._calendarService.settings$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (settings) {
               // Fill the settings form
-              _this32.settingsForm.patchValue(settings); // Mark for check
+              _this31.settingsForm.patchValue(settings); // Mark for check
 
 
-              _this32._changeDetectorRef.markForCheck();
+              _this31._changeDetectorRef.markForCheck();
             });
           }
           /**
@@ -9921,14 +9913,14 @@
         }, {
           key: "updateSettings",
           value: function updateSettings() {
-            var _this33 = this;
+            var _this32 = this;
 
             // Get the settings
             var settings = this.settingsForm.value; // Update the settings on the server
 
             this._calendarService.updateSettings(settings).subscribe(function (updatedSettings) {
               // Reset the form with the updated settings
-              _this33.settingsForm.reset(updatedSettings);
+              _this32.settingsForm.reset(updatedSettings);
             });
           }
         }, {
@@ -10120,7 +10112,7 @@
          * @param {ViewContainerRef} _viewContainerRef
          */
         function CalendarSidebarComponent(lookupService, staffService, sessionService, _calendarService, _overlay, _viewContainerRef, activateRouter, changeDetector, todoService) {
-          var _this34 = this;
+          var _this33 = this;
 
           _classCallCheck(this, CalendarSidebarComponent);
 
@@ -10144,7 +10136,7 @@
           this.calendarColors = src_app_modules_common_calendar_sidebar_calendar_colors__WEBPACK_IMPORTED_MODULE_6__["calendarColors"];
           this.calendarUpdated = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.activateRouter.parent.url.subscribe(function (data) {
-            _this34.urlType = data[0].path;
+            _this33.urlType = data[0].path;
           });
         } // -----------------------------------------------------------------------------------------------------
         // @ Lifecycle hooks
@@ -10158,7 +10150,7 @@
         _createClass(CalendarSidebarComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this34 = this;
 
             // // Get calendars
             // this._calendarService.calendars$
@@ -10174,13 +10166,13 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-                _this35.meetingCategoryList = res;
+                _this34.meetingCategoryList = res;
 
-                _this35.meetingCategoryList.forEach(function (data) {
+                _this34.meetingCategoryList.forEach(function (data) {
                   data.visible = true;
                 });
 
-                _this35.changeDetector.detectChanges();
+                _this34.changeDetector.detectChanges();
               });
             } else if (this.urlType == 'staff-calendar') {
               // Staff List
@@ -10190,10 +10182,10 @@
 
               };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-                _this35.staffsList = res;
-                _this35.selectedStaffId = _this35.sessionService.staffId;
+                _this34.staffsList = res;
+                _this34.selectedStaffId = _this34.sessionService.staffId;
 
-                _this35.changeDetector.detectChanges();
+                _this34.changeDetector.detectChanges();
 
                 setTimeout(function () {
                   var content = document.querySelector(".scroll");
@@ -10211,13 +10203,13 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.todoService.getAllTodoListCategorysByApartmentId(_params).subscribe(function (res) {
-                _this35.todoList = res;
+                _this34.todoList = res;
 
-                _this35.todoList.forEach(function (data) {
+                _this34.todoList.forEach(function (data) {
                   data.visible = true;
                 });
 
-                _this35.changeDetector.detectChanges();
+                _this34.changeDetector.detectChanges();
               });
             }
           }
@@ -10279,7 +10271,7 @@
         }, {
           key: "openEditPanel",
           value: function openEditPanel(calendar) {
-            var _this36 = this;
+            var _this35 = this;
 
             // Set the calendar
             this.calendar = lodash__WEBPACK_IMPORTED_MODULE_7__["cloneDeep"](calendar); // Create the overlay
@@ -10295,10 +10287,10 @@
 
             this._editPanelOverlayRef.backdropClick().subscribe(function () {
               // Close the edit panel
-              _this36.closeEditPanel(); // Set the calendar as null
+              _this35.closeEditPanel(); // Set the calendar as null
 
 
-              _this36.calendar = null;
+              _this35.calendar = null;
             }); // Attach the portal to the overlay
 
 
@@ -10365,27 +10357,27 @@
         }, {
           key: "saveCalendar",
           value: function saveCalendar(calendar) {
-            var _this37 = this;
+            var _this36 = this;
 
             // If there is no id on the calendar...
             if (!calendar.id) {
               // Add calendar to the server
               this._calendarService.addCalendar(calendar).subscribe(function () {
                 // Close the edit panel
-                _this37.closeEditPanel(); // Emit the calendarUpdated event
+                _this36.closeEditPanel(); // Emit the calendarUpdated event
 
 
-                _this37.calendarUpdated.emit();
+                _this36.calendarUpdated.emit();
               });
             } // Otherwise...
             else {
                 // Update the calendar on the server
                 this._calendarService.updateCalendar(calendar.id, calendar).subscribe(function () {
                   // Close the edit panel
-                  _this37.closeEditPanel(); // Emit the calendarUpdated event
+                  _this36.closeEditPanel(); // Emit the calendarUpdated event
 
 
-                  _this37.calendarUpdated.emit();
+                  _this36.calendarUpdated.emit();
                 });
               }
           }
@@ -10398,15 +10390,15 @@
         }, {
           key: "deleteCalendar",
           value: function deleteCalendar(calendar) {
-            var _this38 = this;
+            var _this37 = this;
 
             // Delete the calendar on the server
             this._calendarService.deleteCalendar(calendar.id).subscribe(function () {
               // Close the edit panel
-              _this38.closeEditPanel(); // Emit the calendarUpdated event
+              _this37.closeEditPanel(); // Emit the calendarUpdated event
 
 
-              _this38.calendarUpdated.emit();
+              _this37.calendarUpdated.emit();
             });
           }
         }]);

@@ -5737,36 +5737,40 @@ let CalendarComponent = class CalendarComponent {
     //         }
     //     });
     // }
-    /**
-     * Change the event panel mode between view and edit
-     * mode while setting the event edit mode
-     *
-     * @param panelMode
-     * @param eventEditMode
-     */
-    changeEventPanelMode(panelMode, eventEditMode = 'single') {
-        // Set the panel mode
-        this.panelMode = panelMode;
-        // Set the event edit mode
-        this.eventEditMode = eventEditMode;
-        // Update the panel class
-        if (panelMode === 'view') {
-            this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-edit']);
-            this._eventPanelOverlayRef.addPanelClass('panel-mode-view');
-        }
-        if (panelMode === 'add') {
-            this._eventPanelOverlayRef.removePanelClass(['panel-mode-edit', 'panel-mode-view']);
-            this._eventPanelOverlayRef.addPanelClass('panel-mode-add');
-        }
-        if (panelMode === 'edit') {
-            this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-view']);
-            this._eventPanelOverlayRef.addPanelClass('panel-mode-edit');
-        }
-        // Update the panel position
-        setTimeout(() => {
-            this._eventPanelOverlayRef.updatePosition();
-        });
-    }
+    // /**
+    //  * Change the event panel mode between view and edit
+    //  * mode while setting the event edit mode
+    //  *
+    //  * @param panelMode
+    //  * @param eventEditMode
+    //  */
+    // changeEventPanelMode(panelMode: CalendarEventPanelMode, eventEditMode: CalendarEventEditMode = 'single'): void
+    // {
+    //     // Set the panel mode
+    //     this.panelMode = panelMode;
+    //     // Set the event edit mode
+    //     this.eventEditMode = eventEditMode;
+    //     // Update the panel class
+    //     if ( panelMode === 'view' )
+    //     {
+    //         this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-edit']);
+    //         this._eventPanelOverlayRef.addPanelClass('panel-mode-view');
+    //     }
+    //     if ( panelMode === 'add' )
+    //     {
+    //         this._eventPanelOverlayRef.removePanelClass(['panel-mode-edit', 'panel-mode-view']);
+    //         this._eventPanelOverlayRef.addPanelClass('panel-mode-add');
+    //     }
+    //     if ( panelMode === 'edit' )
+    //     {
+    //         this._eventPanelOverlayRef.removePanelClass(['panel-mode-add', 'panel-mode-view']);
+    //         this._eventPanelOverlayRef.addPanelClass('panel-mode-edit');
+    //     }
+    //     // Update the panel position
+    //     setTimeout(() => {
+    //         this._eventPanelOverlayRef.updatePosition();
+    //     });
+    // }
     /**
      * Get calendar by id
      *

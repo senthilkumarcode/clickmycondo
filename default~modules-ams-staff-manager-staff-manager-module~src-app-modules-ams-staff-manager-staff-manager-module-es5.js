@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"associate-staff\">\n\t<div class=\"d-flex mb-4\">\n\t\t<div>\n\t\t\t<h4>Association Staff Title</h4>\n\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t</div>\n\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t</div>\n\t\t<div>\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addDepartmentName('staff','add',null)\">Add Job Title</button>\n\t\t</div> \n\t</div>\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t<mat-accordion *ngIf=\"isCategoryDataLoaded\">\n\t\t<mat-expansion-panel *ngFor=\" let depart of departmentList;let departIndex = index;let i = index\">\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<div class=\"d-flex justify-content-between depart-header\" (keydown)=\"handleSpacebar($event)\">\t\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex != i\"> \n\t\t\t\t\t\t\t\t<div>{{depart.name}}</div>\n\t\t\t\t\t\t\t\t<span class=\"dept-edit-icon\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 med-icon\"  [svgIcon]=\"'feather:edit'\" (click)=\"setCurrentdepartmentName(depart.name,i)\" ></mat-icon>\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex == i\">\n\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"cus-input\" placeholder=\"Enter Department\" name=\"department\" [(ngModel)]=\"depart.name\">\n\t\t\t\t\t\t\t\t<mat-icon  class=\"ml-1 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"{'custom-icon-disabled' : !depart.name }\" (click)=\"updateDepartmentName(depart)\"></mat-icon>\n\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeDepartment()\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<mat-icon class=\"med-icon mr-2\" [svgIcon]=\"'feather:edit'\"  (click)=\"addDepartmentName('staff','edit',depart)\" ></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"text-warn med-icon\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteDepartment(depart.id)\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<div class=\"text-red-500\" *ngIf=\"depart.subCategory.length == 0\">Job Title Not Found</div>\n\t\t\t\t<div class=\"d-flex justify-content-between mb-2\" *ngFor=\"let sub  of depart.subCategory;let subIndex = index\">\t\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<div class=\" d-flex mr-2\" *ngIf=\"currSubIndex != subIndex\">\n\t\t\t\t\t\t\t<mat-icon class=\"sub-arrow-icon\" svgIcon=\"heroicons_solid:arrow-circle-right\"></mat-icon>\n\t\t\t\t\t\t\t<p class=\"ml-2\">{{sub.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<input  *ngIf=\"currSubIndex == subIndex\"  type=\"text\"  class=\"cus-input\" placeholder=\"Enter SubCategory\" name=\"subcategory\" [(ngModel)]=\"sub.name\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<mat-icon *ngIf=\"currSubIndex != subIndex\" class=\"med-icon\" [svgIcon]=\"'feather:edit'\"  (click)=\"editSub(subIndex)\" ></mat-icon>\n\n\t\t\t\t\t\t<span class=\"d-flex\" *ngIf=\"currSubIndex == subIndex\">\n\t\t\t\t\t\t\t<mat-icon  class=\"pt-1 med-icon\" svgIcon=\"mat_outline:save\"  (click)=\"updateSubCategory(depart)\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1 med-icon\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeSubCategory()\"></mat-icon>\t\t\t\t\t\t\n\t\t\t\t\t\t</span>\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t</mat-accordion>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"associate-staff\">\n\t<div class=\"d-flex mb-4\">\n\t\t<div>\n\t\t\t<h4>Add Department &  Job Title</h4>\n\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t</div>\n\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t</div>\n\t\t<div>\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addDepartmentName('staff','add',null)\">Add Job Title</button>\n\t\t</div> \n\t</div>\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t<mat-accordion *ngIf=\"isCategoryDataLoaded\">\n\t\t<mat-expansion-panel *ngFor=\" let depart of departmentList;let departIndex = index;let i = index\">\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<div class=\"d-flex justify-content-between depart-header\" (keydown)=\"handleSpacebar($event)\">\t\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex != i\"> \n\t\t\t\t\t\t\t\t<div>{{depart.name}}</div>\n\t\t\t\t\t\t\t\t<span class=\"dept-edit-icon\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 med-icon\"  [svgIcon]=\"'feather:edit'\" (click)=\"setCurrentdepartmentName(depart.name,i)\" ></mat-icon>\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex == i\">\n\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"cus-input\" placeholder=\"Enter Department\" name=\"department\" [(ngModel)]=\"depart.name\">\n\t\t\t\t\t\t\t\t<mat-icon  class=\"ml-1 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"{'custom-icon-disabled' : !depart.name }\" (click)=\"updateDepartmentName(depart)\"></mat-icon>\n\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeDepartment()\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<mat-icon class=\"med-icon mr-2\" [svgIcon]=\"'feather:edit'\"  (click)=\"addDepartmentName('staff','edit',depart)\" ></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"text-warn med-icon\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteDepartment(depart.id)\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<div class=\"text-red-500\" *ngIf=\"depart.subCategory.length == 0\">Job Title Not Found</div>\n\t\t\t\t<div class=\"d-flex justify-content-between mb-2\" *ngFor=\"let sub  of depart.subCategory;let subIndex = index\">\t\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<div class=\" d-flex mr-2\" *ngIf=\"currSubIndex != subIndex\">\n\t\t\t\t\t\t\t<mat-icon class=\"sub-arrow-icon\" svgIcon=\"heroicons_solid:arrow-circle-right\"></mat-icon>\n\t\t\t\t\t\t\t<p class=\"ml-2\">{{sub.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<input  *ngIf=\"currSubIndex == subIndex\"  type=\"text\"  class=\"cus-input\" placeholder=\"Enter SubCategory\" name=\"subcategory\" [(ngModel)]=\"sub.name\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<mat-icon *ngIf=\"currSubIndex != subIndex\" class=\"med-icon\" [svgIcon]=\"'feather:edit'\"  (click)=\"editSub(subIndex)\" ></mat-icon>\n\n\t\t\t\t\t\t<span class=\"d-flex\" *ngIf=\"currSubIndex == subIndex\">\n\t\t\t\t\t\t\t<mat-icon  class=\"pt-1 med-icon\" svgIcon=\"mat_outline:save\"  (click)=\"updateSubCategory(depart)\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1 med-icon\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeSubCategory()\"></mat-icon>\t\t\t\t\t\t\n\t\t\t\t\t\t</span>\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t</mat-accordion>\n</div>";
       /***/
     },
 
@@ -1895,6 +1895,7 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "staffManagerId": data.staffManagerId,
                 "isActive": true,
+                "isNew": true,
                 "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": this.sessionService.userId,
@@ -3477,8 +3478,8 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.navArray = [{
-              link: 'association',
-              name: 'Association'
+              link: 'department',
+              name: 'Department'
             }, {
               link: 'personal',
               name: 'Personal'
@@ -4006,10 +4007,10 @@
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: '',
-          redirectTo: 'association',
+          redirectTo: 'department',
           pathMatch: 'full'
         }, {
-          path: 'association',
+          path: 'department',
           component: _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_11__["AssociateStaffComponent"],
           canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
@@ -4018,7 +4019,7 @@
           canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
-          redirectTo: 'association',
+          redirectTo: 'department',
           pathMatch: 'full'
         }]
       }, {

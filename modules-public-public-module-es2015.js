@@ -3057,7 +3057,8 @@ let LoginComponent = class LoginComponent {
             password: this.loginForm.value.password,
             emailId: this.loginForm.value.email
         };
-        this.authService.login(params).subscribe((res) => {
+        console.log(this.loginForm);
+        this.authService.login(params, this.loginForm.value.rememberMe).subscribe((res) => {
             if (!res.errorMessage) {
                 this.sessionService.user(res);
             }

@@ -4734,7 +4734,8 @@
               password: this.loginForm.value.password,
               emailId: this.loginForm.value.email
             };
-            this.authService.login(params).subscribe(function (res) {
+            console.log(this.loginForm);
+            this.authService.login(params, this.loginForm.value.rememberMe).subscribe(function (res) {
               if (!res.errorMessage) {
                 _this10.sessionService.user(res);
               } else {
