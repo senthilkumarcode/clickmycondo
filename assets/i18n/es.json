@@ -110,6 +110,133 @@
             }
         }
     },
+    "VISITOR": {
+        "CREATEVISITOR": {
+            "CREATETITLE": "Crear visitante esperado",
+            "EDITTITLE": "Editar visitante esperado",
+            "EXPECTEDVISITTYPE": "Tipo de visita esperada",
+            "EXPECTEDVISITORNAME": "Nombre del visitante esperado",
+            "EXPECTEDVISITORCOUNT": "Recuento esperado de visitantes",
+            "EXPECTEDMOBILENO": "Número de teléfono / móvil esperado",
+            "EXPECTEDVISITDATETIME": "Fecha / hora prevista de la visita",
+            "EXPECTEDVISITOUTTIME": "Hora prevista de salida / visita",
+            "EXPECTEDDURATIONVISIT": "Duración prevista de la visita",
+            "EXPECTEDVISITCATEGORY": "Categoría de visita esperada",
+            "REASONFORVISIT":"Razón de la visita",
+            "TOWERNO": "Torre No",
+            "UNITNO": "Numero de unidad",
+            "PRIMARYNAME": "Nombre principal",
+            "STAFF": "Personal"
+        },
+        "EXPECTEDVISITORS": {
+            "TITLE": "Visitantes esperados",
+            "EXPECTEDIN": "Esperado EN",
+            "EXPECTEDOUT": "Esperado FUERA",
+            "VISITTYPE": "Tipo de visita",
+            "TOTALRESULTS": "resultados",
+            "NORESULTS": "resultados",
+            "PASSID": "ID de pase"
+        },
+        "FREQUENTVISITOR": {
+            "TITLE": "Crear visitante frecuente",
+            "FREQUENTVISITORNAME": "Nombre del visitante frecuente",
+            "FREQUENTVISITORCOUNT": "Recuento de visitantes frecuentes",
+            "FREQUENTMOBILENO": "Teléfono / Móvil frecuente No",
+            "FREQUENTVISITCATEGORY": "Categoría de visita frecuente",
+            "REASONFORVISIT": "Razón de la visita",
+            "VENDORPASS": "Pase de vendedor",
+            "EXPECTEDVISITTYPE": "Tipo de visita esperada",
+            "TOWERNO": "Torre No",
+            "UNITNO": "Numero de unidad",
+            "PRIMARYNAME": "Nombre principal",
+            "STAFF": "Personal",
+            "VISITORNAME": "Nombre del visitante",
+            "VISITORCOUNT": "Número de visitantes",
+            "MOBILENO": "Teléfono / Móvil No",
+            "TIMEOFVISIT": "Hora de la visita",
+            "OUTTIME": "Fuera de tiempo",
+            "VISITCATEGORY": "Visitar categoría",
+            "FREQUENTVISITOR": "Visitante frecuente",
+            "CREATEBTNNAME": "Crear otra visitante frecuente",
+            "VIEWBTNNAME": "Ver lista de visitantes frecuentes",
+            "CREATEVENDORBTN": "Crear otro pase de proveedor",
+            "VIEWVENDORBTN": "Ver lista de pases de proveedores",
+            "EXPECTEDVISITORNAME": "Visitante esperada",
+            "CREATEANOTHEREXPECTEDVISITOR": "Crear otra visitante esperada",
+            "VIEWEXPECTEDVISITOR": "Ver lista de visitantes esperadas"
+        },
+        "FREQUENTVISITORLIST": {
+            "TITLE": "Lista de visitantes frecuentes",
+            "VENDORPASSLIST": "Lista de pases de proveedores",
+            "TOTALRESULTS": "resultados",
+            "NORESULTS": "No se han encontrado resultados",
+            "PASSID": "ID de pase",
+            "EXPECTEDIN": "Esperado EN",
+            "EXPECTEDOUT": "Esperado FUERA",
+            "VISITTYPE": "Tipo de visita",
+            "TOWERUNIT": "Torre & unidad"
+
+        },
+        "CURRENTLYCHECKEDIN": {
+            "TITLE": "Actualmente registrado",
+            "TOTALRESULTS": "resultados",
+            "NORESULTS": "No se han encontrado resultados",
+            "PASSID": "ID de pase",
+            "INTIME": "A tiempo",
+            "EXPECTEDOUT": "Esperado",
+            "VISITTYPE": "Tipo de visita",
+            "TOWERUNIT": "Torre & unidad"
+        },
+        "EXPECTEDVISITORUSER": {
+            "CHECKEDINTITLE": "Actualmente registrado",
+            "HISTORYTITLE": "Historial de visitantes"
+        },
+        "VISITORSHISTORY": {
+            "TITLE": "Historia de los visitante",
+            "TOTALRESULTS": "resultados"
+        }
+    },
+    "FACILITY": {
+        "CREATEBOOKING": {
+            "CREATETITLE": "Crear reserva",
+            "EDITTITLE": "Editar reserva",
+            "VIEWTITLE": "Ver reserva",
+            "BOOKINGFOR": "Reserva para",
+            "GUEST": "Invitada",
+            "USER": "Usuaria",
+            "FACILITYDETAILS": "Detalles de la instalación",
+            "FACILITYNAME": "Nombre de la instalación",
+            "DATE": "Seleccione fecha",
+            "SLOT": "Seleccionar ranura",
+            "FROMTIME": "De vez",
+            "TOTIME": "Al tiempo",
+            "ENTERMIN": "Ingrese Min",
+            "HOURSORMAX": "Horas o Max",
+            "HOURS": "Horas",
+            "EVENTNAME": "Nombre del evento",
+            "BOOKINGDETAILS": "Detalles de la reserva",
+            "SECURITYAMOUNT": "Monto de seguridad",
+            "BOOKINGPERAMOUNT": "Monto de reserva por",
+            "COST": "Costo",
+            "TAX": "Impuesto",
+            "DISCOUNTAMOUNT": "Importe de descuento",
+            "MEMBERSHIPDISCOUNT": "Descuento de membresía",
+            "FINALBOOKINGAMOUNT": "Importe final de la reserva",
+            "UNITRESIDENTDETAILS": "Detalles de la residente de la unidad",
+            "TOWERNO": "Torre No",
+            "UNITNO": "Numero de unidad",
+            "PRIMARYNAME": "Nombre principal",
+            "GUESTDETAILS": "Detalles de la invitada",
+            "GUESTNAME": "Nombre del invitado",
+            "GUESTPHONE": "Teléfono de invitado",
+            "RELATIONSHIPGUEST": "Relación con la invitada",
+            "GUESTATTEND": "No de invitados para asistir",
+            "CREATEVISITORPASS": "Crear pase de visitante",
+            "VISITORPASS": "Pase de visitante",
+            "STATUS": "Estado",
+            "COMMENT": "Comentario"
+        }
+    },
     "PLACEHOLDER": {
         "TOWER": "Seleccionar torre",
         "UNIT": "Seleccionar unidad",
@@ -121,7 +248,31 @@
         "STATUS": "Seleccionar estado",
         "TEXT": "Ingrese texto",
         "DESCRIPTION": "Ingrese descripción",
-        "SOMETEXT": "algo de texto aquí"
+        "SOMETEXT": "algo de texto aquí",
+        "VISITORNAME": "Nombre del visitante",
+        "VISITORCOUNT": "Número de visitantes",
+        "DURATIONINFO": "Información de duración",
+        "ENTERPURPOSE": "Ingrese el propósito",
+        "VISIT": "Seleccionar visita",
+        "PRIMARYNAME": "Nombre principal",
+        "STAFF": "Seleccionar personal",
+        "FACILITYNAME": "Seleccione el nombre de la instalación",
+        "EVENTNAME": "Nombre del evento",
+        "SECURITYAMOUNT": "Monto de seguridad",
+        "AMOUNT": "Cantidad",
+        "COST": "Costo",
+        "TAX": "Impuesto",
+        "DISCOUNT": "Descuento",
+        "MEMBERSHIPDISCOUNT": "Descuento de envío",
+        "TOTAL": "Total",
+        "GUESTNAME": "Nombre del invitado",
+        "GUESTPHONE": "Teléfono de invitado",
+        "RELATIONSHIPGUEST": "Relación con la invitada",
+        "GUESTATTEND": "No de invitados para asistir",
+        "VISITORPASS": "Pase de visitante",
+        "ENTERCOMMENT": "Ingresar comentario",
+        "T&C": "Términos y Condiciones"
+
     },
     "BUTTONS": {
         "CHANGEBUTTON": "Cambio",
@@ -130,7 +281,9 @@
         "CLEARBUTTON": "Clara",
         "UPDATEBUTTON": "Actualizar",
         "BACKBUTTON": "atrás",
-        "ADDCOMMENT": "Agregar comentario"
+        "ADDCOMMENT": "Agregar comentario",
+        "CANCELBUTTON": "Cancelar",
+        "EXPECTEDVISITOR": "Visitante esperada"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",
@@ -143,5 +296,12 @@
         "YES": "si",
         "NO": "No",
         "OK": "Okay"
+    },
+    "HYPERLINK": {
+        "APPROVE": "Aprobar",
+        "REJECT": "Rechazar",
+        "CANCEL": "Cancelar",
+        "EDIT": "Editar",
+        "VIEW": "Ver"
     }
 }

@@ -110,6 +110,133 @@
             }
         }
     },
+    "VISITOR": {
+        "CREATEVISITOR": {
+            "CREATETITLE": "สร้างผู้เยี่ยมชมที่คาดหวัง",
+            "EDITTITLE": "แก้ไขผู้เยี่ยมชมที่คาดหวัง",
+            "EXPECTEDVISITTYPE": "ประเภทการเยี่ยมชมที่คาดหวัง",
+            "EXPECTEDVISITORNAME": "ชื่อผู้เยี่ยมชมที่คาดหวัง",
+            "EXPECTEDVISITORCOUNT": "จำนวนผู้เข้าชมที่คาดหวัง",
+            "EXPECTEDMOBILENO": "หมายเลขโทรศัพท์ / มือถือที่คาดไว้",
+            "EXPECTEDVISITDATETIME": "วันที่ / เวลาเข้าชมที่คาดไว้",
+            "EXPECTEDVISITOUTTIME": "คาดว่าจะหมด / เวลาเยี่ยมชม",
+            "EXPECTEDDURATIONVISIT": "ระยะเวลาการเยี่ยมชมที่คาดไว้",
+            "EXPECTEDVISITCATEGORY": "ประเภทการเยี่ยมชมที่คาดหวัง",
+            "REASONFORVISIT":"เหตุผลในการเยี่ยมชม",
+            "TOWERNO": "ทาวเวอร์เลขที่",
+            "UNITNO": "เลขที่หน่วย",
+            "PRIMARYNAME": "ชื่อหลัก",
+            "STAFF": "เจ้าหน้าที่"
+        },
+        "EXPECTEDVISITORS": {
+            "TITLE": "ผู้เยี่ยมชมที่คาดหวัง",
+            "EXPECTEDIN": "คาดว่า IN",
+            "EXPECTEDOUT": "คาดว่าจะออก",
+            "VISITTYPE": "ประเภทการเยี่ยมชม",
+            "TOTALRESULTS": "ผล",
+            "NORESULTS": "ไม่พบผลลัพธ์",
+            "PASSID": "รหัสผ่าน"
+        },
+        "FREQUENTVISITOR": {
+            "TITLE": "สร้างผู้เข้าชมบ่อย",
+            "FREQUENTVISITORNAME": "ชื่อผู้เยี่ยมชมบ่อย",
+            "FREQUENTVISITORCOUNT": "จำนวนผู้เข้าชมบ่อย",
+            "FREQUENTMOBILENO": "หมายเลขโทรศัพท์ / มือถือที่ใช้บ่อย",
+            "FREQUENTVISITCATEGORY": "ประเภทการเยี่ยมชมบ่อย",
+            "REASONFORVISIT": "เหตุผลในการเยี่ยมชม",
+            "VENDORPASS": "Vendor Pass",
+            "EXPECTEDVISITTYPE": "ประเภทการเยี่ยมชมที่คาดหวัง",
+            "TOWERNO": "ทาวเวอร์เลขที่",
+            "UNITNO": "เลขที่หน่วย",
+            "PRIMARYNAME": "ชื่อหลัก",
+            "STAFF": "เจ้าหน้าที่",
+            "VISITORNAME": "ชื่อผู้เยี่ยมชม",
+            "VISITORCOUNT": "จำนวนผู้เข้าชม",
+            "MOBILENO": "เบอร์โทรศัพท์ / มือถือ",
+            "TIMEOFVISIT": "เวลาเข้าชม",
+            "OUTTIME": "นอกเวลา",
+            "VISITCATEGORY": "ไปที่หมวดหมู่",
+            "FREQUENTVISITOR": "ผู้เยี่ยมชมบ่อย",
+            "CREATEBTNNAME": "สร้างผู้เข้าชมบ่อยอีกคน",
+            "VIEWBTNNAME": "ดูรายชื่อผู้เยี่ยมชมบ่อย",
+            "CREATEVENDORBTN": "สร้างรหัสผ่านผู้ขายอื่น",
+            "VIEWVENDORBTN": "ดูรายชื่อผู้จำหน่ายบัตร",
+            "EXPECTEDVISITORNAME": "ผู้เยี่ยมชมที่คาดหวัง",
+            "CREATEANOTHEREXPECTEDVISITOR": "สร้างผู้เยี่ยมชมที่คาดหวังอีกราย",
+            "VIEWEXPECTEDVISITOR": "ดูรายชื่อผู้เยี่ยมชมที่คาดหวัง"
+        },
+        "FREQUENTVISITORLIST": {
+            "TITLE": "รายชื่อผู้เยี่ยมชมบ่อย",
+            "VENDORPASSLIST": "รายชื่อผู้ขาย Pass",
+            "TOTALRESULTS": "ผล",
+            "NORESULTS": "ไม่พบผลลัพธ์",
+            "PASSID": "รหัสผ่าน",
+            "EXPECTEDIN": "คาดว่า IN",
+            "EXPECTEDOUT": "คาดว่าจะออก",
+            "VISITTYPE": "ประเภทการเยี่ยมชม",
+            "TOWERUNIT": "ทาวเวอร์แอนด์ยูนิต"
+
+        },
+        "CURRENTLYCHECKEDIN": {
+            "TITLE": "เช็คอินแล้ว",
+            "TOTALRESULTS": "ผล",
+            "NORESULTS": "ไม่พบผลลัพธ์",
+            "PASSID": "รหัสผ่าน",
+            "INTIME": "ภายในเวลาที่กำหนด",
+            "EXPECTEDOUT": "คาดว่าจะออก",
+            "VISITTYPE": "ประเภทการเยี่ยมชม",
+            "TOWERUNIT": "ทาวเวอร์แอนด์ยูนิต"
+        },
+        "EXPECTEDVISITORUSER": {
+            "CHECKEDINTITLE": "เช็คอินแล้ว",
+            "HISTORYTITLE": "ประวัติผู้เยี่ยมชม"
+        },
+        "VISITORSHISTORY": {
+            "TITLE": "ประวัติผู้เยี่ยมชม",
+            "TOTALRESULTS": "ผล"
+        }
+    },
+    "FACILITY": {
+        "CREATEBOOKING": {
+            "CREATETITLE": "สร้างการจอง",
+            "EDITTITLE": "แก้ไขการจอง",
+            "VIEWTITLE": "ดูการจอง",
+            "BOOKINGFOR": "จองสำหรับ",
+            "GUEST": "บุคคลทั่วไป",
+            "USER": "ผู้ใช้",
+            "FACILITYDETAILS": "รายละเอียดสิ่งอำนวยความสะดวก",
+            "FACILITYNAME": "ชื่อสถานที่",
+            "DATE": "เลือกวันที่",
+            "SLOT": "เลือกช่อง",
+            "FROMTIME": "จากเวลา",
+            "TOTIME": "ถึงเวลา",
+            "ENTERMIN": "กรุณากรอกขั้นต่ำ",
+            "HOURSORMAX": "ชั่วโมงหรือสูงสุด",
+            "HOURS": "ชั่วโมง",
+            "EVENTNAME": "ชื่อเหตุการณ์",
+            "BOOKINGDETAILS": "รายละเอียดการจอง",
+            "SECURITYAMOUNT": "จำนวนความปลอดภัย",
+            "BOOKINGPERAMOUNT": "ยอดจองต่อ",
+            "COST": "ค่าใช้จ่าย",
+            "TAX": "ภาษี",
+            "DISCOUNTAMOUNT": "จำนวนส่วนลด",
+            "MEMBERSHIPDISCOUNT": "ส่วนลดสำหรับสมาชิก",
+            "FINALBOOKINGAMOUNT": "ยอดจองสุดท้าย",
+            "UNITRESIDENTDETAILS": "รายละเอียดที่อยู่อาศัยของหน่วย",
+            "TOWERNO": "ทาวเวอร์เลขที่",
+            "UNITNO": "เลขที่หน่วย",
+            "PRIMARYNAME": "ชื่อหลัก",
+            "GUESTDETAILS": "รายละเอียดแขก",
+            "GUESTNAME": "ชื่อแขก",
+            "GUESTPHONE": "โทรศัพท์สำหรับแขก",
+            "RELATIONSHIPGUEST": "ความสัมพันธ์กับแขก",
+            "GUESTATTEND": "ไม่มีแขกเข้าร่วม",
+            "CREATEVISITORPASS": "สร้าง Visitor Pass",
+            "VISITORPASS": "Visitor Pass",
+            "STATUS": "สถานะ",
+            "COMMENT": "แสดงความคิดเห็น"
+        }
+    },
     "PLACEHOLDER": {
         "TOWER": "เลือกทาวเวอร์",
         "UNIT": "เลือกหน่วย",
@@ -121,7 +248,30 @@
         "STATUS": "เลือกสถานะ",
         "TEXT": "ป้อนข้อความ",
         "DESCRIPTION": "ป้อนคำอธิบาย",
-        "SOMETEXT": "ข้อความบางส่วนที่นี่"
+        "SOMETEXT": "ข้อความบางส่วนที่นี่",
+        "VISITORNAME": "ชื่อผู้เยี่ยมชม",
+        "VISITORCOUNT": "จำนวนผู้เข้าชม",
+        "DURATIONINFO": "ข้อมูลระยะเวลา",
+        "ENTERPURPOSE": "ใส่วัตถุประสงค์",
+        "VISIT": "เลือกเยี่ยมชม",
+        "PRIMARYNAME": "ชื่อหลัก",
+        "STAFF": "เลือกพนักงาน",
+        "FACILITYNAME": "เลือกชื่อสถานที่",
+        "EVENTNAME": "ชื่อเหตุการณ์",
+        "SECURITYAMOUNT": "จำนวนความปลอดภัย",
+        "AMOUNT": "จำนวน",
+        "COST": "ค่าใช้จ่าย",
+        "TAX": "ภาษี",
+        "DISCOUNT": "ส่วนลด",
+        "MEMBERSHIPDISCOUNT": "ส่วนลด MemberShip",
+        "TOTAL": "รวม",
+        "GUESTNAME": "ชื่อแขก",
+        "GUESTPHONE": "โทรศัพท์สำหรับแขก",
+        "RELATIONSHIPGUEST": "ความสัมพันธ์กับแขก",
+        "GUESTATTEND": "ไม่มีแขกเข้าร่วม",
+        "VISITORPASS": "Visitor Pass",
+        "ENTERCOMMENT": "ป้อนความคิดเห็น",
+        "T&C": "ข้อกำหนดและเงื่อนไข"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "เปลี่ยน",
@@ -130,7 +280,9 @@
         "CLEARBUTTON": "ชัดเจน",
         "UPDATEBUTTON": "อัปเดต",
         "BACKBUTTON": "กลับ",
-        "ADDCOMMENT": "เพิ่มความเห็น"
+        "ADDCOMMENT": "เพิ่มความเห็น",
+        "CANCELBUTTON": "ยกเลิก",
+        "EXPECTEDVISITOR": "ผู้เยี่ยมชมที่คาดหวัง"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",
@@ -143,5 +295,12 @@
         "YES": "ใช่",
         "NO": "ไม่",
         "OK": "ตกลง"
+    },
+    "HYPERLINK": {
+        "APPROVE": "อนุมัติ",
+        "REJECT": "ปฏิเสธ",
+        "CANCEL": "ยกเลิก",
+        "EDIT": "แก้ไข",
+        "VIEW": "ดู"
     }
 }

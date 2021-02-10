@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlGroup()\" *ngIf=\"type == 'add'\" #addGroupElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Group\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlGroup()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addGroupElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glGroupPanel>\n\t\t\n\t<div class=\"bg-card popover-card p-4\">\n\n\t\t<app-loader *ngIf=\"!isGroupAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isGroupAdded\">\n\t\t\t\n\t\t\t<form #addGlGroupForm = \"ngForm\" name=\"addGlGroupForm\" (ngSubmit)=\"submitGLGroupForm(addGlGroupForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} Gl No*</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"glnumber\" [(ngModel)]=\"gl.glnumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glName\" [(ngModel)]=\"gl.name\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button  *ngIf=\"isCreateGroup()\" mat-flat-button [color]=\"'primary'\">Create</button>\n\t\t\t\t\t\t<button  *ngIf=\"!isCreateGroup()\" mat-button>Update</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlGroup()\" *ngIf=\"type == 'add'\" #addGroupElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Group\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlGroup()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addGroupElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glGroupPanel>\n\t\t\n\t<div class=\"bg-card popover-card p-4\">\n\n\t\t<app-loader *ngIf=\"!isGroupAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isGroupAdded\">\n\t\t\t\n\t\t\t<form #addGlGroupForm = \"ngForm\" name=\"addGlGroupForm\" (ngSubmit)=\"submitGLGroupForm(addGlGroupForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} Gl No*</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"glnumber\" [(ngModel)]=\"gl.glnumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glName\" [(ngModel)]=\"gl.name\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t\t\t<button  *ngIf=\"isCreateGroup()\" mat-flat-button [color]=\"'primary'\">Create</button>\n\t\t\t\t\t\t\t<button  *ngIf=\"!isCreateGroup()\" mat-flat-button  [color]=\"'primary'\">Update</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Asset Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">Asset GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t\t<app-add-gl-group type=\"edit\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" [glgroupId]=\"group.glgroupId\"></app-add-gl-group>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(group.glgroupId)\"><mat-icon class=\"delete\" svgIcon=\"feather:trash\"></mat-icon></a>\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t\t<span class=\"dots rt-3\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Asset Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">Asset GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Equity Member Fund Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity Member Fund\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Equity GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>    \n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t  \t<app-add-gl-group type=\"edit\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity-Member Fund\" [glgroupId]=\"group.glnumber\"></app-add-gl-group>\n\t\t\t\t\t\t  <a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(group.glgroupId)\"><mat-icon class=\"delete\" svgIcon=\"feather:trash\"></mat-icon></a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t  <span class=\"dots rt-3\"></span>\n\t\t\t\t\t  </a>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Equity Member Fund Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity Member Fund\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Equity GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>    \n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity-Member Fund\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>\n");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Expense Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Expense GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" [glgroupId]=\"group.glnumber\"></app-add-gl-group>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(group.glgroupId)\"><mat-icon class=\"delete\" svgIcon=\"feather:trash\"></mat-icon></a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t  <span class=\"dots rt-3\"></span>\n\t\t\t\t\t  </a>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Expense Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Expense GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Income Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Income GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" [glgroupId]=\"group.glnumber\"></app-add-gl-group>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(group.glgroupId)\"><mat-icon class=\"delete\" svgIcon=\"feather:trash\"></mat-icon></a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t  <span class=\"dots rt-3\"></span>\n\t\t\t\t\t  </a>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Income Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Income GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Liablilities Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Liablilities\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Liablilities GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" [accountTypeId]=\"glaccountTypeId\" group=\"Liablilities\" [glgroupId]=\"group.glnumber\"></app-add-gl-group>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(group.glgroupId)\"><mat-icon class=\"delete\" svgIcon=\"feather:trash\"></mat-icon></a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t\t<span class=\"dots rt-3\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Liablilities Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Liabilities\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Liablilities GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Liabilities\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>");
 
 /***/ }),
 
@@ -682,6 +682,7 @@ let AddGlGroupComponent = class AddGlGroupComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isGroupAdded = true;
+        this.formSubmitted = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     openGlGroup() {
@@ -719,6 +720,7 @@ let AddGlGroupComponent = class AddGlGroupComponent {
             if (this._selectPanelOverlayRef && this._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
                 this._selectPanelOverlayRef.detach();
+                this.formSubmitted.emit(false);
             }
             // If template portal exists and attached...
             if (templatePortal && templatePortal.isAttached) {
@@ -733,71 +735,71 @@ let AddGlGroupComponent = class AddGlGroupComponent {
     submitGLGroupForm(form) {
         this.isGroupAdded = false;
         if (this.isCreateGroup()) {
-            let details = {
-                "apartmentId": this.sessionService.apartmentId,
-                "glnumber": parseInt(this.gl.glnumber),
-                "name": this.gl.name,
-                "glaccountTypeId": this.accountTypeId,
-                "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-            };
             let params = {
-                glGroup: details
+                glGroup: {
+                    "apartmentId": this.sessionService.apartmentId,
+                    "glnumber": parseInt(this.gl.glnumber),
+                    "name": this.gl.name,
+                    "glaccountTypeId": this.accountTypeId,
+                    "isActive": true,
+                    "insertedBy": parseInt(this.sessionService.userId),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                }
             };
             this.accountsService.addGlGroup(params).subscribe((res) => {
                 this.isGroupAdded = true;
                 if (res.message) {
-                    this.sharedService.setAlertMessage("Group added successfully");
-                    this.sharedService.setGlGroupAdded({ id: this.accountTypeId, status: true });
+                    this.formSubmitted.emit(true);
+                    this.sharedService.openSnackBar(`${this.group} added successfully`, 'success');
+                    this.type = 'add';
+                    this._selectPanelOverlayRef.detach();
                 }
                 else {
                     this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    this.sharedService.setGlGroupAdded({ id: this.accountTypeId, status: false });
                 }
             });
         }
         else {
-            let details = {
-                "glgroupId": parseInt(this.glgroupId),
-                "apartmentId": this.sessionService.apartmentId,
-                "glnumber": parseInt(this.gl.glnumber),
-                "name": this.gl.name,
-                "glaccountTypeId": this.accountTypeId,
-                "isActive": this.gl.isActive,
-                "insertedBy": this.gl.insertedBy,
-                "insertedOn": this.gl.insertedOn,
-                "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
-            };
             let params = {
-                glGroup: details
+                glGroup: {
+                    "glgroupId": this.gl.glgroupId,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "glnumber": parseInt(this.gl.glnumber),
+                    "name": this.gl.name,
+                    "glaccountTypeId": this.accountTypeId,
+                    "isActive": this.gl.isActive,
+                    "insertedBy": this.sessionService.userId,
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                    "updatedBy": parseInt(this.sessionService.userId),
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
+                }
             };
             this.accountsService.updateGlGroup(params).subscribe((res) => {
                 this.isGroupAdded = true;
                 if (res.message) {
-                    this.sharedService.setAlertMessage("Group updated successfully");
-                    this.sharedService.setGlGroupAdded({ id: this.accountTypeId, status: true });
+                    this.formSubmitted.emit(true);
+                    this.sharedService.openSnackBar(`${this.group} updated successfully`, 'success');
+                    this.type = 'add';
+                    this._selectPanelOverlayRef.detach();
                 }
                 else {
                     this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    this.sharedService.setGlGroupAdded({ id: this.accountTypeId, status: false });
                 }
             });
         }
     }
     ngOnInit() {
-        this.gl = {};
-        this.gl.glnumber = "";
-        this.gl.name = "";
-        this.sharedService.setGlGroupAdded({ id: this.accountTypeId, status: false });
+        if (this.type == 'edit')
+            this.gl = Object.assign({}, this.groupInfo);
+        else
+            this.gl = {};
     }
-    ngOnChanges() {
-        this.gl = {};
-        this.gl.glnumber = "";
-        this.gl.name = "";
+    ngAfterViewInit() {
+        if (this.type == 'edit') {
+            this._addGroupElem._elementRef.nativeElement.click();
+        }
     }
 };
 AddGlGroupComponent.ctorParameters = () => [
@@ -814,7 +816,8 @@ AddGlGroupComponent.propDecorators = {
     type: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     accountTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     group: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    glgroupId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
+    groupInfo: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    formSubmitted: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
 };
 AddGlGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1579,6 +1582,7 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
+        this.selectedId = 0;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     getIndexParams(event) {
@@ -1613,13 +1617,19 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
     stopPropagation(event) {
         event.stopPropagation();
     }
+    popUpForm(event) {
+        if (event) {
+            this.getGlGroups();
+        }
+        this.selectedId = 0;
+    }
     getGlGroups() {
         this.isDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            GLAccountTypeId: 158
+            glaccounttypeID: 158
         };
-        this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe((res) => {
+        this.accountsService.getNeWallgroupsbygltypeid(params).subscribe((res) => {
             this.glGroupsDataList = res;
             this.isDataLoaded = true;
             this.totalItems = this.glGroupsDataList.length;
@@ -1755,6 +1765,7 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
+        this.selectedId = 0;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
@@ -1789,13 +1800,19 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
     stopPropagation(event) {
         event.stopPropagation();
     }
+    popUpForm(event) {
+        if (event) {
+            this.getGlGroups();
+        }
+        this.selectedId = 0;
+    }
     getGlGroups() {
         this.isDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            GLAccountTypeId: 280
+            glaccounttypeID: 280
         };
-        this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe((res) => {
+        this.accountsService.getNeWallgroupsbygltypeid(params).subscribe((res) => {
             this.glGroupsDataList = res;
             this.isDataLoaded = true;
             this.totalItems = this.glGroupsDataList.length;
@@ -1929,6 +1946,7 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
+        this.selectedId = 0;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getIndexParams(event) {
@@ -1963,13 +1981,19 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
     stopPropagation(event) {
         event.stopPropagation();
     }
+    popUpForm(event) {
+        if (event) {
+            this.getGlGroups();
+        }
+        this.selectedId = 0;
+    }
     getGlGroups() {
         this.isDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            GLAccountTypeId: 166
+            glaccounttypeID: 166
         };
-        this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe((res) => {
+        this.accountsService.getNeWallgroupsbygltypeid(params).subscribe((res) => {
             this.glGroupsDataList = res;
             this.isDataLoaded = true;
             this.totalItems = this.glGroupsDataList.length;
@@ -2152,6 +2176,7 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
         this.itemLimit = 8;
         this.unitFieldType = "glnumber";
         this.unitOrder = true;
+        this.selectedId = 0;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     getIndexParams(event) {
@@ -2186,13 +2211,19 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
     stopPropagation(event) {
         event.stopPropagation();
     }
+    popUpForm(event) {
+        if (event) {
+            this.getGlGroups();
+        }
+        this.selectedId = 0;
+    }
     getGlGroups() {
         this.isDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            GLAccountTypeId: 165
+            glaccounttypeID: 165
         };
-        this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe((res) => {
+        this.accountsService.getNeWallgroupsbygltypeid(params).subscribe((res) => {
             this.glGroupsDataList = res;
             this.isDataLoaded = true;
             this.totalItems = this.glGroupsDataList.length;
@@ -2331,6 +2362,7 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
         this.itemLimit = 8;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
+        this.selectedId = 0;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     getIndexParams(event) {
@@ -2365,13 +2397,19 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
     stopPropagation(event) {
         event.stopPropagation();
     }
+    popUpForm(event) {
+        if (event) {
+            this.getGlGroups();
+        }
+        this.selectedId = 0;
+    }
     getGlGroups() {
         this.isDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            GLAccountTypeId: 164
+            glaccounttypeID: 164
         };
-        this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe((res) => {
+        this.accountsService.getNeWallgroupsbygltypeid(params).subscribe((res) => {
             this.glGroupsDataList = res;
             this.isDataLoaded = true;
             this.totalItems = this.glGroupsDataList.length;

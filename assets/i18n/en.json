@@ -112,7 +112,140 @@
         }
     },
     "VISITOR": {
+        "CREATEVISITOR": {
+            "CREATETITLE": "Create Expected Visitor",
+            "EDITTITLE": "Edit Expected Visitor",
+            "EXPECTEDVISITTYPE": "Expected Visit Type",
+            "EXPECTEDVISITORNAME": "Expected Visitor Name",
+            "EXPECTEDVISITORCOUNT": "Expected Visitor Count",
+            "EXPECTEDMOBILENO": "Expected Phone/Mobile No",
+            "EXPECTEDVISITDATETIME": "Expected Date/Time of Visit",
+            "EXPECTEDVISITOUTTIME": "Expected Out/Time of Visit",
+            "EXPECTEDDURATIONVISIT": "Expected Duration of Visit",
+            "EXPECTEDVISITCATEGORY": "Expected Visit Category",
+            "REASONFORVISIT":"Reason for Visit",
+            "TOWERNO": "Tower No",
+            "UNITNO": "Unit No",
+            "PRIMARYNAME": "Primary Name",
+            "STAFF": "Staff"
+        },
+        "EXPECTEDVISITORS": {
+            "TITLE": "Expected Visitors",
+            "EXPECTEDIN": "Expected IN",
+            "EXPECTEDOUT": "Expected OUT",
+            "VISITTYPE": "Visit Type",
+            "TOTALRESULTS": "results",
+            "NORESULTS": "No Results found",
+            "PASSID": "Pass ID"
+        },
+        "FREQUENTVISITOR": {
+            "TITLE": "Create Frequent Visitor",
+            "FREQUENTVISITORNAME": "Frequent Visitor Name",
+            "FREQUENTVISITORCOUNT": "Frequent Visitor Count",
+            "FREQUENTMOBILENO": "Frequent Phone/Mobile No",
+            "FREQUENTVISITCATEGORY": "Frequent Visit Category",
+            "REASONFORVISIT": "Reason for Visit",
+            "VENDORPASS": "Vendor Pass",
+            "EXPECTEDVISITTYPE": "Expected Visit Type",
+            "TOWERNO": "Tower No",
+            "UNITNO": "Unit No",
+            "PRIMARYNAME": "Primary Name",
+            "STAFF": "Staff",
+            "VISITORNAME": "Visitor Name",
+            "VISITORCOUNT": "Visitor Count",
+            "MOBILENO": "Phone/Mobile No",
+            "TIMEOFVISIT": "Time of Visit",
+            "OUTTIME": "Out-Time",
+            "VISITCATEGORY": "Visit Category",
+            "FREQUENTVISITOR": "Frequent Visitor",
+            "CREATEBTNNAME": "Create another frequent visitor",
+            "VIEWBTNNAME": "View list of frequent visitor",
+            "CREATEVENDORBTN": "Create another vendor pass",
+            "VIEWVENDORBTN": "View list of vendor pass",
+            "EXPECTEDVISITORNAME": "Expected Visitor",
+            "CREATEANOTHEREXPECTEDVISITOR": "Create another expected visitor",
+            "VIEWEXPECTEDVISITOR": "View list of expected visitor"
+        },
+        "FREQUENTVISITORLIST": {
+            "TITLE": "Frequent Visitor List",
+            "VENDORPASSLIST": "Vendor Pass List",
+            "TOTALRESULTS": "results",
+            "NORESULTS": "No Results found",
+            "PASSID": "Pass ID",
+            "EXPECTEDIN": "Expected IN",
+            "EXPECTEDOUT": "Expected OUT",
+            "VISITTYPE": "Visit Type",
+            "TOWERUNIT": "Tower & Unit"
 
+        },
+        "CURRENTLYCHECKEDIN": {
+            "TITLE": "Currently Checked In",
+            "TOTALRESULTS": "results",
+            "NORESULTS": "No Results found",
+            "PASSID": "Pass ID",
+            "INTIME": "IN Time",
+            "EXPECTEDOUT": "Expected Out",
+            "VISITTYPE": "Visit Type",
+            "TOWERUNIT": "Tower & Unit"
+        },
+        "EXPECTEDVISITORUSER": {
+            "CHECKEDINTITLE": "Currently Checked In",
+            "HISTORYTITLE": "Visitor History"
+        },
+        "VISITORSHISTORY": {
+            "TITLE": "Visitors History",
+            "TOTALRESULTS": "results"
+        }
+        
+    },
+    "FACILITY": {
+        "CREATEBOOKING": {
+            "CREATETITLE": "Create Booking",
+            "EDITTITLE": "Edit Booking",
+            "VIEWTITLE": "View Booking",
+            "BOOKINGFOR": "Booking For",
+            "GUEST": "Guest",
+            "USER": "User",
+            "FACILITYDETAILS": "Facility Details",
+            "FACILITYNAME": "Facility Name",
+            "DATE": "Select Date",
+            "SLOT": "Select Slot",
+            "FROMTIME": "From Time",
+            "TOTIME": "To Time",
+            "ENTERMIN": "Please Enter Min",
+            "HOURSORMAX": "Hours or Max",
+            "HOURS": "Hours",
+            "EVENTNAME": "Event Name",
+            "BOOKINGDETAILS": "Booking Details",
+            "SECURITYAMOUNT": "Security Amount",
+            "BOOKINGPERAMOUNT": "Booking Amount Per",
+            "COST": "Cost",
+            "TAX": "Tax",
+            "DISCOUNTAMOUNT": "Discount Amount",
+            "MEMBERSHIPDISCOUNT": "Membership Discount",
+            "FINALBOOKINGAMOUNT": "Final Booking Amount",
+            "UNITRESIDENTDETAILS": "Unit Resident Details",
+            "TOWERNO": "Tower No",
+            "UNITNO": "Unit No",
+            "PRIMARYNAME": "Primary Name",
+            "GUESTDETAILS": "Guest Details",
+            "GUESTNAME": "Guest Name",
+            "GUESTPHONE": "Guest Phone",
+            "RELATIONSHIPGUEST": "Relatioship To Guest",
+            "GUESTATTEND": "No Of Guest To Attend",
+            "CREATEVISITORPASS": "Create Visitor Pass",
+            "VISITORPASS": "Visitor Pass",
+            "STATUS": "Status",
+            "COMMENT": "Comment"
+        }
+    },
+    "MOVEINOUT": {
+        "VIEWMOVEIN": {
+            "TITLE": "MoveIn",
+            "TOTALRESULTS": "results",
+            
+
+        }
     },
     "PLACEHOLDER": {
         "TOWER": "Select Tower",
@@ -125,7 +258,32 @@
         "STATUS": "Select Status",
         "TEXT": "Enter text",
         "DESCRIPTION": "Enter Description",
-        "SOMETEXT": "some text here"
+        "SOMETEXT": "some text here",
+        "VISITORNAME": "Visitor Name",
+        "VISITORCOUNT": "Visitor Count",
+        "DURATIONINFO": "Duration Info",
+        "ENTERPURPOSE": "Enter Purpose",
+        "VISIT": "Select Visit",
+        "PRIMARYNAME": "Primary Name",
+        "STAFF": "Select Staff",
+        "FACILITYNAME": "Select Facility Name",
+        "EVENTNAME": "Event Name",
+        "SECURITYAMOUNT": "Security Amount",
+        "AMOUNT": "Amount",
+        "COST": "Cost",
+        "TAX": "Tax",
+        "DISCOUNT": "Discount",
+        "MEMBERSHIPDISCOUNT": "MemberShip Discount",
+        "TOTAL": "Total",
+        "GUESTNAME": "Guest Name",
+        "GUESTPHONE": "Guest Phone",
+        "RELATIONSHIPGUEST": "Relatioship To Guest",
+        "GUESTATTEND": "No Of Guest To Attend",
+        "VISITORPASS": "Visitor Pass",
+        "ENTERCOMMENT": "Enter Comment",
+        "T&C": "Terms and Condition"
+        
+
     },
     "BUTTONS": {
         "CHANGEBUTTON": "Change",
@@ -135,7 +293,11 @@
         "CREATEBUTTON": "Create",
         "UPDATEBUTTON": "Update",
         "BACKBUTTON": "Back",
-        "ADDCOMMENT": "Add Comment"
+        "ADDCOMMENT": "Add Comment",
+        "CANCELBUTTON": "Cancel",
+        "EXPECTEDVISITOR": "Expected Visitor",
+        "VISITOR": "Visitor",
+        "ADDMOVEIN": "Add MoveIn"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",
@@ -148,5 +310,12 @@
         "YES": "Yes",
         "NO": "No",
         "OK": "Ok"
+    },
+    "HYPERLINK": {
+        "APPROVE": "Approve",
+        "REJECT": "Reject",
+        "CANCEL": "Cancel",
+        "EDIT": "Edit",
+        "VIEW": "View"
     }
 }
