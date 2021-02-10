@@ -242,9 +242,35 @@
     "MOVEINOUT": {
         "VIEWMOVEIN": {
             "TITLE": "MoveIn",
-            "TOTALRESULTS": "results",
-            
-
+            "TOTALRESULTS": "results"
+        },
+        "CREATEMOVEIN": {
+            "CREATETITLE": "Add Movein",
+            "VIEWTITLE": "View Movein",
+            "FAMILYCOUNT": "Family Count",
+            "MOVEINDATE": "MoveIn Date",
+            "MOVEINTIME": "MoveIn Time",
+            "FOREIGNNATIONAL": "Is the request for a Foreign National?",
+            "COMMENTS": "Comments",
+            "TOWERNO": "Tower No",
+            "UNITNO": "Unit No",
+            "PRIMARYNAME": "Primary Name",
+            "YES": "Yes",
+            "NO": "No",
+            "DOCUMENTSREQUIRED": "Documents Required"
+        }
+    },
+    "DOCUMENTS": {
+        "USER": {
+            "MYDOCUMENTS": {
+                "TITLE": "My Documents",
+                "TOTALITEMS": "Items",
+                "DOCUMENTNAME": "Document Name",
+                "DOCUMENTCATEGORY": "Document Category",
+                "INSERTEDON": "Inserted On",
+                "DESCRIPTION": "Description",
+                "DOCUMENT": "Document"
+            }
         }
     },
     "PLACEHOLDER": {
@@ -297,7 +323,8 @@
         "CANCELBUTTON": "Cancel",
         "EXPECTEDVISITOR": "Expected Visitor",
         "VISITOR": "Visitor",
-        "ADDMOVEIN": "Add MoveIn"
+        "ADDMOVEIN": "Add MoveIn",
+        "UPLOADDOCUMENT": "Upload Documents"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",

@@ -237,6 +237,40 @@
             "COMMENT": "แสดงความคิดเห็น"
         }
     },
+    "MOVEINOUT": {
+        "VIEWMOVEIN": {
+            "TITLE": "ย้ายเข้า",
+            "TOTALRESULTS": "ผล"
+        },
+        "CREATEMOVEIN": {
+            "CREATETITLE": "เพิ่ม Movein",
+            "VIEWTITLE": "ดู Movein",
+            "FAMILYCOUNT": "จำนวนครอบครัว",
+            "MOVEINDATE": "วันที่ย้ายเข้า",
+            "MOVEINTIME": "เวลาย้ายเข้า",
+            "FOREIGNNATIONAL": "ขอเป็นชาวต่างชาติหรือไม่?",
+            "COMMENTS": "ความคิดเห็น",
+            "TOWERNO": "ทาวเวอร์เลขที่",
+            "UNITNO": "เลขที่หน่วย",
+            "PRIMARYNAME": "ชื่อหลัก",
+            "YES": "ใช่",
+            "NO": "ไม่",
+            "DOCUMENTSREQUIRED": "เอกสารที่ต้องการ"
+        }
+    },
+    "DOCUMENTS": {
+        "USER": {
+            "MYDOCUMENTS": {
+                "TITLE": "เอกสารของฉัน",
+                "TOTALITEMS": "รายการ",
+                "DOCUMENTNAME": "ชื่อเอกสาร",
+                "DOCUMENTCATEGORY": "ประเภทเอกสาร",
+                "INSERTEDON": "แทรกเมื่อ",
+                "DESCRIPTION": "คำอธิบาย",
+                "DOCUMENT": "เอกสาร"
+            }
+        }
+    },
     "PLACEHOLDER": {
         "TOWER": "เลือกทาวเวอร์",
         "UNIT": "เลือกหน่วย",
@@ -278,11 +312,14 @@
         "CHECKBUTTON": "ตรวจสอบ",
         "SUBMITBUTTON": "ส่ง",
         "CLEARBUTTON": "ชัดเจน",
+        "CREATEBUTTON": "สร้าง",
         "UPDATEBUTTON": "อัปเดต",
         "BACKBUTTON": "กลับ",
         "ADDCOMMENT": "เพิ่มความเห็น",
         "CANCELBUTTON": "ยกเลิก",
-        "EXPECTEDVISITOR": "ผู้เยี่ยมชมที่คาดหวัง"
+        "EXPECTEDVISITOR": "ผู้เยี่ยมชมที่คาดหวัง",
+        "VISITOR": "ผู้เยี่ยมชม",
+        "ADDMOVEIN": "เพิ่ม MoveIn"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",

@@ -419,6 +419,12 @@
       var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./document-create/document-create.component */
       "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var DocumentConfigModule = function DocumentConfigModule() {
         _classCallCheck(this, DocumentConfigModule);
@@ -426,7 +432,7 @@
 
       DocumentConfigModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupComponent"], _document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_9__["DocumentSetupCategoryComponent"], _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_10__["FolderListsComponent"], _documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_11__["DocumentsReportsComponent"], _document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_12__["DocumentSetupAccessibleComponent"], _documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_13__["DocumentsReportsDataComponent"], _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_14__["DocumentDownloadComponent"], _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_15__["DocumentCreateComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_6__["UploadModule"], _document_config_routing_module__WEBPACK_IMPORTED_MODULE_7__["DocumentConfigRoutingModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_6__["UploadModule"], _document_config_routing_module__WEBPACK_IMPORTED_MODULE_7__["DocumentConfigRoutingModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateModule"]]
       })], DocumentConfigModule);
       /***/
     },

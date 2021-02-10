@@ -630,6 +630,12 @@
       var _my_document_user_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./my-document-user-list.component */
       "./src/app/modules/ams/documents/my-document-user-list/my-document-user-list.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var MyDocumentUserListModule = function MyDocumentUserListModule() {
         _classCallCheck(this, MyDocumentUserListModule);
@@ -637,7 +643,7 @@
 
       MyDocumentUserListModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_8__["MyDocumentUserListComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_7__["UploadModule"], _my_document_user_list_routing_module__WEBPACK_IMPORTED_MODULE_3__["MyDocumentUserListRoutingModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_7__["UploadModule"], _my_document_user_list_routing_module__WEBPACK_IMPORTED_MODULE_3__["MyDocumentUserListRoutingModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateModule"]]
       })], MyDocumentUserListModule);
       /***/
     }

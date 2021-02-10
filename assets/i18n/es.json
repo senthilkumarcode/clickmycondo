@@ -237,6 +237,40 @@
             "COMMENT": "Comentario"
         }
     },
+    "MOVEINOUT": {
+        "VIEWMOVEIN": {
+            "TITLE": "Mudarse",
+            "TOTALRESULTS": "resultados"
+        },
+        "CREATEMOVEIN": {
+            "CREATETITLE": "Agregar Movein",
+            "VIEWTITLE": "Ver Movein",
+            "FAMILYCOUNT": "Recuento familiar",
+            "MOVEINDATE": "Fecha de mudanza",
+            "MOVEINTIME": "MoveIn Time",
+            "FOREIGNNATIONAL": "¿La solicitud es de Extranjero?",
+            "COMMENTS": "Comentarios",
+            "TOWERNO": "Torre No",
+            "UNITNO": "Numero de unidad",
+            "PRIMARYNAME": "Nombre principal",
+            "YES": "si",
+            "NO": "No",
+            "DOCUMENTSREQUIRED": "Documentos requeridos"
+        }
+    },
+    "DOCUMENTS": {
+        "USER": {
+            "MYDOCUMENTS": {
+                "TITLE": "Mis documentos",
+                "TOTALITEMS": "Artículos",
+                "DOCUMENTNAME": "nombre del documento",
+                "DOCUMENTCATEGORY": "Categoría de documento",
+                "INSERTEDON": "Insertado en",
+                "DESCRIPTION": "Descripción",
+                "DOCUMENT": "Documento"
+            }
+        }
+    },
     "PLACEHOLDER": {
         "TOWER": "Seleccionar torre",
         "UNIT": "Seleccionar unidad",
@@ -279,11 +313,14 @@
         "CHECKBUTTON": "Cheque",
         "SUBMITBUTTON": "Enviar",
         "CLEARBUTTON": "Clara",
+        "CREATEBUTTON": "Crear",
         "UPDATEBUTTON": "Actualizar",
         "BACKBUTTON": "atrás",
         "ADDCOMMENT": "Agregar comentario",
         "CANCELBUTTON": "Cancelar",
-        "EXPECTEDVISITOR": "Visitante esperada"
+        "EXPECTEDVISITOR": "Visitante esperada",
+        "VISITOR": "Visitante",
+        "ADDMOVEIN": "Agregar MoveIn"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",

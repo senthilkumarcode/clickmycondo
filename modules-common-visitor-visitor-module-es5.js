@@ -4304,7 +4304,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">\n            <span *ngIf=\"urlType == 'frequent-visitor-create'\">{{isEdit ? 'Edit' : 'Create'}} {{'VISITOR.FREQUENTVISITOR.TITLE' | translate}}</span>\n            <span *ngIf=\"urlType == 'vendor-pass-create'\">{{isEdit ? 'Edit' : 'Create'}} {{'VISITOR.FREQUENTVISITOR.VENDORPASS' | translate}}</span>\n        </h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t</condo-message>\n\t\t<form #expectedVisitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.EXPECTEDVISITTYPE' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.VISIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedVisitType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.UNITNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.FREQUENTVISITOR.PRIMARYNAME' | translate}}</label>\n\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.PRIMARYNAME' | translate}}\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.STAFF' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.STAFFLABEL' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedStaff($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{type}} {{'VISITOR.FREQUENTVISITOR.VISITORNAME' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORNAME' | translate}}\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{type}}  {{'VISITOR.FREQUENTVISITOR.VISITORCOUNT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORCOUNT' | translate}}\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{type}} {{'VISITOR.FREQUENTVISITOR.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType == 'vendor-pass-create'\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{type}} {{'VISITOR.FREQUENTVISITOR.TIMEOFVISIT' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"time\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorInTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType == 'vendor-pass-create'\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{type}}  {{'VISITOR.FREQUENTVISITOR.OUTTIME' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"time\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{type}} {{'VISITOR.FREQUENTVISITOR.VISITCATEGORY' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedCategory($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.FREQUENTVISITOR.REASONFORVISIT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"{{'PLACEHOLDER.ENTERPURPOSE' | translate}}\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t\t<button *ngIf=\"!isEdit\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">{{'BUTTONS.SUBMITBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"isEdit\" mat-flat-button [color]=\"'primary'\" (click)=\"updateExpectedVisitor()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button class=\"ml-2\" mat-stroked-button (click)=\"back()\">{{'BUTTONS.CANCELBUTTON' | translate}}</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">\n            <span *ngIf=\"urlType == 'frequent-visitor-create'\">{{isEdit ? 'Edit' : 'Create'}} {{'VISITOR.FREQUENTVISITOR.TITLE' | translate}}</span>\n            <span *ngIf=\"urlType == 'vendor-pass-create'\">{{isEdit ? 'Edit' : 'Create'}} {{'VISITOR.FREQUENTVISITOR.VENDORPASS' | translate}}</span>\n        </h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t</condo-message>\n\t\t<form #expectedVisitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.EXPECTEDVISITTYPE' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.VISIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedVisitType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.UNITNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.FREQUENTVISITOR.PRIMARYNAME' | translate}}</label>\n\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.PRIMARYNAME' | translate}}\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.FREQUENTVISITOR.STAFF' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.STAFFLABEL' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedStaff($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{type}} {{'VISITOR.FREQUENTVISITOR.VISITORNAME' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORNAME' | translate}}\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{type}}  {{'VISITOR.FREQUENTVISITOR.VISITORCOUNT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORCOUNT' | translate}}\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{type}} {{'VISITOR.FREQUENTVISITOR.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType == 'vendor-pass-create'\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{type}} {{'VISITOR.FREQUENTVISITOR.TIMEOFVISIT' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"time\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorInTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType == 'vendor-pass-create'\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{type}}  {{'VISITOR.FREQUENTVISITOR.OUTTIME' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"time\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{type}} {{'VISITOR.FREQUENTVISITOR.VISITCATEGORY' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedCategory($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.FREQUENTVISITOR.REASONFORVISIT' | translate}}<span class=\"required\" *ngIf=\"visitor.visitTypeId==52\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"{{'PLACEHOLDER.ENTERPURPOSE' | translate}}\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" [required]=\"visitor.visitTypeId==52\"></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t\t<button *ngIf=\"!isEdit\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">{{'BUTTONS.SUBMITBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"isEdit\" mat-flat-button [color]=\"'primary'\" (click)=\"updateExpectedVisitor()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"isEdit\" class=\"ml-2\" mat-stroked-button (click)=\"back()\">{{'BUTTONS.CANCELBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"!isEdit\" class=\"ml-2\" mat-stroked-button (click)=\"resetField()\">Clear</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -4344,7 +4344,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"expected-user-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        \n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n\n                <div>\n                    <h4 class=\"mb-2\">{{'VISITOR.EXPECTEDVISITORS.TITLE' | translate}}</h4>\n                    <p class=\"text-secondary mb-1\" *ngIf=\"visitorList.length != 0\">{{totalItems}} {{'VISITOR.EXPECTEDVISITORS.TOTALRESULTS' | translate}}</p>\n                </div>\n\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">{{'BUTTONS.EXPECTEDVISITOR' | translate}}</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n\n        \n\n            <div class=\"bg-card shadow\" *ngIf=\"visitorList.length == 0\">\n                <h6 class=\"text-secondary\">{{'VISITOR.EXPECTEDVISITORS.NORESULTS' | translate}}</h6>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                    <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none text-primary link\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                            <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.PASSID' | translate}}</p>\n                                <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.EXPECTEDIN' | translate}}</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.EXPECTEDOUT' | translate}}</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.VISITTYPE' | translate}}</p>\n                                <p class=\"right\">{{item.visitType_Label}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length != 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"expected-user-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n\n                <div>\n                    <h4 class=\"mb-2\">{{'VISITOR.EXPECTEDVISITORS.TITLE' | translate}}</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} {{'VISITOR.EXPECTEDVISITORS.TOTALRESULTS' | translate}}</p>\n                </div>\n\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">{{'BUTTONS.EXPECTEDVISITOR' | translate}}</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n\n        \n\n            <div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList$ | async | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                    <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none text-primary link\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>\n                                    \n                                    <span [ngClass]=\"{'text-warn' : item.isFrequentvisitor || item.isDailyvendor}\">{{item.visitorPassId | slice:0:2}}</span>{{item.visitorPassId | slice:2}}\n                                    \n                                    </span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                            <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.PASSID' | translate}}</p>\n                                <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">\n                                    <span [ngClass]=\"{'text-warn' : item.isFrequentvisitor || item.isDailyvendor}\">{{item.visitorPassId | slice:0:2}}</span>{{item.visitorPassId | slice:2}}\n                                </p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.EXPECTEDIN' | translate}}</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.EXPECTEDOUT' | translate}}</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">{{'VISITOR.EXPECTEDVISITORS.VISITTYPE' | translate}}</p>\n                                <p class=\"right\">{{item.visitType_Label}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"totalItems != 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>\n";
       /***/
     },
 
@@ -4384,7 +4384,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<condo-message class=\"mb-5\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">{{'VISITOR.CREATEVISITOR.CREATETITLE' | translate}}</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">{{'VISITOR.CREATEVISITOR.EDITTITLE' | translate}}</span>\n\t\t\t\t</h4>\n\t\t\t\t<!-- <a class=\"ml-auto\" mat-button (click)=\"back()\" [color]=\"'primary'\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t<span>Back</span>\n\t\t\t\t</a> -->\n\t\t\t</div>\n\n\t\t\t<form #expectedVisitorForm=\"ngForm\"  name=\"expectedVisitorForm\" (ngSubmit)=\"submitExpectedVisitorForm(expectedVisitorForm)\" novalidate>\n\t\t\t\t\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITTYPE' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.VISIT' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVisitType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.UNITNO' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.PRIMARYNAME' | translate}}</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.PRIMARYNAME' | translate}}\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.STAFF' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.STAFF' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedStaff($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDVISITORNAME' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORNAME' | translate}}\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDVISITORCOUNT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORCOUNT' | translate}}\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDMOBILENO' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITDATETIME' | translate}}\"\n\t\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorInDate($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITOUTTIME' | translate}}\"\n\t\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorOutDate($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDDURATIONVISIT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"{{'PLACEHOLDER.DURATIONINFO' | translate}}\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITCATEGORY' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.REASONFORVISIT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"{{'PLACEHOLDER.ENTERPURPOSE' | translate}}\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mt-4 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">\n\t\t\t\t\t\t<span *ngIf=\"!isEdit\">{{'BUTTONS.SUBMITBUTTON' | translate}}</span>\n\t\t\t\t\t\t<span *ngIf=\"isEdit\">{{'BUTTONS.UPDATEBUTTON' | translate}}</span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<a class=\"ml-2\" mat-button (click)=\"back()\">{{'BUTTONS.CANCELBUTTON' | translate}}</a>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\n\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<condo-message class=\"mb-5\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">{{'VISITOR.CREATEVISITOR.CREATETITLE' | translate}}</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">{{'VISITOR.CREATEVISITOR.EDITTITLE' | translate}}</span>\n\t\t\t\t</h4>\n\t\t\t\t<!-- <a class=\"ml-auto\" mat-button (click)=\"back()\" [color]=\"'primary'\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t<span>Back</span>\n\t\t\t\t</a> -->\n\t\t\t</div>\n\n\t\t\t<form #expectedVisitorForm=\"ngForm\"  name=\"expectedVisitorForm\" (ngSubmit)=\"submitExpectedVisitorForm(expectedVisitorForm)\" novalidate>\n\t\t\t\t\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITTYPE' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.VISIT' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVisitType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.UNITNO' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.PRIMARYNAME' | translate}}</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.PRIMARYNAME' | translate}}\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.STAFF' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.STAFF' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t[isDisabled]=\"disableField\"\n\t\t\t\t\t\t\t\t[isClear]=\"!disableField\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedStaff($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDVISITORNAME' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORNAME' | translate}}\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDVISITORCOUNT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORCOUNT' | translate}}\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDMOBILENO' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITDATETIME' | translate}}\"\n\t\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorInDate($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITOUTTIME' | translate}}\"\n\t\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorOutDate($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.EXPECTEDDURATIONVISIT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"{{'PLACEHOLDER.DURATIONINFO' | translate}}\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CREATEVISITOR.EXPECTEDVISITCATEGORY' | translate}}\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>{{'VISITOR.CREATEVISITOR.REASONFORVISIT' | translate}}<span class=\"required\" *ngIf=\"visitor.visitTypeId==52\">*</span></label>\n\t\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"{{'PLACEHOLDER.ENTERPURPOSE' | translate}}\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" [required]=\"visitor.visitTypeId==52\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mt-4 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">\n\t\t\t\t\t\t<span *ngIf=\"!isEdit\">{{'BUTTONS.SUBMITBUTTON' | translate}}</span>\n\t\t\t\t\t\t<span *ngIf=\"isEdit\">{{'BUTTONS.UPDATEBUTTON' | translate}}</span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<a *ngIf=\"isEdit\"  class=\"ml-2\" mat-button (click)=\"back()\">{{'BUTTONS.CANCELBUTTON' | translate}}</a>\n\t\t\t\t\t<a *ngIf=\"!isEdit\" class=\"ml-2\" mat-button (click)=\"resetField()\">Clear</a>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\n\n\t</div>\n</div>";
       /***/
     },
 
@@ -4464,7 +4464,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #visitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"urlType =='create' || urlType =='checkin'\">Visitor Check-In</span>\n\t\t\t\t<span *ngIf=\"urlType =='checkout'\">Visitor Check-Out</span>\n\t\t\t\t<span *ngIf=\"urlType =='edit'\">Edit Visitor Check-Out</span>\n\t\t\t</h4>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Expected Visit Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Visit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedVisitType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" disabled class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedStaff($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.visitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Actual Date/Time of Visit\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorInTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorInTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Expected OutTime\"\n\t\t\t\t\t\t\tfieldName=\"expectedVisitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorExpectedOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- CheckOutPage Enable -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType=='checkout'\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Check OutTime\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\"\n\t\t\t\t\t\t\t[disabled]=\"urlType !='create'\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Visit Category\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedCategory($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right mt-3\">\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create' || urlType =='checkin'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">CheckIn</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='checkout'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckOut()\">CheckOut</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"updateCheckIn()\">Update</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create'\" class=\"ml-2\" mat-button (click)=\"resetField()\">Clear</button>\n\t\t\t\t\t\t<button *ngIf=\"(pageComingFrom && pageComingFrom.length > 0) || (urlType =='checkout'|| urlType=='edit')\" class=\"ml-2\" mat-button (click)=\"navigateBack()\">Cancel</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #visitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"urlType =='create' || urlType =='checkin'\">Visitor Check-In</span>\n\t\t\t\t<span *ngIf=\"urlType =='checkout'\">Visitor Check-Out</span>\n\t\t\t\t<span *ngIf=\"urlType =='edit'\">Edit Visitor Check-Out</span>\n\t\t\t</h4>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Expected Visit Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Visit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedVisitType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" disabled class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedStaff($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.visitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Actual Date/Time of Visit\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorInTime\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorInTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Expected OutTime\"\n\t\t\t\t\t\t\tfieldName=\"expectedVisitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorExpectedOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- CheckOutPage Enable -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType=='checkout'\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Check OutTime\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\"\n\t\t\t\t\t\t\t[disabled]=\"urlType !='create'\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Visit Category\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedCategory($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\" *ngIf=\"visitor.visitTypeId==52\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" [required]=\"visitor.visitTypeId==52\"></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right mt-3\">\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create' || urlType =='checkin'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">CheckIn</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='checkout'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckOut()\">CheckOut</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"updateCheckIn()\">Update</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create'\" class=\"ml-2\" mat-button (click)=\"resetField()\">Clear</button>\n\t\t\t\t\t\t<button *ngIf=\"(pageComingFrom && pageComingFrom.length > 0) || (urlType =='checkout'|| urlType=='edit')\" class=\"ml-2\" mat-button (click)=\"navigateBack()\">Cancel</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -4504,7 +4504,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"visitor-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"visitor-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Visitor Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Visitor Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addVisitorCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"visitor.lookupValueName\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"visitor.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitVisitorCategoryForm()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDataLoaded\">\n\t\t\t\t\t\t<!-- Visitor Header -->\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Visitor Categories</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p> \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"groupData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addVisitorCategory()\">Add New Type</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Visitor List -->\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of visitorCategoryList | columnSearch : 'lookupValueName': categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editVisitorCategory(item)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteVisitorCategory(item,i)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"visitorCategoryList.length == 0\">\n\t\t\t\t\t\t<h6 class=\"text-secondary\">No Results found</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"bg-card shadow p-0\" *ngIf=\"visitorCategoryList.length > 0\">\n\t\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t\t</app-pagination>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"visitor-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"visitor-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Visitor Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Visitor Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t{{message.content}}\n\t\t\t\t\t</condo-message>\n\t\t\t\t\t<form #addVisitorCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"visitor.lookupValueName\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"visitor.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitVisitorCategoryForm()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDataLoaded\">\n\t\t\t\t\t\t<!-- Visitor Header -->\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Visitor Categories</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p> \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addVisitorCategory()\">Add New Type</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Visitor List -->\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of visitorCategoryList | columnSearch : 'lookupValueName': categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editVisitorCategory(item)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteVisitorCategory(item,i)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n\t\t\t\t\t\t<h6 class=\"text-secondary\">No Results found</h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n";
       /***/
     },
 
@@ -4659,6 +4659,12 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var CreateVendorFrquentVisitorComponent = /*#__PURE__*/function () {
         function CreateVendorFrquentVisitorComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef, dialog) {
@@ -4718,9 +4724,8 @@
         }, {
           key: "resetField",
           value: function resetField() {
+            if (this.form) this.form.reset();
             this.visitor = {};
-            this.visitor.visitTypeId = null;
-            this.visitor.visitorCategoryId = null;
             this.block = {
               blockId: null,
               primaryName: ''
@@ -5031,15 +5036,15 @@
           value: function ngOnInit() {
             var _this9 = this;
 
-            this.resetField(); // Subscribe to the resolved route data
-
-            this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
-              var response = data.initialData.apartment;
-              _this9.selectedCountryISO = response.country.toLowerCase();
-            });
+            this.resetField();
 
             if (this.isAdmin) {
-              //visit type
+              // Subscribe to the resolved route data
+              this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
+                var response = data.initialData.apartment;
+                _this9.selectedCountryISO = response.country.toLowerCase();
+              }); //visit type
+
               var visitParams = {
                 ApartmentId: this.sessionService.apartmentId,
                 LookupTypeId: 15
@@ -5060,6 +5065,12 @@
               //set apartmentBlockUnitId and VisitorTypeId in User Mode
               this.visitor.apartmentUnitId = this.sessionService.apartmentBlockUnitID;
               this.visitor.visitTypeId = 50; // unitVisitor Type
+              // Subscribe to the resolved route data
+
+              this.activateRouter.parent.parent.data.subscribe(function (data) {
+                var response = data.initialData.apartment;
+                _this9.selectedCountryISO = response.country.toLowerCase();
+              });
             } //for edit visitor
 
 
@@ -5111,6 +5122,11 @@
           get: function get() {
             return this.sessionService.isAdmin();
           }
+        }, {
+          key: "disableField",
+          get: function get() {
+            if (this.isEdit && this.isAdmin) return true;else return false;
+          }
         }]);
 
         return CreateVendorFrquentVisitorComponent;
@@ -5151,6 +5167,7 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./create-vendor-frquent-visitor.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html"))["default"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_14__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./create-vendor-frquent-visitor.component.scss */
         "./src/app/modules/common/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss"))["default"]]
@@ -5519,13 +5536,31 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
 
       var ExpUserVisitorListComponent = /*#__PURE__*/function () {
         function ExpUserVisitorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
@@ -5538,14 +5573,22 @@
           this.dialog = dialog;
           this.sharedService = sharedService;
           this.activeRouter = activeRouter;
-          this.visitorList = [];
-          this.visitorSearch = '';
           this.ItemStartIndex = 0;
+          this.totalItems = 0;
           this.itemLimit = 10;
+          this.visitorSearch = '';
+          this._visitorList = new rxjs__WEBPACK_IMPORTED_MODULE_8__["BehaviorSubject"](null);
+          this.fullVisitorData = [];
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
+          this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]();
         }
 
         _createClass(ExpUserVisitorListComponent, [{
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            this.searchData.setValue(event);
+          }
+        }, {
           key: "navigateToCreate",
           value: function navigateToCreate() {
             this.router.navigate(['create-expected-visitor'], {
@@ -5562,12 +5605,12 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "getDateTime",
           value: function getDateTime(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "getIndexParams",
@@ -5601,20 +5644,13 @@
               apartmentUnitId: this.sessionService.apartmentBlockUnitID
             };
             this.visitorService.getExpectedVisitorsByApartmentUnitId(param).subscribe(function (res) {
-              if (res.length > 0) {
-                _this13.visitorList = res;
-                _this13.totalItems = _this13.visitorList.length;
+              if (Array.isArray(res)) {
+                _this13.fullVisitorData = res;
 
-                if (_this13.totalItems > _this13.itemLimit) {
-                  _this13.ItemEndIndex = _this13.itemLimit;
-                } else {
-                  _this13.ItemEndIndex = _this13.totalItems;
-                }
-
-                _this13.isVisitorDataLoaded = true;
-              } else {
-                _this13.isVisitorDataLoaded = true;
+                _this13._visitorList.next(_this13.fullVisitorData);
               }
+
+              _this13.isVisitorDataLoaded = true;
             }, function (error) {
               _this13.isVisitorDataLoaded = true;
             });
@@ -5627,7 +5663,35 @@
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this14.timeZone = timeZone;
             });
-            this.getVisitorList(); //delete expected visitor
+            this.getVisitorList();
+            this.visitorList$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["filter"])(function (res) {
+              return res != null;
+            })).subscribe(function (res) {
+              _this14.totalItems = res.length;
+              _this14.ItemStartIndex = 0;
+
+              if (_this14.totalItems > _this14.itemLimit) {
+                _this14.ItemEndIndex = _this14.itemLimit;
+              } else {
+                _this14.ItemEndIndex = _this14.totalItems;
+              }
+            }); // Subscribe to search input field value changes
+
+            this.searchData.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["map"])(function (val) {
+              var newData = _this14.fullVisitorData.filter(function (item) {
+                for (var field in item) {
+                  if (item[field] === null || item[field] === undefined) {
+                    continue;
+                  }
+
+                  if (item[field].toString().toLowerCase().indexOf(val.toString().toLowerCase()) !== -1) {
+                    return item;
+                  }
+                }
+              });
+
+              _this14._visitorList.next(newData.reverse());
+            })).subscribe(); //delete expected visitor
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
@@ -5640,16 +5704,7 @@
                   if (res.message) {
                     _this14.sharedService.setUnitListDeleteIndex(null);
 
-                    _this14.visitorList = _this14.visitorList.filter(function (visitor) {
-                      return visitor.expectedVisitorId != item.id;
-                    });
-                    _this14.totalItems = _this14.visitorList.length;
-
-                    if (_this14.totalItems > _this14.itemLimit) {
-                      _this14.ItemEndIndex = _this14.itemLimit;
-                    } else {
-                      _this14.ItemEndIndex = _this14.totalItems;
-                    }
+                    _this14.getVisitorList();
 
                     _this14.sharedService.openSnackBar(res.message, 'success');
                   } else {
@@ -5665,6 +5720,11 @@
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
             this.apiSubscribe.unsubscribe();
+          }
+        }, {
+          key: "visitorList$",
+          get: function get() {
+            return this._visitorList.asObservable();
           }
         }]);
 
@@ -6347,8 +6407,6 @@
           value: function resetField() {
             if (this.form) this.form.reset();
             this.visitor = {};
-            this.visitor.visitTypeId = null;
-            this.visitor.visitorCategoryId = null;
             this.block = {
               blockId: null,
               primaryName: ''
@@ -6478,18 +6536,18 @@
             this.resetField();
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this19.timeZone = timeZone;
-            }); // Subscribe to the resolved route data
-
-            this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
-              var response = data.initialData.apartment;
-
-              if (_this19.activateRouter.params['value'].id == undefined) {
-                _this19.selectedCountryISO = response.country.toLowerCase();
-              }
             });
 
             if (this.isAdmin()) {
-              //visit type
+              // Subscribe to the resolved route data
+              this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
+                var response = data.initialData.apartment;
+
+                if (_this19.activateRouter.params['value'].id == undefined) {
+                  _this19.selectedCountryISO = response.country.toLowerCase();
+                }
+              }); //visit type
+
               var visitParams = {
                 ApartmentId: this.sessionService.apartmentId,
                 LookupTypeId: 15
@@ -6510,6 +6568,15 @@
               //set apartmentBlockUnitId and VisitorTypeId in User Mode
               this.visitor.apartmentUnitId = this.sessionService.apartmentBlockUnitID;
               this.visitor.visitTypeId = 50; // unitVisitor Type
+              // Subscribe to the resolved route data
+
+              this.activateRouter.parent.parent.data.subscribe(function (data) {
+                var response = data.initialData.apartment;
+
+                if (_this19.activateRouter.params['value'].id == undefined) {
+                  _this19.selectedCountryISO = response.country.toLowerCase();
+                }
+              });
             } //for edit visitor
 
 
@@ -6560,6 +6627,11 @@
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
               _this19.visitCategoryList = res;
             });
+          }
+        }, {
+          key: "disableField",
+          get: function get() {
+            if (this.isEdit && this.isAdmin) return true;else return false;
           }
         }]);
 
@@ -8961,28 +9033,51 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/pipe/shared.pipe */
+      "./src/app/shared/pipe/shared.pipe.ts");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var VisitorSetupComponent = /*#__PURE__*/function () {
-        function VisitorSetupComponent(lookupService, injector, sharedService, sessionService) {
+        function VisitorSetupComponent(lookupService, injector, sharedService, sessionService, columnSearchPipe, _changeDetectorRef) {
           _classCallCheck(this, VisitorSetupComponent);
 
           this.lookupService = lookupService;
           this.injector = injector;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.columnSearchPipe = columnSearchPipe;
+          this._changeDetectorRef = _changeDetectorRef;
           this.visitor = {};
           this.isDataLoaded = false;
           this.isDrawerLoader = true;
           this.visitorCategoryList = [];
-          this.groupData = "";
-          this.ItemStartIndex = 0;
-          this.itemLimit = 10;
+          this.totalItems = 0;
+          this.search = '';
+          this.message = null;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]);
         }
 
         _createClass(VisitorSetupComponent, [{
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            this.categorySearch = event;
+            var data = this.columnSearchPipe.transform(this.visitorCategoryList, 'lookupValueName', event);
+            this.totalItems = data.length;
+          }
+        }, {
           key: "addVisitorCategory",
           value: function addVisitorCategory() {
+            this.message = null;
+            this.form.reset();
             this.clickMode = 'add';
             this.matDrawer.open();
             this.visitor = {};
@@ -9015,77 +9110,97 @@
             this.matDrawer.close();
             this.clickMode = '';
             this.visitor = {};
+            this.message = null;
           }
         }, {
           key: "submitVisitorCategoryForm",
           value: function submitVisitorCategoryForm() {
             var _this43 = this;
 
-            this.isDrawerLoader = false;
+            this.message = null;
 
-            if (this.clickMode == 'add') {
-              var params = {
-                lookupvalue: {
-                  "apartmentId": this.sessionService.apartmentId,
-                  "lookupTypeId": 100,
-                  "lookupValueName": this.visitor.lookupValueName,
-                  "description": this.visitor.description,
-                  "isActive": true,
-                  "insertedBy": parseInt(this.sessionService.userId),
-                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                  "updatedBy": null,
-                  "updatedOn": null
-                }
-              };
-              this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this43.isDrawerLoader = true;
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
 
-                if (res.code == 200) {
-                  _this43.closeDrawer();
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
 
-                  _this43.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
-
-                  _this43.getVisitorList();
-                } else {
-                  _this43.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this43.isDrawerLoader = true;
-
-                _this43.sharedService.openSnackBar('Network Error', 'error');
-              });
+              this._changeDetectorRef.markForCheck();
             } else {
-              var _params = {
-                lookupvalue: {
-                  "apartmentId": this.sessionService.apartmentId,
-                  "lookupValueId": this.visitor.lookupValueId,
-                  "lookupTypeId": 100,
-                  "lookupValueName": this.visitor.lookupValueName,
-                  "description": this.visitor.description,
-                  "isActive": true,
-                  "insertedBy": this.visitor.insertedBy,
-                  "insertedOn": this.visitor.insertedOn,
-                  "updatedBy": parseInt(this.sessionService.userId),
-                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-                }
-              };
-              this.lookupService.updateLookupValue(_params).subscribe(function (res) {
-                _this43.isDrawerLoader = true;
+              this.isDrawerLoader = false;
 
-                if (res.message) {
-                  _this43.closeDrawer();
+              if (this.clickMode == 'add') {
+                var params = {
+                  lookupvalue: {
+                    "apartmentId": this.sessionService.apartmentId,
+                    "lookupTypeId": 100,
+                    "lookupValueName": this.visitor.lookupValueName,
+                    "description": this.visitor.description,
+                    "isActive": true,
+                    "insertedBy": parseInt(this.sessionService.userId),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                  }
+                };
+                this.lookupService.addLookupValue(params).subscribe(function (res) {
+                  _this43.isDrawerLoader = true;
 
-                  _this43.getVisitorList();
+                  if (res.code == 200) {
+                    _this43.closeDrawer();
 
-                  _this43.sharedService.openSnackBar(res.message, 'success');
-                } else {
-                  _this43.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this43.isDrawerLoader = true;
+                    _this43.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
 
-                _this43.sharedService.openSnackBar('Network Error', 'error');
-              });
+                    _this43.getVisitorList();
+                  } else {
+                    _this43.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this43.isDrawerLoader = true;
+
+                  _this43.sharedService.openSnackBar('Network Error', 'error');
+                });
+              } else {
+                var _params = {
+                  lookupvalue: {
+                    "apartmentId": this.sessionService.apartmentId,
+                    "lookupValueId": this.visitor.lookupValueId,
+                    "lookupTypeId": 100,
+                    "lookupValueName": this.visitor.lookupValueName,
+                    "description": this.visitor.description,
+                    "isActive": true,
+                    "insertedBy": this.visitor.insertedBy,
+                    "insertedOn": this.visitor.insertedOn,
+                    "updatedBy": parseInt(this.sessionService.userId),
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                  }
+                };
+                this.lookupService.updateLookupValue(_params).subscribe(function (res) {
+                  _this43.isDrawerLoader = true;
+
+                  if (res.message) {
+                    _this43.closeDrawer();
+
+                    _this43.getVisitorList();
+
+                    _this43.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this43.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this43.isDrawerLoader = true;
+
+                  _this43.sharedService.openSnackBar('Network Error', 'error');
+                });
+              }
             }
           }
         }, {
@@ -9101,14 +9216,7 @@
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this44.isDataLoaded = true;
               _this44.visitorCategoryList = res;
-              _this44.allData = res;
               _this44.totalItems = res.length;
-
-              if (_this44.totalItems > _this44.itemLimit) {
-                _this44.ItemEndIndex = _this44.itemLimit;
-              } else {
-                _this44.ItemEndIndex = _this44.totalItems;
-              }
             });
           }
         }, {
@@ -9149,32 +9257,6 @@
           value: function ngOnDestroy() {
             this.apiSubscibe.unsubscribe();
           }
-        }, {
-          key: "onGlSearchFilter",
-          value: function onGlSearchFilter(event) {
-            if (event != "") {
-              this.visitorCategoryList = this.allData.filter(function (item) {
-                return String(item.lookupValueName).toLowerCase().includes(event.toLowerCase());
-              });
-            } else {
-              this.visitorCategoryList = this.allData;
-            }
-
-            this.totalItems = this.visitorCategoryList.length;
-
-            if (this.totalItems > this.itemLimit) {
-              this.ItemEndIndex = this.itemLimit;
-            } else {
-              this.ItemEndIndex = this.totalItems;
-            }
-          }
-        }, {
-          key: "getIndexParams",
-          value: function getIndexParams(event) {
-            this.ItemStartIndex = event.ItemStartIndex;
-            this.ItemEndIndex = event.ItemEndIndex;
-            this.itemLimit = event.itemLimit;
-          }
         }]);
 
         return VisitorSetupComponent;
@@ -9189,6 +9271,10 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
 
@@ -9210,10 +9296,11 @@
         /*! raw-loader!./visitor-setup.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/visitor/components/visitor-setup/visitor-setup.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-setup.component.scss */
         "./src/app/modules/common/visitor/components/visitor-setup/visitor-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], VisitorSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], VisitorSetupComponent);
       /***/
     },
 
@@ -9670,6 +9757,12 @@
       var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+      /* harmony import */
+
+
+      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      /*! src/app/shared/pipe/shared.pipe */
+      "./src/app/shared/pipe/shared.pipe.ts");
 
       var VisitorModule = function VisitorModule() {
         _classCallCheck(this, VisitorModule);
@@ -9678,6 +9771,7 @@
       VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_visitor_component__WEBPACK_IMPORTED_MODULE_6__["VisitorComponent"], _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_7__["VisitorSetupComponent"], _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"], _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"], _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorListComponent"], _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["UserVisitorListComponent"], _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_17__["ExpUserVisitorListComponent"], _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_19__["CreateVendorFrquentVisitorComponent"], _components_exp_visitor_confirm_exp_visitor_confirm_component__WEBPACK_IMPORTED_MODULE_20__["ExpVisitorConfirmComponent"], _components_frequent_vendor_list_frequent_vendor_list_component__WEBPACK_IMPORTED_MODULE_21__["FrequentVendorListComponent"], _components_currently_checkedin_list_currently_checkedin_list_component__WEBPACK_IMPORTED_MODULE_22__["CurrentlyCheckedinListComponent"], _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_23__["VisitorHistoryComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], angularx_qrcode__WEBPACK_IMPORTED_MODULE_5__["QRCodeModule"], _visitor_routing_module__WEBPACK_IMPORTED_MODULE_3__["VisitorRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__["ListModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_15__["DatepickerModule"].forRoot(), ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_16__["NgxIntlTelInputModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__["CondoMessageModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__["TranslateModule"]],
+        providers: [src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_25__["ColumnSearchPipe"]],
         bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_6__["VisitorComponent"]]
       })], VisitorModule);
       /***/

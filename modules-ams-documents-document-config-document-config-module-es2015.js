@@ -189,6 +189,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./documents-reports/documents-reports-data/documents-reports-data.component */ "./src/app/modules/ams/documents/document-config/documents-reports/documents-reports-data/documents-reports-data.component.ts");
 /* harmony import */ var _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./folder-lists/document-download/document-download.component */ "./src/app/modules/ams/documents/document-config/folder-lists/document-download/document-download.component.ts");
 /* harmony import */ var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./document-create/document-create.component */ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -225,7 +227,8 @@ DocumentConfigModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"],
             src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_6__["UploadModule"],
-            _document_config_routing_module__WEBPACK_IMPORTED_MODULE_7__["DocumentConfigRoutingModule"]
+            _document_config_routing_module__WEBPACK_IMPORTED_MODULE_7__["DocumentConfigRoutingModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateModule"]
         ]
     })
 ], DocumentConfigModule);
