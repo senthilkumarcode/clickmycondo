@@ -906,6 +906,7 @@
           this.injector = injector;
           this.isFacilityCategoryLoaded = false;
           this.totalItems = 0;
+          this.facilityCategoryData = [];
           this.searchListData = "";
           this.allList = [];
           this.ItemStartIndex = 0;
@@ -989,7 +990,7 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
-              if (res.length > 0) {
+              if (Array.isArray(res)) {
                 _this7.facilityCategoryData = res;
                 _this7.allList = res;
                 _this7.totalItems = res.length;

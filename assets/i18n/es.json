@@ -107,7 +107,29 @@
                     "ONHOLD": "En espera",
                     "CLOSED": "Cerrada"
                 }
-            }
+            },
+            "SETTINGS": {
+                "TITLE" : "Ajustes",
+                "TIPS": "Consejos",
+                "PRIVATECATEGORY": "Categoría privada",
+                "COMMONCATEGORY": "Categoría común",
+                "TOTALRESULTS": "resultados",
+                "HINT1": "Sugerencias: Tiene dos tipos de Categoría de ticket para configurar.",
+                "HINT2": "La categoría común se refiere a los problemas relacionados con el condominio que es común a todas las unidades (por ejemplo: la piscina no está limpia)",
+                "HINT3": "La categoría privada se refiere a los problemas dentro de las unidades (por ejemplo: plomería dentro del condominio)",
+                "HINT4": "Tenemos algunas categorías comunes estándar creadas para usted, puede asignar un supervisor y asignar un escalamiento si lo requiere.",
+                "HINT5": "Si tiene un supervisor asignado a una categoría, los tickets se asignarán al supervisor automáticamente. El supervisor tendrá que reasignar el ticket al personal",
+                "COMMONTICKETCATEGORY": "CATEGORÍA COMÚN DE BOLETOS",
+                "PRIVATETICKETCATEGORY": "CATEGORÍA DE ENTRADA PRIVADA",
+                "CATEGORYNAME": "nombre de la categoría",
+                "DEFAULTSUPERVISOR": "Supervisora ​​predeterminada",
+                "ESCLATIONSETUP": "Configuración de escalamiento (opcional)",
+                "AUTOESCLATETOLEVEL1AFTER": "Auto Esclate al nivel 1 después",
+                "DAYS": "Dias",
+                "LEVEL1MANAGER": "Seleccionar administrador de nivel 1",
+                "AUTOESCLATETOLEVEL2AFTER": "Auto Esclate al nivel 2 después",
+                "LEVEL2MANAGER": "Seleccionar administrador de nivel 2"
+             }
         }
     },
     "VISITOR": {
@@ -305,7 +327,11 @@
         "GUESTATTEND": "No de invitados para asistir",
         "VISITORPASS": "Pase de visitante",
         "ENTERCOMMENT": "Ingresar comentario",
-        "T&C": "Términos y Condiciones"
+        "T&C": "Términos y Condiciones",
+        "CATEGORYNAME": "nombre de la categoría",
+        "DEFAULTSUPERVISOR": "Supervisora ​​predeterminada",
+        "LEVEL1MANAGER": "Seleccionar administrador de nivel 1",
+        "LEVEL2MANAGER": "Seleccionar administrador de nivel 2"
 
     },
     "BUTTONS": {
@@ -320,7 +346,9 @@
         "CANCELBUTTON": "Cancelar",
         "EXPECTEDVISITOR": "Visitante esperada",
         "VISITOR": "Visitante",
-        "ADDMOVEIN": "Agregar MoveIn"
+        "ADDMOVEIN": "Agregar MoveIn",
+        "UPLOADDOCUMENT": "subir documentos",
+        "ADD": "Agregar"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",

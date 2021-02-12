@@ -214,7 +214,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-permissions-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Permissions</h4>\n\n    <div class=\"bg-card\">\n        <div class=\"py-2\">\n            <mat-checkbox [color]=\"'primary'\" [formControlName]=\"'pushNotifications'\">Push Notifications</mat-checkbox>\n        </div>\n    </div> \n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-permissions-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Permissions</h4>\n\n    <div class=\"bg-card\">\n        <div class=\"py-2\">\n            <mat-checkbox [color]=\"'primary'\" (change)=\"showOptions($event)\" [disabled]=\"playerID == 'NA'\">Push Notifications</mat-checkbox>\n            <p class=\"text-primary font-medium mt-1\"><span class=\"text-secondary font-normal mr-2\">Device ID:</span>{{playerID}}</p>\n        </div>\n    </div> \n\n</div>";
       /***/
     },
 
@@ -3809,22 +3809,90 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Notification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/api/controllers/Notification */
+      "./src/app/api/controllers/Notification.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
 
       var ProfilePermissionsComponent = /*#__PURE__*/function () {
-        function ProfilePermissionsComponent() {
+        function ProfilePermissionsComponent(notificationService, sessionService, sharedService) {
           _classCallCheck(this, ProfilePermissionsComponent);
+
+          this.notificationService = notificationService;
+          this.sessionService = sessionService;
+          this.sharedService = sharedService;
+          this.playerID = '';
         }
 
         _createClass(ProfilePermissionsComponent, [{
+          key: "showOptions",
+          value: function showOptions(event) {
+            if (event.checked) {
+              this.enablePushNotifyPermission();
+            }
+          }
+        }, {
+          key: "enablePushNotifyPermission",
+          value: function enablePushNotifyPermission() {
+            var _this30 = this;
+
+            var details = {
+              "userId": this.sessionService.userId,
+              "playerId": this.playerID,
+              "insertedBy": this.sessionService.userId,
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
+            };
+            var params = {
+              OneS: details
+            };
+            this.notificationService.addOneSignalPlayerId(params).subscribe(function (res) {
+              _this30.sharedService.openSnackBar('Push Notification enabled', 'success');
+            }, function (error) {
+              _this30.sharedService.openSnackBar('Some error occured', 'error');
+            });
+          }
+        }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            this.playerID = localStorage.getItem('playerID') || 'NA';
+          }
         }]);
 
         return ProfilePermissionsComponent;
       }();
 
       ProfilePermissionsComponent.ctorParameters = function () {
-        return [];
+        return [{
+          type: src_app_api_controllers_Notification__WEBPACK_IMPORTED_MODULE_2__["NotificationService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }];
       };
 
       ProfilePermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3835,7 +3903,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-permissions.component.scss */
         "./src/app/modules/profile/profile-permissions/profile-permissions.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ProfilePermissionsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Notification__WEBPACK_IMPORTED_MODULE_2__["NotificationService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])], ProfilePermissionsComponent);
       /***/
     },
 
@@ -4010,7 +4078,7 @@
         }, {
           key: "createPet",
           value: function createPet() {
-            var _this30 = this;
+            var _this31 = this;
 
             var params = {
               pet: {
@@ -4027,84 +4095,24 @@
               if (res.message) {
                 var _params2 = {
                   apartmentBlockUnitPet: {
-                    "apartmentBlockUnitId": _this30.apartmentBlockUnitId,
+                    "apartmentBlockUnitId": _this31.apartmentBlockUnitId,
                     "petId": res.message,
                     "isActive": true,
-                    "insertedBy": _this30.sessionService.userId,
+                    "insertedBy": _this31.sessionService.userId,
                     "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": null
                   }
                 };
 
-                _this30.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
-                  _this30.isDataSubmitted = false;
-
-                  if (res.message) {
-                    _this30.petFormData.pet.petTypeId = '';
-                    _this30.petFormData.pet.dob = '';
-
-                    _this30.sharedService.openSnackBar("Pet added successfully", 'success');
-
-                    _this30.outputParams.emit('success');
-                  } else {
-                    _this30.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this30.isDataSubmitted = false;
-
-                  _this30.sharedService.openSnackBar('Server Error', 'error');
-                });
-              } else {
-                _this30.isDataSubmitted = false;
-
-                _this30.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this30.isDataSubmitted = false;
-
-              _this30.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updatePet",
-          value: function updatePet() {
-            var _this31 = this;
-
-            this.isDataSubmitted = true;
-            var details = {
-              "petId": this.petFormData.pet.petId,
-              "petTypeId": this.petFormData.pet.petTypeId,
-              "dob": this.petFormData.pet.dob,
-              "isActive": this.petFormData.pet.isActive,
-              "insertedBy": this.petFormData.pet.insertedBy,
-              "insertedOn": this.petFormData.pet.insertedOn,
-              "updatedBy": this.sessionService.userId,
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
-            };
-            var params = {
-              pet: details
-            };
-            this.petService.updatePet(params).subscribe(function (res) {
-              if (res.message) {
-                var _params3 = {
-                  apartmentBlockUnitPet: {
-                    "apartmentBlockUnitPetId": _this31.petFormData.apartmentBlockUnitPetId,
-                    "apartmentBlockUnitId": _this31.petFormData.apartmentBlockUnitId,
-                    "petId": _this31.petFormData.petId,
-                    "isActive": _this31.petFormData.isActive,
-                    "insertedBy": _this31.petFormData.insertedBy,
-                    "insertedOn": _this31.petFormData.insertedOn,
-                    "updatedBy": _this31.sessionService.userId,
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
-                  }
-                };
-
-                _this31.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                _this31.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   _this31.isDataSubmitted = false;
 
                   if (res.message) {
-                    _this31.sharedService.openSnackBar("Pet updated successfully", 'success');
+                    _this31.petFormData.pet.petTypeId = '';
+                    _this31.petFormData.pet.dob = '';
+
+                    _this31.sharedService.openSnackBar("Pet added successfully", 'success');
 
                     _this31.outputParams.emit('success');
                   } else {
@@ -4127,9 +4135,69 @@
             });
           }
         }, {
+          key: "updatePet",
+          value: function updatePet() {
+            var _this32 = this;
+
+            this.isDataSubmitted = true;
+            var details = {
+              "petId": this.petFormData.pet.petId,
+              "petTypeId": this.petFormData.pet.petTypeId,
+              "dob": this.petFormData.pet.dob,
+              "isActive": this.petFormData.pet.isActive,
+              "insertedBy": this.petFormData.pet.insertedBy,
+              "insertedOn": this.petFormData.pet.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+            };
+            var params = {
+              pet: details
+            };
+            this.petService.updatePet(params).subscribe(function (res) {
+              if (res.message) {
+                var _params3 = {
+                  apartmentBlockUnitPet: {
+                    "apartmentBlockUnitPetId": _this32.petFormData.apartmentBlockUnitPetId,
+                    "apartmentBlockUnitId": _this32.petFormData.apartmentBlockUnitId,
+                    "petId": _this32.petFormData.petId,
+                    "isActive": _this32.petFormData.isActive,
+                    "insertedBy": _this32.petFormData.insertedBy,
+                    "insertedOn": _this32.petFormData.insertedOn,
+                    "updatedBy": _this32.sessionService.userId,
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+                  }
+                };
+
+                _this32.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                  _this32.isDataSubmitted = false;
+
+                  if (res.message) {
+                    _this32.sharedService.openSnackBar("Pet updated successfully", 'success');
+
+                    _this32.outputParams.emit('success');
+                  } else {
+                    _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this32.isDataSubmitted = false;
+
+                  _this32.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this32.isDataSubmitted = false;
+
+                _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this32.isDataSubmitted = false;
+
+              _this32.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this32 = this;
+            var _this33 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -4137,7 +4205,7 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this32.apartmentBlockUnitId = Number(params.unitId);
+                _this33.apartmentBlockUnitId = Number(params.unitId);
               }
             });
 
@@ -4148,7 +4216,7 @@
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this32.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
+                _this33.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
               }
             });
           }
@@ -4327,33 +4395,33 @@
         }, {
           key: "getParams",
           value: function getParams(event) {
-            var _this33 = this;
+            var _this34 = this;
 
             if (event == 'delete') {
               this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
                 if (id != null) {
-                  _this33.isUserDataLoaded = false;
+                  _this34.isUserDataLoaded = false;
                   var params = {
                     petId: parseInt(id),
-                    deleteBy: _this33.sessionService.userId
+                    deleteBy: _this34.sessionService.userId
                   };
 
-                  _this33.petService.deletePet(params).subscribe(function (res) {
-                    _this33.isUserDataLoaded = true;
+                  _this34.petService.deletePet(params).subscribe(function (res) {
+                    _this34.isUserDataLoaded = true;
 
-                    _this33.sharedService.setUnitListDeleteIndex(null);
+                    _this34.sharedService.setUnitListDeleteIndex(null);
 
                     if (res.message) {
-                      _this33.sharedService.openSnackBar("Pet deleted", 'success');
+                      _this34.sharedService.openSnackBar("Pet deleted", 'success');
 
-                      _this33.showUnitPetDetails(_this33.apartmentBlockUnitId);
+                      _this34.showUnitPetDetails(_this34.apartmentBlockUnitId);
 
-                      _this33.isExpanded = false;
+                      _this34.isExpanded = false;
                     } else {
-                      _this33.sharedService.openSnackBar(res.errorMessage, 'error');
+                      _this34.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
 
-                    _this33.apiSubscribe.unsubscribe();
+                    _this34.apiSubscribe.unsubscribe();
                   });
                 }
               });
@@ -4365,7 +4433,7 @@
         }, {
           key: "showUnitPetDetails",
           value: function showUnitPetDetails(id) {
-            var _this34 = this;
+            var _this35 = this;
 
             this.isUserDataLoaded = false;
             var petListParams = {
@@ -4373,18 +4441,18 @@
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this34.petDataList = res.reverse();
+                _this35.petDataList = res.reverse();
               }
 
-              _this34.isUserDataLoaded = true;
+              _this35.isUserDataLoaded = true;
             }, function (error) {
-              _this34.sharedService.openSnackBar('Server Error', 'error');
+              _this35.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this36 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -4394,9 +4462,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this35.apartmentBlockUnitId = Number(params.unitId);
+                _this36.apartmentBlockUnitId = Number(params.unitId);
 
-                _this35.showUnitPetDetails(_this35.apartmentBlockUnitId);
+                _this36.showUnitPetDetails(_this36.apartmentBlockUnitId);
               }
             }); //Pet DropDown
 
@@ -4406,12 +4474,12 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-              _this35.petTypeList = res;
+              _this36.petTypeList = res;
             }); // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this35.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
+                _this36.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
               }
             });
           }
@@ -4562,7 +4630,7 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this36 = this;
+            var _this37 = this;
 
             this.isImageLoaded = false;
             var file = event[0];
@@ -4585,32 +4653,32 @@
               ctx.drawImage(img, 0, 0, iwScaled, ihScaled);
               var params = {
                 user: {
-                  emailId: _this36.user.emailId,
+                  emailId: _this37.user.emailId,
                   image: canvas.toDataURL('image/jpeg')
                 }
               };
 
-              _this36.userService.updateUserPic2(params).subscribe(function (res) {
-                _this36.isImageLoaded = true;
+              _this37.userService.updateUserPic2(params).subscribe(function (res) {
+                _this37.isImageLoaded = true;
 
                 if (res.message) {
-                  _this36.sharedService.openSnackBar('Picture updated', 'success'); //if its not a profile interface update the user
+                  _this37.sharedService.openSnackBar('Picture updated', 'success'); //if its not a profile interface update the user
 
 
-                  if (!_this36.isProfile) {
-                    _this36.sharedService.setUserPic(canvas.toDataURL('image/jpeg'));
+                  if (!_this37.isProfile) {
+                    _this37.sharedService.setUserPic(canvas.toDataURL('image/jpeg'));
                   } else {
-                    _this36.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
+                    _this37.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
                   }
 
-                  _this36.profilePicUrl = canvas.toDataURL('image/jpeg');
+                  _this37.profilePicUrl = canvas.toDataURL('image/jpeg');
                 } else {
-                  _this36.sharedService.openSnackBar('Some error occured', 'error');
+                  _this37.sharedService.openSnackBar('Some error occured', 'error');
                 }
               }, function (err) {
-                _this36.isImageLoaded = true;
+                _this37.isImageLoaded = true;
 
-                _this36.sharedService.openSnackBar('Some error occured', 'error');
+                _this37.sharedService.openSnackBar('Some error occured', 'error');
               });
             };
 
@@ -4619,18 +4687,18 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this37 = this;
+            var _this38 = this;
 
             this.imageFormats = this.constantsService.imageFormats.join(',');
             this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-              _this37.profilePicUrl = profilePicUrl;
+              _this38.profilePicUrl = profilePicUrl;
             });
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {
-                _this37.isProfile = true;
+                _this38.isProfile = true;
               } else {
-                _this37.isProfile = false;
+                _this38.isProfile = false;
               }
             });
           }
@@ -4776,7 +4844,7 @@
          * @param {MatDialog} _matDialog
          */
         function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
-          var _this38 = this;
+          var _this39 = this;
 
           _classCallCheck(this, ProfileSidebarComponent);
 
@@ -4801,7 +4869,7 @@
 
           this._activatedRoute.queryParams.subscribe(function (params) {
             if (params['type'] != undefined) {
-              _this38.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
+              _this39.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
             }
           });
 
@@ -4816,24 +4884,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this39 = this;
+            var _this40 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this39.user = data.initialData.profileUser;
+              _this40.user = data.initialData.profileUser;
             }); //if profile from unapproved and approved modules
 
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['unituserid'] != undefined) {
                 var userparams = {
-                  apartmentId: _this39.sessionService.apartmentId,
+                  apartmentId: _this40.sessionService.apartmentId,
                   apartmentBlockUnitUserId: params['unituserid']
                 };
 
-                _this39.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
-                  _this39.user.roleName = res[0].roleName;
+                _this40.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
+                  _this40.user.roleName = res[0].roleName;
                 });
               }
             }); // Generate menu links
@@ -4855,7 +4923,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this40 = this;
+            var _this41 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -4868,7 +4936,7 @@
                 type: 'basic',
                 icon: folder.icon,
                 query: 'preserve',
-                link: '/' + _this40.pagePath() + '/profile/' + folder.slug
+                link: '/' + _this41.pagePath() + '/profile/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -4880,7 +4948,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this40._foldersMenuData.push(menuItem);
+              _this41._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -4888,19 +4956,19 @@
         }, {
           key: "_generateSettingsMenuLinks",
           value: function _generateSettingsMenuLinks() {
-            var _this41 = this;
+            var _this42 = this;
 
             // Reset the labels menu
             this._settingsMenuData = []; // Iterate through the labels
 
             this.settings.forEach(function (setting) {
               // Generate menu item for the label
-              _this41._settingsMenuData.push({
+              _this42._settingsMenuData.push({
                 id: setting.id,
                 title: setting.title,
                 type: 'basic',
                 icon: setting.icon,
-                link: '/' + _this41.pagePath() + '/profile/' + setting.slug
+                link: '/' + _this42.pagePath() + '/profile/' + setting.slug
               });
             }); // Update the menu data
 
@@ -5055,7 +5123,7 @@
         }, {
           key: "submitTimeSettingsform",
           value: function submitTimeSettingsform(form) {
-            var _this42 = this;
+            var _this43 = this;
 
             this.isDataSubmitted = true;
             var params = {
@@ -5065,32 +5133,32 @@
               updatedBy: this.sessionService.userId
             };
             this.userService.updateUserTimezone(params).subscribe(function (res) {
-              _this42.isDataSubmitted = false;
+              _this43.isDataSubmitted = false;
 
               if (res.message) {
-                _this42.sessionService.zone = _this42.user.timeZone;
+                _this43.sessionService.zone = _this43.user.timeZone;
 
-                _this42.sharedService.setTimeZone(_this42.sessionService.zone);
+                _this43.sharedService.setTimeZone(_this43.sessionService.zone);
 
-                _this42.sharedService.openSnackBar('Timezone updated Successfully', 'success');
+                _this43.sharedService.openSnackBar('Timezone updated Successfully', 'success');
               } else {
-                _this42.sharedService.openSnackBar('Some error occured', 'error');
+                _this43.sharedService.openSnackBar('Some error occured', 'error');
               }
             }, function (error) {
-              _this42.isDataSubmitted = false;
+              _this43.isDataSubmitted = false;
 
-              _this42.sharedService.openSnackBar('Network error', 'error');
+              _this43.sharedService.openSnackBar('Network error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this43 = this;
+            var _this44 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this43.user = data.initialData.profileUser;
+              _this44.user = data.initialData.profileUser;
             });
 
             this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_3__["timeZones"].map(function (data) {
@@ -5245,7 +5313,7 @@
         }, {
           key: "getBlockUnitList",
           value: function getBlockUnitList(event) {
-            var _this44 = this;
+            var _this45 = this;
 
             this.isUserDataLoaded = false;
 
@@ -5259,18 +5327,18 @@
               apartmentBlockId: this.block.apartmentBlockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
-              _this44.isUserDataLoaded = true;
-              _this44.blockUnitList = res;
+              _this45.isUserDataLoaded = true;
+              _this45.blockUnitList = res;
 
-              _this44.blockUnitList.forEach(function (data) {
-                if (data.apartmentBlockUnitId == _this44.block.apartmentBlockUnitId) {
-                  _this44.blockFormData.cars = data.cars;
-                  _this44.blockFormData.intercom = data.intercom;
-                  _this44.blockFormData.unitType = data.unitType;
-                  _this44.block.apartmentBlockNumber = data.apartmentBlockNumber;
-                  _this44.block.apartmentBlockUnitNumber = data.apartmentBlockUnitNumber;
-                  _this44.block.cars = data.cars;
-                  _this44.block.intercom = data.intercom;
+              _this45.blockUnitList.forEach(function (data) {
+                if (data.apartmentBlockUnitId == _this45.block.apartmentBlockUnitId) {
+                  _this45.blockFormData.cars = data.cars;
+                  _this45.blockFormData.intercom = data.intercom;
+                  _this45.blockFormData.unitType = data.unitType;
+                  _this45.block.apartmentBlockNumber = data.apartmentBlockNumber;
+                  _this45.block.apartmentBlockUnitNumber = data.apartmentBlockUnitNumber;
+                  _this45.block.cars = data.cars;
+                  _this45.block.intercom = data.intercom;
                 }
               });
             });
@@ -5291,7 +5359,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this46 = this;
 
             if (!this.isAdmin) {
               this.isUserEdit = false;
@@ -5302,9 +5370,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this45.block.apartmentBlockId = Number(params.blockId);
-                _this45.block.apartmentBlockUnitId = Number(params.unitId);
-                _this45.apartmentBlockUnitUserId = Number(params.unituserid); //this.getBlockUnitInfo(this.block.apartmentBlockUnitId);
+                _this46.block.apartmentBlockId = Number(params.blockId);
+                _this46.block.apartmentBlockUnitId = Number(params.unitId);
+                _this46.apartmentBlockUnitUserId = Number(params.unituserid); //this.getBlockUnitInfo(this.block.apartmentBlockUnitId);
               }
             }); // Tower
 
@@ -5313,9 +5381,9 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerInfo).subscribe(function (res) {
-              _this45.blockList = res;
+              _this46.blockList = res;
 
-              _this45.getBlockUnitList(null);
+              _this46.getBlockUnitList(null);
             }); //Unit Type
 
             var unitTypeInfo = {
@@ -5323,7 +5391,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeInfo).subscribe(function (res) {
-              _this45.unitTypeList = res;
+              _this46.unitTypeList = res;
             });
           }
         }, {
@@ -5628,7 +5696,7 @@
         }, {
           key: "createAbsenceForm",
           value: function createAbsenceForm() {
-            var _this46 = this;
+            var _this47 = this;
 
             var details = {
               "apartmentId": this.sessionService.apartmentId,
@@ -5659,25 +5727,25 @@
               apartmentLongAbsence: details
             };
             this.apartmentService.addApartmentLongAbsence(params).subscribe(function (res) {
-              _this46.isDataSubmitted = false;
+              _this47.isDataSubmitted = false;
 
               if (res.message) {
-                _this46.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
+                _this47.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
 
-                _this46.getHistoryData();
+                _this47.getHistoryData();
               } else {
-                _this46.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this47.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this46.isDataSubmitted = false;
+              _this47.isDataSubmitted = false;
 
-              _this46.sharedService.openSnackBar('Server Error', 'error');
+              _this47.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateAbsenceForm",
           value: function updateAbsenceForm() {
-            var _this47 = this;
+            var _this48 = this;
 
             var params = {
               apartmentLongAbsence: Object.assign(Object.assign({}, this.data), {
@@ -5695,25 +5763,25 @@
               })
             };
             this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
-              _this47.isDataSubmitted = false;
+              _this48.isDataSubmitted = false;
 
               if (res.message) {
-                _this47.sharedService.openSnackBar(res.message, 'success');
+                _this48.sharedService.openSnackBar(res.message, 'success');
 
-                _this47.getHistoryData();
+                _this48.getHistoryData();
               } else {
-                _this47.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this48.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this47.isDataSubmitted = false;
+              _this48.isDataSubmitted = false;
 
-              _this47.sharedService.openSnackBar('Server Error', 'error');
+              _this48.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getHistoryData",
           value: function getHistoryData() {
-            var _this48 = this;
+            var _this49 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -5723,25 +5791,25 @@
             this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
               if (unit && Array.isArray(unit)) {
                 if (unit.length > 0) {
-                  _this48.historyListData = unit.reverse();
-                  _this48.data = _this48.historyListData[0];
+                  _this49.historyListData = unit.reverse();
+                  _this49.data = _this49.historyListData[0];
                 }
               } else {
-                _this48.sharedService.openSnackBar(unit.errorMessage, 'error');
+                _this49.sharedService.openSnackBar(unit.errorMessage, 'error');
               }
 
-              _this48.clickMode = 'showAll';
-              _this48.isDataLoaded = true;
+              _this49.clickMode = 'showAll';
+              _this49.isDataLoaded = true;
             }, function (error) {
-              _this48.isDataLoaded = true;
+              _this49.isDataLoaded = true;
 
-              _this48.sharedService.openSnackBar('Server Error', 'error');
+              _this49.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this49 = this;
+            var _this50 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -5751,16 +5819,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this49.apartmentBlockUnitId = Number(params.unitId), _this49.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this50.apartmentBlockUnitId = Number(params.unitId), _this50.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this49.getHistoryData();
+                _this50.getHistoryData();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this49.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
+                _this50.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
               }
             });
           }
@@ -5975,7 +6043,7 @@
         }, {
           key: "createProfileVehicle",
           value: function createProfileVehicle() {
-            var _this50 = this;
+            var _this51 = this;
 
             var details = {
               "vehicleNumber": this.vehicleFormData.vehicleNumber,
@@ -5996,18 +6064,18 @@
             this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": _this50.apartmentBlockUnitId,
+                  "apartmentBlockUnitId": _this51.apartmentBlockUnitId,
                   "vehicleId": parseInt(res.message),
-                  "userId": _this50.sessionService.userId,
+                  "userId": _this51.sessionService.userId,
                   "documentId": null,
                   "parkingSlotId": null,
-                  "stickerNumber": _this50.vehicleFormData.stickerNumber,
-                  "rfid": _this50.vehicleFormData.rfid,
-                  "fromDate": _this50.vehicleFormData.fromDate,
-                  "toDate": _this50.vehicleFormData.toDate,
+                  "stickerNumber": _this51.vehicleFormData.stickerNumber,
+                  "rfid": _this51.vehicleFormData.rfid,
+                  "fromDate": _this51.vehicleFormData.fromDate,
+                  "toDate": _this51.vehicleFormData.toDate,
                   "isPassIssued": true,
                   "isActive": true,
-                  "insertedBy": parseInt(_this50.sessionService.userId),
+                  "insertedBy": parseInt(_this51.sessionService.userId),
                   "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
@@ -6016,85 +6084,13 @@
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this50.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
-                  _this50.isDataSubmitted = false;
-
-                  if (res.message) {
-                    _this50.vehicleFormData = {};
-
-                    _this50.sharedService.openSnackBar("Vehicle added successfully", 'success');
-
-                    _this50.outputParams.emit(true);
-                  } else {
-                    _this50.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this50.isDataSubmitted = false;
-
-                  _this50.sharedService.openSnackBar('Server Error', 'error');
-                });
-              } else {
-                _this50.isDataSubmitted = false;
-
-                _this50.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this50.isDataSubmitted = false;
-
-              _this50.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updateProfileVehicle",
-          value: function updateProfileVehicle() {
-            var _this51 = this;
-
-            var details = {
-              "vehicleId": parseInt(this.vehicleFormData.vehicleId),
-              "vehicleNumber": this.vehicleFormData.vehicleNumber,
-              "vehicleTypeId": parseInt(this.vehicleFormData.vehicleTypeId),
-              "vehicleManufacturer": this.vehicleFormData.vehicleManufacturer,
-              "vehicleModel": this.vehicleFormData.vehicleModel,
-              "vehicleDriverNumber": this.vehicleFormData.vehicleDriverNumber,
-              "vehicleColor": this.vehicleFormData.vehicleColor,
-              "isActive": this.vehicleFormData.isActive,
-              "insertedBy": this.vehicleFormData.insertedBy,
-              "insertedOn": this.vehicleFormData.insertedOn,
-              "updatedBy": this.sessionService.userId,
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-            };
-            var vehicleParams = {
-              vehicle: details
-            };
-            this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
-              if (res.message) {
-                var unitDetails = {
-                  "apartmentBlockUnitVehicleId": parseInt(_this51.vehicleData.apartmentBlockUnitVehicleId),
-                  "apartmentBlockUnitId": _this51.apartmentBlockUnitId,
-                  "vehicleId": parseInt(_this51.vehicleFormData.vehicleId),
-                  "userId": _this51.sessionService.userId,
-                  "documentId": null,
-                  "parkingSlotId": null,
-                  "stickerNumber": _this51.vehicleFormData.stickerNumber,
-                  "rfid": _this51.vehicleFormData.rfid,
-                  "fromDate": _this51.vehicleFormData.fromDate,
-                  "toDate": _this51.vehicleFormData.toDate,
-                  "isPassIssued": _this51.vehicleFormData.isPassIssued,
-                  "isActive": _this51.vehicleFormData.isActive,
-                  "insertedBy": _this51.vehicleFormData.insertedBy,
-                  "insertedOn": _this51.vehicleFormData.insertedOn,
-                  "updatedBy": parseInt(_this51.sessionService.userId),
-                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-                };
-                var unitParams = {
-                  apartmentBlockUnitVehicle: unitDetails
-                };
-
-                _this51.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this51.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   _this51.isDataSubmitted = false;
 
                   if (res.message) {
-                    _this51.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+                    _this51.vehicleFormData = {};
+
+                    _this51.sharedService.openSnackBar("Vehicle added successfully", 'success');
 
                     _this51.outputParams.emit(true);
                   } else {
@@ -6117,9 +6113,81 @@
             });
           }
         }, {
+          key: "updateProfileVehicle",
+          value: function updateProfileVehicle() {
+            var _this52 = this;
+
+            var details = {
+              "vehicleId": parseInt(this.vehicleFormData.vehicleId),
+              "vehicleNumber": this.vehicleFormData.vehicleNumber,
+              "vehicleTypeId": parseInt(this.vehicleFormData.vehicleTypeId),
+              "vehicleManufacturer": this.vehicleFormData.vehicleManufacturer,
+              "vehicleModel": this.vehicleFormData.vehicleModel,
+              "vehicleDriverNumber": this.vehicleFormData.vehicleDriverNumber,
+              "vehicleColor": this.vehicleFormData.vehicleColor,
+              "isActive": this.vehicleFormData.isActive,
+              "insertedBy": this.vehicleFormData.insertedBy,
+              "insertedOn": this.vehicleFormData.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+            };
+            var vehicleParams = {
+              vehicle: details
+            };
+            this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
+              if (res.message) {
+                var unitDetails = {
+                  "apartmentBlockUnitVehicleId": parseInt(_this52.vehicleData.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": _this52.apartmentBlockUnitId,
+                  "vehicleId": parseInt(_this52.vehicleFormData.vehicleId),
+                  "userId": _this52.sessionService.userId,
+                  "documentId": null,
+                  "parkingSlotId": null,
+                  "stickerNumber": _this52.vehicleFormData.stickerNumber,
+                  "rfid": _this52.vehicleFormData.rfid,
+                  "fromDate": _this52.vehicleFormData.fromDate,
+                  "toDate": _this52.vehicleFormData.toDate,
+                  "isPassIssued": _this52.vehicleFormData.isPassIssued,
+                  "isActive": _this52.vehicleFormData.isActive,
+                  "insertedBy": _this52.vehicleFormData.insertedBy,
+                  "insertedOn": _this52.vehicleFormData.insertedOn,
+                  "updatedBy": parseInt(_this52.sessionService.userId),
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                };
+                var unitParams = {
+                  apartmentBlockUnitVehicle: unitDetails
+                };
+
+                _this52.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                  _this52.isDataSubmitted = false;
+
+                  if (res.message) {
+                    _this52.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+
+                    _this52.outputParams.emit(true);
+                  } else {
+                    _this52.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this52.isDataSubmitted = false;
+
+                  _this52.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this52.isDataSubmitted = false;
+
+                _this52.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this52.isDataSubmitted = false;
+
+              _this52.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "deleteVehicle",
           value: function deleteVehicle() {
-            var _this52 = this;
+            var _this53 = this;
 
             var message = "Are you sure you want to delete ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
@@ -6130,43 +6198,43 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this52.isDataSubmitted = true;
+                _this53.isDataSubmitted = true;
                 var vehicleParams = {
-                  vehicleId: _this52.vehicleFormData.vehicleId,
-                  deleteBy: _this52.sessionService.userId
+                  vehicleId: _this53.vehicleFormData.vehicleId,
+                  deleteBy: _this53.sessionService.userId
                 };
 
-                _this52.vehicleService.deleteVehicle(vehicleParams).subscribe(function (res) {
+                _this53.vehicleService.deleteVehicle(vehicleParams).subscribe(function (res) {
                   if (res.message) {
                     var params = {
-                      apartmentBlockUnitVehicleId: _this52.vehicleData.apartmentBlockUnitVehicleId,
-                      deleteBy: _this52.sessionService.userId
+                      apartmentBlockUnitVehicleId: _this53.vehicleData.apartmentBlockUnitVehicleId,
+                      deleteBy: _this53.sessionService.userId
                     };
 
-                    _this52.vehicleService.deleteApartmentBlockUnitVehicle(params).subscribe(function (unit) {
-                      _this52.isDataSubmitted = false;
+                    _this53.vehicleService.deleteApartmentBlockUnitVehicle(params).subscribe(function (unit) {
+                      _this53.isDataSubmitted = false;
 
                       if (res.message) {
-                        _this52.outputParams.emit(true);
+                        _this53.outputParams.emit(true);
 
-                        _this52.sharedService.openSnackBar("Vehicle Deleted Successfully", 'success');
+                        _this53.sharedService.openSnackBar("Vehicle Deleted Successfully", 'success');
                       } else {
-                        _this52.sharedService.openSnackBar(res.errorMessage, 'error');
+                        _this53.sharedService.openSnackBar(res.errorMessage, 'error');
                       }
                     }, function (error) {
-                      _this52.isDataSubmitted = false;
+                      _this53.isDataSubmitted = false;
 
-                      _this52.sharedService.openSnackBar('Server Error', 'error');
+                      _this53.sharedService.openSnackBar('Server Error', 'error');
                     });
                   } else {
-                    _this52.isDataSubmitted = false;
+                    _this53.isDataSubmitted = false;
 
-                    _this52.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this53.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this52.isDataSubmitted = false;
+                  _this53.isDataSubmitted = false;
 
-                  _this52.sharedService.openSnackBar('Server Error', 'error');
+                  _this53.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -6174,10 +6242,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this53 = this;
+            var _this54 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this53.timeZone = timeZone;
+              return _this54.timeZone = timeZone;
             });
 
             if (!this.isAdmin) {
@@ -6186,14 +6254,14 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this53.apartmentBlockUnitId = Number(params.unitId);
+                _this54.apartmentBlockUnitId = Number(params.unitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this53.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this54.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             });
 
@@ -6366,23 +6434,23 @@
         }, {
           key: "vehicleList",
           value: function vehicleList(id) {
-            var _this54 = this;
+            var _this55 = this;
 
             this.isUserDataLoaded = false;
             var vehicleListParams = {
               apartmentBlockUnitId: id
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this54.isUserDataLoaded = true;
-              if (res.length > 0) _this54.vehicleDataList = res.reverse();else _this54.vehicleDataList = [];
+              _this55.isUserDataLoaded = true;
+              if (res.length > 0) _this55.vehicleDataList = res.reverse();else _this55.vehicleDataList = [];
             }, function (error) {
-              _this54.sharedService.openSnackBar('Server Error', 'error');
+              _this55.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this55 = this;
+            var _this56 = this;
 
             //this.userId = this.sessionService.profileUserId
             if (!this.isAdmin) {
@@ -6392,16 +6460,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this55.apartmentBlockUnitId = Number(params.unitId);
+                _this56.apartmentBlockUnitId = Number(params.unitId);
 
-                _this55.vehicleList(_this55.apartmentBlockUnitId);
+                _this56.vehicleList(_this56.apartmentBlockUnitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this55.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this56.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             }); //Vehicle Type DropDown
 
@@ -6411,14 +6479,14 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this55.vehicleTypeList = res;
+              _this56.vehicleTypeList = res;
             }); //parking List
 
             var parkingListParams = {
               apartmentIdBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-              _this55.parkingSlotsDataList = res;
+              _this56.parkingSlotsDataList = res;
             });
           }
         }, {
@@ -6631,7 +6699,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this56 = this;
+            var _this57 = this;
 
             this.isDataSubmitted = true;
             var details = {
@@ -6655,17 +6723,17 @@
               propertyManager: details
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
-              _this56.isDataSubmitted = false;
+              _this57.isDataSubmitted = false;
 
               if (res.message) {
-                _this56.sharedService.openSnackBar("Property Manager added successfully", 'success');
+                _this57.sharedService.openSnackBar("Property Manager added successfully", 'success');
 
-                _this56.propertyData = {};
+                _this57.propertyData = {};
 
-                _this56.outputParams.emit('close');
+                _this57.outputParams.emit('close');
               }
             }, function (error) {
-              _this56.isDataSubmitted = false;
+              _this57.isDataSubmitted = false;
             });
           }
         }]);
@@ -6915,7 +6983,7 @@
         }, {
           key: "addPropertyManager",
           value: function addPropertyManager() {
-            var _this57 = this;
+            var _this58 = this;
 
             this.isDataSubmitted = true;
             var propertyManagerParams = {
@@ -6941,25 +7009,25 @@
               }
             };
             this.propertyManagerService.addPropertyManager(propertyManagerParams).subscribe(function (res) {
-              _this57.isDataSubmitted = false;
+              _this58.isDataSubmitted = false;
 
               if (res.message) {
-                _this57.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this58.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this57.getPropertyList();
+                _this58.getPropertyList();
               } else {
-                _this57.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this58.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this57.isDataSubmitted = false;
+              _this58.isDataSubmitted = false;
 
-              _this57.sharedService.openSnackBar('Server Error', 'error');
+              _this58.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updatePropertyManagerForm",
           value: function updatePropertyManagerForm() {
-            var _this58 = this;
+            var _this59 = this;
 
             this.isDataSubmitted = true;
             var propertyManagerParams = {
@@ -6986,25 +7054,25 @@
               }
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
-              _this58.isDataSubmitted = false;
+              _this59.isDataSubmitted = false;
 
               if (res.message) {
-                _this58.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this59.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this58.getPropertyList();
+                _this59.getPropertyList();
               } else {
-                _this58.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this59.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this58.isDataSubmitted = false;
+              _this59.isDataSubmitted = false;
 
-              _this58.sharedService.openSnackBar('Server Error', 'error');
+              _this59.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this59 = this;
+            var _this60 = this;
 
             var message = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
@@ -7015,15 +7083,15 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this59.isDataLoaded = false;
+                _this60.isDataLoaded = false;
                 var details = {
-                  "propertyManagerId": _this59.propertyData.propertyManagerId,
-                  "deleteBy": _this59.userId
+                  "propertyManagerId": _this60.propertyData.propertyManagerId,
+                  "deleteBy": _this60.userId
                 };
 
-                _this59.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                _this60.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                   if (res.message) {
-                    _this59.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                    _this60.sharedService.setAlertMessage("Property Manager Deleted successfully");
                   }
                 }, function (error) {});
               }
@@ -7032,7 +7100,7 @@
         }, {
           key: "getPropertyList",
           value: function getPropertyList() {
-            var _this60 = this;
+            var _this61 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -7041,25 +7109,25 @@
             this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(params).subscribe(function (res) {
               if (res && Array.isArray(res)) {
                 if (res.length > 0) {
-                  _this60.propertyList = res.reverse();
-                  _this60.propertyData = res[0];
+                  _this61.propertyList = res.reverse();
+                  _this61.propertyData = res[0];
                 }
               } else {
-                _this60.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this61.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this60.clickMode = 'showAll';
-              _this60.isDataLoaded = true;
+              _this61.clickMode = 'showAll';
+              _this61.isDataLoaded = true;
             }, function (error) {
-              _this60.isDataLoaded = true;
+              _this61.isDataLoaded = true;
 
-              _this60.sharedService.openSnackBar('Server Error', 'error');
+              _this61.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this61 = this;
+            var _this62 = this;
 
             //this.userId =  this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -7069,16 +7137,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this61.apartmentBlockUnitId = Number(params.unitId);
+                _this62.apartmentBlockUnitId = Number(params.unitId);
 
-                _this61.getPropertyList();
+                _this62.getPropertyList();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this61.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
+                _this62.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
               }
             });
           }

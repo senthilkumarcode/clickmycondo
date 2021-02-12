@@ -655,6 +655,7 @@ let FacilityListComponent = class FacilityListComponent {
         this.injector = injector;
         this.isFacilityCategoryLoaded = false;
         this.totalItems = 0;
+        this.facilityCategoryData = [];
         this.searchListData = "";
         this.allList = [];
         this.ItemStartIndex = 0;
@@ -701,7 +702,7 @@ let FacilityListComponent = class FacilityListComponent {
             apartmentId: this.sessionService.apartmentId
         };
         this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe((res) => {
-            if (res.length > 0) {
+            if (Array.isArray(res)) {
                 this.facilityCategoryData = res;
                 this.allList = res;
                 this.totalItems = res.length;

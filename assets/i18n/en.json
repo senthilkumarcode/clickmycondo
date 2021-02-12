@@ -108,6 +108,28 @@
                     "ONHOLD": "On Hold",
                     "CLOSED": "Closed"
                 }
+            },
+            "SETTINGS": {
+               "TITLE" : "Settings",
+               "TIPS": "Tips",
+               "PRIVATECATEGORY": "Private Category",
+               "COMMONCATEGORY": "Private Category",
+               "TOTALRESULTS": "results",
+               "HINT1": "Tips :  You have two types of Ticket Category to setup.",
+               "HINT2": "Common category refer to the issues related to condo which is at common to all units (For Example : Swimming pool not clean)",
+               "HINT3": "Private category refer to the issues inside  the units ( For Example : Plumbing inside the Condo)",
+               "HINT4": "We have some standard Common Categories created for you, you can assign a supervisor and assign escalation if you required.",
+               "HINT5": "If you have supervisor assigned to a Category , tickets will get assigned to Supervisor automatically. Supervisor will have to re-assign the ticket to Staff.",
+               "COMMONTICKETCATEGORY": "COMMON TICKET CATEGORY",
+               "PRIVATETICKETCATEGORY": "PRIVATE TICKET CATEGORY",
+               "CATEGORYNAME": "Category Name",
+               "DEFAULTSUPERVISOR": "Default Supervisor",
+               "ESCLATIONSETUP": "Esclation Setup (Optional)",
+               "AUTOESCLATETOLEVEL1AFTER": "Auto Esclate to Level 1 After",
+               "DAYS": "Days",
+               "LEVEL1MANAGER": "Select Level-1 Manager",
+               "AUTOESCLATETOLEVEL2AFTER": "Auto Esclate to Level 2 After",
+               "LEVEL2MANAGER": "Select Level-2 Manager"
             }
         }
     },
@@ -307,8 +329,11 @@
         "GUESTATTEND": "No Of Guest To Attend",
         "VISITORPASS": "Visitor Pass",
         "ENTERCOMMENT": "Enter Comment",
-        "T&C": "Terms and Condition"
-        
+        "T&C": "Terms and Condition",
+        "CATEGORYNAME": "Category Name",
+        "DEFAULTSUPERVISOR": "Default Supervisor",
+        "LEVEL1MANAGER": "Select Level-1 Manager",
+        "LEVEL2MANAGER": "Select Level-2 Manager"
 
     },
     "BUTTONS": {
@@ -324,7 +349,8 @@
         "EXPECTEDVISITOR": "Expected Visitor",
         "VISITOR": "Visitor",
         "ADDMOVEIN": "Add MoveIn",
-        "UPLOADDOCUMENT": "Upload Documents"
+        "UPLOADDOCUMENT": "Upload Documents",
+        "ADD": "Add"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",

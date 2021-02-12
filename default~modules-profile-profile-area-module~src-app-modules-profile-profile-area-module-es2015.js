@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-permissions-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Permissions</h4>\n\n    <div class=\"bg-card\">\n        <div class=\"py-2\">\n            <mat-checkbox [color]=\"'primary'\" [formControlName]=\"'pushNotifications'\">Push Notifications</mat-checkbox>\n        </div>\n    </div> \n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-permissions-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Permissions</h4>\n\n    <div class=\"bg-card\">\n        <div class=\"py-2\">\n            <mat-checkbox [color]=\"'primary'\" (change)=\"showOptions($event)\" [disabled]=\"playerID == 'NA'\">Push Notifications</mat-checkbox>\n            <p class=\"text-primary font-medium mt-1\"><span class=\"text-secondary font-normal mr-2\">Device ID:</span>{{playerID}}</p>\n        </div>\n    </div> \n\n</div>");
 
 /***/ }),
 
@@ -2437,21 +2437,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePermissionsComponent", function() { return ProfilePermissionsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Notification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Notification */ "./src/app/api/controllers/Notification.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
 
 
 let ProfilePermissionsComponent = class ProfilePermissionsComponent {
-    constructor() { }
+    constructor(notificationService, sessionService, sharedService) {
+        this.notificationService = notificationService;
+        this.sessionService = sessionService;
+        this.sharedService = sharedService;
+        this.playerID = '';
+    }
+    showOptions(event) {
+        if (event.checked) {
+            this.enablePushNotifyPermission();
+        }
+    }
+    enablePushNotifyPermission() {
+        let details = {
+            "userId": this.sessionService.userId,
+            "playerId": this.playerID,
+            "insertedBy": this.sessionService.userId,
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
+        };
+        let params = {
+            OneS: details
+        };
+        this.notificationService.addOneSignalPlayerId(params).subscribe((res) => {
+            this.sharedService.openSnackBar('Push Notification enabled', 'success');
+        }, error => {
+            this.sharedService.openSnackBar('Some error occured', 'error');
+        });
+    }
     ngOnInit() {
+        this.playerID = localStorage.getItem('playerID') || 'NA';
     }
 };
-ProfilePermissionsComponent.ctorParameters = () => [];
+ProfilePermissionsComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Notification__WEBPACK_IMPORTED_MODULE_2__["NotificationService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
+];
 ProfilePermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-permissions',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-permissions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-permissions/profile-permissions.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-permissions.component.scss */ "./src/app/modules/profile/profile-permissions/profile-permissions.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Notification__WEBPACK_IMPORTED_MODULE_2__["NotificationService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
 ], ProfilePermissionsComponent);
 
 
