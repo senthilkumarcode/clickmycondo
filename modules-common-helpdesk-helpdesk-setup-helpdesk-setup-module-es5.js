@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"helpdesk-setup-wrapper\">  \n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Settings</h4>\n\t\t<!-- Tips -->\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<mat-accordion>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>{{'SERVICE.HELPDESK.SETTINGS.TIPS' | translate}}</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT1' | translate}}</p>\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT2' | translate}}</p>\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT3' | translate}}</p>\n\t\t\t\t\t\t\t<p class=\"mt-4\">{{'SERVICE.HELPDESK.SETTINGS.HINT4' | translate}}</p>\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT5' | translate}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<nav mat-tab-nav-bar>\n\t\t\t\t<a mat-tab-link *ngFor=\"let link of navArray\" [routerLink]=\"link.link\" \n\t\t\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t\t{{link.name}}\n\t\t\t\t</a>\n\t\t\t</nav>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n\n";
+      __webpack_exports__["default"] = "<div class=\"helpdesk-setup-wrapper\">  \n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">{{'SERVICE.HELPDESK.SETTINGS.TITLE' | translate}}</h4>\n\t\t<!-- Tips -->\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<mat-accordion>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>{{'SERVICE.HELPDESK.SETTINGS.TIPS' | translate}}</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT1' | translate}}</p>\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT2' | translate}}</p>\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT3' | translate}}</p>\n\t\t\t\t\t\t\t<p class=\"mt-4\">{{'SERVICE.HELPDESK.SETTINGS.HINT4' | translate}}</p>\n\t\t\t\t\t\t\t<p>{{'SERVICE.HELPDESK.SETTINGS.HINT5' | translate}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<nav mat-tab-nav-bar>\n\t\t\t\t<a mat-tab-link *ngFor=\"let link of navArray\" [routerLink]=\"link.link\" \n\t\t\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t\t{{tab(link.name)}}\n\t\t\t\t</a>\n\t\t\t</nav>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n\n";
       /***/
     },
 
@@ -1080,10 +1080,18 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var HelpdeskSetupComponent = /*#__PURE__*/function () {
-        function HelpdeskSetupComponent() {
+        function HelpdeskSetupComponent(translateService) {
           _classCallCheck(this, HelpdeskSetupComponent);
+
+          this.translateService = translateService;
         }
 
         _createClass(HelpdeskSetupComponent, [{
@@ -1097,13 +1105,28 @@
               name: 'Common Category'
             }];
           }
+        }, {
+          key: "tab",
+          value: function tab(tabTitle) {
+            var retTitle = "";
+            this.translateService.get('SERVICE.HELPDESK.SETTINGS').subscribe(function (data) {
+              if (tabTitle === "Private Category") {
+                retTitle = "".concat(data.PRIVATECATEGORY);
+              } else {
+                retTitle = "".concat(data.COMMONCATEGORY);
+              }
+            });
+            return retTitle;
+          }
         }]);
 
         return HelpdeskSetupComponent;
       }();
 
       HelpdeskSetupComponent.ctorParameters = function () {
-        return [];
+        return [{
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+        }];
       };
 
       HelpdeskSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1114,7 +1137,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./helpdesk-setup.component.scss */
         "./src/app/modules/common/helpdesk/helpdesk-setup/helpdesk-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], HelpdeskSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])], HelpdeskSetupComponent);
       /***/
     },
 

@@ -129,7 +129,25 @@
                 "LEVEL1MANAGER": "Seleccionar administrador de nivel 1",
                 "AUTOESCLATETOLEVEL2AFTER": "Auto Esclate al nivel 2 después",
                 "LEVEL2MANAGER": "Seleccionar administrador de nivel 2"
-             }
+             },
+             "FILTERTICKET": {
+                "STATUS": "Status",
+                "TICKETSTATUS": "Ticket Status",
+                "STAFF": "Staff",
+                "SUPERVISOR": "Supervisor",
+                "COMMON": "Common",
+                "PRIVATE": "Private",
+                "HIGH": "High",
+                "MEDIUM": "Medium",
+                "ALLTICKETS": "All Tickets",
+                "OPEN&ASSIGNED": "Open, Assigned Tickets",
+                "ONHOLD": "On-Hold Tickets",
+                "RESOLVED": "Resolved Tickets",
+                "CLOSED": "Closed Tickets",
+                "UNASSIGNED": "Unassigned Tickets",
+                "MYTICKETS": "My Tickets",
+                "ADDTICKET": "Add Ticket"
+            }
         }
     },
     "VISITOR": {
@@ -348,7 +366,9 @@
         "VISITOR": "Visitante",
         "ADDMOVEIN": "Agregar MoveIn",
         "UPLOADDOCUMENT": "subir documentos",
-        "ADD": "Agregar"
+        "ADD": "Agregar",
+        "APPLY": "Apply",
+        "FILTER": "Filter"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",

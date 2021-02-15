@@ -129,7 +129,25 @@
                 "LEVEL1MANAGER": "เลือกผู้จัดการระดับ 1",
                 "AUTOESCLATETOLEVEL2AFTER": "เลื่อนระดับอัตโนมัติไปที่ระดับ 2 หลัง",
                 "LEVEL2MANAGER": "เลือกผู้จัดการระดับ 2"
-             }
+             },
+             "FILTERTICKET": {
+                "STATUS": "Status",
+                "TICKETSTATUS": "Ticket Status",
+                "STAFF": "Staff",
+                "SUPERVISOR": "Supervisor",
+                "COMMON": "Common",
+                "PRIVATE": "Private",
+                "HIGH": "High",
+                "MEDIUM": "Medium",
+                "ALLTICKETS": "All Tickets",
+                "OPEN&ASSIGNED": "Open, Assigned Tickets",
+                "ONHOLD": "On-Hold Tickets",
+                "RESOLVED": "Resolved Tickets",
+                "CLOSED": "Closed Tickets",
+                "UNASSIGNED": "Unassigned Tickets",
+                "MYTICKETS": "My Tickets",
+                "ADDTICKET": "Add Ticket"
+            }
         }
     },
     "VISITOR": {
@@ -347,7 +365,9 @@
         "VISITOR": "ผู้เยี่ยมชม",
         "ADDMOVEIN": "เพิ่ม MoveIn",
         "UPLOADDOCUMENT": "อัปโหลดเอกสาร",
-        "ADD": "เพิ่ม"
+        "ADD": "เพิ่ม",
+        "APPLY": "สมัคร",
+        "FILTER": "กรอง"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",

@@ -2361,9 +2361,9 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var GlAssetGroupsComponent = /*#__PURE__*/function () {
         function GlAssetGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
@@ -2413,8 +2413,36 @@
         }, {
           key: "showConfirmModal",
           value: function showConfirmModal(id) {
-            this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-            this.modalService.showConfirmModal(id);
+            var _this12 = this;
+
+            var message = "Are you sure you want to delete ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var params = {
+                  apartmentId: _this12.sessionService.apartmentId,
+                  glGroupId: id,
+                  deleteBy: parseInt(_this12.sessionService.userId)
+                };
+
+                _this12.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this12.getGlGroups();
+
+                    _this12.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this12.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this12.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
           }
         }, {
           key: "isItemsAvailable",
@@ -2443,7 +2471,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2451,68 +2479,32 @@
               glaccounttypeID: 158
             };
             this.accountsService.getNeWallgroupsbygltypeid(params).subscribe(function (res) {
-              _this12.glGroupsDataList = res;
-              _this12.isDataLoaded = true;
-              _this12.totalItems = _this12.glGroupsDataList.length;
+              _this13.glGroupsDataList = res;
+              _this13.isDataLoaded = true;
+              _this13.totalItems = _this13.glGroupsDataList.length;
 
-              if (_this12.totalItems > _this12.itemLimit) {
-                _this12.ItemEndIndex = _this12.itemLimit;
+              if (_this13.totalItems > _this13.itemLimit) {
+                _this13.ItemEndIndex = _this13.itemLimit;
               } else {
-                _this12.ItemEndIndex = _this12.totalItems;
+                _this13.ItemEndIndex = _this13.totalItems;
               }
 
-              _this12.sharedService.setGlAccountAdded(false);
+              _this13.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.getGlGroups();
             this.sharedService.glgroupdeletetypeidcast.subscribe(function (typeId) {
-              return _this13.accountDeleteTypeId = typeId;
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null && _this13.accountDeleteTypeId == parseInt(_this13.glaccountTypeId)) {
-                var params = {
-                  apartmentId: _this13.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this13.sessionService.userId)
-                };
-
-                _this13.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this13.glGroupsDataList, function (type) {
-                      if (type.glgroupId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this13.glGroupsDataList = _this13.glGroupsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this13.totalItems = _this13.glGroupsDataList.length;
-
-                      _this13.sharedService.setAlertMessage("Gl Group deleted");
-
-                      _this13.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
-                  } else {
-                    _this13.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                    _this13.sharedService.setUnitListDeleteIndex(null);
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              }
+              return _this14.accountDeleteTypeId = typeId;
             }); //update tabular data
 
             this.sharedService.glgroupaddedcast.subscribe(function (data) {
-              if (data.status && data.id == parseInt(_this13.glaccountTypeId)) {
-                _this13.getGlGroups();
+              if (data.status && data.id == parseInt(_this14.glaccountTypeId)) {
+                _this14.getGlGroups();
               }
             });
           }
@@ -2638,9 +2630,9 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var GlEquityMemberFundGroupsComponent = /*#__PURE__*/function () {
         function GlEquityMemberFundGroupsComponent(injector, dialog, accountsService, sharedService, sessionService) {
@@ -2688,9 +2680,37 @@
           }
         }, {
           key: "showConfirmModal",
-          value: function showConfirmModal(index) {
-            this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-            this.modalService.showConfirmModal(index);
+          value: function showConfirmModal(id) {
+            var _this15 = this;
+
+            var message = "Are you sure you want to delete ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var params = {
+                  apartmentId: _this15.sessionService.apartmentId,
+                  glGroupId: id,
+                  deleteBy: parseInt(_this15.sessionService.userId)
+                };
+
+                _this15.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this15.getGlGroups();
+
+                    _this15.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this15.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this15.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
           }
         }, {
           key: "isItemsAvailable",
@@ -2719,7 +2739,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups() {
-            var _this14 = this;
+            var _this16 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2727,68 +2747,32 @@
               glaccounttypeID: 280
             };
             this.accountsService.getNeWallgroupsbygltypeid(params).subscribe(function (res) {
-              _this14.glGroupsDataList = res;
-              _this14.isDataLoaded = true;
-              _this14.totalItems = _this14.glGroupsDataList.length;
+              _this16.glGroupsDataList = res;
+              _this16.isDataLoaded = true;
+              _this16.totalItems = _this16.glGroupsDataList.length;
 
-              if (_this14.totalItems > _this14.itemLimit) {
-                _this14.ItemEndIndex = _this14.itemLimit;
+              if (_this16.totalItems > _this16.itemLimit) {
+                _this16.ItemEndIndex = _this16.itemLimit;
               } else {
-                _this14.ItemEndIndex = _this14.totalItems;
+                _this16.ItemEndIndex = _this16.totalItems;
               }
 
-              _this14.sharedService.setGlAccountAdded(false);
+              _this16.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this17 = this;
 
             this.getGlGroups();
             this.sharedService.glgroupdeletetypeidcast.subscribe(function (typeId) {
-              return _this15.accountDeleteTypeId = typeId;
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null && _this15.accountDeleteTypeId == parseInt(_this15.glaccountTypeId)) {
-                var params = {
-                  apartmentId: _this15.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this15.sessionService.userId)
-                };
-
-                _this15.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this15.glGroupsDataList, function (type) {
-                      if (type.glgroupId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this15.glGroupsDataList = _this15.glGroupsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this15.totalItems = _this15.glGroupsDataList.length;
-
-                      _this15.sharedService.setAlertMessage("Gl Group deleted");
-
-                      _this15.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
-                  } else {
-                    _this15.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                    _this15.sharedService.setUnitListDeleteIndex(null);
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              }
+              return _this17.accountDeleteTypeId = typeId;
             }); //update tabular data
 
             this.sharedService.glgroupaddedcast.subscribe(function (data) {
-              if (data.status && data.id == parseInt(_this15.glaccountTypeId)) {
-                _this15.getGlGroups();
+              if (data.status && data.id == parseInt(_this17.glaccountTypeId)) {
+                _this17.getGlGroups();
               }
             });
           }
@@ -2912,9 +2896,9 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var GlExpenseGroupsComponent = /*#__PURE__*/function () {
         function GlExpenseGroupsComponent(injector, dialog, accountsService, sharedService, sessionService) {
@@ -2962,9 +2946,37 @@
           }
         }, {
           key: "showConfirmModal",
-          value: function showConfirmModal(index) {
-            this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-            this.modalService.showConfirmModal(index);
+          value: function showConfirmModal(id) {
+            var _this18 = this;
+
+            var message = "Are you sure you want to delete ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var params = {
+                  apartmentId: _this18.sessionService.apartmentId,
+                  glGroupId: id,
+                  deleteBy: parseInt(_this18.sessionService.userId)
+                };
+
+                _this18.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this18.getGlGroups();
+
+                    _this18.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this18.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
           }
         }, {
           key: "isItemsAvailable",
@@ -2993,7 +3005,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups() {
-            var _this16 = this;
+            var _this19 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3001,68 +3013,32 @@
               glaccounttypeID: 166
             };
             this.accountsService.getNeWallgroupsbygltypeid(params).subscribe(function (res) {
-              _this16.glGroupsDataList = res;
-              _this16.isDataLoaded = true;
-              _this16.totalItems = _this16.glGroupsDataList.length;
+              _this19.glGroupsDataList = res;
+              _this19.isDataLoaded = true;
+              _this19.totalItems = _this19.glGroupsDataList.length;
 
-              if (_this16.totalItems > _this16.itemLimit) {
-                _this16.ItemEndIndex = _this16.itemLimit;
+              if (_this19.totalItems > _this19.itemLimit) {
+                _this19.ItemEndIndex = _this19.itemLimit;
               } else {
-                _this16.ItemEndIndex = _this16.totalItems;
+                _this19.ItemEndIndex = _this19.totalItems;
               }
 
-              _this16.sharedService.setGlAccountAdded(false);
+              _this19.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this20 = this;
 
             this.getGlGroups();
             this.sharedService.glgroupdeletetypeidcast.subscribe(function (typeId) {
-              return _this17.accountDeleteTypeId = typeId;
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null && _this17.accountDeleteTypeId == parseInt(_this17.glaccountTypeId)) {
-                var params = {
-                  apartmentId: _this17.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this17.sessionService.userId)
-                };
-
-                _this17.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this17.glGroupsDataList, function (type) {
-                      if (type.glgroupId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this17.glGroupsDataList = _this17.glGroupsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this17.totalItems = _this17.glGroupsDataList.length;
-
-                      _this17.sharedService.setAlertMessage("Gl Group deleted");
-
-                      _this17.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
-                  } else {
-                    _this17.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                    _this17.sharedService.setUnitListDeleteIndex(null);
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              }
+              return _this20.accountDeleteTypeId = typeId;
             }); //update tabular data
 
             this.sharedService.glgroupaddedcast.subscribe(function (data) {
-              if (data.status && data.id == parseInt(_this17.glaccountTypeId)) {
-                _this17.getGlGroups();
+              if (data.status && data.id == parseInt(_this20.glaccountTypeId)) {
+                _this20.getGlGroups();
               }
             });
           }
@@ -3273,9 +3249,9 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var GlIncomeGroupsComponent = /*#__PURE__*/function () {
         function GlIncomeGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
@@ -3324,9 +3300,39 @@
           }
         }, {
           key: "showConfirmModal",
-          value: function showConfirmModal(index) {
-            this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-            this.modalService.showConfirmModal(index);
+          value: function showConfirmModal(id) {
+            var _this21 = this;
+
+            var message = "Are you sure you want to delete ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var params = {
+                  apartmentId: _this21.sessionService.apartmentId,
+                  glGroupId: id,
+                  deleteBy: parseInt(_this21.sessionService.userId)
+                };
+
+                _this21.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                  _this21.sharedService.setUnitListDeleteIndex(null);
+
+                  if (res.message) {
+                    _this21.getGlGroups();
+
+                    _this21.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this21.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
           }
         }, {
           key: "isItemsAvailable",
@@ -3355,7 +3361,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups() {
-            var _this18 = this;
+            var _this22 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3363,68 +3369,32 @@
               glaccounttypeID: 165
             };
             this.accountsService.getNeWallgroupsbygltypeid(params).subscribe(function (res) {
-              _this18.glGroupsDataList = res;
-              _this18.isDataLoaded = true;
-              _this18.totalItems = _this18.glGroupsDataList.length;
+              _this22.glGroupsDataList = res;
+              _this22.isDataLoaded = true;
+              _this22.totalItems = _this22.glGroupsDataList.length;
 
-              if (_this18.totalItems > _this18.itemLimit) {
-                _this18.ItemEndIndex = _this18.itemLimit;
+              if (_this22.totalItems > _this22.itemLimit) {
+                _this22.ItemEndIndex = _this22.itemLimit;
               } else {
-                _this18.ItemEndIndex = _this18.totalItems;
+                _this22.ItemEndIndex = _this22.totalItems;
               }
 
-              _this18.sharedService.setGlAccountAdded(false);
+              _this22.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this23 = this;
 
             this.getGlGroups();
             this.sharedService.glgroupdeletetypeidcast.subscribe(function (typeId) {
-              return _this19.accountDeleteTypeId = typeId;
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null && _this19.accountDeleteTypeId == parseInt(_this19.glaccountTypeId)) {
-                var params = {
-                  apartmentId: _this19.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this19.sessionService.userId)
-                };
-
-                _this19.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this19.glGroupsDataList, function (type) {
-                      if (type.glgroupId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this19.glGroupsDataList = _this19.glGroupsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this19.totalItems = _this19.glGroupsDataList.length;
-
-                      _this19.sharedService.setAlertMessage("Gl Group deleted");
-
-                      _this19.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
-                  } else {
-                    _this19.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                    _this19.sharedService.setUnitListDeleteIndex(null);
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              }
+              return _this23.accountDeleteTypeId = typeId;
             }); //update tabular data
 
             this.sharedService.glgroupaddedcast.subscribe(function (data) {
-              if (data.status && data.id == parseInt(_this19.glaccountTypeId)) {
-                _this19.getGlGroups();
+              if (data.status && data.id == parseInt(_this23.glaccountTypeId)) {
+                _this23.getGlGroups();
               }
             });
           }
@@ -3556,9 +3526,9 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
       var GlLiabilitesGroupsComponent = /*#__PURE__*/function () {
         function GlLiabilitesGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
@@ -3607,9 +3577,37 @@
           }
         }, {
           key: "showConfirmModal",
-          value: function showConfirmModal(index) {
-            this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-            this.modalService.showConfirmModal(index);
+          value: function showConfirmModal(id) {
+            var _this24 = this;
+
+            var message = "Are you sure you want to delete ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var params = {
+                  apartmentId: _this24.sessionService.apartmentId,
+                  glGroupId: id,
+                  deleteBy: parseInt(_this24.sessionService.userId)
+                };
+
+                _this24.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this24.getGlGroups();
+
+                    _this24.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this24.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this24.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
           }
         }, {
           key: "isItemsAvailable",
@@ -3638,7 +3636,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups() {
-            var _this20 = this;
+            var _this25 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3646,68 +3644,32 @@
               glaccounttypeID: 164
             };
             this.accountsService.getNeWallgroupsbygltypeid(params).subscribe(function (res) {
-              _this20.glGroupsDataList = res;
-              _this20.isDataLoaded = true;
-              _this20.totalItems = _this20.glGroupsDataList.length;
+              _this25.glGroupsDataList = res;
+              _this25.isDataLoaded = true;
+              _this25.totalItems = _this25.glGroupsDataList.length;
 
-              if (_this20.totalItems > _this20.itemLimit) {
-                _this20.ItemEndIndex = _this20.itemLimit;
+              if (_this25.totalItems > _this25.itemLimit) {
+                _this25.ItemEndIndex = _this25.itemLimit;
               } else {
-                _this20.ItemEndIndex = _this20.totalItems;
+                _this25.ItemEndIndex = _this25.totalItems;
               }
 
-              _this20.sharedService.setGlAccountAdded(false);
+              _this25.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this26 = this;
 
             this.getGlGroups();
             this.sharedService.glgroupdeletetypeidcast.subscribe(function (typeId) {
-              return _this21.accountDeleteTypeId = typeId;
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null && _this21.accountDeleteTypeId == parseInt(_this21.glaccountTypeId)) {
-                var params = {
-                  apartmentId: _this21.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this21.sessionService.userId)
-                };
-
-                _this21.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this21.glGroupsDataList, function (type) {
-                      if (type.glgroupId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this21.glGroupsDataList = _this21.glGroupsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this21.totalItems = _this21.glGroupsDataList.length;
-
-                      _this21.sharedService.setAlertMessage("Gl Group deleted");
-
-                      _this21.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
-                  } else {
-                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                    _this21.sharedService.setUnitListDeleteIndex(null);
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              }
+              return _this26.accountDeleteTypeId = typeId;
             }); //update tabular data
 
             this.sharedService.glgroupaddedcast.subscribe(function (data) {
-              if (data.status && data.id == parseInt(_this21.glaccountTypeId)) {
-                _this21.getGlGroups();
+              if (data.status && data.id == parseInt(_this26.glaccountTypeId)) {
+                _this26.getGlGroups();
               }
             });
           }
@@ -3973,38 +3935,38 @@
         }, {
           key: "getAccounts",
           value: function getAccounts() {
-            var _this22 = this;
+            var _this27 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               GLAccountTypeId: 165
             };
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
-              _this22.glAccountsDataList = res;
-              _this22.isDataLoaded = true;
-              _this22.totalItems = _this22.glAccountsDataList.length;
+              _this27.glAccountsDataList = res;
+              _this27.isDataLoaded = true;
+              _this27.totalItems = _this27.glAccountsDataList.length;
 
-              if (_this22.totalItems > _this22.itemLimit) {
-                _this22.ItemEndIndex = _this22.itemLimit;
+              if (_this27.totalItems > _this27.itemLimit) {
+                _this27.ItemEndIndex = _this27.itemLimit;
               } else {
-                _this22.ItemEndIndex = _this22.totalItems;
+                _this27.ItemEndIndex = _this27.totalItems;
               }
 
-              _this22.sharedService.setGlAccountAdded(false);
+              _this27.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this28 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this23.timeZone = timeZone;
+              return _this28.timeZone = timeZone;
             });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this23.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this23.glaccountTypeId);
+              _this28.glGroupsDataList = res.filter(function (item) {
+                return item.isActive && item.glaccountTypeId == parseInt(_this28.glaccountTypeId);
               });
             });
             var defaultParams = {
@@ -4013,7 +3975,7 @@
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this23.lookupList = res;
+              _this28.lookupList = res;
             });
             var bankListParams = {
               LookupTypeId: 27,
@@ -4021,41 +3983,41 @@
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
-              _this23.glBankDataList = res;
+              _this28.glBankDataList = res;
             });
             this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
               if (accountAdded) {
-                _this23.getAccounts();
+                _this28.getAccounts();
               }
             }); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
-                  apartmentId: _this23.sessionService.apartmentId,
+                  apartmentId: _this28.sessionService.apartmentId,
                   glAccountId: id,
-                  deleteBy: parseInt(_this23.sessionService.userId)
+                  deleteBy: parseInt(_this28.sessionService.userId)
                 };
 
-                _this23.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this28.accountsService.deleteGlAccount(params).subscribe(function (res) {
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this23.glAccountsDataList, function (type) {
+                    underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this28.glAccountsDataList, function (type) {
                       if (type.glaccountId == id) {
                         type.isActive = false;
                       }
                     });
                     setTimeout(function () {
-                      _this23.glAccountsDataList = _this23.glAccountsDataList.filter(function (type) {
+                      _this28.glAccountsDataList = _this28.glAccountsDataList.filter(function (type) {
                         return type.glaccountId !== id;
                       });
-                      _this23.totalItems = _this23.glAccountsDataList.length;
+                      _this28.totalItems = _this28.glAccountsDataList.length;
 
-                      _this23.sharedService.setAlertMessage("Gl Account deleted");
+                      _this28.sharedService.setAlertMessage("Gl Account deleted");
 
-                      _this23.sharedService.setUnitListDeleteIndex(null);
+                      _this28.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this23.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this28.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
                   console.log(error);
@@ -4267,7 +4229,7 @@
         }, {
           key: "getJournals",
           value: function getJournals() {
-            var _this24 = this;
+            var _this29 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -4275,18 +4237,18 @@
               Todate: this.toDate
             };
             this.journalService.getAllJournalsByApartmentId(details).subscribe(function (res) {
-              _this24.journalsDataList = res.filter(function (item) {
+              _this29.journalsDataList = res.filter(function (item) {
                 return item.active;
               });
-              _this24.totalItems = _this24.journalsDataList.length;
+              _this29.totalItems = _this29.journalsDataList.length;
 
-              if (_this24.totalItems > _this24.itemLimit) {
-                _this24.ItemEndIndex = _this24.itemLimit;
+              if (_this29.totalItems > _this29.itemLimit) {
+                _this29.ItemEndIndex = _this29.itemLimit;
               } else {
-                _this24.ItemEndIndex = _this24.totalItems;
+                _this29.ItemEndIndex = _this29.totalItems;
               }
 
-              _this24.isDataLoaded = true;
+              _this29.isDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -4294,10 +4256,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this30 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this25.timeZone = timeZone;
+              return _this30.timeZone = timeZone;
             }); // fetch data for past one week by default
 
             this.fromDate = moment__WEBPACK_IMPORTED_MODULE_7__().subtract(50, 'week').format(this.timeZone.time);
@@ -4308,16 +4270,16 @@
               if (id != null) {
                 var params = {
                   JournalId: id,
-                  deleteBy: parseInt(_this25.sessionService.userId)
+                  deleteBy: parseInt(_this30.sessionService.userId)
                 };
-                _this25.isDataLoaded = false;
+                _this30.isDataLoaded = false;
 
-                _this25.journalService.deleteJournal(params).subscribe(function (res) {
-                  _this25.sharedService.setAlertMessage("Journal deleted");
+                _this30.journalService.deleteJournal(params).subscribe(function (res) {
+                  _this30.sharedService.setAlertMessage("Journal deleted");
 
-                  _this25.getJournals();
+                  _this30.getJournals();
 
-                  _this25.sharedService.setUnitListDeleteIndex(null);
+                  _this30.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
                   console.log(error);
                 });
@@ -4504,7 +4466,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this31 = this;
 
             this.journal = this.journalsArray[this.index];
 
@@ -4513,7 +4475,7 @@
             }
 
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this26.glAccountListData = res;
+              _this31.glAccountListData = res;
             });
           }
         }, {
@@ -4689,7 +4651,7 @@
         }, {
           key: "addJournal",
           value: function addJournal() {
-            var _this27 = this;
+            var _this32 = this;
 
             var details = {
               "glaccountId": this.journal.glaccountId,
@@ -4712,30 +4674,30 @@
             this.journalsArray.push(details);
             underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.journalsArray, function (item) {
               if (item.form) {
-                _this27.isFormInValid = false;
+                _this32.isFormInValid = false;
               } else {
-                _this27.isFormInValid = true;
+                _this32.isFormInValid = true;
               }
             });
           }
         }, {
           key: "getFieldParams",
           value: function getFieldParams(event) {
-            var _this28 = this;
+            var _this33 = this;
 
             this.journalsArray = event;
             underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.journalsArray, function (item) {
               if (item.form) {
-                _this28.isFormInValid = false;
+                _this33.isFormInValid = false;
               } else {
-                _this28.isFormInValid = true;
+                _this33.isFormInValid = true;
               }
             });
           }
         }, {
           key: "submitAddJournalForm",
           value: function submitAddJournalForm(form) {
-            var _this29 = this;
+            var _this34 = this;
 
             this.isJournalSubmitted = true;
             var self = this;
@@ -4755,14 +4717,14 @@
               this.isError = false;
               this.journalService.addJournals(this.journalsArray).subscribe(function (res) {
                 if (res.message) {
-                  _this29.sharedService.openSnackBar('Journals added successfully', 'success');
+                  _this34.sharedService.openSnackBar('Journals added successfully', 'success');
                 } else {
-                  _this29.sharedService.openSnackBar('Some error occured', 'error');
+                  _this34.sharedService.openSnackBar('Some error occured', 'error');
                 }
               }, function (error) {
-                _this29.isJournalSubmitted = false;
+                _this34.isJournalSubmitted = false;
 
-                _this29.sharedService.openSnackBar('Network Error', 'error');
+                _this34.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               this.isJournalSubmitted = false;
@@ -4772,10 +4734,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this35 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this30.timeZone = timeZone;
+              return _this35.timeZone = timeZone;
             });
             this.journal = {};
             this.journal.debitAmount = 0;
@@ -5323,38 +5285,38 @@
         }, {
           key: "getAccounts",
           value: function getAccounts() {
-            var _this31 = this;
+            var _this36 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               GLAccountTypeId: 164
             };
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
-              _this31.glAccountsDataList = res;
-              _this31.isDataLoaded = true;
-              _this31.totalItems = _this31.glAccountsDataList.length;
+              _this36.glAccountsDataList = res;
+              _this36.isDataLoaded = true;
+              _this36.totalItems = _this36.glAccountsDataList.length;
 
-              if (_this31.totalItems > _this31.itemLimit) {
-                _this31.ItemEndIndex = _this31.itemLimit;
+              if (_this36.totalItems > _this36.itemLimit) {
+                _this36.ItemEndIndex = _this36.itemLimit;
               } else {
-                _this31.ItemEndIndex = _this31.totalItems;
+                _this36.ItemEndIndex = _this36.totalItems;
               }
 
-              _this31.sharedService.setGlAccountAdded(false);
+              _this36.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this32 = this;
+            var _this37 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this32.timeZone = timeZone;
+              return _this37.timeZone = timeZone;
             });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this32.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this32.glaccountTypeId);
+              _this37.glGroupsDataList = res.filter(function (item) {
+                return item.isActive && item.glaccountTypeId == parseInt(_this37.glaccountTypeId);
               });
             });
             var defaultParams = {
@@ -5363,41 +5325,41 @@
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this32.lookupList = res;
+              _this37.lookupList = res;
             });
             this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
               if (accountAdded) {
-                _this32.getAccounts();
+                _this37.getAccounts();
               }
             }); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
-                  apartmentId: _this32.sessionService.apartmentId,
+                  apartmentId: _this37.sessionService.apartmentId,
                   glAccountId: id,
-                  deleteBy: parseInt(_this32.sessionService.userId)
+                  deleteBy: parseInt(_this37.sessionService.userId)
                 };
 
-                _this32.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this37.accountsService.deleteGlAccount(params).subscribe(function (res) {
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this32.glAccountsDataList, function (type) {
+                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this37.glAccountsDataList, function (type) {
                       if (type.glaccountId == id) {
                         type.isActive = false;
                       }
                     });
                     setTimeout(function () {
-                      _this32.glAccountsDataList = _this32.glAccountsDataList.filter(function (type) {
+                      _this37.glAccountsDataList = _this37.glAccountsDataList.filter(function (type) {
                         return type.glaccountId !== id;
                       });
-                      _this32.totalItems = _this32.glAccountsDataList.length;
+                      _this37.totalItems = _this37.glAccountsDataList.length;
 
-                      _this32.sharedService.setAlertMessage("Gl Account deleted");
+                      _this37.sharedService.setAlertMessage("Gl Account deleted");
 
-                      _this32.sharedService.setUnitListDeleteIndex(null);
+                      _this37.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this37.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
                   console.log(error);
@@ -5597,7 +5559,7 @@
         }, {
           key: "submitGlreportsFinancialForm",
           value: function submitGlreportsFinancialForm(form) {
-            var _this33 = this;
+            var _this38 = this;
 
             var details = {
               FromDate: this.getDateFormat(this.reports.fromDate),
@@ -5607,12 +5569,12 @@
             this.isDataLoaded = false;
             this.isFormGenerated = false;
             this.accountsService.getTrialBalanceByDate(details).subscribe(function (res) {
-              _this33.isDataLoaded = true;
-              _this33.isFormGenerated = true;
-              _this33.glReportsDataList = res;
+              _this38.isDataLoaded = true;
+              _this38.isFormGenerated = true;
+              _this38.glReportsDataList = res;
             }, function (error) {
-              _this33.isDataLoaded = true;
-              _this33.isFormGenerated = true;
+              _this38.isDataLoaded = true;
+              _this38.isFormGenerated = true;
             });
           }
         }, {
@@ -5633,10 +5595,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this39 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this34.timeZone = timeZone;
+              return _this39.timeZone = timeZone;
             });
             this.reports = {};
 
@@ -5951,7 +5913,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups(id) {
-            var _this35 = this;
+            var _this40 = this;
 
             this.isGlGroupsLoaded = false;
             var params = {
@@ -5959,15 +5921,15 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this35.isGlGroupsLoaded = true;
-              _this35.glGroups = res;
-              _this35.glTypeSelectedIndex = id;
+              _this40.isGlGroupsLoaded = true;
+              _this40.glGroups = res;
+              _this40.glTypeSelectedIndex = id;
             });
           }
         }, {
           key: "getGlAccount",
           value: function getGlAccount(id) {
-            var _this36 = this;
+            var _this41 = this;
 
             this.isGlAccountsLoaded = false;
             var params = {
@@ -5975,9 +5937,9 @@
               groupId: id
             };
             this.accountsService.getGlAccountsByGroupId(params).subscribe(function (res) {
-              _this36.isGlAccountsLoaded = true;
-              _this36.glAccounts = res;
-              _this36.glGroupSelectedIndex = id;
+              _this41.isGlAccountsLoaded = true;
+              _this41.glAccounts = res;
+              _this41.glGroupSelectedIndex = id;
             });
           }
         }, {
@@ -6028,7 +5990,7 @@
         }, {
           key: "submitGlreportsTransactionForm",
           value: function submitGlreportsTransactionForm(form) {
-            var _this37 = this;
+            var _this42 = this;
 
             this.isDataSubmitted = true;
             this.isDataLoaded = false;
@@ -6039,34 +6001,34 @@
               GLAccountId: this.glAccountSelectedIndex
             };
             this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
-              _this37.totalDebitAmount = 0;
-              _this37.totalCreditAmount = 0;
-              _this37.isDataLoaded = true;
-              _this37.reportsTransactionsDataList = res;
-              _this37.totalItems = _this37.reportsTransactionsDataList.length;
+              _this42.totalDebitAmount = 0;
+              _this42.totalCreditAmount = 0;
+              _this42.isDataLoaded = true;
+              _this42.reportsTransactionsDataList = res;
+              _this42.totalItems = _this42.reportsTransactionsDataList.length;
 
-              if (_this37.totalItems > _this37.itemLimit) {
-                _this37.ItemEndIndex = _this37.itemLimit;
+              if (_this42.totalItems > _this42.itemLimit) {
+                _this42.ItemEndIndex = _this42.itemLimit;
               } else {
-                _this37.ItemEndIndex = _this37.totalItems;
+                _this42.ItemEndIndex = _this42.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this37.reportsTransactionsDataList, function (item) {
-                _this37.totalDebitAmount = _this37.totalDebitAmount + item.debit;
-                _this37.totalCreditAmount = _this37.totalCreditAmount + item.credit;
+              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this42.reportsTransactionsDataList, function (item) {
+                _this42.totalDebitAmount = _this42.totalDebitAmount + item.debit;
+                _this42.totalCreditAmount = _this42.totalCreditAmount + item.credit;
               });
-              _this37.glTypeSelectedIndex = null;
-              _this37.glGroupSelectedIndex = null;
-              _this37.glAccountSelectedIndex = null;
+              _this42.glTypeSelectedIndex = null;
+              _this42.glGroupSelectedIndex = null;
+              _this42.glAccountSelectedIndex = null;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this38 = this;
+            var _this43 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this38.timeZone = timeZone;
+              return _this43.timeZone = timeZone;
             });
             this.reports = {};
             this.glTypes = [{
@@ -6294,35 +6256,35 @@
         }, {
           key: "getTransactions",
           value: function getTransactions(params) {
-            var _this39 = this;
+            var _this44 = this;
 
             this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
-              _this39.isDataLoaded = true;
-              _this39.isDataSubmitted = false;
-              _this39.reportsTransactionsDataList = res;
-              _this39.totalItems = _this39.reportsTransactionsDataList.length;
+              _this44.isDataLoaded = true;
+              _this44.isDataSubmitted = false;
+              _this44.reportsTransactionsDataList = res;
+              _this44.totalItems = _this44.reportsTransactionsDataList.length;
 
-              if (_this39.totalItems > _this39.itemLimit) {
-                _this39.ItemEndIndex = _this39.itemLimit;
+              if (_this44.totalItems > _this44.itemLimit) {
+                _this44.ItemEndIndex = _this44.itemLimit;
               } else {
-                _this39.ItemEndIndex = _this39.totalItems;
+                _this44.ItemEndIndex = _this44.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this39.reportsTransactionsDataList, function (item) {
-                _this39.totalDebitAmount = _this39.totalDebitAmount + item.debit;
-                _this39.totalCreditAmount = _this39.totalCreditAmount + item.credit;
+              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this44.reportsTransactionsDataList, function (item) {
+                _this44.totalDebitAmount = _this44.totalDebitAmount + item.debit;
+                _this44.totalCreditAmount = _this44.totalCreditAmount + item.credit;
               });
             }, function (error) {
-              _this39.isDataSubmitted = false;
+              _this44.isDataSubmitted = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this45 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this40.timeZone = timeZone;
+              return _this45.timeZone = timeZone;
             });
             this.fromDate = this.route.params['value'].fromdate;
             this.toDate = this.route.params['value'].todate;
@@ -6448,15 +6410,15 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this41 = this;
+            var _this46 = this;
 
             this.glReportsDataList = this.glReportsDataList.filter(function (item) {
-              return item.description.indexOf(_this41.group) != -1;
+              return item.description.indexOf(_this46.group) != -1;
             });
             this.totalItems = this.glReportsDataList.length;
             underscore__WEBPACK_IMPORTED_MODULE_2__["each"](this.glReportsDataList, function (item, index) {
-              _this41.totalDebitAmount = _this41.totalDebitAmount + item.debit;
-              _this41.totalCreditAmount = _this41.totalCreditAmount + item.credit;
+              _this46.totalDebitAmount = _this46.totalDebitAmount + item.debit;
+              _this46.totalCreditAmount = _this46.totalCreditAmount + item.credit;
             });
           }
         }]);
@@ -6603,7 +6565,7 @@
         }, {
           key: "submitGlTrialBalanceForm",
           value: function submitGlTrialBalanceForm(form) {
-            var _this42 = this;
+            var _this47 = this;
 
             this.isDataLoaded = false;
             this.isTrialGenerated = false;
@@ -6613,21 +6575,21 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getTrialBalanceByDate(details).subscribe(function (res) {
-              _this42.isDataLoaded = true;
-              _this42.isTrialGenerated = true;
-              _this42.glReportsDataList = res;
+              _this47.isDataLoaded = true;
+              _this47.isTrialGenerated = true;
+              _this47.glReportsDataList = res;
             }, function (error) {
-              _this42.isDataLoaded = true;
-              _this42.isTrialGenerated = true;
+              _this47.isDataLoaded = true;
+              _this47.isTrialGenerated = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this43 = this;
+            var _this48 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this43.timeZone = timeZone;
+              return _this48.timeZone = timeZone;
             });
             this.reports = {};
           }

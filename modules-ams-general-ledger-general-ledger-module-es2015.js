@@ -1558,7 +1558,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -1605,8 +1605,33 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(id) {
-        this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-        this.modalService.showConfirmModal(id);
+        const message = `Are you sure you want to delete ?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                let params = {
+                    apartmentId: this.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                    if (res.message) {
+                        this.getGlGroups();
+                        this.sharedService.openSnackBar(res.message, 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        });
     }
     isItemsAvailable() {
         return this.totalItems > 0 ? true : false;
@@ -1645,37 +1670,6 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
     ngOnInit() {
         this.getGlGroups();
         this.sharedService.glgroupdeletetypeidcast.subscribe(typeId => this.accountDeleteTypeId = typeId);
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null && (this.accountDeleteTypeId == parseInt(this.glaccountTypeId))) {
-                var params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
-                            if (type.glgroupId == id) {
-                                type.isActive = false;
-                            }
-                        });
-                        setTimeout(() => {
-                            this.glGroupsDataList = this.glGroupsDataList.filter((type) => type.glaccountId !== id);
-                            this.totalItems = this.glGroupsDataList.length;
-                            this.sharedService.setAlertMessage("Gl Group deleted");
-                            this.sharedService.setUnitListDeleteIndex(null);
-                        }, 500);
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }
-                }, error => {
-                    console.log(error);
-                });
-            }
-        });
         //update tabular data
         this.sharedService.glgroupaddedcast.subscribe(data => {
             if (data.status && data.id == parseInt(this.glaccountTypeId)) {
@@ -1743,7 +1737,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -1787,9 +1781,34 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
-    showConfirmModal(index) {
-        this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-        this.modalService.showConfirmModal(index);
+    showConfirmModal(id) {
+        const message = `Are you sure you want to delete ?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                let params = {
+                    apartmentId: this.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                    if (res.message) {
+                        this.getGlGroups();
+                        this.sharedService.openSnackBar(res.message, 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        });
     }
     isItemsAvailable() {
         return this.totalItems > 0 ? true : false;
@@ -1828,37 +1847,6 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
     ngOnInit() {
         this.getGlGroups();
         this.sharedService.glgroupdeletetypeidcast.subscribe(typeId => this.accountDeleteTypeId = typeId);
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null && (this.accountDeleteTypeId == parseInt(this.glaccountTypeId))) {
-                var params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.glGroupsDataList, (type) => {
-                            if (type.glgroupId == id) {
-                                type.isActive = false;
-                            }
-                        });
-                        setTimeout(() => {
-                            this.glGroupsDataList = this.glGroupsDataList.filter((type) => type.glaccountId !== id);
-                            this.totalItems = this.glGroupsDataList.length;
-                            this.sharedService.setAlertMessage("Gl Group deleted");
-                            this.sharedService.setUnitListDeleteIndex(null);
-                        }, 500);
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }
-                }, error => {
-                    console.log(error);
-                });
-            }
-        });
         //update tabular data
         this.sharedService.glgroupaddedcast.subscribe(data => {
             if (data.status && data.id == parseInt(this.glaccountTypeId)) {
@@ -1924,7 +1912,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -1968,9 +1956,34 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
-    showConfirmModal(index) {
-        this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-        this.modalService.showConfirmModal(index);
+    showConfirmModal(id) {
+        const message = `Are you sure you want to delete ?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                let params = {
+                    apartmentId: this.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                    if (res.message) {
+                        this.getGlGroups();
+                        this.sharedService.openSnackBar(res.message, 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        });
     }
     isItemsAvailable() {
         return this.totalItems > 0 ? true : false;
@@ -2009,37 +2022,6 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
     ngOnInit() {
         this.getGlGroups();
         this.sharedService.glgroupdeletetypeidcast.subscribe(typeId => this.accountDeleteTypeId = typeId);
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null && (this.accountDeleteTypeId == parseInt(this.glaccountTypeId))) {
-                var params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.glGroupsDataList, (type) => {
-                            if (type.glgroupId == id) {
-                                type.isActive = false;
-                            }
-                        });
-                        setTimeout(() => {
-                            this.glGroupsDataList = this.glGroupsDataList.filter((type) => type.glaccountId !== id);
-                            this.totalItems = this.glGroupsDataList.length;
-                            this.sharedService.setAlertMessage("Gl Group deleted");
-                            this.sharedService.setUnitListDeleteIndex(null);
-                        }, 500);
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }
-                }, error => {
-                    console.log(error);
-                });
-            }
-        });
         //update tabular data
         this.sharedService.glgroupaddedcast.subscribe(data => {
             if (data.status && data.id == parseInt(this.glaccountTypeId)) {
@@ -2152,7 +2134,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -2198,9 +2180,35 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
-    showConfirmModal(index) {
-        this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-        this.modalService.showConfirmModal(index);
+    showConfirmModal(id) {
+        const message = `Are you sure you want to delete ?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                let params = {
+                    apartmentId: this.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    if (res.message) {
+                        this.getGlGroups();
+                        this.sharedService.openSnackBar(res.message, 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        });
     }
     isItemsAvailable() {
         return this.totalItems > 0 ? true : false;
@@ -2239,37 +2247,6 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
     ngOnInit() {
         this.getGlGroups();
         this.sharedService.glgroupdeletetypeidcast.subscribe(typeId => this.accountDeleteTypeId = typeId);
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null && (this.accountDeleteTypeId == parseInt(this.glaccountTypeId))) {
-                var params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
-                            if (type.glgroupId == id) {
-                                type.isActive = false;
-                            }
-                        });
-                        setTimeout(() => {
-                            this.glGroupsDataList = this.glGroupsDataList.filter((type) => type.glaccountId !== id);
-                            this.totalItems = this.glGroupsDataList.length;
-                            this.sharedService.setAlertMessage("Gl Group deleted");
-                            this.sharedService.setUnitListDeleteIndex(null);
-                        }, 500);
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }
-                }, error => {
-                    console.log(error);
-                });
-            }
-        });
         //update tabular data
         this.sharedService.glgroupaddedcast.subscribe(data => {
             if (data.status && data.id == parseInt(this.glaccountTypeId)) {
@@ -2338,7 +2315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
 
 
@@ -2384,9 +2361,34 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
-    showConfirmModal(index) {
-        this.sharedService.setGlGroupDeleteTypeId(parseInt(this.glaccountTypeId));
-        this.modalService.showConfirmModal(index);
+    showConfirmModal(id) {
+        const message = `Are you sure you want to delete ?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                let params = {
+                    apartmentId: this.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                    if (res.message) {
+                        this.getGlGroups();
+                        this.sharedService.openSnackBar(res.message, 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        });
     }
     isItemsAvailable() {
         return this.totalItems > 0 ? true : false;
@@ -2425,37 +2427,6 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
     ngOnInit() {
         this.getGlGroups();
         this.sharedService.glgroupdeletetypeidcast.subscribe(typeId => this.accountDeleteTypeId = typeId);
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null && (this.accountDeleteTypeId == parseInt(this.glaccountTypeId))) {
-                var params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.glGroupsDataList, (type) => {
-                            if (type.glgroupId == id) {
-                                type.isActive = false;
-                            }
-                        });
-                        setTimeout(() => {
-                            this.glGroupsDataList = this.glGroupsDataList.filter((type) => type.glaccountId !== id);
-                            this.totalItems = this.glGroupsDataList.length;
-                            this.sharedService.setAlertMessage("Gl Group deleted");
-                            this.sharedService.setUnitListDeleteIndex(null);
-                        }, 500);
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }
-                }, error => {
-                    console.log(error);
-                });
-            }
-        });
         //update tabular data
         this.sharedService.glgroupaddedcast.subscribe(data => {
             if (data.status && data.id == parseInt(this.glaccountTypeId)) {

@@ -130,6 +130,24 @@
                "LEVEL1MANAGER": "Select Level-1 Manager",
                "AUTOESCLATETOLEVEL2AFTER": "Auto Esclate to Level 2 After",
                "LEVEL2MANAGER": "Select Level-2 Manager"
+            },
+            "FILTERTICKET": {
+                "STATUS": "Status",
+                "TICKETSTATUS": "Ticket Status",
+                "STAFF": "Staff",
+                "SUPERVISOR": "Supervisor",
+                "COMMON": "Common",
+                "PRIVATE": "Private",
+                "HIGH": "High",
+                "MEDIUM": "Medium",
+                "ALLTICKETS": "All Tickets",
+                "OPEN&ASSIGNED": "Open, Assigned Tickets",
+                "ONHOLD": "On-Hold Tickets",
+                "RESOLVED": "Resolved Tickets",
+                "CLOSED": "Closed Tickets",
+                "UNASSIGNED": "Unassigned Tickets",
+                "MYTICKETS": "My Tickets",
+                "ADDTICKET": "Add Ticket"
             }
         }
     },
@@ -350,7 +368,9 @@
         "VISITOR": "Visitor",
         "ADDMOVEIN": "Add MoveIn",
         "UPLOADDOCUMENT": "Upload Documents",
-        "ADD": "Add"
+        "ADD": "Add",
+        "APPLY": "Apply",
+        "FILTER": "Filter"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",
