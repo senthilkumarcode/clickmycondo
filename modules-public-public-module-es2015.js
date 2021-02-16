@@ -633,7 +633,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"login-page-wrapper page-wrapper\">\n   <div class=\"page-block\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<h2 class=\"title\">Login</h2>\n\t\t\t\t\t<div class=\"content\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-lg-5 text-center login-cover\">\n\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/images/login-cover.jpg\" alt=\"\">\n\t\t\t\t\t\t\t\t<h5 class=\"font-medium mt-5\">The future of Condo living starts here !</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"offset-lg-1 col-lg-6\">\n\t\t\t\t\t\t\t\t<div class=\"bdr-form-layout\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<!-- Message -->\n\t\t\t\t\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t\t\t\t\t<condo-message *ngIf=\"message\"\n\t\t\t\t\t\t\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t\t\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t\t\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t\t\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{message.content}}\n\t\t\t\t\t\t\t\t\t\t</condo-message>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<form [formGroup]=\"loginForm\" (keyup.enter)=\"login()\">\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- Email field -->\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<mat-label>Email address</mat-label>\n\t\t\t\t\t\t\t\t\t\t\t<input id=\"email\"\n\t\t\t\t\t\t\t\t\t\t\t\tmatInput\n\t\t\t\t\t\t\t\t\t\t\t\t[formControlName]=\"'email'\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<mat-label>Password</mat-label>\n\t\t\t\t\t\t\t\t\t\t\t<input id=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\tmatInput\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\t[formControlName]=\"'password'\"\n\t\t\t\t\t\t\t\t\t\t\t\t#passwordField>\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"mt-3\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"remember-check font-medium float-left\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-checkbox [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[formControlName]=\"'rememberMe'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tRemember me\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-checkbox>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"float-right text-warn font-medium\" routerLink=\"/forgot-password\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" href=\"javascript:void(0);\">Forgot password ?</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<button class=\"w-100 mt-5\" type=\"button\" mat-flat-button (click)=\"login()\" [color]=\"'primary'\" [disabled]=\"loginForm.disabled\">\n\t\t\t\t\t\t\t\t\t\t\t<span *ngIf=\"!loginForm.disabled\" class=\"font-medium text-md\">Login</span>\n\t\t\t\t\t\t\t\t\t\t\t<mat-progress-spinner *ngIf=\"loginForm.disabled\"\n\t\t\t\t\t\t\t\t\t\t\t\t[diameter]=\"24\"\n\t\t\t\t\t\t\t\t\t\t\t\t[mode]=\"'indeterminate'\"></mat-progress-spinner>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n   </div>\n</section>\n\t\n\t\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"login-page-wrapper page-wrapper\">\n   <div class=\"page-block\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<h2 class=\"title\">Login</h2>\n\t\t\t\t\t<div class=\"content\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-lg-5 text-center login-cover\">\n\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/images/login-cover.jpg\" alt=\"\">\n\t\t\t\t\t\t\t\t<h5 class=\"font-medium mt-5\">The future of Condo living starts here !</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"offset-lg-1 col-lg-6\">\n\t\t\t\t\t\t\t\t<div class=\"bdr-form-layout\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<!-- Message -->\n\t\t\t\t\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t\t\t\t\t<condo-message *ngIf=\"message\"\n\t\t\t\t\t\t\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t\t\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t\t\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t\t\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{message.content}}\n\t\t\t\t\t\t\t\t\t\t</condo-message>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<form [formGroup]=\"loginForm\" (keyup.enter)=\"login()\">\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- Email field -->\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<mat-label>Email address</mat-label>\n\t\t\t\t\t\t\t\t\t\t\t<input id=\"email\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"email\"\n\t\t\t\t\t\t\t\t\t\t\t\tmatInput\n\t\t\t\t\t\t\t\t\t\t\t\t[formControlName]=\"'email'\" autocomplete=\"nope\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<mat-label>Password</mat-label>\n\t\t\t\t\t\t\t\t\t\t\t<input id=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\tname=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\tmatInput\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\t[formControlName]=\"'password'\"\n\t\t\t\t\t\t\t\t\t\t\t\t#passwordField>\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"mt-3\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"remember-check font-medium float-left\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-checkbox [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[formControlName]=\"'rememberMe'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tRemember me\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-checkbox>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"float-right text-warn font-medium\" routerLink=\"/forgot-password\" routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" href=\"javascript:void(0);\">Forgot password ?</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<button class=\"w-100 mt-5\" type=\"button\" mat-flat-button (click)=\"login()\" [color]=\"'primary'\" [disabled]=\"loginForm.disabled\">\n\t\t\t\t\t\t\t\t\t\t\t<span *ngIf=\"!loginForm.disabled\" class=\"font-medium text-md\">Login</span>\n\t\t\t\t\t\t\t\t\t\t\t<mat-progress-spinner *ngIf=\"loginForm.disabled\"\n\t\t\t\t\t\t\t\t\t\t\t\t[diameter]=\"24\"\n\t\t\t\t\t\t\t\t\t\t\t\t[mode]=\"'indeterminate'\"></mat-progress-spinner>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n   </div>\n</section>\n\t\n\t\n\n");
 
 /***/ }),
 
@@ -3045,6 +3045,8 @@ let LoginComponent = class LoginComponent {
         this._formBuilder = _formBuilder;
         this.authService = authService;
         this.sessionService = sessionService;
+        this.rememberMe = false;
+        this.email = "";
         // Set the defaults
         this.message = null;
     }
@@ -3057,7 +3059,6 @@ let LoginComponent = class LoginComponent {
             password: this.loginForm.value.password,
             emailId: this.loginForm.value.email
         };
-        console.log(this.loginForm);
         this.authService.login(params, this.loginForm.value.rememberMe).subscribe((res) => {
             if (!res.errorMessage) {
                 this.sessionService.user(res);
@@ -3088,12 +3089,21 @@ let LoginComponent = class LoginComponent {
         });
     }
     ngOnInit() {
+        this.rememberMe = this.authService.rememberMe == 'true' ? true : false;
+        if (this.authService.rememberMe == 'true') {
+            this.email = this.authService.email;
+        }
+        else {
+            this.email = "";
+        }
         // Create the form
         this.loginForm = this._formBuilder.group({
-            email: [],
+            email: [this.email],
             password: [],
-            rememberMe: ['']
+            rememberMe: [this.rememberMe]
         });
+    }
+    ngAfterViewInit() {
     }
 };
 LoginComponent.ctorParameters = () => [
