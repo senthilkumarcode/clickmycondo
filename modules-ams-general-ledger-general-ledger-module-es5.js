@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlAccount()\" *ngIf=\"type == 'add'\" #addAccountElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Account\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlAccount()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addAccountElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glAccountPanel>\n\t\t\n\t<div class=\"bg-card popover-card\">\n\t\t\n\t\t<app-loader *ngIf=\"!isAccountAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isAccountAdded\">\n\t\t\t\n\t\t\t<form #addGlAccountForm = \"ngForm\" name=\"addGlAccountForm\" (ngSubmit)=\"submitGLAccountForm(addGlAccountForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Groups\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Group\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"glGroupsDataList\"\n\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.glgroupId\"\n\t\t\t\t\t\t\tfieldId=\"glgroupId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getGlGroup($event)\" \n\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} Gl No*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountNumber\" [(ngModel)]=\"gl.glaccountNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} Gl Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountName\" [(ngModel)]=\"gl.glaccountName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6 d-none\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Default Bank Account*</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tid=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"gl.defaultBankDetailsId\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of glDefaultBankDataList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"isAsset() || isLiability()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Opening Balance</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"openingBalance\" [(ngModel)]=\"gl.openingBalance\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Opening Balance Date\"\n\t\t\t\t\t\t\tfieldName=\"openingBalanceDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.openingBalanceDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getOpeningBalanceDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"notes\" [(ngModel)]=\"gl.notes\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreateGroup()\">Create</button>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreateGroup()\">Update</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlAccount()\" *ngIf=\"type == 'add'\" #addAccountElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Account\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlAccount()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addAccountElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glAccountPanel>\n\t\t\n\t<div class=\"bg-card popover-card\">\n\t\t\n\t\t<app-loader *ngIf=\"!isAccountAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isAccountAdded\">\n\t\t\t\n\t\t\t<form #addGlAccountForm = \"ngForm\" name=\"addGlAccountForm\" (ngSubmit)=\"submitGLAccountForm(addGlAccountForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Groups\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Group\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"glGroupsDataList\"\n\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.glgroupId\"\n\t\t\t\t\t\t\tfieldId=\"glgroupId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getGlGroup($event)\" \n\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} GL No*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountNumber\" [(ngModel)]=\"gl.glaccountNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} GL Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountName\" [(ngModel)]=\"gl.glaccountName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6 d-none\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Default Bank Account*</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tid=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"gl.defaultBankDetailsId\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of glDefaultBankDataList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"isAsset() || isLiability()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Opening Balance</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"openingBalance\" [(ngModel)]=\"gl.openingBalance\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Opening Balance Date\"\n\t\t\t\t\t\t\tfieldName=\"openingBalanceDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.openingBalanceDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getOpeningBalanceDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"notes\" [(ngModel)]=\"gl.notes\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreateGroup()\">Create</button>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreateGroup()\">Update</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlGroup()\" *ngIf=\"type == 'add'\" #addGroupElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Group\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlGroup()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addGroupElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glGroupPanel>\n\t\t\n\t<div class=\"bg-card popover-card p-4\">\n\n\t\t<app-loader *ngIf=\"!isGroupAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isGroupAdded\">\n\t\t\t\n\t\t\t<form #addGlGroupForm = \"ngForm\" name=\"addGlGroupForm\" (ngSubmit)=\"submitGLGroupForm(addGlGroupForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} Gl No*</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"glnumber\" [(ngModel)]=\"gl.glnumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glName\" [(ngModel)]=\"gl.name\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t\t\t<button  *ngIf=\"isCreateGroup()\" mat-flat-button [color]=\"'primary'\">Create</button>\n\t\t\t\t\t\t\t<button  *ngIf=\"!isCreateGroup()\" mat-flat-button  [color]=\"'primary'\">Update</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlGroup()\" *ngIf=\"type == 'add'\" #addGroupElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Group\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlGroup()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addGroupElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glGroupPanel>\n\t\t\n\t<div class=\"bg-card popover-card p-4\">\n\n\t\t<app-loader *ngIf=\"!isGroupAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isGroupAdded\">\n\t\t\t\n\t\t\t<form #addGlGroupForm = \"ngForm\" name=\"addGlGroupForm\" (ngSubmit)=\"submitGLGroupForm(addGlGroupForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} Group No*</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"glnumber\" [(ngModel)]=\"gl.glnumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glName\" [(ngModel)]=\"gl.name\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t\t\t<button  *ngIf=\"isCreateGroup()\" mat-flat-button [color]=\"'primary'\">Create</button>\n\t\t\t\t\t\t\t<button  *ngIf=\"!isCreateGroup()\" mat-flat-button  [color]=\"'primary'\">Update</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>";
       /***/
     },
 
@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Asset Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">Asset GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
+      __webpack_exports__["default"] = "\n<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Asset Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\">Asset Group No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Asset\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination \n\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t</app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
       /***/
     },
 
@@ -142,7 +142,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Equity Member Fund Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity Member Fund\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Equity GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>    \n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity-Member Fund\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>\n";
+      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Equity Member Fund Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity Member Fund\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Equity Group No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>    \n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Equity-Member Fund\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>\n";
       /***/
     },
 
@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Expense Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Expense GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
+      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Expense Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Expense Group No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t<tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Expense\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
       /***/
     },
 
@@ -202,7 +202,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Income Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Income GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
+      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Income Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Income Group No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Income\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
       /***/
     },
 
@@ -222,7 +222,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Liablilities Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Liabilities\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Liablilities GL No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Liabilities\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
+      __webpack_exports__["default"] = "<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>Liablilities Groups</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-group type=\"add\" [accountTypeId]=\"glaccountTypeId\" group=\"Liabilities\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Liablilities Group No<span (click)=\"sortUnitData('glnumber')\" [ngClass]=\"getFieldOrderBy('glnumber')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Name<span (click)=\"sortUnitData('name')\" [ngClass]=\"getFieldOrderBy('name')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t\t  <tr *ngFor=\"let group of glGroupsDataList | simpleSearch: glGroupsData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" class=\"active\">\n\t\t\t\t\t<td class=\"name\">{{group.glnumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{group.name}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2 edit-icon\" [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" (click)=\"selectedId = group.glgroupId\"></mat-icon>\n\t\t\t\t\t\t<app-add-gl-group type=\"edit\" *ngIf=\"selectedId == group.glgroupId\" [accountTypeId]=\"glaccountTypeId\" group=\"Liabilities\" [groupInfo]=\"group\" (formSubmitted)=\"popUpForm($event)\"></app-add-gl-group>\n\t\t\t\t\t\t<mat-icon class=\"edit-icon\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"showConfirmModal(group.glgroupId)\"></mat-icon>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>";
       /***/
     },
 
@@ -648,13 +648,23 @@
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
 
       var AddGlAccountComponent = /*#__PURE__*/function () {
         function AddGlAccountComponent(_overlay, _viewContainerRef, injector, accountsService, lookupService, sharedService, sessionService) {
@@ -726,7 +736,7 @@
                 templatePortal.detach();
               }
 
-              _this.popupClose.emit(true);
+              _this.popupClose.emit(false);
 
               _this.type = 'add';
               _this.glAccountId = null;
@@ -777,7 +787,7 @@
                 "indicator": this.group,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -787,23 +797,21 @@
               this.accountsService.addGlAccount(params).subscribe(function (res) {
                 _this2.isAccountAdded = true;
 
-                _this2.popupClose.emit(true);
-
                 if (res.code == 200) {
                   _this2.sharedService.openSnackBar('Gl Account Added', 'success');
 
-                  _this2.sharedService.setGlAccountAdded(true);
+                  _this2.popupClose.emit(true);
+
+                  _this2._selectPanelOverlayRef.detach();
+                } else {
+                  _this2.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (err) {
                 _this2.isAccountAdded = true;
 
-                if (err.status == 0) {
-                  _this2.sharedService.openSnackBar('Network Error', 'error');
-                } else {
-                  _this2.sharedService.openSnackBar(err.error[0].message, 'error');
-                }
+                _this2.sharedService.openSnackBar('Server Error', 'error');
 
-                _this2.popupClose.emit(true);
+                _this2.popupClose.emit(false);
               });
             } else {
               var _details = {
@@ -821,7 +829,7 @@
                 "insertedBy": this.gl.insertedBy,
                 "insertedOn": this.gl.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString()
               };
               var _params = {
                 glAccount: _details
@@ -829,23 +837,23 @@
               this.accountsService.updateGlAccount(_params).subscribe(function (res) {
                 _this2.isAccountAdded = true;
 
-                _this2.popupClose.emit(true);
-
                 if (res.code == 200) {
+                  ;
+
                   _this2.sharedService.openSnackBar('Gl Account Updated', 'success');
 
-                  _this2.sharedService.setGlAccountAdded(true);
+                  _this2.popupClose.emit(true);
+
+                  _this2._selectPanelOverlayRef.detach();
+                } else {
+                  _this2.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (err) {
                 _this2.isAccountAdded = true;
 
-                if (err.status == 0) {
-                  _this2.sharedService.openSnackBar('Network Error', 'error');
-                } else {
-                  _this2.sharedService.openSnackBar(err.error[0].message, 'error');
-                }
+                _this2.sharedService.openSnackBar('Network Error', 'error');
 
-                _this2.popupClose.emit(true);
+                _this2.popupClose.emit(false);
               });
             }
           }
@@ -858,9 +866,7 @@
               return _this3.timeZone = timeZone;
             });
             this.gl = {};
-            this.gl.glgroupId = "";
-            this.gl.defaultBankDetailsId = "";
-            this.sharedService.setGlAccountAdded(false);
+            this.gl.openingBalanceDate = moment__WEBPACK_IMPORTED_MODULE_10__();
 
             if (this.group == 'Income' || this.group == 'Expenses') {
               this.gl.openingBalance = 0;
@@ -1466,6 +1472,10 @@
         }, {
           key: "closePopup",
           value: function closePopup(event) {
+            if (event) {
+              this.getAccounts();
+            }
+
             this.selectedId = 0;
           }
         }, {
@@ -1479,6 +1489,7 @@
             };
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
               _this6.glAccountsDataList = res;
+              _this6.ItemStartIndex = 0;
               _this6.isDataLoaded = true;
               _this6.totalItems = _this6.glAccountsDataList.length;
 
@@ -1500,58 +1511,52 @@
               return _this7.timeZone = timeZone;
             });
             this.getAccounts();
-            this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this7.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this7.glaccountTypeId);
-              });
-            });
-            var defaultParams = {
-              LookupTypeId: 60,
-              ApartmentId: this.sessionService.apartmentId
-            }; //bank details
+            var params = {
+              GlaccountTypeId: this.glaccountTypeId,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
+              _this7.glGroupsDataList = res;
+            }); // let defaultParams = {
+            //   LookupTypeId: 60,
+            //   ApartmentId: this.sessionService.apartmentId
+            // }
+            // //bank details
+            // this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res:any) => {
+            //   this.lookupList = res;
+            // });
+            // delete item
 
-            this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this7.lookupList = res;
-            });
-            this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
-              if (accountAdded) {
-                _this7.getAccounts();
-              }
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var params = {
+                var _params3 = {
                   apartmentId: _this7.sessionService.apartmentId,
                   glAccountId: id,
                   deleteBy: parseInt(_this7.sessionService.userId)
                 };
 
-                _this7.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this7.accountsService.deleteGlAccount(_params3).subscribe(function (res) {
+                  _this7.sharedService.setUnitListDeleteIndex(null);
+
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this7.glAccountsDataList, function (type) {
-                      if (type.glaccountId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this7.glAccountsDataList = _this7.glAccountsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this7.totalItems = _this7.glAccountsDataList.length;
+                    _this7.getAccounts();
 
-                      _this7.sharedService.setAlertMessage("Gl Account deleted");
-
-                      _this7.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
+                    _this7.sharedService.openSnackBar("Gl Account deleted", 'success');
                   } else {
                     _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  console.log(error);
+                  _this7.sharedService.setUnitListDeleteIndex(null);
+
+                  _this7.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -1742,26 +1747,6 @@
             } else return '';
           }
         }, {
-          key: "getGroup",
-          value: function getGroup(account, id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glGroupsDataList, function (item) {
-              if (item.glgroupId === id) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.glAccountsDataList.map(function (obj) {
-                if (obj.glaccountId == account.glaccountId) {
-                  obj.glGroupName = data[0].name;
-                }
-              }); //sorting
-              //this.sortUnitData('glGroupName');
-
-              return data[0].name;
-            }
-          }
-        }, {
           key: "getBank",
           value: function getBank(id) {
             var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.glBankDataList, function (item) {
@@ -1807,6 +1792,10 @@
         }, {
           key: "closePopup",
           value: function closePopup(event) {
+            if (event) {
+              this.getAccounts();
+            }
+
             this.selectedId = 0;
           }
         }, {
@@ -1821,6 +1810,7 @@
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
               _this8.glAccountsDataList = res;
               _this8.isDataLoaded = true;
+              _this8.ItemStartIndex = 0;
               _this8.totalItems = _this8.glAccountsDataList.length;
 
               if (_this8.totalItems > _this8.itemLimit) {
@@ -1841,58 +1831,52 @@
               return _this9.timeZone = timeZone;
             });
             this.getAccounts();
-            this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this9.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this9.glaccountTypeId);
-              });
-            });
-            var defaultParams = {
-              LookupTypeId: 60,
-              ApartmentId: this.sessionService.apartmentId
-            }; //bank details
+            var params = {
+              GlaccountTypeId: this.glaccountTypeId,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
+              _this9.glGroupsDataList = res;
+            }); // let defaultParams = {
+            //   LookupTypeId: 60,
+            //   ApartmentId: this.sessionService.apartmentId
+            // }
+            // //bank details
+            // this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res:any) => {
+            //   this.lookupList = res;
+            // });
+            // delete item
 
-            this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this9.lookupList = res;
-            });
-            this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
-              if (accountAdded) {
-                _this9.getAccounts();
-              }
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var params = {
+                var _params4 = {
                   apartmentId: _this9.sessionService.apartmentId,
                   glAccountId: id,
                   deleteBy: parseInt(_this9.sessionService.userId)
                 };
 
-                _this9.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this9.accountsService.deleteGlAccount(_params4).subscribe(function (res) {
+                  _this9.sharedService.setUnitListDeleteIndex(null);
+
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this9.glAccountsDataList, function (type) {
-                      if (type.glaccountId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this9.glAccountsDataList = _this9.glAccountsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this9.totalItems = _this9.glAccountsDataList.length;
+                    _this9.getAccounts();
 
-                      _this9.sharedService.setAlertMessage("Gl Account deleted");
-
-                      _this9.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
+                    _this9.sharedService.openSnackBar("Gl Account deleted", 'success');
                   } else {
                     _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  console.log(error);
+                  _this9.sharedService.setUnitListDeleteIndex(null);
+
+                  _this9.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -2143,6 +2127,10 @@
         }, {
           key: "closePopup",
           value: function closePopup(event) {
+            if (event) {
+              this.getAccounts();
+            }
+
             this.selectedId = 0;
           }
         }, {
@@ -2157,6 +2145,7 @@
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
               _this10.glAccountsDataList = res;
               _this10.isDataLoaded = true;
+              _this10.ItemStartIndex = 0;
               _this10.totalItems = _this10.glAccountsDataList.length;
 
               if (_this10.totalItems > _this10.itemLimit) {
@@ -2177,19 +2166,21 @@
               return _this11.timeZone = timeZone;
             });
             this.getAccounts();
-            this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this11.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this11.glaccountTypeId);
-              });
-            });
-            var defaultParams = {
-              LookupTypeId: 60,
-              ApartmentId: this.sessionService.apartmentId
-            }; //bank details
+            var params = {
+              GlaccountTypeId: this.glaccountTypeId,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
+              _this11.glGroupsDataList = res;
+            }); // let defaultParams = {
+            //   LookupTypeId: 60,
+            //   ApartmentId: this.sessionService.apartmentId
+            // }
+            // //bank details
+            // this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res:any) => {
+            //   this.lookupList = res;
+            // });
 
-            this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this11.lookupList = res;
-            });
             var bankListParams = {
               LookupTypeId: 27,
               ApartmentId: this.sessionService.apartmentId
@@ -2197,46 +2188,38 @@
 
             this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
               _this11.glBankDataList = res;
-            }, function (error) {});
-            this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
-              if (accountAdded) {
-                _this11.getAccounts();
-              }
             }); // delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var params = {
+                var _params5 = {
                   apartmentId: _this11.sessionService.apartmentId,
                   glAccountId: id,
                   deleteBy: parseInt(_this11.sessionService.userId)
                 };
 
-                _this11.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this11.accountsService.deleteGlAccount(_params5).subscribe(function (res) {
+                  _this11.sharedService.setUnitListDeleteIndex(null);
+
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this11.glAccountsDataList, function (type) {
-                      if (type.glaccountId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this11.glAccountsDataList = _this11.glAccountsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this11.totalItems = _this11.glAccountsDataList.length;
+                    _this11.getAccounts();
 
-                      _this11.sharedService.setAlertMessage("Gl Account deleted");
-
-                      _this11.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
+                    _this11.sharedService.openSnackBar("Gl Account deleted", 'success');
                   } else {
                     _this11.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  console.log(error);
+                  _this11.sharedService.setUnitListDeleteIndex(null);
+
+                  _this11.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -2482,6 +2465,7 @@
               _this13.glGroupsDataList = res;
               _this13.isDataLoaded = true;
               _this13.totalItems = _this13.glGroupsDataList.length;
+              _this13.ItemStartIndex = 0;
 
               if (_this13.totalItems > _this13.itemLimit) {
                 _this13.ItemEndIndex = _this13.itemLimit;
@@ -2750,6 +2734,7 @@
               _this16.glGroupsDataList = res;
               _this16.isDataLoaded = true;
               _this16.totalItems = _this16.glGroupsDataList.length;
+              _this16.ItemStartIndex = 0;
 
               if (_this16.totalItems > _this16.itemLimit) {
                 _this16.ItemEndIndex = _this16.itemLimit;
@@ -3016,6 +3001,7 @@
               _this19.glGroupsDataList = res;
               _this19.isDataLoaded = true;
               _this19.totalItems = _this19.glGroupsDataList.length;
+              _this19.ItemStartIndex = 0;
 
               if (_this19.totalItems > _this19.itemLimit) {
                 _this19.ItemEndIndex = _this19.itemLimit;
@@ -3372,6 +3358,7 @@
               _this22.glGroupsDataList = res;
               _this22.isDataLoaded = true;
               _this22.totalItems = _this22.glGroupsDataList.length;
+              _this22.ItemStartIndex = 0;
 
               if (_this22.totalItems > _this22.itemLimit) {
                 _this22.ItemEndIndex = _this22.itemLimit;
@@ -3647,6 +3634,7 @@
               _this25.glGroupsDataList = res;
               _this25.isDataLoaded = true;
               _this25.totalItems = _this25.glGroupsDataList.length;
+              _this25.ItemStartIndex = 0;
 
               if (_this25.totalItems > _this25.itemLimit) {
                 _this25.ItemEndIndex = _this25.itemLimit;
@@ -3930,6 +3918,10 @@
         }, {
           key: "closePopup",
           value: function closePopup(event) {
+            if (event) {
+              this.getAccounts();
+            }
+
             this.selectedId = 0;
           }
         }, {
@@ -3944,6 +3936,7 @@
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
               _this27.glAccountsDataList = res;
               _this27.isDataLoaded = true;
+              _this27.ItemStartIndex = 0;
               _this27.totalItems = _this27.glAccountsDataList.length;
 
               if (_this27.totalItems > _this27.itemLimit) {
@@ -3964,19 +3957,21 @@
               return _this28.timeZone = timeZone;
             });
             this.getAccounts();
-            this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this28.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this28.glaccountTypeId);
-              });
-            });
-            var defaultParams = {
-              LookupTypeId: 60,
-              ApartmentId: this.sessionService.apartmentId
-            }; //bank details
+            var params = {
+              GlaccountTypeId: this.glaccountTypeId,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
+              _this28.glGroupsDataList = res;
+            }); // let defaultParams = {
+            //   LookupTypeId: 60,
+            //   ApartmentId: this.sessionService.apartmentId
+            // }
+            // //bank details
+            // this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res:any) => {
+            //   this.lookupList = res;
+            // });
 
-            this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this28.lookupList = res;
-            });
             var bankListParams = {
               LookupTypeId: 27,
               ApartmentId: this.sessionService.apartmentId
@@ -3984,46 +3979,38 @@
 
             this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
               _this28.glBankDataList = res;
-            });
-            this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
-              if (accountAdded) {
-                _this28.getAccounts();
-              }
             }); // delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var params = {
+                var _params6 = {
                   apartmentId: _this28.sessionService.apartmentId,
                   glAccountId: id,
                   deleteBy: parseInt(_this28.sessionService.userId)
                 };
 
-                _this28.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this28.accountsService.deleteGlAccount(_params6).subscribe(function (res) {
+                  _this28.sharedService.setUnitListDeleteIndex(null);
+
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this28.glAccountsDataList, function (type) {
-                      if (type.glaccountId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this28.glAccountsDataList = _this28.glAccountsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this28.totalItems = _this28.glAccountsDataList.length;
+                    _this28.getAccounts();
 
-                      _this28.sharedService.setAlertMessage("Gl Account deleted");
-
-                      _this28.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
+                    _this28.sharedService.openSnackBar("Gl Account deleted", 'success');
                   } else {
                     _this28.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  console.log(error);
+                  _this28.sharedService.setUnitListDeleteIndex(null);
+
+                  _this28.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -5160,23 +5147,17 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
 
@@ -5225,24 +5206,6 @@
             } else return '';
           }
         }, {
-          key: "getGroup",
-          value: function getGroup(account, id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glGroupsDataList, function (item) {
-              if (item.glgroupId === id) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.glAccountsDataList.map(function (obj) {
-                if (obj.glaccountId == account.glaccountId) {
-                  obj.glGroupName = data[0].name;
-                }
-              });
-              return data[0].name;
-            }
-          }
-        }, {
           key: "getBank",
           value: function getBank() {
             return '';
@@ -5250,7 +5213,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -5280,6 +5243,10 @@
         }, {
           key: "closePopup",
           value: function closePopup(event) {
+            if (event) {
+              this.getAccounts();
+            }
+
             this.selectedId = 0;
           }
         }, {
@@ -5294,6 +5261,7 @@
             this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
               _this36.glAccountsDataList = res;
               _this36.isDataLoaded = true;
+              _this36.ItemStartIndex = 0;
               _this36.totalItems = _this36.glAccountsDataList.length;
 
               if (_this36.totalItems > _this36.itemLimit) {
@@ -5314,58 +5282,52 @@
               return _this37.timeZone = timeZone;
             });
             this.getAccounts();
-            this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this37.glGroupsDataList = res.filter(function (item) {
-                return item.isActive && item.glaccountTypeId == parseInt(_this37.glaccountTypeId);
-              });
-            });
-            var defaultParams = {
-              LookupTypeId: 60,
-              ApartmentId: this.sessionService.apartmentId
-            }; //bank details
+            var params = {
+              GlaccountTypeId: this.glaccountTypeId,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
+              _this37.glGroupsDataList = res;
+            }); // let defaultParams = {
+            //   LookupTypeId: 60,
+            //   ApartmentId: this.sessionService.apartmentId
+            // }
+            // //bank details
+            // this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res:any) => {
+            //   this.lookupList = res;
+            // });
+            // delete item
 
-            this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
-              _this37.lookupList = res;
-            });
-            this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
-              if (accountAdded) {
-                _this37.getAccounts();
-              }
-            }); // delete item
-
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var params = {
+                var _params7 = {
                   apartmentId: _this37.sessionService.apartmentId,
                   glAccountId: id,
                   deleteBy: parseInt(_this37.sessionService.userId)
                 };
 
-                _this37.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this37.accountsService.deleteGlAccount(_params7).subscribe(function (res) {
+                  _this37.sharedService.setUnitListDeleteIndex(null);
+
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this37.glAccountsDataList, function (type) {
-                      if (type.glaccountId == id) {
-                        type.isActive = false;
-                      }
-                    });
-                    setTimeout(function () {
-                      _this37.glAccountsDataList = _this37.glAccountsDataList.filter(function (type) {
-                        return type.glaccountId !== id;
-                      });
-                      _this37.totalItems = _this37.glAccountsDataList.length;
+                    _this37.getAccounts();
 
-                      _this37.sharedService.setAlertMessage("Gl Account deleted");
-
-                      _this37.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
+                    _this37.sharedService.openSnackBar("Gl Account deleted", 'success');
                   } else {
                     _this37.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  console.log(error);
+                  _this37.sharedService.setUnitListDeleteIndex(null);
+
+                  _this37.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -5384,7 +5346,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
         }];
       };
 
@@ -5396,7 +5358,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-liablilities.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-liablilities/gl-liablilities.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]])], GlLiablilitiesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"]])], GlLiablilitiesComponent);
       /***/
     },
 

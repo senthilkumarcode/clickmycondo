@@ -3697,6 +3697,9 @@
                 _this28.formSubmitted = false;
 
                 if (res.message) {
+                  _this28.user.password = '';
+                  _this28.user.confirmPassword = '';
+
                   _this28.sharedService.openSnackBar(res.message, 'success');
                 } else {
                   _this28.sharedService.openSnackBar(res.errorMessage, 'error');

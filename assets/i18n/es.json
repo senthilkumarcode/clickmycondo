@@ -131,22 +131,23 @@
                 "LEVEL2MANAGER": "Seleccionar administrador de nivel 2"
              },
              "FILTERTICKET": {
-                "STATUS": "Status",
-                "TICKETSTATUS": "Ticket Status",
-                "STAFF": "Staff",
-                "SUPERVISOR": "Supervisor",
-                "COMMON": "Common",
-                "PRIVATE": "Private",
-                "HIGH": "High",
-                "MEDIUM": "Medium",
-                "ALLTICKETS": "All Tickets",
-                "OPEN&ASSIGNED": "Open, Assigned Tickets",
-                "ONHOLD": "On-Hold Tickets",
-                "RESOLVED": "Resolved Tickets",
-                "CLOSED": "Closed Tickets",
-                "UNASSIGNED": "Unassigned Tickets",
-                "MYTICKETS": "My Tickets",
-                "ADDTICKET": "Add Ticket"
+                "STATUS": "Estado",
+                "TICKETSTATUS": "Estado del ticket",
+                "STAFF": "Personal",
+                "SUPERVISOR": "Supervisora",
+                "COMMON": "Común",
+                "PRIVATE": "Privada",
+                "HIGH": "Alta",
+                "MEDIUM": "Medio",
+                "LOW": "Baja",
+                "ALLTICKETS": "Todas las entradas",
+                "OPEN&ASSIGNED": "Entradas abiertas y asignadas",
+                "ONHOLD": "Tickets en espera",
+                "RESOLVED": "Tickets resueltos",
+                "CLOSED": "Entradas Cerradas",
+                "UNASSIGNED": "Entradas sin asignar",
+                "MYTICKETS": "Mis Entradas",
+                "ADDTICKET": "Agregar ticket"
             }
         }
     },
@@ -275,6 +276,13 @@
             "VISITORPASS": "Pase de visitante",
             "STATUS": "Estado",
             "COMMENT": "Comentario"
+        },
+        "SETUP": {
+            "TITLE": "Facilities",
+            "TOTALITEMS": "Items",
+            "NORESULTS": "No Results found",
+            "FREE": "Free",
+            "PER": "Per"
         }
     },
     "MOVEINOUT": {
@@ -367,8 +375,10 @@
         "ADDMOVEIN": "Agregar MoveIn",
         "UPLOADDOCUMENT": "subir documentos",
         "ADD": "Agregar",
-        "APPLY": "Apply",
-        "FILTER": "Filter"
+        "APPLY": "Aplicar",
+        "FILTER": "Filtrar",
+        "ADDFACILITY": "Add New Facility",
+        "ADDSLOT": "Add Slot"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",

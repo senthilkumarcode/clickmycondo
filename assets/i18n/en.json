@@ -140,6 +140,7 @@
                 "PRIVATE": "Private",
                 "HIGH": "High",
                 "MEDIUM": "Medium",
+                "LOW": "Low",
                 "ALLTICKETS": "All Tickets",
                 "OPEN&ASSIGNED": "Open, Assigned Tickets",
                 "ONHOLD": "On-Hold Tickets",
@@ -277,6 +278,13 @@
             "VISITORPASS": "Visitor Pass",
             "STATUS": "Status",
             "COMMENT": "Comment"
+        },
+        "SETUP": {
+            "TITLE": "Facilities",
+            "TOTALITEMS": "Items",
+            "NORESULTS": "No Results found",
+            "FREE": "Free",
+            "PER": "Per"
         }
     },
     "MOVEINOUT": {
@@ -370,7 +378,9 @@
         "UPLOADDOCUMENT": "Upload Documents",
         "ADD": "Add",
         "APPLY": "Apply",
-        "FILTER": "Filter"
+        "FILTER": "Filter",
+        "ADDFACILITY": "Add New Facility",
+        "ADDSLOT": "Add Slot"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",

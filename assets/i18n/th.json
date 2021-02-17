@@ -131,22 +131,23 @@
                 "LEVEL2MANAGER": "เลือกผู้จัดการระดับ 2"
              },
              "FILTERTICKET": {
-                "STATUS": "Status",
-                "TICKETSTATUS": "Ticket Status",
-                "STAFF": "Staff",
-                "SUPERVISOR": "Supervisor",
-                "COMMON": "Common",
-                "PRIVATE": "Private",
-                "HIGH": "High",
-                "MEDIUM": "Medium",
-                "ALLTICKETS": "All Tickets",
-                "OPEN&ASSIGNED": "Open, Assigned Tickets",
-                "ONHOLD": "On-Hold Tickets",
-                "RESOLVED": "Resolved Tickets",
-                "CLOSED": "Closed Tickets",
-                "UNASSIGNED": "Unassigned Tickets",
-                "MYTICKETS": "My Tickets",
-                "ADDTICKET": "Add Ticket"
+                "STATUS": "สถานะ",
+                "TICKETSTATUS": "สถานะตั๋ว",
+                "STAFF": "เจ้าหน้าที่",
+                "SUPERVISOR": "หัวหน้างาน",
+                "COMMON": "เรื่องธรรมดา",
+                "PRIVATE": "เอกชน",
+                "HIGH": "สูง",
+                "MEDIUM": "ปานกลาง",
+                "LOW": "ต่ำ",
+                "ALLTICKETS": "ตั๋วทั้งหมด",
+                "OPEN&ASSIGNED": "เปิดตั๋วที่ได้รับมอบหมาย",
+                "ONHOLD": "ตั๋วถือ",
+                "RESOLVED": "ตั๋วที่ได้รับการแก้ไข",
+                "CLOSED": "ตั๋วปิด",
+                "UNASSIGNED": "ตั๋วที่ไม่ได้มอบหมาย",
+                "MYTICKETS": "ตั๋วของฉัน",
+                "ADDTICKET": "เพิ่มตั๋ว"
             }
         }
     },
@@ -275,7 +276,14 @@
             "VISITORPASS": "Visitor Pass",
             "STATUS": "สถานะ",
             "COMMENT": "แสดงความคิดเห็น"
-        }
+        },
+    "SETUP": {
+        "TITLE": "Facilities",
+        "TOTALITEMS": "Items",
+        "NORESULTS": "No Results found",
+        "FREE": "Free",
+        "PER": "Per"
+    }
     },
     "MOVEINOUT": {
         "VIEWMOVEIN": {
@@ -367,7 +375,9 @@
         "UPLOADDOCUMENT": "อัปโหลดเอกสาร",
         "ADD": "เพิ่ม",
         "APPLY": "สมัคร",
-        "FILTER": "กรอง"
+        "FILTER": "กรอง",
+        "ADDFACILITY": "Add New Facility",
+        "ADDSLOT": "Add Slot"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",

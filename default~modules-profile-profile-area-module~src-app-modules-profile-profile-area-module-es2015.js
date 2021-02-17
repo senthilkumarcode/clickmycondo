@@ -2361,6 +2361,8 @@ let ProfilePasswordComponent = class ProfilePasswordComponent {
             this.logInCheckService.changePasswordEmail(params).subscribe((res) => {
                 this.formSubmitted = false;
                 if (res.message) {
+                    this.user.password = '';
+                    this.user.confirmPassword = '';
                     this.sharedService.openSnackBar(res.message, 'success');
                 }
                 else {
