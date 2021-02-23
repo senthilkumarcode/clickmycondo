@@ -235,6 +235,39 @@
         "VISITORSHISTORY": {
             "TITLE": "ประวัติผู้เยี่ยมชม",
             "TOTALRESULTS": "ผล"
+        },
+        "SETUP": {
+            "TITLE": "หมวดหมู่ผู้เยี่ยมชม",
+            "TOTALITEMS": "รายการ",
+            "ADDNEWTYPE": "เพิ่มประเภทใหม่",
+            "EDIT": "แก้ไข",
+            "DELETE": "ลบ",
+            "NORESULTS": "ไม่พบผลลัพธ์",
+            "ADDTITLE": "เพิ่มหมวดหมู่ผู้เยี่ยมชม",
+            "EDITTITLE": "แก้ไขหมวดหมู่ผู้เยี่ยมชม",
+            "CATEGORY": "ประเภท",
+            "DESCRIPTION": "คำอธิบาย"
+        },
+        "CHECKIN": {
+            "CHECKINTITLE": "การเช็คอินของผู้เยี่ยมชม",
+            "CHECKOUTTITLE": "ผู้เยี่ยมชมเช็คเอาท์",
+            "EDITCHECKOUTTITLE": "แก้ไขการเช็คเอาต์ของผู้เยี่ยมชม",
+            "EXPECTEDVISITTYPE": "ประเภทการเยี่ยมชมที่คาดหวัง",
+            "TOWERNO": "ทาวเวอร์เลขที่",
+            "UNITNO": "เลขที่หน่วย",
+            "PRIMARYNAME": "ชื่อหลัก",
+            "VISITORNAME": "ชื่อผู้เยี่ยมชม",
+            "VISITORCOUNT": "จำนวนผู้เข้าชม",
+            "MOBILENO": "เบอร์โทรศัพท์ / มือถือ",
+            "ACTUALDATETIMEVISIT": "วันที่ / เวลาเข้าชมจริง",
+            "EXPECTEDOUTTIME": "คาดว่าจะหมดเวลา",
+            "CHECKOUTTIME": "ตรวจสอบ OutTime",
+            "EXPECTEDDURATIONOFVISIT": "ระยะเวลาการเยี่ยมชมที่คาดไว้",
+            "PASSNUMBER": "รหัสผ่าน",
+            "VISITCATEGORY": "ไปที่หมวดหมู่",
+            "REASONFORVISIT": "เหตุผลในการเยี่ยมชม"
+
+
         }
     },
     "FACILITY": {
@@ -278,11 +311,25 @@
             "COMMENT": "แสดงความคิดเห็น"
         },
     "SETUP": {
-        "TITLE": "Facilities",
-        "TOTALITEMS": "Items",
-        "NORESULTS": "No Results found",
-        "FREE": "Free",
-        "PER": "Per"
+        "TITLE": "สิ่งอำนวยความสะดวก",
+        "TOTALITEMS": "รายการ",
+        "NORESULTS": "ไม่พบผลลัพธ์",
+        "FREE": "ฟรี",
+        "PER": "ต่อ"
+    },
+    "BOOKINGLIST": {
+        "PENDINGTITLE": "การจองที่รอดำเนินการ",
+        "CONFIRMEDTITLE": "ยืนยันการจอง",
+        "CANCELLEDTITLE": "ยกเลิกการจอง",
+        "REJECTEDTITLE": "การจองที่ถูกปฏิเสธ",
+        "BOOKINGHISTORY": "ประวัติการจอง",
+        "TOTALRESULTS": "ผล",
+        "FILTERBY": "กรองตาม",
+        "EVENTFROM": "เหตุการณ์จาก",
+        "EVENTTO": "เหตุการณ์ถึง",
+        "REQUESTCREATIONDATEFROM": "วันที่สร้างคำขอ (จาก)",
+        "REQUESTCREATIONDATETO": "วันที่สร้างคำขอ (ถึง)",
+        "STATUS": "สถานะ"
     }
     },
     "MOVEINOUT": {
@@ -376,8 +423,11 @@
         "ADD": "เพิ่ม",
         "APPLY": "สมัคร",
         "FILTER": "กรอง",
-        "ADDFACILITY": "Add New Facility",
-        "ADDSLOT": "Add Slot"
+        "ADDFACILITY": "เพิ่มสิ่งอำนวยความสะดวกใหม่",
+        "ADDSLOT": "เพิ่มช่อง",
+        "CREATEBOOKING": "สร้างการจอง",
+        "CHECKIN": "เช็คอิน",
+        "CHECKOUT": "เช็คเอาท์"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",

@@ -235,6 +235,39 @@
         "VISITORSHISTORY": {
             "TITLE": "Historia de los visitante",
             "TOTALRESULTS": "resultados"
+        },
+        "SETUP": {
+            "TITLE": "Categorías de visitantes",
+            "TOTALITEMS": "Artículos",
+            "ADDNEWTYPE": "Agregar nuevo tipo",
+            "EDIT": "Editar",
+            "DELETE": "Borrar",
+            "NORESULTS": "No se han encontrado resultados",
+            "ADDTITLE": "Agregar categoría de visitante",
+            "EDITTITLE": "Editar categoría de visitante",
+            "CATEGORY": "Categoría",
+            "DESCRIPTION": "Descripción"
+        },
+        "CHECKIN": {
+            "CHECKINTITLE": "Registro de visitantes",
+            "CHECKOUTTITLE": "Salida del visitante",
+            "EDITCHECKOUTTITLE": "Editar el registro de salida del visitante",
+            "EXPECTEDVISITTYPE": "Tipo de visita esperada",
+            "TOWERNO": "Torre No",
+            "UNITNO": "Numero de unidad",
+            "PRIMARYNAME": "Nombre principal",
+            "VISITORNAME": "Nombre del visitante",
+            "VISITORCOUNT": "Número de visitantes",
+            "MOBILENO": "Teléfono / Móvil No",
+            "ACTUALDATETIMEVISIT": "Fecha / hora real de la visita",
+            "EXPECTEDOUTTIME": "Tiempo de espera esperado",
+            "CHECKOUTTIME": "Hora de salida",
+            "EXPECTEDDURATIONOFVISIT": "Duración prevista de la visita",
+            "PASSNUMBER": "Número de pase",
+            "VISITCATEGORY": "Visitar categoría",
+            "REASONFORVISIT": "Razón de la visita"
+
+
         }
     },
     "FACILITY": {
@@ -278,11 +311,25 @@
             "COMMENT": "Comentario"
         },
         "SETUP": {
-            "TITLE": "Facilities",
-            "TOTALITEMS": "Items",
-            "NORESULTS": "No Results found",
-            "FREE": "Free",
-            "PER": "Per"
+            "TITLE": "Instalaciones",
+            "TOTALITEMS": "Artículos",
+            "NORESULTS": "No se han encontrado resultados",
+            "FREE": "Libre",
+            "PER": "Por"
+        },
+        "BOOKINGLIST": {
+            "PENDINGTITLE": "Reservas pendientes",
+            "CONFIRMEDTITLE": "Reservas confirmadas",
+            "CANCELLEDTITLE": "Reservas canceladas",
+            "REJECTEDTITLE": "Reservas rechazadas",
+            "BOOKINGHISTORY": "Historial de reservas",
+            "TOTALRESULTS": "resultados",
+            "FILTERBY": "Filtrado por",
+            "EVENTFROM": "Evento de",
+            "EVENTTO": "Evento para",
+            "REQUESTCREATIONDATEFROM": "Solicitar fecha de creación (desde)",
+            "REQUESTCREATIONDATETO": "Solicitar fecha de creación (hasta)",
+            "STATUS": "Estado"
         }
     },
     "MOVEINOUT": {
@@ -377,8 +424,11 @@
         "ADD": "Agregar",
         "APPLY": "Aplicar",
         "FILTER": "Filtrar",
-        "ADDFACILITY": "Add New Facility",
-        "ADDSLOT": "Add Slot"
+        "ADDFACILITY": "Agregar nueva instalación",
+        "ADDSLOT": "Agregar espacio",
+        "CREATEBOOKING": "Crear reserva",
+        "CHECKIN": "Registrarse",
+        "CHECKOUT": "Revisa"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",

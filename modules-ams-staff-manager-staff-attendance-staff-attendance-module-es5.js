@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-attendance-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"filter-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Staffs</label>\n                                <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"filterField.StaffIds\" \n                                    [settings]=\"staffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff()\">\n                                </angular2-multiselect> \n                            </div>\n                        </div>  \n                        <!-- <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"recordedFrom\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.AttendanceforFromdate\"\n                                (fieldParams)=\"setStartDate($event)\">\n                            </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"recordedTo\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.AttendanceforTodate\"\n                                (fieldParams)=\"setEndDate($event)\">\n                            </app-datepicker>\n                        </div> -->\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Year</label>\n                                <input  OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Year\" name=\"year\" [(ngModel)]=\"filterField.Year\" required>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"getAttendanceList()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\n            <div class=\"d-flex mb-4\">\n                <h4>Staff Attendance List</h4>\n                <div class=\"d-flex ml-auto\">\n                    <app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    <button mat-flat-button [color]=\"'accent'\" class=\"ml-2\" (click)=\"filter.toggle()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                    </button>\n                </div>\n            </div>\n\n            <!-- <h4 class=\"mb-2\">Staff Attendance List</h4> -->\n\n            <!-- <div class=\"d-flex mb-4\">\n                <app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                <div class=\"ml-auto\">\n                    <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                    </button>\n                </div>\n            </div> -->\n\n            <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n            <ng-container *ngIf=\"isDataLoaded != null && !isDataLoaded\">\n                <div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n                    <h6 class=\"text-secondary\">No Results found</h6>\n                </div>\n\n                <form>\n                    <div class=\"bg-card shadow\" *ngFor=\"let data of attendanceList$ | async | slice:ItemStartIndex:ItemEndIndex;let i = index\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Staff ID</label>\n                                    <p class=\"ellipse\">{{data.staffId}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Staff Name</label>\n                                    <p class=\"ellipse\">{{data.staffUserName}}</p>\n                                </div>\n                            </div> \n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Title</label>\n                                    <p class=\"ellipse\">{{data.staffUserName}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Manager</label>\n                                    <p class=\"ellipse\">{{data.staffUserName}}</p>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"row align-items-center\">\n                            <div class=\"col-sm-5\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Total Annual leaves per year : {{data.totalAnnualleavesAllocated}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Annual leave used : {{data.totalAnnualleavesUsed}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"mb-2\">\n                                    <div class=\"status-box bg-status-green-700\">\n                                        <p class=\"font-bold text-uppercase text-status-green-900\">Balance Annual Leave : {{data.remainingAnnualleaves}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"row align-items-center\">\n                            <div class=\"col-sm-5\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Total Sick leaves per year : {{data.totalSickleavesAllocated}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Sick leave used : {{data.totalSickleavesUsed}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"mb-2\">\n                                    <div class=\"status-box bg-status-red-700\">\n                                        <p class=\"font-bold text-uppercase text-status-red-900\">Balance Sick Leave : {{data.remainingSickleaves}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n                \n\n                <div class=\"bg-card shadow p-0\" *ngIf=\"totalItems != 0\">\n                    <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                </div>\n            </ng-container>\n\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-attendance-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"filter-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n                </div>\n                <condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<form #attendanceForm = \"ngForm\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Staffs</label>\n                                <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff\" [(ngModel)]=\"filterField.StaffIds\" \n                                    [settings]=\"staffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff()\">\n                                </angular2-multiselect> \n                            </div>\n                        </div>  \n                        <!-- <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"recordedFrom\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.AttendanceforFromdate\"\n                                (fieldParams)=\"setStartDate($event)\">\n                            </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"recordedTo\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.AttendanceforTodate\"\n                                (fieldParams)=\"setEndDate($event)\">\n                            </app-datepicker>\n                        </div> -->\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Year*</label>\n                                <input  OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Year\" name=\"year\" [(ngModel)]=\"filterField.Year\" required>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"applyFilter()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\n            <div class=\"d-flex mb-4\">\n                <h4>Staff Attendance List</h4>\n                <div class=\"d-flex ml-auto\">\n                    <app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    <button mat-flat-button [color]=\"'accent'\" class=\"ml-2\" (click)=\"openDrawer()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                    </button>\n                </div>\n            </div>\n\n            <!-- <h4 class=\"mb-2\">Staff Attendance List</h4> -->\n\n            <!-- <div class=\"d-flex mb-4\">\n                <app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                <div class=\"ml-auto\">\n                    <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                    </button>\n                </div>\n            </div> -->\n\n            <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n            <ng-container *ngIf=\"isDataLoaded != null && !isDataLoaded\">\n                <div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n                    <h6 class=\"text-secondary\">No Results found</h6>\n                </div>\n\n                <form>\n                    <div class=\"bg-card shadow\" *ngFor=\"let data of attendanceList$ | async | slice:ItemStartIndex:ItemEndIndex;let i = index\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Staff ID</label>\n                                    <p class=\"ellipse\">{{data.staffId}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Staff Name</label>\n                                    <p class=\"ellipse\">{{data.staffUserName}}</p>\n                                </div>\n                            </div> \n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Title</label>\n                                    <p class=\"ellipse\">{{data.staffUserName}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"input-box\">\n                                    <label class=\"text-muted\">Manager</label>\n                                    <p class=\"ellipse\">{{data.staffUserName}}</p>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"row align-items-center\">\n                            <div class=\"col-sm-5\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Total Annual leaves per year : {{data.totalAnnualleavesAllocated}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Annual leave used : {{data.totalAnnualleavesUsed}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"mb-2\">\n                                    <div class=\"status-box bg-status-green-700\">\n                                        <p class=\"font-bold text-uppercase text-status-green-900\">Balance Annual Leave : {{data.remainingAnnualleaves}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"row align-items-center\">\n                            <div class=\"col-sm-5\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Total Sick leaves per year : {{data.totalSickleavesAllocated}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"mb-2\">\n                                    <p class=\"text-muted\">Sick leave used : {{data.totalSickleavesUsed}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <div class=\"mb-2\">\n                                    <div class=\"status-box bg-status-red-700\">\n                                        <p class=\"font-bold text-uppercase text-status-red-900\">Balance Sick Leave : {{data.remainingSickleaves}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n                \n\n                <div class=\"bg-card shadow p-0\" *ngIf=\"totalItems != 0\">\n                    <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                </div>\n            </ng-container>\n\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-attendance\">\n    <div class=\"d-flex mb-4\">\n        <h4>Staff Attendace</h4>\n    </div>\n\n    <form>\n        <div class=\"bg-card shadow attendace-header\">\n            <div class=\"text-right\">\n                <a href=\"javascript:void(0)\" #setting (click)=\"settings()\">Setting</a>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"\"\n                        fieldName=\"attendanceDate\"\n                        [fieldRequired]=\"'null'\"\n                        type=\"date\"\n                        [fieldModel]=\"attendanceDate\"\n                        [max]=\"currentDate\"\n                        (fieldParams)=\"setDate($event)\">\n                    </app-datepicker>\n                </div>\n            </div>\n\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"text-center\">\n                        <button class=\"w-50\" mat-flat-button  [color]=\"'primary'\" (click)=\"startAttendance()\">\n                            <span class=\"font-bold\">Start Attendance</span> \n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n\n        <ng-container> \n            <div class=\"bg-card shadow\" *ngIf=\"attendanceList.length > 0\">\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <button class=\"w-100 mb-3 mb-sm-0\" mat-flat-button  [color]=\"'accent'\" (click)=\"allPresent()\">\n                            <span class=\"font-bold\">Mark All Present</span> \n                        </button>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <button class=\"w-100 mb-3 mb-sm-0\" mat-flat-button  [color]=\"'accent'\" (click)=\"allHoliday()\">\n                            <span class=\"font-bold\">Mark All Holiday</span> \n                        </button>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3 attendace-body\" *ngFor=\" let item of attendanceList;let i=index\">\n                <div class=\"d-flex mb-4\">\n                    <h6>{{item.userName}}</h6>\n                    <h6 class=\"ml-auto text-muted\">Security Staff</h6>\n                </div>\n                <div class=\"d-flex mb-4\">\n                    <div class=\"mr-3 mr-sm-0 time-pick\" *ngIf=\"actionList[0].edit\">\n                        <app-datepicker\n                            labelText=\"In Time\"\n                            fieldName=\"inTime{{i}}\"\n                            [fieldRequired]=\"''\"\n                            type=\"time\"\n                            [fieldModel]=\"item.inTime\"\n                            (fieldParams)=\"setInTime($event,item)\"\n                            (isPickerOpened)=\"pickerChange($event,item,'inTime')\">\n                        </app-datepicker>\n                    </div>\n                    \n                    <div class=\"ml-auto label-set-end time-pick\" *ngIf=\"actionList[1].edit\">\n                        <app-datepicker\n                            labelText=\"Out Time\"\n                            fieldName=\"outTime{{i}}\"\n                            [fieldRequired]=\"''\"\n                            type=\"time\"\n                            [min]=\"item.inTime\"\n                            [fieldModel]=\"item.outTime\"\n                            (fieldParams)=\"setOutTime($event,item)\"\n                            (isPickerOpened)=\"pickerChange($event,item,'outTime')\">\n                        </app-datepicker>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn present-color mb-3 mb-sm-0\" [ngClass]=\"{ 'active' : item.isFirsthalf && item.isSecondhalf && !item.isHoliday }\" (click)=\"present(item)\">\n                            Present\n                        </div>\n                    </div>\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn leave-color mb-3 mb-sm-0\" id=\"leave{{i}}\" [ngClass]=\"{ 'active' : !item.isFirsthalf && !item.isSecondhalf && !item.isHoliday}\" (click)=\"attendancePopup(item,i,'leave')\">\n                            Leave\n                            <span *ngIf=\"item.isVacationLeave\">(Annual)</span>\n                            <span *ngIf=\"item.isSickLeave\">(Sick)</span>\n                        </div>\n                    </div>\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn half-day-color mb-3 mb-sm-0\" id=\"halfday{{i}}\" [ngClass]=\"{ 'active' : item.isFirsthalf && !item.isSecondhalf || !item.isFirsthalf && item.isSecondhalf}\" (click)=\"attendancePopup(item,i,'halfday')\">\n                            Half Day Off\n                            <span *ngIf=\"item.isFirsthalf && !item.isSecondhalf\">(AM Off)</span>\n                            <span *ngIf=\"!item.isFirsthalf && item.isSecondhalf\">(PM Off)</span>\n                        </div>\n                    </div>\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn holiday-color mb-3 mb-sm-0\" [ngClass]=\"{ 'active' : item.isHoliday}\" (click)=\"holiday(item)\">\n                            Holiday\n                        </div>\n                    </div>\n                </div>\n                <div class=\"d-flex mt-4\">\n                    <div class=\"mr-3 mr-sm-0 time-pick\" *ngIf=\"actionList[2].edit\">\n                        <!-- <app-datepicker\n                            labelText=\"Over Time Hrs\"\n                            fieldName=\"overTime{{i}}\"\n                            [fieldRequired]=\"''\"\n                            type=\"time\"\n                            [fieldModel]=\"item.overTime\"\n                            (fieldParams)=\"setOverTime($event,item)\"\n                            (isPickerOpened)=\"pickerChange($event,item,'overTime')\">\n                        </app-datepicker> -->\n                        <div class=\"input-box\">\n                            <label>Over Time Hrs</label>\n                            <input  class=\"form-control\" name=\"overTime{{i}}\" [owlDateTime]=\"overTime\" [owlDateTimeTrigger]=\"overTime\"\n                                placeholder=\"Over Time Hrs\" [(ngModel)]=\"item.overTime\" (dateTimeInput)=\"setOverTime(item,'overTime')\" autocomplete=\"off\">\n                            <owl-date-time  [pickerType]=\"'timer'\" #overTime [hour12Timer]=\"false\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"overTime\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    \n                    <div class=\"ml-auto label-set-end time-pick\" *ngIf=\"actionList[3].edit\">\n                        <div class=\"input-box\">\n                            <label>Late Hrs</label>\n                            <input  class=\"form-control\" name=\"lateTime{{i}}\" [owlDateTime]=\"lateTime\" [owlDateTimeTrigger]=\"lateTime\"\n                                placeholder=\"Over Time Hrs\" [(ngModel)]=\"item.lateTime\" (dateTimeInput)=\"setLateTime(item,'lateTime')\" autocomplete=\"off\">\n                            <owl-date-time  [pickerType]=\"'timer'\" #lateTime [hour12Timer]=\"false\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"lateTime\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n\n    </form>\n</div>\n\n<ng-template #content>\n\t<div class=\"bg-card shadow attendance-popup\">\n        <ng-container *ngIf=\"popupTitle == 'settings'\">\n            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.edit\"\n                    [value]=\"item\">\n                    {{item?.name }}\n                </mat-list-option>\n            </mat-selection-list>\n        </ng-container>\n\n        <ng-container *ngIf=\"popupTitle == 'leave'\">\n            <div class=\"d-flex mb-3\">\n                <div class=\"btn leave-color mr-3\" [ngClass]=\"{ 'active' : popupContent.isVacationLeave }\" (click)=\"leave('annual')\">\n                   Annual\n                </div>\n                <div class=\"btn leave-color\" [ngClass]=\"{ 'active' : popupContent.isSickLeave }\" (click)=\"leave('sick')\">\n                    Sick\n                </div>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"popupTitle == 'halfday'\">\n            <div class=\"d-flex mb-3\">\n                <div class=\"btn half-day-color mr-3\" [ngClass]=\"{ 'active' : popupContent.isFirsthalf && !popupContent.isSecondhalf}\" (click)=\"firstHalfOff()\">\n                    AM OFF\n                </div>\n                <div class=\"btn half-day-color\" [ngClass]=\"{ 'active' : !popupContent.isFirsthalf && popupContent.isSecondhalf}\" (click)=\"secondHalfOff()\">\n                    PM OFF\n                </div>\n            </div>\n        </ng-container>\n\n       \n\t</div>\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"staff-attendance\">\n    <div class=\"d-flex mb-4\">\n        <h4>Staff Attendace</h4>\n    </div>\n\n    <form>\n        <div class=\"bg-card shadow attendace-header\">\n            <div class=\"text-right\">\n                <a href=\"javascript:void(0)\" #setting (click)=\"settings()\">Setting</a>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <app-datepicker\n                        labelText=\"\"\n                        fieldName=\"attendanceDate\"\n                        [fieldRequired]=\"'null'\"\n                        type=\"date\"\n                        [fieldModel]=\"attendanceDate\"\n                        [max]=\"currentDate\"\n                        (fieldParams)=\"setDate($event)\">\n                    </app-datepicker>\n                </div>\n            </div>\n\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"text-center\">\n                        <button class=\"w-50\" mat-flat-button  [color]=\"'primary'\" (click)=\"attendanceAlertPopup()\">\n                            <span class=\"font-bold\">Start Attendance</span> \n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n\n        <ng-container> \n            <div class=\"bg-card shadow\" *ngIf=\"attendanceList.length > 0\">\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <button class=\"w-100 mb-3 mb-sm-0\" mat-flat-button  [color]=\"'accent'\" (click)=\"allPresent()\">\n                            <span class=\"font-bold\">Mark All Present</span> \n                        </button>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <button class=\"w-100 mb-3 mb-sm-0\" mat-flat-button  [color]=\"'accent'\" (click)=\"allHoliday()\">\n                            <span class=\"font-bold\">Mark All Holiday</span> \n                        </button>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3 attendace-body\" *ngFor=\" let item of attendanceList;let i=index\">\n                <div class=\"d-flex mb-4\">\n                    <h6>{{item.userName}}</h6>\n                    <h6 class=\"ml-auto text-muted\">Security Staff</h6>\n                </div>\n                <div class=\"d-flex mb-4\">\n                    <div class=\"mr-3 mr-sm-0 time-pick\" *ngIf=\"actionList[0].edit\">\n                        <app-datepicker\n                            labelText=\"In Time\"\n                            fieldName=\"inTime{{i}}\"\n                            [fieldRequired]=\"''\"\n                            type=\"time\"\n                            [fieldModel]=\"item.inTime\"\n                            [isDisabled] = \"isDisable(item)\"\n                            (fieldParams)=\"setInTime($event,item)\"\n                            (isPickerOpened)=\"pickerChange($event,item,'inTime')\">\n                        </app-datepicker>\n                    </div>\n                    \n                    <div class=\"ml-auto label-set-end time-pick\" *ngIf=\"actionList[1].edit\">\n                        <app-datepicker\n                            labelText=\"Out Time\"\n                            fieldName=\"outTime{{i}}\"\n                            [fieldRequired]=\"''\"\n                            type=\"time\"\n                            [min]=\"item.inTime\"\n                            [fieldModel]=\"item.outTime\"\n                            [isDisabled] = \"isDisable(item)\"\n                            (fieldParams)=\"setOutTime($event,item)\"\n                            (isPickerOpened)=\"pickerChange($event,item,'outTime')\">\n                        </app-datepicker>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn present-color mb-3 mb-sm-0\" [ngClass]=\"{ 'active' : item.isFirsthalf && item.isSecondhalf && !item.isHoliday }\" (click)=\"present(item)\">\n                            Present\n                        </div>\n                    </div>\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn leave-color mb-3 mb-sm-0\" id=\"leave{{i}}\" [ngClass]=\"{ 'active' : !item.isFirsthalf && !item.isSecondhalf && !item.isHoliday}\" (click)=\"attendancePopup(item,i,'leave')\">\n                            Leave\n                            <span *ngIf=\"item.isVacationLeave\">(Annual)</span>\n                            <span *ngIf=\"item.isSickLeave\">(Sick)</span>\n                        </div>\n                    </div>\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn half-day-color mb-3 mb-sm-0\" id=\"halfday{{i}}\" [ngClass]=\"{ 'active' : item.isFirsthalf && !item.isSecondhalf || !item.isFirsthalf && item.isSecondhalf}\" (click)=\"attendancePopup(item,i,'halfday')\">\n                            Half Day Off\n                            <span *ngIf=\"item.isFirsthalf && !item.isSecondhalf\">(AM Off)</span>\n                            <span *ngIf=\"!item.isFirsthalf && item.isSecondhalf\">(PM Off)</span>\n                        </div>\n                    </div>\n                    <div class=\"col-6 col-md-3\">\n                        <div class=\"btn holiday-color mb-3 mb-sm-0\" [ngClass]=\"{ 'active' : item.isHoliday}\" (click)=\"holiday(item)\">\n                            Holiday\n                        </div>\n                    </div>\n                </div>\n                <div class=\"d-flex mt-4\">\n                    <div class=\"mr-3 mr-sm-0 time-pick\" *ngIf=\"actionList[2].edit\">\n                        <!-- <app-datepicker\n                            labelText=\"Over Time Hrs\"\n                            fieldName=\"overTime{{i}}\"\n                            [fieldRequired]=\"''\"\n                            type=\"time\"\n                            [fieldModel]=\"item.overTime\"\n                            (fieldParams)=\"setOverTime($event,item)\"\n                            (isPickerOpened)=\"pickerChange($event,item,'overTime')\">\n                        </app-datepicker> -->\n                        <div class=\"input-box\">\n                            <label>Over Time Hrs</label>\n                            <input  class=\"form-control\" name=\"overTime{{i}}\" [owlDateTime]=\"overTime\" [owlDateTimeTrigger]=\"overTime\"\n                                placeholder=\"Over Time Hrs\" [(ngModel)]=\"item.overTime\" (dateTimeInput)=\"setOverTime(item,'overTime')\" [disabled]=\"isDisable(item)\" autocomplete=\"off\">\n                            <owl-date-time  [pickerType]=\"'timer'\" #overTime [hour12Timer]=\"false\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"overTime\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    \n                    <div class=\"ml-auto label-set-end time-pick\" *ngIf=\"actionList[3].edit\">\n                        <div class=\"input-box\">\n                            <label>Late Hrs</label>\n                            <input  class=\"form-control\" name=\"lateTime{{i}}\" [owlDateTime]=\"lateTime\" [owlDateTimeTrigger]=\"lateTime\"\n                                placeholder=\"Late Hrs\" [(ngModel)]=\"item.lateTime\" (dateTimeInput)=\"setLateTime(item,'lateTime')\" [disabled]=\"isDisable(item)\" autocomplete=\"off\">\n                            <owl-date-time  [pickerType]=\"'timer'\" #lateTime [hour12Timer]=\"false\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"lateTime\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ng-container>\n\n    </form>\n</div>\n\n<ng-template #content>\n\t<div class=\"bg-card shadow attendance-popup\">\n        <ng-container *ngIf=\"popupTitle == 'settings'\">\n            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.edit\"\n                    [value]=\"item\">\n                    {{item?.name }}\n                </mat-list-option>\n            </mat-selection-list>\n        </ng-container>\n\n        <ng-container *ngIf=\"popupTitle == 'leave'\">\n            <div class=\"d-flex mb-3\">\n                <div class=\"btn leave-color mr-3\" [ngClass]=\"{ 'active' : popupContent.isVacationLeave }\" (click)=\"leave('annual')\">\n                   Annual\n                </div>\n                <div class=\"btn leave-color\" [ngClass]=\"{ 'active' : popupContent.isSickLeave }\" (click)=\"leave('sick')\">\n                    Sick\n                </div>\n            </div>\n        </ng-container>\n\n        <ng-container *ngIf=\"popupTitle == 'halfday'\">\n            <div class=\"d-flex mb-3\">\n                <div class=\"btn half-day-color mr-3\" [ngClass]=\"{ 'active' : popupContent.isFirsthalf && !popupContent.isSecondhalf}\" (click)=\"firstHalfOff()\">\n                    AM OFF\n                </div>\n                <div class=\"btn half-day-color\" [ngClass]=\"{ 'active' : !popupContent.isFirsthalf && popupContent.isSecondhalf}\" (click)=\"secondHalfOff()\">\n                    PM OFF\n                </div>\n            </div>\n        </ng-container>\n\n       \n\t</div>\n</ng-template>";
       /***/
     },
 
@@ -187,9 +187,15 @@
       var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var StaffAttendaceListComponent = /*#__PURE__*/function () {
-        function StaffAttendaceListComponent(router, sharedService, sessionService, staffService, lookupService, UtilityCommonService) {
+        function StaffAttendaceListComponent(router, sharedService, sessionService, staffService, lookupService, _changeDetectorRef, UtilityCommonService) {
           _classCallCheck(this, StaffAttendaceListComponent);
 
           this.router = router;
@@ -197,6 +203,7 @@
           this.sessionService = sessionService;
           this.staffService = staffService;
           this.lookupService = lookupService;
+          this._changeDetectorRef = _changeDetectorRef;
           this.UtilityCommonService = UtilityCommonService;
           this.attendanceList = new rxjs__WEBPACK_IMPORTED_MODULE_12__["BehaviorSubject"]([]);
           this.fullAttendanceList = [];
@@ -218,6 +225,7 @@
             autoPosition: false,
             maxHeight: 240
           };
+          this.message = null;
           this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]('');
         }
 
@@ -254,8 +262,39 @@
             this.itemLimit = event.itemLimit;
           }
         }, {
+          key: "openDrawer",
+          value: function openDrawer() {
+            this.message = null;
+            this.matDrawer.open();
+          }
+        }, {
+          key: "applyFilter",
+          value: function applyFilter() {
+            this.message = null;
+
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
+
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
+
+              this._changeDetectorRef.markForCheck();
+            } else {
+              this.getAttendanceList();
+            }
+          }
+        }, {
           key: "clearFilter",
           value: function clearFilter() {
+            this.message = null;
             this.filterField = {
               CreatedfromDate: moment__WEBPACK_IMPORTED_MODULE_3__(),
               CreatedtoDate: moment__WEBPACK_IMPORTED_MODULE_3__(),
@@ -377,11 +416,17 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
         }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
           type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"]
         }];
       };
 
       StaffAttendaceListComponent.propDecorators = {
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['attendanceForm']
+        }],
         matDrawer: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['matDrawer', {
@@ -395,10 +440,11 @@
         /*! raw-loader!./staff-attendace-list.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/staff-attendance/staff-attendace-list/staff-attendace-list.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_13__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-attendace-list.component.scss */
         "./src/app/modules/ams/staff-manager/staff-attendance/staff-attendace-list/staff-attendace-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"]])], StaffAttendaceListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"]])], StaffAttendaceListComponent);
       /***/
     },
 
@@ -541,6 +587,12 @@
             this.attendanceDate = event;
           }
         }, {
+          key: "isDisable",
+          value: function isDisable(data) {
+            // Holiday || Leave
+            if (data.isHoliday || !data.isFirsthalf && !data.isSecondhalf && !data.isHoliday) return true;else return false;
+          }
+        }, {
           key: "settings",
           value: function settings() {
             var _this3 = this;
@@ -630,9 +682,27 @@
             });
           }
         }, {
+          key: "attendanceAlertPopup",
+          value: function attendanceAlertPopup() {
+            var _this4 = this;
+
+            var message = "All the staff will be made as present. Please change the staff attendence status if needed";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-big',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                _this4.startAttendance();
+              }
+            });
+          }
+        }, {
           key: "startAttendance",
           value: function startAttendance() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -642,9 +712,9 @@
             };
             this.staffService.pushStaffAttendanceByApartmentIdAndDate(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this4.attendanceList = res;
+                _this5.attendanceList = res;
 
-                _this4.attendanceList.forEach(function (data) {
+                _this5.attendanceList.forEach(function (data) {
                   if (data.latetoworkhrs) {
                     data.lateTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.latetoworkhrs, 'HH.mm').format();
                   }
@@ -654,14 +724,14 @@
                   }
                 });
               } else {
-                _this4.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this5.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this4.isDataLoaded = false;
+              _this5.isDataLoaded = false;
             }, function (error) {
-              _this4.isDataLoaded = false;
+              _this5.isDataLoaded = false;
 
-              _this4.sharedService.openSnackBar('Server Error', 'error');
+              _this5.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -677,7 +747,7 @@
         }, {
           key: "attendancePopup",
           value: function attendancePopup(data, index, type) {
-            var _this5 = this;
+            var _this6 = this;
 
             this.popupTitle = type;
             this.popupContent = data;
@@ -717,9 +787,9 @@
 
             this._overlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this5._overlayRef && _this5._overlayRef.hasAttached()) {
+              if (_this6._overlayRef && _this6._overlayRef.hasAttached()) {
                 // Detach it
-                _this5._overlayRef.detach();
+                _this6._overlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -785,7 +855,7 @@
         }, {
           key: "updateAttendance",
           value: function updateAttendance(data, type) {
-            var _this6 = this;
+            var _this7 = this;
 
             var params = {
               attendance: Object.assign(Object.assign({}, data), {
@@ -799,9 +869,9 @@
             };
             this.staffService.updateAttendance(params).subscribe(function (res) {
               if (res.message) {
-                _this6.sharedService.openSnackBar(res.message, 'success');
+                _this7.sharedService.openSnackBar(res.message, 'success');
 
-                if (_this6._overlayRef) _this6._overlayRef.detach();
+                if (_this7._overlayRef) _this7._overlayRef.detach();
               } else {
                 if (type == 'holiday') {
                   data.isFirsthalf = false;
@@ -829,58 +899,16 @@
                   data.outTime = null;
                 }
 
-                _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this7.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
         }, {
           key: "allPresent",
           value: function allPresent() {
-            var _this7 = this;
-
-            var message = "Do you want to make all the staff as present ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this7.isDataLoaded = true;
-                var params = {
-                  attendance: {
-                    "apartmentId": _this7.sessionService.apartmentId,
-                    "attendanceforDate": _this7.attendanceDate,
-                    "updatedBy": _this7.sessionService.userId,
-                    "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
-                  }
-                };
-
-                _this7.staffService.updateAttendanceAllPresent(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this7.sharedService.openSnackBar(res.message, 'success');
-
-                    _this7.startAttendance();
-                  } else {
-                    _this7.isDataLoaded = false;
-
-                    _this7.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this7.isDataLoaded = false;
-
-                  _this7.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
-            });
-          }
-        }, {
-          key: "allHoliday",
-          value: function allHoliday() {
             var _this8 = this;
 
-            var message = "Do you want to make all the staff as holiday ?";
+            var message = "Do you want to make all the staff as present ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
             var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
@@ -899,7 +927,7 @@
                   }
                 };
 
-                _this8.staffService.updateAttendanceAllHoliday(params).subscribe(function (res) {
+                _this8.staffService.updateAttendanceAllPresent(params).subscribe(function (res) {
                   if (res.message) {
                     _this8.sharedService.openSnackBar(res.message, 'success');
 
@@ -913,6 +941,48 @@
                   _this8.isDataLoaded = false;
 
                   _this8.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
+            });
+          }
+        }, {
+          key: "allHoliday",
+          value: function allHoliday() {
+            var _this9 = this;
+
+            var message = "Do you want to make all the staff as holiday ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                _this9.isDataLoaded = true;
+                var params = {
+                  attendance: {
+                    "apartmentId": _this9.sessionService.apartmentId,
+                    "attendanceforDate": _this9.attendanceDate,
+                    "updatedBy": _this9.sessionService.userId,
+                    "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                  }
+                };
+
+                _this9.staffService.updateAttendanceAllHoliday(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this9.sharedService.openSnackBar(res.message, 'success');
+
+                    _this9.startAttendance();
+                  } else {
+                    _this9.isDataLoaded = false;
+
+                    _this9.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this9.isDataLoaded = false;
+
+                  _this9.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -1227,6 +1297,12 @@
       var _staff_attendace_list_staff_attendace_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./staff-attendace-list/staff-attendace-list.component */
       "./src/app/modules/ams/staff-manager/staff-attendance/staff-attendace-list/staff-attendace-list.component.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! src/app/modules/ui/message/message.module */
+      "./src/app/modules/ui/message/message.module.ts");
 
       var StaffAttendanceModule = function StaffAttendanceModule() {
         _classCallCheck(this, StaffAttendanceModule);
@@ -1234,7 +1310,7 @@
 
       StaffAttendanceModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_staff_attendance_component__WEBPACK_IMPORTED_MODULE_9__["StaffAttendanceComponent"], _staff_attendance_entry_staff_attendance_entry_component__WEBPACK_IMPORTED_MODULE_10__["StaffAttendanceEntryComponent"], _staff_attendace_list_staff_attendace_list_component__WEBPACK_IMPORTED_MODULE_11__["StaffAttendaceListComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_attendance_routing_module__WEBPACK_IMPORTED_MODULE_8__["StaffAttendanceRoutingModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_3__["DatepickerModule"].forRoot(), src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__["ListModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__["CondoCardModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_attendance_routing_module__WEBPACK_IMPORTED_MODULE_8__["StaffAttendanceRoutingModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_3__["DatepickerModule"].forRoot(), src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__["ListModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__["CondoCardModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_12__["CondoMessageModule"]]
       })], StaffAttendanceModule);
       /***/
     }

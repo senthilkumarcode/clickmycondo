@@ -236,6 +236,39 @@
         "VISITORSHISTORY": {
             "TITLE": "Visitors History",
             "TOTALRESULTS": "results"
+        },
+        "SETUP": {
+            "TITLE": "Visitor Categories",
+            "TOTALITEMS": "Items",
+            "ADDNEWTYPE": "Add New Type",
+            "EDIT": "Edit",
+            "DELETE": "Delete",
+            "NORESULTS": "No Results found",
+            "ADDTITLE": "Add Visitor Category",
+            "EDITTITLE": "Edit Visitor Category",
+            "CATEGORY": "Category",
+            "DESCRIPTION": "Description"
+        },
+        "CHECKIN": {
+            "CHECKINTITLE": "Visitor Check-In",
+            "CHECKOUTTITLE": "Visitor Check-Out",
+            "EDITCHECKOUTTITLE": "Edit Visitor Check-Out",
+            "EXPECTEDVISITTYPE": "Expected Visit Type",
+            "TOWERNO": "Tower No",
+            "UNITNO": "Unit No",
+            "PRIMARYNAME": "Primary Name",
+            "VISITORNAME": "Visitor Name",
+            "VISITORCOUNT": "Visitor Count",
+            "MOBILENO": "Phone/Mobile No",
+            "ACTUALDATETIMEVISIT": "Actual Date/Time of Visit",
+            "EXPECTEDOUTTIME": "Expected OutTime",
+            "CHECKOUTTIME": "Check OutTime",
+            "EXPECTEDDURATIONOFVISIT": "Expected Duration of Visit",
+            "PASSNUMBER": "Pass Number",
+            "VISITCATEGORY": "Visit Category",
+            "REASONFORVISIT": "Reason for Visit"
+
+
         }
         
     },
@@ -285,6 +318,20 @@
             "NORESULTS": "No Results found",
             "FREE": "Free",
             "PER": "Per"
+        },
+        "BOOKINGLIST": {
+            "PENDINGTITLE": "Pending Bookings",
+            "CONFIRMEDTITLE": "Confirmed Bookings",
+            "CANCELLEDTITLE": "Cancelled Bookings",
+            "REJECTEDTITLE": "Rejected Bookings",
+            "BOOKINGHISTORY": "Bookings History",
+            "TOTALRESULTS": "results",
+            "FILTERBY": "Filter By",
+            "EVENTFROM": "Event From",
+            "EVENTTO": "Event To",
+            "REQUESTCREATIONDATEFROM": "Request Creation Date (From)",
+            "REQUESTCREATIONDATETO": "Request Creation Date (To)",
+            "STATUS": "Status"
         }
     },
     "MOVEINOUT": {
@@ -380,7 +427,10 @@
         "APPLY": "Apply",
         "FILTER": "Filter",
         "ADDFACILITY": "Add New Facility",
-        "ADDSLOT": "Add Slot"
+        "ADDSLOT": "Add Slot",
+        "CREATEBOOKING": "Create Booking",
+        "CHECKIN": "CheckIn",
+        "CHECKOUT": "CheckOut"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",

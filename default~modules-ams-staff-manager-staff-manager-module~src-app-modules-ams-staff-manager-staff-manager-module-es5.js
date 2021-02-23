@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-add-staff-wrapperr content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\" *ngIf=\"isEditStaff\">\n\t\t\t<div class=\"password-reset-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">Reset Password </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"passwordMessage\"\n\t\t\t\t\t[appearance]=\"passwordMessage.appearance\"\n\t\t\t\t\t[showIcon]=\"passwordMessage.showIcon\"\n\t\t\t\t\t[type]=\"passwordMessage.type\"\n\t\t\t\t\t[@shake]=\"passwordMessage.shake\">\n\t\t\t\t\t\t{{passwordMessage.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<app-loader *ngIf=\"isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"!isDrawerLoader\">\n\t\t\t\t\t<form #forgotpassform = \"ngForm\" name=\"forgotpassform\" novalidate>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<label for=\"forgotpassFormEmail\">Email</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"password.emailId\" disabled>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t<input [type]=\"isShowPass ? 'text' : 'password'\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Password\" name=\"password\" [(ngModel)]=\"password.password\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"!isShowPass\" svgIcon=\"feather:eye\" (click)=\"isShowPass = true\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"isShowPass\" svgIcon=\"feather:eye-off\" (click)=\"isShowPass = false\"></mat-icon>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Confirm Password*</label>\n\t\t\t\t\t\t\t\t\t<input [type]=\"isConfirmShowPass ? 'text' : 'password'\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Password\" name=\"confirmPassword\" [(ngModel)]=\"password.confirmPassword\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"!isConfirmShowPass\" svgIcon=\"feather:eye\" (click)=\"isConfirmShowPass = true\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"isConfirmShowPass\"  svgIcon=\"feather:eye-off\" (click)=\"isConfirmShowPass = false\"></mat-icon>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitPasswordReset()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<h4 class=\"mb-4\" *ngIf=\"!isEditStaff\">Add Staff</h4>\n\t\t\t\t<div class=\"d-flex mb-4\" *ngIf=\"isEditStaff\">\n\t\t\t\t\t<h4>Edit Staff</h4>\n\t\t\t\t\t<button class=\"ml-auto\" mat-flat-button [color]=\"'accent'\" #idCardBtn (click)=\"openPanel()\">View Id Card</button>\n\t\t\t\t\t<button class=\"ml-2\" mat-flat-button [color]=\"'accent'\" (click)=\"openDrawer()\">Reset Password</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t<form>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"emailIdCheck\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"resetField()\">Change</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<ng-container *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" *ngIf=\"isValidEmail\">\n\t\t\n\t\t\t\t\t\t<mat-accordion> \n\t\t\t\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" [disabled]=\"isValidEmail\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"staff.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"staff.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.userPhoneNumber\" name=\"phone\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"vendorType\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Vendor Name\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Vendor Name\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"vendorList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"vendorName\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.vendorId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"vendorId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setVendor($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeAdmin\" [(ngModel)]=\"roleTypeId\" [value]=\"1\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeAdmin\">Admin</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeStaff\" [(ngModel)]=\"roleTypeId\" [value]=\"3\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeStaff\">Staff</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEmailExist && !isEditStaff\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"Staffpassword\" [(ngModel)]=\"staff.password\" autocomplete=\"new-password\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"userRolesData\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setUserRole($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Department Name\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Department\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"departmentList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setDepartment($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Job Title\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Job Title\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"JobTitleList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffSubCategoryId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setJobTitle($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleId\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Menu Control\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Menu Control\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"menuControlDropDownList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.secLevelId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"secLevelId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setMenuControl($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\" [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"profile-pic-card-wrapper profile-upload-pic\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"profile-picture\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img [src]=\"profilePicUrl\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t<canvas id=\"canvasElem\" width=100 height=100 class=\"d-none\"></canvas>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-mini-fab [color]=\"'accent'\" class=\"upload-icon\" (click)=\"fileInput.click()\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput [accept]=\"imageFormats\" (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:plus\" *ngIf=\"!isFileUploaded\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:edit-2\" *ngIf=\"isFileUploaded\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Address 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address1\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address1\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Address 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address2\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"city\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.city\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>State</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"state\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.state\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Blood Group\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.bloodGroup\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setBloodGroup($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t\t\t\t\t<help-tooltip title=\"vehicleID\"></help-tooltip>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Base Pay</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Job Start Date\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldName=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setJobStartDate($event)\">\n\t\t\t\t\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Job End Date\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldName=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t\t\t[min]=\"staff.jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setJobEndDate($event)\">\n\t\t\t\t\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\" [owlDateTimeTrigger]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Planned Entry Time\" [(ngModel)]=\"staff.plannedEntryTime\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #plannedEntryTime [hour12Timer]=\"true\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\" [owlDateTimeTrigger]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Planned Entry Time\" [(ngModel)]=\"staff.plannedExitTime\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #plannedExitTime [hour12Timer]=\"true\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t</mat-accordion>\n\t\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-end mt-3\">\n\t\t\t\t\t\t\t\t\t<button *ngIf=\"isEditStaff\" class=\"mr-2\" mat-button (click)=\"back()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t<submit-button [isSubmit]=\"isStaffSubmitted\" (click)=\"submitAddStaffForm()\">{{isEditStaff ? 'Update' : 'Submit'}}</submit-button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</ng-container>\n\t\t\t</div>\n\t\t\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n\n<ng-template #idCardContent>\n\t<div>\n\t\t<div class=\"condo-panel bg-card staff-id p-0\" id=\"id-card\">\n\t\t\t<div class=\"header mb-3\">\n\t\t\t\t<h5>{{apartmentName}}</h5>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"content\">\n\t\t\t\t<div class=\"profile-pic-card-wrapper d-flex justify-content-center mb-5\">\n\t\t\t\t\t<div class=\"profile-picture\">\n\t\t\t\t\t\t<img class=\"svg\" [src]=\"profilePicUrl\" id=\"userProfile\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t<div class=\"text-center mb-3\">\n\t\t\t\t\t<h5 class=\"mb-3\">{{staff.firstName}} {{staff.lastName}}</h5>\n\t\t\t\t\t<h6 class=\"mb-3\">{{staff.roleName}}</h6>\n\t\t\t\t\t<h6 class=\"mb-3\">Staff ID : {{staff.staffId}}</h6>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"text-center mb-3\">\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard()\">Print</button>\n\t\t</div>\n\t</div>\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"staff-add-staff-wrapperr content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\" *ngIf=\"isEditStaff\">\n\t\t\t<div class=\"password-reset-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">Reset Password </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"passwordMessage\"\n\t\t\t\t\t[appearance]=\"passwordMessage.appearance\"\n\t\t\t\t\t[showIcon]=\"passwordMessage.showIcon\"\n\t\t\t\t\t[type]=\"passwordMessage.type\"\n\t\t\t\t\t[@shake]=\"passwordMessage.shake\">\n\t\t\t\t\t\t{{passwordMessage.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<app-loader *ngIf=\"isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"!isDrawerLoader\">\n\t\t\t\t\t<form #forgotpassform = \"ngForm\" name=\"forgotpassform\" novalidate>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"emailId\" [value]=\"password.emailId\" disabled>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t<input [type]=\"isShowPass ? 'text' : 'password'\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Password\" name=\"password\" [(ngModel)]=\"password.password\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"!isShowPass\" svgIcon=\"feather:eye\" (click)=\"isShowPass = true\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"isShowPass\" svgIcon=\"feather:eye-off\" (click)=\"isShowPass = false\"></mat-icon>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Confirm Password*</label>\n\t\t\t\t\t\t\t\t\t<input [type]=\"isConfirmShowPass ? 'text' : 'password'\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Password\" name=\"confirmPassword\" [(ngModel)]=\"password.confirmPassword\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"!isConfirmShowPass\" svgIcon=\"feather:eye\" (click)=\"isConfirmShowPass = true\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"isConfirmShowPass\"  svgIcon=\"feather:eye-off\" (click)=\"isConfirmShowPass = false\"></mat-icon>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitPasswordReset()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<h4 class=\"mb-4\" *ngIf=\"!isEditStaff\">Add Staff</h4>\n\t\t\t\t<div class=\"d-flex mb-4\" *ngIf=\"isEditStaff\">\n\t\t\t\t\t<h4>Edit Staff</h4>\n\t\t\t\t\t<button class=\"ml-auto\" mat-flat-button [color]=\"'accent'\" #idCardBtn (click)=\"openPanel()\">View Id Card</button>\n\t\t\t\t\t<button class=\"ml-2\" mat-flat-button [color]=\"'accent'\" (click)=\"openDrawer()\">Reset Password</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t<form>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"emailIdCheck\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"resetField()\">Change</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<ng-container *ngIf=\"!isStaffSubmitted\">\n\t\t\t\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" *ngIf=\"isValidEmail\">\n\t\t\n\t\t\t\t\t\t<mat-accordion> \n\t\t\t\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" [disabled]=\"isValidEmail\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"staff.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"staff.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.userPhoneNumber\" name=\"phone\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"vendorType\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Vendor Name\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Vendor Name\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"vendorList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"vendorName\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.vendorId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"vendorId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setVendor($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeAdmin\" [(ngModel)]=\"roleTypeId\" [value]=\"1\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeAdmin\">Admin</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeStaff\" [(ngModel)]=\"roleTypeId\" [value]=\"3\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeStaff\">Staff</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEmailExist && !isEditStaff\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"Staffpassword\" [(ngModel)]=\"staff.password\" autocomplete=\"new-password\" required>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"userRolesData\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setUserRole($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Department Name\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Department\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"departmentList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setDepartment($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Job Title\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Job Title\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"JobTitleList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffSubCategoryId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setJobTitle($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleId\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Menu Control\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Menu Control\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"menuControlDropDownList\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.secLevelId\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"secLevelId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setMenuControl($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\" [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"profile-pic-card-wrapper profile-upload-pic\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"profile-picture\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img [src]=\"profilePicUrl\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\t<canvas id=\"canvasElem\" width=100 height=100 class=\"d-none\"></canvas>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-mini-fab [color]=\"'accent'\" class=\"upload-icon\" (click)=\"fileInput.click()\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput [accept]=\"imageFormats\" (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:plus\" *ngIf=\"!isFileUploaded\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:edit-2\" *ngIf=\"isFileUploaded\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Address 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address1\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address1\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Address 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address2\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"city\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.city\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>State</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"state\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.state\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Blood Group\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.bloodGroup\"\n\t\t\t\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setBloodGroup($event)\" \n\t\t\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t\t\t\t\t<help-tooltip title=\"vehicleID\"></help-tooltip>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Base Pay</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\" [owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Job Start\" \n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\" [owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Job End\"\n\t\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"staff.jobEndDate\" [min]=\"staff.jobStartDate\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\" [owlDateTimeTrigger]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Planned Entry Time\" [(ngModel)]=\"staff.plannedEntryTime\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #plannedEntryTime [hour12Timer]=\"true\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input  class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\" [owlDateTimeTrigger]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Planned Entry Time\" [min]=\"staff.plannedEntryTime\" [(ngModel)]=\"staff.plannedExitTime\" autocomplete=\"off\">\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time  [pickerType]=\"'timer'\" #plannedExitTime [hour12Timer]=\"true\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t</mat-accordion>\n\t\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-end mt-3\">\n\t\t\t\t\t\t\t\t\t<button *ngIf=\"isEditStaff\" class=\"mr-2\" mat-button (click)=\"back()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t<submit-button [isSubmit]=\"isStaffSubmitted\" (click)=\"submitAddStaffForm()\">{{isEditStaff ? 'Update' : 'Submit'}}</submit-button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</ng-container>\n\t\t\t</div>\n\t\t\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n\n<ng-template #idCardContent>\n\t<div>\n\t\t<div class=\"condo-panel bg-card staff-id p-0\" id=\"id-card\">\n\t\t\t<div class=\"header mb-3\">\n\t\t\t\t<h5>{{apartmentName}}</h5>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"content\">\n\t\t\t\t<div class=\"profile-pic-card-wrapper d-flex justify-content-center mb-5\">\n\t\t\t\t\t<div class=\"profile-picture\">\n\t\t\t\t\t\t<img class=\"svg\" [src]=\"profilePicUrl\" id=\"userProfile\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t<div class=\"text-center mb-3\">\n\t\t\t\t\t<h5 class=\"mb-3\">{{staff.firstName}} {{staff.lastName}}</h5>\n\t\t\t\t\t<h6 class=\"mb-3\">{{staff.roleName}}</h6>\n\t\t\t\t\t<h6 class=\"mb-3\">Staff ID : {{staff.staffId}}</h6>\n\t\t\t\t\t<h6 class=\"mb-3\">{{staff.staffCategoryName}}</h6>\n\t\t\t\t\t<h6 class=\"mb-3\">{{staff.staffSubCategoryName}}</h6>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"text-center mb-3\">\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard()\">Print</button>\n\t\t</div>\n\t</div>\n</ng-template>";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-grouping-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<form #groupForm=\"ngForm\" *ngIf=\"!isDataLoaded\">\n            <div class=\"d-flex mb-4\">\n                <h4>Staff Hierarchy for Attendance</h4>\n                <div class=\"ml-auto\">\n                    <button mat-flat-button [color]=\"'accent'\" (click)=\"addHierarchy(item)\">Add</button>\n                </div>\n            </div>\n\t\t\t\n\t\t\t<div class=\"bg-card shadow\">\n                <div class=\"mb-4\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n                            <p>Manager StaffID</p>\n                        </div>\n                        <div class=\"col-sm-7\">\n                            <p>Reporting StaffIDs</p>\n                        </div>\n                        \n                        <div class=\"col-sm-1\">\n                            <p>Action</p>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"mb-5 grouping\" *ngFor=\"let item of staffHierarchyList;let i = index\"> \n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n                            <condo-select \n                                labelText=\"Select Staff{{i}}\"\n                                fieldPlaceholder=\"Select Staff...\"\n                                [fieldList]=\"staffsList\"\n                                fieldValue=\"staffName\"\n                                [fieldModel]=\"item.staffManagerId\"\n                                fieldId=\"staffId\"\n                                [isLabel]=\"'false'\"\n                                (fieldParams)=\"setStaffManager(item,$event)\" \n                            ></condo-select>\n                        </div>\n                        \n                        <div class=\"col-sm-7\">\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff{{i}}\" [(ngModel)]=\"item.staffReportingList\" \n                                [settings]=\"StaffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff(item)\">\n                            </angular2-multiselect> \n                        </div>\n                        <div class=\"col-sm-1\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addStaffHierarchy(item)\">Save</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-grouping-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<form #groupForm=\"ngForm\" *ngIf=\"!isDataLoaded\">\n            <div class=\"d-flex mb-4\">\n                <h4>Staff Hierarchy for Attendance</h4>\n                <div class=\"ml-auto\">\n                    <button mat-flat-button [color]=\"'accent'\" (click)=\"addHierarchy(item)\">Add</button>\n                </div>\n            </div>\n\t\t\t\n\t\t\t<div class=\"bg-card shadow\">\n                <div class=\"mb-4\">\n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-xl-4\">\n                            <p>Manager StaffID</p>\n                        </div>\n                        <div class=\"col-md-5 col-xl-6\">\n                            <p>Reporting StaffIDs</p>\n                        </div>\n                        \n                        <div class=\"col-md-3 col-xl-2\">\n                            <p>Action</p>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"mb-5 grouping\" *ngFor=\"let item of staffHierarchyList;let i = index\"> \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-xl-4\">\n                            <condo-select \n                                labelText=\"Select Staff{{i}}\"\n                                fieldPlaceholder=\"Select Staff...\"\n                                [fieldList]=\"staffsList\"\n                                fieldValue=\"staffName\"\n                                [fieldModel]=\"item.staffManagerId\"\n                                fieldId=\"staffId\"\n                                [isLabel]=\"'false'\"\n                                (fieldParams)=\"setStaffManager(item,$event)\" \n                            ></condo-select>\n                        </div>\n                        \n                        <div class=\"col-md-5 col-xl-6\">\n                            <angular2-multiselect [data]=\"staffsList\" name=\"primaryStaff{{i}}\" [(ngModel)]=\"item.staffReportingList\" \n                                [settings]=\"StaffSetting\" (onDeSelectAll)=\"deSelectPrimaryStaff(item)\">\n                            </angular2-multiselect> \n                        </div>\n                        <div class=\"col-md-3 col-xl-2\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addStaffHierarchy(item)\">Save</button>\n                            <button class=\"ml-2\" mat-flat-button [color]=\"'warn'\" (click)=\"deleteStaffHierarchy(item,i)\">Delete</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"associate-staff\">\n\t<div class=\"d-flex mb-4\">\n\t\t<div>\n\t\t\t<h4>Add Department &  Job Title</h4>\n\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t</div>\n\t\t<div class=\"ml-auto mr-3\">\n\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t</div>\n\t\t<div>\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addDepartmentName('staff','add',null)\">Add Job Title</button>\n\t\t</div> \n\t</div>\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t<mat-accordion *ngIf=\"isCategoryDataLoaded\">\n\t\t<mat-expansion-panel *ngFor=\" let depart of departmentList | simpleSearch: search;let departIndex = index;let i = index\">\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<div class=\"d-flex justify-content-between depart-header\" (keydown)=\"handleSpacebar($event)\">\t\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex != i\"> \n\t\t\t\t\t\t\t\t<div>{{depart.name}}</div>\n\t\t\t\t\t\t\t\t<span class=\"dept-edit-icon\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 med-icon\"  [svgIcon]=\"'feather:edit'\" (click)=\"setCurrentdepartmentName(depart.name,i)\" ></mat-icon>\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex == i\">\n\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"cus-input\" placeholder=\"Enter Department\" name=\"department\" [(ngModel)]=\"depart.name\">\n\t\t\t\t\t\t\t\t<mat-icon  class=\"ml-1 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"{'custom-icon-disabled' : !depart.name }\" (click)=\"updateDepartmentName(depart)\"></mat-icon>\n\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeDepartment()\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<mat-icon class=\"med-icon mr-2\" [svgIcon]=\"'feather:edit'\"  (click)=\"addDepartmentName('staff','edit',depart)\" ></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"text-warn med-icon\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteDepartment(depart.id)\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<div class=\"text-red-500\" *ngIf=\"depart.subCategory.length == 0\">Job Title Not Found</div>\n\t\t\t\t<div class=\"d-flex justify-content-between mb-2\" *ngFor=\"let sub  of depart.subCategory;let subIndex = index\">\t\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<div class=\" d-flex mr-2\" *ngIf=\"currSubIndex != subIndex\">\n\t\t\t\t\t\t\t<mat-icon class=\"sub-arrow-icon\" svgIcon=\"heroicons_solid:arrow-circle-right\"></mat-icon>\n\t\t\t\t\t\t\t<p class=\"ml-2\">{{sub.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<input  *ngIf=\"currSubIndex == subIndex\"  type=\"text\"  class=\"cus-input\" placeholder=\"Enter SubCategory\" name=\"subcategory\" [(ngModel)]=\"sub.name\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<mat-icon *ngIf=\"currSubIndex != subIndex\" class=\"med-icon\" [svgIcon]=\"'feather:edit'\"  (click)=\"editSub(subIndex)\" ></mat-icon>\n\n\t\t\t\t\t\t<span class=\"d-flex\" *ngIf=\"currSubIndex == subIndex\">\n\t\t\t\t\t\t\t<mat-icon  class=\"pt-1 med-icon\" svgIcon=\"mat_outline:save\"  (click)=\"updateSubCategory(depart)\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1 med-icon\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeSubCategory()\"></mat-icon>\t\t\t\t\t\t\n\t\t\t\t\t\t</span>\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t</mat-accordion>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"associate-staff\">\n\t<div class=\"d-flex mb-4\">\n\t\t<div>\n\t\t\t<h4>Add Department &  Job Title</h4>\n\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t</div>\n\t\t<div class=\"ml-auto mr-3\">\n\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t</div>\n\t\t<div>\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addDepartmentName('staff','add',null)\">Add Department</button>\n\t\t</div> \n\t</div>\n\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t<mat-accordion *ngIf=\"isCategoryDataLoaded\">\n\t\t<mat-expansion-panel *ngFor=\" let depart of departmentList | simpleSearch: search;let departIndex = index;let i = index\">\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<div class=\"d-flex justify-content-between depart-header\" (keydown)=\"handleSpacebar($event)\">\t\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex != i\"> \n\t\t\t\t\t\t\t\t<div>{{depart.name}}</div>\n\t\t\t\t\t\t\t\t<span class=\"dept-edit-icon\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 med-icon\"  [svgIcon]=\"'feather:edit'\" (click)=\"setCurrentdepartmentName(depart.name,i)\" ></mat-icon>\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"d-flex\" *ngIf=\"currDepartmentIndex == i\">\n\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"cus-input\" placeholder=\"Enter Department\" name=\"department\" [(ngModel)]=\"depart.name\">\n\t\t\t\t\t\t\t\t<mat-icon  class=\"ml-1 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"{'custom-icon-disabled' : !depart.name }\" (click)=\"updateDepartmentName(depart)\"></mat-icon>\n\t\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeDepartment()\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<mat-icon class=\"med-icon mr-2\" [svgIcon]=\"'feather:edit'\"  (click)=\"addDepartmentName('staff','edit',depart)\" ></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"text-warn med-icon\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteDepartment(depart.id)\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<div class=\"text-red-500\" *ngIf=\"depart.subCategory.length == 0\">Job Title Not Found</div>\n\t\t\t\t<div class=\"d-flex justify-content-between mb-2\" *ngFor=\"let sub  of depart.subCategory;let subIndex = index\">\t\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<div class=\" d-flex mr-2\" *ngIf=\"currSubIndex != subIndex\">\n\t\t\t\t\t\t\t<mat-icon class=\"sub-arrow-icon\" svgIcon=\"heroicons_solid:arrow-circle-right\"></mat-icon>\n\t\t\t\t\t\t\t<p class=\"ml-2\">{{sub.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<input  *ngIf=\"currSubIndex == subIndex\"  type=\"text\"  class=\"cus-input\" placeholder=\"Enter SubCategory\" name=\"subcategory\" [(ngModel)]=\"sub.name\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<mat-icon *ngIf=\"currSubIndex != subIndex\" class=\"med-icon\" [svgIcon]=\"'feather:edit'\"  (click)=\"editSub(subIndex)\" ></mat-icon>\n\n\t\t\t\t\t\t<span class=\"d-flex\" *ngIf=\"currSubIndex == subIndex\">\n\t\t\t\t\t\t\t<mat-icon  class=\"pt-1 med-icon\" svgIcon=\"mat_outline:save\"  (click)=\"updateSubCategory(depart)\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon class=\"ml-1 text-warn pt-1 med-icon\" [svgIcon]=\"'close'\" aria-hidden=\"true\" (click)=\"closeSubCategory()\"></mat-icon>\t\t\t\t\t\t\n\t\t\t\t\t\t</span>\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t</mat-accordion>\n</div>";
       /***/
     },
 
@@ -182,7 +182,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #association mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Personal Staff</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Personal Staff</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Personal Staff Title</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"staffCategory\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitAssociate()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\" *ngIf=\"isCategoryDataLoaded\">\n\t\t\t<!-- Document Header -->\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Personal Staff Title</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon> Job Title\t\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Staff List -->\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of categoryOffcialListData | columnSearch : 'lookupValueName': categorySearch; let i = index\">\n\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editStaffCategory(item)\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteAssociate(item.lookupValueId)\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>";
+      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"false\">\n\t<mat-drawer #association mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Personal Staff</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Personal Staff</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Personal Staff Title*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"staffCategory\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"staffCategory\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitAssociate()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\" *ngIf=\"isCategoryDataLoaded\">\n\t\t\t<!-- Document Header -->\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Personal Staff Title</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon> Job Title\t\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Staff List -->\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of categoryOffcialListData | columnSearch : 'lookupValueName': categorySearch; let i = index\">\n\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editStaffCategory(item)\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteAssociate(item.lookupValueId)\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> Delete\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>";
       /***/
     },
 
@@ -502,15 +502,16 @@
         _createClass(AddStaffComponent, [{
           key: "openDrawer",
           value: function openDrawer() {
+            this.forgotPasswodForm.reset();
             this.password.userId = this.staff.userId;
             this.password.emailId = this.staff.emailId;
-            this.password.password = null;
-            this.password.confirmPassword = null;
             window.scroll({
               top: 0,
               behavior: 'smooth'
             });
             this.matDrawer.open();
+
+            this._changeDetectorRef.detectChanges();
           }
         }, {
           key: "closeDrawer",
@@ -636,10 +637,7 @@
         }, {
           key: "resetField",
           value: function resetField() {
-            this.staff = {
-              jobStartDate: moment__WEBPACK_IMPORTED_MODULE_10__(),
-              jobEndDate: moment__WEBPACK_IMPORTED_MODULE_10__()
-            };
+            this.staff = {};
             this.userId = null;
             this.roleTypeId = null;
             this.vendorType = null;
@@ -717,16 +715,6 @@
           key: "setBloodGroup",
           value: function setBloodGroup(event) {
             this.staff.bloodGroup = event[0].lookupValueName;
-          }
-        }, {
-          key: "setJobStartDate",
-          value: function setJobStartDate(event) {
-            this.staff.jobStartDate = event;
-          }
-        }, {
-          key: "setJobEndDate",
-          value: function setJobEndDate(event) {
-            this.staff.jobEndDate = event;
           }
         }, {
           key: "deleteStaff",
@@ -1109,7 +1097,7 @@
           value: function submitAddStaffForm() {
             this.message = null;
 
-            if (!this.form.valid) {
+            if (!this.form.valid || this.form.valid && !this.staff.userPhoneNumber) {
               window.scroll({
                 top: 0,
                 behavior: 'smooth'
@@ -1280,7 +1268,7 @@
               return _this16.timeZone = timeZone;
             }); // Set TimeZone 
 
-            this.activateRouter.parent.parent.data.subscribe(function (data) {
+            this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
               if (data && data.initialData) {
                 _this16.staff.timeZone = data.initialData.apartment.timesettings;
                 var response = data.initialData.apartment;
@@ -1880,9 +1868,20 @@
           value: function addHierarchy() {
             var params = {
               "staffManagerId": null,
-              "staffReportingList": []
+              "staffReportingList": [],
+              "isNew": true
             };
             this.staffHierarchyList.push(params);
+          }
+        }, {
+          key: "deleteStaffHierarchy",
+          value: function deleteStaffHierarchy(item, index) {
+            if (item.isNew) {
+              this.staffHierarchyList.splice(index, 1);
+            } else {
+              item.isActive = false;
+              this.addStaffHierarchy(item);
+            }
           }
         }, {
           key: "addStaffHierarchy",
@@ -1894,8 +1893,8 @@
               staffHierarchy: {
                 "apartmentId": this.sessionService.apartmentId,
                 "staffManagerId": data.staffManagerId,
-                "isActive": true,
-                "isNew": true,
+                "isActive": data.isActive == null ? true : false,
+                "isNew": data.isNew,
                 "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": this.sessionService.userId,
@@ -1911,6 +1910,8 @@
               if (res.message) {
                 _this22.isDataLoaded = false;
 
+                _this22.getHierarchyList();
+
                 _this22.sharedService.openSnackBar('Staff Hierarchy Created Successfully', 'success');
               } else {
                 _this22.isDataLoaded = false;
@@ -1924,19 +1925,10 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getHierarchyList",
+          value: function getHierarchyList() {
             var _this23 = this;
 
-            // Staff List
-            var staffParms = {
-              apartmentId: this.sessionService.apartmentId,
-              roleTypeIds: '1,3' //Admin and Staff Id
-
-            };
-            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this23.staffsList = res;
-            });
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -1961,6 +1953,22 @@
 
               _this23.sharedService.openSnackBar('Server Error', 'error');
             });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this24 = this;
+
+            // Staff List
+            var staffParms = {
+              apartmentId: this.sessionService.apartmentId,
+              roleTypeIds: '1,3' //Admin and Staff Id
+
+            };
+            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+              _this24.staffsList = res;
+            });
+            this.getHierarchyList();
           }
         }]);
 
@@ -2100,7 +2108,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this24 = this;
+            var _this25 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2113,7 +2121,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this24.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this25.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2131,7 +2139,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2189,11 +2197,11 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this25.staffListData = new jqx.dataAdapter(tableData);
-                _this25.totalItems = res.length;
+                _this26.staffListData = new jqx.dataAdapter(tableData);
+                _this26.totalItems = res.length;
               }
 
-              _this25.isStaffDataLoaded = true;
+              _this26.isStaffDataLoaded = true;
             });
           }
         }]);
@@ -2405,7 +2413,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this26 = this;
+            var _this27 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2418,7 +2426,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2436,7 +2444,7 @@
         }, {
           key: "onAllStaffDelete",
           value: function onAllStaffDelete(detail) {
-            var _this27 = this;
+            var _this28 = this;
 
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var staffId = dataRecord.staffId;
@@ -2451,15 +2459,15 @@
               if (dialogResult) {
                 var params = {
                   staffId: staffId,
-                  deleteBy: _this27.sessionService.userId
+                  deleteBy: _this28.sessionService.userId
                 };
 
-                _this27.staffService.deleteStaff(params).subscribe(function (res) {
-                  _this27.sharedService.openSnackBar("Staff De-activated", 'success');
+                _this28.staffService.deleteStaff(params).subscribe(function (res) {
+                  _this28.sharedService.openSnackBar("Staff De-activated", 'success');
 
-                  _this27.getAllStaff();
+                  _this28.getAllStaff();
                 }, function (error) {
-                  _this27.sharedService.openSnackBar('Server Error', 'error');
+                  _this28.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -2527,18 +2535,18 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
               //filter active true items
-              _this28.staffListData = res;
-              _this28.totalItems = _this28.staffListData.length;
-              _this28.gridSourceData = {
-                localdata: _this28.staffListData,
+              _this29.staffListData = res;
+              _this29.totalItems = _this29.staffListData.length;
+              _this29.gridSourceData = {
+                localdata: _this29.staffListData,
                 datatype: "array"
               };
-              _this28.staffListData = new jqx.dataAdapter(_this28.gridSourceData);
-              _this28.isStaffDataLoaded = true;
+              _this29.staffListData = new jqx.dataAdapter(_this29.gridSourceData);
+              _this29.isStaffDataLoaded = true;
             });
           }
         }]);
@@ -2900,7 +2908,7 @@
         }, {
           key: "getDepartmentName",
           value: function getDepartmentName() {
-            var _this29 = this;
+            var _this30 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId,
@@ -2910,11 +2918,11 @@
             this.isCategoryDataLoaded = false;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this29.departmentList = res;
-                _this29.totalItems = _this29.departmentList.length;
+                _this30.departmentList = res;
+                _this30.totalItems = _this30.departmentList.length;
               }
 
-              _this29.isCategoryDataLoaded = true;
+              _this30.isCategoryDataLoaded = true;
             });
           }
         }, {
@@ -2925,7 +2933,7 @@
         }, {
           key: "updateDepartmentName",
           value: function updateDepartmentName(data) {
-            var _this30 = this;
+            var _this31 = this;
 
             var reqObj = {
               lookupvalue: {
@@ -2945,21 +2953,21 @@
             };
             this.isCategoryDataLoaded = false;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
-              _this30.isCategoryDataLoaded = true;
+              _this31.isCategoryDataLoaded = true;
 
               if (res.message) {
-                _this30.sharedService.openSnackBar("Category updated successfully", 'success');
+                _this31.sharedService.openSnackBar("Department updated successfully", 'success');
 
-                _this30.currDepartmentIndex = -1;
+                _this31.currDepartmentIndex = -1;
 
-                _this30.getDepartmentName();
-              } else _this30.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this31.getDepartmentName();
+              } else _this31.sharedService.openSnackBar(res.errorMessage, 'error');
             });
           }
         }, {
           key: "addDepartmentName",
           value: function addDepartmentName(name, type, value) {
-            var _this31 = this;
+            var _this32 = this;
 
             var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__["AssetsAddSetupComponent"], {
               panelClass: 'material-dialog-big',
@@ -2968,11 +2976,12 @@
                 'name': name,
                 'type': type,
                 'value': JSON.stringify(value)
-              }
+              },
+              disableClose: true
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this31.getDepartmentName();
+                _this32.getDepartmentName();
               }
             });
           }
@@ -2984,7 +2993,7 @@
         }, {
           key: "updateSubCategory",
           value: function updateSubCategory(data) {
-            var _this32 = this;
+            var _this33 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -3001,12 +3010,12 @@
             };
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res.message) {
-                _this32.sharedService.openSnackBar("Job TItle Updated successfully", 'success');
+                _this33.sharedService.openSnackBar("Job Title Updated successfully", 'success');
               } else {
-                _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this33.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this32.currSubIndex = -1;
+              _this33.currSubIndex = -1;
             });
           }
         }, {
@@ -3024,6 +3033,7 @@
           key: "closeSubCategory",
           value: function closeSubCategory() {
             this.currSubIndex = -1;
+            this.getDepartmentName();
           }
         }, {
           key: "onGlSearchFilter",
@@ -3035,32 +3045,32 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this33 = this;
+            var _this34 = this;
 
             this.getDepartmentName();
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this33.timeZone = timeZone;
+              return _this34.timeZone = timeZone;
             }); //this.getAssociateStaff();
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   categoryId: id,
-                  deletedBy: _this33.sessionService.userId
+                  deletedBy: _this34.sessionService.userId
                 };
 
-                _this33.lookupService.deleteCategory(params).subscribe(function (res) {
+                _this34.lookupService.deleteCategory(params).subscribe(function (res) {
                   if (res.message) {
-                    _this33.sharedService.openSnackBar('Department Deleted Successfully', 'success');
+                    _this34.sharedService.openSnackBar('Department Deleted Successfully', 'success');
 
-                    _this33.getDepartmentName();
+                    _this34.getDepartmentName();
                   } else {
-                    _this33.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this34.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this33.sharedService.setUnitListDeleteIndex(null);
+                  _this34.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this33.sharedService.openSnackBar('Server Error', 'error');
+                  _this34.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -3224,31 +3234,31 @@
         _createClass(PersonalStaffComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this35 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this34.timeZone = timeZone;
+              return _this35.timeZone = timeZone;
             });
             this.getAssociateStaff();
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
-                  updateUserId: parseInt(_this34.sessionService.userId)
+                  updateUserId: parseInt(_this35.sessionService.userId)
                 };
 
-                _this34.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this35.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res.message) {
-                    _this34.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
+                    _this35.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
 
-                    _this34.getAssociateStaff();
+                    _this35.getAssociateStaff();
                   } else {
-                    _this34.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this35.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this34.sharedService.setUnitListDeleteIndex(null);
+                  _this35.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this34.sharedService.openSnackBar('Server Error', 'error');
+                  _this35.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -3263,7 +3273,7 @@
         }, {
           key: "getAssociateStaff",
           value: function getAssociateStaff() {
-            var _this35 = this;
+            var _this36 = this;
 
             this.isCategoryDataLoaded = false;
             var params = {
@@ -3272,13 +3282,13 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this35.categoryOffcialListData = res;
-                _this35.totalItems = res.length;
+                _this36.categoryOffcialListData = res;
+                _this36.totalItems = res.length;
               }
 
-              _this35.isCategoryDataLoaded = true;
+              _this36.isCategoryDataLoaded = true;
             }, function (error) {
-              _this35.sharedService.openSnackBar('Server Error', 'error');
+              _this36.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -3295,6 +3305,7 @@
             this.isEdit = false;
             this.staffType = '';
             this.staffCategory = '';
+            this.form.reset();
             this.matDrawer.toggle();
           }
         }, {
@@ -3305,7 +3316,7 @@
         }, {
           key: "submitAssociate",
           value: function submitAssociate() {
-            var _this36 = this;
+            var _this37 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -3324,18 +3335,18 @@
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
                 if (res.code == 200) {
-                  _this36.matDrawer.toggle();
+                  _this37.matDrawer.toggle();
 
-                  _this36.sharedService.openSnackBar('Personal Category Added', 'success');
+                  _this37.sharedService.openSnackBar('Personal Category Added', 'success');
 
-                  _this36.getAssociateStaff();
+                  _this37.getAssociateStaff();
 
-                  _this36.isShowForm = false;
+                  _this37.isShowForm = false;
                 } else {
-                  _this36.sharedService.openSnackBar(res.message, 'error');
+                  _this37.sharedService.openSnackBar(res.message, 'error');
                 }
               }, function (error) {
-                _this36.sharedService.openSnackBar('Server Error', 'error');
+                _this37.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               var _details2 = {
@@ -3355,18 +3366,18 @@
               };
               this.lookupService.updateLookupValue(_params2).subscribe(function (res) {
                 if (res.message) {
-                  _this36.matDrawer.toggle();
+                  _this37.matDrawer.toggle();
 
-                  _this36.sharedService.openSnackBar('Personal Category Updated', 'success');
+                  _this37.sharedService.openSnackBar('Personal Category Updated', 'success');
 
-                  _this36.getAssociateStaff();
+                  _this37.getAssociateStaff();
 
-                  _this36.isShowForm = false;
+                  _this37.isShowForm = false;
                 } else {
-                  _this36.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this37.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this36.sharedService.openSnackBar('Server Error', 'error');
+                _this37.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -3400,6 +3411,10 @@
           args: ['association', {
             "static": true
           }]
+        }],
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['addAssociationCategoryForm']
         }]
       };
       PersonalStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3689,7 +3704,7 @@
         }, {
           key: "submitShiftsForm",
           value: function submitShiftsForm(form) {
-            var _this37 = this;
+            var _this38 = this;
 
             this.isShiftsLoaded = false;
 
@@ -3710,11 +3725,11 @@
               };
               this.staffService.addShift(params).subscribe(function (res) {
                 if (res.message) {
-                  _this37.isShiftsLoaded = true;
+                  _this38.isShiftsLoaded = true;
 
-                  _this37.sharedService.setAlertMessage("Shift added Successfully!");
+                  _this38.sharedService.setAlertMessage("Shift added Successfully!");
 
-                  _this37.getAllShifts();
+                  _this38.getAllShifts();
                 }
               }, function (error) {});
             } else {
@@ -3735,11 +3750,11 @@
               };
               this.staffService.updateShift(_params3).subscribe(function (res) {
                 if (res.message) {
-                  _this37.isShiftsLoaded = true;
+                  _this38.isShiftsLoaded = true;
 
-                  _this37.sharedService.setAlertMessage("Shift updated Successfully!");
+                  _this38.sharedService.setAlertMessage("Shift updated Successfully!");
 
-                  _this37.getAllShifts();
+                  _this38.getAllShifts();
                 }
               }, function (error) {});
             }
@@ -3747,12 +3762,12 @@
         }, {
           key: "addShift",
           value: function addShift() {
-            var _this38 = this;
+            var _this39 = this;
 
             this.isEditShift = false;
             this.isAddShiftLoaded = false;
             setTimeout(function () {
-              _this38.isAddShiftLoaded = true;
+              _this39.isAddShiftLoaded = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.add-shift-card');
@@ -3766,11 +3781,11 @@
         }, {
           key: "editShift",
           value: function editShift(shift) {
-            var _this39 = this;
+            var _this40 = this;
 
             this.isAddShiftLoaded = false;
             setTimeout(function () {
-              _this39.isAddShiftLoaded = true;
+              _this40.isAddShiftLoaded = true;
             }, 10);
             this.isEditShift = true;
             this.shiftTypeId = shift.shiftTypeId;
@@ -3799,31 +3814,31 @@
         }, {
           key: "getAllShifts",
           value: function getAllShifts() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.isShiftTableLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
-              _this40.shiftsListData = res.filter(function (item) {
+              _this41.shiftsListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this40.totalItems = _this40.shiftsListData.length;
+              _this41.totalItems = _this41.shiftsListData.length;
 
-              if (_this40.totalItems > _this40.itemLimit) {
-                _this40.ItemEndIndex = _this40.itemLimit;
+              if (_this41.totalItems > _this41.itemLimit) {
+                _this41.ItemEndIndex = _this41.itemLimit;
               } else {
-                _this40.ItemEndIndex = _this40.totalItems;
+                _this41.ItemEndIndex = _this41.totalItems;
               }
 
-              _this40.isShiftTableLoaded = true;
+              _this41.isShiftTableLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this41 = this;
+            var _this42 = this;
 
             this.shift = {};
             this.getAllShifts();
@@ -3833,7 +3848,7 @@
             }; //shift type
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this41.shiftTypeList = res.filter(function (item) {
+              _this42.shiftTypeList = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {}); // delete item
@@ -3842,18 +3857,18 @@
               if (item != null) {
                 var params = {
                   shiftId: item.shiftId,
-                  deleteBy: parseInt(_this41.sessionService.userId)
+                  deleteBy: parseInt(_this42.sessionService.userId)
                 };
-                _this41.isShiftTableLoaded = false;
+                _this42.isShiftTableLoaded = false;
 
-                _this41.staffService.deleteShift(params).subscribe(function (res) {
-                  _this41.shiftsListData = _this41.shiftsListData.filter(function (type) {
+                _this42.staffService.deleteShift(params).subscribe(function (res) {
+                  _this42.shiftsListData = _this42.shiftsListData.filter(function (type) {
                     return type.shiftId !== item.shiftId;
                   });
 
-                  _this41.sharedService.setUnitListDeleteIndex(null);
+                  _this42.sharedService.setUnitListDeleteIndex(null);
 
-                  _this41.isShiftTableLoaded = true;
+                  _this42.isShiftTableLoaded = true;
                 }, function (error) {
                   console.log(error);
                 });
