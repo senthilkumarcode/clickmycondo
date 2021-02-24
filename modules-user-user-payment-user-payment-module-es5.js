@@ -408,7 +408,7 @@
               payalreadydone: {
                 "apartmentId": this.sessionService.apartmentId,
                 "invoiceId": this.paymentMade.invoiceId,
-                "receiptId": Number(3),
+                "receiptId": null,
                 "paymentDate": this.paymentMade.paymentDate,
                 "paymentModeId": this.paymentMade.paymentModeId,
                 "comments": JSON.stringify([{

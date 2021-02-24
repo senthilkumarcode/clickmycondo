@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-alerts--wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" mode=\"over\" position=\"end\">\n\t\t\t<div class=\"notes-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Comments </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Comment</label>\n                                <textarea placeholder=\"Enter comment\" name=\"comments\" [(ngModel)]=\"comment\"></textarea>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right mb-4\">\n                                <button mat-flat-button [color]=\"'accent'\" [disabled]=\"comments && comments.length == 0\" (click)=\"submitComments()\" >Add Comment</button>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngFor=\"let comment of commentsList;let odd = odd\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"d-flex mb-4\">\n                                <div class=\"alerts-circle font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{comment.name | slice:0:1  | uppercase}}</div>\n                                <div>\n                                    <div class=\"d-flex\">\n                                        <p class=\"text-primary mr-1\">{{comment.name}}</p>\n                                        <p class=\"text-muted\">{{getDateFormat(comment.date)}}</p>\n                                    </div>\n                                    <p>{{comment.message}}</p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <h4 class=\"mb-4\">Offline Payment Notifications</h4>\n\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n                <form *ngIf=\"!isDataLoaded\">\n\n                    <div class=\"bg-card shadow\">\n                        <div class=\"d-sm-flex\">\n                            <div class=\"form-check mb-2 mb-sm-0 mr-sm-5\" *ngFor=\"let data of verifyList;let i=index\">\n                                <input type=\"checkbox\" class=\"form-check-input\" id=\"clarification{{i}}\" name=\"clarification{{i}}\" [(ngModel)]=\"data.isCheck\" (change)=\"getOfflinePaymentList()\">\n                                <label class=\"form-check-label\" for=\"clarification{{i}}\">{{data.lookupValueName}}</label>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"bg-card shadow\" *ngIf=\"paymentAlertsList.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>\n    \n                    <div class=\"bg-card shadow offline-list\" *ngFor=\"let data of paymentAlertsList;let index = index\">\n                        <div class=\"row align-items-center\">\n                            <div class=\"col-sm-2\">\n                                <label class=\"text-muted\">Invoice No</label>\n                                <p class=\"ellipse\">{{data.invoiceId}}</p>\n                            </div>\n                            <div class=\"col-sm-2\">\n                                <label class=\"text-muted\">Payment Date</label>\n                                <p class=\"ellipse\"> {{getDateFormat(data.paymentDate)}}</p>\n                            </div> \n                            <div class=\"col-sm-2\">\n                                <condo-select \n                                    labelText=\"Mode {{index}}\"\n                                    fieldPlaceholder=\"Select Mode\"\n                                    [fieldRequired]=\"'null'\"\n                                    [fieldList]=\"paymentModeList\"\n                                    fieldValue=\"lookupValueName\"\n                                    [fieldModel]=\"data.paymentModeId\"\n                                    fieldId=\"lookupValueId\"\n                                    (fieldParams)=\"setPaymentMode($event,data)\" \n                                ></condo-select>\n                            </div>\n                            <div class=\"col-sm-2\">\n                                <div class=\"input-box\">\n                                    <label>Receipt No</label>\n                                    <input  type=\"text\" class=\"form-control\" placeholder=\"Receipt No\" [(ngModel)]=\"data.receiptId\" \n                                    name=\"receiptNo{{index}}\" [disabled]=\"currentIndex != index\">\n                                    <div class=\"date-btn\">\n                                        <mat-icon *ngIf=\"currentIndex != index\" (click)=\"currentIndex = index\" svgIcon=\"feather:edit\"></mat-icon>\n                                        <mat-icon *ngIf=\"currentIndex == index\" svgIcon=\"feather:save\" (click)=\"updatePaymentAlready(data)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-1\">\n                                <div class=\"d-flex link\" (click)=\"openDrawer(data)\">\n                                    <mat-icon svgIcon=\"dripicons:message\" class=\"mr-2\"></mat-icon>\n                                    <p>Notes</p>\n                                </div>\n                             </div>\n                            <div class=\"col-sm-3\">\n                                <button mat-flat-button id=\"payment{{index}}\"  [color]=\"'accent'\" (click)=\"dropDownPopup(index,data)\">\n                                    <span class=\"font-bold\">{{data.statusName}}</span> \n                                    <mat-icon class=\"ml-2\" svgIcon=\"mat_outline:arrow_drop_down\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n    \n                \n                </form>\n\n            </div>\n           \n\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n\n<ng-template #content>\n    <div class=\"bg-card shadow custom-btn-dropDown\">\n        <div class=\"option\" *ngFor=\"let data of verifyList\" (click)=\"selectPayment(data.lookupValueId)\">\n            <h6 [ngClass]=\"{'active': paymentSelectItem.statusId == data.lookupValueId}\" class=\"p-3\" >{{data.lookupValueName}}</h6>\n        </div>\n    </div>\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"income-alerts--wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" mode=\"over\" position=\"end\">\n\t\t\t<div class=\"notes-drawer\">\n\t\t\t\t<div class=\"title\">\n                    <h4 *ngIf=\"drawerType == 'comment'\"> Comments </h4>\n                    <h4 *ngIf=\"drawerType == 'filter'\"> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form *ngIf=\"drawerType == 'comment'\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Comment</label>\n                                <textarea placeholder=\"Enter comment\" name=\"comments\" [(ngModel)]=\"comment\"></textarea>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right mb-4\">\n                                <button mat-flat-button [color]=\"'accent'\" [disabled]=\"comments && comments.length == 0\" (click)=\"submitComments()\" >Add Comment</button>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngFor=\"let comment of commentsList;let odd = odd\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"d-flex mb-4\">\n                                <div class=\"alerts-circle font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{comment.name | slice:0:1  | uppercase}}</div>\n                                <div>\n                                    <div class=\"d-flex\">\n                                        <p class=\"text-primary mr-1\">{{comment.name}}</p>\n                                        <p class=\"text-muted\">{{getDateFormat(comment.date)}}</p>\n                                    </div>\n                                    <p>{{comment.message}}</p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n\n                <form *ngIf=\"drawerType == 'filter'\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"From\"\n                                fieldName=\"from\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.from\"\n                                (fieldParams)=\"setFromDate($event)\">\n                            </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <app-datepicker\n                                labelText=\"To\"\n                                fieldName=\"to\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"filterField.to\"\n                                (fieldParams)=\"setToDate($event)\">\n                            </app-datepicker>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"d-flex justify-content-end\">\n                                <button class=\"ml-2\" mat-button (click)=\"resetFilter()\">Clear</button>\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"getOfflinePaymentList()\">Filter</button>\n                            </div>\n                        </div>\n                    </div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n\n        <mat-drawer-content>\n            <div class=\"main\">\n                <h4 class=\"mb-4\">Offline Payment Notifications</h4>\n\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n                <form *ngIf=\"!isDataLoaded\">\n\n                    <div class=\"bg-card shadow\">\n                        <div class=\"d-sm-flex justify-content-between\">\n                            <div class=\"d-sm-flex\">\n                                <div class=\"form-check mb-2 mb-sm-0 mr-sm-5\" *ngFor=\"let data of verifyList;let i=index\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"clarification{{i}}\" name=\"clarification{{i}}\" [(ngModel)]=\"data.isCheck\" (change)=\"getOfflinePaymentList()\">\n                                    <label class=\"form-check-label\" for=\"clarification{{i}}\">{{data.lookupValueName}}</label>\n                                </div>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filterDrawer()\">Filter</button>\n                            </div>\n                        </div>\n                        \n                    </div>\n\n                    <div class=\"bg-card shadow\" *ngIf=\"paymentAlertsList.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>\n    \n                    <div class=\"bg-card shadow offline-list\" *ngFor=\"let data of paymentAlertsList;let index = index\">\n                        <div class=\"row align-items-center\">\n                            <div class=\"col-sm-4 col-xl-2\">\n                                <label class=\"text-muted\">Invoice No</label>\n                                <p class=\"ellipse mb-3 mb-xl-0\">{{data.invoiceId}}</p>\n                            </div>\n                            <div class=\"col-sm-4 col-xl-2\">\n                                <label class=\"text-muted\">Payment Date</label>\n                                <p class=\"ellipse  mb-3 mb-xl-0\"> {{getDateFormat(data.paymentDate)}}</p>\n                            </div> \n                            <div class=\"col-sm-4 col-xl-2\">\n                                <div class=\"mb-3 mb-xl-0\">\n                                    <condo-select \n                                        labelText=\"Mode {{index}}\"\n                                        fieldPlaceholder=\"Select Mode\"\n                                        [fieldRequired]=\"'null'\"\n                                        [fieldList]=\"paymentModeList\"\n                                        fieldValue=\"lookupValueName\"\n                                        [fieldModel]=\"data.paymentModeId\"\n                                        fieldId=\"lookupValueId\"\n                                        (fieldParams)=\"setPaymentMode($event,data)\" \n                                    ></condo-select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 col-xl-2\">\n                                <div class=\"input-box mb-3 mb-xl-0\">\n                                    <label>Receipt No</label>\n                                    <input  type=\"text\" class=\"form-control\" placeholder=\"Receipt No\" [(ngModel)]=\"data.receiptId\" \n                                    name=\"receiptNo{{index}}\" [disabled]=\"currentIndex != index\">\n                                    <div class=\"date-btn\">\n                                        <mat-icon *ngIf=\"currentIndex != index\" (click)=\"currentIndex = index\" svgIcon=\"feather:edit\"></mat-icon>\n                                        <mat-icon *ngIf=\"currentIndex == index\" svgIcon=\"feather:save\" (click)=\"updatePaymentAlready(data)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 col-xl-1\">\n                                <div class=\"d-flex link mb-3 mb-xl-0\" (click)=\"commentDrawer(data)\">\n                                    <mat-icon svgIcon=\"dripicons:message\" class=\"mr-2\"></mat-icon>\n                                    <p>Notes</p>\n                                </div>\n                             </div>\n                            <div class=\"col-sm-4 col-xl-3\">\n                                <button class=\"mb-3 mb-xl-0\" mat-flat-button id=\"payment{{index}}\"  [color]=\"'accent'\" (click)=\"dropDownPopup(index,data)\">\n                                    <span class=\"font-bold\">{{data.statusName}}</span> \n                                    <mat-icon class=\"ml-2\" svgIcon=\"mat_outline:arrow_drop_down\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n    \n                \n                </form>\n\n            </div>\n           \n\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n\n<ng-template #content>\n    <div class=\"bg-card shadow custom-btn-dropDown\">\n        <div class=\"option\" *ngFor=\"let data of verifyList\" (click)=\"selectPayment(data.lookupValueId)\">\n            <h6 [ngClass]=\"{'active': paymentSelectItem.statusId == data.lookupValueId}\" class=\"p-3\" >{{data.lookupValueName}}</h6>\n        </div>\n    </div>\n</ng-template>";
       /***/
     },
 
@@ -147,6 +147,12 @@
       var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/modules/ui/select/select.module */
       "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
 
       var IncomeAlertsModule = function IncomeAlertsModule() {
         _classCallCheck(this, IncomeAlertsModule);
@@ -154,7 +160,7 @@
 
       IncomeAlertsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_payment_alerts_payment_alerts_component__WEBPACK_IMPORTED_MODULE_4__["PaymentAlertsComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], _income_alerts_routing_module__WEBPACK_IMPORTED_MODULE_3__["IncomeAlertsRoutingModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__["DatepickerModule"].forRoot(), _income_alerts_routing_module__WEBPACK_IMPORTED_MODULE_3__["IncomeAlertsRoutingModule"]]
       })], IncomeAlertsModule);
       /***/
     },
@@ -286,9 +292,20 @@
           this.paymentModeList = [];
           this.paymentSelectItem = {};
           this.commentsList = [];
+          this.filterField = {};
         }
 
         _createClass(PaymentAlertsComponent, [{
+          key: "setFromDate",
+          value: function setFromDate(event) {
+            this.filterField.from = event;
+          }
+        }, {
+          key: "setToDate",
+          value: function setToDate(event) {
+            this.filterField.to = event;
+          }
+        }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
             return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
@@ -300,8 +317,9 @@
             this.updatePaymentAlready(data);
           }
         }, {
-          key: "openDrawer",
-          value: function openDrawer(data) {
+          key: "commentDrawer",
+          value: function commentDrawer(data) {
+            this.drawerType = 'comment';
             this.matDrawer.open();
             this.comment = '';
             this.paymentSelectItem = Object.assign({}, data);
@@ -309,6 +327,12 @@
             if (this.paymentSelectItem.comments) {
               this.commentsList = JSON.parse(this.paymentSelectItem.comments);
             }
+          }
+        }, {
+          key: "filterDrawer",
+          value: function filterDrawer() {
+            this.drawerType = 'filter';
+            this.matDrawer.open();
           }
         }, {
           key: "submitComments",
@@ -444,9 +468,9 @@
             this.isDataLoaded = true;
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId,
-              statusId: this.getStatusId() // insertedFrom: params.insertedFrom,
-              // insertedTo: params.insertedTo,
-
+              statusId: this.getStatusId(),
+              insertedFrom: moment__WEBPACK_IMPORTED_MODULE_9__(this.filterField.from).toISOString(),
+              insertedTo: moment__WEBPACK_IMPORTED_MODULE_9__(this.filterField.to).toISOString()
             };
             this.accountsService.getPaymentAlreadyMade(queryParamBase).subscribe(function (res) {
               if (Array.isArray(res)) {
@@ -461,6 +485,13 @@
             });
           }
         }, {
+          key: "resetFilter",
+          value: function resetFilter() {
+            this.filterField.from = moment__WEBPACK_IMPORTED_MODULE_9__().subtract(2, 'months');
+            this.filterField.to = moment__WEBPACK_IMPORTED_MODULE_9__();
+            this.getOfflinePaymentList();
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this4 = this;
@@ -471,7 +502,7 @@
             this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
               _this4.userName = data.initialData.profileUser.firstName;
             });
-            this.getOfflinePaymentList();
+            this.resetFilter();
             var statusParams = {
               LookupTypeId: 210,
               ApartmentId: this.sessionService.apartmentId
