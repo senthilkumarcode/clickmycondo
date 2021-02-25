@@ -337,16 +337,6 @@
               url: 'facility',
               bg: 'rgb(255, 152, 0)',
               isActive: false
-            }, {
-              name: 'Parking Details',
-              url: 'parking',
-              bg: 'rgb(255, 87, 34)',
-              isActive: false
-            }, {
-              name: 'Assets',
-              url: 'asset/category',
-              bg: 'rgb(96, 125, 139)',
-              isActive: false
             }];
             this.getAllCategory();
           }

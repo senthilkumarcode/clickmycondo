@@ -154,7 +154,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-id-card-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Id Card</h4>\n\n    <div class=\"row\">\n        <div class=\"col-sm-4 col-xl-3\">\n            <div class=\"bg-card shadow\">\n                <div class=\"d-flex align-items-center flex-column\" id=\"id-card\">\n                    <div class=\"profile-picture mb-4\">\n                        <img class=\"svg\" [src]=\"profilePic\" id=\"userProfile\">\n                    </div>\n                    <div class=\"text-center\">\n                        <h5 class=\"mb-2\">{{user.firstName}} {{user.lastName}}</h5>\n                        <h6 class=\"mb-2\">{{user.roleName}}</h6>\n                        <app-loader *ngIf=\"isUserDataLoaded\"></app-loader>\n                        <ng-container *ngIf=\"!isUserDataLoaded\">\n                            <h6 class=\"mb-2\">{{blockUnitInfo.blockunit_Label}}</h6>\n                        </ng-container>\n                       \n                    </div>\n                </div>\n                <!-- <div class=\"text-center print-btn\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard('id-card',0)\">Print</button>  \n                </div> -->\n            </div>\n        </div>\n    </div>\n    \n   \n\n    <app-loader *ngIf=\"isVehicleDataLoaded\"></app-loader>\n    <ng-container *ngIf=\"!isVehicleDataLoaded\">\n        <h4 class=\"mb-4\">Car Pass</h4>\n        <div class=\"row\" >\n            <div class=\"col-sm-4 col-xl-3\" *ngFor=\"let item of vehicleDataList;let i= index\">\n                <div class=\"bg-card shadow\">\n                    <div id=\"pass-{{i}}\" class=\"d-flex align-items-center flex-column\">\n                        <div class=\"qrcode-wrapper\">\n                            <qrcode qrdata=\"{{item.stickerNumber}} / {{item?.vehicle?.vehicleNumber}}\" [width]=\"150\" [errorCorrectionLevel]=\"'M'\"></qrcode>\n                        </div>\n                        <div class=\"text-center\">\n                            <h5 class=\"mb-2\">{{user.firstName}} {{user.lastName}}</h5>\n                            <h6 class=\"mb-2\">{{item.stickerNumber}} / {{item?.vehicle?.vehicleNumber}}</h6>\n                            <app-loader *ngIf=\"isUserDataLoaded\"></app-loader>\n                            <ng-container *ngIf=\"!isUserDataLoaded\">\n                                <h6 class=\"mb-2\">{{blockUnitInfo.blockunit_Label}}</h6>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <!-- <div class=\"text-center print-btn\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard('pass',i)\">Print</button>  \n                    </div> -->\n                </div>\n            </div>\n        </div>\n    </ng-container>\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-id-card-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Id Card</h4>\n\n    <div class=\"row\">\n        <div class=\"col-sm-4 col-xl-3\">\n            <div class=\"bg-card shadow\">\n                <div class=\"d-flex align-items-center flex-column\" id=\"id-card\">\n                    <div class=\"profile-picture mb-4\">\n                        <img class=\"svg\" [src]=\"profilePic\" id=\"userProfile\">\n                    </div>\n                    <div class=\"text-center\">\n                        <h5 class=\"mb-2\">{{user.firstName}} {{user.lastName}}</h5>\n                        <h6 class=\"mb-2\">{{user.roleName}}</h6>\n                        <app-loader *ngIf=\"isUserDataLoaded\"></app-loader>\n                        <ng-container *ngIf=\"!isUserDataLoaded\">\n                            <h6 class=\"mb-2\">{{blockUnitInfo.blockunit_Label}}</h6>\n                        </ng-container>\n                       \n                    </div>\n                </div>\n                <div class=\"text-center print-btn\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard('id-card',0)\">Print</button>  \n                </div>\n            </div>\n        </div>\n    </div>\n    \n   \n\n    <app-loader *ngIf=\"isVehicleDataLoaded\"></app-loader>\n    <ng-container *ngIf=\"!isVehicleDataLoaded\">\n        <h4 class=\"mb-4\">Car Pass</h4>\n        <div class=\"row\" >\n            <div class=\"col-sm-4 col-xl-3\" *ngFor=\"let item of vehicleDataList;let i= index\">\n                <div class=\"bg-card shadow\">\n                    <div id=\"pass-{{i}}\" class=\"d-flex align-items-center flex-column\">\n                        <div class=\"qrcode-wrapper\">\n                            <qrcode qrdata=\"{{item.stickerNumber}} / {{item?.vehicle?.vehicleNumber}}\" [width]=\"150\" [errorCorrectionLevel]=\"'M'\"></qrcode>\n                        </div>\n                        <div class=\"text-center\">\n                            <h5 class=\"mb-2\">{{user.firstName}} {{user.lastName}}</h5>\n                            <h6 class=\"mb-2\">{{item.stickerNumber}} / {{item?.vehicle?.vehicleNumber}}</h6>\n                            <app-loader *ngIf=\"isUserDataLoaded\"></app-loader>\n                            <ng-container *ngIf=\"!isUserDataLoaded\">\n                                <h6 class=\"mb-2\">{{blockUnitInfo.blockunit_Label}}</h6>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <div class=\"text-center print-btn\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard('pass',i)\">Print</button>  \n                    </div>\n                </div>\n            </div>\n        </div>\n    </ng-container>\n\t\n</div>";
       /***/
     },
 
@@ -3140,6 +3140,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var html2canvas__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! html2canvas */
+      "./node_modules/html2canvas/dist/html2canvas.js");
+      /* harmony import */
+
+
+      var html2canvas__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_7__);
 
       var ProfileIdCardComponent = /*#__PURE__*/function () {
         function ProfileIdCardComponent(_activatedRoute, apartmentService, vehicleService, sharedService, sessionService) {
@@ -3162,27 +3172,22 @@
           key: "downloadIdCard",
           value: function downloadIdCard(type, index) {
             var data;
-            if (type == 'pass') data = document.getElementById("".concat(type, "-").concat(index));else data = document.getElementById(type); // data.fillStyle = 'blue';
-            // html2canvas(data).then(canvas => { 
-            //   var link = document.createElement("a");
-            //   document.body.appendChild(link);
-            //   link.download = "id-card.png";
-            //   link.href = canvas.toDataURL("image/png");
-            //   link.target = '_blank';
-            //   link.click();
-            // });
-            // html2canvas(data).then(function(canvas) {
-            //   // Convert the canvas to blob
-            //   canvas.toBlob(function(blob){
-            //       // To download directly on browser default 'downloads' location
-            //       let link = document.createElement("a");
-            //       link.download = "image.png";
-            //       link.href = URL.createObjectURL(blob);
-            //       link.click();
-            //       // To save manually somewhere in file explorer
-            //      // window.saveAs(blob, 'image.png');
-            //   },'image/png');
-            // });
+            if (type == 'pass') data = document.getElementById("".concat(type, "-").concat(index));else data = document.getElementById(type);
+            html2canvas__WEBPACK_IMPORTED_MODULE_7___default()(data, {
+              allowTaint: true,
+              useCORS: true,
+              logging: false,
+              height: window.outerHeight,
+              scrollY: -window.scrollY
+            }).then(function (canvas) {
+              // Convert the canvas to blob
+              canvas.toBlob(function (blob) {
+                var link = document.createElement("a");
+                link.download = "image.png";
+                link.href = URL.createObjectURL(blob);
+                link.click();
+              }, 'image/png');
+            });
           }
         }, {
           key: "getBlockUnitInfo",

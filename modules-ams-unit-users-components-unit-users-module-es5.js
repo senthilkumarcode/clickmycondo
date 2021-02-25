@@ -2128,7 +2128,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-profile-profile-area-module */
-            [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~03cc31c5"), __webpack_require__.e("default~modules-common-visitor-visitor-module~modules-profile-profile-area-module~src-app-modules-pr~6de129d6"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~03cc31c5"), __webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~e81f5a36"), __webpack_require__.e("default~modules-common-visitor-visitor-module~modules-profile-profile-area-module~src-app-modules-pr~6de129d6"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/profile/profile-area.module */
             "./src/app/modules/profile/profile-area.module.ts")).then(function (m) {
               return m.ProfileAreaModule;

@@ -1006,14 +1006,20 @@ let ExpVisitorConfirmComponent = class ExpVisitorConfirmComponent {
     }
     convertImage() {
         var data = document.getElementById('visitorPass');
-        data.fillStyle = 'blue';
-        html2canvas__WEBPACK_IMPORTED_MODULE_7___default()(data).then(canvas => {
-            var link = document.createElement("a");
-            document.body.appendChild(link);
-            link.download = "html_image.png";
-            link.href = canvas.toDataURL("image/png");
-            link.target = '_blank';
-            link.click();
+        html2canvas__WEBPACK_IMPORTED_MODULE_7___default()(data, {
+            allowTaint: true,
+            useCORS: true,
+            logging: false,
+            height: window.outerHeight,
+            scrollY: -window.scrollY
+        }).then(function (canvas) {
+            // Convert the canvas to blob
+            canvas.toBlob(function (blob) {
+                let link = document.createElement("a");
+                link.download = "image.png";
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            }, 'image/png');
         });
     }
     ngOnInit() {
