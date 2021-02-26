@@ -28,7 +28,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"help-desk-create-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span *ngIf=\"viewMode != 'edit'\">{{'SERVICE.HELPDESK.CREATETICKET.CREATETITLE' | translate}}</span>\n            <span *ngIf=\"viewMode == 'edit'\">{{'SERVICE.HELPDESK.CREATETICKET.EDITTITLE' | translate}}</span>\n        </h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n        {{message.content}}\n        </condo-message>\n        <app-loader *ngIf=\"!isTrackerSubmitted\"></app-loader>\n        \n        <form #createHelpDeskForm=\"ngForm\" name=\"createHelpDeskForm\">\n            <!-- radio button in create Mode-->\n            <div class=\"bg-card shadow mb-3\" *ngIf=\"isTrackerSubmitted && isAdmin() && viewMode != 'edit'\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12 text-center\">\n                        <div class=\"input-box radio-box mb-0\">\n                            <h5 class=\"mt-3 mb-3\">{{'SERVICE.HELPDESK.CREATETICKET.TICKETFOR' | translate}}</h5>\n                            <div class=\"form-group\">\n                                <input  name=\"self\" id=\"Self\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"self\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Self\">{{'SERVICE.HELPDESK.CREATETICKET.FORSELF' | translate}}</label>\n                                </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"User\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"owner\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"User\">{{'SERVICE.HELPDESK.CREATETICKET.FOROWNER' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"tenant\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"tenant\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"tenant\">{{'SERVICE.HELPDESK.CREATETICKET.FORTENANT' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"staff\" id=\"Staff\" [(ngModel)]=\"createdBY\"  (change)=\"createdByChange()\" value=\"staff\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Staff\">{{'SERVICE.HELPDESK.CREATETICKET.FORSTAFF' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"admin\" id=\"Admin\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\" value=\"admin\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Admin\">{{'SERVICE.HELPDESK.CREATETICKET.FORADMIN' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"bg-card shadow\" *ngIf=\"isTrackerSubmitted\">\n                <!-- Tower Information in Edit mode -->\n                <div class=\"row\" *ngIf=\"ticket.apartmentBlockUnitUserId && viewMode == 'edit'\">\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-5 text-center text-primary\">{{blockunitprimeName}}</h6>\n                    </div>\n                </div>\n                <!-- Ticket Id,Date and CreatedBy in Edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}</label>\n                            <p>{{ticket.ticketId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.DATEOFCREATION' | translate}}</label>\n                            <p>{{getTimeFormat(ticket.insertedOn)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.CREATEDBY' | translate}}</label>\n                            <p>{{ticket.insertedby_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.TICKETTYPE' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.TICKETTYPE' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketTypeId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketType($event)\" \n                            [isDisabled]=\"viewMode == 'edit' && isUser()\"\n                            [isClear] = \"isAdmin()\"\n                         ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"ticket.ticketTypeId\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.CATEGORY' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketCategoryList | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketCategoryId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketCategory($event)\" \n                            [isDisabled]=\"viewMode == 'edit' && isUser()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.PRIORITY' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.PRIORITY' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"priortyTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketPriorityId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setPriority($event)\" \n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                 <!-- supervisor in edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.SUPERVISOR' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.SUPERVISOR' | translate}}\"\n                            [fieldRequired]=\"'null'\"\n                            [fieldList]=\"staffsList  | orderBy : 'staffName'\"\n                            fieldValue=\"staffName\"\n                            [fieldModel]=\"ticket.supervisorId\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"setSupervisor($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- staff and status  -->\n                <div class=\"row\">\n                    <div class=\"col-sm-6\" *ngIf=\"createdBY == 'staff'|| createdBY == 'admin' || viewMode == 'edit'\">\n                        <condo-select \n                            [labelText]=\"stafflabel\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.STAFFLABEL' | translate}}\"\n                            [fieldRequired]=\" viewMode != 'edit' ?'required' : 'null'\"\n                            [fieldList]=\"getStaffList()  | orderBy : 'staffName'\"\n                            fieldValue=\"staffName\"\n                            [fieldModel]=\"ticket.staffId\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"setStaff($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\" viewMode == 'edit'\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.STATUS' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.STATUS' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"statusTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketStatusId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setStatus($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- block and unit in create Mode-->\n                <div class=\"row\" *ngIf=\"(createdBY == 'tenant' || createdBY == 'owner') && (viewMode != 'edit' && this.isAdmin())\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'SERVICE.HELPDESK.CREATETICKET.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'SERVICE.HELPDESK.CREATETICKET.UNITNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockUnitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.PRIMARYNAME' | translate}}</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.TEXT' | translate}}\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>{{createdBY == 'tenant' ? 'Tenant' : 'Owner'}} Name</label>\n                            <input type=\"text\" class=\"form-control\" name=\"tenantName\" [value]=\"primaryTenantName\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <!-- Description and upload File -->\n                <div class=\"row\">\n                    <div class=\"col-sm-8\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.SUBJECT' | translate}}<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.TEXT' | translate}}\" name=\"ticketSubject\" [(ngModel)]=\"ticket.title\" [disabled]=\"viewMode == 'edit' && !isAdmin()\" required>\n                            <help-tooltip title=\"ticketSubject\"></help-tooltip>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.DESCRIPTION' | translate}}<span class=\"required\">*</span></label>\n                            <textarea placeholder=\"{{'PLACEHOLDER.DESCRIPTION' | translate}}\" name=\"ticketDescription\" [(ngModel)]=\"ticket.description\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\t\n                        <div class=\"mb-5\">\n                            <app-upload [fileIds]=\"ticket.fileDetailsIds\" [isEdit]=\"viewMode == 'edit'\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"text-right\">\n                            <ng-container *ngIf=\"this.viewMode != 'edit'\">\n                                <button mat-flat-button  [color]=\"'primary'\" (click)=\"createTicket()\">{{'BUTTONS.CREATEBUTTON' | translate}}</button>\n                                <button class=\"ml-2\" mat-button (click)=\"createdByChange()\">{{'BUTTONS.CLEARBUTTON' | translate}}</button>\n                            </ng-container>\n                            <ng-container *ngIf=\"this.viewMode == 'edit'\">\n                                <button *ngIf=\"this.viewMode == 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"updateTicket()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</button>\n                                <button *ngIf=\"this.viewMode == 'edit'\" class=\"ml-2\" mat-button (click)=\"back()\">{{'BUTTONS.BACKBUTTON' | translate}}</button>\n                            </ng-container>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </form>\n\n        <!-- create comment box -->\n        <div class=\"bg-card shadow\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <form>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'SERVICE.HELPDESK.CREATETICKET.ADDCOMMENT' | translate}}</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"{{'PLACEHOLDER.SOMETEXT' | translate}}\" name=\"ticketComment\" [(ngModel)]=\"ticketComment\"\n\t\t\t\t\t\t\t\trequired></textarea>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'accent'\" [disabled]=\"ticketComment && ticketComment.length == 0\" (click)=\"createComment('comment')\">{{'BUTTONS.ADDCOMMENT' | translate}}</button>\n                    </div>\n\t\t\t\t</div>\n            </form>\n        </div>\n        <!-- comment List -->\n        <div class=\"timeline\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <ul>\n                <li  *ngFor=\"let data of ticketCommentList; let i=index\">\n                    <div class=\"content\">\n                        <div class=\"bg-card shadow\" [ngClass]=\"{'log-border': data.isLog}\">\n                            <div class=\"d-sm-flex\">\n                                <h6>{{data.insertedByName}}</h6>\n                                <span class=\"mt-2 mt-sm-0 ml-sm-3 text-secondary\">{{getTimeFormat(data.insertedOn)}}</span>\n                                <div class=\"mt-2 mt-sm-0 d-inline-block ml-3 status-badge bg-status-green-700 status-curve\">\n                                    <span class=\"font-bold text-status-green-900 text-uppercase\">{{data.insertedByRole}}</span>\n                                </div>\n                            </div>\n                            <p [innerHTML]=\"data.comments\" class=\"desp mt-2\"></p>\n                        </div>\n                    </div>\n                    <div class=\"initial-letter font-medium\" [ngClass]=\"i%2==0 ? 'bg-highlight-base' : 'bg-highlight-light'\">{{data.insertedByName | slice:0:2  | uppercase}}</div>        \n                    <!-- <div class=\"image\">\n                        <img src=\"assets/images/user-icon.svg\" width=\"32\"  height=\"32\"> \n                    </div> -->\n                </li>\n                <div class=\"clear\"></div>\n            </ul>\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"help-desk-create-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span *ngIf=\"viewMode != 'edit'\">{{'SERVICE.HELPDESK.CREATETICKET.CREATETITLE' | translate}}</span>\n            <span *ngIf=\"viewMode == 'edit'\">{{'SERVICE.HELPDESK.CREATETICKET.EDITTITLE' | translate}}</span>\n        </h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n        {{message.content}}\n        </condo-message>\n        <app-loader *ngIf=\"!isTrackerSubmitted\"></app-loader>\n        \n        <form #createHelpDeskForm=\"ngForm\" name=\"createHelpDeskForm\">\n            <!-- radio button in create Mode-->\n            <div class=\"bg-card shadow mb-3\" *ngIf=\"isTrackerSubmitted && isAdmin() && viewMode != 'edit'\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12 text-center\">\n                        <div class=\"input-box radio-box mb-0\">\n                            <h5 class=\"mt-3 mb-3\">{{'SERVICE.HELPDESK.CREATETICKET.TICKETFOR' | translate}}</h5>\n                            <div class=\"form-group\">\n                                <input  name=\"self\" id=\"Self\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"self\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Self\">{{'SERVICE.HELPDESK.CREATETICKET.FORSELF' | translate}}</label>\n                                </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"User\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"owner\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"User\">{{'SERVICE.HELPDESK.CREATETICKET.FOROWNER' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"tenant\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"tenant\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"tenant\">{{'SERVICE.HELPDESK.CREATETICKET.FORTENANT' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"staff\" id=\"Staff\" [(ngModel)]=\"createdBY\"  (change)=\"createdByChange()\" value=\"staff\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Staff\">{{'SERVICE.HELPDESK.CREATETICKET.FORSTAFF' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"admin\" id=\"Admin\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\" value=\"admin\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Admin\">{{'SERVICE.HELPDESK.CREATETICKET.FORADMIN' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"bg-card shadow\" *ngIf=\"isTrackerSubmitted\">\n                <!-- Tower Information in Edit mode -->\n                <div class=\"row\" *ngIf=\"ticket.apartmentBlockUnitUserId && viewMode == 'edit'\">\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-5 text-center text-primary\">{{blockunitprimeName}}</h6>\n                    </div>\n                </div>\n                <!-- Ticket Id,Date and CreatedBy in Edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.TICKETID' | translate}}</label>\n                            <p>{{ticket.ticketId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.DATEOFCREATION' | translate}}</label>\n                            <p>{{getTimeFormat(ticket.insertedOn)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.CREATEDBY' | translate}}</label>\n                            <p>{{ticket.insertedby_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.TICKETTYPE' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.TICKETTYPE' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketTypeId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketType($event)\" \n                            [isDisabled]=\"viewMode == 'edit' && isUser()\"\n                            [isClear] = \"isAdmin()\"\n                         ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"ticket.ticketTypeId\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.CATEGORY' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketCategoryList | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketCategoryId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketCategory($event)\" \n                            [isDisabled]=\"viewMode == 'edit' && isUser()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.PRIORITY' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.PRIORITY' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"priortyTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketPriorityId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setPriority($event)\" \n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                 <!-- supervisor in edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.SUPERVISOR' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.SUPERVISOR' | translate}}\"\n                            [fieldRequired]=\"'null'\"\n                            [fieldList]=\"staffsList  | orderBy : 'staffName'\"\n                            fieldValue=\"staffName\"\n                            [fieldModel]=\"ticket.supervisorId\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"setSupervisor($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- staff and status  -->\n                <div class=\"row\">\n                    <div class=\"col-sm-6\" *ngIf=\"createdBY == 'staff'|| createdBY == 'admin' || viewMode == 'edit'\">\n                        <condo-select \n                            [labelText]=\"stafflabel\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.STAFFLABEL' | translate}}\"\n                            [fieldRequired]=\" viewMode != 'edit' ?'required' : 'null'\"\n                            [fieldList]=\"getStaffList()  | orderBy : 'staffName'\"\n                            fieldValue=\"staffName\"\n                            [fieldModel]=\"ticket.staffId\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"setStaff($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\" viewMode == 'edit'\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.CREATETICKET.STATUS' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.STATUS' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"statusTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketStatusId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setStatus($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                            [isClear] = \"isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- block and unit in create Mode-->\n                <div class=\"row\" *ngIf=\"(createdBY == 'tenant' || createdBY == 'owner') && (viewMode != 'edit' && this.isAdmin())\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'SERVICE.HELPDESK.CREATETICKET.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'SERVICE.HELPDESK.CREATETICKET.UNITNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockUnitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.PRIMARYNAME' | translate}}</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.TEXT' | translate}}\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>{{createdBY == 'tenant' ? 'Tenant' : 'Owner'}} Name</label>\n                            <input type=\"text\" class=\"form-control\" name=\"tenantName\" [value]=\"primaryTenantName\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <!-- Description and upload File -->\n                <div class=\"row\">\n                    <div class=\"col-sm-8\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.SUBJECT' | translate}}<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.TEXT' | translate}}\" name=\"ticketSubject\" [(ngModel)]=\"ticket.title\" [disabled]=\"viewMode == 'edit' && !isAdmin()\" required>\n                            <help-tooltip title=\"ticketSubject\"></help-tooltip>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.CREATETICKET.DESCRIPTION' | translate}}<span class=\"required\">*</span></label>\n                            <textarea placeholder=\"{{'PLACEHOLDER.DESCRIPTION' | translate}}\" name=\"ticketDescription\" [(ngModel)]=\"ticket.description\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\t\n                        <div class=\"mb-5\">\n                            <app-upload [fileIds]=\"ticket.fileDetailsIds\" [isEdit]=\"viewMode == 'edit'\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"text-right\">\n                            <ng-container *ngIf=\"this.viewMode != 'edit'\">\n                                <button mat-flat-button  [color]=\"'primary'\" (click)=\"createTicket()\">{{'BUTTONS.CREATEBUTTON' | translate}}</button>\n                                <button class=\"ml-2\" mat-button (click)=\"resetField()\">{{'BUTTONS.CLEARBUTTON' | translate}}</button>\n                            </ng-container>\n                            <ng-container *ngIf=\"this.viewMode == 'edit'\">\n                                <button *ngIf=\"this.viewMode == 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"updateTicket()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</button>\n                                <button *ngIf=\"this.viewMode == 'edit'\" class=\"ml-2\" mat-button (click)=\"back()\">{{'BUTTONS.BACKBUTTON' | translate}}</button>\n                            </ng-container>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </form>\n\n        <!-- create comment box -->\n        <div class=\"bg-card shadow\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <form>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'SERVICE.HELPDESK.CREATETICKET.ADDCOMMENT' | translate}}</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"{{'PLACEHOLDER.SOMETEXT' | translate}}\" name=\"ticketComment\" [(ngModel)]=\"ticketComment\"\n\t\t\t\t\t\t\t\trequired></textarea>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'accent'\" [disabled]=\"ticketComment && ticketComment.length == 0\" (click)=\"createComment('comment')\">{{'BUTTONS.ADDCOMMENT' | translate}}</button>\n                    </div>\n\t\t\t\t</div>\n            </form>\n        </div>\n        <!-- comment List -->\n        <div class=\"timeline\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <ul>\n                <li  *ngFor=\"let data of ticketCommentList; let i=index\">\n                    <div class=\"content\">\n                        <div class=\"bg-card shadow\" [ngClass]=\"{'log-border': data.isLog}\">\n                            <div class=\"d-sm-flex\">\n                                <h6>{{data.insertedByName}}</h6>\n                                <span class=\"mt-2 mt-sm-0 ml-sm-3 text-secondary\">{{getTimeFormat(data.insertedOn)}}</span>\n                                <div class=\"mt-2 mt-sm-0 d-inline-block ml-3 status-badge bg-status-green-700 status-curve\">\n                                    <span class=\"font-bold text-status-green-900 text-uppercase\">{{data.insertedByRole}}</span>\n                                </div>\n                            </div>\n                            <p [innerHTML]=\"data.comments\" class=\"desp mt-2\"></p>\n                        </div>\n                    </div>\n                    <div class=\"initial-letter font-medium\" [ngClass]=\"i%2==0 ? 'bg-highlight-base' : 'bg-highlight-light'\">{{data.insertedByName | slice:0:2  | uppercase}}</div>        \n                    <!-- <div class=\"image\">\n                        <img src=\"assets/images/user-icon.svg\" width=\"32\"  height=\"32\"> \n                    </div> -->\n                </li>\n                <div class=\"clear\"></div>\n            </ul>\n        </div>\n    </div>\n</div>";
       /***/
     },
 
@@ -317,9 +317,37 @@
             this.ticket.ticketStatusId = event[0].lookupValueId;
           }
         }, {
+          key: "resetField",
+          value: function resetField() {
+            var _this2 = this;
+
+            var message = "Are you sure, you want to clear the data ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var radioName = _this2.createdBY;
+
+                _this2.form.reset();
+
+                _this2.ticket = {};
+                _this2.block = {};
+                _this2.ticketCategoryList = [];
+                _this2.blockUnitList = [];
+                _this2.createdBY = radioName;
+                if (_this2.createdBY == 'staff' || _this2.createdBY == 'admin') _this2.getStaff();
+              }
+            });
+          }
+        }, {
           key: "createdByChange",
           value: function createdByChange() {
             var radioName = this.createdBY;
+            this.form.reset();
             this.ticket = {};
             this.block = {};
             this.ticketCategoryList = [];
@@ -330,7 +358,7 @@
         }, {
           key: "getCategoryList",
           value: function getCategoryList(type) {
-            var _this2 = this;
+            var _this3 = this;
 
             if (type == 'change') this.ticket.ticketCategoryId = ""; //24 is common type so we passed 17
             //27 is private type so we passed 16
@@ -345,13 +373,13 @@
             }
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this2.ticketCategoryList = res;
+              _this3.ticketCategoryList = res;
             });
           }
         }, {
           key: "back",
           value: function back() {
-            var _this3 = this;
+            var _this4 = this;
 
             var message = "Are you sure, you want to exit the screen ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
@@ -362,10 +390,10 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                if (_this3.isAdmin()) _this3.router.navigate([_this3.pageComingFrom], {
-                  relativeTo: _this3.acticateRoute.parent
-                });else _this3.router.navigate(['my-tickets'], {
-                  relativeTo: _this3.acticateRoute.parent
+                if (_this4.isAdmin()) _this4.router.navigate([_this4.pageComingFrom], {
+                  relativeTo: _this4.acticateRoute.parent
+                });else _this4.router.navigate(['my-tickets'], {
+                  relativeTo: _this4.acticateRoute.parent
                 });
               }
             });
@@ -441,19 +469,19 @@
         }, {
           key: "getTenantOrTower",
           value: function getTenantOrTower() {
-            var _this4 = this;
+            var _this5 = this;
 
             var tower = {
               apartmentId: this.sessionService.apartmentId,
               blockUnitId: this.block.apartmentBlockUnitId
             };
             this.apartmentService.getUnitOwnerTenantByBlockUnitId(tower).subscribe(function (res) {
-              if (_this4.createdBY == 'owner') {
+              if (_this5.createdBY == 'owner') {
                 var ownerInfo = res[0].owner;
-                if (ownerInfo && ownerInfo.length > 0) _this4.primaryTenantName = ownerInfo[0].owner_name;else _this4.primaryTenantName = '';
-              } else if (_this4.createdBY == 'tenant') {
+                if (ownerInfo && ownerInfo.length > 0) _this5.primaryTenantName = ownerInfo[0].owner_name;else _this5.primaryTenantName = '';
+              } else if (_this5.createdBY == 'tenant') {
                 var tenantInfo = res[0].tenant;
-                if (tenantInfo && tenantInfo.length > 0) _this4.primaryTenantName = tenantInfo[0].tenant_name;else _this4.primaryTenantName = '';
+                if (tenantInfo && tenantInfo.length > 0) _this5.primaryTenantName = tenantInfo[0].tenant_name;else _this5.primaryTenantName = '';
               }
             });
           }
@@ -465,7 +493,7 @@
         }, {
           key: "createTicket",
           value: function createTicket() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.message = null;
 
@@ -513,31 +541,31 @@
               };
               this.ticketService.addTicket(params).subscribe(function (res) {
                 if (res.message) {
-                  if (_this5.isAdmin()) {
-                    _this5.router.navigate(['open-tickets'], {
-                      relativeTo: _this5.acticateRoute.parent
+                  if (_this6.isAdmin()) {
+                    _this6.router.navigate(['open-tickets'], {
+                      relativeTo: _this6.acticateRoute.parent
                     });
                   } else {
-                    _this5.router.navigate(['my-tickets'], {
-                      relativeTo: _this5.acticateRoute.parent
+                    _this6.router.navigate(['my-tickets'], {
+                      relativeTo: _this6.acticateRoute.parent
                     });
                   }
 
-                  _this5.sharedService.openSnackBar('Ticket added successfully', 'success');
+                  _this6.sharedService.openSnackBar('Ticket added successfully', 'success');
                 }
 
-                _this5.isTrackerSubmitted = true;
+                _this6.isTrackerSubmitted = true;
               }, function (error) {
-                _this5.isTrackerSubmitted = true;
+                _this6.isTrackerSubmitted = true;
 
-                _this5.sharedService.openSnackBar('Server Error', 'error');
+                _this6.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateTicket",
           value: function updateTicket() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.message = null;
 
@@ -585,83 +613,83 @@
               };
               this.ticketService.updateTicket(params).subscribe(function (res) {
                 if (res.message) {
-                  _this6.sharedService.openSnackBar(res.message, 'success'); //comment section
+                  _this7.sharedService.openSnackBar(res.message, 'success'); //comment section
 
 
-                  _this6.ticketComment = '';
+                  _this7.ticketComment = '';
 
                   for (var key in params.ticket) {
-                    if (params.ticket[key] != _this6.oldData[key]) {
-                      if (key == 'ticketPriorityId') _this6.ticketComment += "Priority has been changed from ".concat(_this6.getLabel(_this6.oldData[key], _this6.priortyTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.priortyTypeList), "<br>");else if (key == 'ticketTypeId') _this6.ticketComment += "Ticket Type has been changed from ".concat(_this6.getLabel(_this6.oldData[key], _this6.ticketTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.ticketTypeList), "<br>");else if (key == 'ticketCategoryId') {
-                        if ("".concat(_this6.getLabel(_this6.oldData[key], _this6.ticketCategoryList), " === ''")) {
-                          _this6.ticketComment += "Category has been changed from ".concat(_this6.getLabel(_this6.oldData[key], _this6.ticketOldCategoryList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.ticketCategoryList), "<br>");
+                    if (params.ticket[key] != _this7.oldData[key]) {
+                      if (key == 'ticketPriorityId') _this7.ticketComment += "Priority has been changed from ".concat(_this7.getLabel(_this7.oldData[key], _this7.priortyTypeList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.priortyTypeList), "<br>");else if (key == 'ticketTypeId') _this7.ticketComment += "Ticket Type has been changed from ".concat(_this7.getLabel(_this7.oldData[key], _this7.ticketTypeList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.ticketTypeList), "<br>");else if (key == 'ticketCategoryId') {
+                        if ("".concat(_this7.getLabel(_this7.oldData[key], _this7.ticketCategoryList), " === ''")) {
+                          _this7.ticketComment += "Category has been changed from ".concat(_this7.getLabel(_this7.oldData[key], _this7.ticketOldCategoryList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.ticketCategoryList), "<br>");
                         } else {
-                          _this6.ticketComment += "Category has been changed from ".concat(_this6.getLabel(_this6.oldData[key], _this6.ticketCategoryList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.ticketCategoryList), "<br>");
+                          _this7.ticketComment += "Category has been changed from ".concat(_this7.getLabel(_this7.oldData[key], _this7.ticketCategoryList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.ticketCategoryList), "<br>");
                         }
-                      } else if (key == 'title') _this6.ticketComment += "Subject has been updated<br>";else if (key == 'fileDetailsIds') _this6.ticketComment += "New Image/Document has been attached <br>";else if (key == 'description') _this6.ticketComment += "Description has been updated<br>";else if (key == 'ticketStatusId') {
-                        _this6.ticketComment += "Status has been changed from ".concat(_this6.getLabel(_this6.oldData[key], _this6.statusTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.statusTypeList), "<br>");
+                      } else if (key == 'title') _this7.ticketComment += "Subject has been updated<br>";else if (key == 'fileDetailsIds') _this7.ticketComment += "New Image/Document has been attached <br>";else if (key == 'description') _this7.ticketComment += "Description has been updated<br>";else if (key == 'ticketStatusId') {
+                        _this7.ticketComment += "Status has been changed from ".concat(_this7.getLabel(_this7.oldData[key], _this7.statusTypeList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.statusTypeList), "<br>");
                       } else if (key == 'supervisorId') {
-                        if ("".concat(_this6.getLabelSupervisor(_this6.oldData[key], _this6.staffsList)) === '') {
-                          _this6.ticketComment += "Supervisor has been assigned to ".concat(_this6.getLabelSupervisor(params.ticket[key], _this6.staffsList), "<br>");
+                        if ("".concat(_this7.getLabelSupervisor(_this7.oldData[key], _this7.staffsList)) === '') {
+                          _this7.ticketComment += "Supervisor has been assigned to ".concat(_this7.getLabelSupervisor(params.ticket[key], _this7.staffsList), "<br>");
                         } else {
-                          _this6.ticketComment += "Supervisor has been changed from ".concat(_this6.getLabelSupervisor(_this6.oldData[key], _this6.staffsList), " to ").concat(_this6.getLabelSupervisor(params.ticket[key], _this6.staffsList), "<br>");
+                          _this7.ticketComment += "Supervisor has been changed from ".concat(_this7.getLabelSupervisor(_this7.oldData[key], _this7.staffsList), " to ").concat(_this7.getLabelSupervisor(params.ticket[key], _this7.staffsList), "<br>");
                         }
                       } else if (key == 'staffId') {
-                        if ("".concat(_this6.getLabelStaff(_this6.oldData[key], _this6.staffsList)) === '') {
-                          _this6.ticketComment += "Ticket Staff has been assigned to ".concat(_this6.getLabelStaff(params.ticket[key], _this6.staffsList), "<br>");
+                        if ("".concat(_this7.getLabelStaff(_this7.oldData[key], _this7.staffsList)) === '') {
+                          _this7.ticketComment += "Ticket Staff has been assigned to ".concat(_this7.getLabelStaff(params.ticket[key], _this7.staffsList), "<br>");
                         } else {
-                          _this6.ticketComment += "Ticket Staff has been changed from ".concat(_this6.getLabelStaff(_this6.oldData[key], _this6.staffsList), " to ").concat(_this6.getLabelStaff(params.ticket[key], _this6.staffsList), "<br>");
+                          _this7.ticketComment += "Ticket Staff has been changed from ".concat(_this7.getLabelStaff(_this7.oldData[key], _this7.staffsList), " to ").concat(_this7.getLabelStaff(params.ticket[key], _this7.staffsList), "<br>");
                         }
                       }
                     }
                   }
 
-                  if (_this6.ticketComment.length > 0) {
-                    _this6.oldData = params.ticket;
+                  if (_this7.ticketComment.length > 0) {
+                    _this7.oldData = params.ticket;
 
-                    _this6.createComment('log');
+                    _this7.createComment('log');
                   }
 
-                  if (_this6.ticket.ticketStatusId != 32) {
-                    _this6.statusTypeList = _this6.statusTypeList.filter(function (status) {
+                  if (_this7.ticket.ticketStatusId != 32) {
+                    _this7.statusTypeList = _this7.statusTypeList.filter(function (status) {
                       return status.lookupValueId != 32;
                     });
                   }
 
-                  if (_this6.isAdmin()) {
-                    if (_this6.ticket.ticketStatusId === 33) {
-                      _this6.router.navigate(['open-tickets'], {
-                        relativeTo: _this6.acticateRoute.parent
+                  if (_this7.isAdmin()) {
+                    if (_this7.ticket.ticketStatusId === 33) {
+                      _this7.router.navigate(['open-tickets'], {
+                        relativeTo: _this7.acticateRoute.parent
                       });
-                    } else if (_this6.ticket.ticketStatusId === 46) {
-                      _this6.router.navigate(['closed-tickets'], {
-                        relativeTo: _this6.acticateRoute.parent
+                    } else if (_this7.ticket.ticketStatusId === 46) {
+                      _this7.router.navigate(['closed-tickets'], {
+                        relativeTo: _this7.acticateRoute.parent
                       });
-                    } else if (_this6.ticket.ticketStatusId === 45) {
-                      _this6.router.navigate(['resolved-tickets'], {
-                        relativeTo: _this6.acticateRoute.parent
+                    } else if (_this7.ticket.ticketStatusId === 45) {
+                      _this7.router.navigate(['resolved-tickets'], {
+                        relativeTo: _this7.acticateRoute.parent
                       });
-                    } else if (_this6.ticket.ticketStatusId === 34) {
-                      _this6.router.navigate(['on-hold'], {
-                        relativeTo: _this6.acticateRoute.parent
+                    } else if (_this7.ticket.ticketStatusId === 34) {
+                      _this7.router.navigate(['on-hold'], {
+                        relativeTo: _this7.acticateRoute.parent
                       });
                     } else {
-                      _this6.router.navigate(['open-tickets'], {
-                        relativeTo: _this6.acticateRoute.parent
+                      _this7.router.navigate(['open-tickets'], {
+                        relativeTo: _this7.acticateRoute.parent
                       });
                     }
                   } else {
-                    _this6.router.navigate(['my-tickets'], {
-                      relativeTo: _this6.acticateRoute.parent
+                    _this7.router.navigate(['my-tickets'], {
+                      relativeTo: _this7.acticateRoute.parent
                     });
                   }
-                } else _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                } else _this7.sharedService.openSnackBar(res.errorMessage, 'error');
 
-                _this6.isTrackerSubmitted = true;
+                _this7.isTrackerSubmitted = true;
               }, function (error) {
-                _this6.isTrackerSubmitted = true;
+                _this7.isTrackerSubmitted = true;
 
-                _this6.sharedService.openSnackBar('Server Error', 'error');
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -692,7 +720,7 @@
         }, {
           key: "createComment",
           value: function createComment(type) {
-            var _this7 = this;
+            var _this8 = this;
 
             var comment = this.ticketComment.trim();
 
@@ -711,37 +739,37 @@
               };
               this.ticketService.addTicketComment(commentDetails).subscribe(function (res) {
                 if (res.code == 200) {
-                  _this7.getCommentList();
+                  _this8.getCommentList();
 
-                  _this7.ticketComment = '';
+                  _this8.ticketComment = '';
 
                   if (type != 'log') {
-                    _this7.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                    _this8.sharedService.openSnackBar('Comment Added Successfully', 'success');
                   }
-                } else _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                } else _this8.sharedService.openSnackBar(res.errorMessage, 'error');
               }, function (error) {
-                _this7.sharedService.openSnackBar('Server Error', 'error');
+                _this8.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "getCommentList",
           value: function getCommentList() {
-            var _this8 = this;
+            var _this9 = this;
 
             var params = {
               ticketId: this.ticketId
             };
             this.ticketService.getAllTicketCommentsByTicketId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this8.ticketCommentList = res.reverse();
+                _this9.ticketCommentList = res.reverse();
               }
             });
           }
         }, {
           key: "getStaff",
           value: function getStaff() {
-            var _this9 = this;
+            var _this10 = this;
 
             var staffParms = {};
 
@@ -755,14 +783,14 @@
 
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
-                _this9.roleTypeStaffsList = res;
+                _this10.roleTypeStaffsList = res;
 
-                _this9.roleTypeStaffsList.forEach(function (item) {
+                _this10.roleTypeStaffsList.forEach(function (item) {
                   item.customLabel = "".concat(item.staffName, ", ").concat(item.roleName, " - ").concat(item.staffCategoryName);
                 });
 
-                if (_this9.viewMode == 'edit') {
-                  _this9.staffsList = _this9.roleTypeStaffsList;
+                if (_this10.viewMode == 'edit') {
+                  _this10.staffsList = _this10.roleTypeStaffsList;
                 }
               }
             });
@@ -775,17 +803,17 @@
         }, {
           key: "getStatus",
           value: function getStatus() {
-            var _this10 = this;
+            var _this11 = this;
 
             var statusParams = {
               LookupTypeId: 9,
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-              if (_this10.ticket.ticketStatusId == 32) {
-                _this10.statusTypeList = res;
+              if (_this11.ticket.ticketStatusId == 32) {
+                _this11.statusTypeList = res;
               } else {
-                _this10.statusTypeList = res.filter(function (status) {
+                _this11.statusTypeList = res.filter(function (status) {
                   return status.lookupValueId != 32;
                 });
               }
@@ -794,11 +822,11 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              _this11.timeZone = timeZone;
-              console.log(_this11.timeZone);
+              _this12.timeZone = timeZone;
+              console.log(_this12.timeZone);
             }); // Login Based View for admin or owner
 
             if (!this.isAdmin()) {
@@ -812,7 +840,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(ticketTypeParams).subscribe(function (res) {
-              _this11.ticketTypeList = res;
+              _this12.ticketTypeList = res;
             }); //priorityList
 
             var priority = {
@@ -820,7 +848,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
-              _this11.priortyTypeList = res;
+              _this12.priortyTypeList = res;
             }); //Edit Mode
 
             if (this.viewMode == 'edit') {
@@ -831,36 +859,36 @@
                 var _a = res[0],
                     fileDetailsPath = _a.fileDetailsPath,
                     response = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["fileDetailsPath"]);
-                _this11.ticket = response;
-                _this11.ticketOldTypeId = response.ticketTypeId;
+                _this12.ticket = response;
+                _this12.ticketOldTypeId = response.ticketTypeId;
 
-                _this11.getStatus(); //Get File Information
+                _this12.getStatus(); //Get File Information
 
 
                 if (fileDetailsPath && fileDetailsPath.length > 0) {
-                  _this11.ticket.fileDetailsIds = fileDetailsPath.reduce(function (acc, file, index) {
+                  _this12.ticket.fileDetailsIds = fileDetailsPath.reduce(function (acc, file, index) {
                     if (index == 0) {
                       return "".concat(file.fileDetailsId);
                     } else {
                       return "".concat(acc, ",").concat(file.fileDetailsId);
                     }
                   }, '');
-                } else _this11.ticket.fileDetailsIds = null; //owner or tenant edit mode
+                } else _this12.ticket.fileDetailsIds = null; //owner or tenant edit mode
 
 
-                if (_this11.ticket.apartmentBlockUnitUserId) {
-                  _this11.createdBY = 'owner';
-                  _this11.blockunitprimeName = "".concat(_this11.ticket.tower_Unit, " ").concat(_this11.ticket.primaryContactName);
+                if (_this12.ticket.apartmentBlockUnitUserId) {
+                  _this12.createdBY = 'owner';
+                  _this12.blockunitprimeName = "".concat(_this12.ticket.tower_Unit, " ").concat(_this12.ticket.primaryContactName);
                 } //staff Edit Mode
 
 
-                if (_this11.ticket.staffId) {
-                  _this11.createdBY = 'staff';
+                if (_this12.ticket.staffId) {
+                  _this12.createdBY = 'staff';
                 }
 
-                _this11.oldData = Object.assign({}, _this11.ticket); //log info
+                _this12.oldData = Object.assign({}, _this12.ticket); //log info
 
-                _this11.getCategoryList('edit');
+                _this12.getCategoryList('edit');
               });
               this.getCommentList();
               this.getStaff();
@@ -870,18 +898,18 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-                _this11.blockList = res;
+                _this12.blockList = res;
               });
             }
           }
         }, {
           key: "stafflabel",
           get: function get() {
-            var _this12 = this;
+            var _this13 = this;
 
             var retlabel = "";
             this.translateService.get('SERVICE.HELPDESK.CREATETICKET').subscribe(function (data) {
-              if (_this12.viewMode != 'edit' && _this12.createdBY == 'staff') retlabel = "".concat(data.TICKETFORSTAFF);else if (_this12.viewMode != 'edit' && _this12.createdBY == 'admin') retlabel = "".concat(data.TICKETFORADMIN);else if (_this12.viewMode == 'edit') retlabel = "".concat(data.ASSIGNEDSTAFF);
+              if (_this13.viewMode != 'edit' && _this13.createdBY == 'staff') retlabel = "".concat(data.TICKETFORSTAFF);else if (_this13.viewMode != 'edit' && _this13.createdBY == 'admin') retlabel = "".concat(data.TICKETFORADMIN);else if (_this13.viewMode == 'edit') retlabel = "".concat(data.ASSIGNEDSTAFF);
             });
             return retlabel;
           }
@@ -1124,7 +1152,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this13 = this;
+            var _this14 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1137,7 +1165,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1148,7 +1176,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.goBack();
             this.isTicketDataLoaded = false;
@@ -1159,7 +1187,7 @@
               assigntoStaffId: this.filterData.staff
             };
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
-              _this14.isTicketDataLoaded = true;
+              _this15.isTicketDataLoaded = true;
 
               if (res.length > 0) {
                 res.sort(function (a, b) {
@@ -1169,13 +1197,13 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.totalItems = ticketInfo.localdata.length;
-                _this14.ticketListData = new jqx.dataAdapter(ticketInfo);
+                _this15.totalItems = ticketInfo.localdata.length;
+                _this15.ticketListData = new jqx.dataAdapter(ticketInfo);
               }
             }, function (error) {
-              _this14.isTicketDataLoaded = true;
+              _this15.isTicketDataLoaded = true;
 
-              _this14.sharedService.openSnackBar('Server Error', 'error');
+              _this15.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -1195,7 +1223,7 @@
         }, {
           key: "getTicketByAdmin",
           value: function getTicketByAdmin() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isTicketDataLoaded = false;
             var params = {
@@ -1219,35 +1247,6 @@
             }
 
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
-              _this15.isTicketDataLoaded = true;
-
-              if (res.length > 0) {
-                res.sort(function (a, b) {
-                  return b.serialNo - a.serialNo;
-                });
-                var ticketInfo = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this15.totalItems = ticketInfo.localdata.length;
-                _this15.ticketListData = new jqx.dataAdapter(ticketInfo);
-              }
-            }, function (error) {
-              _this15.isTicketDataLoaded = true;
-
-              _this15.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "getTicketByAssignedUser",
-          value: function getTicketByAssignedUser() {
-            var _this16 = this;
-
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId
-            };
-            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this16.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -1255,7 +1254,7 @@
                   return b.serialNo - a.serialNo;
                 });
                 var ticketInfo = {
-                  localdata: res.reverse(),
+                  localdata: res,
                   datatype: "array"
                 };
                 _this16.totalItems = ticketInfo.localdata.length;
@@ -1268,15 +1267,15 @@
             });
           }
         }, {
-          key: "getTicketsByUser",
-          value: function getTicketsByUser() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this17 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+              userId: this.sessionService.userId
             };
-            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this17.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -1297,15 +1296,44 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this18 = this;
 
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+            };
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+              _this18.isTicketDataLoaded = true;
+
+              if (res.length > 0) {
+                res.sort(function (a, b) {
+                  return b.serialNo - a.serialNo;
+                });
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this18.totalItems = ticketInfo.localdata.length;
+                _this18.ticketListData = new jqx.dataAdapter(ticketInfo);
+              }
+            }, function (error) {
+              _this18.isTicketDataLoaded = true;
+
+              _this18.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this19 = this;
+
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this18.timeZone = timeZone;
+              return _this19.timeZone = timeZone;
             });
             this.activateRouter.url.subscribe(function (data) {
-              _this18.urlType = data[0].path;
+              _this19.urlType = data[0].path;
             });
 
             if (this.isAdmin()) {
@@ -1416,7 +1444,7 @@
               text: 'Date Requested',
               datafield: 'insertedOn',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this18.timeZone.region).format(_this18.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this19.timeZone.region).format(_this19.timeZone.time) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1442,7 +1470,7 @@
                   res.forEach(function (ele) {
                     ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-                  _this18.staffsList = res;
+                  _this19.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -1453,7 +1481,7 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this18.ticketStatusList = res;
+                _this19.ticketStatusList = res;
               });
             }
           }
@@ -1986,7 +2014,7 @@
         }, {
           key: "getTicketList",
           value: function getTicketList() {
-            var _this19 = this;
+            var _this20 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
@@ -1997,42 +2025,42 @@
                 res.sort(function (a, b) {
                   return b.serialNo - a.serialNo;
                 });
-                _this19.fullticketDataList = res;
+                _this20.fullticketDataList = res;
 
-                _this19.ticketDataList.next(_this19.fullticketDataList);
+                _this20.ticketDataList.next(_this20.fullticketDataList);
               }
 
-              _this19.isDataLoaded = true;
+              _this20.isDataLoaded = true;
             }, function (error) {
-              _this19.isDataLoaded = true;
+              _this20.isDataLoaded = true;
 
-              _this19.sharedService.openSnackBar('Server Error', 'error');
+              _this20.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this20.timeZone = timeZone;
+              return _this21.timeZone = timeZone;
             });
             this.getTicketList();
             this.ticketListData$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(function (res) {
               return res != null;
             })).subscribe(function (res) {
-              _this20.totalItems = res.length;
-              _this20.ItemStartIndex = 0;
+              _this21.totalItems = res.length;
+              _this21.ItemStartIndex = 0;
 
-              if (_this20.totalItems > _this20.itemLimit) {
-                _this20.ItemEndIndex = _this20.itemLimit;
+              if (_this21.totalItems > _this21.itemLimit) {
+                _this21.ItemEndIndex = _this21.itemLimit;
               } else {
-                _this20.ItemEndIndex = _this20.totalItems;
+                _this21.ItemEndIndex = _this21.totalItems;
               }
             }); // Subscribe to search input field value changes
 
             this.searchData.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (val) {
-              var newData = _this20.fullticketDataList.filter(function (item) {
+              var newData = _this21.fullticketDataList.filter(function (item) {
                 for (var field in item) {
                   if (item[field] === null || item[field] === undefined) {
                     continue;
@@ -2044,7 +2072,7 @@
                 }
               });
 
-              _this20.ticketDataList.next(newData.reverse());
+              _this21.ticketDataList.next(newData.reverse());
             })).subscribe();
           }
         }, {

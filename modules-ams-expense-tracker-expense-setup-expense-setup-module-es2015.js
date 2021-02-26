@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-tracker-setup-general-wrapper mt-3\">\n    <form>\n        <mat-accordion>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <div class=\"input-box\">\n                                <label>% TAX</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"TAX\" [(ngModel)]=\"taxData.lookupValueName\" \n                                name=\"taxPercentage\" [disabled]=\"isEditTax\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTax\" (click)=\"isEditTax = !isEditTax\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTax\" (click)=\"saveTax()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select With Holding TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                        <app-loader *ngIf=\"!isTaxLoader\"></app-loader>\n                        <div class=\"row\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n                            <div class=\"col-sm-10\">\n                                <div class=\"d-flex\">\n                                    <div class=\"input-box mr-2\">\n                                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Tax ...\" name=\"taxHolding\" [(ngModel)]=\"taxHoldData.lookupValueName\">\n                                    </div>\n                                    <button *ngIf=\"clickMode == 'create'\" mat-flat-button [color]=\"'primary'\" (click)=\"saveTaxHolding()\">Save</button>\n                                    <button *ngIf=\"clickMode == 'edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"updateTaxHolding()\">Update</button>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-2\">\n                                <div class=\"text-right\">\n                                    <button *ngIf=\"clickMode == 'edit' || clickMode == 'create'\"  mat-button [color]=\"'accent'\" (click)=\"showHoldingTax('')\">Cancel</button>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\" *ngIf=\"clickMode == ''\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"text-right\">\n                                    <button  mat-flat-button [color]=\"'accent'\" (click)=\"showHoldingTax('create')\">\n                                        <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\" *ngIf=\"isTaxLoader\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex flex-wrap\">\n                                    <div class=\"mr-3 mb-2 tax-chips d-flex\" *ngFor=\"let item of taxHoldingList;let i= index\">\n                                        <p class=\"pt-1 mr-5 pr-5\">{{ item.lookupValueName }}</p>\n                                        <mat-icon [color]=\"'primary'\" svgIcon=\"feather:edit\" class=\"mr-2 align-self-center link\" (click)=\"editTaxHolding(item)\"></mat-icon>\n                                        <mat-icon [color]=\"'warn'\" svgIcon=\"feather:x-circle\" class=\"align-self-center link\" (click)=\"deleteTaxHolding(item,i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </form>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-tracker-setup-general-wrapper mt-3\">\n    <form>\n        <mat-accordion>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <div class=\"input-box\">\n                                <label>% TAX</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"TAX\" [(ngModel)]=\"taxData.lookupValueName\" \n                                name=\"taxPercentage\" [disabled]=\"isEditTax\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTax\" (click)=\"isEditTax = !isEditTax\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTax\" (click)=\"saveTax()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select With Holding TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                        <app-loader *ngIf=\"!isTaxLoader\"></app-loader>\n                        <div class=\"row\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n                            <div class=\"col-sm-10\">\n                                <div class=\"d-flex\">\n                                    <div class=\"input-box mr-2\">\n                                        <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Tax ...\" name=\"taxHolding\" [(ngModel)]=\"taxHoldData.lookupValueName\">\n                                    </div>\n                                    <button *ngIf=\"clickMode == 'create'\" mat-flat-button [color]=\"'primary'\" (click)=\"saveTaxHolding()\">Save</button>\n                                    <button *ngIf=\"clickMode == 'edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"updateTaxHolding()\">Update</button>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-2\">\n                                <div class=\"text-right\">\n                                    <button *ngIf=\"clickMode == 'edit' || clickMode == 'create'\"  mat-button [color]=\"'accent'\" (click)=\"showHoldingTax('')\">Cancel</button>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\" *ngIf=\"clickMode == ''\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"text-right\">\n                                    <button  mat-flat-button [color]=\"'accent'\" (click)=\"showHoldingTax('create')\">\n                                        <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\" *ngIf=\"isTaxLoader\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex flex-wrap\">\n                                    <div class=\"mr-3 mb-2 tax-chips d-flex\" *ngFor=\"let item of taxHoldingList;let i= index\">\n                                        <p class=\"pt-1 mr-5 pr-5\">{{ item.lookupValueName }}</p>\n                                        <mat-icon [color]=\"'primary'\" svgIcon=\"feather:edit\" class=\"mr-2 align-self-center link\" (click)=\"editTaxHolding(item)\"></mat-icon>\n                                        <mat-icon [color]=\"'warn'\" svgIcon=\"feather:x-circle\" class=\"align-self-center link\" (click)=\"deleteTaxHolding(item,i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Accounts Payable (Liability)</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Accounts Payable\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"accountPayableList | orderBy : 'glaccountName'\"\n                                fieldValue=\"customLabel\"\n                                [fieldModel]=\"accountPayableId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setAccountPayable($event,13)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </form>\n</div>");
 
 /***/ }),
 
@@ -222,6 +222,8 @@ let ExpenseTrackerSetupGeneralComponent = class ExpenseTrackerSetupGeneralCompon
         this.taxHoldingList = [];
         this.isTaxLoader = false;
         this.clickMode = '';
+        this.accountPayableList = [];
+        this.accountPayable = {};
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     //Tax
@@ -374,9 +376,112 @@ let ExpenseTrackerSetupGeneralComponent = class ExpenseTrackerSetupGeneralCompon
         };
         this.modalService.showConfirmModal(params);
     }
+    // Account Payable
+    setAccountPayable(event, offSetAccId) {
+        this.accountPayableId = event[0].glaccountId;
+        this.upsertCustAccount(this.accountPayableId, offSetAccId, this.accountPayable);
+    }
+    // GL Account
+    upsertCustAccount(glaccountId, offSetAccId, accountInfo) {
+        if (glaccountId) {
+            let list = [];
+            if (offSetAccId == 13) {
+                list = this.accountPayableList;
+            }
+            let data = list.filter(item => {
+                return item.glaccountId == glaccountId;
+            });
+            let params = {
+                custAccount: {
+                    "custAccountId": accountInfo.custAccountId ? accountInfo.custAccountId : 0,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "glaccountId": Number(glaccountId),
+                    "comment": data[0].glaccountName,
+                    "isActive": true,
+                    "insertedBy": accountInfo.insertedBy ? accountInfo.insertedBy : this.sessionService.userId,
+                    "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                    "updatedBy": accountInfo.custAccountId ? this.sessionService.userId : null,
+                    "updatedOn": accountInfo.custAccountId ? moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString() : null,
+                    "gloffsetaccountId": offSetAccId
+                }
+            };
+            if (accountInfo.custAccountId) { //edit
+                this.accountsService.updateCustAccount(params).subscribe((res) => {
+                    if (res.code == 200) {
+                        this.sharedService.openSnackBar(res.responseData.value.message, 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+            else { //create
+                this.accountsService.addCustAccount(params).subscribe((res) => {
+                    if (res.message) {
+                        this.getSelectedAccount();
+                        this.sharedService.openSnackBar('Account Added Successfully', 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+        }
+        else {
+            //delete CustAccountId
+            let params = {
+                glAccountId: Number(accountInfo.custAccountId),
+                deleteBy: this.sessionService.userId,
+            };
+            this.accountsService.deleteCustAccount(params).subscribe((res) => {
+                if (res.code == 200) {
+                    if (offSetAccId == 13)
+                        this.accountPayable = {};
+                    this.sharedService.openSnackBar(res.responseData.value.message, 'success');
+                }
+                else {
+                    this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
+            });
+        }
+    }
+    getSelectedAccount() {
+        this.accountsService.getAllCustAccounts().subscribe((res) => {
+            if (res.length > 0) {
+                for (let account of res) {
+                    if (account.gloffsetaccountId == 13) {
+                        this.accountPayable = account;
+                        this.accountPayableId = account.glaccountId;
+                    }
+                }
+            }
+        });
+    }
     ngOnInit() {
         this.getCustomerTaxList();
         this.getHoldingTax();
+        this.getSelectedAccount();
+        //DropDown For Accounts Payable
+        let securityCustomerparams = {
+            apartmentId: this.sessionService.apartmentId,
+            GLAccountTypeId: 164
+        };
+        this.accountsService.getGlAccountsIdbyGlAccountTypeId(securityCustomerparams).subscribe((res) => {
+            if (Array.isArray(res)) {
+                let accountPayable = [];
+                res.forEach((data) => {
+                    data.customLabel = `${data.glaccountName} ${data.glaccountNumber}`;
+                    accountPayable.push(data);
+                });
+                this.accountPayableList = accountPayable;
+            }
+        });
         //delete item
         this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(item => {
             if (item != null) {

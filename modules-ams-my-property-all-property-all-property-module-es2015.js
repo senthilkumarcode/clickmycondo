@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-attendance-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" mode=\"over\" position=\"end\">\n\t\t\t<div class=\"view-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> View Details </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <h4 class=\"mb-4\">Property List</h4>\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <form>\n                    <div class=\"bg-card shadow\" *ngFor=\"let data of propertyList;let i = index\">\n                        <div class=\"d-sm-flex justify-content-sm-between\">\n                            <div class=\"d-flex align-items-sm-center\">\n                                <div class=\"apartment-logo mr-4\">\n                                    <img [src]=\"data.imageId\">\n                                </div>\n                                <div>\n                                    <h5 [ngClass]=\"{'text-primary':apartmentId == data.apartmentId}\">{{data.apartmentName}}</h5>\n                                    <p>{{data.builderName}}</p>\n                                    <p class=\"text-muted\">{{data.address1}} {{data.address2}}</p>\n                                    <p class=\"text-muted\">{{data.city}} {{data.location}}</p>\n                                </div>\n                            </div>\n                            <!-- <div class=\"switch-view-btn mt-5 mt-sm-0\">\n                                <div class=\"mb-5\">\n                                    <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">View Details</button>\n                                </div>\n                                <div class=\"d-flex justify-content-end\"> \n                                    <div class=\"custom-checkbox\">\n                                        <label class=\"custom-switch custom-switch-flat\">\n                                            <input class=\"custom-switch-input\" type=\"checkbox\" id=\"switchCondo{{i}}\" name=\"switchCondo{{i}}\" [(ngModel)]=\"apartmentId == data.apartmentId\" (change)=\"switchCondo(data,$event)\" />\n                                            <span class=\"custom-switch-label\" data-on=\"On\" data-off=\"Off\"></span> \n                                            <span class=\"custom-switch-handle\"></span> \n                                        </label>\n                                    </div> \n                                </div>\n                            </div> -->\n                            <div class=\"switch-view-btn mt-5\">\n                                <div class=\"mb-4\">\n                                    <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">View Details</button>\n                                </div>\n                                <div>\n                                    <div class=\"status-box bg-status-green-700\" *ngIf=\"apartmentId == data.apartmentId\">\n                                        <p class=\"font-bold text-uppercase text-status-green-900\">Selected</p>\n                                    </div>\n                                    <button *ngIf=\"apartmentId != data.apartmentId\" mat-flat-button [color]=\"'primary'\" (click)=\"switchCondo(data)\">Switch Condo</button> \n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-attendance-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" mode=\"over\" position=\"end\">\n\t\t\t<div class=\"view-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> View Details </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n                </div>\n                <app-loader *ngIf=\"isDrawerLoader\"></app-loader>\n                <form *ngIf=\"!isDrawerLoader\">\n                    <div class=\"bg-card shadow accent mb-5\">\n                        <div class=\"row\" >\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex mb-2\">\n                                    <p class=\"font-medium\">Total Units : </p>\n                                    <p class=\"pl-1 font-medium\">{{field.totalUnits}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex mb-2\">\n                                    <p class=\"font-medium\">Total Tenants : </p>\n                                    <p class=\"pl-1 font-medium\">{{field.totalTenants}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex mb-2\">\n                                    <p class=\"font-medium\">Total Owners Residing : </p>\n                                    <p class=\"pl-1 font-medium\">{{field.totalResiding}}</p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"bg-card shadow accent mb-5\">\n                        <div class=\"row\" >\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex mb-2\">\n                                    <p class=\"font-medium\">New Tickets Unassigned : </p>\n                                    <p class=\"pl-1 font-medium\">{{field.unassigned}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex mb-2\">\n                                    <p class=\"font-medium\">Tickets in process : </p>\n                                    <p class=\"pl-1 font-medium\">{{field.inProgress}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex mb-2\">\n                                    <p class=\"font-medium\">Tickets on Hold : </p>\n                                    <p class=\"pl-1 font-medium\">{{field.onHold}}</p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <h4 class=\"mb-4\">Property List</h4>\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <form>\n                    <div class=\"bg-card shadow\" *ngFor=\"let data of propertyList;let i = index\">\n                        <div class=\"d-sm-flex justify-content-sm-between\">\n                            <div class=\"d-flex align-items-sm-center\">\n                                <div class=\"apartment-logo mr-4\">\n                                    <img [src]=\"data.imageId\">\n                                </div>\n                                <div>\n                                    <h5 [ngClass]=\"{'text-primary':apartmentId == data.apartmentId}\">{{data.apartmentName}}</h5>\n                                    <p>{{data.builderName}}</p>\n                                    <p class=\"text-muted\">{{data.address1}} {{data.address2}}</p>\n                                    <p class=\"text-muted\">{{data.city}} {{data.location}}</p>\n                                </div>\n                            </div>\n                            <!-- <div class=\"switch-view-btn mt-5 mt-sm-0\">\n                                <div class=\"mb-5\">\n                                    <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen()\">View Details</button>\n                                </div>\n                                <div class=\"d-flex justify-content-end\"> \n                                    <div class=\"custom-checkbox\">\n                                        <label class=\"custom-switch custom-switch-flat\">\n                                            <input class=\"custom-switch-input\" type=\"checkbox\" id=\"switchCondo{{i}}\" name=\"switchCondo{{i}}\" [(ngModel)]=\"apartmentId == data.apartmentId\" (change)=\"switchCondo(data,$event)\" />\n                                            <span class=\"custom-switch-label\" data-on=\"On\" data-off=\"Off\"></span> \n                                            <span class=\"custom-switch-handle\"></span> \n                                        </label>\n                                    </div> \n                                </div>\n                            </div> -->\n                            <div class=\"switch-view-btn mt-5\">\n                                <div class=\"mb-4\">\n                                    <button mat-flat-button [color]=\"'accent'\" (click)=\"drawerOpen(data.apartmentId)\">View Details</button>\n                                </div>\n                                <div>\n                                    <div class=\"status-box bg-status-green-700\" *ngIf=\"apartmentId == data.apartmentId\">\n                                        <p class=\"font-bold text-uppercase text-status-green-900\">Selected</p>\n                                    </div>\n                                    <button *ngIf=\"apartmentId != data.apartmentId\" mat-flat-button [color]=\"'primary'\" (click)=\"switchCondo(data)\">Switch Condo</button> \n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -77,6 +77,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
 
 
 
@@ -85,16 +93,91 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AllPropertyComponent = class AllPropertyComponent {
-    constructor(_router, sharedService, sessionService, apartmentService) {
+    constructor(_router, sharedService, sessionService, apartmentService, dashboardService, userService, ticketService) {
         this._router = _router;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.apartmentService = apartmentService;
+        this.dashboardService = dashboardService;
+        this.userService = userService;
+        this.ticketService = ticketService;
         this.propertyList = [];
+        this.isDrawerLoader = false;
+        this.field = {};
         this.apartmentId = this.sessionService.apartmentId;
     }
-    drawerOpen() {
+    drawerOpen(id) {
         this.matDrawer.open();
+        if (this.currentApartmentSelect != id) {
+            this.currentApartmentSelect = id;
+            this.field = {};
+            this.isDrawerLoader = true;
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["forkJoin"])([
+                this.getTotalUnits(id),
+                this.getOwnerResiding(id),
+                this.getLiving(id),
+                this.newUnAssignedTickets(id),
+                this.inProgressTicket(id),
+                this.holdTicket(id),
+            ]).subscribe((res) => {
+                this.isDrawerLoader = false;
+                console.log(res);
+                this.field.totalUnits = res[0].totalUnits;
+                this.field.totalResiding = res[1];
+                this.field.totalTenants = res[2];
+                this.field.unassigned = res[3].length;
+                this.field.inProgress = res[4].length;
+                this.field.onHold = res[5].length;
+            }, (error) => {
+                this.isDrawerLoader = false;
+            });
+        }
+    }
+    getTotalUnits(apartmentId) {
+        let params = {
+            apartmentId: apartmentId
+        };
+        return this.dashboardService.getDashTotalunitsbyApartmentId(params);
+    }
+    getOwnerResiding(apartmentId) {
+        let livingParams = {
+            apartmentId: apartmentId,
+            filter: "1",
+            RoleIds: "4",
+            conditionIds: "1",
+        };
+        return this.userService.getDashTotalislivingusersCountbyApartmenId(livingParams);
+    }
+    getLiving(apartmentId) {
+        let livingParams = {
+            apartmentId: apartmentId,
+            filter: "1",
+            RoleIds: "2",
+            conditionIds: "1",
+        };
+        return this.userService.getDashTotalislivingusersCountbyApartmenId(livingParams);
+    }
+    newUnAssignedTickets(apartmentId) {
+        let params = {
+            apartmentId: apartmentId,
+            ticketStatusIds: 32,
+            isStaffassigned: false,
+        };
+        return this.ticketService.getAllTicketsByApartmentId(params);
+    }
+    inProgressTicket(apartmentId) {
+        let params = {
+            apartmentId: apartmentId,
+            ticketStatusIds: 33,
+        };
+        return this.ticketService.getAllTicketsByApartmentId(params);
+    }
+    holdTicket(apartmentId) {
+        let params = {
+            apartmentId: apartmentId,
+            ticketStatusIds: 34,
+        };
+        return this.ticketService.getAllTicketsByApartmentId(params);
     }
     goBack() {
         this.matDrawer.close();
@@ -145,7 +228,10 @@ AllPropertyComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_7__["DashBoardService"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_8__["UserService"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_9__["TicketService"] }
 ];
 AllPropertyComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
@@ -155,12 +241,16 @@ AllPropertyComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         selector: 'app-all-property',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./all-property.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/all-property/all-property.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        providers: [src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_7__["DashBoardService"]],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./all-property.component.scss */ "./src/app/modules/ams/my-property/all-property/all-property.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]])
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_7__["DashBoardService"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_8__["UserService"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_9__["TicketService"]])
 ], AllPropertyComponent);
 
 
