@@ -268,6 +268,22 @@
             "REASONFORVISIT": "Razón de la visita"
 
 
+        },
+        "EXPECTEDLIST": {
+            "TITLE": "Visitantes esperados",
+            "TOTALRESULTS": "resultados",
+            "FROM": "desde",
+            "TO": "a",
+            "NORESULTS": "No se han encontrado resultados",
+            "PASSID": "ID de pase",
+            "EXPECTEDIN": "Esperado EN",
+            "EXPECTEDOUT": "Esperado FUERA",
+            "VISITTYPE": "Tipo de visita",
+            "TOWERUNIT": "Torre y unidad",
+            "FILTERTITLE": "Filtrar",
+            "FROMDATE": "Partir de la fecha",
+            "TODATE": "Hasta la fecha"
+
         }
     },
     "FACILITY": {
@@ -351,6 +367,78 @@
             "YES": "si",
             "NO": "No",
             "DOCUMENTSREQUIRED": "Documentos requeridos"
+        },
+        "SETUP": {
+            "TITLE": "Documentos requeridos",
+            "TOTALRESULTS": "resultados",
+            "CREATETITLE": "Crear documento",
+            "EDITTITLE": "Editar documento",
+            "NAME": "Nombre",
+            "DOCUMENTTYPE": "Tipo de Documento",
+            "REQUIREDFOROWNER": "Requerido para el propietario",
+            "REQUIREDFORTENANT": "Requerida para la inquilina",
+            "CATEGORY": "Categoría",
+            "GENERAL": "General",
+            "FOREIGN": "Extranjera",
+            "COMMENTS": "Comentarios"
+        },
+        "INOUT": {
+            "MOVEINTITLE": "Mudarse",
+            "MOVEOUTTITLE": "Mudarse",
+            "TOTALRESULTS": "resultados"
+        },
+        "ADMINHISTORY": {
+            "MOVEIN": "Mudarse",
+            "MOVEOUT": "Mudado",
+            "CANCEL": "Cancelada",
+            "REJECT": "Rechazada",
+            "HISTORY": "Historia",
+            "TOTALRESULTS": "resultados"
+        },
+        "OUT": {
+            "TITLE": "Mudarse",
+            "TOTALRESULTS": "resultados",
+            "APPROVE": "Aprobar",
+            "REJECT": "Rechazar",
+            "CANCEL": "Cancelar",
+            "EDIT": "Editar",
+            "VIEW": "Vista"
+        },
+        "CANCELLED": {
+            "MOVEIN": "Movein cancelado",
+            "MOVEOUT": "MoveOut cancelado"
+        }
+    },
+    "SECURITY": {
+        "SETUP": {
+            "TITLE": "Categorías de alerta de seguridad",
+            "TOTALRESULTS": "Artículos",
+            "ADDCATEGORY": "añadir categoría",
+            "EDIT": "Editar",
+            "DELETE": "Borrar",
+            "NORESULTS": "NO HAY RESULTADOS"
+        },
+        "ADD": {
+            "ADDTITLE": "añadir categoría",
+            "UPDATETITLE": "Actualizar categoría",
+            "CATEGORYTYPE": "Tipo de categoría"
+        },
+        "ACTIVEALERTS": {
+            "TITLE": "Alertas activas",
+            "CLOSEDTITLE": "Alertas cerradas",
+            "DATE": "Fecha",
+            "BLOCK": "Cuadra",
+            "PERSONNAME": "Nombre de la persona",
+            "PHONENUMBER": "Número de teléfono",
+            "ALERTRECEIVEDTIME": "Hora de recepción de la alerta",
+            "COMMENTS": "Comentarios",
+            "NOACTIVEALERTS": "No hay alertas activas disponibles",
+            "MEDICAL": "médica",
+            "THEFT": "robo",
+            "FIRE": "fuego",
+            "SHOOTER": "tiradora",
+            "POLICE": "policía",
+            "OTHER": "otra"
         }
     },
     "DOCUMENTS": {
@@ -404,7 +492,9 @@
         "CATEGORYNAME": "nombre de la categoría",
         "DEFAULTSUPERVISOR": "Supervisora ​​predeterminada",
         "LEVEL1MANAGER": "Seleccionar administrador de nivel 1",
-        "LEVEL2MANAGER": "Seleccionar administrador de nivel 2"
+        "LEVEL2MANAGER": "Seleccionar administrador de nivel 2",
+        "ENTERCOMMENTS": "Ingrese comentarios",
+        "CATEGORYTYPE": "Ingrese el tipo de categoría"
 
     },
     "BUTTONS": {
@@ -428,7 +518,10 @@
         "ADDSLOT": "Agregar espacio",
         "CREATEBOOKING": "Crear reserva",
         "CHECKIN": "Registrarse",
-        "CHECKOUT": "Revisa"
+        "CHECKOUT": "Revisa",
+        "DOCUMENTCRITERIA": "Criterios del documento",
+        "ADDMOVEOUT": "Agregar MoveOut",
+        "ACKNOWLEDGE": "Reconocer"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",

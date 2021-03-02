@@ -452,14 +452,14 @@ let ExpenseTrackerSetupGeneralComponent = class ExpenseTrackerSetupGeneralCompon
         }
     }
     getSelectedAccount() {
-        this.accountsService.getAllCustAccounts().subscribe((res) => {
-            if (res.length > 0) {
-                for (let account of res) {
-                    if (account.gloffsetaccountId == 13) {
-                        this.accountPayable = account;
-                        this.accountPayableId = account.glaccountId;
-                    }
-                }
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId,
+            GLoffsetaccountIDs: '13',
+        };
+        this.accountsService.getAllCustAccounts(queryParamBase).subscribe((res) => {
+            if (Array.isArray(res) && res.length > 0) {
+                this.accountPayable = res[0];
+                this.accountPayableId = res[0].glaccountId;
             }
         });
     }

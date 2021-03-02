@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"advance.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"deposit.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>";
       /***/
     },
 
@@ -82,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"income-customer-advances-wrapper\">\n\n\t<app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n\t\t<div class=\"main\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Customer Advances</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCustomerAdvances()\" #addCustomerAdvancesElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Customer Advances\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</ng-container>\n    \n</div>\n\n<ng-template #addCustomerAdvancesPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-customer-advance\n\t\t\t[advance]=\"advance\" \n\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n\t\t</app-income-add-customer-advance>\n\t</div>\n\n</ng-template>";
+      __webpack_exports__["default"] = "\n<div class=\"income-customer-advances-wrapper\">\n\n\t<app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n\t\t<div class=\"main\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Customer Advances</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCustomerAdvances()\" #addCustomerAdvancesElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Customer Advances\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</ng-container>\n    \n</div>\n\n<ng-template #addCustomerAdvancesPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-customer-advance\n\t\t\t[advance]=\"advance\" \n\t\t\t[glAccountsList] = \"glAccountsList\"\n\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n\t\t</app-income-add-customer-advance>\n\t</div>\n\n</ng-template>";
       /***/
     },
 
@@ -102,7 +102,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\tfieldName=\"PostingDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateFrom($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date From</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n";
       /***/
     },
 
@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"income-security-deposit-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDepositLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Security Deposit</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addSecurityDeposit()\" #addSecurityDepositElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Security Deposit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n\n<ng-template #addSecurityDepositPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-security-deposit\n\t\t\t[deposit]=\"deposit\" \n\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n\t\t</app-income-add-security-deposit>\n\t</div>\n\n</ng-template>";
+      __webpack_exports__["default"] = "\n<div class=\"income-security-deposit-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDepositLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Security Deposit</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addSecurityDeposit()\" #addSecurityDepositElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Security Deposit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n\n<ng-template #addSecurityDepositPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-security-deposit\n\t\t\t[deposit]=\"deposit\" \n\t\t\t[glAccountsList] = \"glAccountsList\"\n\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n\t\t</app-income-add-security-deposit>\n\t</div>\n\n</ng-template>";
       /***/
     },
 
@@ -761,9 +761,9 @@
             }
           }
         }, {
-          key: "getGlAccount",
-          value: function getGlAccount(event) {
-            this.advance.glaccountId = event[0].glaccountId;
+          key: "setGlAccount",
+          value: function setGlAccount(event) {
+            this.advance.glAccountID = event[0].glaccountId;
           }
         }, {
           key: "goBack",
@@ -782,7 +782,7 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": null,
-                "glaccountId": parseInt(this.advance.glaccountId),
+                "glaccountId": parseInt(this.advance.glAccountID),
                 "invoiceId": 1,
                 "collectionId": null,
                 "transactionType": 0,
@@ -884,6 +884,9 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         isEdit: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        glAccountsList: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         outputParams: [{
@@ -1015,9 +1018,9 @@
         }
 
         _createClass(IncomeAddSecurityDepositComponent, [{
-          key: "getGlAccount",
-          value: function getGlAccount(event) {
-            this.deposit.glaccountId = event[0].glaccountId;
+          key: "setGlAccount",
+          value: function setGlAccount(event) {
+            this.deposit.glAccountID = event[0].glaccountId;
           }
         }, {
           key: "goBack",
@@ -1037,7 +1040,7 @@
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": null,
                 "securityDepositId": 0,
-                "glaccountId": parseInt(this.deposit.glaccountId),
+                "glaccountId": parseInt(this.deposit.glAccountID),
                 "invoiceId": null,
                 "collectionId": null,
                 "transactionType": 0,
@@ -1114,14 +1117,7 @@
           }
         }, {
           key: "ngOnInit",
-          value: function ngOnInit() {
-            this.deposit.glaccountId = "";
-          }
-        }, {
-          key: "ngOnChanges",
-          value: function ngOnChanges(changes) {
-            this.deposit.glaccountId = "";
-          }
+          value: function ngOnInit() {}
         }]);
 
         return IncomeAddSecurityDepositComponent;
@@ -1146,6 +1142,9 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         isEdit: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        glAccountsList: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         outputParams: [{
@@ -1289,6 +1288,7 @@
           this.customerAdvancesData = "";
           this.advance = {};
           this.isEditAdvance = false;
+          this.glAccountsList = [];
         }
 
         _createClass(IncomeCustomerAdvancesComponent, [{
@@ -1430,6 +1430,8 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this8 = this;
+
             this.apartmentBlockUnitId = this.route.params['value'].id;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1490,7 +1492,17 @@
               },
               renderer: columnrenderer
             }];
-            this.getCustomerAdvancesData();
+            this.getCustomerAdvancesData(); //GL Account List
+
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId,
+              GLoffsetaccountIDs: '4,5,6'
+            };
+            this.accountsService.getAllCustAccounts(queryParamBase).subscribe(function (res) {
+              if (Array.isArray(res)) {
+                _this8.glAccountsList = res;
+              }
+            });
           }
         }]);
 
@@ -1699,14 +1711,14 @@
         _createClass(IncomeJournalComponent, [{
           key: "getUnits",
           value: function getUnits(id) {
-            var _this8 = this;
+            var _this9 = this;
 
             var params = {
               apartmentBlockId: parseInt(id)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this8.blockUnitData = res;
-              _this8.isBlockSelected = true;
+              _this9.blockUnitData = res;
+              _this9.isBlockSelected = true;
             });
           }
         }, {
@@ -1727,7 +1739,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this9 = this;
+            var _this10 = this;
 
             if (this.reportsData != "") {
               var filtergroup = new jqx.filter();
@@ -1740,7 +1752,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this10.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1757,7 +1769,7 @@
         }, {
           key: "submitIncomeReportsForm",
           value: function submitIncomeReportsForm(form) {
-            var _this10 = this;
+            var _this11 = this;
 
             this.isReportSubmitted = true;
             this.isDataLoaded = false;
@@ -1774,24 +1786,24 @@
             };
             this.accountsService.getCustGltransactionsMultiFilter(details).subscribe(function (res) {
               var reportsDataList = res;
-              _this10.gridSourceData = {
+              _this11.gridSourceData = {
                 localdata: reportsDataList,
                 datatype: "array"
               };
-              _this10.reportsDataList = new jqx.dataAdapter(_this10.gridSourceData);
-              _this10.totalItems = reportsDataList.length;
-              _this10.isDataLoaded = true;
-              _this10.isReportSubmitted = false;
+              _this11.reportsDataList = new jqx.dataAdapter(_this11.gridSourceData);
+              _this11.totalItems = reportsDataList.length;
+              _this11.isDataLoaded = true;
+              _this11.isReportSubmitted = false;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             this.report = {};
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this11.timeZone = timeZone;
+              return _this12.timeZone = timeZone;
             });
             this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
 
@@ -1857,7 +1869,7 @@
               datafield: 'documentDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this12.timeZone.region).format(_this12.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1871,7 +1883,7 @@
               datafield: 'entryDateTime',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this12.timeZone.region).format(_this12.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1879,7 +1891,7 @@
               datafield: 'postingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this12.timeZone.region).format(_this12.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1887,7 +1899,7 @@
               datafield: 'clearingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this11.timeZone.region).format(_this11.timeZone.time) + '</div>';
+                if (value) return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this12.timeZone.region).format(_this12.timeZone.time) + '</div>';else return '<div class="jqx-custom-inner-cell"></div>';
               },
               renderer: columnrenderer
             }, {
@@ -1903,11 +1915,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this11.blockData = res;
+              _this12.blockData = res;
             });
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this11.glAccountsDataList = res.filter(function (item) {
-                return item.isActive && _this11.sessionService.apartmentId && item.indicator == _this11.glAccountIndicator;
+              _this12.glAccountsDataList = res.filter(function (item) {
+                return item.isActive && _this12.sessionService.apartmentId && item.indicator == _this12.glAccountIndicator;
               });
             });
             var glDocParams = {
@@ -1916,7 +1928,7 @@
             }; //Gl Document 
 
             this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
-              _this11.glDocumentTypeDataList = res;
+              _this12.glDocumentTypeDataList = res;
             }, function (error) {});
           }
         }]);
@@ -2076,6 +2088,7 @@
           this.securityDepositData = "";
           this.deposit = {};
           this.isEditDeposit = false;
+          this.glAccountsList = [];
         }
 
         _createClass(IncomeSecurityDepositComponent, [{
@@ -2086,7 +2099,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this12 = this;
+            var _this13 = this;
 
             if (this.securityDepositData != "") {
               var filtergroup = new jqx.filter();
@@ -2099,7 +2112,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this13.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2115,7 +2128,7 @@
         }, {
           key: "addSecurityDeposit",
           value: function addSecurityDeposit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.isEditDeposit = false; // Create the overlay
 
@@ -2124,47 +2137,6 @@
               hasBackdrop: true,
               scrollStrategy: this._overlay.scrollStrategies.block(),
               positionStrategy: this._overlay.position().flexibleConnectedTo(this._addSecurityDepositElem._elementRef.nativeElement).withFlexibleDimensions().withViewportMargin(56).withLockedPosition(false).withPositions([{
-                originX: 'start',
-                originY: 'bottom',
-                overlayX: 'start',
-                overlayY: 'top'
-              }])
-            }); // Create a portal from the template
-
-            var templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["TemplatePortal"](this._addSecurityDepositPanel, this._viewContainerRef); // Attach the portal to the overlay
-
-            this._selectPanelOverlayRef.attach(templatePortal); // Subscribe to the backdrop click
-
-
-            this._selectPanelOverlayRef.backdropClick().subscribe(function () {
-              // If overlay exists and attached...
-              if (_this13._selectPanelOverlayRef && _this13._selectPanelOverlayRef.hasAttached()) {
-                // Detach it
-                _this13._selectPanelOverlayRef.detach();
-              } // If template portal exists and attached...
-
-
-              if (templatePortal && templatePortal.isAttached) {
-                // Detach it
-                templatePortal.detach();
-              }
-            });
-          }
-        }, {
-          key: "onSecurityDeposit",
-          value: function onSecurityDeposit(detail) {
-            var _this14 = this;
-
-            this.isEditDeposit = true;
-            var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var id = 'securityDeposit' + detail.rowId;
-            this.deposit = dataRecord; // Create the overlay
-
-            this._selectPanelOverlayRef = this._overlay.create({
-              backdropClass: '',
-              hasBackdrop: true,
-              scrollStrategy: this._overlay.scrollStrategies.block(),
-              positionStrategy: this._overlay.position().flexibleConnectedTo(document.getElementById(id)).withFlexibleDimensions().withViewportMargin(56).withLockedPosition(false).withPositions([{
                 originX: 'start',
                 originY: 'bottom',
                 overlayX: 'start',
@@ -2192,9 +2164,50 @@
             });
           }
         }, {
+          key: "onSecurityDeposit",
+          value: function onSecurityDeposit(detail) {
+            var _this15 = this;
+
+            this.isEditDeposit = true;
+            var dataRecord = this.datagrid.getrowdata(detail.rowId);
+            var id = 'securityDeposit' + detail.rowId;
+            this.deposit = dataRecord; // Create the overlay
+
+            this._selectPanelOverlayRef = this._overlay.create({
+              backdropClass: '',
+              hasBackdrop: true,
+              scrollStrategy: this._overlay.scrollStrategies.block(),
+              positionStrategy: this._overlay.position().flexibleConnectedTo(document.getElementById(id)).withFlexibleDimensions().withViewportMargin(56).withLockedPosition(false).withPositions([{
+                originX: 'start',
+                originY: 'bottom',
+                overlayX: 'start',
+                overlayY: 'top'
+              }])
+            }); // Create a portal from the template
+
+            var templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["TemplatePortal"](this._addSecurityDepositPanel, this._viewContainerRef); // Attach the portal to the overlay
+
+            this._selectPanelOverlayRef.attach(templatePortal); // Subscribe to the backdrop click
+
+
+            this._selectPanelOverlayRef.backdropClick().subscribe(function () {
+              // If overlay exists and attached...
+              if (_this15._selectPanelOverlayRef && _this15._selectPanelOverlayRef.hasAttached()) {
+                // Detach it
+                _this15._selectPanelOverlayRef.detach();
+              } // If template portal exists and attached...
+
+
+              if (templatePortal && templatePortal.isAttached) {
+                // Detach it
+                templatePortal.detach();
+              }
+            });
+          }
+        }, {
           key: "getSecurityDepositData",
           value: function getSecurityDepositData() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isDepositLoaded = false;
             var params = {
@@ -2203,13 +2216,13 @@
             };
             this.accountsService.getSecurityDepositByApartmentBlockUnitId(params).subscribe(function (res) {
               var securityDepositDataList = res;
-              _this15.gridSourceData = {
+              _this16.gridSourceData = {
                 localdata: securityDepositDataList,
                 datatype: "array"
               };
-              _this15.securityDepositDataList = new jqx.dataAdapter(_this15.gridSourceData);
-              _this15.totalItems = securityDepositDataList.length;
-              _this15.isDepositLoaded = true;
+              _this16.securityDepositDataList = new jqx.dataAdapter(_this16.gridSourceData);
+              _this16.totalItems = securityDepositDataList.length;
+              _this16.isDepositLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2217,6 +2230,8 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this17 = this;
+
             this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -2277,7 +2292,17 @@
               },
               renderer: columnrenderer
             }];
-            this.getSecurityDepositData();
+            this.getSecurityDepositData(); //GL Account List
+
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId,
+              GLoffsetaccountIDs: '4,5,6'
+            };
+            this.accountsService.getAllCustAccounts(queryParamBase).subscribe(function (res) {
+              if (Array.isArray(res)) {
+                _this17.glAccountsList = res;
+              }
+            });
           }
         }]);
 

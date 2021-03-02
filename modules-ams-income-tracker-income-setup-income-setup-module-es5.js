@@ -1270,7 +1270,11 @@
           value: function getSelectedAccount() {
             var _this13 = this;
 
-            this.accountsService.getAllCustAccounts().subscribe(function (res) {
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId,
+              GLoffsetaccountIDs: ''
+            };
+            this.accountsService.getAllCustAccounts(queryParamBase).subscribe(function (res) {
               if (res.length > 0) {
                 var _iterator = _createForOfIteratorHelper(res),
                     _step;

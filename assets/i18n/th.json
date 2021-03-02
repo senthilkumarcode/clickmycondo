@@ -268,6 +268,22 @@
             "REASONFORVISIT": "เหตุผลในการเยี่ยมชม"
 
 
+        },
+        "EXPECTEDLIST": {
+            "TITLE": "ผู้เยี่ยมชมที่คาดหวัง",
+            "TOTALRESULTS": "ผล",
+            "FROM": "จาก",
+            "TO": "ถึง",
+            "NORESULTS": "ไม่พบผลลัพธ์",
+            "PASSID": "รหัสผ่าน",
+            "EXPECTEDIN": "คาดว่า IN",
+            "EXPECTEDOUT": "คาดว่าจะออก",
+            "VISITTYPE": "ประเภทการเยี่ยมชม",
+            "TOWERUNIT": "ทาวเวอร์แอนด์ยูนิต",
+            "FILTERTITLE": "กรอง",
+            "FROMDATE": "จากวันที่",
+            "TODATE": "ถึงวันที่"
+
         }
     },
     "FACILITY": {
@@ -351,6 +367,78 @@
             "YES": "ใช่",
             "NO": "ไม่",
             "DOCUMENTSREQUIRED": "เอกสารที่ต้องการ"
+        },
+        "SETUP": {
+            "TITLE": "เอกสารที่ต้องการ",
+            "TOTALRESULTS": "ผล",
+            "CREATETITLE": "สร้างเอกสาร",
+            "EDITTITLE": "แก้ไขเอกสาร",
+            "NAME": "ชื่อ",
+            "DOCUMENTTYPE": "ประเภทเอกสาร",
+            "REQUIREDFOROWNER": "จำเป็นสำหรับเจ้าของ",
+            "REQUIREDFORTENANT": "จำเป็นสำหรับผู้เช่า",
+            "CATEGORY": "ประเภท",
+            "GENERAL": "ทั่วไป",
+            "FOREIGN": "ต่างประเทศ",
+            "COMMENTS": "ความคิดเห็น"
+        },
+        "INOUT": {
+            "MOVEINTITLE": "ย้ายเข้า",
+            "MOVEOUTTITLE": "ย้ายออก",
+            "TOTALRESULTS": "ผล"
+        },
+        "ADMINHISTORY": {
+            "MOVEIN": "ย้ายเข้า",
+            "MOVEOUT": "ย้ายออก",
+            "CANCEL": "ยกเลิก",
+            "REJECT": "ถูกปฏิเสธ",
+            "HISTORY": "ประวัติศาสตร์",
+            "TOTALRESULTS": "ผล"
+        },
+        "OUT": {
+            "TITLE": "ย้ายออก",
+            "TOTALRESULTS": "ผล",
+            "APPROVE": "อนุมัติ",
+            "REJECT": "ปฏิเสธ",
+            "CANCEL": "ยกเลิก",
+            "EDIT": "แก้ไข",
+            "VIEW": "ดู"
+        },
+        "CANCELLED": {
+            "MOVEIN": "ยกเลิก Movein",
+            "MOVEOUT": "ยกเลิก MoveOut"
+        }
+    },
+    "SECURITY": {
+        "SETUP": {
+            "TITLE": "หมวดหมู่การแจ้งเตือนความปลอดภัย",
+            "TOTALRESULTS": "รายการ",
+            "ADDCATEGORY": "เพิ่มหมวดหมู่",
+            "EDIT": "แก้ไข",
+            "DELETE": "ลบ",
+            "NORESULTS": "ไม่มีผลลัพธ์"
+        },
+        "ADD": {
+            "ADDTITLE": "เพิ่มหมวดหมู่",
+            "UPDATETITLE": "อัปเดตหมวดหมู่",
+            "CATEGORYTYPE": "ประเภทหมวดหมู่"
+        },
+        "ACTIVEALERTS": {
+            "TITLE": "การแจ้งเตือนที่ใช้งานอยู่",
+            "CLOSEDTITLE": "ปิดการแจ้งเตือน",
+            "DATE": "วันที่",
+            "BLOCK": "บล็อก",
+            "PERSONNAME": "ชื่อบุคคล",
+            "PHONENUMBER": "หมายเลขโทรศัพท์",
+            "ALERTRECEIVEDTIME": "เวลาที่ได้รับการแจ้งเตือน",
+            "COMMENTS": "ความคิดเห็น",
+            "NOACTIVEALERTS": "ไม่มีการแจ้งเตือนที่ใช้งานอยู่",
+            "MEDICAL": "ทางการแพทย์",
+            "THEFT": "การโจรกรรม",
+            "FIRE": "ไฟ",
+            "SHOOTER": "นักกีฬา",
+            "POLICE": "ตำรวจ",
+            "OTHER": "อื่น ๆ"
         }
     },
     "DOCUMENTS": {
@@ -404,7 +492,9 @@
         "CATEGORYNAME": "ชื่อหมวดหมู่",
         "DEFAULTSUPERVISOR": "หัวหน้างานเริ่มต้น",
         "LEVEL1MANAGER": "เลือกผู้จัดการระดับ 1",
-        "LEVEL2MANAGER": "เลือกผู้จัดการระดับ 2"
+        "LEVEL2MANAGER": "เลือกผู้จัดการระดับ 2",
+        "ENTERCOMMENTS": "ป้อนความคิดเห็น",
+        "CATEGORYTYPE": "ป้อนประเภทประเภท"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "เปลี่ยน",
@@ -427,7 +517,10 @@
         "ADDSLOT": "เพิ่มช่อง",
         "CREATEBOOKING": "สร้างการจอง",
         "CHECKIN": "เช็คอิน",
-        "CHECKOUT": "เช็คเอาท์"
+        "CHECKOUT": "เช็คเอาท์",
+        "DOCUMENTCRITERIA": "เกณฑ์เอกสาร",
+        "ADDMOVEOUT": "เพิ่ม MoveOut",
+        "ACKNOWLEDGE": "รับทราบ"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",

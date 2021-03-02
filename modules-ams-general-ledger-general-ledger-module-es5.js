@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlAccount()\" *ngIf=\"type == 'add'\" #addAccountElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Account\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlAccount()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addAccountElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glAccountPanel>\n\t\t\n\t<div class=\"bg-card popover-card\">\n\t\t\n\t\t<app-loader *ngIf=\"!isAccountAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isAccountAdded\">\n\t\t\t\n\t\t\t<form #addGlAccountForm = \"ngForm\" name=\"addGlAccountForm\" (ngSubmit)=\"submitGLAccountForm(addGlAccountForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Groups\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Group\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"glGroupsDataList\"\n\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.glgroupId\"\n\t\t\t\t\t\t\tfieldId=\"glgroupId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getGlGroup($event)\" \n\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} GL No*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountNumber\" [(ngModel)]=\"gl.glaccountNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} GL Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountName\" [(ngModel)]=\"gl.glaccountName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6 d-none\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Default Bank Account*</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tid=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"gl.defaultBankDetailsId\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of glDefaultBankDataList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"isAsset() || isLiability()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Opening Balance</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"openingBalance\" [(ngModel)]=\"gl.openingBalance\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Opening Balance Date\"\n\t\t\t\t\t\t\tfieldName=\"openingBalanceDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.openingBalanceDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getOpeningBalanceDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"notes\" [(ngModel)]=\"gl.notes\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreateGroup()\">Create</button>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreateGroup()\">Update</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"page-menu-wrapper\">\n\n\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openGlAccount()\" *ngIf=\"type == 'add'\" #addAccountElem>\n\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\tCreate {{group}} Account\n\t</button>\n\n\t<mat-icon class=\"mr-2 edit-icon\" (click)=\"openGlAccount()\"  [color]=\"'primary'\" [svgIcon]=\"'feather:edit'\" #addAccountElem *ngIf=\"type == 'edit'\"></mat-icon>\n\n</div>\n\n<ng-template #glAccountPanel>\n\t\t\n\t<div class=\"bg-card popover-card\">\n\t\t\n\t\t<app-loader *ngIf=\"!isAccountAdded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isAccountAdded\">\n\t\t\t\n\t\t\t<form #addGlAccountForm = \"ngForm\" name=\"addGlAccountForm\" (ngSubmit)=\"submitGLAccountForm(addGlAccountForm)\"  novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Groups\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Group\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"glGroupsDataList\"\n\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.glgroupId\"\n\t\t\t\t\t\t\tfieldId=\"glgroupId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getGlGroup($event)\" \n\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} GL No*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountNumber\" [(ngModel)]=\"gl.glaccountNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{group}} GL Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"glaccountName\" [(ngModel)]=\"gl.glaccountName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6 d-none\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Default Bank Account*</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tid=\"defaultBankDetailsId\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"gl.defaultBankDetailsId\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of glDefaultBankDataList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"isAsset() || isLiability()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Opening Balance</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"openingBalance\" [(ngModel)]=\"gl.openingBalance\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Opening Balance Date\"\n\t\t\t\t\t\t\tfieldName=\"openingBalanceDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"gl.openingBalanceDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getOpeningBalanceDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"notes\" [(ngModel)]=\"gl.notes\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreateGroup()\">Create</button>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreateGroup()\">Update</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t\n\t\t</ng-container>\n\n\t</div>\n\n</ng-template>";
       /***/
     },
 
@@ -1516,7 +1516,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this7.glGroupsDataList = res;
+              var glGroups = res;
+              glGroups.forEach(function (data) {
+                data.customLabel = "".concat(data.name, " ").concat(data.glnumber);
+              });
+              _this7.glGroupsDataList = glGroups;
             }); // let defaultParams = {
             //   LookupTypeId: 60,
             //   ApartmentId: this.sessionService.apartmentId
@@ -1836,7 +1840,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this9.glGroupsDataList = res;
+              var glGroups = res;
+              glGroups.forEach(function (data) {
+                data.customLabel = "".concat(data.name, " ").concat(data.glnumber);
+              });
+              _this9.glGroupsDataList = glGroups;
             }); // let defaultParams = {
             //   LookupTypeId: 60,
             //   ApartmentId: this.sessionService.apartmentId
@@ -2171,7 +2179,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this11.glGroupsDataList = res;
+              var glGroups = res;
+              glGroups.forEach(function (data) {
+                data.customLabel = "".concat(data.name, " ").concat(data.glnumber);
+              });
+              _this11.glGroupsDataList = glGroups;
             }); // let defaultParams = {
             //   LookupTypeId: 60,
             //   ApartmentId: this.sessionService.apartmentId
@@ -3962,7 +3974,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this28.glGroupsDataList = res;
+              var glGroups = res;
+              glGroups.forEach(function (data) {
+                data.customLabel = "".concat(data.name, " ").concat(data.glnumber);
+              });
+              _this28.glGroupsDataList = glGroups;
             }); // let defaultParams = {
             //   LookupTypeId: 60,
             //   ApartmentId: this.sessionService.apartmentId
@@ -5287,7 +5303,11 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this37.glGroupsDataList = res;
+              var glGroups = res;
+              glGroups.forEach(function (data) {
+                data.customLabel = "".concat(data.name, " ").concat(data.glnumber);
+              });
+              _this37.glGroupsDataList = glGroups;
             }); // let defaultParams = {
             //   LookupTypeId: 60,
             //   ApartmentId: this.sessionService.apartmentId

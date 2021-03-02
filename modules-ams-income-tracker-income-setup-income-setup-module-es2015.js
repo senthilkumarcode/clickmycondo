@@ -913,7 +913,11 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
         this.lookupService.updateLookupValue(params).toPromise();
     }
     getSelectedAccount() {
-        this.accountsService.getAllCustAccounts().subscribe((res) => {
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId,
+            GLoffsetaccountIDs: '',
+        };
+        this.accountsService.getAllCustAccounts(queryParamBase).subscribe((res) => {
             if (res.length > 0) {
                 for (let account of res) {
                     if (account.gloffsetaccountId == 1) {

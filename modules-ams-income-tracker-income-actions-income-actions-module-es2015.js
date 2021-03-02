@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"advance.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"deposit.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-customer-advances-wrapper\">\n\n\t<app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n\t\t<div class=\"main\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Customer Advances</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCustomerAdvances()\" #addCustomerAdvancesElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Customer Advances\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</ng-container>\n    \n</div>\n\n<ng-template #addCustomerAdvancesPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-customer-advance\n\t\t\t[advance]=\"advance\" \n\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n\t\t</app-income-add-customer-advance>\n\t</div>\n\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-customer-advances-wrapper\">\n\n\t<app-loader *ngIf=\"!isAdvancesLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isAdvancesLoaded\">\n\n\t\t<div class=\"main\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Customer Advances</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"customerAdvancesData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCustomerAdvances()\" #addCustomerAdvancesElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Customer Advances\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"customerAdvancesDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</ng-container>\n    \n</div>\n\n<ng-template #addCustomerAdvancesPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-customer-advance\n\t\t\t[advance]=\"advance\" \n\t\t\t[glAccountsList] = \"glAccountsList\"\n\t\t\t[isEdit]=\"isEditAdvance\" \n\t\t\t(outputParams)=\"getCustomerAdvancesParams($event)\">\n\t\t</app-income-add-customer-advance>\n\t</div>\n\n</ng-template>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\tfieldName=\"PostingDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateFrom($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date From</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-security-deposit-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDepositLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Security Deposit</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addSecurityDeposit()\" #addSecurityDepositElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Security Deposit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n\n<ng-template #addSecurityDepositPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-security-deposit\n\t\t\t[deposit]=\"deposit\" \n\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n\t\t</app-income-add-security-deposit>\n\t</div>\n\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-security-deposit-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDepositLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Security Deposit</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addSecurityDeposit()\" #addSecurityDepositElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Security Deposit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n\n<ng-template #addSecurityDepositPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-security-deposit\n\t\t\t[deposit]=\"deposit\" \n\t\t\t[glAccountsList] = \"glAccountsList\"\n\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n\t\t</app-income-add-security-deposit>\n\t</div>\n\n</ng-template>");
 
 /***/ }),
 
@@ -416,8 +416,8 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
             this.advance.invoiceId = data[0].invoiceId;
         }
     }
-    getGlAccount(event) {
-        this.advance.glaccountId = event[0].glaccountId;
+    setGlAccount(event) {
+        this.advance.glAccountID = event[0].glaccountId;
     }
     goBack() {
         this._incomeCustomerAdvancesComponent._selectPanelOverlayRef.detach();
@@ -429,7 +429,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": null,
-                "glaccountId": parseInt(this.advance.glaccountId),
+                "glaccountId": parseInt(this.advance.glAccountID),
                 "invoiceId": 1,
                 "collectionId": null,
                 "transactionType": 0,
@@ -512,6 +512,7 @@ IncomeAddCustomerAdvanceComponent.ctorParameters = () => [
 IncomeAddCustomerAdvanceComponent.propDecorators = {
     advance: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     isEdit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    glAccountsList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     outputParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
     addCustomerAdvanceForm: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addCustomerAdvanceForm',] }]
 };
@@ -586,8 +587,8 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
         this.alertMessage = "";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    getGlAccount(event) {
-        this.deposit.glaccountId = event[0].glaccountId;
+    setGlAccount(event) {
+        this.deposit.glAccountID = event[0].glaccountId;
     }
     goBack() {
         this._incomeSecurityDepositComponent._selectPanelOverlayRef.detach();
@@ -600,7 +601,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
                 "blockUnitUserId": null,
                 "securityDepositId": 0,
-                "glaccountId": parseInt(this.deposit.glaccountId),
+                "glaccountId": parseInt(this.deposit.glAccountID),
                 "invoiceId": null,
                 "collectionId": null,
                 "transactionType": 0,
@@ -671,10 +672,6 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
         }
     }
     ngOnInit() {
-        this.deposit.glaccountId = "";
-    }
-    ngOnChanges(changes) {
-        this.deposit.glaccountId = "";
     }
 };
 IncomeAddSecurityDepositComponent.ctorParameters = () => [
@@ -687,6 +684,7 @@ IncomeAddSecurityDepositComponent.ctorParameters = () => [
 IncomeAddSecurityDepositComponent.propDecorators = {
     deposit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     isEdit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    glAccountsList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     outputParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
     addSecuityDepositForm: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addSecuityDepositForm',] }]
 };
@@ -765,6 +763,7 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
         this.customerAdvancesData = "";
         this.advance = {};
         this.isEditAdvance = false;
+        this.glAccountsList = [];
     }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'CustomerAdvancesData');
@@ -952,6 +951,16 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
                 renderer: columnrenderer
             }];
         this.getCustomerAdvancesData();
+        //GL Account List
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId,
+            GLoffsetaccountIDs: '4,5,6',
+        };
+        this.accountsService.getAllCustAccounts(queryParamBase).subscribe((res) => {
+            if (Array.isArray(res)) {
+                this.glAccountsList = res;
+            }
+        });
     }
 };
 IncomeCustomerAdvancesComponent.ctorParameters = () => [
@@ -1243,7 +1252,10 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'clearingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
+                    if (value)
+                        return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
+                    else
+                        return '<div class="jqx-custom-inner-cell"></div>';
                 },
                 renderer: columnrenderer
             },
@@ -1365,6 +1377,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
         this.securityDepositData = "";
         this.deposit = {};
         this.isEditDeposit = false;
+        this.glAccountsList = [];
     }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'SecurityDepositData');
@@ -1552,6 +1565,16 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 renderer: columnrenderer
             }];
         this.getSecurityDepositData();
+        //GL Account List
+        const queryParamBase = {
+            apartmentId: this.sessionService.apartmentId,
+            GLoffsetaccountIDs: '4,5,6',
+        };
+        this.accountsService.getAllCustAccounts(queryParamBase).subscribe((res) => {
+            if (Array.isArray(res)) {
+                this.glAccountsList = res;
+            }
+        });
     }
 };
 IncomeSecurityDepositComponent.ctorParameters = () => [

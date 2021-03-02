@@ -113,7 +113,7 @@
                "TITLE" : "Settings",
                "TIPS": "Tips",
                "PRIVATECATEGORY": "Private Category",
-               "COMMONCATEGORY": "Private Category",
+               "COMMONCATEGORY": "Common Category",
                "TOTALRESULTS": "results",
                "HINT1": "Tips :  You have two types of Ticket Category to setup.",
                "HINT2": "Common category refer to the issues related to condo which is at common to all units (For Example : Swimming pool not clean)",
@@ -269,6 +269,22 @@
             "REASONFORVISIT": "Reason for Visit"
 
 
+        },
+        "EXPECTEDLIST": {
+            "TITLE": "Expected Visitors",
+            "TOTALRESULTS": "results",
+            "FROM": "from",
+            "TO": "to",
+            "NORESULTS": "No Results found",
+            "PASSID": "Pass ID",
+            "EXPECTEDIN": "Expected IN",
+            "EXPECTEDOUT": "Expected OUT",
+            "VISITTYPE": "Visit Type",
+            "TOWERUNIT": "Tower & Unit",
+            "FILTERTITLE": "Filter",
+            "FROMDATE": "From Date",
+            "TODATE": "To Date"
+
         }
         
     },
@@ -353,6 +369,78 @@
             "YES": "Yes",
             "NO": "No",
             "DOCUMENTSREQUIRED": "Documents Required"
+        },
+        "SETUP": {
+            "TITLE": "Documents required",
+            "TOTALRESULTS": "results",
+            "CREATETITLE": "Create Document",
+            "EDITTITLE": "Edit Document",
+            "NAME": "Name",
+            "DOCUMENTTYPE": "Document Type",
+            "REQUIREDFOROWNER": "Required for Owner",
+            "REQUIREDFORTENANT": "Required for Tenant",
+            "CATEGORY": "Category",
+            "GENERAL": "General",
+            "FOREIGN": "Foreign",
+            "COMMENTS": "Comments"
+        },
+        "INOUT": {
+            "MOVEINTITLE": "MoveIn",
+            "MOVEOUTTITLE": "MoveOut",
+            "TOTALRESULTS": "results"
+        },
+        "ADMINHISTORY": {
+            "MOVEIN": "Moved In",
+            "MOVEOUT": "Moved Out",
+            "CANCEL": "Cancelled",
+            "REJECT": "Rejected",
+            "HISTORY": "History",
+            "TOTALRESULTS": "results"
+        },
+        "OUT": {
+            "TITLE": "MoveOut",
+            "TOTALRESULTS": "results",
+            "APPROVE": "Approve",
+            "REJECT": "Reject",
+            "CANCEL": "Cancel",
+            "EDIT": "Edit",
+            "VIEW": "View"
+        },
+        "CANCELLED": {
+            "MOVEIN": "Cancelled Movein",
+            "MOVEOUT": "Cancelled MoveOut"
+        }
+    },
+    "SECURITY": {
+        "SETUP": {
+            "TITLE": "Security Alert Categories",
+            "TOTALRESULTS": "Items",
+            "ADDCATEGORY": "Add Category",
+            "EDIT": "Edit",
+            "DELETE": "Delete",
+            "NORESULTS": "No Results found"
+        },
+        "ADD": {
+            "ADDTITLE": "Add Category",
+            "UPDATETITLE": "Update Category",
+            "CATEGORYTYPE": "Category Type"
+        },
+        "ACTIVEALERTS": {
+            "TITLE": "Active Alerts",
+            "CLOSEDTITLE": "Closed Alerts",
+            "DATE": "Date",
+            "BLOCK": "Block",
+            "PERSONNAME": "Person Name",
+            "PHONENUMBER": "Phone Number",
+            "ALERTRECEIVEDTIME": "Alert Received Time",
+            "COMMENTS": "Comments",
+            "NOACTIVEALERTS": "No Active Alerts available",
+            "MEDICAL": "medical",
+            "THEFT": "theft",
+            "FIRE": "fire",
+            "SHOOTER": "shooter",
+            "POLICE": "police",
+            "OTHER": "other"
         }
     },
     "DOCUMENTS": {
@@ -406,7 +494,9 @@
         "CATEGORYNAME": "Category Name",
         "DEFAULTSUPERVISOR": "Default Supervisor",
         "LEVEL1MANAGER": "Select Level-1 Manager",
-        "LEVEL2MANAGER": "Select Level-2 Manager"
+        "LEVEL2MANAGER": "Select Level-2 Manager",
+        "ENTERCOMMENTS": "Enter Comments",
+        "CATEGORYTYPE": "Enter Category Type"
 
     },
     "BUTTONS": {
@@ -430,7 +520,10 @@
         "ADDSLOT": "Add Slot",
         "CREATEBOOKING": "Create Booking",
         "CHECKIN": "CheckIn",
-        "CHECKOUT": "CheckOut"
+        "CHECKOUT": "CheckOut",
+        "DOCUMENTCRITERIA": "Document Criteria",
+        "ADDMOVEOUT": "Add MoveOut",
+        "ACKNOWLEDGE": "Acknowledge"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",
