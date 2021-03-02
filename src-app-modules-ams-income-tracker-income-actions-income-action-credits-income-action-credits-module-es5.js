@@ -724,7 +724,7 @@
             }, {
               text: 'Comments',
               datafield: 'comment',
-              width: 200,
+              minwidth: 250,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             },

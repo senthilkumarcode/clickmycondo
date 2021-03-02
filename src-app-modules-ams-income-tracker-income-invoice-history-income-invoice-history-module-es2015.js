@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-invoice-history-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t\n\t\t\t<div class=\"legends mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"bg-card shadow primary\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t<p class=\"d-inline-block\"><span class=\"font-medium\">Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n\t\t\t</div>\n\n\t\t\t<app-income-tracker-filter (fieldParams)=\"getFieldParams($event)\"></app-income-tracker-filter>\n\n\t\t\t<app-loader *ngIf=\"!isInvoiceDataFilterLoaded\"></app-loader>\n\n\t\t\t<condo-card *ngIf=\"isInvoiceDataFilterLoaded\">\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Account History</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t\t<p class=\"text-hint\" *ngIf=\"isAccountDataLoaded\">Resident under {{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"invoiceData\" \n\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-history-reverse [invoice]=\"invoice\"></app-income-history-reverse>\n\t</ng-template>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-view-invoice-history-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<!-- <app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader> -->\n\n\t\t<!-- <ng-container *ngIf=\"isInvoiceDataLoaded\"> -->\n\t\t\t\n\t\t\t<div class=\"legends mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"bg-card shadow primary\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Bill to party: </span>{{accountDataList[0].billToParty}}</p>\n\t\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Contact Person: </span>{{accountDataList[0].primayContact}}</p>\n\t\t\t\t<p class=\"d-inline-block\"><span class=\"font-medium\">Unit: </span>{{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n\t\t\t</div>\n\n\t\t\t<app-income-tracker-filter (fieldParams)=\"getFieldParams($event)\"></app-income-tracker-filter>\n\n\t\t\t<app-loader *ngIf=\"!isInvoiceDataFilterLoaded\"></app-loader>\n\n\t\t\t<condo-card *ngIf=\"isInvoiceDataFilterLoaded\">\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Account History</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t\t<p class=\"text-hint\" *ngIf=\"isAccountDataLoaded\">Resident under {{accountDataList[0].apartmentBlockNumber}} {{accountDataList[0].apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" \n\t\t\t\t\t\t\tplaceholder=\"Search...\" [(ngModel)]=\"invoiceData\" \n\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t<!-- </ng-container> -->\n\n\t</div>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-history-reverse [invoice]=\"invoice\"></app-income-history-reverse>\n\t</ng-template>\n\n</div>\n");
 
 /***/ }),
 
@@ -764,17 +764,19 @@ let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
         return 'text-' + this.labelColors[index] + '-100 bg-' + this.labelColors[index] + '-500';
     }
     resetFilter() {
-        this.filter = {};
+        this.filter = {
+            PostStartDate: moment__WEBPACK_IMPORTED_MODULE_3__().subtract(1, 'months'),
+            PostEndDate: moment__WEBPACK_IMPORTED_MODULE_3__()
+        };
         this.filter.isReversed = null;
         this.filter.isCreditNote = null;
-        this.filter.PostStartDate = null;
-        this.filter.PostEndDate = null;
         this.filter.billNo = null;
         this.filter.receiptNo = null;
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.resetFilter();
+        this.submitIncomeFilterForm(this.filter);
     }
 };
 IncomeTrackerFilterComponent.ctorParameters = () => [
