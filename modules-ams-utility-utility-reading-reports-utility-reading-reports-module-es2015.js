@@ -111,7 +111,7 @@ let UtilityDetailsReadingsComponent = class UtilityDetailsReadingsComponent {
         this.meterList = [];
         this.selectedIndex = -1;
         this.filterField = {
-            StartDate: moment__WEBPACK_IMPORTED_MODULE_9__(),
+            StartDate: moment__WEBPACK_IMPORTED_MODULE_9__().startOf('month'),
             EndDate: moment__WEBPACK_IMPORTED_MODULE_9__()
         };
         this.activateRouter.url.subscribe((data) => {
@@ -146,7 +146,7 @@ let UtilityDetailsReadingsComponent = class UtilityDetailsReadingsComponent {
         this.selectedIndex = index;
         this.meterField = data;
         this.filterField = {
-            StartDate: moment__WEBPACK_IMPORTED_MODULE_9__(),
+            StartDate: moment__WEBPACK_IMPORTED_MODULE_9__().startOf('month'),
             EndDate: moment__WEBPACK_IMPORTED_MODULE_9__()
         };
         this.getReportList();

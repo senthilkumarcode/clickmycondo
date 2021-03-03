@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"advance.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"advance.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t<submit-button [isSubmit]=\"isAdvanceSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form> \n\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"deposit.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\n\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm()\"  novalidate>\n\t\t\t\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\n\t\t<div class=\"row\">\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<condo-select \n\t\t\t\t\tlabelText=\"GL Account\"\n\t\t\t\t\tfieldPlaceholder=\"Select GL Account\"\n\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t[fieldList]=\"glAccountsList\"\n\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t[fieldModel]=\"deposit.glAccountID\"\n\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t(fieldParams)=\"setGlAccount($event)\" \n\t\t\t\t></condo-select>\n\t\t\t</div>\n\t\t\n\t\t\t\n\n\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</div>\n\n\t\t<submit-button class=\"float-right\" [isSubmit]=\"isDepositSubmitted\">Submit</submit-button>\n\n\t</form>\n\t\t\n</div>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date From</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\tfieldName=\"PostingDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateFrom($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -297,6 +297,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./income-journal/income-journal.component */ "./src/app/modules/ams/income-tracker/income-actions/income-journal/income-journal.component.ts");
 /* harmony import */ var _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./income-add-customer-advance/income-add-customer-advance.component */ "./src/app/modules/ams/income-tracker/income-actions/income-add-customer-advance/income-add-customer-advance.component.ts");
 /* harmony import */ var _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./income-add-security-deposit/income-add-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+
 
 
 
@@ -340,6 +342,7 @@ IncomeActionsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__["SelectModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__["ListModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_16__["CondoMessageModule"],
             src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__["DatepickerModule"].forRoot(),
             _income_actions_routing_module__WEBPACK_IMPORTED_MODULE_5__["IncomeActionsRoutingModule"]
         ],
@@ -383,6 +386,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -392,18 +397,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent {
-    constructor(router, route, _incomeCustomerAdvancesComponent, accountsService, sharedService, sessionService) {
+    constructor(router, route, _incomeCustomerAdvancesComponent, accountsService, sharedService, sessionService, changeDetect) {
         this.router = router;
         this.route = route;
         this._incomeCustomerAdvancesComponent = _incomeCustomerAdvancesComponent;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.changeDetect = changeDetect;
         this.isAdvanceSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
         this.glAccountIndicator = "Cust_Invoice";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.message = null;
     }
     getCollection(id) {
         var data = this.billData.filter(item => {
@@ -423,79 +430,98 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
         this._incomeCustomerAdvancesComponent._selectPanelOverlayRef.detach();
     }
     submitAddCustomerAdvanceForm() {
-        this.isAdvanceSubmitted = true;
-        if (!this.isEdit) {
-            let details = {
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": null,
-                "glaccountId": parseInt(this.advance.glAccountID),
-                "invoiceId": 1,
-                "collectionId": null,
-                "transactionType": 0,
-                "amount": parseInt(this.advance.amount),
-                "comment": this.advance.comment,
-                "comment2": this.advance.comment2,
-                "active": true,
-                "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-            };
-            let params = {
-                custAdvance: details
-            };
-            this.accountsService.addAdvance(params).subscribe((res) => {
-                this.isAdvanceSubmitted = false;
-                if (res.code == 200) {
-                    this.goBack();
-                    this._incomeCustomerAdvancesComponent.getCustomerAdvancesData();
-                    this.sharedService.openSnackBar("Customer Advance added successfully", 'success');
-                }
-                else {
-                    this.sharedService.openSnackBar('Some error occured', 'error');
-                }
-            }, error => {
-                this.isAdvanceSubmitted = false;
-                this.sharedService.openSnackBar('Network Error', 'error');
+        this.message = null;
+        if (!this.addCustomerAdvanceForm.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
             });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this.changeDetect.markForCheck();
         }
         else {
-            let details = {
-                "id": this.advance.transactionId,
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": this.advance.blockUnitUserId,
-                "advanceId": this.advance.custCreditNoteId,
-                "glaccountId": this.advance.glAccountID,
-                "invoiceId": this.advance.invoiceId,
-                "collectionId": parseInt(this.advance.collectionId),
-                "transactionType": this.advance.transactionType,
-                "amount": parseInt(this.advance.creditAmount),
-                "comment": this.advance.comment,
-                "comment2": this.advance.comment,
-                "active": this.advance.active,
-                "insertedBy": this.advance.insertedBy,
-                "insertedOn": this.advance.insertedOn,
-                "updatedBy": this.sessionService.userId,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-            };
-            let params = {
-                custAdvance: details
-            };
-            this.accountsService.updateAdvance(params).subscribe((res) => {
-                this.isAdvanceSubmitted = false;
-                if (res.code == 200) {
-                    this.goBack();
-                    this.sharedService.openSnackBar("Customer Advance updated successfully", 'success');
-                }
-                else {
-                    this.sharedService.openSnackBar(res.message, 'error');
-                }
-            }, error => {
-                this.isAdvanceSubmitted = false;
-                this.sharedService.openSnackBar('Some error occured', 'error');
-            });
+            this.isAdvanceSubmitted = true;
+            if (!this.isEdit) {
+                let details = {
+                    "apartmentId": this.sessionService.apartmentId,
+                    "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                    "blockUnitUserId": null,
+                    "glaccountId": parseInt(this.advance.glAccountID),
+                    "invoiceId": 1,
+                    "collectionId": null,
+                    "transactionType": 0,
+                    "amount": parseInt(this.advance.amount),
+                    "comment": this.advance.comment,
+                    "comment2": this.advance.comment2,
+                    "active": true,
+                    "insertedBy": this.sessionService.userId,
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                };
+                let params = {
+                    custAdvance: details
+                };
+                this.accountsService.addAdvance(params).subscribe((res) => {
+                    this.isAdvanceSubmitted = false;
+                    if (res.code == 200) {
+                        this.goBack();
+                        this._incomeCustomerAdvancesComponent.getCustomerAdvancesData();
+                        this.sharedService.openSnackBar("Customer Advance added successfully", 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar('Some error occured', 'error');
+                    }
+                }, error => {
+                    this.isAdvanceSubmitted = false;
+                    this.sharedService.openSnackBar('Network Error', 'error');
+                });
+            }
+            else {
+                let details = {
+                    "id": this.advance.transactionId,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                    "blockUnitUserId": this.advance.blockUnitUserId,
+                    "advanceId": this.advance.custCreditNoteId,
+                    "glaccountId": this.advance.glAccountID,
+                    "invoiceId": this.advance.invoiceId,
+                    "collectionId": parseInt(this.advance.collectionId),
+                    "transactionType": this.advance.transactionType,
+                    "amount": parseInt(this.advance.creditAmount),
+                    "comment": this.advance.comment,
+                    "comment2": this.advance.comment,
+                    "active": this.advance.active,
+                    "insertedBy": this.advance.insertedBy,
+                    "insertedOn": this.advance.insertedOn,
+                    "updatedBy": this.sessionService.userId,
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                };
+                let params = {
+                    custAdvance: details
+                };
+                this.accountsService.updateAdvance(params).subscribe((res) => {
+                    this.isAdvanceSubmitted = false;
+                    if (res.code == 200) {
+                        this.goBack();
+                        this.sharedService.openSnackBar("Customer Advance updated successfully", 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.message, 'error');
+                    }
+                }, error => {
+                    this.isAdvanceSubmitted = false;
+                    this.sharedService.openSnackBar('Some error occured', 'error');
+                });
+            }
         }
     }
     ngOnInit() {
@@ -507,7 +533,8 @@ IncomeAddCustomerAdvanceComponent.ctorParameters = () => [
     { type: src_app_modules_ams_income_tracker_income_actions_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_3__["IncomeCustomerAdvancesComponent"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 IncomeAddCustomerAdvanceComponent.propDecorators = {
     advance: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -520,6 +547,8 @@ IncomeAddCustomerAdvanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-add-customer-advance',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-add-customer-advance.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-actions/income-add-customer-advance/income-add-customer-advance.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-add-customer-advance.component.scss */ "./src/app/modules/ams/income-tracker/income-actions/income-add-customer-advance/income-add-customer-advance.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
@@ -527,7 +556,8 @@ IncomeAddCustomerAdvanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         src_app_modules_ams_income_tracker_income_actions_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_3__["IncomeCustomerAdvancesComponent"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], IncomeAddCustomerAdvanceComponent);
 
 
@@ -566,6 +596,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -575,17 +607,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent {
-    constructor(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService) {
+    constructor(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService, changeDetect) {
         this.route = route;
         this._incomeSecurityDepositComponent = _incomeSecurityDepositComponent;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.changeDetect = changeDetect;
         this.isDepositSubmitted = false;
         this.glAccountIndicator = "Cust_Invoice";
         this.isError = false;
         this.alertMessage = "";
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.message = null;
     }
     setGlAccount(event) {
         this.deposit.glAccountID = event[0].glaccountId;
@@ -594,81 +628,100 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
         this._incomeSecurityDepositComponent._selectPanelOverlayRef.detach();
     }
     submitAddSecuityDepositForm() {
-        this.isDepositSubmitted = true;
-        if (!this.isEdit) {
-            let details = {
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": null,
-                "securityDepositId": 0,
-                "glaccountId": parseInt(this.deposit.glAccountID),
-                "invoiceId": null,
-                "collectionId": null,
-                "transactionType": 0,
-                "amount": parseInt(this.deposit.amount),
-                "comment": this.deposit.comment,
-                "comment2": this.deposit.comment,
-                "active": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-            };
-            let params = {
-                custSecurity: details
-            };
-            this.accountsService.addSecurityDeposit(params).subscribe((res) => {
-                this.isDepositSubmitted = false;
-                if (res.code = 200) {
-                    this.goBack();
-                    this._incomeSecurityDepositComponent.getSecurityDepositData();
-                    this.sharedService.openSnackBar("Security Deposit added successfully", 'success');
-                }
-                else {
-                    this.sharedService.openSnackBar(res.message, 'error');
-                }
-            }, error => {
-                this.isDepositSubmitted = false;
-                this.sharedService.openSnackBar("Some error occured", 'error');
+        this.message = null;
+        if (!this.addSecuityDepositForm.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
             });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this.changeDetect.markForCheck();
         }
         else {
-            let details = {
-                "id": this.deposit.transactionId,
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
-                "blockUnitUserId": this.deposit.blockUnitUserId,
-                "securityDepositId": this.deposit.custCreditNoteId,
-                "glaccountId": this.deposit.glAccountID,
-                "invoiceId": this.deposit.invoiceId,
-                "collectionId": parseInt(this.deposit.collectionId),
-                "transactionType": this.deposit.transactionType,
-                "amount": parseInt(this.deposit.amount),
-                "comment": this.deposit.comment,
-                "comment2": this.deposit.comment2,
-                "active": this.deposit.active,
-                "insertedBy": this.deposit.insertedBy,
-                "insertedOn": this.deposit.insertedOn,
-                "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-            };
-            let params = {
-                custSecurity: details
-            };
-            this.accountsService.updateSecurityDeposit(params).subscribe((res) => {
-                this.isDepositSubmitted = false;
-                if (res.code = 200) {
-                    this.goBack();
-                    this.sharedService.openSnackBar("Security Deposit updated successfully", 'success');
-                }
-                else {
+            this.isDepositSubmitted = true;
+            if (!this.isEdit) {
+                let details = {
+                    "apartmentId": this.sessionService.apartmentId,
+                    "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                    "blockUnitUserId": null,
+                    "securityDepositId": 0,
+                    "glaccountId": parseInt(this.deposit.glAccountID),
+                    "invoiceId": null,
+                    "collectionId": null,
+                    "transactionType": 0,
+                    "amount": parseInt(this.deposit.amount),
+                    "comment": this.deposit.comment,
+                    "comment2": this.deposit.comment,
+                    "active": true,
+                    "insertedBy": parseInt(this.sessionService.userId),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null
+                };
+                let params = {
+                    custSecurity: details
+                };
+                this.accountsService.addSecurityDeposit(params).subscribe((res) => {
                     this.isDepositSubmitted = false;
-                    this.sharedService.openSnackBar(res.message, 'error');
-                }
-            }, error => {
-                this.isDepositSubmitted = false;
-                this.sharedService.openSnackBar("Some error occured", 'error');
-            });
+                    if (res.code = 200) {
+                        this.goBack();
+                        this._incomeSecurityDepositComponent.getSecurityDepositData();
+                        this.sharedService.openSnackBar("Security Deposit added successfully", 'success');
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.message, 'error');
+                    }
+                }, error => {
+                    this.isDepositSubmitted = false;
+                    this.sharedService.openSnackBar("Some error occured", 'error');
+                });
+            }
+            else {
+                let details = {
+                    "id": this.deposit.transactionId,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "apartmentBlockUnitId": parseInt(this.route.params['value'].id),
+                    "blockUnitUserId": this.deposit.blockUnitUserId,
+                    "securityDepositId": this.deposit.custCreditNoteId,
+                    "glaccountId": this.deposit.glAccountID,
+                    "invoiceId": this.deposit.invoiceId,
+                    "collectionId": parseInt(this.deposit.collectionId),
+                    "transactionType": this.deposit.transactionType,
+                    "amount": parseInt(this.deposit.amount),
+                    "comment": this.deposit.comment,
+                    "comment2": this.deposit.comment2,
+                    "active": this.deposit.active,
+                    "insertedBy": this.deposit.insertedBy,
+                    "insertedOn": this.deposit.insertedOn,
+                    "updatedBy": parseInt(this.sessionService.userId),
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                };
+                let params = {
+                    custSecurity: details
+                };
+                this.accountsService.updateSecurityDeposit(params).subscribe((res) => {
+                    this.isDepositSubmitted = false;
+                    if (res.code = 200) {
+                        this.goBack();
+                        this.sharedService.openSnackBar("Security Deposit updated successfully", 'success');
+                    }
+                    else {
+                        this.isDepositSubmitted = false;
+                        this.sharedService.openSnackBar(res.message, 'error');
+                    }
+                }, error => {
+                    this.isDepositSubmitted = false;
+                    this.sharedService.openSnackBar("Some error occured", 'error');
+                });
+            }
         }
     }
     ngOnInit() {
@@ -679,7 +732,8 @@ IncomeAddSecurityDepositComponent.ctorParameters = () => [
     { type: src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 IncomeAddSecurityDepositComponent.propDecorators = {
     deposit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -692,13 +746,16 @@ IncomeAddSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-income-add-security-deposit',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-add-security-deposit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-add-security-deposit.component.scss */ "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], IncomeAddSecurityDepositComponent);
 
 
@@ -1146,7 +1203,10 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         });
     }
     ngOnInit() {
-        this.report = {};
+        this.report = {
+            PostingdateFrom: moment__WEBPACK_IMPORTED_MODULE_9__().subtract(1, 'month'),
+            PostingdateTo: moment__WEBPACK_IMPORTED_MODULE_9__()
+        };
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.apartmentBlockUnitId = parseInt(this.route.params['value'].id);
         var cellsrenderer = (row, column, value) => {
@@ -1269,26 +1329,28 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         ];
         this.report.GLaccountID = "";
         this.report.GLDocumentTypeID = "";
-        let blockParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res) => {
-            this.blockData = res;
-        });
-        this.accountsService.getAllGlAccounts().subscribe((res) => {
-            this.glAccountsDataList = res.filter(item => {
-                return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
-            });
-        });
-        let glDocParams = {
-            LookupTypeId: 31,
-            ApartmentId: this.sessionService.apartmentId
-        };
-        //Gl Document 
-        this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe((res) => {
-            this.glDocumentTypeDataList = res;
-        }, error => {
-        });
+        this.submitIncomeReportsForm(this.report);
+        // let blockParams = {
+        //   apartmentId: this.sessionService.apartmentId
+        // }
+        // this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe((res:any) => {
+        //   this.blockData = res;
+        // });
+        //  this.accountsService.getAllGlAccounts().subscribe((res:any) => {
+        //   this.glAccountsDataList = res.filter(item => {
+        //     return item.isActive && this.sessionService.apartmentId && item.indicator ==  this.glAccountIndicator;
+        //   });
+        // });
+        // let glDocParams = {
+        //   LookupTypeId: 31,
+        //   ApartmentId: this.sessionService.apartmentId
+        // }
+        // //Gl Document 
+        // this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe((res:any) => {
+        //   this.glDocumentTypeDataList = res;
+        // },
+        // error => {
+        // });
     }
 };
 IncomeJournalComponent.ctorParameters = () => [
@@ -1534,7 +1596,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
-                text: 'Amount Dedcuted/Used',
+                text: 'Amount Debited/Used',
                 datafield: 'debitAmount',
                 minwidth: 150,
                 cellsrenderer: (row, column, value) => {
@@ -1542,13 +1604,13 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 },
                 renderer: columnrenderer
             }, {
-                text: 'Reason for Deduction',
+                text: 'Reason for Debited',
                 datafield: 'comment2',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
-                text: 'Secuirty Deposit Balance',
+                text: 'Security Deposit Balance',
                 datafield: 'balance',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,

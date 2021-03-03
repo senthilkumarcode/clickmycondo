@@ -537,7 +537,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 },
                 renderer: columnrenderer
             }];
-        this.getInvoiceDataList();
+        //this.getInvoiceDataList();
     }
 };
 IncomeInvoiceHistoryComponent.ctorParameters = () => [
