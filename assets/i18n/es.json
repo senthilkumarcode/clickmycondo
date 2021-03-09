@@ -85,7 +85,10 @@
                 "PRIMARYNAME": "Nombre principal",
                 "SUBJECT": "Sujeta",
                 "DESCRIPTION": "Descripción",
-                "ADDCOMMENT": "Agregar comentario"
+                "ADDCOMMENT": "Agregar comentario",
+                "TENANT": "Inquilina",
+                "OWNER": "Dueña",
+                "NAME": "Nombre"
             },
             "VIEWTICKET": {
                 "TITLE": "Todas las entradas",
@@ -147,7 +150,11 @@
                 "CLOSED": "Entradas Cerradas",
                 "UNASSIGNED": "Entradas sin asignar",
                 "MYTICKETS": "Mis Entradas",
-                "ADDTICKET": "Agregar ticket"
+                "ADDTICKET": "Agregar ticket",
+                "TOTALRESULTS": "resultados"
+            },
+            "REPORTS": {
+                "TITLE": "Informes de la mesa de ayuda"
             }
         }
     },
@@ -284,6 +291,16 @@
             "FROMDATE": "Partir de la fecha",
             "TODATE": "Hasta la fecha"
 
+        },
+        "EXPECTEDVISITORCONFIRM": {
+            "ID": "ID",
+            "CONTACTPERSON": "Persona de contacto",
+            "CREATEDON": "Creado en",
+            "EXPECTEDVISITORIN": "Visitante esperada en",
+            "VENDORVISITORIN": "Visitante del vendedor en",
+            "EXPECTEDVISITOROUT": "Visitante esperado fuera",
+            "VENDORVISITOROUT": "Visitante vendedor fuera",
+            "VISITREASON": "Visitar motivo"
         }
     },
     "FACILITY": {
@@ -346,6 +363,42 @@
             "REQUESTCREATIONDATEFROM": "Solicitar fecha de creación (desde)",
             "REQUESTCREATIONDATETO": "Solicitar fecha de creación (hasta)",
             "STATUS": "Estado"
+        },
+        "ADDFACILITY": {
+            "ADDTITLE": "Agregar instalación",
+            "EDITTITLE": "Editar instalación",
+            "VIEWTITLE": "Ver instalación",
+            "GOBACK": "Regresa",
+            "FACILITYNAME": "Nombre de la instalación",
+            "FACILITYLOCATION": "Ubicación de las instalaciones",
+            "SERVICETYPE": "Tipo de servicio",
+            "PAID": "Pagada",
+            "FREE": "Libre",
+            "HOUR": "Hora",
+            "DAY": "Día",
+            "YES": "sí",
+            "NO": "No",
+            "APPROVEDREQUIRED": "Aprobación requerida",
+            "BOOKINGAMOUNTPER": "Monto de reserva por",
+            "SECURITYDEPOSIT": "Depósito de seguridad",
+            "ADVANCEBOOKINGINDAYS": "Reserva anticipada en días",
+            "PAYMENTDUEINDAYS": "Pago debido en días",
+            "FACILITYOPENSAT": "La instalación abre a las",
+            "FACILITYCLOSESAT": "La instalación cierra a las",
+            "MINHOURSBOOKING": "Reserva de horas mín",
+            "TOTALNOOFOCCUPANCY": "No total de ocupación",
+            "ACCESSIBLEBYRESIDENTSOFBELOWTOWERS": "Accesible para los residentes de las torres inferiores",
+            "AVAILABLESLOT": "Espacio disponible",
+            "SLOT": "Espacio",
+            "PLEASEENTERMINIMUM": "Por favor ingrese el mínimo",
+            "HOURS": "Horas",
+            "BEGINTIME": "Hora de inicio",
+            "COSTPERSLOT": "Costo por ranura",
+            "COMMENTS": "Comentarios",
+            "TERMSANDCONDITION": "Términos y Condiciones"
+        },
+        "REPORTS": {
+            "TITLE": "Informes de instalaciones"
         }
     },
     "MOVEINOUT": {
@@ -494,7 +547,17 @@
         "LEVEL1MANAGER": "Seleccionar administrador de nivel 1",
         "LEVEL2MANAGER": "Seleccionar administrador de nivel 2",
         "ENTERCOMMENTS": "Ingrese comentarios",
-        "CATEGORYTYPE": "Ingrese el tipo de categoría"
+        "CATEGORYTYPE": "Ingrese el tipo de categoría",
+        "DAYS": "Dias",
+        "FACILITY": "Nombre de la instalación",
+        "FACILITYLOCATION": "Seleccione la ubicación de la instalación",
+        "ADVANCEBOOKINGDAYS": "Días de reserva anticipada",
+        "PAYMENTDUEDAYS": "Días de vencimiento de pago",
+        "TIME": "Hora",
+        "MINHRSBOOKING": "Reserva de horas mín",
+        "NOOFOCCUPANCY": "No de ocupación",
+        "TYPE": "Escribe",
+        "ENTERNUMBER": "Ingresar número"
 
     },
     "BUTTONS": {
@@ -521,14 +584,16 @@
         "CHECKOUT": "Revisa",
         "DOCUMENTCRITERIA": "Criterios del documento",
         "ADDMOVEOUT": "Agregar MoveOut",
-        "ACKNOWLEDGE": "Reconocer"
+        "ACKNOWLEDGE": "Reconocer",
+        "BOOKINGAMOUNT": "Importe de la reserva"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",
         "EXISTSUSERWITHOUTUNITS": "",
         "USER": "Usuario",
         "TITLE": "Confirmar acción",
-        "TYPE": "correo electrónico"
+        "TYPE": "correo electrónico",
+        "CONTENTREQUIREDFIELD": "Complete los campos obligatorios"
     },
     "CONFIRMDLG": {
         "YES": "si",
@@ -541,5 +606,24 @@
         "CANCEL": "Cancelar",
         "EDIT": "Editar",
         "VIEW": "Ver"
+    },
+    "POPUP": {
+        "CLOSETITLE": "Estas segura que quieres salir de la pantalla ?",
+        "CONFIRMACTION": "Confirmar acción",
+        "DELETETITLE": "¿Estás segura de que quieres eliminar?",
+        "CHECKINTITLE": "¿Estás segura de que quieres registrarte?",
+        "CHECKOUTTITLE": "Estas segura que quieres echar un vistazo?"
+    },
+    "UPLOAD": {
+        "TITLE": "Subir archivo",
+        "SIZEVALIDATION": "cargar archivo de menos de 2 MB",
+        "DROPFILE": "Suelta el archivo aquí o",
+        "BROWSE": "Navegar",
+        "ADDATTACHMENT": "para agregar adjunto",
+        "IMAGEDOCUMENT": "Imagen / Documento"
+    },
+    "PAGINATION": {
+        "SHOWING": "Demostración",
+        "OFRESULTS": "de resultados"
     }
 }

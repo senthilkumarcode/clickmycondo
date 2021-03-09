@@ -441,9 +441,15 @@
 
 
       var html2canvas__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_23__);
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var AddStaffComponent = /*#__PURE__*/function () {
-        function AddStaffComponent(router, route, userService, staffService, lookupService, sharedService, sessionService, constantsService, emailSendService, screenService, vendor, dialog, logInCheckService, _changeDetectorRef, activateRouter, _overlay, _viewContainerRef) {
+        function AddStaffComponent(router, route, userService, staffService, lookupService, sharedService, sessionService, constantsService, emailSendService, screenService, vendor, dialog, logInCheckService, _changeDetectorRef, activateRouter, _overlay, _viewContainerRef, translateService) {
           _classCallCheck(this, AddStaffComponent);
 
           this.router = router;
@@ -463,6 +469,7 @@
           this.activateRouter = activateRouter;
           this._overlay = _overlay;
           this._viewContainerRef = _viewContainerRef;
+          this.translateService = translateService;
           this.isEditStaff = false;
           this.isStaffSubmitted = false;
           this.isFileAdded = false;
@@ -1151,19 +1158,23 @@
           value: function back() {
             var _this13 = this;
 
-            var message = "Are you sure, you want to exit the screen ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this13.router.navigate(['maintain-staff'], {
-                  relativeTo: _this13.route.parent
-                });
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CLOSETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this13.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this13.router.navigate(['maintain-staff'], {
+                    relativeTo: _this13.route.parent
+                  });
+                }
+              });
             });
           }
         }, {
@@ -1388,6 +1399,8 @@
           type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__["TranslateService"]
         }];
       };
 
@@ -1436,7 +1449,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-staff.component.scss */
         "./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_12__["EmailSendService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_14__["ScreenService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_15__["VendorService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__["MatDialog"], src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_19__["LoginCheckService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]])], AddStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_12__["EmailSendService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_14__["ScreenService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_15__["VendorService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_18__["MatDialog"], src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_19__["LoginCheckService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__["TranslateService"]])], AddStaffComponent);
       /***/
     },
 
@@ -2373,9 +2386,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var StaffMaintainStaffComponent = /*#__PURE__*/function () {
-        function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, sessionService, router, dialog) {
+        function StaffMaintainStaffComponent(injector, staffService, lookupService, sharedService, sessionService, router, dialog, translateService) {
           _classCallCheck(this, StaffMaintainStaffComponent);
 
           this.injector = injector;
@@ -2385,6 +2404,7 @@
           this.sessionService = sessionService;
           this.router = router;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.isStaffDataLoaded = false;
           this.unitFieldType = "unitno";
           this.unitOrder = true;
@@ -2448,28 +2468,32 @@
 
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var staffId = dataRecord.staffId;
-            var message = "Do you want to deactivate user?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  staffId: staffId,
-                  deleteBy: _this28.sessionService.userId
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DEACTIVATEUSER);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this28.staffService.deleteStaff(params).subscribe(function (res) {
-                  _this28.sharedService.openSnackBar("Staff De-activated", 'success');
+              var dialogRef = _this28.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                  _this28.getAllStaff();
-                }, function (error) {
-                  _this28.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    staffId: staffId,
+                    deleteBy: _this28.sessionService.userId
+                  };
+
+                  _this28.staffService.deleteStaff(params).subscribe(function (res) {
+                    _this28.sharedService.openSnackBar("Staff De-activated", 'success');
+
+                    _this28.getAllStaff();
+                  }, function (error) {
+                    _this28.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -2569,6 +2593,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]
         }];
       };
 
@@ -2596,7 +2622,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-maintain-staff.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"]])], StaffMaintainStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])], StaffMaintainStaffComponent);
 
       function editMainstaff(row) {
         var event = new CustomEvent('onEditMainstaff', {

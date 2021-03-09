@@ -177,17 +177,19 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
         this.isTenantOrOwnerInfo = {};
     }
     clearAllField() {
-        const message = `Do you want to cancel user creation ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.resetField('clear');
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CANCELUSERCREATION}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.resetField('clear');
+                }
+            });
         });
     }
     checkEmail() {
@@ -316,17 +318,19 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                     let isExist = res.message.message.substr(0, 2);
                     if (isExist != 'No') {
                         unitRes = res.message.message.split(',');
-                        const dialogRef = this.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
-                            panelClass: 'material-dialog-big',
-                            data: {
-                                title: 'Confirm Action',
-                                type: 'checkunit',
-                                response: unitRes
-                            }
-                        });
-                        dialogRef.afterClosed().subscribe(result => {
-                            this.towerInfo.apartmentBlockId = null;
-                            this.towerInfo.apartmentBlockUnitId = null;
+                        this.translateService.get('POPUP').subscribe((data) => {
+                            const dialogRef = this.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
+                                panelClass: 'material-dialog-big',
+                                data: {
+                                    title: `${data.CONFIRMACTION}`,
+                                    type: 'checkunit',
+                                    response: unitRes
+                                }
+                            });
+                            dialogRef.afterClosed().subscribe(result => {
+                                this.towerInfo.apartmentBlockId = null;
+                                this.towerInfo.apartmentBlockUnitId = null;
+                            });
                         });
                     }
                     else {

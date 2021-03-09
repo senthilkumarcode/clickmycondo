@@ -3561,6 +3561,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -3576,12 +3578,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let joinComponent = class joinComponent {
-    constructor(router, dialog, apartmentservice, userService, sharedService) {
+    constructor(router, dialog, apartmentservice, userService, sharedService, translateService) {
         this.router = router;
         this.dialog = dialog;
         this.apartmentservice = apartmentservice;
         this.userService = userService;
         this.sharedService = sharedService;
+        this.translateService = translateService;
         this.version = _angular_material_core__WEBPACK_IMPORTED_MODULE_9__["VERSION"];
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]();
         this.isApartmentSelected = false;
@@ -3639,17 +3642,19 @@ let joinComponent = class joinComponent {
         this.selectedCountryISO = this.apartmentDetails.country;
     }
     cancelSignup() {
-        const message = `Are you sure you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.isApartmentSelected = false;
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.isApartmentSelected = false;
+                }
+            });
         });
     }
     submitAddResidentForm(form) {
@@ -3716,7 +3721,8 @@ joinComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"] }
 ];
 joinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3728,7 +3734,8 @@ joinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]])
 ], joinComponent);
 
 

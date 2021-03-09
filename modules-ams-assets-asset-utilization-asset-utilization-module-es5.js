@@ -288,9 +288,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var AddAssetUtilizationComponent = /*#__PURE__*/function () {
-        function AddAssetUtilizationComponent(sharedService, sessionService, staffService, lookupService, assetService, router, activateRoute, dialog) {
+        function AddAssetUtilizationComponent(sharedService, sessionService, staffService, lookupService, assetService, router, activateRoute, dialog, translateService) {
           _classCallCheck(this, AddAssetUtilizationComponent);
 
           this.sharedService = sharedService;
@@ -301,6 +307,7 @@
           this.router = router;
           this.activateRoute = activateRoute;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.usage = {};
           this.staffList = [];
           this.assetList = [];
@@ -494,19 +501,23 @@
             var _this3 = this;
 
             if (this.isEdit) {
-              var message = "Are you sure, you want to exit the screen ?";
-              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
-              var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-                panelClass: 'material-dialog-medium',
-                disableClose: true,
-                data: dialogData
-              });
-              dialogRef.afterClosed().subscribe(function (dialogResult) {
-                if (dialogResult) {
-                  _this3.router.navigate(['view'], {
-                    relativeTo: _this3.activateRoute.parent
-                  });
-                }
+              this.translateService.get('POPUP').subscribe(function (data) {
+                var message = "".concat(data.CLOSETITLE, " ?");
+                var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+                var dialogRef = _this3.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                  panelClass: 'material-dialog-medium',
+                  disableClose: true,
+                  data: dialogData
+                });
+
+                dialogRef.afterClosed().subscribe(function (dialogResult) {
+                  if (dialogResult) {
+                    _this3.router.navigate(['view'], {
+                      relativeTo: _this3.activateRoute.parent
+                    });
+                  }
+                });
               });
             } else {
               this.form.reset();
@@ -606,6 +617,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]
         }];
       };
 
@@ -623,7 +636,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-asset-utilization.component.scss */
         "./src/app/modules/ams/assets/asset-utilization/add-asset-utilization/add-asset-utilization.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], AddAssetUtilizationComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])], AddAssetUtilizationComponent);
       /***/
     },
 

@@ -2359,9 +2359,15 @@
       var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var GlAssetGroupsComponent = /*#__PURE__*/function () {
-        function GlAssetGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
+        function GlAssetGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService, translateService) {
           _classCallCheck(this, GlAssetGroupsComponent);
 
           this.injector = injector;
@@ -2370,6 +2376,7 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.glGroupsData = "";
           this.isDataLoaded = false;
           this.ItemStartIndex = 0;
@@ -2410,33 +2417,37 @@
           value: function showConfirmModal(id) {
             var _this12 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  apartmentId: _this12.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this12.sessionService.userId)
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this12.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this12.getGlGroups();
+              var dialogRef = _this12.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this12.sharedService.openSnackBar(res.message, 'success');
-                  } else {
-                    _this12.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this12.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    apartmentId: _this12.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(_this12.sessionService.userId)
+                  };
+
+                  _this12.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this12.getGlGroups();
+
+                      _this12.sharedService.openSnackBar(res.message, 'success');
+                    } else {
+                      _this12.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this12.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -2522,6 +2533,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
         }];
       };
 
@@ -2538,7 +2551,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-asset-groups.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-groups-wrapper/gl-asset-groups/gl-asset-groups.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], GlAssetGroupsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], GlAssetGroupsComponent);
       /***/
     },
 
@@ -2629,9 +2642,15 @@
       var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var GlEquityMemberFundGroupsComponent = /*#__PURE__*/function () {
-        function GlEquityMemberFundGroupsComponent(injector, dialog, accountsService, sharedService, sessionService) {
+        function GlEquityMemberFundGroupsComponent(injector, dialog, accountsService, sharedService, sessionService, translateService) {
           _classCallCheck(this, GlEquityMemberFundGroupsComponent);
 
           this.injector = injector;
@@ -2639,6 +2658,7 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.glGroupsData = "";
           this.isDataLoaded = false;
           this.ItemStartIndex = 0;
@@ -2679,33 +2699,37 @@
           value: function showConfirmModal(id) {
             var _this15 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  apartmentId: _this15.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this15.sessionService.userId)
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this15.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this15.getGlGroups();
+              var dialogRef = _this15.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this15.sharedService.openSnackBar(res.message, 'success');
-                  } else {
-                    _this15.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this15.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    apartmentId: _this15.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(_this15.sessionService.userId)
+                  };
+
+                  _this15.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this15.getGlGroups();
+
+                      _this15.sharedService.openSnackBar(res.message, 'success');
+                    } else {
+                      _this15.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this15.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -2789,6 +2813,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
         }];
       };
 
@@ -2805,7 +2831,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-equity-member-fund-groups.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-groups-wrapper/gl-equity-member-fund-groups/gl-equity-member-fund-groups.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], GlEquityMemberFundGroupsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], GlEquityMemberFundGroupsComponent);
       /***/
     },
 
@@ -2896,9 +2922,15 @@
       var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var GlExpenseGroupsComponent = /*#__PURE__*/function () {
-        function GlExpenseGroupsComponent(injector, dialog, accountsService, sharedService, sessionService) {
+        function GlExpenseGroupsComponent(injector, dialog, accountsService, sharedService, sessionService, translateService) {
           _classCallCheck(this, GlExpenseGroupsComponent);
 
           this.injector = injector;
@@ -2906,6 +2938,7 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.glGroupsData = "";
           this.isDataLoaded = false;
           this.ItemStartIndex = 0;
@@ -2946,33 +2979,37 @@
           value: function showConfirmModal(id) {
             var _this18 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  apartmentId: _this18.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this18.sessionService.userId)
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this18.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this18.getGlGroups();
+              var dialogRef = _this18.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this18.sharedService.openSnackBar(res.message, 'success');
-                  } else {
-                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this18.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    apartmentId: _this18.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(_this18.sessionService.userId)
+                  };
+
+                  _this18.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this18.getGlGroups();
+
+                      _this18.sharedService.openSnackBar(res.message, 'success');
+                    } else {
+                      _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this18.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -3056,6 +3093,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
         }];
       };
 
@@ -3072,7 +3111,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-expense-groups.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-groups-wrapper/gl-expense-groups/gl-expense-groups.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], GlExpenseGroupsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], GlExpenseGroupsComponent);
       /***/
     },
 
@@ -3250,9 +3289,15 @@
       var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var GlIncomeGroupsComponent = /*#__PURE__*/function () {
-        function GlIncomeGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
+        function GlIncomeGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService, translateService) {
           _classCallCheck(this, GlIncomeGroupsComponent);
 
           this.injector = injector;
@@ -3261,6 +3306,7 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.glGroupsData = "";
           this.isDataLoaded = false;
           this.ItemStartIndex = 0;
@@ -3301,35 +3347,39 @@
           value: function showConfirmModal(id) {
             var _this21 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  apartmentId: _this21.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this21.sessionService.userId)
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this21.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  _this21.sharedService.setUnitListDeleteIndex(null);
+              var dialogRef = _this21.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                  if (res.message) {
-                    _this21.getGlGroups();
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    apartmentId: _this21.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(_this21.sessionService.userId)
+                  };
 
-                    _this21.sharedService.openSnackBar(res.message, 'success');
-                  } else {
-                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this21.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+                  _this21.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                    _this21.sharedService.setUnitListDeleteIndex(null);
+
+                    if (res.message) {
+                      _this21.getGlGroups();
+
+                      _this21.sharedService.openSnackBar(res.message, 'success');
+                    } else {
+                      _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this21.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -3415,6 +3465,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
         }];
       };
 
@@ -3431,7 +3483,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-income-groups.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-groups-wrapper/gl-income-groups/gl-income-groups.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], GlIncomeGroupsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], GlIncomeGroupsComponent);
       /***/
     },
 
@@ -3528,9 +3580,15 @@
       var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var GlLiabilitesGroupsComponent = /*#__PURE__*/function () {
-        function GlLiabilitesGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
+        function GlLiabilitesGroupsComponent(injector, dialog, apartmentService, accountsService, sharedService, sessionService, translateService) {
           _classCallCheck(this, GlLiabilitesGroupsComponent);
 
           this.injector = injector;
@@ -3539,6 +3597,7 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.glGroupsData = "";
           this.isDataLoaded = false;
           this.ItemStartIndex = 0;
@@ -3579,33 +3638,37 @@
           value: function showConfirmModal(id) {
             var _this24 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  apartmentId: _this24.sessionService.apartmentId,
-                  glGroupId: id,
-                  deleteBy: parseInt(_this24.sessionService.userId)
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this24.accountsService.deleteGlGroup(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this24.getGlGroups();
+              var dialogRef = _this24.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this24.sharedService.openSnackBar(res.message, 'success');
-                  } else {
-                    _this24.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this24.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    apartmentId: _this24.sessionService.apartmentId,
+                    glGroupId: id,
+                    deleteBy: parseInt(_this24.sessionService.userId)
+                  };
+
+                  _this24.accountsService.deleteGlGroup(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this24.getGlGroups();
+
+                      _this24.sharedService.openSnackBar(res.message, 'success');
+                    } else {
+                      _this24.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this24.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -3691,6 +3754,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
         }];
       };
 
@@ -3707,7 +3772,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-liabilites-groups.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-groups-wrapper/gl-liabilites-groups/gl-liabilites-groups.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], GlLiabilitesGroupsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], GlLiabilitesGroupsComponent);
       /***/
     },
 

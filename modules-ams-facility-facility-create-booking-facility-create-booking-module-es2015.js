@@ -5143,6 +5143,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
 /* harmony import */ var _facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../facility-modal/facility-modal.component */ "./src/app/modules/ams/facility/facility-create-booking/facility-modal/facility-modal.component.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -5160,7 +5162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
-    constructor(router, route, userService, changeDetect, facilityService, lookupService, sharedService, apartmentService, sessionService, dialog, visitorService) {
+    constructor(router, route, userService, changeDetect, facilityService, lookupService, sharedService, apartmentService, sessionService, dialog, visitorService, translateService) {
         this.router = router;
         this.route = route;
         this.userService = userService;
@@ -5172,6 +5174,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
         this.sessionService = sessionService;
         this.dialog = dialog;
         this.visitorService = visitorService;
+        this.translateService = translateService;
         this.info = {}; //value got from pop-up (edit mode,view mode and Calendar create Mode)
         this.modalResult = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.facilitySlotData = [];
@@ -5580,17 +5583,19 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
         }
     }
     back() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.routerConfig();
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.routerConfig();
+                }
+            });
         });
     }
     editFacilityBooking(id) {
@@ -5711,7 +5716,8 @@ FacilityCreateBookingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
-    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__["VisitorService"] }
+    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__["VisitorService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"] }
 ];
 FacilityCreateBookingComponent.propDecorators = {
     info: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['popUpInfo',] }],
@@ -5736,7 +5742,8 @@ FacilityCreateBookingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
-        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__["VisitorService"]])
+        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__["VisitorService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]])
 ], FacilityCreateBookingComponent);
 
 

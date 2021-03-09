@@ -307,17 +307,21 @@
           value: function clearAllField() {
             var _this = this;
 
-            var message = "Do you want to cancel user creation ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this.resetField('clear');
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CANCELUSERCREATION);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this.resetField('clear');
+                }
+              });
             });
           }
         }, {
@@ -492,18 +496,20 @@
                   if (isExist != 'No') {
                     unitRes = res.message.message.split(',');
 
-                    var dialogRef = _this5.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
-                      panelClass: 'material-dialog-big',
-                      data: {
-                        title: 'Confirm Action',
-                        type: 'checkunit',
-                        response: unitRes
-                      }
-                    });
+                    _this5.translateService.get('POPUP').subscribe(function (data) {
+                      var dialogRef = _this5.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
+                        panelClass: 'material-dialog-big',
+                        data: {
+                          title: "".concat(data.CONFIRMACTION),
+                          type: 'checkunit',
+                          response: unitRes
+                        }
+                      });
 
-                    dialogRef.afterClosed().subscribe(function (result) {
-                      _this5.towerInfo.apartmentBlockId = null;
-                      _this5.towerInfo.apartmentBlockUnitId = null;
+                      dialogRef.afterClosed().subscribe(function (result) {
+                        _this5.towerInfo.apartmentBlockId = null;
+                        _this5.towerInfo.apartmentBlockUnitId = null;
+                      });
                     });
                   } else {
                     var message = res.message.message;

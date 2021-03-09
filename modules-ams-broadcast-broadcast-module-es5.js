@@ -642,6 +642,12 @@
       var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var BroadcastModule = function BroadcastModule() {
         _classCallCheck(this, BroadcastModule);
@@ -649,7 +655,7 @@
 
       BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastSetupComponent"], _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastHistoryComponent"], _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastSendmessageComponent"], _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_22__["BroadcastGroupBasedAnnouncementComponent"], _components_announcement_details_announcement_details_component__WEBPACK_IMPORTED_MODULE_23__["AnnouncementDetailsComponent"], _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastgroupSetupComponent"], _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastGroupAssignmentComponent"], _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastRemoveuserComponent"], _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastAnnouncementsComponent"], _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_20__["BroadcastRoleComponent"], _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_21__["BroadcastGroupComponent"], _components_broadcast_sendmessage_broadcast_success_message_broadcast_success_message_component__WEBPACK_IMPORTED_MODULE_28__["BroadcastSuccessMessageComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__["CondoCardModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_24__["QuillModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_27__["UploadModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_29__["CondoMessageModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__["CondoCardModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_24__["QuillModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_27__["UploadModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_29__["CondoMessageModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_30__["TranslateModule"]],
         providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
       })], BroadcastModule);
       /***/
@@ -3020,9 +3026,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var BroadcastGroupComponent = /*#__PURE__*/function () {
-        function BroadcastGroupComponent(broadcastService, sharedService, userService, staffService, apartmentService, injector, constantsService, sessionService, router, dialog) {
+        function BroadcastGroupComponent(broadcastService, sharedService, userService, staffService, apartmentService, injector, constantsService, sessionService, router, dialog, translateService) {
           _classCallCheck(this, BroadcastGroupComponent);
 
           this.broadcastService = broadcastService;
@@ -3035,6 +3047,7 @@
           this.sessionService = sessionService;
           this.router = router;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.dropdownSettings = {};
           this.blockdropdownSettings = {};
           this.roleTypedropdownSettings = {};
@@ -3367,17 +3380,21 @@
           value: function clearAll() {
             var _this31 = this;
 
-            var message = "Are you sure, you want to clear the data ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this31.clearData();
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CLEARTITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this31.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this31.clearData();
+                }
+              });
             });
           }
         }]);
@@ -3406,6 +3423,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]
         }];
       };
 
@@ -3418,7 +3437,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./broadcast-group.component.scss */
         "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-group/broadcast-group.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]])], BroadcastGroupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])], BroadcastGroupComponent);
       /***/
     },
 
@@ -3555,9 +3574,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var BroadcastRoleComponent = /*#__PURE__*/function () {
-        function BroadcastRoleComponent(broadcastService, sharedService, userService, staffService, apartmentService, injector, constantsService, sessionService, router, dialog) {
+        function BroadcastRoleComponent(broadcastService, sharedService, userService, staffService, apartmentService, injector, constantsService, sessionService, router, dialog, translateService) {
           _classCallCheck(this, BroadcastRoleComponent);
 
           this.broadcastService = broadcastService;
@@ -3570,6 +3595,7 @@
           this.sessionService = sessionService;
           this.router = router;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.dropdownSettings = {};
           this.blockdropdownSettings = {};
           this.roleTypedropdownSettings = {};
@@ -4421,17 +4447,21 @@
           value: function clearAll() {
             var _this43 = this;
 
-            var message = "Are you sure, you want to clear the data ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this43.removeAll('', 'clear');
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CLEARTITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this43.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this43.removeAll('', 'clear');
+                }
+              });
             });
           }
         }, {
@@ -4582,6 +4612,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]
         }];
       };
 
@@ -4594,7 +4626,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./broadcast-role.component.scss */
         "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-role/broadcast-role.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]])], BroadcastRoleComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])], BroadcastRoleComponent);
       /***/
     },
 

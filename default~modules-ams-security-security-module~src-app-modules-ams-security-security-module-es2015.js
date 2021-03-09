@@ -127,6 +127,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -140,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
-    constructor(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog) {
+    constructor(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog, translateService) {
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.alertService = alertService;
@@ -148,6 +150,7 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.alertList = [];
         this.isAlertsLoaded = false;
         this.isAlertUpdated = false;
@@ -286,98 +289,100 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         if (alert.gpslocation == null) {
             alert.gpslocation = " ";
         }
-        if (type == 'approve') {
-            this.confirmationMessage = `Are you sure, you want to acknowledge this Alert?`;
-        }
-        if (type == 'close') {
-            this.confirmationMessage = `Are you sure you want to close this Alert?`;
-        }
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", this.confirmationMessage);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            this.result = dialogResult;
-            if (this.result) {
-                if (type == 'approve') {
-                    details = {
-                        "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-                        "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-                        "receivedDate": alert.receivedDate,
-                        "alertTypeId": alert.alertTypeId,
-                        "location": "string",
-                        "gpslocation": alert.gpslocation,
-                        "assignedTo": parseInt(this.sessionService.userId),
-                        "alertStatusId": 136,
-                        "notes": alert.notes,
-                        "isActive": alert.isActive,
-                        "insertedBy": parseInt(this.sessionService.userId),
-                        "insertedOn": "2019-12-06T13:45:09.296Z",
-                        "updatedBy": parseInt(this.sessionService.userId),
-                        "updatedOn": "2019-12-06T13:45:09.296Z"
-                    };
-                }
-                else {
-                    details = {
-                        "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-                        "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-                        "receivedDate": alert.receivedDate,
-                        "alertTypeId": alert.alertTypeId,
-                        "location": "string",
-                        "gpslocation": alert.gpslocation,
-                        "assignedTo": parseInt(this.sessionService.userId),
-                        "alertStatusId": 137,
-                        "notes": alert.notes,
-                        "isActive": true,
-                        "insertedBy": parseInt(this.sessionService.userId),
-                        "insertedOn": "2019-12-06T13:45:09.296Z",
-                        "updatedBy": parseInt(this.sessionService.userId),
-                        "updatedOn": "2019-12-06T13:45:09.296Z"
-                    };
-                }
-                let alertParams = {
-                    apartmentBlockUnitAlert: details
-                };
-                this.alertService.updateApartmentBlockUnitAlert(alertParams).subscribe((res) => {
-                    if (res.message) {
-                        let apartmentIdParams = {
-                            apartmentId: this.sessionService.apartmentId
+        this.translateService.get('POPUP').subscribe((data) => {
+            if (type == 'approve') {
+                this.confirmationMessage = `${data.ACKNOWLEDGEALERT}`;
+            }
+            if (type == 'close') {
+                this.confirmationMessage = `${data.CLOSEALERT}`;
+            }
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, this.confirmationMessage);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                panelClass: 'material',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                this.result = dialogResult;
+                if (this.result) {
+                    if (type == 'approve') {
+                        details = {
+                            "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                            "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                            "receivedDate": alert.receivedDate,
+                            "alertTypeId": alert.alertTypeId,
+                            "location": "string",
+                            "gpslocation": alert.gpslocation,
+                            "assignedTo": parseInt(this.sessionService.userId),
+                            "alertStatusId": 136,
+                            "notes": alert.notes,
+                            "isActive": alert.isActive,
+                            "insertedBy": parseInt(this.sessionService.userId),
+                            "insertedOn": "2019-12-06T13:45:09.296Z",
+                            "updatedBy": parseInt(this.sessionService.userId),
+                            "updatedOn": "2019-12-06T13:45:09.296Z"
                         };
-                        this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe((alert) => {
-                            this.alertList = alert.filter(item => {
-                                return (item.alertStatusId == 135 || item.alertStatusId == 136);
-                            });
-                            this.isAlertUpdated = false;
-                        }, error => {
-                            console.log(error);
-                        });
-                        var success = {
-                            msg: 'Alert Updated',
-                            type: "Success"
-                        };
-                        this.sharedService.setCustomAlertMessage(success);
                     }
                     else {
-                        this.isAlertUpdated = false;
-                        var errorMessage = res.errorMessage;
-                        if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
-                            errorMessage = "Alert not updated as its not exist";
-                        }
-                        var errorDetails = {
-                            msg: errorMessage,
-                            type: "Error"
+                        details = {
+                            "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                            "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                            "receivedDate": alert.receivedDate,
+                            "alertTypeId": alert.alertTypeId,
+                            "location": "string",
+                            "gpslocation": alert.gpslocation,
+                            "assignedTo": parseInt(this.sessionService.userId),
+                            "alertStatusId": 137,
+                            "notes": alert.notes,
+                            "isActive": true,
+                            "insertedBy": parseInt(this.sessionService.userId),
+                            "insertedOn": "2019-12-06T13:45:09.296Z",
+                            "updatedBy": parseInt(this.sessionService.userId),
+                            "updatedOn": "2019-12-06T13:45:09.296Z"
                         };
-                        this.sharedService.setCustomAlertMessage(errorDetails);
                     }
-                }, error => {
-                    console.log(error);
-                });
-            }
-            else {
-                this.isAlertUpdated = false;
-            }
+                    let alertParams = {
+                        apartmentBlockUnitAlert: details
+                    };
+                    this.alertService.updateApartmentBlockUnitAlert(alertParams).subscribe((res) => {
+                        if (res.message) {
+                            let apartmentIdParams = {
+                                apartmentId: this.sessionService.apartmentId
+                            };
+                            this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe((alert) => {
+                                this.alertList = alert.filter(item => {
+                                    return (item.alertStatusId == 135 || item.alertStatusId == 136);
+                                });
+                                this.isAlertUpdated = false;
+                            }, error => {
+                                console.log(error);
+                            });
+                            var success = {
+                                msg: 'Alert Updated',
+                                type: "Success"
+                            };
+                            this.sharedService.setCustomAlertMessage(success);
+                        }
+                        else {
+                            this.isAlertUpdated = false;
+                            var errorMessage = res.errorMessage;
+                            if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
+                                errorMessage = "Alert not updated as its not exist";
+                            }
+                            var errorDetails = {
+                                msg: errorMessage,
+                                type: "Error"
+                            };
+                            this.sharedService.setCustomAlertMessage(errorDetails);
+                        }
+                    }, error => {
+                        console.log(error);
+                    });
+                }
+                else {
+                    this.isAlertUpdated = false;
+                }
+            });
         });
     }
     isNoAlerts() {
@@ -456,7 +461,8 @@ SecurityActiveAlertsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"] }
 ];
 SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -470,7 +476,8 @@ SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])
 ], SecurityActiveAlertsComponent);
 
 

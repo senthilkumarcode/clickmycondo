@@ -86,7 +86,10 @@
                 "PRIMARYNAME": "Primary Name",
                 "SUBJECT": "Subject",
                 "DESCRIPTION": "Description",
-                "ADDCOMMENT": "Add Comment"
+                "ADDCOMMENT": "Add Comment",
+                "TENANT": "Tenant",
+                "OWNER": "Owner",
+                "NAME": "Name"
             },
             "VIEWTICKET": {
                 "TITLE": "All Tickets",
@@ -148,7 +151,11 @@
                 "CLOSED": "Closed Tickets",
                 "UNASSIGNED": "Unassigned Tickets",
                 "MYTICKETS": "My Tickets",
-                "ADDTICKET": "Add Ticket"
+                "ADDTICKET": "Add Ticket",
+                "TOTALRESULTS": "results"
+            },
+            "REPORTS": {
+                "TITLE": "Helpdesk Reports"
             }
         }
     },
@@ -205,7 +212,8 @@
             "VIEWVENDORBTN": "View list of vendor pass",
             "EXPECTEDVISITORNAME": "Expected Visitor",
             "CREATEANOTHEREXPECTEDVISITOR": "Create another expected visitor",
-            "VIEWEXPECTEDVISITOR": "View list of expected visitor"
+            "VIEWEXPECTEDVISITOR": "View list of expected visitor",
+            "SHAREBELOWDETAILS": "Please share the below details to your visitor"
         },
         "FREQUENTVISITORLIST": {
             "TITLE": "Frequent Visitor List",
@@ -285,6 +293,19 @@
             "FROMDATE": "From Date",
             "TODATE": "To Date"
 
+        },
+        "EXPECTEDVISITORCONFIRM": {
+            "ID": "ID",
+            "CONTACTPERSON": "Contact Person",
+            "CREATEDON": "Created On",
+            "EXPECTEDVISITORIN": "Expected Visitor In",
+            "VENDORVISITORIN": "Vendor Visitor In",
+            "EXPECTEDVISITOROUT": "Expected Visitor Out",
+            "VENDORVISITOROUT": "Vendor Visitor Out",
+            "VISITREASON": "Visit Reason"
+        },
+        "REPORTS": {
+            "TITLE": "Visitor Management Reports"
         }
         
     },
@@ -348,6 +369,42 @@
             "REQUESTCREATIONDATEFROM": "Request Creation Date (From)",
             "REQUESTCREATIONDATETO": "Request Creation Date (To)",
             "STATUS": "Status"
+        },
+        "ADDFACILITY": {
+            "ADDTITLE": "Add Facility",
+            "EDITTITLE": "Edit Facility",
+            "VIEWTITLE": "View Facility",
+            "GOBACK": "Go Back",
+            "FACILITYNAME": "Facility Name",
+            "FACILITYLOCATION": "Facility Location",
+            "SERVICETYPE": "Service Type",
+            "PAID": "Paid",
+            "FREE": "Free",
+            "HOUR": "Hour",
+            "DAY": "Day",
+            "YES": "Yes",
+            "NO": "No",
+            "APPROVEDREQUIRED": "Approval Required",
+            "BOOKINGAMOUNTPER": "Booking Amount Per",
+            "SECURITYDEPOSIT": "Security Deposit",
+            "ADVANCEBOOKINGINDAYS": "Advance Booking In Days",
+            "PAYMENTDUEINDAYS": "Payment Due In Days",
+            "FACILITYOPENSAT": "Facility Opens At",
+            "FACILITYCLOSESAT": "Facility Closes At",
+            "MINHOURSBOOKING": "Min Hours Booking",
+            "TOTALNOOFOCCUPANCY": "Total No Of Occupancy",
+            "ACCESSIBLEBYRESIDENTSOFBELOWTOWERS": "Accessible By Residents of below Towers",
+            "AVAILABLESLOT": "Available Slot",
+            "SLOT": "Slot",
+            "PLEASEENTERMINIMUM": "Please enter minimum",
+            "HOURS": "Hours",
+            "BEGINTIME": "Begin Time",
+            "COSTPERSLOT": "Cost per Slot",
+            "COMMENTS": "Comments",
+            "TERMSANDCONDITION": "Terms and Condition"
+        },
+        "REPORTS": {
+            "TITLE": "Facility Reports"
         }
     },
     "MOVEINOUT": {
@@ -496,7 +553,17 @@
         "LEVEL1MANAGER": "Select Level-1 Manager",
         "LEVEL2MANAGER": "Select Level-2 Manager",
         "ENTERCOMMENTS": "Enter Comments",
-        "CATEGORYTYPE": "Enter Category Type"
+        "CATEGORYTYPE": "Enter Category Type",
+        "DAYS": "Days",
+        "FACILITY": "Facility Name",
+        "FACILITYLOCATION": "Select Facility Location",
+        "ADVANCEBOOKINGDAYS": "Advance Booking Days",
+        "PAYMENTDUEDAYS": "Payment Due Days",
+        "TIME": "Time",
+        "MINHRSBOOKING": "Min Hrs Booking",
+        "NOOFOCCUPANCY": "No Of Occupancy",
+        "TYPE": "Type",
+        "ENTERNUMBER": "Enter Number"
 
     },
     "BUTTONS": {
@@ -523,14 +590,16 @@
         "CHECKOUT": "CheckOut",
         "DOCUMENTCRITERIA": "Document Criteria",
         "ADDMOVEOUT": "Add MoveOut",
-        "ACKNOWLEDGE": "Acknowledge"
+        "ACKNOWLEDGE": "Acknowledge",
+        "BOOKINGAMOUNT": "Booking Amount"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",
         "EXISTSUSERWITHOUTUNITS": "",
         "USER": "User",
         "TITLE": "Confirm Action",
-        "TYPE": "email"
+        "TYPE": "email",
+        "CONTENTREQUIREDFIELD": "Fill the Required Fields"
     },
     "CONFIRMDLG": {
         "YES": "Yes",
@@ -543,5 +612,47 @@
         "CANCEL": "Cancel",
         "EDIT": "Edit",
         "VIEW": "View"
+    },
+    "POPUP": {
+        "CLOSETITLE": "Are you sure, you want to exit the screen ?",
+        "CONFIRMACTION": "Confirm Action",
+        "DELETETITLE": "Are you sure you want to delete ?",
+        "CHECKINTITLE": "Are you sure you want to Check In?",
+        "CHECKOUTTITLE": "Are you sure, you want to Check Out?",
+        "CLEARTITLE": "Are you sure, you want to clear the data ?",
+        "DELETEALLSLOT": "Are you sure you want to delete all slot ?",
+        "CANCELDATA": "Are you sure, you want to cancel the data ?",
+        "DELIVERYDATA": "Are you sure you want to Delivery?",
+        "ACKNOWLEDGEALERT": "Are you sure, you want to acknowledge this Alert?",
+        "CLOSEALERT": "Are you sure you want to close this Alert?",
+        "DEACTIVATEUSER": "Do you want to deactivate user?",
+        "STAFFATTENDANCEALERT": "All the staff will be made as present. Please change the staff attendence status if needed",
+        "STAFFALLPRESENT": "Do you want to make all the staff as present ?",
+        "STAFFALLHOLIDAY": "Do you want to make all the staff as holiday ?",
+        "CANCELUSERCREATION": "Do you want to cancel user creation ?",
+        "ENABLEPRIMARYCONTACT": "Do you want to enable the user as primary contact for billing?",
+        "DISABLEPRIMARYCONTACT": "Do you want to disable the user as primary contact for billing?",
+        "SETUSERRESIDENTS": "Do you want to set the user as resident ?",
+        "SETUSERNONRESIDENTS": "Do you want to set the user as non-resident ?",
+        "SUBMITRECORDING": "Do you want the submit the recordings ?",
+        "CLOSEMETERSETUP": "Are you sure, you want to close the meter setup ?",
+        "UNITSPECIFIC": "Are you sure, you want to close the unit specific ?",
+        "REMOVEALLRECORDS": "All records will be removed. Do you wish to continue ?",
+        "MOVEIN": "Do you want to Move In?",
+        "MOVEOUT": "Do you want to Move Out?",
+        "CLOSEDATA": "Are you sure, you want to close the",
+        "CLOSELOCATION": "Are you sure, You want to close the location ?"
+    },
+    "UPLOAD": {
+        "TITLE": "Upload File",
+        "SIZEVALIDATION": "upload file less than 2 MB",
+        "DROPFILE": "Drop file here or",
+        "BROWSE": "Browse",
+        "ADDATTACHMENT": "to add attachment",
+        "IMAGEDOCUMENT": "Image/Document"
+    },
+    "PAGINATION": {
+        "SHOWING": "Showing",
+        "OFRESULTS": "of results"
     }
 }

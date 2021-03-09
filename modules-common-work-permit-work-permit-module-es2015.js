@@ -456,6 +456,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -475,7 +477,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WorkpermitCreateComponent = class WorkpermitCreateComponent {
-    constructor(dialog, router, activateRouter, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService, _changeDetectorRef) {
+    constructor(dialog, router, activateRouter, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService, _changeDetectorRef, translateService) {
         this.dialog = dialog;
         this.router = router;
         this.activateRouter = activateRouter;
@@ -487,6 +489,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.sessionService = sessionService;
         this.sharedService = sharedService;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.workPermit = {
             workNatureId: null,
             workPermitTypeId: null,
@@ -642,22 +645,24 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         }
     }
     deleteConfirmDialog(type, index) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                if (type == 'worker')
-                    this.workersList.splice(index, 1);
-                else if (type === 'material')
-                    this.materialsList.splice(index, 1);
-                else
-                    this.toolsList.splice(index, 1);
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    if (type == 'worker')
+                        this.workersList.splice(index, 1);
+                    else if (type === 'material')
+                        this.materialsList.splice(index, 1);
+                    else
+                        this.toolsList.splice(index, 1);
+                }
+            });
         });
     }
     //edit listWorkers 
@@ -849,17 +854,19 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         }, 800);
     }
     cancel() {
-        const message = `Are you sure you want to exit the Screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.navigationPage();
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.navigationPage();
+                }
+            });
         });
     }
     resetField() {
@@ -1005,7 +1012,8 @@ WorkpermitCreateComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__["TranslateService"] }
 ];
 WorkpermitCreateComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['createWorkPermitForm',] }],
@@ -1031,7 +1039,8 @@ WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__["TranslateService"]])
 ], WorkpermitCreateComponent);
 
 

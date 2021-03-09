@@ -328,6 +328,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -339,13 +341,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
-    constructor(sharedService, staffService, _overlay, dialog, _viewContainerRef, sessionService) {
+    constructor(sharedService, staffService, _overlay, dialog, _viewContainerRef, sessionService, translateService) {
         this.sharedService = sharedService;
         this.staffService = staffService;
         this._overlay = _overlay;
         this.dialog = dialog;
         this._viewContainerRef = _viewContainerRef;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.popupContent = {};
         this.currentDate = moment__WEBPACK_IMPORTED_MODULE_6__();
         this.attendanceDate = moment__WEBPACK_IMPORTED_MODULE_6__();
@@ -445,17 +448,19 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
         });
     }
     attendanceAlertPopup() {
-        const message = `All the staff will be made as present. Please change the staff attendence status if needed`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-big',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.startAttendance();
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.STAFFATTENDANCEALERT}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-big',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.startAttendance();
+                }
+            });
         });
     }
     startAttendance() {
@@ -651,73 +656,77 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
         });
     }
     allPresent() {
-        const message = `Do you want to make all the staff as present ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.isDataLoaded = true;
-                let params = {
-                    attendance: {
-                        "apartmentId": this.sessionService.apartmentId,
-                        "attendanceforDate": this.attendanceDate,
-                        "updatedBy": this.sessionService.userId,
-                        "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
-                    }
-                };
-                this.staffService.updateAttendanceAllPresent(params).subscribe((res) => {
-                    if (res.message) {
-                        this.sharedService.openSnackBar(res.message, 'success');
-                        this.startAttendance();
-                    }
-                    else {
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.STAFFALLPRESENT}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.isDataLoaded = true;
+                    let params = {
+                        attendance: {
+                            "apartmentId": this.sessionService.apartmentId,
+                            "attendanceforDate": this.attendanceDate,
+                            "updatedBy": this.sessionService.userId,
+                            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                        }
+                    };
+                    this.staffService.updateAttendanceAllPresent(params).subscribe((res) => {
+                        if (res.message) {
+                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.startAttendance();
+                        }
+                        else {
+                            this.isDataLoaded = false;
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
                         this.isDataLoaded = false;
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.isDataLoaded = false;
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     allHoliday() {
-        const message = `Do you want to make all the staff as holiday ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.isDataLoaded = true;
-                let params = {
-                    attendance: {
-                        "apartmentId": this.sessionService.apartmentId,
-                        "attendanceforDate": this.attendanceDate,
-                        "updatedBy": this.sessionService.userId,
-                        "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
-                    }
-                };
-                this.staffService.updateAttendanceAllHoliday(params).subscribe((res) => {
-                    if (res.message) {
-                        this.sharedService.openSnackBar(res.message, 'success');
-                        this.startAttendance();
-                    }
-                    else {
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.STAFFALLHOLIDAY}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.isDataLoaded = true;
+                    let params = {
+                        attendance: {
+                            "apartmentId": this.sessionService.apartmentId,
+                            "attendanceforDate": this.attendanceDate,
+                            "updatedBy": this.sessionService.userId,
+                            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                        }
+                    };
+                    this.staffService.updateAttendanceAllHoliday(params).subscribe((res) => {
+                        if (res.message) {
+                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.startAttendance();
+                        }
+                        else {
+                            this.isDataLoaded = false;
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
                         this.isDataLoaded = false;
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.isDataLoaded = false;
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     ngOnInit() {
@@ -729,7 +738,8 @@ StaffAttendanceEntryComponent.ctorParameters = () => [
     { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["Overlay"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"] }
 ];
 StaffAttendanceEntryComponent.propDecorators = {
     setting: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['setting',] }],
@@ -747,7 +757,8 @@ StaffAttendanceEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["Overlay"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])
 ], StaffAttendanceEntryComponent);
 
 

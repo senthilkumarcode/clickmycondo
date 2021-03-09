@@ -206,6 +206,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
 /* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
 /* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -231,7 +233,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddStaffComponent = class AddStaffComponent {
-    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, constantsService, emailSendService, screenService, vendor, dialog, logInCheckService, _changeDetectorRef, activateRouter, _overlay, _viewContainerRef) {
+    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, constantsService, emailSendService, screenService, vendor, dialog, logInCheckService, _changeDetectorRef, activateRouter, _overlay, _viewContainerRef, translateService) {
         this.router = router;
         this.route = route;
         this.userService = userService;
@@ -249,6 +251,7 @@ let AddStaffComponent = class AddStaffComponent {
         this.activateRouter = activateRouter;
         this._overlay = _overlay;
         this._viewContainerRef = _viewContainerRef;
+        this.translateService = translateService;
         this.isEditStaff = false;
         this.isStaffSubmitted = false;
         this.isFileAdded = false;
@@ -843,17 +846,19 @@ let AddStaffComponent = class AddStaffComponent {
         });
     }
     back() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.router.navigate(['maintain-staff'], { relativeTo: this.route.parent });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_17__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.router.navigate(['maintain-staff'], { relativeTo: this.route.parent });
+                }
+            });
         });
     }
     openPanel() {
@@ -1036,7 +1041,8 @@ AddStaffComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__["TranslateService"] }
 ];
 AddStaffComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addStaffForm',] }],
@@ -1072,7 +1078,8 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_22__["Overlay"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_24__["TranslateService"]])
 ], AddStaffComponent);
 
 
@@ -1684,6 +1691,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1697,7 +1706,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
-    constructor(injector, staffService, lookupService, sharedService, sessionService, router, dialog) {
+    constructor(injector, staffService, lookupService, sharedService, sessionService, router, dialog, translateService) {
         this.injector = injector;
         this.staffService = staffService;
         this.lookupService = lookupService;
@@ -1705,6 +1714,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.sessionService = sessionService;
         this.router = router;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.isStaffDataLoaded = false;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
@@ -1754,26 +1764,28 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
     onAllStaffDelete(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let staffId = dataRecord.staffId;
-        const message = `Do you want to deactivate user?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let params = {
-                    staffId: staffId,
-                    deleteBy: this.sessionService.userId
-                };
-                this.staffService.deleteStaff(params).subscribe((res) => {
-                    this.sharedService.openSnackBar("Staff De-activated", 'success');
-                    this.getAllStaff();
-                }, error => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DEACTIVATEUSER}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let params = {
+                        staffId: staffId,
+                        deleteBy: this.sessionService.userId
+                    };
+                    this.staffService.deleteStaff(params).subscribe((res) => {
+                        this.sharedService.openSnackBar("Staff De-activated", 'success');
+                        this.getAllStaff();
+                    }, error => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     ngOnInit() {
@@ -1853,7 +1865,8 @@ StaffMaintainStaffComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"] }
 ];
 StaffMaintainStaffComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -1872,7 +1885,8 @@ StaffMaintainStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])
 ], StaffMaintainStaffComponent);
 
 function editMainstaff(row) {

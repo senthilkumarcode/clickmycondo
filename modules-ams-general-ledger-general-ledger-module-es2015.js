@@ -1540,6 +1540,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1550,13 +1552,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlAssetGroupsComponent = class GlAssetGroupsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
+    constructor(injector, dialog, apartmentService, accountsService, sharedService, sessionService, translateService) {
         this.injector = injector;
         this.dialog = dialog;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.glGroupsData = "";
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
@@ -1586,32 +1589,34 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(id) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        this.getGlGroups();
-                        this.sharedService.openSnackBar(res.message, 'success');
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let params = {
+                        apartmentId: this.sessionService.apartmentId,
+                        glGroupId: id,
+                        deleteBy: parseInt(this.sessionService.userId)
+                    };
+                    this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                        if (res.message) {
+                            this.getGlGroups();
+                            this.sharedService.openSnackBar(res.message, 'success');
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     isItemsAvailable() {
@@ -1666,7 +1671,8 @@ GlAssetGroupsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 GlAssetGroupsComponent.propDecorators = {
     glaccountTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
@@ -1682,7 +1688,8 @@ GlAssetGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], GlAssetGroupsComponent);
 
 
@@ -1720,6 +1727,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1729,12 +1738,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent {
-    constructor(injector, dialog, accountsService, sharedService, sessionService) {
+    constructor(injector, dialog, accountsService, sharedService, sessionService, translateService) {
         this.injector = injector;
         this.dialog = dialog;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.glGroupsData = "";
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
@@ -1764,32 +1774,34 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(id) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        this.getGlGroups();
-                        this.sharedService.openSnackBar(res.message, 'success');
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let params = {
+                        apartmentId: this.sessionService.apartmentId,
+                        glGroupId: id,
+                        deleteBy: parseInt(this.sessionService.userId)
+                    };
+                    this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                        if (res.message) {
+                            this.getGlGroups();
+                            this.sharedService.openSnackBar(res.message, 'success');
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     isItemsAvailable() {
@@ -1843,7 +1855,8 @@ GlEquityMemberFundGroupsComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"] }
 ];
 GlEquityMemberFundGroupsComponent.propDecorators = {
     glaccountTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
@@ -1858,7 +1871,8 @@ GlEquityMemberFundGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
 ], GlEquityMemberFundGroupsComponent);
 
 
@@ -1896,6 +1910,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1905,12 +1921,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
-    constructor(injector, dialog, accountsService, sharedService, sessionService) {
+    constructor(injector, dialog, accountsService, sharedService, sessionService, translateService) {
         this.injector = injector;
         this.dialog = dialog;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.glGroupsData = "";
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
@@ -1940,32 +1957,34 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(id) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        this.getGlGroups();
-                        this.sharedService.openSnackBar(res.message, 'success');
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let params = {
+                        apartmentId: this.sessionService.apartmentId,
+                        glGroupId: id,
+                        deleteBy: parseInt(this.sessionService.userId)
+                    };
+                    this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                        if (res.message) {
+                            this.getGlGroups();
+                            this.sharedService.openSnackBar(res.message, 'success');
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     isItemsAvailable() {
@@ -2019,7 +2038,8 @@ GlExpenseGroupsComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"] }
 ];
 GlExpenseGroupsComponent.propDecorators = {
     glaccountTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
@@ -2034,7 +2054,8 @@ GlExpenseGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
 ], GlExpenseGroupsComponent);
 
 
@@ -2119,6 +2140,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2129,13 +2152,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
+    constructor(injector, dialog, apartmentService, accountsService, sharedService, sessionService, translateService) {
         this.injector = injector;
         this.dialog = dialog;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.glGroupsData = "";
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
@@ -2165,33 +2189,35 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(id) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    this.sharedService.setUnitListDeleteIndex(null);
-                    if (res.message) {
-                        this.getGlGroups();
-                        this.sharedService.openSnackBar(res.message, 'success');
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let params = {
+                        apartmentId: this.sessionService.apartmentId,
+                        glGroupId: id,
+                        deleteBy: parseInt(this.sessionService.userId)
+                    };
+                    this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                        this.sharedService.setUnitListDeleteIndex(null);
+                        if (res.message) {
+                            this.getGlGroups();
+                            this.sharedService.openSnackBar(res.message, 'success');
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     isItemsAvailable() {
@@ -2246,7 +2272,8 @@ GlIncomeGroupsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 GlIncomeGroupsComponent.propDecorators = {
     glaccountTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
@@ -2262,7 +2289,8 @@ GlIncomeGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], GlIncomeGroupsComponent);
 
 
@@ -2301,6 +2329,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2311,13 +2341,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
-    constructor(injector, dialog, apartmentService, accountsService, sharedService, sessionService) {
+    constructor(injector, dialog, apartmentService, accountsService, sharedService, sessionService, translateService) {
         this.injector = injector;
         this.dialog = dialog;
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.glGroupsData = "";
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
@@ -2347,32 +2378,34 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(id) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    glGroupId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.accountsService.deleteGlGroup(params).subscribe((res) => {
-                    if (res.message) {
-                        this.getGlGroups();
-                        this.sharedService.openSnackBar(res.message, 'success');
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, (error) => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let params = {
+                        apartmentId: this.sessionService.apartmentId,
+                        glGroupId: id,
+                        deleteBy: parseInt(this.sessionService.userId)
+                    };
+                    this.accountsService.deleteGlGroup(params).subscribe((res) => {
+                        if (res.message) {
+                            this.getGlGroups();
+                            this.sharedService.openSnackBar(res.message, 'success');
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, (error) => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     isItemsAvailable() {
@@ -2427,7 +2460,8 @@ GlLiabilitesGroupsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 GlLiabilitesGroupsComponent.propDecorators = {
     glaccountTypeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
@@ -2443,7 +2477,8 @@ GlLiabilitesGroupsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], GlLiabilitesGroupsComponent);
 
 

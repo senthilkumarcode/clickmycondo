@@ -157,6 +157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -175,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AssetsCreateComponent = class AssetsCreateComponent {
-    constructor(router, route, assetService, vendorService, lookupService, sharedService, constantsService, sessionService, apartmentService, dialog, _changeDetectorRef) {
+    constructor(router, route, assetService, vendorService, lookupService, sharedService, constantsService, sessionService, apartmentService, dialog, _changeDetectorRef, translateService) {
         this.router = router;
         this.route = route;
         this.assetService = assetService;
@@ -187,6 +189,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         this.apartmentService = apartmentService;
         this.dialog = dialog;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.insurance = {};
         this.isFileAdded = false;
         this.fileList = [];
@@ -276,16 +279,18 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         this.title.customForm.splice(this.index, 1);
     }
     deleteCustomForm(index) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult)
-                this.title.customForm.splice(index, 1);
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult)
+                    this.title.customForm.splice(index, 1);
+            });
         });
     }
     setCategoryLocation(event) {
@@ -591,16 +596,18 @@ let AssetsCreateComponent = class AssetsCreateComponent {
         });
     }
     back() {
-        const message = `Are you sure you want to exit the Screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult)
-                this.router.navigate(['/ams/assets/view']);
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult)
+                    this.router.navigate(['/ams/assets/view']);
+            });
         });
     }
     getLocationCategory() {
@@ -765,7 +772,8 @@ AssetsCreateComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__["TranslateService"] }
 ];
 AssetsCreateComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addAssetForm',] }],
@@ -789,7 +797,8 @@ AssetsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__["TranslateService"]])
 ], AssetsCreateComponent);
 
 

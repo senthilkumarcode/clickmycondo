@@ -445,9 +445,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var MeetingsCreateComponent = /*#__PURE__*/function () {
-        function MeetingsCreateComponent(lookupService, sessionService, apartmentService, staffService, userService, meetingService, sharedService, router, dialog, activateRouter, _changeDetectorRef) {
+        function MeetingsCreateComponent(lookupService, sessionService, apartmentService, staffService, userService, meetingService, sharedService, router, dialog, activateRouter, _changeDetectorRef, translateService) {
           var _this = this;
 
           _classCallCheck(this, MeetingsCreateComponent);
@@ -463,6 +469,7 @@
           this.dialog = dialog;
           this.activateRouter = activateRouter;
           this._changeDetectorRef = _changeDetectorRef;
+          this.translateService = translateService;
           this.data = {
             type: 'create'
           };
@@ -1088,17 +1095,21 @@
           value: function dialogClose() {
             var _this11 = this;
 
-            var message = "All records will be removed. Do you wish to continue ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this11.popupClose.emit(false);
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.REMOVEALLRECORDS);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this11.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this11.popupClose.emit(false);
+                }
+              });
             });
           }
         }, {
@@ -1275,6 +1286,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]
         }];
       };
 
@@ -1301,7 +1314,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./meetings-create.component.scss */
         "./src/app/modules/common/meetings/meeting-setting/meetings-create/meetings-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_10__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MeetingsCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_10__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]])], MeetingsCreateComponent);
       /***/
     },
 

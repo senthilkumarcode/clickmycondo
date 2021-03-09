@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.type == 'common'\">{{'SERVICE.HELPDESK.SETTINGS.COMMONCATEGORY' | translate}}</span>\n                    <span *ngIf=\"data.type == 'private'\">{{'SERVICE.HELPDESK.SETTINGS.PRIVATETICKETCATEGORY' | translate}}</span>\n                </h4>\n                <mat-icon class=\"ml-auto link\" [svgIcon]=\"'close'\" (click)=\"closePopUp()\"></mat-icon>\n            </div>\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n                [appearance]=\"message.appearance\"\n                [showIcon]=\"message.showIcon\"\n                [type]=\"message.type\"\n                [@shake]=\"message.shake\">\n                {{message.content}}\n            </condo-message>\n            <form #ticketCategoryForm=\"ngForm\" name=\"ticketCategoryForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.SETTINGS.CATEGORYNAME' | translate}}<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.CATEGORYNAME' | translate}}\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" (input)=\"errorMessage=''\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.SETTINGS.DEFAULTSUPERVISOR' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.DEFAULTSUPERVISOR' | translate}}\"\n                            [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticketCategoryData.staffOne\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"isExistUser($event,'one')\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-4\">{{'SERVICE.HELPDESK.SETTINGS.ESCLATIONSETUP' | translate}}</h6>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.SETTINGS.AUTOESCLATETOLEVEL1AFTER' | translate}}</label>\n                            <div class=\"d-flex\">\n                                <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\">\n                                <label class=\"ml-4 align-self-end\">{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"{{'SERVICE.HELPDESK.SETTINGS.LEVEL1MANAGER' | translate}}\"\n                        fieldPlaceholder=\"{{'PLACEHOLDER.LEVEL1MANAGER' | translate}}\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffTwo\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'two')\" \n                        ></condo-select> \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.SETTINGS.AUTOESCLATETOLEVEL2AFTER' | translate}}</label>\n                            <div class=\"d-flex\">\n                                <input OnlyNumber=\"true\" class=\"form-control d-inline-block w-40\" placeholder=\"{{'PLACEHOLDER.DAYS' | translate}}\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\">\n                                <label class=\"ml-4 align-self-end\">{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"{{'SERVICE.HELPDESK.SETTINGS.LEVEL2MANAGER' | translate}}\"\n                        fieldPlaceholder=\"{{'PLACEHOLDER.LEVEL2MANAGER' | translate}}\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffThree\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'three')\" \n                        ></condo-select> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <submit-button class=\"float-right\" [isSubmit]=\"isTicketSubmitted\" *ngIf=\"data.mode == 'create'\" (click)=\"createCategory()\">{{'PLACEHOLDER.CREATEBUTTON' | translate}}</submit-button>\n                        <submit-button class=\"float-right\" [isSubmit]=\"isTicketSubmitted\" *ngIf=\"data.mode == 'edit'\" (click)=\"updateCategory()\">{{'PLACEHOLDER.UPDATEBUTTON' | translate}}</submit-button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.type == 'common'\">{{'SERVICE.HELPDESK.SETTINGS.COMMONCATEGORY' | translate}}</span>\n                    <span *ngIf=\"data.type == 'private'\">{{'SERVICE.HELPDESK.SETTINGS.PRIVATETICKETCATEGORY' | translate}}</span>\n                </h4>\n                <mat-icon class=\"ml-auto link\" [svgIcon]=\"'close'\" (click)=\"closePopUp()\"></mat-icon>\n            </div>\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n                [appearance]=\"message.appearance\"\n                [showIcon]=\"message.showIcon\"\n                [type]=\"message.type\"\n                [@shake]=\"message.shake\">\n                {{message.content}}\n            </condo-message>\n            <form #ticketCategoryForm=\"ngForm\" name=\"ticketCategoryForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.SETTINGS.CATEGORYNAME' | translate}}<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.CATEGORYNAME' | translate}}\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"{{'SERVICE.HELPDESK.SETTINGS.DEFAULTSUPERVISOR' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.DEFAULTSUPERVISOR' | translate}}\"\n                            [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticketCategoryData.staffOne\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"isExistUser($event,'one')\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-4\">{{'SERVICE.HELPDESK.SETTINGS.ESCLATIONSETUP' | translate}}</h6>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.SETTINGS.AUTOESCLATETOLEVEL1AFTER' | translate}}</label>\n                            <div class=\"d-flex\">\n                                <input OnlyNumber=\"true\" class=\"form-control\" (input)=\"checkEsclate2()\"  placeholder=\"{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\" autocomplete=\"off\">\n                                <label class=\"ml-4 align-self-end\">{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}</label>\n                            </div>\n                            <label class=\"text-danger\" *ngIf=\"errorMessage1\">Please enter the data below of {{'SERVICE.HELPDESK.SETTINGS.AUTOESCLATETOLEVEL2AFTER' | translate}}</label>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"{{'SERVICE.HELPDESK.SETTINGS.LEVEL1MANAGER' | translate}}\"\n                        fieldPlaceholder=\"{{'PLACEHOLDER.LEVEL1MANAGER' | translate}}\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffTwo\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'two')\" \n                        ></condo-select> \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>{{'SERVICE.HELPDESK.SETTINGS.AUTOESCLATETOLEVEL2AFTER' | translate}}</label>\n                            <div class=\"d-flex\">\n                                <input OnlyNumber=\"true\" class=\"form-control d-inline-block w-40\" (input)=\"checkEsclate1()\"  placeholder=\"{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\" autocomplete=\"off\">\n                                <label class=\"ml-4 align-self-end\">{{'SERVICE.HELPDESK.SETTINGS.DAYS' | translate}}</label>\n                            </div>\n                            <label class=\"text-danger\" *ngIf=\"errorMessage2\">Please enter the data above of {{'SERVICE.HELPDESK.SETTINGS.AUTOESCLATETOLEVEL1AFTER' | translate}}</label>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"{{'SERVICE.HELPDESK.SETTINGS.LEVEL2MANAGER' | translate}}\"\n                        fieldPlaceholder=\"{{'PLACEHOLDER.LEVEL2MANAGER' | translate}}\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffThree\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'three')\" \n                        ></condo-select> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <submit-button class=\"float-right\" [isSubmit]=\"isTicketSubmitted\" *ngIf=\"data.mode == 'create'\" (click)=\"createCategory()\">{{'BUTTONS.CREATEBUTTON' | translate}}</submit-button>\n                        <submit-button class=\"float-right\" [isSubmit]=\"isTicketSubmitted\" *ngIf=\"data.mode == 'edit'\" (click)=\"updateCategory()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</submit-button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -87,6 +87,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -99,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddTicketCategoryComponent = class AddTicketCategoryComponent {
-    constructor(dialogRef, staffService, sessionService, lookupService, ticketService, sharedService, _changeDetectorRef, dialog, data) {
+    constructor(dialogRef, staffService, sessionService, lookupService, ticketService, sharedService, _changeDetectorRef, dialog, data, translateService) {
         this.dialogRef = dialogRef;
         this.staffService = staffService;
         this.sessionService = sessionService;
@@ -109,11 +111,28 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
         this._changeDetectorRef = _changeDetectorRef;
         this.dialog = dialog;
         this.data = data;
+        this.translateService = translateService;
         this.ticketCategoryData = {};
         this.staffsList = [];
         this.editData = {};
         this.isTicketSubmitted = false;
         this.message = null;
+    }
+    checkEsclate1() {
+        if (parseInt(this.ticketCategoryData.escalationDaysOne) >= parseInt(this.ticketCategoryData.escalationDaysTwo)) {
+            this.errorMessage2 = true;
+        }
+        else {
+            this.errorMessage2 = false;
+        }
+    }
+    checkEsclate2() {
+        if (parseInt(this.ticketCategoryData.escalationDaysTwo) <= parseInt(this.ticketCategoryData.escalationDaysOne)) {
+            this.errorMessage1 = true;
+        }
+        else {
+            this.errorMessage1 = false;
+        }
     }
     isExistUser(event, type) {
         if (type == 'one')
@@ -125,7 +144,7 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
     }
     createCategory() {
         this.message = null;
-        if (!this.form.valid) {
+        if (this.errorMessage1 || this.errorMessage2) {
             window.scroll({
                 top: 0,
                 behavior: 'smooth'
@@ -133,11 +152,27 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             // Show the validation message
             this.message = {
                 appearance: 'outline',
-                content: "Fill the Required Fields",
+                content: "Please clear the error",
                 shake: true,
                 showIcon: true,
                 type: 'error'
             };
+        }
+        else if (!this.form.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                // Show the validation message
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -173,17 +208,19 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
         }
     }
     closePopUp() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.dialogRef.close(false);
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.dialogRef.close(false);
+                }
+            });
         });
     }
     createEsclation(ticketCategoryId) {
@@ -351,7 +388,8 @@ AddTicketCategoryComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"] }
 ];
 AddTicketCategoryComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['ticketCategoryForm',] }]
@@ -371,7 +409,7 @@ AddTicketCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], Object])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], Object, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])
 ], AddTicketCategoryComponent);
 
 

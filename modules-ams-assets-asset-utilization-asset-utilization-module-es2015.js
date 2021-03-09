@@ -162,6 +162,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -174,7 +176,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddAssetUtilizationComponent = class AddAssetUtilizationComponent {
-    constructor(sharedService, sessionService, staffService, lookupService, assetService, router, activateRoute, dialog) {
+    constructor(sharedService, sessionService, staffService, lookupService, assetService, router, activateRoute, dialog, translateService) {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.staffService = staffService;
@@ -183,6 +185,7 @@ let AddAssetUtilizationComponent = class AddAssetUtilizationComponent {
         this.router = router;
         this.activateRoute = activateRoute;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.usage = {};
         this.staffList = [];
         this.assetList = [];
@@ -334,17 +337,19 @@ let AddAssetUtilizationComponent = class AddAssetUtilizationComponent {
     }
     resetField() {
         if (this.isEdit) {
-            const message = `Are you sure, you want to exit the screen ?`;
-            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
-            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-                panelClass: 'material-dialog-medium',
-                disableClose: true,
-                data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(dialogResult => {
-                if (dialogResult) {
-                    this.router.navigate(['view'], { relativeTo: this.activateRoute.parent });
-                }
+            this.translateService.get('POPUP').subscribe((data) => {
+                const message = `${data.CLOSETITLE} ?`;
+                const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+                const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                    panelClass: 'material-dialog-medium',
+                    disableClose: true,
+                    data: dialogData
+                });
+                dialogRef.afterClosed().subscribe(dialogResult => {
+                    if (dialogResult) {
+                        this.router.navigate(['view'], { relativeTo: this.activateRoute.parent });
+                    }
+                });
             });
         }
         else {
@@ -426,7 +431,8 @@ AddAssetUtilizationComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"] }
 ];
 AddAssetUtilizationComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['assetUsageForm',] }]
@@ -444,7 +450,8 @@ AddAssetUtilizationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])
 ], AddAssetUtilizationComponent);
 
 

@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"document-common-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isCommmonDataLoaded\"></app-loader>\n\t\t<div class=\"folder-list float-left\" [ngClass]=\"isTabSelected()\" *ngIf=\"isCommmonDataLoaded\">\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Folder Upload</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"findFolder\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow mb-2\" (click)=\"showFolderDetails(item.categoryId)\" *ngFor=\"let item of folderList | simpleSearch:findFolder\" [ngClass]=\"{'selected-folder-list': item.categoryId == selectedTab}\">\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<mat-icon class=\"folder-icon\" svgIcon=\"feather:folder\" [ngClass]=\"{'text-primary': item.categoryId == selectedTab}\"></mat-icon>\n\t\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t\t<h6>{{item.categoryName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary\" *ngIf=\"!this.isUserPage\">Files: {{item.documentCount}}</p>       \n\t\t\t\t\t</div>\t\t\t\t\t\n\t\t\t\t</div>\t\t\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div *ngIf=\"selectedTab >= 0\">\n\t\t\t<app-document-download [selectedTab]=\"selectedTab\" *ngIf=\"!isMobileView()\"></app-document-download>\n\t\t</div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"document-common-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isCommmonDataLoaded\"></app-loader>\n\t\t<div class=\"folder-list float-left\" [ngClass]=\"isTabSelected()\" *ngIf=\"isCommmonDataLoaded\">\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4 *ngIf=\"urlType == 'public'\">Common Folder Upload</h4>\n\t\t\t\t\t<h4 *ngIf=\"urlType == 'staff-public'\">Staff Public Upload</h4>\n\t\t\t\t\t<h4 *ngIf=\"urlType == 'staff-private'\">Staff Private Upload</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"findFolder\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow mb-2\" (click)=\"showFolderDetails(item.categoryId)\" *ngFor=\"let item of folderList | simpleSearch:findFolder\" [ngClass]=\"{'selected-folder-list': item.categoryId == selectedTab}\">\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<mat-icon class=\"folder-icon\" svgIcon=\"feather:folder\" [ngClass]=\"{'text-primary': item.categoryId == selectedTab}\"></mat-icon>\n\t\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t\t<h6>{{item.categoryName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary\" *ngIf=\"!this.isUserPage\">Files: {{item.documentCount}}</p>       \n\t\t\t\t\t</div>\t\t\t\t\t\n\t\t\t\t</div>\t\t\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div *ngIf=\"selectedTab >= 0\">\n\t\t\t<app-document-download [selectedTab]=\"selectedTab\" *ngIf=\"!isMobileView()\"></app-document-download>\n\t\t</div>\n\t</div>\n</div>";
       /***/
     },
 
@@ -276,11 +276,27 @@
           pathMatch: 'full'
         }]
       }, {
-        path: 'common',
+        path: 'public',
         component: _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_6__["FolderListsComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
       }, {
-        path: 'common-download/:id',
+        path: 'public-download/:id',
+        component: _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_7__["DocumentDownloadComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+      }, {
+        path: 'staff-public',
+        component: _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_6__["FolderListsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+      }, {
+        path: 'staff-public-download/:id',
+        component: _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_7__["DocumentDownloadComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+      }, {
+        path: 'staff-private',
+        component: _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_6__["FolderListsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+      }, {
+        path: 'staff-private-download/:id',
         component: _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_7__["DocumentDownloadComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
       }, {
@@ -2507,15 +2523,20 @@
       "./src/app/core/session/session.service.ts");
 
       var FolderListsComponent = /*#__PURE__*/function () {
-        function FolderListsComponent(router, route, documentService, sessionService) {
+        function FolderListsComponent(router, activateRouter, documentService, sessionService) {
+          var _this15 = this;
+
           _classCallCheck(this, FolderListsComponent);
 
           this.router = router;
-          this.route = route;
+          this.activateRouter = activateRouter;
           this.documentService = documentService;
           this.sessionService = sessionService;
           this.folderList = [];
           this.selectedTab = -1;
+          this.activateRouter.url.subscribe(function (res) {
+            _this15.urlType = res[0].path;
+          });
         }
 
         _createClass(FolderListsComponent, [{
@@ -2534,13 +2555,13 @@
             if (!this.isMobileView()) {
               if (this.selectedTab != id) this.selectedTab = id;else this.selectedTab = -1;
             } else {
-              this.router.navigate(['ams/documents/config/common-download/' + id]);
+              this.router.navigate(['ams/documents/config/public-download/' + id]);
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isCommmonDataLoaded = false; //Folder Upload List
 
@@ -2548,11 +2569,11 @@
               "ApartmentId": this.sessionService.apartmentId
             };
             this.documentService.getAllDocCountByCategory(adminCategory).subscribe(function (res) {
-              _this15.folderList = res;
-              _this15.totalItems = res.length;
-              _this15.isCommmonDataLoaded = true;
+              _this16.folderList = res;
+              _this16.totalItems = res.length;
+              _this16.isCommmonDataLoaded = true;
             }, function (error) {
-              _this15.isCommmonDataLoaded = true;
+              _this16.isCommmonDataLoaded = true;
             });
           }
         }]);

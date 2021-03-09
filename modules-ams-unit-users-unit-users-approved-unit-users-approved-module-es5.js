@@ -202,9 +202,15 @@
       var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var UnitUsersApprovedComponent = /*#__PURE__*/function () {
-        function UnitUsersApprovedComponent(_router, _activatedRoute, userService, apartmentService, sharedService, sessionService, dialog, changeDetector) {
+        function UnitUsersApprovedComponent(_router, _activatedRoute, userService, apartmentService, sharedService, sessionService, dialog, changeDetector, translateService) {
           _classCallCheck(this, UnitUsersApprovedComponent);
 
           this._router = _router;
@@ -215,6 +221,7 @@
           this.sessionService = sessionService;
           this.dialog = dialog;
           this.changeDetector = changeDetector;
+          this.translateService = translateService;
           this.totalUsers = 0;
           this.unitData = "";
           this.ItemStartIndex = 0;
@@ -324,43 +331,47 @@
           value: function changePrimayContact(apartmentBlockUnitUserId, user) {
             var _this2 = this;
 
-            var message;
-            if (user.isPrimaryContact) message = 'Do you want to enable the user as primary contact for billing?';else message = 'Do you want to disable the user as primary contact for billing?';
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var apartmentBlockUnitUser = {
-                  "apartmentId": _this2.sessionService.apartmentId,
-                  "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
-                  "isPrimaryContact": user.isPrimaryContact,
-                  "isLiving": user.isLiving,
-                  "updatedBy": _this2.sessionService.userId,
-                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
-                };
-                var updateParam = {
-                  apartmentBlockUnitUser: apartmentBlockUnitUser
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message;
+              if (user.isPrimaryContact) message = "".concat(data.ENABLEPRIMARYCONTACT);else message = "".concat(data.DISABLEPRIMARYCONTACT);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this2.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
-                  if (resp.code == 200 && resp.message) {
-                    _this2.sharedService.openSnackBar('Primary Contact Updated', 'success'); //this.getApprovedUsers('primary');
+              var dialogRef = _this2.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                  } else {
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var apartmentBlockUnitUser = {
+                    "apartmentId": _this2.sessionService.apartmentId,
+                    "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
+                    "isPrimaryContact": user.isPrimaryContact,
+                    "isLiving": user.isLiving,
+                    "updatedBy": _this2.sessionService.userId,
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
+                  };
+                  var updateParam = {
+                    apartmentBlockUnitUser: apartmentBlockUnitUser
+                  };
+
+                  _this2.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+                    if (resp.code == 200 && resp.message) {
+                      _this2.sharedService.openSnackBar('Primary Contact Updated', 'success'); //this.getApprovedUsers('primary');
+
+                    } else {
+                      user.isPrimaryContact = !user.isPrimaryContact;
+
+                      _this2.sharedService.openSnackBar(resp.errorMessage, 'error');
+                    }
+                  }, function (error) {
                     user.isPrimaryContact = !user.isPrimaryContact;
 
-                    _this2.sharedService.openSnackBar(resp.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  user.isPrimaryContact = !user.isPrimaryContact;
-
-                  _this2.sharedService.openSnackBar('Server Error', 'error');
-                });
-              } else user.isPrimaryContact = !user.isPrimaryContact;
+                    _this2.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                } else user.isPrimaryContact = !user.isPrimaryContact;
+              });
             });
           }
         }, {
@@ -373,41 +384,45 @@
               user.isLiving = !user.isLiving;
               this.sharedService.openSnackBar('Tenant is always a resident', 'error');
             } else {
-              var message;
-              if (user.isLiving) message = 'Do you want to set the user as resident ?';else message = 'Do you want to set the user as non-resident ?';
-              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-              var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-                panelClass: 'material-dialog-medium',
-                disableClose: true,
-                data: dialogData
-              });
-              dialogRef.afterClosed().subscribe(function (dialogResult) {
-                if (dialogResult) {
-                  var apartmentBlockUnitUser = {
-                    "apartmentId": _this3.sessionService.apartmentId,
-                    "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
-                    "isPrimaryContact": user.isPrimaryContact,
-                    "isLiving": user.isLiving,
-                    "updatedBy": _this3.sessionService.userId,
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
-                  };
-                  var updateParam = {
-                    apartmentBlockUnitUser: apartmentBlockUnitUser
-                  };
+              this.translateService.get('POPUP').subscribe(function (data) {
+                var message;
+                if (user.isLiving) message = "".concat(data.SETUSERRESIDENTS);else message = "".concat(data.SETUSERNONRESIDENTS);
+                var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                  _this3.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
-                    if (resp.code == 200 && resp.message == 'IsPrimaryContact and IsLiving Updated.') {
-                      _this3.sharedService.openSnackBar('Living Updated Successfully', 'success');
-                    } else {
+                var dialogRef = _this3.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+                  panelClass: 'material-dialog-medium',
+                  disableClose: true,
+                  data: dialogData
+                });
+
+                dialogRef.afterClosed().subscribe(function (dialogResult) {
+                  if (dialogResult) {
+                    var apartmentBlockUnitUser = {
+                      "apartmentId": _this3.sessionService.apartmentId,
+                      "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
+                      "isPrimaryContact": user.isPrimaryContact,
+                      "isLiving": user.isLiving,
+                      "updatedBy": _this3.sessionService.userId,
+                      "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
+                    };
+                    var updateParam = {
+                      apartmentBlockUnitUser: apartmentBlockUnitUser
+                    };
+
+                    _this3.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+                      if (resp.code == 200 && resp.message == 'IsPrimaryContact and IsLiving Updated.') {
+                        _this3.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                      } else {
+                        user.isLiving = !user.isLiving;
+                        if (resp.message) _this3.sharedService.openSnackBar(resp.message, 'error');else _this3.sharedService.openSnackBar(resp.errorMessage, 'error');
+                      }
+                    }, function (error) {
                       user.isLiving = !user.isLiving;
-                      if (resp.message) _this3.sharedService.openSnackBar(resp.message, 'error');else _this3.sharedService.openSnackBar(resp.errorMessage, 'error');
-                    }
-                  }, function (error) {
-                    user.isLiving = !user.isLiving;
 
-                    _this3.sharedService.openSnackBar('Server Error', 'error');
-                  });
-                } else user.isLiving = !user.isLiving;
+                      _this3.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                  } else user.isLiving = !user.isLiving;
+                });
               });
             }
           }
@@ -455,6 +470,8 @@
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]
         }];
       };
 
@@ -467,7 +484,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./unit-users-approved.component.scss */
         "./src/app/modules/ams/unit-users/unit-users-approved/unit-users-approved.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], UnitUsersApprovedComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])], UnitUsersApprovedComponent);
       /***/
     },
 

@@ -1100,6 +1100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../movein-moveout-edit-view/movein-moveout-edit-view.component */ "./src/app/modules/common/moveinout-tracker/components/movein-moveout-edit-view/movein-moveout-edit-view.component.ts");
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
 /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1118,7 +1120,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinMaintainComponent = class MoveinMaintainComponent {
-    constructor(_overlay, injector, _viewContainerRef, moveInOutService, apartmentService, lookupService, sharedService, sessionService, dialog, router, activateRouter) {
+    constructor(_overlay, injector, _viewContainerRef, moveInOutService, apartmentService, lookupService, sharedService, sessionService, dialog, router, activateRouter, translateService) {
         this._overlay = _overlay;
         this.injector = injector;
         this._viewContainerRef = _viewContainerRef;
@@ -1130,6 +1132,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         this.dialog = dialog;
         this.router = router;
         this.activateRouter = activateRouter;
+        this.translateService = translateService;
         this.totalItems = 0;
         this.moveinSearch = '';
         this.tableRowInfo = {};
@@ -1172,54 +1175,56 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         }
     }
     onChekInUser(detail) {
-        let data = this.datagrid.getrowdata(detail.rowId);
-        const message = `Do you want to Move In?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let details = {
-                    "id": data.id,
-                    "inDate": data.inDate,
-                    "inTime": data.inTime,
-                    "familyCount": data.familyCount,
-                    "comments": data.comments,
-                    "isActive": data.isActive,
-                    "apartmentBlockUnitId": data.apartmentBlockUnitId,
-                    "reqUserId": data.reqUserId,
-                    "statusId": 375,
-                    "approvedBy": data.approvedBy,
-                    "approvedDate": data.approvedDate,
-                    "insertedBy": data.insertedBy,
-                    "insertedOn": data.insertedOn,
-                    "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
-                    "apartmentId": data.apartmentId,
-                    "userName": data.userName,
-                    "mobile": data.mobile,
-                    "email": data.email,
-                    "block_Unit": data.block_Unit,
-                    "requestType": data.requestType,
-                    "statusName": 'Movedin',
-                    "serialNo": data.serialNo
-                };
-                let params = {
-                    moveIn: details
-                };
-                this.moveInOutService.updateMoveIn(params).subscribe((res) => {
-                    if (res.message) {
-                        this.sharedService.openSnackBar('Successfully Moved In', 'success');
-                        this.userBasedList();
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                });
-            }
+        this.translateService.get('POPUP').subscribe((res) => {
+            let data = this.datagrid.getrowdata(detail.rowId);
+            const message = `${res.MOVEIN}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"](`${res.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let details = {
+                        "id": data.id,
+                        "inDate": data.inDate,
+                        "inTime": data.inTime,
+                        "familyCount": data.familyCount,
+                        "comments": data.comments,
+                        "isActive": data.isActive,
+                        "apartmentBlockUnitId": data.apartmentBlockUnitId,
+                        "reqUserId": data.reqUserId,
+                        "statusId": 375,
+                        "approvedBy": data.approvedBy,
+                        "approvedDate": data.approvedDate,
+                        "insertedBy": data.insertedBy,
+                        "insertedOn": data.insertedOn,
+                        "updatedBy": parseInt(this.sessionService.userId),
+                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                        "apartmentId": data.apartmentId,
+                        "userName": data.userName,
+                        "mobile": data.mobile,
+                        "email": data.email,
+                        "block_Unit": data.block_Unit,
+                        "requestType": data.requestType,
+                        "statusName": 'Movedin',
+                        "serialNo": data.serialNo
+                    };
+                    let params = {
+                        moveIn: details
+                    };
+                    this.moveInOutService.updateMoveIn(params).subscribe((res) => {
+                        if (res.message) {
+                            this.sharedService.openSnackBar('Successfully Moved In', 'success');
+                            this.userBasedList();
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    });
+                }
+            });
         });
     }
     onMoveInAction(detail) {
@@ -1519,7 +1524,8 @@ MoveinMaintainComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__["TranslateService"] }
 ];
 MoveinMaintainComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -1543,7 +1549,8 @@ MoveinMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__["TranslateService"]])
 ], MoveinMaintainComponent);
 
 function chekInUser(row) {
@@ -2638,6 +2645,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../movein-moveout-edit-view/movein-moveout-edit-view.component */ "./src/app/modules/common/moveinout-tracker/components/movein-moveout-edit-view/movein-moveout-edit-view.component.ts");
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
 /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2654,7 +2663,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveoutMaintainComponent = class MoveoutMaintainComponent {
-    constructor(_overlay, _viewContainerRef, router, moveInOutService, apartmentService, sharedService, sessionService, dialog, activateRouter) {
+    constructor(_overlay, _viewContainerRef, router, moveInOutService, apartmentService, sharedService, sessionService, dialog, activateRouter, translateService) {
         this._overlay = _overlay;
         this._viewContainerRef = _viewContainerRef;
         this.router = router;
@@ -2664,6 +2673,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
         this.sessionService = sessionService;
         this.dialog = dialog;
         this.activateRouter = activateRouter;
+        this.translateService = translateService;
         this.totalItems = 0;
         this.moveOutSearch = '';
         this.tableRowInfo = {};
@@ -2705,56 +2715,58 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
         }
     }
     checkOutUser(detail) {
-        const message = `Do you want to Move Out?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let data = this.datagrid.getrowdata(detail.rowId);
-                var moveOutData = data;
-                let details = {
-                    "id": moveOutData.id,
-                    "outDate": moveOutData.outDate,
-                    "outTime": moveOutData.outTime,
-                    "comments": moveOutData.comments,
-                    "isActive": moveOutData.isActive,
-                    "familyCount": moveOutData.familyCount,
-                    "apartmentBlockUnitId": moveOutData.apartmentBlockUnitId,
-                    "reqUserId": moveOutData.reqUserId,
-                    "statusId": 379,
-                    "noDue": moveOutData.noDue,
-                    "approvedBy": parseInt(this.sessionService.userId),
-                    "approvedDate": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                    "insertedBy": moveOutData.insertedBy,
-                    "insertedOn": moveOutData.insertedOn,
-                    "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                    "apartmentId": moveOutData.apartmentId,
-                    "userName": moveOutData.userName,
-                    "mobile": moveOutData.mobile,
-                    "email": moveOutData.email,
-                    "block_Unit": moveOutData.block_Unit,
-                    "requestType": moveOutData.requestType,
-                    "statusName": 'MovedOut',
-                    "serialNo": moveOutData.serialNo
-                };
-                let params = {
-                    moveOut: details
-                };
-                this.moveInOutService.updateMoveOut(params).subscribe((res) => {
-                    if (res.message) {
-                        this.sharedService.openSnackBar('Successfully Moved Out', 'success');
-                        this.userBasedList();
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.MOVEOUT}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let data = this.datagrid.getrowdata(detail.rowId);
+                    var moveOutData = data;
+                    let details = {
+                        "id": moveOutData.id,
+                        "outDate": moveOutData.outDate,
+                        "outTime": moveOutData.outTime,
+                        "comments": moveOutData.comments,
+                        "isActive": moveOutData.isActive,
+                        "familyCount": moveOutData.familyCount,
+                        "apartmentBlockUnitId": moveOutData.apartmentBlockUnitId,
+                        "reqUserId": moveOutData.reqUserId,
+                        "statusId": 379,
+                        "noDue": moveOutData.noDue,
+                        "approvedBy": parseInt(this.sessionService.userId),
+                        "approvedDate": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                        "insertedBy": moveOutData.insertedBy,
+                        "insertedOn": moveOutData.insertedOn,
+                        "updatedBy": parseInt(this.sessionService.userId),
+                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                        "apartmentId": moveOutData.apartmentId,
+                        "userName": moveOutData.userName,
+                        "mobile": moveOutData.mobile,
+                        "email": moveOutData.email,
+                        "block_Unit": moveOutData.block_Unit,
+                        "requestType": moveOutData.requestType,
+                        "statusName": 'MovedOut',
+                        "serialNo": moveOutData.serialNo
+                    };
+                    let params = {
+                        moveOut: details
+                    };
+                    this.moveInOutService.updateMoveOut(params).subscribe((res) => {
+                        if (res.message) {
+                            this.sharedService.openSnackBar('Successfully Moved Out', 'success');
+                            this.userBasedList();
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    });
+                }
+            });
         });
     }
     onMoveOutAction(detail) {
@@ -3058,7 +3070,8 @@ MoveoutMaintainComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"] }
 ];
 MoveoutMaintainComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -3081,7 +3094,8 @@ MoveoutMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])
 ], MoveoutMaintainComponent);
 
 // function navigateTo(row){

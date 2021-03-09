@@ -261,9 +261,15 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var SecurityActiveAlertsComponent = /*#__PURE__*/function () {
-        function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog) {
+        function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog, translateService) {
           _classCallCheck(this, SecurityActiveAlertsComponent);
 
           this.userService = userService;
@@ -273,6 +279,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.alertList = [];
           this.isAlertsLoaded = false;
           this.isAlertUpdated = false;
@@ -432,106 +439,110 @@
               alert.gpslocation = " ";
             }
 
-            if (type == 'approve') {
-              this.confirmationMessage = "Are you sure, you want to acknowledge this Alert?";
-            }
-
-            if (type == 'close') {
-              this.confirmationMessage = "Are you sure you want to close this Alert?";
-            }
-
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", this.confirmationMessage);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-              panelClass: 'material',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this.result = dialogResult;
-
-              if (_this.result) {
-                if (type == 'approve') {
-                  details = {
-                    "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-                    "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-                    "receivedDate": alert.receivedDate,
-                    "alertTypeId": alert.alertTypeId,
-                    "location": "string",
-                    "gpslocation": alert.gpslocation,
-                    "assignedTo": parseInt(_this.sessionService.userId),
-                    "alertStatusId": 136,
-                    "notes": alert.notes,
-                    "isActive": alert.isActive,
-                    "insertedBy": parseInt(_this.sessionService.userId),
-                    "insertedOn": "2019-12-06T13:45:09.296Z",
-                    "updatedBy": parseInt(_this.sessionService.userId),
-                    "updatedOn": "2019-12-06T13:45:09.296Z"
-                  };
-                } else {
-                  details = {
-                    "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
-                    "apartmentBlockUnitId": alert.apartmentBlockUnitId,
-                    "receivedDate": alert.receivedDate,
-                    "alertTypeId": alert.alertTypeId,
-                    "location": "string",
-                    "gpslocation": alert.gpslocation,
-                    "assignedTo": parseInt(_this.sessionService.userId),
-                    "alertStatusId": 137,
-                    "notes": alert.notes,
-                    "isActive": true,
-                    "insertedBy": parseInt(_this.sessionService.userId),
-                    "insertedOn": "2019-12-06T13:45:09.296Z",
-                    "updatedBy": parseInt(_this.sessionService.userId),
-                    "updatedOn": "2019-12-06T13:45:09.296Z"
-                  };
-                }
-
-                var alertParams = {
-                  apartmentBlockUnitAlert: details
-                };
-
-                _this.alertService.updateApartmentBlockUnitAlert(alertParams).subscribe(function (res) {
-                  if (res.message) {
-                    var apartmentIdParams = {
-                      apartmentId: _this.sessionService.apartmentId
-                    };
-
-                    _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe(function (alert) {
-                      _this.alertList = alert.filter(function (item) {
-                        return item.alertStatusId == 135 || item.alertStatusId == 136;
-                      });
-                      _this.isAlertUpdated = false;
-                    }, function (error) {
-                      console.log(error);
-                    });
-
-                    var success = {
-                      msg: 'Alert Updated',
-                      type: "Success"
-                    };
-
-                    _this.sharedService.setCustomAlertMessage(success);
-                  } else {
-                    _this.isAlertUpdated = false;
-                    var errorMessage = res.errorMessage;
-
-                    if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
-                      errorMessage = "Alert not updated as its not exist";
-                    }
-
-                    var errorDetails = {
-                      msg: errorMessage,
-                      type: "Error"
-                    };
-
-                    _this.sharedService.setCustomAlertMessage(errorDetails);
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              } else {
-                _this.isAlertUpdated = false;
+            this.translateService.get('POPUP').subscribe(function (data) {
+              if (type == 'approve') {
+                _this.confirmationMessage = "".concat(data.ACKNOWLEDGEALERT);
               }
+
+              if (type == 'close') {
+                _this.confirmationMessage = "".concat(data.CLOSEALERT);
+              }
+
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), _this.confirmationMessage);
+
+              var dialogRef = _this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                panelClass: 'material',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                _this.result = dialogResult;
+
+                if (_this.result) {
+                  if (type == 'approve') {
+                    details = {
+                      "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                      "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                      "receivedDate": alert.receivedDate,
+                      "alertTypeId": alert.alertTypeId,
+                      "location": "string",
+                      "gpslocation": alert.gpslocation,
+                      "assignedTo": parseInt(_this.sessionService.userId),
+                      "alertStatusId": 136,
+                      "notes": alert.notes,
+                      "isActive": alert.isActive,
+                      "insertedBy": parseInt(_this.sessionService.userId),
+                      "insertedOn": "2019-12-06T13:45:09.296Z",
+                      "updatedBy": parseInt(_this.sessionService.userId),
+                      "updatedOn": "2019-12-06T13:45:09.296Z"
+                    };
+                  } else {
+                    details = {
+                      "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
+                      "apartmentBlockUnitId": alert.apartmentBlockUnitId,
+                      "receivedDate": alert.receivedDate,
+                      "alertTypeId": alert.alertTypeId,
+                      "location": "string",
+                      "gpslocation": alert.gpslocation,
+                      "assignedTo": parseInt(_this.sessionService.userId),
+                      "alertStatusId": 137,
+                      "notes": alert.notes,
+                      "isActive": true,
+                      "insertedBy": parseInt(_this.sessionService.userId),
+                      "insertedOn": "2019-12-06T13:45:09.296Z",
+                      "updatedBy": parseInt(_this.sessionService.userId),
+                      "updatedOn": "2019-12-06T13:45:09.296Z"
+                    };
+                  }
+
+                  var alertParams = {
+                    apartmentBlockUnitAlert: details
+                  };
+
+                  _this.alertService.updateApartmentBlockUnitAlert(alertParams).subscribe(function (res) {
+                    if (res.message) {
+                      var apartmentIdParams = {
+                        apartmentId: _this.sessionService.apartmentId
+                      };
+
+                      _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe(function (alert) {
+                        _this.alertList = alert.filter(function (item) {
+                          return item.alertStatusId == 135 || item.alertStatusId == 136;
+                        });
+                        _this.isAlertUpdated = false;
+                      }, function (error) {
+                        console.log(error);
+                      });
+
+                      var success = {
+                        msg: 'Alert Updated',
+                        type: "Success"
+                      };
+
+                      _this.sharedService.setCustomAlertMessage(success);
+                    } else {
+                      _this.isAlertUpdated = false;
+                      var errorMessage = res.errorMessage;
+
+                      if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
+                        errorMessage = "Alert not updated as its not exist";
+                      }
+
+                      var errorDetails = {
+                        msg: errorMessage,
+                        type: "Error"
+                      };
+
+                      _this.sharedService.setCustomAlertMessage(errorDetails);
+                    }
+                  }, function (error) {
+                    console.log(error);
+                  });
+                } else {
+                  _this.isAlertUpdated = false;
+                }
+              });
             });
           }
         }, {
@@ -636,6 +647,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]
         }];
       };
 
@@ -647,7 +660,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./security-active-alerts.component.scss */
         "./src/app/modules/ams/security/components/security-active-alerts/security-active-alerts.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], SecurityActiveAlertsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])], SecurityActiveAlertsComponent);
       /***/
     },
 

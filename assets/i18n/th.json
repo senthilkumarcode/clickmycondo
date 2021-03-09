@@ -85,7 +85,10 @@
                 "PRIMARYNAME": "ชื่อหลัก",
                 "SUBJECT": "เรื่อง",
                 "DESCRIPTION": "คำอธิบาย",
-                "ADDCOMMENT": "เพิ่มความเห็น"
+                "ADDCOMMENT": "เพิ่มความเห็น",
+                "TENANT": "ผู้เช่า",
+                "OWNER": "เจ้าของ",
+                "NAME": "ชื่อ"
             },
             "VIEWTICKET": {
                 "TITLE": "ตั๋วทั้งหมด",
@@ -147,7 +150,11 @@
                 "CLOSED": "ตั๋วปิด",
                 "UNASSIGNED": "ตั๋วที่ไม่ได้มอบหมาย",
                 "MYTICKETS": "ตั๋วของฉัน",
-                "ADDTICKET": "เพิ่มตั๋ว"
+                "ADDTICKET": "เพิ่มตั๋ว",
+                "TOTALRESULTS": "ผล"
+            },
+            "REPORTS": {
+                "TITLE": "รายงาน ฝ่ายช่วยเหลือ"
             }
         }
     },
@@ -185,7 +192,7 @@
             "FREQUENTMOBILENO": "หมายเลขโทรศัพท์ / มือถือที่ใช้บ่อย",
             "FREQUENTVISITCATEGORY": "ประเภทการเยี่ยมชมบ่อย",
             "REASONFORVISIT": "เหตุผลในการเยี่ยมชม",
-            "VENDORPASS": "Vendor Pass",
+            "VENDORPASS": "ผู้ขาย ผ่าน",
             "EXPECTEDVISITTYPE": "ประเภทการเยี่ยมชมที่คาดหวัง",
             "TOWERNO": "ทาวเวอร์เลขที่",
             "UNITNO": "เลขที่หน่วย",
@@ -284,6 +291,16 @@
             "FROMDATE": "จากวันที่",
             "TODATE": "ถึงวันที่"
 
+        },
+        "EXPECTEDVISITORCONFIRM": {
+            "ID": "ID",
+            "CONTACTPERSON": "ผู้ติดต่อ",
+            "CREATEDON": "สร้างบน",
+            "EXPECTEDVISITORIN": "ผู้เยี่ยมชมที่คาดหวังใน",
+            "VENDORVISITORIN": "ผู้เยี่ยมชมผู้ขายใน",
+            "EXPECTEDVISITOROUT": "ผู้เยี่ยมชมที่คาดหวัง",
+            "VENDORVISITOROUT": "ผู้เยี่ยมชมผู้ขายออก",
+            "VISITREASON": "เยี่ยมชมเหตุผล"
         }
     },
     "FACILITY": {
@@ -346,6 +363,42 @@
         "REQUESTCREATIONDATEFROM": "วันที่สร้างคำขอ (จาก)",
         "REQUESTCREATIONDATETO": "วันที่สร้างคำขอ (ถึง)",
         "STATUS": "สถานะ"
+    },
+    "ADDFACILITY": {
+        "ADDTITLE": "เพิ่มสิ่งอำนวยความสะดวก",
+        "EDITTITLE": "แก้ไขสิ่งอำนวยความสะดวก",
+        "VIEWTITLE": "ดูสิ่งอำนวยความสะดวก",
+        "GOBACK": "กลับไป",
+        "FACILITYNAME": "ชื่อสถานที่",
+        "FACILITYLOCATION": "ที่ตั้งสิ่งอำนวยความสะดวก",
+        "SERVICETYPE": "ประเภทบริการ",
+        "PAID": "จ่าย",
+        "FREE": "ฟรี",
+        "HOUR": "ชั่วโมง",
+        "DAY": "วัน",
+        "YES": "ใช่",
+        "NO": "ไม่",
+        "APPROVEDREQUIRED": "ต้องได้รับการอนุมัติ",
+        "BOOKINGAMOUNTPER": "ยอดจองต่อ",
+        "SECURITYDEPOSIT": "เงินประกัน",
+        "ADVANCEBOOKINGINDAYS": "จองล่วงหน้าเป็นวัน",
+        "PAYMENTDUEINDAYS": "ชำระเงินเป็นวัน",
+        "FACILITYOPENSAT": "สิ่งอำนวยความสะดวกเปิดที่",
+        "FACILITYCLOSESAT": "สิ่งอำนวยความสะดวกปิดที่",
+        "MINHOURSBOOKING": "จองชั่วโมงขั้นต่ำ",
+        "TOTALNOOFOCCUPANCY": "จำนวนผู้เข้าพักทั้งหมด",
+        "ACCESSIBLEBYRESIDENTSOFBELOWTOWERS": "เข้าถึงได้โดยผู้อยู่อาศัยด้านล่างหอคอย",
+        "AVAILABLESLOT": "ช่องที่มีจำหน่าย",
+        "SLOT": "สล็อต",
+        "PLEASEENTERMINIMUM": "โปรดป้อนขั้นต่ำ",
+        "HOURS": "ชั่วโมง",
+        "BEGINTIME": "เวลาเริ่มต้น",
+        "COSTPERSLOT": "ต้นทุนต่อช่อง",
+        "COMMENTS": "ความคิดเห็น",
+        "TERMSANDCONDITION": "ข้อกำหนดและเงื่อนไข"
+    },
+    "REPORTS": {
+        "TITLE": "รายงานสิ่งอำนวยความสะดวก"
     }
     },
     "MOVEINOUT": {
@@ -494,7 +547,17 @@
         "LEVEL1MANAGER": "เลือกผู้จัดการระดับ 1",
         "LEVEL2MANAGER": "เลือกผู้จัดการระดับ 2",
         "ENTERCOMMENTS": "ป้อนความคิดเห็น",
-        "CATEGORYTYPE": "ป้อนประเภทประเภท"
+        "CATEGORYTYPE": "ป้อนประเภทประเภท",
+        "DAYS": "วัน",
+        "FACILITY": "ชื่อสถานที่",
+        "FACILITYLOCATION": "เลือกที่ตั้งสิ่งอำนวยความสะดวก",
+        "ADVANCEBOOKINGDAYS": "วันจองล่วงหน้า",
+        "PAYMENTDUEDAYS": "วันครบกำหนดชำระเงิน",
+        "TIME": "เวลา",
+        "MINHRSBOOKING": "จองชั่วโมงขั้นต่ำ",
+        "NOOFOCCUPANCY": "ไม่มีผู้เข้าพัก",
+        "TYPE": "ประเภท",
+        "ENTERNUMBER": "ป้อนหมายเลข"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "เปลี่ยน",
@@ -520,14 +583,16 @@
         "CHECKOUT": "เช็คเอาท์",
         "DOCUMENTCRITERIA": "เกณฑ์เอกสาร",
         "ADDMOVEOUT": "เพิ่ม MoveOut",
-        "ACKNOWLEDGE": "รับทราบ"
+        "ACKNOWLEDGE": "รับทราบ",
+        "BOOKINGAMOUNT": "จำนวนการจอง"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",
         "EXISTSUSERWITHOUTUNITS": "",
         "USER": "ผู้ใช้",
         "TITLE": "ยืนยันการดำเนินการ",
-        "TYPE": "อีเมล์"
+        "TYPE": "อีเมล์",
+        "CONTENTREQUIREDFIELD": "กรอกข้อมูลในฟิลด์ที่จำเป็น"
     },
     "CONFIRMDLG": {
         "YES": "ใช่",
@@ -540,5 +605,24 @@
         "CANCEL": "ยกเลิก",
         "EDIT": "แก้ไข",
         "VIEW": "ดู"
+    },
+    "POPUP": {
+        "CLOSETITLE": "แน่ใจไหมว่าต้องการออกจากหน้าจอ ?",
+        "CONFIRMACTION": "ยืนยันการดำเนินการ",
+        "DELETETITLE": "คุณแน่ใจหรือว่าต้องการลบ ?",
+        "CHECKINTITLE": "แน่ใจไหมว่าต้องการเช็คอิน?",
+        "CHECKOUTTITLE": "แน่ใจไหมว่าต้องการชำระเงิน?"
+    },
+    "UPLOAD": {
+        "TITLE": "อัปโหลดไฟล์",
+        "SIZEVALIDATION": "อัพโหลดไฟล์น้อยกว่า 2 MB",
+        "DROPFILE": "วางไฟล์ที่นี่หรือ",
+        "BROWSE": "เรียกดู",
+        "ADDATTACHMENT": "เพื่อเพิ่มไฟล์แนบ",
+        "IMAGEDOCUMENT": "ภาพ / เอกสาร"
+    },
+    "PAGINATION": {
+        "SHOWING": "กำลังแสดง",
+        "OFRESULTS": "ของผลลัพธ์"
     }
 }

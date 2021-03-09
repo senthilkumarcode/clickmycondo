@@ -761,9 +761,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var WorkpermitCreateComponent = /*#__PURE__*/function () {
-        function WorkpermitCreateComponent(dialog, router, activateRouter, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService, _changeDetectorRef) {
+        function WorkpermitCreateComponent(dialog, router, activateRouter, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService, _changeDetectorRef, translateService) {
           var _this5 = this;
 
           _classCallCheck(this, WorkpermitCreateComponent);
@@ -779,6 +785,7 @@
           this.sessionService = sessionService;
           this.sharedService = sharedService;
           this._changeDetectorRef = _changeDetectorRef;
+          this.translateService = translateService;
           this.workPermit = {
             workNatureId: null,
             workPermitTypeId: null,
@@ -997,17 +1004,21 @@
           value: function deleteConfirmDialog(type, index) {
             var _this6 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                if (type == 'worker') _this6.workersList.splice(index, 1);else if (type === 'material') _this6.materialsList.splice(index, 1);else _this6.toolsList.splice(index, 1);
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this6.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  if (type == 'worker') _this6.workersList.splice(index, 1);else if (type === 'material') _this6.materialsList.splice(index, 1);else _this6.toolsList.splice(index, 1);
+                }
+              });
             });
           } //edit listWorkers 
 
@@ -1285,17 +1296,21 @@
           value: function cancel() {
             var _this13 = this;
 
-            var message = "Are you sure you want to exit the Screen ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this13.navigationPage();
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CLOSETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this13.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this13.navigationPage();
+                }
+              });
             });
           }
         }, {
@@ -1470,6 +1485,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__["TranslateService"]
         }];
       };
 
@@ -1501,7 +1518,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./workpermit-create.component.scss */
         "./src/app/modules/common/work-permit/components/workpermit-create/workpermit-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], WorkpermitCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__["TranslateService"]])], WorkpermitCreateComponent);
       /***/
     },
 

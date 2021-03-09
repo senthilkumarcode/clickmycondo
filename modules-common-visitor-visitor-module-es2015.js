@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"exp-visitor-confirm-wrapper content-layout fullwidth-basic-normal-scroll\">\n\n    <!-- Background - Inline SVG for easy customizations -->\n    <svg class=\"background\"\n         viewBox=\"0 0 1531 891\"\n         preserveAspectRatio=\"xMidYMax slice\"\n         xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 182c144.327 47.973 534.462 219.712 440.509 369.87C346.555 702.028 79.877 662.846 0 638V182z\"></path>\n        <path d=\"M1405 848c-424.366 158.009-437-164-437-272s102-425 563-576v769c-21.333 29.333-63.333 55.667-126 79z\"></path>\n        <path d=\"M1531 162c-122.914-17.284-377.96 33.191-543.433 206.414C822.095 541.636 797.342 648.75 835.842 731.622c38.5 82.871 198.243 134.841 400.555 92.053C1438.71 780.886 1492.752 775.894 1531 768V162z\"></path>\n    </svg>\n    \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n                    {{message.content}}\n            </condo-message>\n\n        \n            <div class=\"bg-card mt-4 p-5\" id=\"visitorPass\">\n\n                <div class=\"id-details d-flex\">\n                    <h5>{{visitorStructure.name}} ID: <span class=\"font-normal ml-1 text-primary\">{{visitor.visitorPassId}}</span></h5>\n                    <mat-icon class=\"ml-auto link download-icon\" (click)=\"convertImage()\" svgIcon=\"dripicons:download\"></mat-icon>\n                </div>\n\n                <div class=\"divider\"></div>\n\n                <div class=\"visitor-item\">\n                    \n                    <div class=\"d-flex flex-wrap\">\n\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mt-0\">{{visitor.expectedVisitorName}}</h5>\n                                <p class=\"pt-3 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{visitor.expectedVisitorPhone}}</span>\n                                    <span class=\"d-block d-sm-inline-block\"><mat-icon svgIcon=\"feather:home\"></mat-icon>{{visitor.block_Unit}}</span>\n                                </p>\n                                <p class=\"pt-2 type text-smr font-medium\">{{pageType == 'expected' ? 'Single use' : 'Multi use'}}</p>\n                            </div>\n                        </div>\n\n                        <div class=\"qrcode-wrapper\">\n                            <qrcode [qrdata]=\"visitor.visitorPassId\" [width]=\"200\" [errorCorrectionLevel]=\"'M'\"></qrcode>\n                            <h6 class=\"mt-2\">{{visitor.visitorPassId}}</h6>\n                        </div>\n\n                    </div>\n                    \n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-lg-6 item\">\n                                <p>Contact Person</p>\n                                <p class=\"font-medium right\">{{visitor.isLivingPerson | nill}} - {{visitor.isLivingPhoneNumber | nill}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-lg-6 item\">\n                                <p>Created On</p>\n                                <p class=\"font-medium right\">{{getDateTime(visitor.insertedOn)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-lg-6 item\" *ngIf=\"pageType != 'frequent'\">\n                                <ng-container *ngIf=\"pageType == 'expected'\">\n                                    <p>Expected Visitor In</p>\n                                    <p class=\"font-medium right\">{{getDateTime(visitor.expectedVisitorInTime)}}</p>\n                                </ng-container>\n                                <ng-container *ngIf=\"pageType == 'vendor'\">\n                                    <p>Vendor Visitor In</p>\n                                    <p class=\"font-medium right\">{{getTime(visitor.expectedVisitorInTime)}}</p>\n                                </ng-container>\n                            </div>\n                            <div class=\"ccol-sm-12 col-lg-6 item\" *ngIf=\"pageType != 'frequent'\">\n                                <ng-container *ngIf=\"pageType == 'expected'\">\n                                    <p>Expected Visitor Out</p>\n                                    <p class=\"font-medium right\">{{getDateTime(visitor.expectedVisitorOutTime)}}</p>\n                                </ng-container>\n                                <ng-container *ngIf=\"pageType == 'vendor'\">\n                                    <p>Vendor Visitor Out</p>\n                                    <p class=\"font-medium right\">{{getTime(visitor.expectedVisitorOutTime)}}</p>\n                                </ng-container>\n                            </div>\n                            <div class=\"col-sm-12 col-lg-6 item\">\n                                <p>Visit Reason</p>\n                                <p class=\"font-medium right\">{{visitor.purpose | nill}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"row actions\">\n                <a class=\"nav-link\" [routerLink]=\"visitorStructure.createBtnUrl\" \n                routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" mat-flat-button [color]=\"'primary'\">{{visitorStructure.createBtnName}}</a>\n                <a class=\"nav-link\" [routerLink]=\"visitorStructure.viewBtnUrl\" \n                routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" mat-button>{{visitorStructure.viewBtnName}}</a>\n            </div>\n\n        </ng-container>\n\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"exp-visitor-confirm-wrapper content-layout fullwidth-basic-normal-scroll\">\n\n    <!-- Background - Inline SVG for easy customizations -->\n    <svg class=\"background\"\n         viewBox=\"0 0 1531 891\"\n         preserveAspectRatio=\"xMidYMax slice\"\n         xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 182c144.327 47.973 534.462 219.712 440.509 369.87C346.555 702.028 79.877 662.846 0 638V182z\"></path>\n        <path d=\"M1405 848c-424.366 158.009-437-164-437-272s102-425 563-576v769c-21.333 29.333-63.333 55.667-126 79z\"></path>\n        <path d=\"M1531 162c-122.914-17.284-377.96 33.191-543.433 206.414C822.095 541.636 797.342 648.75 835.842 731.622c38.5 82.871 198.243 134.841 400.555 92.053C1438.71 780.886 1492.752 775.894 1531 768V162z\"></path>\n    </svg>\n    \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n                    {{message.content}}\n            </condo-message>\n\n        \n            <div class=\"bg-card mt-4 p-5\" id=\"visitorPass\">\n\n                <div class=\"id-details d-flex\">\n                    <h5>{{visitorStructure.name}} {{'VISITOR.EXPECTEDVISITORCONFIRM.ID' | translate}}: <span class=\"font-normal ml-1 text-primary\">{{visitor.visitorPassId}}</span></h5>\n                    <mat-icon class=\"ml-auto link download-icon\" (click)=\"convertImage()\" svgIcon=\"dripicons:download\"></mat-icon>\n                </div>\n\n                <div class=\"divider\"></div>\n\n                <div class=\"visitor-item\">\n                    \n                    <div class=\"d-flex flex-wrap\">\n\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mt-0\">{{visitor.expectedVisitorName}}</h5>\n                                <p class=\"pt-3 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{visitor.expectedVisitorPhone}}</span>\n                                    <span class=\"d-block d-sm-inline-block\"><mat-icon svgIcon=\"feather:home\"></mat-icon>{{visitor.block_Unit}}</span>\n                                </p>\n                                <p class=\"pt-2 type text-smr font-medium\">{{pageType == 'expected' ? 'Single use' : 'Multi use'}}</p>\n                            </div>\n                        </div>\n\n                        <div class=\"qrcode-wrapper\">\n                            <qrcode [qrdata]=\"visitor.visitorPassId\" [width]=\"200\" [errorCorrectionLevel]=\"'M'\"></qrcode>\n                            <h6 class=\"mt-2\">{{visitor.visitorPassId}}</h6>\n                        </div>\n\n                    </div>\n                    \n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-lg-6 item\">\n                                <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.CONTACTPERSON' | translate}}</p>\n                                <p class=\"font-medium right\">{{visitor.isLivingPerson | nill}} - {{visitor.isLivingPhoneNumber | nill}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-lg-6 item\">\n                                <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.CREATEDON' | translate}}</p>\n                                <p class=\"font-medium right\">{{getDateTime(visitor.insertedOn)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-lg-6 item\" *ngIf=\"pageType != 'frequent'\">\n                                <ng-container *ngIf=\"pageType == 'expected'\">\n                                    <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.EXPECTEDVISITORIN' | translate}}</p>\n                                    <p class=\"font-medium right\">{{getDateTime(visitor.expectedVisitorInTime)}}</p>\n                                </ng-container>\n                                <ng-container *ngIf=\"pageType == 'vendor'\">\n                                    <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.VENDORVISITORIN' | translate}}</p>\n                                    <p class=\"font-medium right\">{{getTime(visitor.expectedVisitorInTime)}}</p>\n                                </ng-container>\n                            </div>\n                            <div class=\"ccol-sm-12 col-lg-6 item\" *ngIf=\"pageType != 'frequent'\">\n                                <ng-container *ngIf=\"pageType == 'expected'\">\n                                    <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.EXPECTEDVISITOROUT' | translate}}</p>\n                                    <p class=\"font-medium right\">{{getDateTime(visitor.expectedVisitorOutTime)}}</p>\n                                </ng-container>\n                                <ng-container *ngIf=\"pageType == 'vendor'\">\n                                    <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.VENDORVISITOROUT' | translate}}</p>\n                                    <p class=\"font-medium right\">{{getTime(visitor.expectedVisitorOutTime)}}</p>\n                                </ng-container>\n                            </div>\n                            <div class=\"col-sm-12 col-lg-6 item\">\n                                <p>{{'VISITOR.EXPECTEDVISITORCONFIRM.VISITREASON' | translate}}</p>\n                                <p class=\"font-medium right\">{{visitor.purpose | nill}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"row actions\">\n                <a class=\"nav-link\" [routerLink]=\"visitorStructure.createBtnUrl\" \n                routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" mat-flat-button [color]=\"'primary'\">{{visitorStructure.createBtnName}}</a>\n                <a class=\"nav-link\" [routerLink]=\"visitorStructure.viewBtnUrl\" \n                routerLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" mat-button>{{visitorStructure.viewBtnName}}</a>\n            </div>\n\n        </ng-container>\n\n    </div>\n</div>");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #visitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"urlType =='create' || urlType =='checkin'\">{{'VISITOR.CHECKIN.CHECKINTITLE' | translate}}</span>\n\t\t\t\t<span *ngIf=\"urlType =='checkout'\">{{'VISITOR.CHECKIN.CHECKOUTTITLE' | translate}}</span>\n\t\t\t\t<span *ngIf=\"urlType =='edit'\">{{'VISITOR.CHECKIN.EDITCHECKOUTTITLE' | translate}}</span>\n\t\t\t</h4>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.EXPECTEDVISITTYPE' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.VISIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedVisitType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.UNITNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.PRIMARYNAME' | translate}}</label>\n\t\t\t\t\t\t\t<input type=\"text\" disabled class=\"form-control\" placeholder=\"{{'PLACEHOLDER.PRIMARYNAME' | translate}}\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.STAFF' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedStaff($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.VISITORNAME' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORNAME' | translate}}\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.VISITORCOUNT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORCOUNT' | translate}}\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.visitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.ACTUALDATETIMEVISIT' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorInTime\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorInTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.EXPECTEDOUTTIME' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"expectedVisitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorExpectedOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- CheckOutPage Enable -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType=='checkout'\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.CHECKOUTTIME' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.EXPECTEDDURATIONOFVISIT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.PASSNUMBER' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\"\n\t\t\t\t\t\t\t[disabled]=\"urlType !='create'\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.VISITCATEGORY' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedCategory($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.VISITCATEGORY' | translate}}<span class=\"required\" *ngIf=\"visitor.visitTypeId==52\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" [required]=\"visitor.visitTypeId==52\"></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right mt-3\">\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create' || urlType =='checkin'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">{{'BUTTONS.CHECKIN' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='checkout'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckOut()\">{{'BUTTONS.CHECKOUT' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"updateCheckIn()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create'\" class=\"ml-2\" mat-button (click)=\"resetField()\">{{'BUTTONS.CLEARBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"(pageComingFrom && pageComingFrom.length > 0) || (urlType =='checkout'|| urlType=='edit')\" class=\"ml-2\" mat-button (click)=\"navigateBack()\">{{'BUTTONS.CANCELBUTTON' | translate}}</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #visitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"urlType =='create' || urlType =='checkin'\">{{'VISITOR.CHECKIN.CHECKINTITLE' | translate}}</span>\n\t\t\t\t<span *ngIf=\"urlType =='checkout'\">{{'VISITOR.CHECKIN.CHECKOUTTITLE' | translate}}</span>\n\t\t\t\t<span *ngIf=\"urlType =='edit'\">{{'VISITOR.CHECKIN.EDITCHECKOUTTITLE' | translate}}</span>\n\t\t\t</h4>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.EXPECTEDVISITTYPE' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.VISIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedVisitType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.TOWERNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.UNITNO' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.PRIMARYNAME' | translate}}</label>\n\t\t\t\t\t\t\t<input type=\"text\" disabled class=\"form-control\" placeholder=\"{{'PLACEHOLDER.PRIMARYNAME' | translate}}\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.STAFF' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedStaff($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.VISITORNAME' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORNAME' | translate}}\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.VISITORCOUNT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.VISITORCOUNT' | translate}}\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.visitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.ACTUALDATETIMEVISIT' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorInTime\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorInTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.EXPECTEDOUTTIME' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"expectedVisitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorExpectedOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- CheckOutPage Enable -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType=='checkout'\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.CHECKOUTTIME' | translate}}\"\n\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorOutTime\"\n\t\t\t\t\t\t\t(fieldParams)=\"getVisitorOutTime($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.EXPECTEDDURATIONOFVISIT' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"{{'PLACEHOLDER.DURATIONINFO' | translate}}\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.PASSNUMBER' | translate}}<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.ENTERNUMBER' | translate}}\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\"\n\t\t\t\t\t\t\t[disabled]=\"urlType !='create'\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"{{'VISITOR.CHECKIN.VISITCATEGORY' | translate}}\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"{{'PLACEHOLDER.CATEGORY' | translate}}\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t[isDisabled]=\"disableField()\"\n\t\t\t\t\t\t\t[isClear]=\"!disableField()\"\n\t\t\t\t\t\t\t(fieldParams)=\"setSelectedCategory($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'VISITOR.CHECKIN.VISITCATEGORY' | translate}}<span class=\"required\" *ngIf=\"visitor.visitTypeId==52\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"{{'PLACEHOLDER.ENTERPURPOSE' | translate}}\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" [required]=\"visitor.visitTypeId==52\"></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-right mt-3\">\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create' || urlType =='checkin'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">{{'BUTTONS.CHECKIN' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='checkout'\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckOut()\">{{'BUTTONS.CHECKOUT' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType=='edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"updateCheckIn()\">{{'BUTTONS.UPDATEBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"urlType =='create'\" class=\"ml-2\" mat-button (click)=\"resetField()\">{{'BUTTONS.CLEARBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"(pageComingFrom && pageComingFrom.length > 0) || (urlType =='checkout'|| urlType=='edit')\" class=\"ml-2\" mat-button (click)=\"navigateBack()\">{{'BUTTONS.CANCELBUTTON' | translate}}</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"visitor-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"visitor-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">{{'VISITOR.SETUP.ADDTITLE' | translate}}</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">{{'VISITOR.SETUP.EDITTITLE' | translate}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t{{message.content}}\n\t\t\t\t\t</condo-message>\n\t\t\t\t\t<form #addVisitorCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>{{'VISITOR.SETUP.CATEGORY' | translate}}*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"visitor.lookupValueName\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>{{'VISITOR.SETUP.DESCRIPTION' | translate}}</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"visitor.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='add'\" (click)=\"submitVisitorCategoryForm()\">{{ 'BUTTONS.SUBMITBUTTON' | translate}}</button>\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode!='add'\" (click)=\"submitVisitorCategoryForm()\">{{ 'BUTTONS.UPDATEBUTTON' | translate}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">{{'BUTTONS.CANCELBUTTON' | translate}}</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDataLoaded\">\n\t\t\t\t\t\t<!-- Visitor Header -->\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{'VISITOR.SETUP.TITLE' | translate}}</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} {{'VISITOR.SETUP.TOTALITEMS' | translate}}</p> \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addVisitorCategory()\">{{'VISITOR.SETUP.ADDNEWTYPE' | translate}}</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Visitor List -->\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of visitorCategoryList | columnSearch : 'lookupValueName': categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editVisitorCategory(item)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> {{'VISITOR.SETUP.EDIT' | translate}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteVisitorCategory(item,i)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> {{'VISITOR.SETUP.DELETE' | translate}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n\t\t\t\t\t\t<h6 class=\"text-secondary\">{{'VISITOR.SETUP.NORESULTS' | translate}}</h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"visitor-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"visitor-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">{{'VISITOR.SETUP.ADDTITLE' | translate}}</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">{{'VISITOR.SETUP.EDITTITLE' | translate}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t\t{{message.content}}\n\t\t\t\t\t</condo-message>\n\t\t\t\t\t<form #addVisitorCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>{{'VISITOR.SETUP.CATEGORY' | translate}}*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'PLACEHOLDER.TYPE' | translate}}\" name=\"name\" [(ngModel)]=\"visitor.lookupValueName\" [maxlength]=\"27\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>{{'VISITOR.SETUP.DESCRIPTION' | translate}}</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"{{'PLACEHOLDER.DESCRIPTION' | translate}}\" name=\"description\" [(ngModel)]=\"visitor.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='add'\" (click)=\"submitVisitorCategoryForm()\">{{ 'BUTTONS.SUBMITBUTTON' | translate}}</button>\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode!='add'\" (click)=\"submitVisitorCategoryForm()\">{{ 'BUTTONS.UPDATEBUTTON' | translate}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">{{'BUTTONS.CANCELBUTTON' | translate}}</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDataLoaded\">\n\t\t\t\t\t\t<!-- Visitor Header -->\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{'VISITOR.SETUP.TITLE' | translate}}</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} {{'VISITOR.SETUP.TOTALITEMS' | translate}}</p> \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addVisitorCategory()\">{{'VISITOR.SETUP.ADDNEWTYPE' | translate}}</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Visitor List -->\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12 col-md-6 col-lg-4 col-xl-3\" *ngFor=\"let item of visitorCategoryList | columnSearch : 'lookupValueName': categorySearch | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\t\t<div class=\"bg-card shadow overflow-hidden text-nowrap\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-2\">{{item.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<div class=\"d-flex mt-4 button-wrapper\">\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editVisitorCategory(item)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> {{'VISITOR.SETUP.EDIT' | translate}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t<button class=\"px-3\" mat-button (click)=\"deleteVisitorCategory(item,i)\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"delete\" [svgIcon]=\"'feather:trash'\"></mat-icon> {{'VISITOR.SETUP.DELETE' | translate}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"totalItems == 0\">\n\t\t\t\t\t\t<h6 class=\"text-secondary\">{{'VISITOR.SETUP.NORESULTS' | translate}}</h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n");
 
 /***/ }),
 
@@ -196,6 +196,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -212,7 +214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorComponent {
-    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef, dialog) {
+    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef, dialog, translateService) {
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
@@ -223,6 +225,7 @@ let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorCompon
         this.sharedService = sharedService;
         this._changeDetectorRef = _changeDetectorRef;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.visitor = {};
         this.message = null;
         this.isDataLoaded = true;
@@ -342,20 +345,22 @@ let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorCompon
         }
     }
     back() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                if (this.urlType == 'vendor-pass-create')
-                    this.router.navigate(['vendor-pass-list'], { relativeTo: this.activateRouter.parent });
-                else if (this.urlType == 'frequent-visitor-create')
-                    this.router.navigate(['frequent-visitor-list'], { relativeTo: this.activateRouter.parent });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    if (this.urlType == 'vendor-pass-create')
+                        this.router.navigate(['vendor-pass-list'], { relativeTo: this.activateRouter.parent });
+                    else if (this.urlType == 'frequent-visitor-create')
+                        this.router.navigate(['frequent-visitor-list'], { relativeTo: this.activateRouter.parent });
+                }
+            });
         });
     }
     createExpectedVisitor() {
@@ -539,7 +544,8 @@ CreateVendorFrquentVisitorComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"] }
 ];
 CreateVendorFrquentVisitorComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['expectedVisitorForm',] }]
@@ -560,7 +566,8 @@ CreateVendorFrquentVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])
 ], CreateVendorFrquentVisitorComponent);
 
 
@@ -601,6 +608,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -612,7 +621,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CurrentlyCheckedinListComponent = class CurrentlyCheckedinListComponent {
-    constructor(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
+    constructor(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter, translateService) {
         this.router = router;
         this.injector = injector;
         this.visitorService = visitorService;
@@ -620,6 +629,7 @@ let CurrentlyCheckedinListComponent = class CurrentlyCheckedinListComponent {
         this.dialog = dialog;
         this.sharedService = sharedService;
         this.activeRouter = activeRouter;
+        this.translateService = translateService;
         this.visitorList = [];
         this.searchData = '';
         this.ItemStartIndex = 0;
@@ -641,17 +651,19 @@ let CurrentlyCheckedinListComponent = class CurrentlyCheckedinListComponent {
         this.router.navigate([`edit/${id}`], { relativeTo: this.activeRouter.parent });
     }
     checkOut(id) {
-        const message = `Are you sure, you want to Check Out?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.router.navigate([`checkout/${id}`], { relativeTo: this.activeRouter.parent });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CHECKOUTTITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.router.navigate([`checkout/${id}`], { relativeTo: this.activeRouter.parent });
+                }
+            });
         });
     }
     getVisitorList() {
@@ -719,7 +731,8 @@ CurrentlyCheckedinListComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"] }
 ];
 CurrentlyCheckedinListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -734,7 +747,8 @@ CurrentlyCheckedinListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])
 ], CurrentlyCheckedinListComponent);
 
 
@@ -1078,21 +1092,21 @@ let ExpVisitorConfirmComponent = class ExpVisitorConfirmComponent {
                         viewBtnUrl: '/user/visitor/expected-visitor-user-list'
                     };
                 }
+                let message;
+                if (this.method) {
+                    message = `${this.visitorStructure.name} ${this.method}. ${data.SHAREBELOWDETAILS}`;
+                }
+                else {
+                    message = `${this.visitorStructure.name}. ${data.SHAREBELOWDETAILS}`;
+                }
+                this.message = {
+                    appearance: 'outline',
+                    content: message,
+                    shake: false,
+                    showIcon: true,
+                    type: 'success'
+                };
             });
-            let message;
-            if (this.method) {
-                message = `${this.visitorStructure.name} ${this.method}. Please share the below details to your visitor`;
-            }
-            else {
-                message = `${this.visitorStructure.name}. Please share the below details to your visitor`;
-            }
-            this.message = {
-                appearance: 'outline',
-                content: message,
-                shake: false,
-                showIcon: true,
-                type: 'success'
-            };
         }, error => {
             this.isDataLoaded = true;
             this.sharedService.openSnackBar('Server Error', 'error');
@@ -1368,20 +1382,22 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
         }
     }
     back() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                if (this.sessionService.isAdmin())
-                    this.router.navigate(['expected-visitor-list'], { relativeTo: this.activateRouter.parent });
-                else
-                    this.router.navigate(['expected-visitor-user-list'], { relativeTo: this.activateRouter.parent });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    if (this.sessionService.isAdmin())
+                        this.router.navigate(['expected-visitor-list'], { relativeTo: this.activateRouter.parent });
+                    else
+                        this.router.navigate(['expected-visitor-user-list'], { relativeTo: this.activateRouter.parent });
+                }
+            });
         });
     }
     getTowers() {
@@ -1572,6 +1588,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1589,7 +1607,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpVisitorListComponent = class ExpVisitorListComponent {
-    constructor(router, injector, visitorService, sharedService, sessionService, activateRouter, dialog) {
+    constructor(router, injector, visitorService, sharedService, sessionService, activateRouter, dialog, translateService) {
         this.router = router;
         this.injector = injector;
         this.visitorService = visitorService;
@@ -1597,6 +1615,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.sessionService = sessionService;
         this.activateRouter = activateRouter;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.fullVisitorList = [];
         this.isVisitorDataLoaded = false;
         this.ItemStartIndex = 0;
@@ -1642,17 +1661,19 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.modalService.showConfirmModal({ id: id, index: index });
     }
     checkIn(item) {
-        const message = `Are you sure you want to Check In?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.router.navigate([`checkin/${item.expectedVisitorId}`], { relativeTo: this.activateRouter.parent, queryParams: { access: 'expected' } });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CHECKINTITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.router.navigate([`checkin/${item.expectedVisitorId}`], { relativeTo: this.activateRouter.parent, queryParams: { access: 'expected' } });
+                }
+            });
         });
     }
     filterApply() {
@@ -1786,7 +1807,8 @@ ExpVisitorListComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"] }
 ];
 ExpVisitorListComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
@@ -1805,7 +1827,8 @@ ExpVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]])
 ], ExpVisitorListComponent);
 
 
@@ -1847,6 +1870,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -1859,7 +1884,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FrequentVendorListComponent = class FrequentVendorListComponent {
-    constructor(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
+    constructor(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter, translateService) {
         this.router = router;
         this.injector = injector;
         this.visitorService = visitorService;
@@ -1867,6 +1892,7 @@ let FrequentVendorListComponent = class FrequentVendorListComponent {
         this.dialog = dialog;
         this.sharedService = sharedService;
         this.activeRouter = activeRouter;
+        this.translateService = translateService;
         this.visitorList = [];
         this.visitorSearch = '';
         this.ItemStartIndex = 0;
@@ -1902,22 +1928,24 @@ let FrequentVendorListComponent = class FrequentVendorListComponent {
         this.itemLimit = event.itemLimit;
     }
     checkIn(item) {
-        const message = `Are you sure you want to Check In?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let pageAccess;
-                if (this.urlType == 'frequent-visitor-list')
-                    pageAccess = 'frequent';
-                else if (this.urlType == 'vendor-pass-list')
-                    pageAccess = 'vendor';
-                this.router.navigate([`checkin/${item.expectedVisitorId}`], { relativeTo: this.activeRouter.parent, queryParams: { access: pageAccess } });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CHECKINTITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let pageAccess;
+                    if (this.urlType == 'frequent-visitor-list')
+                        pageAccess = 'frequent';
+                    else if (this.urlType == 'vendor-pass-list')
+                        pageAccess = 'vendor';
+                    this.router.navigate([`checkin/${item.expectedVisitorId}`], { relativeTo: this.activeRouter.parent, queryParams: { access: pageAccess } });
+                }
+            });
         });
     }
     editVisitor(expectedVisitorId) {
@@ -2055,7 +2083,8 @@ FrequentVendorListComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"] }
 ];
 FrequentVendorListComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
@@ -2073,7 +2102,8 @@ FrequentVendorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])
 ], FrequentVendorListComponent);
 
 
@@ -2368,6 +2398,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2384,7 +2416,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
-    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router, sharedService, _changeDetectorRef, dialog) {
+    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router, sharedService, _changeDetectorRef, dialog, translateService) {
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
@@ -2395,6 +2427,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.sharedService = sharedService;
         this._changeDetectorRef = _changeDetectorRef;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.visitor = {};
         this.expectedDurationInfo = '';
         this.visitTypeList = [];
@@ -2513,24 +2546,26 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         });
     }
     navigateBack() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                if (this.pageComingFrom == 'frequent')
-                    this.router.navigate(['frequent-visitor-list'], { relativeTo: this.activateRouter.parent });
-                else if (this.pageComingFrom == 'vendor')
-                    this.router.navigate(['vendor-pass-list'], { relativeTo: this.activateRouter.parent });
-                else if (this.pageComingFrom == 'expected')
-                    this.router.navigate(['expected-visitor-list'], { relativeTo: this.activateRouter.parent });
-                else if (this.urlType == 'checkout' || this.urlType == 'edit')
-                    this.router.navigate(['checkout'], { relativeTo: this.activateRouter.parent });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    if (this.pageComingFrom == 'frequent')
+                        this.router.navigate(['frequent-visitor-list'], { relativeTo: this.activateRouter.parent });
+                    else if (this.pageComingFrom == 'vendor')
+                        this.router.navigate(['vendor-pass-list'], { relativeTo: this.activateRouter.parent });
+                    else if (this.pageComingFrom == 'expected')
+                        this.router.navigate(['expected-visitor-list'], { relativeTo: this.activateRouter.parent });
+                    else if (this.urlType == 'checkout' || this.urlType == 'edit')
+                        this.router.navigate(['checkout'], { relativeTo: this.activateRouter.parent });
+                }
+            });
         });
     }
     disableField() {
@@ -2785,7 +2820,8 @@ VisitorCreateCheckinComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"] }
 ];
 VisitorCreateCheckinComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['visitorForm',] }]
@@ -2807,7 +2843,8 @@ VisitorCreateCheckinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])
 ], VisitorCreateCheckinComponent);
 
 

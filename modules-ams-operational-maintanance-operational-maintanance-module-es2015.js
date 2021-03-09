@@ -370,6 +370,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -384,7 +386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintananceComponent {
-    constructor(genMaintService, sessionService, staffService, sharedService, lookupService, router, dialog, _changeDetectorRef, route) {
+    constructor(genMaintService, sessionService, staffService, sharedService, lookupService, router, dialog, _changeDetectorRef, route, translateService) {
         this.genMaintService = genMaintService;
         this.sessionService = sessionService;
         this.staffService = staffService;
@@ -394,6 +396,7 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
         this.dialog = dialog;
         this._changeDetectorRef = _changeDetectorRef;
         this.route = route;
+        this.translateService = translateService;
         this.isMaintainedbyStaff = true;
         this.subCategoriesData = [];
         this.categoriesData = [];
@@ -717,17 +720,19 @@ let MaintainOperationalMaintananceComponent = class MaintainOperationalMaintanan
         this.form.reset();
     }
     back() {
-        const message = `Are you sure, you want to exit the screen ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.router.navigate(['operational-maintenance-list'], { relativeTo: this.route.parent });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.CLOSETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.router.navigate(['operational-maintenance-list'], { relativeTo: this.route.parent });
+                }
+            });
         });
     }
 };
@@ -740,7 +745,8 @@ MaintainOperationalMaintananceComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"] }
 ];
 MaintainOperationalMaintananceComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['opmaintainForm',] }]
@@ -761,7 +767,8 @@ MaintainOperationalMaintananceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]])
 ], MaintainOperationalMaintananceComponent);
 
 
@@ -2258,6 +2265,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2273,13 +2282,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let OpMaintenanceSetupTitleComponent = class OpMaintenanceSetupTitleComponent {
-    constructor(sessionService, injector, sharedService, genMaintService, _changeDetectorRef, dialog) {
+    constructor(sessionService, injector, sharedService, genMaintService, _changeDetectorRef, dialog, translateService) {
         this.sessionService = sessionService;
         this.injector = injector;
         this.sharedService = sharedService;
         this.genMaintService = genMaintService;
         this._changeDetectorRef = _changeDetectorRef;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.isDataLoaded = true;
         this.title = {
             customForm: []
@@ -2424,36 +2434,40 @@ let OpMaintenanceSetupTitleComponent = class OpMaintenanceSetupTitleComponent {
         this.title.customForm.splice(this.index, 1);
     }
     deleteCustomForm(index) {
-        const message = `Are you sure you want to delete ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult)
-                this.title.customForm.splice(index, 1);
-        });
-    }
-    hideForm() {
-        if (this.title.categoryId || this.title.subCategoryId && this.title.name) {
-            let message = `Are you sure, you want to cancel the data ?`;
-            // if(this.isCreateTitle) {
-            // 	message = `Are you sure, you want to  the data ?`;
-            // } else {
-            // 	message = `Are you sure, you want to cancel the data ?`;
-            // }
-            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELETETITLE}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
             const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
             });
             dialogRef.afterClosed().subscribe(dialogResult => {
-                if (dialogResult) {
-                    this.isShowCreateTitle = false;
-                }
+                if (dialogResult)
+                    this.title.customForm.splice(index, 1);
+            });
+        });
+    }
+    hideForm() {
+        if (this.title.categoryId || this.title.subCategoryId && this.title.name) {
+            this.translateService.get('POPUP').subscribe((data) => {
+                let message = `${data.CANCELDATA}`;
+                // if(this.isCreateTitle) {
+                // 	message = `Are you sure, you want to  the data ?`;
+                // } else {
+                // 	message = `Are you sure, you want to cancel the data ?`;
+                // }
+                const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+                const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+                    panelClass: 'material-dialog-medium',
+                    disableClose: true,
+                    data: dialogData
+                });
+                dialogRef.afterClosed().subscribe(dialogResult => {
+                    if (dialogResult) {
+                        this.isShowCreateTitle = false;
+                    }
+                });
             });
         }
         else {
@@ -2662,7 +2676,8 @@ OpMaintenanceSetupTitleComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_3__["GenMaintService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"] }
 ];
 OpMaintenanceSetupTitleComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
@@ -2685,7 +2700,8 @@ OpMaintenanceSetupTitleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_3__["GenMaintService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]])
 ], OpMaintenanceSetupTitleComponent);
 
 function editOPTitle(row) {

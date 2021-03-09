@@ -551,9 +551,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var StaffAttendanceEntryComponent = /*#__PURE__*/function () {
-        function StaffAttendanceEntryComponent(sharedService, staffService, _overlay, dialog, _viewContainerRef, sessionService) {
+        function StaffAttendanceEntryComponent(sharedService, staffService, _overlay, dialog, _viewContainerRef, sessionService, translateService) {
           _classCallCheck(this, StaffAttendanceEntryComponent);
 
           this.sharedService = sharedService;
@@ -562,6 +568,7 @@
           this.dialog = dialog;
           this._viewContainerRef = _viewContainerRef;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.popupContent = {};
           this.currentDate = moment__WEBPACK_IMPORTED_MODULE_6__();
           this.attendanceDate = moment__WEBPACK_IMPORTED_MODULE_6__();
@@ -686,17 +693,21 @@
           value: function attendanceAlertPopup() {
             var _this4 = this;
 
-            var message = "All the staff will be made as present. Please change the staff attendence status if needed";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-big',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this4.startAttendance();
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.STAFFATTENDANCEALERT);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this4.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-big',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this4.startAttendance();
+                }
+              });
             });
           }
         }, {
@@ -908,41 +919,45 @@
           value: function allPresent() {
             var _this8 = this;
 
-            var message = "Do you want to make all the staff as present ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this8.isDataLoaded = true;
-                var params = {
-                  attendance: {
-                    "apartmentId": _this8.sessionService.apartmentId,
-                    "attendanceforDate": _this8.attendanceDate,
-                    "updatedBy": _this8.sessionService.userId,
-                    "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
-                  }
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.STAFFALLPRESENT);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this8.staffService.updateAttendanceAllPresent(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this8.sharedService.openSnackBar(res.message, 'success');
+              var dialogRef = _this8.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this8.startAttendance();
-                  } else {
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this8.isDataLoaded = true;
+                  var params = {
+                    attendance: {
+                      "apartmentId": _this8.sessionService.apartmentId,
+                      "attendanceforDate": _this8.attendanceDate,
+                      "updatedBy": _this8.sessionService.userId,
+                      "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                    }
+                  };
+
+                  _this8.staffService.updateAttendanceAllPresent(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this8.sharedService.openSnackBar(res.message, 'success');
+
+                      _this8.startAttendance();
+                    } else {
+                      _this8.isDataLoaded = false;
+
+                      _this8.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
                     _this8.isDataLoaded = false;
 
-                    _this8.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this8.isDataLoaded = false;
-
-                  _this8.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+                    _this8.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -950,41 +965,45 @@
           value: function allHoliday() {
             var _this9 = this;
 
-            var message = "Do you want to make all the staff as holiday ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this9.isDataLoaded = true;
-                var params = {
-                  attendance: {
-                    "apartmentId": _this9.sessionService.apartmentId,
-                    "attendanceforDate": _this9.attendanceDate,
-                    "updatedBy": _this9.sessionService.userId,
-                    "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
-                  }
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.STAFFALLHOLIDAY);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this9.staffService.updateAttendanceAllHoliday(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this9.sharedService.openSnackBar(res.message, 'success');
+              var dialogRef = _this9.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this9.startAttendance();
-                  } else {
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this9.isDataLoaded = true;
+                  var params = {
+                    attendance: {
+                      "apartmentId": _this9.sessionService.apartmentId,
+                      "attendanceforDate": _this9.attendanceDate,
+                      "updatedBy": _this9.sessionService.userId,
+                      "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                    }
+                  };
+
+                  _this9.staffService.updateAttendanceAllHoliday(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this9.sharedService.openSnackBar(res.message, 'success');
+
+                      _this9.startAttendance();
+                    } else {
+                      _this9.isDataLoaded = false;
+
+                      _this9.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
                     _this9.isDataLoaded = false;
 
-                    _this9.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this9.isDataLoaded = false;
-
-                  _this9.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+                    _this9.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -1008,6 +1027,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]
         }];
       };
 
@@ -1030,7 +1051,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-attendance-entry.component.scss */
         "./src/app/modules/ams/staff-manager/staff-attendance/staff-attendance-entry/staff-attendance-entry.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["Overlay"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], StaffAttendanceEntryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["Overlay"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])], StaffAttendanceEntryComponent);
       /***/
     },
 

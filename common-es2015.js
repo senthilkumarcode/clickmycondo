@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n  <div class=\"main\">\n<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n<ng-container *ngIf=\"isDataLoaded\">\n\n  <h4 class=\"mb-4\"> Facility Reports</h4>\n\n  <div class=\"row\">\n    <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\"> \n\n        <condo-card>\n\n            <div CondoCardHeader>\n              <a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/facility/reports/{{report.lookupValueName}}/{{report.lookupValueId}}\"\n               routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n            \n                <h6>{{report.lookupValueName}}</h6>\n                <p>{{report.description}}</p>\n            \n              </a>\n            </div>\n            <div CondoCardBody>\n              <div class=\"p-4 bg-cool-gray-50\"></div>\n            </div>\n  \n          </condo-card>\n          \n        </div>\n    </div>\n\n\n</ng-container>\n\n</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n  <div class=\"main\">\n<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n<ng-container *ngIf=\"isDataLoaded\">\n\n  <h4 class=\"mb-4\">{{'FACILITY.REPORTS.TITLE' | translate}}</h4>\n\n  <div class=\"row\">\n    <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\"> \n\n        <condo-card>\n\n            <div CondoCardHeader>\n              <a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/facility/reports/{{report.lookupValueName}}/{{report.lookupValueId}}\"\n               routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n            \n                <h6>{{report.lookupValueName}}</h6>\n                <p>{{report.description}}</p>\n            \n              </a>\n            </div>\n            <div CondoCardBody>\n              <div class=\"p-4 bg-cool-gray-50\"></div>\n            </div>\n  \n          </condo-card>\n          \n        </div>\n    </div>\n\n\n</ng-container>\n\n</div>\n</div>\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4 class=\"mb-4\">Visitor Management Reports </h4>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n\n\t\t\t\t\t<condo-card>\n\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/visitor/reports/{{report.lookupValueName}}/{{report.lookupValueID}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</condo-card>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4 class=\"mb-4\">{{'VISITOR.REPORTS.TITLE' | translate}} </h4>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n\n\t\t\t\t\t<condo-card>\n\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/visitor/reports/{{report.lookupValueName}}/{{report.lookupValueID}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</condo-card>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -85,6 +85,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./facility-reports/facility-reports.component */ "./src/app/modules/ams/facility/facility-report/facility-reports/facility-reports.component.ts");
 /* harmony import */ var _facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./facility-reports/facility-report-data/facility-report-data.component */ "./src/app/modules/ams/facility/facility-report/facility-reports/facility-report-data/facility-report-data.component.ts");
 /* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -109,7 +111,8 @@ FacilityReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_9__["ListModule"],
-            _facility_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["FacilityReportRoutingModule"]
+            _facility_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["FacilityReportRoutingModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateModule"]
         ]
     })
 ], FacilityReportModule);
@@ -252,6 +255,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _visitor_report_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./visitor-report-routing.module */ "./src/app/modules/common/visitor/visitor-report/visitor-report-routing.module.ts");
 /* harmony import */ var _visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./visitor-reports/visitor-reports.component */ "./src/app/modules/common/visitor/visitor-report/visitor-reports/visitor-reports.component.ts");
 /* harmony import */ var _visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/modules/common/visitor/visitor-report/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -278,7 +283,8 @@ VisitorReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__["ListModule"],
             src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__["DatepickerModule"].forRoot(),
-            _visitor_report_routing_module__WEBPACK_IMPORTED_MODULE_8__["VisitorReportRoutingModule"]
+            _visitor_report_routing_module__WEBPACK_IMPORTED_MODULE_8__["VisitorReportRoutingModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateModule"]
         ]
     })
 ], VisitorReportModule);

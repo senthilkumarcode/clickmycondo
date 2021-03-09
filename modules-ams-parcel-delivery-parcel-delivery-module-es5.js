@@ -1474,9 +1474,15 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var DeliveryListComponent = /*#__PURE__*/function () {
-        function DeliveryListComponent(sharedService, sessionService, packageService, _changeDetectorRef, _activatedRoute, _router, dialog) {
+        function DeliveryListComponent(sharedService, sessionService, packageService, _changeDetectorRef, _activatedRoute, _router, dialog, translateService) {
           var _this11 = this;
 
           _classCallCheck(this, DeliveryListComponent);
@@ -1488,6 +1494,7 @@
           this._activatedRoute = _activatedRoute;
           this._router = _router;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.allParcelDelivey = [];
           this.ItemStartIndex = 0;
           this.ItemEndIndex = 0;
@@ -1537,34 +1544,38 @@
           value: function parcelDelivery(data) {
             var _this12 = this;
 
-            var message = "Are you sure you want to Delivery?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var params = {
-                  ApartmentId: _this12.sessionService.apartmentId,
-                  PackageId: data.packageId,
-                  StatusId: 987,
-                  updatedBy: _this12.sessionService.userId
-                };
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELIVERYDATA);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-                _this12.packageService.updatePackageStatus(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this12.sharedService.openSnackBar('Parcel Delivered', 'success');
+              var dialogRef = _this12.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
 
-                    _this12.getAllPackage();
-                  } else {
-                    _this12.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this12.sharedService.openSnackBar('Server Error', 'error');
-                });
-              }
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  var params = {
+                    ApartmentId: _this12.sessionService.apartmentId,
+                    PackageId: data.packageId,
+                    StatusId: 987,
+                    updatedBy: _this12.sessionService.userId
+                  };
+
+                  _this12.packageService.updatePackageStatus(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this12.sharedService.openSnackBar('Parcel Delivered', 'success');
+
+                      _this12.getAllPackage();
+                    } else {
+                      _this12.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this12.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
             });
           }
         }, {
@@ -1640,6 +1651,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
         }];
       };
 
@@ -1652,7 +1665,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./delivery-list.component.scss */
         "./src/app/modules/ams/parcel-delivery/components/delivery-list/delivery-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_4__["PackageService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], DeliveryListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_4__["PackageService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], DeliveryListComponent);
       /***/
     },
 

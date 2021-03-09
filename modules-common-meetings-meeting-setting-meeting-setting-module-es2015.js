@@ -194,6 +194,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -211,7 +213,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MeetingsCreateComponent = class MeetingsCreateComponent {
-    constructor(lookupService, sessionService, apartmentService, staffService, userService, meetingService, sharedService, router, dialog, activateRouter, _changeDetectorRef) {
+    constructor(lookupService, sessionService, apartmentService, staffService, userService, meetingService, sharedService, router, dialog, activateRouter, _changeDetectorRef, translateService) {
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.apartmentService = apartmentService;
@@ -223,6 +225,7 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
         this.dialog = dialog;
         this.activateRouter = activateRouter;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.data = { type: 'create' };
         this.popupClose = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isMeetingSubmitted = true;
@@ -786,17 +789,19 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
         }
     }
     dialogClose() {
-        const message = `All records will be removed. Do you wish to continue ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                this.popupClose.emit(false);
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.REMOVEALLRECORDS}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    this.popupClose.emit(false);
+                }
+            });
         });
     }
     ngOnInit() {
@@ -943,7 +948,8 @@ MeetingsCreateComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"] }
 ];
 MeetingsCreateComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['createMeetingForm',] }],
@@ -968,7 +974,8 @@ MeetingsCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]])
 ], MeetingsCreateComponent);
 
 

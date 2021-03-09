@@ -980,6 +980,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -990,7 +992,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DeliveryListComponent = class DeliveryListComponent {
-    constructor(sharedService, sessionService, packageService, _changeDetectorRef, _activatedRoute, _router, dialog) {
+    constructor(sharedService, sessionService, packageService, _changeDetectorRef, _activatedRoute, _router, dialog, translateService) {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.packageService = packageService;
@@ -998,6 +1000,7 @@ let DeliveryListComponent = class DeliveryListComponent {
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this.dialog = dialog;
+        this.translateService = translateService;
         this.allParcelDelivey = [];
         this.ItemStartIndex = 0;
         this.ItemEndIndex = 0;
@@ -1029,33 +1032,35 @@ let DeliveryListComponent = class DeliveryListComponent {
         this._router.navigate(['edit-package', packageId], { relativeTo: this._activatedRoute.parent });
     }
     parcelDelivery(data) {
-        const message = `Are you sure you want to Delivery?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                const params = {
-                    ApartmentId: this.sessionService.apartmentId,
-                    PackageId: data.packageId,
-                    StatusId: 987,
-                    updatedBy: this.sessionService.userId,
-                };
-                this.packageService.updatePackageStatus(params).subscribe((res) => {
-                    if (res.message) {
-                        this.sharedService.openSnackBar('Parcel Delivered', 'success');
-                        this.getAllPackage();
-                    }
-                    else {
-                        this.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                }, error => {
-                    this.sharedService.openSnackBar('Server Error', 'error');
-                });
-            }
+        this.translateService.get('POPUP').subscribe((data) => {
+            const message = `${data.DELIVERYDATA}`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    const params = {
+                        ApartmentId: this.sessionService.apartmentId,
+                        PackageId: data.packageId,
+                        StatusId: 987,
+                        updatedBy: this.sessionService.userId,
+                    };
+                    this.packageService.updatePackageStatus(params).subscribe((res) => {
+                        if (res.message) {
+                            this.sharedService.openSnackBar('Parcel Delivered', 'success');
+                            this.getAllPackage();
+                        }
+                        else {
+                            this.sharedService.openSnackBar(res.errorMessage, 'error');
+                        }
+                    }, error => {
+                        this.sharedService.openSnackBar('Server Error', 'error');
+                    });
+                }
+            });
         });
     }
     getAllPackage() {
@@ -1106,7 +1111,8 @@ DeliveryListComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 DeliveryListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1121,7 +1127,8 @@ DeliveryListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], DeliveryListComponent);
 
 

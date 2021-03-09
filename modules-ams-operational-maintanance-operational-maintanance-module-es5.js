@@ -651,9 +651,15 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var MaintainOperationalMaintananceComponent = /*#__PURE__*/function () {
-        function MaintainOperationalMaintananceComponent(genMaintService, sessionService, staffService, sharedService, lookupService, router, dialog, _changeDetectorRef, route) {
+        function MaintainOperationalMaintananceComponent(genMaintService, sessionService, staffService, sharedService, lookupService, router, dialog, _changeDetectorRef, route, translateService) {
           _classCallCheck(this, MaintainOperationalMaintananceComponent);
 
           this.genMaintService = genMaintService;
@@ -665,6 +671,7 @@
           this.dialog = dialog;
           this._changeDetectorRef = _changeDetectorRef;
           this.route = route;
+          this.translateService = translateService;
           this.isMaintainedbyStaff = true;
           this.subCategoriesData = [];
           this.categoriesData = [];
@@ -1094,19 +1101,23 @@
           value: function back() {
             var _this12 = this;
 
-            var message = "Are you sure, you want to exit the screen ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                _this12.router.navigate(['operational-maintenance-list'], {
-                  relativeTo: _this12.route.parent
-                });
-              }
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CLOSETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this12.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this12.router.navigate(['operational-maintenance-list'], {
+                    relativeTo: _this12.route.parent
+                  });
+                }
+              });
             });
           }
         }]);
@@ -1133,6 +1144,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]
         }];
       };
 
@@ -1152,7 +1165,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./maintain-operational-maintanance.component.scss */
         "./src/app/modules/ams/operational-maintanance/maintain-operational-maintanance/maintain-operational-maintanance.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_2__["GenMaintService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_12__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])], MaintainOperationalMaintananceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_2__["GenMaintService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_12__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]])], MaintainOperationalMaintananceComponent);
       /***/
     },
 
@@ -3377,9 +3390,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var OpMaintenanceSetupTitleComponent = /*#__PURE__*/function () {
-        function OpMaintenanceSetupTitleComponent(sessionService, injector, sharedService, genMaintService, _changeDetectorRef, dialog) {
+        function OpMaintenanceSetupTitleComponent(sessionService, injector, sharedService, genMaintService, _changeDetectorRef, dialog, translateService) {
           _classCallCheck(this, OpMaintenanceSetupTitleComponent);
 
           this.sessionService = sessionService;
@@ -3388,6 +3407,7 @@
           this.genMaintService = genMaintService;
           this._changeDetectorRef = _changeDetectorRef;
           this.dialog = dialog;
+          this.translateService = translateService;
           this.isDataLoaded = true;
           this.title = {
             customForm: []
@@ -3580,15 +3600,19 @@
           value: function deleteCustomForm(index) {
             var _this37 = this;
 
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) _this37.title.customForm.splice(index, 1);
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.DELETETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this37.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) _this37.title.customForm.splice(index, 1);
+              });
             });
           }
         }, {
@@ -3597,22 +3621,26 @@
             var _this38 = this;
 
             if (this.title.categoryId || this.title.subCategoryId && this.title.name) {
-              var message = "Are you sure, you want to cancel the data ?"; // if(this.isCreateTitle) {
-              // 	message = `Are you sure, you want to  the data ?`;
-              // } else {
-              // 	message = `Are you sure, you want to cancel the data ?`;
-              // }
+              this.translateService.get('POPUP').subscribe(function (data) {
+                var message = "".concat(data.CANCELDATA); // if(this.isCreateTitle) {
+                // 	message = `Are you sure, you want to  the data ?`;
+                // } else {
+                // 	message = `Are you sure, you want to cancel the data ?`;
+                // }
 
-              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
-              var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
-                panelClass: 'material-dialog-medium',
-                disableClose: true,
-                data: dialogData
-              });
-              dialogRef.afterClosed().subscribe(function (dialogResult) {
-                if (dialogResult) {
-                  _this38.isShowCreateTitle = false;
-                }
+                var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+                var dialogRef = _this38.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+                  panelClass: 'material-dialog-medium',
+                  disableClose: true,
+                  data: dialogData
+                });
+
+                dialogRef.afterClosed().subscribe(function (dialogResult) {
+                  if (dialogResult) {
+                    _this38.isShowCreateTitle = false;
+                  }
+                });
               });
             } else {
               this.isShowCreateTitle = false;
@@ -3853,6 +3881,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]
         }];
       };
 
@@ -3896,7 +3926,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./op-maintenance-setup-title.component.scss */
         "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-title/op-maintenance-setup-title.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_3__["GenMaintService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], OpMaintenanceSetupTitleComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_GenMaint__WEBPACK_IMPORTED_MODULE_3__["GenMaintService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]])], OpMaintenanceSetupTitleComponent);
 
       function editOPTitle(row) {
         var event = new CustomEvent('onEditOPTitle', {
