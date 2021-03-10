@@ -387,6 +387,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -397,7 +399,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent {
-    constructor(router, route, _incomeCustomerAdvancesComponent, accountsService, sharedService, sessionService, changeDetect) {
+    constructor(router, route, _incomeCustomerAdvancesComponent, accountsService, sharedService, sessionService, changeDetect, translateService) {
         this.router = router;
         this.route = route;
         this._incomeCustomerAdvancesComponent = _incomeCustomerAdvancesComponent;
@@ -405,6 +407,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.changeDetect = changeDetect;
+        this.translateService = translateService;
         this.isAdvanceSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
@@ -437,13 +440,15 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.changeDetect.markForCheck();
         }
@@ -534,7 +539,8 @@ IncomeAddCustomerAdvanceComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 IncomeAddCustomerAdvanceComponent.propDecorators = {
     advance: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -557,7 +563,8 @@ IncomeAddCustomerAdvanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], IncomeAddCustomerAdvanceComponent);
 
 
@@ -597,6 +604,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -607,13 +616,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent {
-    constructor(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService, changeDetect) {
+    constructor(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService, changeDetect, translateService) {
         this.route = route;
         this._incomeSecurityDepositComponent = _incomeSecurityDepositComponent;
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.changeDetect = changeDetect;
+        this.translateService = translateService;
         this.isDepositSubmitted = false;
         this.glAccountIndicator = "Cust_Invoice";
         this.isError = false;
@@ -635,13 +645,15 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.changeDetect.markForCheck();
         }
@@ -733,7 +745,8 @@ IncomeAddSecurityDepositComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 IncomeAddSecurityDepositComponent.propDecorators = {
     deposit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -755,7 +768,8 @@ IncomeAddSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], IncomeAddSecurityDepositComponent);
 
 

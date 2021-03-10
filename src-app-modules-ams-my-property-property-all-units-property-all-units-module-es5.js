@@ -175,9 +175,15 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var PropertyAddUnitComponent = /*#__PURE__*/function () {
-        function PropertyAddUnitComponent(_activatedRoute, _router, el, _changeDetectorRef, _propertyUnitsListComponent, accountsService, apartmentService, lookupService, sharedService, sessionService) {
+        function PropertyAddUnitComponent(_activatedRoute, _router, el, _changeDetectorRef, _propertyUnitsListComponent, accountsService, apartmentService, lookupService, sharedService, sessionService, translateService) {
           _classCallCheck(this, PropertyAddUnitComponent);
 
           this._activatedRoute = _activatedRoute;
@@ -190,6 +196,7 @@
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.isUnitSubmitted = true;
           this.isDataSubmitted = false;
         }
@@ -222,13 +229,15 @@
 
             if (!form.valid) {
               // Show the validation message
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the required fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -331,6 +340,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]
         }];
       };
 
@@ -345,7 +356,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./property-add-unit.component.scss */
         "./src/app/modules/ams/my-property/property-all-units/property-add-unit/property-add-unit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_modules_ams_my_property_property_all_units_property_units_list_property_units_list_component__WEBPACK_IMPORTED_MODULE_4__["PropertyUnitsListComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], PropertyAddUnitComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_modules_ams_my_property_property_all_units_property_units_list_property_units_list_component__WEBPACK_IMPORTED_MODULE_4__["PropertyUnitsListComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])], PropertyAddUnitComponent);
       /***/
     },
 

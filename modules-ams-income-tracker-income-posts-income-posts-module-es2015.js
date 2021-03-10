@@ -58,6 +58,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -67,12 +69,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
-    constructor(_changeDetectorRef, accountsService, apartmentService, sharedService, sessionService) {
+    constructor(_changeDetectorRef, accountsService, apartmentService, sharedService, sessionService, translateService) {
         this._changeDetectorRef = _changeDetectorRef;
         this.accountsService = accountsService;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.isDataLoaded = false;
         this.isCreditSubmitted = false;
         this.isBlockSelected = false;
@@ -113,13 +116,15 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
     submitAddCreditNoteForm(form) {
         if (!form.valid) {
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the required fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
         }
         else {
             this.isCreditSubmitted = true;
@@ -179,7 +184,8 @@ IncomeCreateCreditComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"] }
 ];
 IncomeCreateCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -193,7 +199,8 @@ IncomeCreateCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
 ], IncomeCreateCreditComponent);
 
 

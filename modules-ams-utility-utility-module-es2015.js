@@ -2951,6 +2951,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/pipe/shared.pipe */ "./src/app/shared/pipe/shared.pipe.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2962,13 +2964,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UtilityGroupComponent = class UtilityGroupComponent {
-    constructor(lookupService, injector, sharedService, sessionService, columnSearchPipe, _changeDetectorRef) {
+    constructor(lookupService, injector, sharedService, sessionService, columnSearchPipe, _changeDetectorRef, translateService) {
         this.lookupService = lookupService;
         this.injector = injector;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.columnSearchPipe = columnSearchPipe;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.group = {};
         this.isDataLoaded = false;
         this.isDrawerLoader = true;
@@ -3023,13 +3026,15 @@ let UtilityGroupComponent = class UtilityGroupComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -3143,7 +3148,8 @@ UtilityGroupComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"] }
 ];
 UtilityGroupComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
@@ -3163,7 +3169,8 @@ UtilityGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])
 ], UtilityGroupComponent);
 
 
@@ -5086,6 +5093,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityCommon */ "./src/app/api/controllers/UtilityCommon.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -5095,13 +5104,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UtilityStaffGroupingComponent = class UtilityStaffGroupingComponent {
-    constructor(sessionService, sharedService, staffService, lookupService, _changeDetectorRef, UtilityCommonService) {
+    constructor(sessionService, sharedService, staffService, lookupService, _changeDetectorRef, UtilityCommonService, translateService) {
         this.sessionService = sessionService;
         this.sharedService = sharedService;
         this.staffService = staffService;
         this.lookupService = lookupService;
         this._changeDetectorRef = _changeDetectorRef;
         this.UtilityCommonService = UtilityCommonService;
+        this.translateService = translateService;
         this.isDataLoaded = true;
         this.staffsList = [];
         this.groupsList = [];
@@ -5131,13 +5141,15 @@ let UtilityStaffGroupingComponent = class UtilityStaffGroupingComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -5221,7 +5233,8 @@ UtilityStaffGroupingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"] }
+    { type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"] }
 ];
 UtilityStaffGroupingComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['groupForm',] }]
@@ -5239,7 +5252,8 @@ UtilityStaffGroupingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"]])
+        src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
 ], UtilityStaffGroupingComponent);
 
 
@@ -5415,6 +5429,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/UtilityCommon */ "./src/app/api/controllers/UtilityCommon.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -5424,12 +5440,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let TriggerTaskSetupComponent = class TriggerTaskSetupComponent {
-    constructor(sessionService, sharedService, lookupService, UtilityCommonService, _changeDetectorRef) {
+    constructor(sessionService, sharedService, lookupService, UtilityCommonService, _changeDetectorRef, translateService) {
         this.sessionService = sessionService;
         this.sharedService = sharedService;
         this.lookupService = lookupService;
         this.UtilityCommonService = UtilityCommonService;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.task = {
             fromPeriod: moment__WEBPACK_IMPORTED_MODULE_7__(),
             toPeriod: moment__WEBPACK_IMPORTED_MODULE_7__(),
@@ -5488,13 +5505,15 @@ let TriggerTaskSetupComponent = class TriggerTaskSetupComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -5548,7 +5567,8 @@ TriggerTaskSetupComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_6__["UtilityCommonService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"] }
 ];
 TriggerTaskSetupComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['taskForm',] }]
@@ -5565,7 +5585,8 @@ TriggerTaskSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_6__["UtilityCommonService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
 ], TriggerTaskSetupComponent);
 
 

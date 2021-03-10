@@ -320,13 +320,15 @@ let FacilityCreateComponent = class FacilityCreateComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.changeDetect.markForCheck();
         }

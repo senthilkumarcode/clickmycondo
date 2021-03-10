@@ -381,8 +381,11 @@
               });
             } else {
               this.user.emailId = '';
-              this.sharedService.openSnackBar("Kindly enter proper email...!", 'error');
-              this.cd.markForCheck();
+              this.translateService.get('SNACKBAR').subscribe(function (data) {
+                _this2.sharedService.openSnackBar("".concat(data.PROPEREMAIL), 'error');
+
+                _this2.cd.markForCheck();
+              });
             }
           }
         }, {
@@ -552,13 +555,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this6.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this.cd.markForCheck();
             } else {

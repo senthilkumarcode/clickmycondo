@@ -474,6 +474,8 @@
         }, {
           key: "submitFacility",
           value: function submitFacility() {
+            var _this3 = this;
+
             // if(this.checkMinHours()) {
             //   return
             // }
@@ -485,13 +487,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this3.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this.changeDetect.markForCheck();
             } else {
@@ -502,76 +506,15 @@
         }, {
           key: "createFacility",
           value: function createFacility() {
-            var _this3 = this;
-
-            this.facility.apartmentFacilityAllowedBlock = [];
-            this.accessTower.selectedItems.forEach(function (ele) {
-              var entity = {
-                id: 0,
-                apartmentId: _this3.sessionService.apartmentId,
-                apartmentBlockId: ele.apartmentBlockId,
-                apartmentFacilityId: 0,
-                isActive: true,
-                insertedBy: parseInt(_this3.sessionService.userId),
-                insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
-                updatedBy: null,
-                updatedOn: null
-              };
-
-              _this3.facility.apartmentFacilityAllowedBlock.push(entity);
-            });
-
-            if (this.facility.rateBaseId == 138 && this.facility.isSlotBooking) {
-              this.facility.apartmentFacilitySlot.forEach(function (data) {
-                data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
-                data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
-                delete data.error;
-              });
-            } else {
-              this.facility.apartmentFacilitySlot = [];
-            }
-
-            var entity = {
-              "apartmentId": this.sessionService.apartmentId,
-              "minTimeLimit": this.facility.minTimeLimit ? moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss') : '',
-              "maxTimeLimit": this.facility.maxTimeLimit ? moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss') : '',
-              "isActive": true,
-              "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
-              "updatedBy": null,
-              "updatedOn": null
-            };
-            var apartmentFacilityParams = {
-              apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
-            };
-            this.facilityapiservice.addApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
-              if (res.message) {
-                _this3.sharedService.openSnackBar('Facility added successfully', 'success');
-
-                _this3.router.navigate(['/ams/facility/setup/list']);
-              } else {
-                _this3.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-
-              _this3.isSubmitted = false;
-            }, function (error) {
-              _this3.isSubmitted = false;
-
-              _this3.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updateFacility",
-          value: function updateFacility() {
             var _this4 = this;
 
             this.facility.apartmentFacilityAllowedBlock = [];
             this.accessTower.selectedItems.forEach(function (ele) {
               var entity = {
-                id: ele.id,
+                id: 0,
                 apartmentId: _this4.sessionService.apartmentId,
                 apartmentBlockId: ele.apartmentBlockId,
-                apartmentFacilityId: _this4.facility.apartmentFacilityId,
+                apartmentFacilityId: 0,
                 isActive: true,
                 insertedBy: parseInt(_this4.sessionService.userId),
                 insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
@@ -600,15 +543,14 @@
               "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
               "updatedBy": null,
-              "updatedOn": null,
-              "fileAttachmentId": this.facility.fileAttachmentId ? Number(this.facility.fileAttachmentId) : null
+              "updatedOn": null
             };
             var apartmentFacilityParams = {
               apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
             };
-            this.facilityapiservice.updateApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
+            this.facilityapiservice.addApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
               if (res.message) {
-                _this4.sharedService.openSnackBar('Facility Updated successfully', 'success');
+                _this4.sharedService.openSnackBar('Facility added successfully', 'success');
 
                 _this4.router.navigate(['/ams/facility/setup/list']);
               } else {
@@ -623,15 +565,77 @@
             });
           }
         }, {
+          key: "updateFacility",
+          value: function updateFacility() {
+            var _this5 = this;
+
+            this.facility.apartmentFacilityAllowedBlock = [];
+            this.accessTower.selectedItems.forEach(function (ele) {
+              var entity = {
+                id: ele.id,
+                apartmentId: _this5.sessionService.apartmentId,
+                apartmentBlockId: ele.apartmentBlockId,
+                apartmentFacilityId: _this5.facility.apartmentFacilityId,
+                isActive: true,
+                insertedBy: parseInt(_this5.sessionService.userId),
+                insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+                updatedBy: null,
+                updatedOn: null
+              };
+
+              _this5.facility.apartmentFacilityAllowedBlock.push(entity);
+            });
+
+            if (this.facility.rateBaseId == 138 && this.facility.isSlotBooking) {
+              this.facility.apartmentFacilitySlot.forEach(function (data) {
+                data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
+                data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
+                delete data.error;
+              });
+            } else {
+              this.facility.apartmentFacilitySlot = [];
+            }
+
+            var entity = {
+              "apartmentId": this.sessionService.apartmentId,
+              "minTimeLimit": this.facility.minTimeLimit ? moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss') : '',
+              "maxTimeLimit": this.facility.maxTimeLimit ? moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss') : '',
+              "isActive": true,
+              "insertedBy": parseInt(this.sessionService.userId),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null,
+              "fileAttachmentId": this.facility.fileAttachmentId ? Number(this.facility.fileAttachmentId) : null
+            };
+            var apartmentFacilityParams = {
+              apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
+            };
+            this.facilityapiservice.updateApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
+              if (res.message) {
+                _this5.sharedService.openSnackBar('Facility Updated successfully', 'success');
+
+                _this5.router.navigate(['/ams/facility/setup/list']);
+              } else {
+                _this5.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+
+              _this5.isSubmitted = false;
+            }, function (error) {
+              _this5.isSubmitted = false;
+
+              _this5.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "back",
           value: function back() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
               var message = "".concat(data.CLOSETITLE);
               var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-              var dialogRef = _this5.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+              var dialogRef = _this6.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -639,8 +643,8 @@
 
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
-                  _this5.router.navigate(['list'], {
-                    relativeTo: _this5.routerActivate.parent
+                  _this6.router.navigate(['list'], {
+                    relativeTo: _this6.routerActivate.parent
                   });
                 }
               });
@@ -649,20 +653,20 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.facility.isBookingAllowed = true;
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this6.timeZone = timeZone;
+              return _this7.timeZone = timeZone;
             }); //Tower
 
             var towerParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
-              _this6.towerslist = res;
+              _this7.towerslist = res;
               res.forEach(function (data) {
-                _this6.accessTower.dropdownList.push({
+                _this7.accessTower.dropdownList.push({
                   apartmentBlockNumber: data.apartmentBlockNumber,
                   apartmentBlockId: data.apartmentBlockId
                 });
@@ -674,11 +678,11 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this6.pesoValue = res[0].lookupValueName;
+              _this7.pesoValue = res[0].lookupValueName;
             }); //Edit Based
 
             this.routerActivate.queryParams.subscribe(function (params) {
-              _this6.facilityType = params;
+              _this7.facilityType = params;
 
               if (params.type) {
                 if (params.id) {
@@ -686,42 +690,42 @@
                     apartmentFacilityId: parseInt(params.id)
                   };
 
-                  _this6.facilityapiservice.getApartmentFacilityByFacilityId(entity).subscribe(function (res) {
-                    _this6.facility = res[0];
-                    _this6.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this6.facility.minTimeLimit, 'HH:mm:ss');
-                    _this6.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this6.facility.maxTimeLimit, 'HH:mm:ss');
-                    _this6.facility.apartmentBlockId = _this6.facility.apartmentBlockID;
-                    delete _this6.facility.apartmentBlockID; // Patch File
+                  _this7.facilityapiservice.getApartmentFacilityByFacilityId(entity).subscribe(function (res) {
+                    _this7.facility = res[0];
+                    _this7.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this7.facility.minTimeLimit, 'HH:mm:ss');
+                    _this7.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this7.facility.maxTimeLimit, 'HH:mm:ss');
+                    _this7.facility.apartmentBlockId = _this7.facility.apartmentBlockID;
+                    delete _this7.facility.apartmentBlockID; // Patch File
 
-                    _this6.isFileEdit = true;
+                    _this7.isFileEdit = true;
 
-                    if (_this6.facility.fileAttachmentId) {
-                      _this6.facility.fileAttachmentId = _this6.facility.fileAttachmentId.toString();
+                    if (_this7.facility.fileAttachmentId) {
+                      _this7.facility.fileAttachmentId = _this7.facility.fileAttachmentId.toString();
                     } // Patch Slot
 
 
-                    _this6.facility.apartmentFacilitySlot = _this6.facility.apartmentFacilitySlot.filter(function (ele) {
+                    _this7.facility.apartmentFacilitySlot = _this7.facility.apartmentFacilitySlot.filter(function (ele) {
                       ele.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotBeginTime, 'HH:mm:ss').format();
                       ele.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotEndTime, 'HH:mm:ss').format();
                       return ele.isActive;
                     });
 
-                    _this6.facility.apartmentFacilityAllowedBlock.forEach(function (data) {
-                      _this6.accessTower.selectedItems.push({
+                    _this7.facility.apartmentFacilityAllowedBlock.forEach(function (data) {
+                      _this7.accessTower.selectedItems.push({
                         apartmentBlockNumber: data.blockNumber,
                         apartmentBlockId: data.apartmentBlockId,
                         id: data.id
                       });
                     });
 
-                    if (params.type == 'slot') _this6.addSlot('scroll');else if (params.type == 'view') {
-                      _this6.viewMode = true;
-                      _this6.accessTowerdropdownSettings.disabled = true;
+                    if (params.type == 'slot') _this7.addSlot('scroll');else if (params.type == 'view') {
+                      _this7.viewMode = true;
+                      _this7.accessTowerdropdownSettings.disabled = true;
                     }
                   });
                 }
 
-                _this6.accessTowerdropdownSettings = {
+                _this7.accessTowerdropdownSettings = {
                   singleSelection: false,
                   primaryKey: 'apartmentBlockId',
                   labelKey: 'apartmentBlockNumber',
@@ -732,7 +736,7 @@
                   disabled: params.type == 'view' ? true : false
                 };
               } else {
-                _this6.accessTowerdropdownSettings = {
+                _this7.accessTowerdropdownSettings = {
                   singleSelection: false,
                   primaryKey: 'apartmentBlockId',
                   labelKey: 'apartmentBlockNumber',
@@ -742,7 +746,7 @@
                   maxHeight: 240
                 };
 
-                _this6.router.navigate(['/ams/facility/setup/list']);
+                _this7.router.navigate(['/ams/facility/setup/list']);
               }
             }); //delete slot
 
@@ -750,23 +754,23 @@
               if (data != null) {
                 var params = {
                   apartmentFacilityBookingId: data.id,
-                  deleteBy: parseInt(_this6.sessionService.userId)
+                  deleteBy: parseInt(_this7.sessionService.userId)
                 };
 
-                _this6.facilityapiservice.deleteApartmentFacilitySlot(params).subscribe(function (res) {
+                _this7.facilityapiservice.deleteApartmentFacilitySlot(params).subscribe(function (res) {
                   if (res.message) {
-                    _this6.facility.apartmentFacilitySlot.splice(data.index, 1);
+                    _this7.facility.apartmentFacilitySlot.splice(data.index, 1);
 
-                    _this6.sharedService.openSnackBar(res.message, 'success');
+                    _this7.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this6.sharedService.setUnitListDeleteIndex(null);
+                  _this7.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this6.sharedService.setUnitListDeleteIndex(null);
+                  _this7.sharedService.setUnitListDeleteIndex(null);
 
-                  _this6.sharedService.openSnackBar('Server Error', 'error');
+                  _this7.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -1003,7 +1007,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this8 = this;
 
             this.isFacilityCategoryLoaded = false; //Faciliy List
 
@@ -1012,20 +1016,20 @@
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this7.facilityCategoryData = res;
-                _this7.allList = res;
-                _this7.totalItems = res.length;
+                _this8.facilityCategoryData = res;
+                _this8.allList = res;
+                _this8.totalItems = res.length;
 
-                if (_this7.totalItems > _this7.itemLimit) {
-                  _this7.ItemEndIndex = _this7.itemLimit;
+                if (_this8.totalItems > _this8.itemLimit) {
+                  _this8.ItemEndIndex = _this8.itemLimit;
                 } else {
-                  _this7.ItemEndIndex = _this7.totalItems;
+                  _this8.ItemEndIndex = _this8.totalItems;
                 }
               }
 
-              _this7.isFacilityCategoryLoaded = true;
+              _this8.isFacilityCategoryLoaded = true;
             }, function (error) {
-              _this7.sharedService.openSnackBar('Server Error', 'error');
+              _this8.sharedService.openSnackBar('Server Error', 'error');
             }); //peso value
 
             var entity = {
@@ -1033,29 +1037,29 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(entity).subscribe(function (res) {
-              _this7.pesoValue = res[0].lookupValueName;
+              _this8.pesoValue = res[0].lookupValueName;
             }); //Delete Facility
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this7.isFacilityCategoryLoaded = false;
+                _this8.isFacilityCategoryLoaded = false;
                 var params = {
                   apartmentFacilityId: item.id,
-                  deleteBy: _this7.sessionService.userId
+                  deleteBy: _this8.sessionService.userId
                 };
 
-                _this7.facilityService.deleteApartmentFacility(params).subscribe(function (res) {
+                _this8.facilityService.deleteApartmentFacility(params).subscribe(function (res) {
                   if (res.message) {
-                    _this7.facilityCategoryData.splice(item.index, 1);
+                    _this8.facilityCategoryData.splice(item.index, 1);
 
-                    _this7.sharedService.setUnitListDeleteIndex(null);
+                    _this8.sharedService.setUnitListDeleteIndex(null);
 
-                    _this7.totalItems -= 1;
-                    _this7.isFacilityCategoryLoaded = true;
+                    _this8.totalItems -= 1;
+                    _this8.isFacilityCategoryLoaded = true;
 
-                    _this7.sharedService.openSnackBar(res.message, 'success');
+                    _this8.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this8.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }

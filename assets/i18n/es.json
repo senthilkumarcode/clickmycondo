@@ -211,7 +211,8 @@
             "VIEWVENDORBTN": "Ver lista de pases de proveedores",
             "EXPECTEDVISITORNAME": "Visitante esperada",
             "CREATEANOTHEREXPECTEDVISITOR": "Crear otra visitante esperada",
-            "VIEWEXPECTEDVISITOR": "Ver lista de visitantes esperadas"
+            "VIEWEXPECTEDVISITOR": "Ver lista de visitantes esperadas",
+            "SHAREBELOWDETAILS": "Comparta los detalles a continuación con su visitante."
         },
         "FREQUENTVISITORLIST": {
             "TITLE": "Lista de visitantes frecuentes",
@@ -301,6 +302,9 @@
             "EXPECTEDVISITOROUT": "Visitante esperado fuera",
             "VENDORVISITOROUT": "Visitante vendedor fuera",
             "VISITREASON": "Visitar motivo"
+        },
+        "REPORTS": {
+            "TITLE": "Informes de gestión de visitantes"
         }
     },
     "FACILITY": {
@@ -612,7 +616,30 @@
         "CONFIRMACTION": "Confirmar acción",
         "DELETETITLE": "¿Estás segura de que quieres eliminar?",
         "CHECKINTITLE": "¿Estás segura de que quieres registrarte?",
-        "CHECKOUTTITLE": "Estas segura que quieres echar un vistazo?"
+        "CHECKOUTTITLE": "Estas segura que quieres echar un vistazo?",
+        "CLEARTITLE": "Estas segura que quieres borrar los datos ?",
+        "DELETEALLSLOT": "¿Estás segura de que quieres eliminar todas las ranuras? ?",
+        "CANCELDATA": "Estas segura que quieres cancelar los datos ?",
+        "DELIVERYDATA": "¿Estás segura de que quieres entrega??",
+        "ACKNOWLEDGEALERT": "¿Está seguro de que desea reconocer esta alerta?",
+        "CLOSEALERT": "¿Está seguro de que desea cerrar esta alerta?",
+        "DEACTIVATEUSER": "¿Quieres desactivar el usuario?",
+        "STAFFATTENDANCEALERT": "Todo el personal se hará presente. Cambie el estado de asistencia del personal si es necesario",
+        "STAFFALLPRESENT": "¿Quieres que todo el personal esté presente?",
+        "STAFFALLHOLIDAY": "¿Quieres que todo el personal sea de vacaciones?",
+        "CANCELUSERCREATION": "¿Quieres cancelar la creación de usuarios?",
+        "ENABLEPRIMARYCONTACT": "¿Quiere habilitar al usuario como contacto principal para la facturación?",
+        "DISABLEPRIMARYCONTACT": "¿Quiere deshabilitar al usuario como contacto principal para la facturación?",
+        "SETUSERRESIDENTS": "¿Quieres configurar a la usuario como residente?",
+        "SETUSERNONRESIDENTS": "¿Quieres configurar a la usuario como no residente?",
+        "SUBMITRECORDING": "¿Quieres enviar las grabaciones?",
+        "CLOSEMETERSETUP": "¿Estás segura de que quieres cerrar la configuración del medidor?",
+        "UNITSPECIFIC": "¿Estás seguro de que quieres cerrar la unidad específica?",
+        "REMOVEALLRECORDS": "Se eliminarán todos los registros. Desea continuar ?",
+        "MOVEIN": "¿Quieres mudarte?",
+        "MOVEOUT": "¿Quieres mudarte?",
+        "CLOSEDATA": "Estas segura que quieres cerrar la",
+        "CLOSELOCATION": "¿Estás seguro de que quieres cerrar la ubicación?"
     },
     "UPLOAD": {
         "TITLE": "Subir archivo",
@@ -625,5 +652,13 @@
     "PAGINATION": {
         "SHOWING": "Demostración",
         "OFRESULTS": "de resultados"
+    },
+    "SNACKBAR": {
+        "PROPEREMAIL": "Por favor ingrese el correo electrónico adecuado...!",
+        "THEMEUPDATED": "Tema actualizado",
+        "SOMEERROROCCURED": "Ocurrió algún error",
+        "NOSUCHUSERSEXISTSTOBROADCAST": "No existen tales Usuarios para difundir mensajes.",
+        "BROADCASTSUCCESS": "Mensaje de difusión enviado con éxito"
+
     }
 }

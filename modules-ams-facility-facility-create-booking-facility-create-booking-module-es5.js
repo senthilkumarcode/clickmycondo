@@ -7266,13 +7266,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this11.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this.changeDetect.markForCheck();
             } else {
@@ -7319,13 +7321,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this12.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this.changeDetect.markForCheck();
             } else {
@@ -7663,9 +7667,15 @@
       var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var FacilityExpectedVisitorComponent = /*#__PURE__*/function () {
-        function FacilityExpectedVisitorComponent(visitorService, lookupService, sharedService, sessionService, activateRouter, _changeDetectorRef) {
+        function FacilityExpectedVisitorComponent(visitorService, lookupService, sharedService, sessionService, activateRouter, _changeDetectorRef, translateService) {
           _classCallCheck(this, FacilityExpectedVisitorComponent);
 
           this.visitorService = visitorService;
@@ -7674,6 +7684,7 @@
           this.sessionService = sessionService;
           this.activateRouter = activateRouter;
           this._changeDetectorRef = _changeDetectorRef;
+          this.translateService = translateService;
           this.info = {};
           this.modalResult = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.visitor = {};
@@ -7744,13 +7755,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this16.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -7831,6 +7844,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]
         }];
       };
 
@@ -7857,7 +7872,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./facility-expected-visitor.component.scss */
         "./src/app/modules/ams/facility/facility-create-booking/facility-expected-visitor/facility-expected-visitor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_8__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], FacilityExpectedVisitorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_8__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])], FacilityExpectedVisitorComponent);
       /***/
     },
 

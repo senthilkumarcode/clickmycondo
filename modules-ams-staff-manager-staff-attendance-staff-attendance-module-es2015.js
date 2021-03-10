@@ -77,6 +77,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -92,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffAttendaceListComponent = class StaffAttendaceListComponent {
-    constructor(router, sharedService, sessionService, staffService, lookupService, _changeDetectorRef, UtilityCommonService) {
+    constructor(router, sharedService, sessionService, staffService, lookupService, _changeDetectorRef, UtilityCommonService, translateService) {
         this.router = router;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
@@ -100,6 +102,7 @@ let StaffAttendaceListComponent = class StaffAttendaceListComponent {
         this.lookupService = lookupService;
         this._changeDetectorRef = _changeDetectorRef;
         this.UtilityCommonService = UtilityCommonService;
+        this.translateService = translateService;
         this.attendanceList = new rxjs__WEBPACK_IMPORTED_MODULE_12__["BehaviorSubject"]([]);
         this.fullAttendanceList = [];
         this.staffsList = [];
@@ -159,13 +162,15 @@ let StaffAttendaceListComponent = class StaffAttendaceListComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -267,7 +272,8 @@ StaffAttendaceListComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"] }
+    { type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"] }
 ];
 StaffAttendaceListComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['attendanceForm',] }],
@@ -287,7 +293,8 @@ StaffAttendaceListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"]])
+        src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]])
 ], StaffAttendaceListComponent);
 
 

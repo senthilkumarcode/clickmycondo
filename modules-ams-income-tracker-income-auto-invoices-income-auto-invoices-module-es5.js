@@ -155,9 +155,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var CreateMonthlyInvoiceComponent = /*#__PURE__*/function () {
-        function CreateMonthlyInvoiceComponent(accountsService, lookupService, sharedService, sessionService, apartmentService, injector, router, _changeDetectorRef) {
+        function CreateMonthlyInvoiceComponent(accountsService, lookupService, sharedService, sessionService, apartmentService, injector, router, _changeDetectorRef, translateService) {
           _classCallCheck(this, CreateMonthlyInvoiceComponent);
 
           this.accountsService = accountsService;
@@ -168,6 +174,7 @@
           this.injector = injector;
           this.router = router;
           this._changeDetectorRef = _changeDetectorRef;
+          this.translateService = translateService;
           this.isAutoInvoicingDataLoaded = false;
           this.glAccountList = [];
           this.billAmountList = [];
@@ -258,13 +265,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -398,6 +407,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]
         }];
       };
 
@@ -417,7 +428,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./create-monthly-invoice.component.scss */
         "./src/app/modules/ams/income-tracker/income-auto-invoices/create-monthly-invoice/create-monthly-invoice.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], CreateMonthlyInvoiceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])], CreateMonthlyInvoiceComponent);
       /***/
     },
 

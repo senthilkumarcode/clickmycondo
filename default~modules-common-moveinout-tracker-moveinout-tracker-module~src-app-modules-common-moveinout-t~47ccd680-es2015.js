@@ -178,6 +178,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -189,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CreateMoveinComponent = class CreateMoveinComponent {
-    constructor(router, activateRouter, moveInOutService, apartmentService, sharedService, sessionService, _changeDetectorRef) {
+    constructor(router, activateRouter, moveInOutService, apartmentService, sharedService, sessionService, _changeDetectorRef, translateService) {
         this.router = router;
         this.activateRouter = activateRouter;
         this.moveInOutService = moveInOutService;
@@ -197,6 +199,7 @@ let CreateMoveinComponent = class CreateMoveinComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.movein = {};
         this.isMoveinSubmitted = true;
         this.towerList = [];
@@ -328,13 +331,15 @@ let CreateMoveinComponent = class CreateMoveinComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -451,7 +456,8 @@ CreateMoveinComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"] }
 ];
 CreateMoveinComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['createMoveInForm',] }]
@@ -470,7 +476,8 @@ CreateMoveinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])
 ], CreateMoveinComponent);
 
 
@@ -2240,6 +2247,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -2253,7 +2262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinSetupComponent = class MoveinSetupComponent {
-    constructor(moveInOutService, lookupService, sharedService, sessionService, changeDetector, dialog, injector) {
+    constructor(moveInOutService, lookupService, sharedService, sessionService, changeDetector, dialog, injector, translateService) {
         this.moveInOutService = moveInOutService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -2261,6 +2270,7 @@ let MoveinSetupComponent = class MoveinSetupComponent {
         this.changeDetector = changeDetector;
         this.dialog = dialog;
         this.injector = injector;
+        this.translateService = translateService;
         this.search = '';
         this.isDataLoaded = false;
         this.isMoveInSubmitted = false;
@@ -2332,13 +2342,15 @@ let MoveinSetupComponent = class MoveinSetupComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.changeDetector.markForCheck();
         }
@@ -2546,7 +2558,8 @@ MoveinSetupComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"] }
 ];
 MoveinSetupComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -2570,7 +2583,8 @@ MoveinSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])
 ], MoveinSetupComponent);
 
 function deleteMoveIn(row) {

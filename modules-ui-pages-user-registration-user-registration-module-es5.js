@@ -350,9 +350,15 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var UserRegistrationFormComponent = /*#__PURE__*/function () {
-        function UserRegistrationFormComponent(_condoConfigService, _document, apartmentService, authService, lookupService, sharedService, userService, router, _changeDetectorRef, documentService, sessionService) {
+        function UserRegistrationFormComponent(_condoConfigService, _document, apartmentService, authService, lookupService, sharedService, userService, router, _changeDetectorRef, documentService, sessionService, translateService) {
           var _this3 = this;
 
           _classCallCheck(this, UserRegistrationFormComponent);
@@ -368,6 +374,7 @@
           this._changeDetectorRef = _changeDetectorRef;
           this.documentService = documentService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.bloodGroupData = [];
           this.addFamilyList = [];
           this.isOpenPanel = false;
@@ -453,13 +460,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this5.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -704,6 +713,8 @@
           type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__["DocumentService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]
         }];
       };
 
@@ -731,7 +742,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./user-registration-form.component.scss */
         "./src/app/modules/ui/pages/user-registration/user-registration-form/user-registration-form.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_7__["CondoConfigService"], Object, src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_12__["AuthService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__["DocumentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], UserRegistrationFormComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_7__["CondoConfigService"], Object, src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_12__["AuthService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__["DocumentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]])], UserRegistrationFormComponent);
       /***/
     },
 

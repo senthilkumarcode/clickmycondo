@@ -741,9 +741,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var IncomeAddCustomerAdvanceComponent = /*#__PURE__*/function () {
-        function IncomeAddCustomerAdvanceComponent(router, route, _incomeCustomerAdvancesComponent, accountsService, sharedService, sessionService, changeDetect) {
+        function IncomeAddCustomerAdvanceComponent(router, route, _incomeCustomerAdvancesComponent, accountsService, sharedService, sessionService, changeDetect, translateService) {
           _classCallCheck(this, IncomeAddCustomerAdvanceComponent);
 
           this.router = router;
@@ -753,6 +759,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.changeDetect = changeDetect;
+          this.translateService = translateService;
           this.isAdvanceSubmitted = false;
           this.isError = false;
           this.alertMessage = "";
@@ -797,13 +804,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this2.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this.changeDetect.markForCheck();
             } else {
@@ -911,6 +920,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
         }];
       };
 
@@ -942,7 +953,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-add-customer-advance.component.scss */
         "./src/app/modules/ams/income-tracker/income-actions/income-add-customer-advance/income-add-customer-advance.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_modules_ams_income_tracker_income_actions_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_3__["IncomeCustomerAdvancesComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], IncomeAddCustomerAdvanceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_modules_ams_income_tracker_income_actions_income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_3__["IncomeCustomerAdvancesComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], IncomeAddCustomerAdvanceComponent);
       /***/
     },
 
@@ -1043,9 +1054,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var IncomeAddSecurityDepositComponent = /*#__PURE__*/function () {
-        function IncomeAddSecurityDepositComponent(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService, changeDetect) {
+        function IncomeAddSecurityDepositComponent(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService, changeDetect, translateService) {
           _classCallCheck(this, IncomeAddSecurityDepositComponent);
 
           this.route = route;
@@ -1054,6 +1071,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.changeDetect = changeDetect;
+          this.translateService = translateService;
           this.isDepositSubmitted = false;
           this.glAccountIndicator = "Cust_Invoice";
           this.isError = false;
@@ -1085,13 +1103,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this3.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this.changeDetect.markForCheck();
             } else {
@@ -1200,6 +1220,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
         }];
       };
 
@@ -1231,7 +1253,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-add-security-deposit.component.scss */
         "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], IncomeAddSecurityDepositComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], IncomeAddSecurityDepositComponent);
       /***/
     },
 

@@ -61,6 +61,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -73,7 +75,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CreateMonthlyInvoiceComponent = class CreateMonthlyInvoiceComponent {
-    constructor(accountsService, lookupService, sharedService, sessionService, apartmentService, injector, router, _changeDetectorRef) {
+    constructor(accountsService, lookupService, sharedService, sessionService, apartmentService, injector, router, _changeDetectorRef, translateService) {
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -82,6 +84,7 @@ let CreateMonthlyInvoiceComponent = class CreateMonthlyInvoiceComponent {
         this.injector = injector;
         this.router = router;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.isAutoInvoicingDataLoaded = false;
         this.glAccountList = [];
         this.billAmountList = [];
@@ -148,13 +151,15 @@ let CreateMonthlyInvoiceComponent = class CreateMonthlyInvoiceComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -263,7 +268,8 @@ CreateMonthlyInvoiceComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"] }
 ];
 CreateMonthlyInvoiceComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['invoiceForm',] }]
@@ -283,7 +289,8 @@ CreateMonthlyInvoiceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])
 ], CreateMonthlyInvoiceComponent);
 
 

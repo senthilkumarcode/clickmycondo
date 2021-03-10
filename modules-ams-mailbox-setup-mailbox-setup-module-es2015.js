@@ -76,6 +76,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -83,11 +85,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MailboxSetupComponent = class MailboxSetupComponent {
-    constructor(sessionService, sharedService, staffService, _changeDetectorRef) {
+    constructor(sessionService, sharedService, staffService, _changeDetectorRef, translateService) {
         this.sessionService = sessionService;
         this.sharedService = sharedService;
         this.staffService = staffService;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.staffsList = [];
         this.staffSetting = {
             singleSelection: false,
@@ -123,13 +126,15 @@ let MailboxSetupComponent = class MailboxSetupComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -197,7 +202,8 @@ MailboxSetupComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"] }
 ];
 MailboxSetupComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['taskForm',] }]
@@ -213,7 +219,8 @@ MailboxSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"]])
 ], MailboxSetupComponent);
 
 

@@ -4382,9 +4382,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var UtilityGroupComponent = /*#__PURE__*/function () {
-        function UtilityGroupComponent(lookupService, injector, sharedService, sessionService, columnSearchPipe, _changeDetectorRef) {
+        function UtilityGroupComponent(lookupService, injector, sharedService, sessionService, columnSearchPipe, _changeDetectorRef, translateService) {
           _classCallCheck(this, UtilityGroupComponent);
 
           this.lookupService = lookupService;
@@ -4393,6 +4399,7 @@
           this.sessionService = sessionService;
           this.columnSearchPipe = columnSearchPipe;
           this._changeDetectorRef = _changeDetectorRef;
+          this.translateService = translateService;
           this.group = {};
           this.isDataLoaded = false;
           this.isDrawerLoader = true;
@@ -4462,13 +4469,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this35.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -4612,6 +4621,8 @@
           type: src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]
         }];
       };
 
@@ -4638,7 +4649,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-group.component.scss */
         "./src/app/modules/ams/utility/components/utility-setup-location/utility-group/utility-group.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], UtilityGroupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_8__["ColumnSearchPipe"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])], UtilityGroupComponent);
       /***/
     },
 
@@ -7395,9 +7406,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var UtilityStaffGroupingComponent = /*#__PURE__*/function () {
-        function UtilityStaffGroupingComponent(sessionService, sharedService, staffService, lookupService, _changeDetectorRef, UtilityCommonService) {
+        function UtilityStaffGroupingComponent(sessionService, sharedService, staffService, lookupService, _changeDetectorRef, UtilityCommonService, translateService) {
           _classCallCheck(this, UtilityStaffGroupingComponent);
 
           this.sessionService = sessionService;
@@ -7406,6 +7423,7 @@
           this.lookupService = lookupService;
           this._changeDetectorRef = _changeDetectorRef;
           this.UtilityCommonService = UtilityCommonService;
+          this.translateService = translateService;
           this.isDataLoaded = true;
           this.staffsList = [];
           this.groupsList = [];
@@ -7445,13 +7463,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this63.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -7570,6 +7590,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
           type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
         }];
       };
 
@@ -7589,7 +7611,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-staff-grouping.component.scss */
         "./src/app/modules/ams/utility/components/utility-staff-grouping/utility-staff-grouping.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"]])], UtilityStaffGroupingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_5__["UtilityCommonService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], UtilityStaffGroupingComponent);
       /***/
     },
 
@@ -7921,9 +7943,15 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var TriggerTaskSetupComponent = /*#__PURE__*/function () {
-        function TriggerTaskSetupComponent(sessionService, sharedService, lookupService, UtilityCommonService, _changeDetectorRef) {
+        function TriggerTaskSetupComponent(sessionService, sharedService, lookupService, UtilityCommonService, _changeDetectorRef, translateService) {
           _classCallCheck(this, TriggerTaskSetupComponent);
 
           this.sessionService = sessionService;
@@ -7931,6 +7959,7 @@
           this.lookupService = lookupService;
           this.UtilityCommonService = UtilityCommonService;
           this._changeDetectorRef = _changeDetectorRef;
+          this.translateService = translateService;
           this.task = {
             fromPeriod: moment__WEBPACK_IMPORTED_MODULE_7__(),
             toPeriod: moment__WEBPACK_IMPORTED_MODULE_7__(),
@@ -8003,13 +8032,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this68.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -8078,6 +8109,8 @@
           type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_6__["UtilityCommonService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
         }];
       };
 
@@ -8097,7 +8130,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./trigger-task-setup.component.scss */
         "./src/app/modules/ams/utility/components/utility-trigger-task/trigger-task-setup/trigger-task-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_6__["UtilityCommonService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], TriggerTaskSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_6__["UtilityCommonService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], TriggerTaskSetupComponent);
       /***/
     },
 

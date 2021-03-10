@@ -74,6 +74,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -86,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PropertyAddUnitComponent = class PropertyAddUnitComponent {
-    constructor(_activatedRoute, _router, el, _changeDetectorRef, _propertyUnitsListComponent, accountsService, apartmentService, lookupService, sharedService, sessionService) {
+    constructor(_activatedRoute, _router, el, _changeDetectorRef, _propertyUnitsListComponent, accountsService, apartmentService, lookupService, sharedService, sessionService, translateService) {
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this.el = el;
@@ -97,6 +99,7 @@ let PropertyAddUnitComponent = class PropertyAddUnitComponent {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.isUnitSubmitted = true;
         this.isDataSubmitted = false;
     }
@@ -114,13 +117,15 @@ let PropertyAddUnitComponent = class PropertyAddUnitComponent {
         this.isDataSubmitted = true;
         if (!form.valid) {
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the required fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -203,7 +208,8 @@ PropertyAddUnitComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"] }
 ];
 PropertyAddUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -223,7 +229,8 @@ PropertyAddUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])
 ], PropertyAddUnitComponent);
 
 

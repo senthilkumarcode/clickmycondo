@@ -137,9 +137,15 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var IncomeCreateCreditComponent = /*#__PURE__*/function () {
-        function IncomeCreateCreditComponent(_changeDetectorRef, accountsService, apartmentService, sharedService, sessionService) {
+        function IncomeCreateCreditComponent(_changeDetectorRef, accountsService, apartmentService, sharedService, sessionService, translateService) {
           _classCallCheck(this, IncomeCreateCreditComponent);
 
           this._changeDetectorRef = _changeDetectorRef;
@@ -147,6 +153,7 @@
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.translateService = translateService;
           this.isDataLoaded = false;
           this.isCreditSubmitted = false;
           this.isBlockSelected = false;
@@ -204,13 +211,15 @@
 
             if (!form.valid) {
               // Show the validation message
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the required fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              };
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this3.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              });
             } else {
               this.isCreditSubmitted = true; // Hide the message
 
@@ -285,6 +294,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
         }];
       };
 
@@ -298,7 +309,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-create-credit.component.scss */
         "./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], IncomeCreateCreditComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], IncomeCreateCreditComponent);
       /***/
     },
 

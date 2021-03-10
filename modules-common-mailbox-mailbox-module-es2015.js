@@ -259,6 +259,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -278,7 +280,7 @@ let MailboxComposeComponent = class MailboxComposeComponent {
      * @param {MatDialogRef} matDialogRef
      * @param {FormBuilder} _formBuilder
      */
-    constructor(matDialogRef, _formBuilder, _mailboxService, userService, messageInbox, sessionService, sharedService, staffService, _changeDetectorRef) {
+    constructor(matDialogRef, _formBuilder, _mailboxService, userService, messageInbox, sessionService, sharedService, staffService, _changeDetectorRef, translateService) {
         this.matDialogRef = matDialogRef;
         this._formBuilder = _formBuilder;
         this._mailboxService = _mailboxService;
@@ -288,6 +290,7 @@ let MailboxComposeComponent = class MailboxComposeComponent {
         this.sharedService = sharedService;
         this.staffService = staffService;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.selectedUsers = [];
         this.allUsers = [];
         this.visible = true;
@@ -430,13 +433,15 @@ let MailboxComposeComponent = class MailboxComposeComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -471,7 +476,8 @@ MailboxComposeComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__["StaffService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"] }
 ];
 MailboxComposeComponent.propDecorators = {
     receiptInput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['receiptInput',] }],
@@ -493,7 +499,8 @@ MailboxComposeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__["StaffService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])
 ], MailboxComposeComponent);
 
 

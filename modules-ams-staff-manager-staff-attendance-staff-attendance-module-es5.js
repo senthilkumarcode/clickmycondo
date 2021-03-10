@@ -193,9 +193,15 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var StaffAttendaceListComponent = /*#__PURE__*/function () {
-        function StaffAttendaceListComponent(router, sharedService, sessionService, staffService, lookupService, _changeDetectorRef, UtilityCommonService) {
+        function StaffAttendaceListComponent(router, sharedService, sessionService, staffService, lookupService, _changeDetectorRef, UtilityCommonService, translateService) {
           _classCallCheck(this, StaffAttendaceListComponent);
 
           this.router = router;
@@ -205,6 +211,7 @@
           this.lookupService = lookupService;
           this._changeDetectorRef = _changeDetectorRef;
           this.UtilityCommonService = UtilityCommonService;
+          this.translateService = translateService;
           this.attendanceList = new rxjs__WEBPACK_IMPORTED_MODULE_12__["BehaviorSubject"]([]);
           this.fullAttendanceList = [];
           this.staffsList = [];
@@ -270,6 +277,8 @@
         }, {
           key: "applyFilter",
           value: function applyFilter() {
+            var _this = this;
+
             this.message = null;
 
             if (!this.form.valid) {
@@ -278,13 +287,15 @@
                 behavior: 'smooth'
               }); // Show the validation message
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
               this._changeDetectorRef.markForCheck();
             } else {
@@ -318,7 +329,7 @@
         }, {
           key: "getAttendanceList",
           value: function getAttendanceList() {
-            var _this = this;
+            var _this2 = this;
 
             this.isDataLoaded = true;
             var queryParamBase = {
@@ -330,30 +341,30 @@
             };
             this.staffService.getAllAttendanceByStaff(queryParamBase).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this.goBack();
+                _this2.goBack();
 
-                _this.fullAttendanceList = res;
-                _this.allData = res;
+                _this2.fullAttendanceList = res;
+                _this2.allData = res;
 
-                _this.attendanceList.next(_this.fullAttendanceList.reverse());
+                _this2.attendanceList.next(_this2.fullAttendanceList.reverse());
               } else {
-                _this.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this2.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this.isDataLoaded = false;
+              _this2.isDataLoaded = false;
             }, function (error) {
-              _this.isDataLoaded = false;
+              _this2.isDataLoaded = false;
 
-              _this.sharedService.openSnackBar('Server Error', 'error');
+              _this2.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this2.timeZone = timeZone;
+              return _this3.timeZone = timeZone;
             });
             this.getAttendanceList(); // Staff List
 
@@ -363,23 +374,23 @@
 
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this2.staffsList = res;
+              _this3.staffsList = res;
             });
             this.attendanceList$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["filter"])(function (res) {
               return res != null;
             })).subscribe(function (res) {
-              _this2.totalItems = res.length;
-              _this2.ItemStartIndex = 0;
+              _this3.totalItems = res.length;
+              _this3.ItemStartIndex = 0;
 
-              if (_this2.totalItems > _this2.itemLimit) {
-                _this2.ItemEndIndex = _this2.itemLimit;
+              if (_this3.totalItems > _this3.itemLimit) {
+                _this3.ItemEndIndex = _this3.itemLimit;
               } else {
-                _this2.ItemEndIndex = _this2.totalItems;
+                _this3.ItemEndIndex = _this3.totalItems;
               }
             }); // Subscribe to search input field value changes
 
             this.searchData.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["map"])(function (val) {
-              var newData = _this2.fullAttendanceList.filter(function (item) {
+              var newData = _this3.fullAttendanceList.filter(function (item) {
                 for (var field in item) {
                   if (item[field] === null || item[field] === undefined) {
                     continue;
@@ -391,7 +402,7 @@
                 }
               });
 
-              _this2.attendanceList.next(newData.reverse());
+              _this3.attendanceList.next(newData.reverse());
             })).subscribe();
           }
         }, {
@@ -419,6 +430,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
           type: src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]
         }];
       };
 
@@ -444,7 +457,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-attendace-list.component.scss */
         "./src/app/modules/ams/staff-manager/staff-attendance/staff-attendace-list/staff-attendace-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"]])], StaffAttendaceListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_UtilityCommon__WEBPACK_IMPORTED_MODULE_7__["UtilityCommonService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]])], StaffAttendaceListComponent);
       /***/
     },
 
@@ -602,7 +615,7 @@
         }, {
           key: "settings",
           value: function settings() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.popupTitle = 'settings'; // Create the overlay
 
@@ -640,9 +653,9 @@
 
             this._overlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this3._overlayRef && _this3._overlayRef.hasAttached()) {
+              if (_this4._overlayRef && _this4._overlayRef.hasAttached()) {
                 // Detach it
-                _this3._overlayRef.detach();
+                _this4._overlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -691,13 +704,13 @@
         }, {
           key: "attendanceAlertPopup",
           value: function attendanceAlertPopup() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
               var message = "".concat(data.STAFFATTENDANCEALERT);
               var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-              var dialogRef = _this4.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+              var dialogRef = _this5.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-big',
                 disableClose: true,
                 data: dialogData
@@ -705,7 +718,7 @@
 
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
-                  _this4.startAttendance();
+                  _this5.startAttendance();
                 }
               });
             });
@@ -713,7 +726,7 @@
         }, {
           key: "startAttendance",
           value: function startAttendance() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -723,9 +736,9 @@
             };
             this.staffService.pushStaffAttendanceByApartmentIdAndDate(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this5.attendanceList = res;
+                _this6.attendanceList = res;
 
-                _this5.attendanceList.forEach(function (data) {
+                _this6.attendanceList.forEach(function (data) {
                   if (data.latetoworkhrs) {
                     data.lateTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.latetoworkhrs, 'HH.mm').format();
                   }
@@ -735,14 +748,14 @@
                   }
                 });
               } else {
-                _this5.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this6.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this5.isDataLoaded = false;
+              _this6.isDataLoaded = false;
             }, function (error) {
-              _this5.isDataLoaded = false;
+              _this6.isDataLoaded = false;
 
-              _this5.sharedService.openSnackBar('Server Error', 'error');
+              _this6.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -758,7 +771,7 @@
         }, {
           key: "attendancePopup",
           value: function attendancePopup(data, index, type) {
-            var _this6 = this;
+            var _this7 = this;
 
             this.popupTitle = type;
             this.popupContent = data;
@@ -798,9 +811,9 @@
 
             this._overlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this6._overlayRef && _this6._overlayRef.hasAttached()) {
+              if (_this7._overlayRef && _this7._overlayRef.hasAttached()) {
                 // Detach it
-                _this6._overlayRef.detach();
+                _this7._overlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -866,7 +879,7 @@
         }, {
           key: "updateAttendance",
           value: function updateAttendance(data, type) {
-            var _this7 = this;
+            var _this8 = this;
 
             var params = {
               attendance: Object.assign(Object.assign({}, data), {
@@ -880,9 +893,9 @@
             };
             this.staffService.updateAttendance(params).subscribe(function (res) {
               if (res.message) {
-                _this7.sharedService.openSnackBar(res.message, 'success');
+                _this8.sharedService.openSnackBar(res.message, 'success');
 
-                if (_this7._overlayRef) _this7._overlayRef.detach();
+                if (_this8._overlayRef) _this8._overlayRef.detach();
               } else {
                 if (type == 'holiday') {
                   data.isFirsthalf = false;
@@ -910,63 +923,17 @@
                   data.outTime = null;
                 }
 
-                _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this8.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
         }, {
           key: "allPresent",
           value: function allPresent() {
-            var _this8 = this;
-
-            this.translateService.get('POPUP').subscribe(function (data) {
-              var message = "".concat(data.STAFFALLPRESENT);
-              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
-
-              var dialogRef = _this8.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-                panelClass: 'material-dialog-medium',
-                disableClose: true,
-                data: dialogData
-              });
-
-              dialogRef.afterClosed().subscribe(function (dialogResult) {
-                if (dialogResult) {
-                  _this8.isDataLoaded = true;
-                  var params = {
-                    attendance: {
-                      "apartmentId": _this8.sessionService.apartmentId,
-                      "attendanceforDate": _this8.attendanceDate,
-                      "updatedBy": _this8.sessionService.userId,
-                      "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
-                    }
-                  };
-
-                  _this8.staffService.updateAttendanceAllPresent(params).subscribe(function (res) {
-                    if (res.message) {
-                      _this8.sharedService.openSnackBar(res.message, 'success');
-
-                      _this8.startAttendance();
-                    } else {
-                      _this8.isDataLoaded = false;
-
-                      _this8.sharedService.openSnackBar(res.errorMessage, 'error');
-                    }
-                  }, function (error) {
-                    _this8.isDataLoaded = false;
-
-                    _this8.sharedService.openSnackBar('Server Error', 'error');
-                  });
-                }
-              });
-            });
-          }
-        }, {
-          key: "allHoliday",
-          value: function allHoliday() {
             var _this9 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
-              var message = "".concat(data.STAFFALLHOLIDAY);
+              var message = "".concat(data.STAFFALLPRESENT);
               var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
               var dialogRef = _this9.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
@@ -987,7 +954,7 @@
                     }
                   };
 
-                  _this9.staffService.updateAttendanceAllHoliday(params).subscribe(function (res) {
+                  _this9.staffService.updateAttendanceAllPresent(params).subscribe(function (res) {
                     if (res.message) {
                       _this9.sharedService.openSnackBar(res.message, 'success');
 
@@ -1001,6 +968,52 @@
                     _this9.isDataLoaded = false;
 
                     _this9.sharedService.openSnackBar('Server Error', 'error');
+                  });
+                }
+              });
+            });
+          }
+        }, {
+          key: "allHoliday",
+          value: function allHoliday() {
+            var _this10 = this;
+
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.STAFFALLHOLIDAY);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this10.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) {
+                  _this10.isDataLoaded = true;
+                  var params = {
+                    attendance: {
+                      "apartmentId": _this10.sessionService.apartmentId,
+                      "attendanceforDate": _this10.attendanceDate,
+                      "updatedBy": _this10.sessionService.userId,
+                      "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                    }
+                  };
+
+                  _this10.staffService.updateAttendanceAllHoliday(params).subscribe(function (res) {
+                    if (res.message) {
+                      _this10.sharedService.openSnackBar(res.message, 'success');
+
+                      _this10.startAttendance();
+                    } else {
+                      _this10.isDataLoaded = false;
+
+                      _this10.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this10.isDataLoaded = false;
+
+                    _this10.sharedService.openSnackBar('Server Error', 'error');
                   });
                 }
               });

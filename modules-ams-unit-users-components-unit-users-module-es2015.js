@@ -243,8 +243,10 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
         }
         else {
             this.user.emailId = '';
-            this.sharedService.openSnackBar("Kindly enter proper email...!", 'error');
-            this.cd.markForCheck();
+            this.translateService.get('SNACKBAR').subscribe((data) => {
+                this.sharedService.openSnackBar(`${data.PROPEREMAIL}`, 'error');
+                this.cd.markForCheck();
+            });
         }
     }
     validateEmail(val) {
@@ -369,13 +371,15 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.cd.markForCheck();
         }

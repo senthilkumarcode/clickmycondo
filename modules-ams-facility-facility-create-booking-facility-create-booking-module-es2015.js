@@ -5524,13 +5524,15 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.changeDetect.markForCheck();
         }
@@ -5557,13 +5559,15 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this.changeDetect.markForCheck();
         }
@@ -5786,6 +5790,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -5798,13 +5804,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FacilityExpectedVisitorComponent = class FacilityExpectedVisitorComponent {
-    constructor(visitorService, lookupService, sharedService, sessionService, activateRouter, _changeDetectorRef) {
+    constructor(visitorService, lookupService, sharedService, sessionService, activateRouter, _changeDetectorRef, translateService) {
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.activateRouter = activateRouter;
         this._changeDetectorRef = _changeDetectorRef;
+        this.translateService = translateService;
         this.info = {};
         this.modalResult = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.visitor = {};
@@ -5860,13 +5867,15 @@ let FacilityExpectedVisitorComponent = class FacilityExpectedVisitorComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -5911,7 +5920,8 @@ FacilityExpectedVisitorComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"] }
 ];
 FacilityExpectedVisitorComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['expectedVisitorForm',] }],
@@ -5931,7 +5941,8 @@ FacilityExpectedVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]])
 ], FacilityExpectedVisitorComponent);
 
 

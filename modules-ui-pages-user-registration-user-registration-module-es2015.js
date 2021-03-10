@@ -157,6 +157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -174,7 +176,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UserRegistrationFormComponent = class UserRegistrationFormComponent {
-    constructor(_condoConfigService, _document, apartmentService, authService, lookupService, sharedService, userService, router, _changeDetectorRef, documentService, sessionService) {
+    constructor(_condoConfigService, _document, apartmentService, authService, lookupService, sharedService, userService, router, _changeDetectorRef, documentService, sessionService, translateService) {
         this._condoConfigService = _condoConfigService;
         this._document = _document;
         this.apartmentService = apartmentService;
@@ -186,6 +188,7 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
         this._changeDetectorRef = _changeDetectorRef;
         this.documentService = documentService;
         this.sessionService = sessionService;
+        this.translateService = translateService;
         this.bloodGroupData = [];
         this.addFamilyList = [];
         this.isOpenPanel = false;
@@ -242,13 +245,15 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
                 behavior: 'smooth'
             });
             // Show the validation message
-            this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-            };
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
             //Mark for check
             this._changeDetectorRef.markForCheck();
         }
@@ -433,7 +438,8 @@ UserRegistrationFormComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__["DocumentService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"] }
 ];
 UserRegistrationFormComponent.propDecorators = {
     form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['userRegisterForm',] }],
@@ -456,7 +462,8 @@ UserRegistrationFormComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__["DocumentService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateService"]])
 ], UserRegistrationFormComponent);
 
 

@@ -654,5 +654,13 @@
     "PAGINATION": {
         "SHOWING": "Showing",
         "OFRESULTS": "of results"
+    },
+    "SNACKBAR": {
+        "PROPEREMAIL": "Kindly enter proper email...!",
+        "THEMEUPDATED": "Theme updated",
+        "SOMEERROROCCURED": "Some error occured",
+        "NOSUCHUSERSEXISTSTOBROADCAST": "No such Users exists to broadcast message.",
+        "BROADCASTSUCCESS": "Broadcast Message sent successfully"
+
     }
 }
