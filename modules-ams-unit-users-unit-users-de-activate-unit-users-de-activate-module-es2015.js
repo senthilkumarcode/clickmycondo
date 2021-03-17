@@ -197,7 +197,7 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
             }
             this.isUserDataLoaded = true;
         }, error => {
-            console.log(error);
+            this.sharedService.openSnackBar('Server Error', error);
         });
     }
     changePrimayContact(apartmentBlockUnitUserId, user) {
@@ -294,7 +294,7 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
         this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
             this.totalUnits = res.length;
         }, error => {
-            console.log(error);
+            this.sharedService.openSnackBar('Server Error', error);
         });
     }
 };

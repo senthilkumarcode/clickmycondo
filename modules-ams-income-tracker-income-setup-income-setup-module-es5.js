@@ -635,7 +635,7 @@
                 _this3.autoInvoicingData.splice(index, 1);
               }
             }, function (error) {
-              console.log(error);
+              _this3.sharedService.openSnackBar('Server Error', error);
             });
           }
         }, {
@@ -1792,7 +1792,7 @@
 
                     _this22.deleteType = false;
                   }, function (error) {
-                    console.log(error);
+                    _this22.sharedService.openSnackBar('Server Error', error);
                   });
                 }
               }

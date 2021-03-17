@@ -5877,7 +5877,7 @@ let CalendarComponent = class CalendarComponent {
         if (this.urlType == 'meeting-calendar')
             this.meetingCreatePopup(calendarEvent);
         else if (this.urlType == 'todo-calendar')
-            this.todoCreatePopup();
+            this.todoCreatePopup(calendarEvent);
     }
     meetingCreatePopup(event) {
         if (this.sessionService.isAdmin()) {
@@ -5911,8 +5911,8 @@ let CalendarComponent = class CalendarComponent {
             });
         }
     }
-    todoCreatePopup() {
-        let data = { type: 'create' };
+    todoCreatePopup(calendarEvent) {
+        let data = { type: 'create', from: 'calendar', data: calendarEvent };
         const dialogRef = this._matDialog.open(_ams_todo_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_29__["TodoCreateDialogComponent"], {
             width: 'auto',
             height: 'auto',
@@ -6252,8 +6252,8 @@ let CalendarComponent = class CalendarComponent {
             this.isDataLoaded = false;
             if (Array.isArray(resp) && resp.length > 0) {
                 resp.forEach((data, i) => {
-                    data.id = data.todoListId,
-                        data.start = `${moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD')} ${data.fromTime}`;
+                    data.id = data.todoListId;
+                    data.start = `${moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD')} ${data.fromTime}`;
                     data.end = `${moment__WEBPACK_IMPORTED_MODULE_15__(data.finishOn).format('YYYY-MM-DD')} ${data.toTime}`;
                 });
                 this.events = resp;
@@ -6345,6 +6345,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/common/calendar/settings/settings.component */ "./src/app/modules/common/calendar/settings/settings.component.ts");
 /* harmony import */ var src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/common/calendar/sidebar/sidebar.component */ "./src/app/modules/common/calendar/sidebar/sidebar.component.ts");
 /* harmony import */ var _calendar_routing__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./calendar.routing */ "./src/app/modules/common/calendar/calendar.routing.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+
 
 
 
@@ -6384,7 +6386,8 @@ CalendarModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"],
             _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"],
             _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"],
-            src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"]
+            src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"],
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__["DatepickerModule"].forRoot(),
         ],
         providers: [
             {

@@ -344,7 +344,6 @@
 
                 if (Array.isArray(respone) && respone[0].blockunitUserDetails && respone[0].blockunitUserDetails.length > 0) {
                   _this2.translateService.get('VALIDATION').subscribe(function (data) {
-                    console.log(data);
                     var confirmBoxData = {
                       message: "".concat(data.USER, "  ").concat(_this2.user.emailId, "  ").concat(data.EXISTSUSERWITHUNITS, " ?"),
                       title: "".concat(data.TITLE),
@@ -423,6 +422,10 @@
                 _this3.user.isEmailNotify = true;
 
                 _this3.cd.markForCheck();
+              } else {
+                _this3.cd.detectChanges();
+
+                _this3.isUserSubmitted = false;
               }
             });
           }
@@ -512,6 +515,9 @@
                       dialogRef.afterClosed().subscribe(function (result) {
                         _this5.towerInfo.apartmentBlockId = null;
                         _this5.towerInfo.apartmentBlockUnitId = null;
+                        _this5.unitList = [];
+
+                        _this5.cd.detectChanges();
                       });
                     });
                   } else {
@@ -685,6 +691,8 @@
                   } else {
                     _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
+
+                  _this7.cd.detectChanges();
                 }, function (error) {
                   _this7.isUserSubmitted = false;
 
@@ -2139,7 +2147,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-profile-profile-area-module */
-            [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~03cc31c5"), __webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~e81f5a36"), __webpack_require__.e("default~modules-common-visitor-visitor-module~modules-profile-profile-area-module~src-app-modules-pr~6de129d6"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~9b9ba42f"), __webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~e81f5a36"), __webpack_require__.e("default~modules-common-visitor-visitor-module~modules-profile-profile-area-module~src-app-modules-pr~6de129d6"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/profile/profile-area.module */
             "./src/app/modules/profile/profile-area.module.ts")).then(function (m) {
               return m.ProfileAreaModule;

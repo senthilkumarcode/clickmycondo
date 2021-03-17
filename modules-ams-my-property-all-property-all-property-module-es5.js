@@ -222,7 +222,6 @@
               this.isDrawerLoader = true;
               Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["forkJoin"])([this.getTotalUnits(id), this.getOwnerResiding(id), this.getLiving(id), this.newUnAssignedTickets(id), this.inProgressTicket(id), this.holdTicket(id)]).subscribe(function (res) {
                 _this.isDrawerLoader = false;
-                console.log(res);
                 _this.field.totalUnits = res[0].totalUnits;
                 _this.field.totalResiding = res[1];
                 _this.field.totalTenants = res[2];

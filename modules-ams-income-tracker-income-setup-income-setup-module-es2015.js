@@ -384,7 +384,7 @@ let IncomeTrackerSetupAutoInvoicingComponent = class IncomeTrackerSetupAutoInvoi
                 this.autoInvoicingData.splice(index, 1);
             }
         }, error => {
-            console.log(error);
+            this.sharedService.openSnackBar('Server Error', error);
         });
     }
     getAutoInvoiceList() {
@@ -1315,7 +1315,7 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
                         }
                         this.deleteType = false;
                     }, error => {
-                        console.log(error);
+                        this.sharedService.openSnackBar('Server Error', error);
                     });
                 }
             }

@@ -1006,8 +1006,8 @@ let DeliveryListComponent = class DeliveryListComponent {
         this.ItemEndIndex = 0;
         this.itemLimit = 10;
         this.delivery = {
-            fromDate: null,
-            toDate: null
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_7__().subtract(1, 'months'),
+            toDate: moment__WEBPACK_IMPORTED_MODULE_7__()
         };
         this._activatedRoute.url.subscribe((data) => {
             this.urlType = data[0].path;
@@ -1025,8 +1025,10 @@ let DeliveryListComponent = class DeliveryListComponent {
         this.itemLimit = event.itemLimit;
     }
     onReset() {
-        this.delivery.fromDate = null;
-        this.delivery.toDate = null;
+        this.delivery = {
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_7__().subtract(1, 'months'),
+            toDate: moment__WEBPACK_IMPORTED_MODULE_7__()
+        };
     }
     editParcelDelivery(packageId) {
         this._router.navigate(['edit-package', packageId], { relativeTo: this._activatedRoute.parent });
@@ -1075,8 +1077,8 @@ let DeliveryListComponent = class DeliveryListComponent {
         let params = {
             deliveryStatusId: statusId,
             Apartmentid: parseInt(this.sessionService.apartmentId),
-            from: this.delivery.fromDate === null ? '' : moment__WEBPACK_IMPORTED_MODULE_7__(this.delivery.fromDate).format(this.timeZone.time),
-            to: this.delivery.toDate === null ? '' : moment__WEBPACK_IMPORTED_MODULE_7__(this.delivery.toDate).format(this.timeZone.time)
+            from: moment__WEBPACK_IMPORTED_MODULE_7__(this.delivery.fromDate).toISOString(),
+            to: moment__WEBPACK_IMPORTED_MODULE_7__(this.delivery.toDate).toISOString()
         };
         this.packageService.getAllPendingDeliveries(params).subscribe((res) => {
             if (Array.isArray(res)) {

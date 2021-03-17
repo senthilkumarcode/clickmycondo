@@ -337,7 +337,7 @@
 
               _this3.isUserDataLoaded = true;
             }, function (error) {
-              console.log(error);
+              _this3.sharedService.openSnackBar('Server Error', error);
             });
           }
         }, {
@@ -443,7 +443,7 @@
             this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
               _this6.totalUnits = res.length;
             }, function (error) {
-              console.log(error);
+              _this6.sharedService.openSnackBar('Server Error', error);
             });
           }
         }]);

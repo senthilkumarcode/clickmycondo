@@ -836,9 +836,9 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
         if (this.data.type == 'create' && this.data.from == 'calendar') {
             let calendar = this.data.event;
             let entity = {
-                meetingDate: moment__WEBPACK_IMPORTED_MODULE_7__(calendar.startStr).format(),
-                fromTime: moment__WEBPACK_IMPORTED_MODULE_7__(calendar.startStr).format(),
-                toTime: moment__WEBPACK_IMPORTED_MODULE_7__(calendar.endStr).format()
+                meetingDate: moment__WEBPACK_IMPORTED_MODULE_7__(calendar.date),
+                fromTime: moment__WEBPACK_IMPORTED_MODULE_7__(calendar.date),
+                toTime: moment__WEBPACK_IMPORTED_MODULE_7__(calendar.date)
             };
             this.subMeeting.push(entity);
         }

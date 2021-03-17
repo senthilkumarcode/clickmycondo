@@ -561,7 +561,11 @@
         "MINHRSBOOKING": "Reserva de horas mín",
         "NOOFOCCUPANCY": "No de ocupación",
         "TYPE": "Escribe",
-        "ENTERNUMBER": "Ingresar número"
+        "ENTERNUMBER": "Ingresar número",
+        "ENTERVALUE": "Ingrese valor",
+        "CONSTRUCTIONENDDATE": "Fecha de finalización de la construcción",
+        "CONSTRUCTIONSTARTDATE": "Fecha de inicio de la construcción",
+        "PROPERTY": "Seleccionar propiedad"
 
     },
     "BUTTONS": {
@@ -589,7 +593,9 @@
         "DOCUMENTCRITERIA": "Criterios del documento",
         "ADDMOVEOUT": "Agregar MoveOut",
         "ACKNOWLEDGE": "Reconocer",
-        "BOOKINGAMOUNT": "Importe de la reserva"
+        "BOOKINGAMOUNT": "Importe de la reserva",
+        "EDIT": "Editar",
+        "ALLTOWERS": "Todas las Torres"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "ya existe en las siguientes unidades. ¿Quiere agregar este usuario a otra unidad en su condominio",
@@ -660,5 +666,47 @@
         "NOSUCHUSERSEXISTSTOBROADCAST": "No existen tales Usuarios para difundir mensajes.",
         "BROADCASTSUCCESS": "Mensaje de difusión enviado con éxito"
 
+    },
+    "PROPERTY": {
+        "CONFIGURATION" : {
+            "TITLE": "Configuración de la propiedad",
+            "PROPERTYPROFILE": "Perfil de propiedad",
+            "PROPERTYTOWERS": "Torres de propiedad",
+            "PROPERTYUNITS": "Unidades de propiedad",
+            "UNITFACILITY": "Instalación de la unidad",
+            "RECORDSFOUND": "Registros encontrados",
+            "TOWERSAND": "Torres y",
+            "COMMUNITYUNITS": "Unidades Comunitarias",
+            "PROPERTYLOCATION": "Ubicación de la propiedad",
+            "ADDRESS": "Dirección",
+            "PROPERTYTYPE": "tipo de propiedad",
+            "CATEGORY": "Categoría",
+            "CONSTRUCTIONSTARTDATE": "Fecha de inicio de la construcción",
+            "CONSTRUCTIONENDDATE": "Fecha de finalización de la construcción",
+            "COMMONAREASQM": "Área común SQ.M",
+            "TOTALSQM": "Total metros cuadrados",
+            "PHONEMOBILE": "Teléfono móvil",
+            "EMAIL": "Correo electrónico",
+            "PROPERTYCATEGORY": "Categoría de propiedad",
+            "CONSTRUCTIONAREASQM": "Área de construcción SQ.M",
+            "UNITSUNDERCONSTRUCTION": "Unidades en construcción",
+            "TOTALUNITS": "Unidades totales",
+            "FILTERBY": "Filtrado por",
+            "YES": "sí",
+            "NO": "No",
+            "UNITDETAILS": "Detalles de la unidad",
+            "TOTALRESULTS": "resultados",
+            "EDITUNIT": "Editar unidad",
+            "TOWER": "Torre",
+            "UNIT": "Unidad",
+            "BULITAREASQM": "Área construida SQ.M",
+            "UNITTYPE": "Tipo de unidad",
+            "NOOFCARSALLOWED": "Cantidad de autos permitidos",
+            "INTERCOM": "Intercomunicador",
+            "ISSOLD": "Está vendido",
+            "ISVACANT": "Está vacante",
+            "ISPETSALLOWED": "¿Se admiten mascotas?",
+            "ISFURNISHED": "Esta amueblada"
+        }
     }
 }

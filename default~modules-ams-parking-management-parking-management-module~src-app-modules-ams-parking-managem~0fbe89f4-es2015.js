@@ -1029,7 +1029,7 @@ let AllocatedSlotConfirmationComponent = class AllocatedSlotConfirmationComponen
                     this.getUnits('editMode');
                 }
             }, error => {
-                console.log(error);
+                this.sharedService.openSnackBar('Server Error', error);
             });
         }
         else {
@@ -1547,7 +1547,7 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
                     });
                 }
             }, error => {
-                console.log(error);
+                this.sharedService.openSnackBar('Server Error', error);
             });
         }
     }

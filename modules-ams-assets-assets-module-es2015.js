@@ -2382,7 +2382,7 @@ let AssetsSetupComponent = class AssetsSetupComponent {
                     this.sharedService.setUnitListDeleteIndex(null);
                 }, error => {
                     this.sharedService.setUnitListDeleteIndex(null);
-                    console.log(error);
+                    this.sharedService.openSnackBar('Server Error', error);
                 });
             }
         });

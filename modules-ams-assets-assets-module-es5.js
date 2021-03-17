@@ -3502,7 +3502,7 @@
                 }, function (error) {
                   _this22.sharedService.setUnitListDeleteIndex(null);
 
-                  console.log(error);
+                  _this22.sharedService.openSnackBar('Server Error', error);
                 });
               }
             });

@@ -121,7 +121,6 @@ let AllPropertyComponent = class AllPropertyComponent {
                 this.holdTicket(id),
             ]).subscribe((res) => {
                 this.isDrawerLoader = false;
-                console.log(res);
                 this.field.totalUnits = res[0].totalUnits;
                 this.field.totalResiding = res[1];
                 this.field.totalTenants = res[2];

@@ -7885,7 +7885,7 @@
             // this._openEventPanel(calendarEvent);
             // // Change the event panel mode
             // this.changeEventPanelMode('add');
-            if (this.urlType == 'meeting-calendar') this.meetingCreatePopup(calendarEvent);else if (this.urlType == 'todo-calendar') this.todoCreatePopup();
+            if (this.urlType == 'meeting-calendar') this.meetingCreatePopup(calendarEvent);else if (this.urlType == 'todo-calendar') this.todoCreatePopup(calendarEvent);
           }
         }, {
           key: "meetingCreatePopup",
@@ -7941,11 +7941,13 @@
           }
         }, {
           key: "todoCreatePopup",
-          value: function todoCreatePopup() {
+          value: function todoCreatePopup(calendarEvent) {
             var _this13 = this;
 
             var data = {
-              type: 'create'
+              type: 'create',
+              from: 'calendar',
+              data: calendarEvent
             };
 
             var dialogRef = this._matDialog.open(_ams_todo_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_29__["TodoCreateDialogComponent"], {
@@ -8308,7 +8310,8 @@
 
               if (Array.isArray(resp) && resp.length > 0) {
                 resp.forEach(function (data, i) {
-                  data.id = data.todoListId, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD'), " ").concat(data.fromTime);
+                  data.id = data.todoListId;
+                  data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.beginOn).format('YYYY-MM-DD'), " ").concat(data.fromTime);
                   data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_15__(data.finishOn).format('YYYY-MM-DD'), " ").concat(data.toTime);
                 });
                 _this17.events = resp;
@@ -8548,6 +8551,12 @@
       var _calendar_routing__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./calendar.routing */
       "./src/app/modules/common/calendar/calendar.routing.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
 
       var CalendarModule = function CalendarModule() {
         _classCallCheck(this, CalendarModule);
@@ -8556,7 +8565,7 @@
       CalendarModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [src_app_modules_common_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_12__["CalendarComponent"], src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__["CalendarRecurrenceComponent"], src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_14__["CalendarSettingsComponent"], src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["CalendarSidebarComponent"]],
         entryComponents: [src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__["CalendarRecurrenceComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_calendar_routing__WEBPACK_IMPORTED_MODULE_16__["calendarRoutes"]), _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"], _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"], src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_calendar_routing__WEBPACK_IMPORTED_MODULE_16__["calendarRoutes"]), _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"], _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"], src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__["DatepickerModule"].forRoot()],
         providers: [{
           provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_6__["MAT_DATE_FORMATS"],
           useValue: {

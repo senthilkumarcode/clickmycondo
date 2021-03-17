@@ -563,7 +563,15 @@
         "MINHRSBOOKING": "Min Hrs Booking",
         "NOOFOCCUPANCY": "No Of Occupancy",
         "TYPE": "Type",
-        "ENTERNUMBER": "Enter Number"
+        "ENTERNUMBER": "Enter Number",
+        "ENTERVALUE": "Enter value",
+        "CONSTRUCTIONENDDATE": "constructionEndDate",
+        "CONSTRUCTIONSTARTDATE": "constructionStartDate",
+        "PROPERTY": "Select Property",
+        "SEARCH": "Search...",
+        "SELECTTYPE": "Select Type",
+        "NOOFCARS": "Enter No.of Cars",
+        "INTERCOM": "Enter Intercom"
 
     },
     "BUTTONS": {
@@ -591,7 +599,9 @@
         "DOCUMENTCRITERIA": "Document Criteria",
         "ADDMOVEOUT": "Add MoveOut",
         "ACKNOWLEDGE": "Acknowledge",
-        "BOOKINGAMOUNT": "Booking Amount"
+        "BOOKINGAMOUNT": "Booking Amount",
+        "EDIT": "Edit",
+        "ALLTOWERS": "All Towers"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "already exists in the below units. Do you want to add this user to another unit in your condo",
@@ -662,5 +672,47 @@
         "NOSUCHUSERSEXISTSTOBROADCAST": "No such Users exists to broadcast message.",
         "BROADCASTSUCCESS": "Broadcast Message sent successfully"
 
+    },
+    "PROPERTY": {
+        "CONFIGURATION" : {
+            "TITLE": "Property Configuration",
+            "PROPERTYPROFILE": "Property Profile",
+            "PROPERTYTOWERS": "Property Towers",
+            "PROPERTYUNITS": "Property Units",
+            "UNITFACILITY": "Unit Facility",
+            "RECORDSFOUND": "Records found",
+            "TOWERSAND": "Towers and",
+            "COMMUNITYUNITS": "Community Units",
+            "PROPERTYLOCATION": "Property Location",
+            "ADDRESS": "Address",
+            "PROPERTYTYPE": "Property Type",
+            "CATEGORY": "Category",
+            "CONSTRUCTIONSTARTDATE": "Construction Start Date",
+            "CONSTRUCTIONENDDATE": "Construction End Date",
+            "COMMONAREASQM": "Common Area SQ.M",
+            "TOTALSQM": "Total SQ.M",
+            "PHONEMOBILE": "Phone/Mobile",
+            "EMAIL": "Email",
+            "PROPERTYCATEGORY": "Property Category",
+            "CONSTRUCTIONAREASQM": "Construction Area SQ.M",
+            "UNITSUNDERCONSTRUCTION": "Units under construction",
+            "TOTALUNITS": "Total Units",
+            "FILTERBY": "Filter By",
+            "YES": "Yes",
+            "NO": "No",
+            "UNITDETAILS": "Unit Details",
+            "TOTALRESULTS": "results",
+            "EDITUNIT": "Edit Unit",
+            "TOWER": "Tower",
+            "UNIT": "Unit",
+            "BULITAREASQM": "Bulit Area SQ.M",
+            "UNITTYPE": "Unit Type",
+            "NOOFCARSALLOWED": "No.of Cars Allowed",
+            "INTERCOM": "Intercom",
+            "ISSOLD": "Is Sold",
+            "ISVACANT": "Is Vacant",
+            "ISPETSALLOWED": "Is Pets Allowed",
+            "ISFURNISHED": "Is Furnished"
+        }
     }
 }

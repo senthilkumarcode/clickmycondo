@@ -561,7 +561,11 @@
         "MINHRSBOOKING": "จองชั่วโมงขั้นต่ำ",
         "NOOFOCCUPANCY": "ไม่มีผู้เข้าพัก",
         "TYPE": "ประเภท",
-        "ENTERNUMBER": "ป้อนหมายเลข"
+        "ENTERNUMBER": "ป้อนหมายเลข",
+        "ENTERVALUE": "ป้อนค่า",
+        "CONSTRUCTIONENDDATE": "วันที่สิ้นสุดการก่อสร้าง",
+        "CONSTRUCTIONSTARTDATE": "วันที่เริ่มการก่อสร้าง",
+        "PROPERTY": "เลือกคุณสมบัติ"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "เปลี่ยน",
@@ -588,7 +592,9 @@
         "DOCUMENTCRITERIA": "เกณฑ์เอกสาร",
         "ADDMOVEOUT": "เพิ่ม MoveOut",
         "ACKNOWLEDGE": "รับทราบ",
-        "BOOKINGAMOUNT": "จำนวนการจอง"
+        "BOOKINGAMOUNT": "จำนวนการจอง",
+        "EDIT": "แก้ไข",
+        "ALLTOWERS":"หอคอยทั้งหมด"
     },
     "VALIDATION": {
         "EXISTSUSERWITHUNITS": "มีอยู่แล้วในหน่วยด้านล่าง คุณต้องการเพิ่มผู้ใช้รายนี้ไปยังยูนิตอื่นในคอนโดของคุณหรือไม่",
@@ -658,5 +664,47 @@
         "SOMEERROROCCURED": "เกิดข้อผิดพลาดบางอย่าง",
         "NOSUCHUSERSEXISTSTOBROADCAST": "ไม่มีผู้ใช้ดังกล่าวในการถ่ายทอดข้อความ",
         "BROADCASTSUCCESS": "ส่งข้อความออกอากาศเรียบร้อยแล้ว"
+    },
+    "PROPERTY": {
+        "CONFIGURATION" : {
+            "TITLE": "การกำหนดค่าคุณสมบัติ",
+            "PROPERTYPROFILE": "รายละเอียดทรัพย์สิน",
+            "PROPERTYTOWERS": "อาคารทรัพย์สิน",
+            "PROPERTYUNITS": "หน่วยทรัพย์สิน",
+            "UNITFACILITY": "สิ่งอำนวยความสะดวกของหน่วย",
+            "RECORDSFOUND": "พบบันทึกแล้ว",
+            "TOWERSAND": "หอคอยและ",
+            "COMMUNITYUNITS": "หน่วยชุมชน",
+            "PROPERTYLOCATION": "ที่ตั้งทรัพย์สิน",
+            "ADDRESS": "ที่อยู่",
+            "PROPERTYTYPE": "ประเภทอสังหาริมทรัพย์",
+            "CATEGORY": "ประเภท",
+            "CONSTRUCTIONSTARTDATE": "วันที่เริ่มการก่อสร้าง",
+            "CONSTRUCTIONENDDATE": "วันที่สิ้นสุดการก่อสร้าง",
+            "COMMONAREASQM": "พื้นที่ส่วนกลาง SQ.M",
+            "TOTALSQM": "รวม SQ.M",
+            "PHONEMOBILE": "โทรศัพท์ / มือถือ",
+            "EMAIL": "อีเมล์",
+            "PROPERTYCATEGORY": "ประเภททรัพย์สิน",
+            "CONSTRUCTIONAREASQM": "พื้นที่ก่อสร้างตร. ม",
+            "UNITSUNDERCONSTRUCTION": "ยูนิตที่กำลังก่อสร้าง",
+            "TOTALUNITS": "หน่วยทั้งหมด",
+            "FILTERBY": "กรองตาม",
+            "YES": "ใช่",
+            "NO": "ไม่",
+            "UNITDETAILS": "รายละเอียดหน่วย",
+            "TOTALRESULTS": "ผล",
+            "EDITUNIT": "แก้ไขหน่วย",
+            "TOWER": "ทาวเวอร์",
+            "UNIT": "หน่วย",
+            "BULITAREASQM": "พื้นที่สร้าง SQ.M",
+            "UNITTYPE": "ประเภทหน่วย",
+            "NOOFCARSALLOWED": "จำนวนรถที่อนุญาต",
+            "INTERCOM": "อินเตอร์คอม",
+            "ISSOLD": "ขายแล้ว",
+            "ISVACANT": "ว่าง",
+            "ISPETSALLOWED": "อนุญาตให้นำสัตว์เลี้ยงเข้ามาได้",
+            "ISFURNISHED": "เป็นเฟอร์นิเจอร์"
+        }
     }
 }

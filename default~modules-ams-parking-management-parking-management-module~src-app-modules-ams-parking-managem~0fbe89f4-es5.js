@@ -1559,7 +1559,7 @@
                   _this8.getUnits('editMode');
                 }
               }, function (error) {
-                console.log(error);
+                _this8.sharedService.openSnackBar('Server Error', error);
               });
             } else {
               //community Owned staff
@@ -2343,7 +2343,7 @@
                   });
                 }
               }, function (error) {
-                console.log(error);
+                _this11.sharedService.openSnackBar('Server Error', error);
               });
             }
           }

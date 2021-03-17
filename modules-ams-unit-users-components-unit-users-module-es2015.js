@@ -207,7 +207,6 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 this.isUserSubmitted = false;
                 if (Array.isArray(respone) && respone[0].blockunitUserDetails && respone[0].blockunitUserDetails.length > 0) {
                     this.translateService.get('VALIDATION').subscribe((data) => {
-                        console.log(data);
                         let confirmBoxData = {
                             message: `${data.USER}  ${this.user.emailId}  ${data.EXISTSUSERWITHUNITS} ?`,
                             title: `${data.TITLE}`,
@@ -276,6 +275,10 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 this.user.isEmailNotify = true;
                 this.cd.markForCheck();
             }
+            else {
+                this.cd.detectChanges();
+                this.isUserSubmitted = false;
+            }
         });
     }
     uploadFile(event) {
@@ -332,6 +335,8 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                             dialogRef.afterClosed().subscribe(result => {
                                 this.towerInfo.apartmentBlockId = null;
                                 this.towerInfo.apartmentBlockUnitId = null;
+                                this.unitList = [];
+                                this.cd.detectChanges();
                             });
                         });
                     }
@@ -495,6 +500,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                     else {
                         this.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
+                    this.cd.detectChanges();
                 }, (error) => {
                     this.isUserSubmitted = false;
                     this.sharedService.openSnackBar('Server Error', 'error');
@@ -1559,7 +1565,7 @@ const routes = [
                     initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_4__["ProfileResolversService"]
                 },
                 canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~03cc31c5"), __webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~e81f5a36"), __webpack_require__.e("default~modules-common-visitor-visitor-module~modules-profile-profile-area-module~src-app-modules-pr~6de129d6"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-asset-utilization-ass~9b9ba42f"), __webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~e81f5a36"), __webpack_require__.e("default~modules-common-visitor-visitor-module~modules-profile-profile-area-module~src-app-modules-pr~6de129d6"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
         ]
     },
     { path: 'add-users', component: _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_7__["AddUsersResidentComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
