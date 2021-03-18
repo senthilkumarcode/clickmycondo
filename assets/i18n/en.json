@@ -54,7 +54,7 @@
                     "PASSWORD": "Password",
                     "SMS": "SMS",
                     "SUBMITBUTTON": "Submit",
-                    "CLEARBUTTON": "Clear"
+                    "CANCELBUTTON": "Cancel"
                 }
             }
             

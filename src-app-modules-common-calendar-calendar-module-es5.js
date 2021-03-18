@@ -8554,7 +8554,13 @@
       /* harmony import */
 
 
-      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! src/app/modules/ui/select/select.module */
+      "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! src/app/modules/ui/datepicker/datepicker.module */
       "./src/app/modules/ui/datepicker/datepicker.module.ts");
 
@@ -8565,7 +8571,7 @@
       CalendarModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [src_app_modules_common_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_12__["CalendarComponent"], src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__["CalendarRecurrenceComponent"], src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_14__["CalendarSettingsComponent"], src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["CalendarSidebarComponent"]],
         entryComponents: [src_app_modules_common_calendar_recurrence_recurrence_component__WEBPACK_IMPORTED_MODULE_13__["CalendarRecurrenceComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_calendar_routing__WEBPACK_IMPORTED_MODULE_16__["calendarRoutes"]), _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"], _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"], src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__["DatepickerModule"].forRoot()],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_calendar_routing__WEBPACK_IMPORTED_MODULE_16__["calendarRoutes"]), _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_8__["MatMenuModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"], _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"], src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_17__["SelectModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_18__["DatepickerModule"].forRoot()],
         providers: [{
           provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_6__["MAT_DATE_FORMATS"],
           useValue: {

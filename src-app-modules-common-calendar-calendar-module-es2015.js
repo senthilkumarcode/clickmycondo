@@ -6345,7 +6345,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_common_calendar_settings_settings_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/common/calendar/settings/settings.component */ "./src/app/modules/common/calendar/settings/settings.component.ts");
 /* harmony import */ var src_app_modules_common_calendar_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/common/calendar/sidebar/sidebar.component */ "./src/app/modules/common/calendar/sidebar/sidebar.component.ts");
 /* harmony import */ var _calendar_routing__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./calendar.routing */ "./src/app/modules/common/calendar/calendar.routing.ts");
-/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+
 
 
 
@@ -6387,7 +6389,8 @@ CalendarModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_material_radio__WEBPACK_IMPORTED_MODULE_9__["MatRadioModule"],
             _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_10__["FullCalendarModule"],
             src_condo_components_date_range_date_range_module__WEBPACK_IMPORTED_MODULE_11__["CondoDateRangeModule"],
-            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_17__["DatepickerModule"].forRoot(),
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_17__["SelectModule"],
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_18__["DatepickerModule"].forRoot(),
         ],
         providers: [
             {

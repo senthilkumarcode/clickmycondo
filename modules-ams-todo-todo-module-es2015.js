@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isTodoLoaded\"></app-loader>\n\n\n        <ng-container *ngIf=\"isTodoLoaded\">\n            \n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>TODO Reminder</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Tasks</p>\n                </div>\n                <div class=\"ml-auto\">\n                    <app-table-search [input]=\"searchTodo\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n            </div>\n\n            <ul class=\"legends mb-4 ml-3 list-inline mb-4\">\n                <li class=\"list-inline-item mr-3\"><span class=\"dots bg-red-800\"></span><span>Open</span></li>\n                <li class=\"list-inline-item mr-3\"><span class=\"dots bg-orange-800\"></span>In Progress</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Completed</li>\n            </ul>\n\n            <div class=\"row\">\n                <div class=\"col-xl-3 col-lg-4 col-md-6 col-sm-12\" *ngFor=\"let remind of todoReminderList | simpleSearch : search\">\n                    <div class=\"bg-card shadow reminder-card mb-4\" [ngClass]=\"getReminderStatus(remind.priorityId)\" title=\"{{remind?.description}}\" >\n                        \n                        <h6 class=\"mb-1 text-primary ellipse\">{{remind?.title}}</h6>\n                        <p class=\"mb-3 ellipse\">{{getCategoryName(remind?.todoListCategoryId)}}</p>\n                        <div class=\"d-flex\">\n                            <div><mat-icon class=\"mr-2 ml-n1 icon-md\" svgIcon=\"feather:clock\"></mat-icon></div>\n                            <p class=\"text-secondary\">{{remind?.finishOn | date : 'MMM d, y, h:mm a'}}</p>\n                        </div>\n                        <!-- <div class=\"mt-2\">\n\n                            <div class=\"status-badge bg-status-{{getStatusColor(remind.todoStatusId)}}-700\" (click)=\"changeStatus(remind)\">\n                                <span class=\"font-bold text-status-{{getStatusColor(remind.todoStatusId)}}-900 text-uppercase\">{{getTodoStatus(remind.todoStatusId)}}</span>\n                            </div>\n\n                        </div> -->\n    \n                    </div>\n                </div>\n            </div>\n        </ng-container>\n\n        \n        \n    </div>\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isTodoLoaded\"></app-loader>\n\n\n        <ng-container *ngIf=\"isTodoLoaded\">\n            \n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>TODO Reminder</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Tasks</p>\n                </div>\n                <div class=\"ml-auto\">\n                    <app-table-search [input]=\"searchTodo\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n            </div>\n\n            <ul class=\"legends mb-4 ml-3 list-inline mb-4\">\n                <li class=\"list-inline-item mr-3\"><span class=\"dots bg-red-800\"></span><span>Open</span></li>\n                <li class=\"list-inline-item mr-3\"><span class=\"dots bg-orange-800\"></span>In Progress</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Completed</li>\n            </ul>\n\n            <div class=\"row\">\n                <div class=\"col-xl-3 col-lg-4 col-md-6 col-sm-12\" *ngFor=\"let remind of todoReminderList | simpleSearch : search\">\n                    <div class=\"bg-card shadow reminder-card mb-4\" [ngClass]=\"getReminderStatus(remind.priorityId)\" title=\"{{remind?.description}}\" >\n                        \n                        <h6 class=\"mb-1 text-primary ellipse\">{{remind?.title}}</h6>\n                        <p class=\"mb-3 ellipse\">{{remind.categoryName}}</p>\n                        <div class=\"d-flex\">\n                            <div><mat-icon class=\"mr-2 ml-n1 icon-md\" svgIcon=\"feather:clock\"></mat-icon></div>\n                            <p class=\"text-secondary\">{{remind?.finishOn | date : 'MMM d, y, h:mm a'}}</p>\n                        </div>\n                        <!-- <div class=\"mt-2\">\n\n                            <div class=\"status-badge bg-status-{{getStatusColor(remind.todoStatusId)}}-700\" (click)=\"changeStatus(remind)\">\n                                <span class=\"font-bold text-status-{{getStatusColor(remind.todoStatusId)}}-900 text-uppercase\">{{getTodoStatus(remind.todoStatusId)}}</span>\n                            </div>\n\n                        </div> -->\n    \n                    </div>\n                </div>\n            </div>\n        </ng-container>\n\n        \n        \n    </div>\n</div>\n\n\n");
 
 /***/ }),
 
@@ -269,9 +269,10 @@ let TodoListHistoryComponent = class TodoListHistoryComponent {
     geToDoList() {
         this.isDataLoaded = false;
         let getTodoParam = {
-            apartmentId: this.sessionService.apartmentId
+            apartmentId: this.sessionService.apartmentId,
+            staffId: this.sessionService.staffId,
         };
-        this.todoService.getAllTodoLists(getTodoParam).subscribe((resp) => {
+        this.todoService.getTodoListByStaffId(getTodoParam).subscribe((resp) => {
             this.isDataLoaded = true;
             if (Array.isArray(resp)) {
                 let toDoHistory = {
@@ -313,7 +314,7 @@ let TodoListHistoryComponent = class TodoListHistoryComponent {
                 renderer: columnrenderer
             }, {
                 text: 'category',
-                datafield: 'todoCategory',
+                datafield: 'categoryName',
                 cellsrenderer: cellsrenderer,
                 minwidth: 150,
                 renderer: columnrenderer
@@ -660,8 +661,6 @@ let TodoReminderComponent = class TodoReminderComponent {
         this.sessionService = sessionService;
         this.isTodoLoaded = false;
         this.todoReminderList = [];
-        this.rawTodoReminderList = [];
-        this.categoryList = [];
         this.searchTodo = '';
         this.search = '';
     }
@@ -671,19 +670,7 @@ let TodoReminderComponent = class TodoReminderComponent {
         this.totalItems = data.length;
     }
     ngOnInit() {
-        this.getCategory();
         this.getTodoHistory();
-    }
-    getCategory() {
-        let getCategoryParam = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.todoService.getAllTodoListCategorysByApartmentId(getCategoryParam).subscribe((resp) => {
-            this.categoryList = resp.filter(key => {
-                return key.isActive;
-            });
-        }, error => {
-        });
     }
     getTodoStatus(id) {
         if (id == 205) {
@@ -707,18 +694,17 @@ let TodoReminderComponent = class TodoReminderComponent {
     getTodoHistory() {
         this.isTodoLoaded = false;
         let getTodoParam = {
-            apartmentId: this.sessionService.apartmentId
+            apartmentId: this.sessionService.apartmentId,
+            staffId: this.sessionService.staffId,
         };
-        this.todoService.getAllTodoLists(getTodoParam).subscribe((resp) => {
-            this.todoReminderList = resp.filter(data => {
-                return data.isActive && data.priorityId === 205;
-            });
-            this.rawTodoReminderList = resp.filter(data => {
-                return data.isActive;
-            });
+        this.todoService.getTodoListByStaffId(getTodoParam).subscribe((resp) => {
+            if (Array.isArray(resp)) {
+                this.todoReminderList = resp.filter(data => {
+                    return data.isActive && data.priorityId === 205;
+                });
+                this.totalItems = this.todoReminderList.length;
+            }
             this.isTodoLoaded = true;
-            this.totalItems = this.todoReminderList.length;
-        }, error => {
         });
     }
     changeStatus(obj, category) {
@@ -739,21 +725,6 @@ let TodoReminderComponent = class TodoReminderComponent {
         this.todoService.updateTodoList(updateTodoParam).subscribe(resp => {
             this.getTodoHistory();
         });
-    }
-    getCategoryName(id) {
-        let categoryName;
-        this.categoryList.filter(key => {
-            if (key.todoListCategoryId == id) {
-                categoryName = key.categoryName;
-            }
-        });
-        return categoryName;
-    }
-    filterItem(value) {
-        if (!value) {
-            this.getTodoHistory();
-        }
-        this.todoReminderList = Object.assign([], this.rawTodoReminderList).filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1);
     }
     getReminderStatus(statusCode) {
         if (statusCode == 205) {
@@ -1113,6 +1084,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
 /* harmony import */ var _todo_list_history_todo_list_history_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./todo-list-history/todo-list-history.component */ "./src/app/modules/ams/todo/todo-list-history/todo-list-history.component.ts");
 /* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+
 
 
 
@@ -1136,6 +1109,7 @@ TodoModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"],
             src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_13__["CondoMessageModule"],
             src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_11__["DatepickerModule"].forRoot(),
             _todo_routing_module__WEBPACK_IMPORTED_MODULE_6__["TodoRouting"],

@@ -54,7 +54,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<h4 class=\"mb-4\">General</h4>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" novalidate>\n\n\t\t<!-- Active and Deactive Block -->\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isProfile\">\n\t\t\t<app-loader *ngIf=\"!isActiveDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isActiveDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isShowActiveForm\"> \n\t\t\t\t\t<div class=\"text-right mb-2 float-right\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showActiveForm('edit')\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{isActivate ? 'Active' : 'In Active'}}</span></h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div *ngIf=\"isShowActiveForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"active\" [(ngModel)]=\"isActivate\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"inactive\" [(ngModel)]=\"isActivate\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"isActiveBlock()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showActiveForm('back')\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Residing Condo -->\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isProfile\">\n\t\t\t<app-loader *ngIf=\"!isResidingDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isResidingDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isResidingForm\">\n\t\t\t\t\t<!-- <div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showResidingForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div> -->\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Residing in the Condo</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isLiving ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Billing Contact</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isPrimaryContact ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"isResidingForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"blockUnitResponse.isLiving\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"livingcondo\">Is Residing In Condo</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"blockUnitResponse.isPrimaryContact\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact for Billing</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"updateBlockUnitUser()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showResidingForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Mail Info -->\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded && !isAdmin\">\n\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isMailForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showMailForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div *ngIf=\"isMailForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Old Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"oldEmailId\" [(ngModel)]=\"user.emailId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>New Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"New Email Id\" name=\"newEmailId\" [(ngModel)]=\"mailForm.newEmailId\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Password\" name=\"password\" [(ngModel)]=\"mailForm.password\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitMailForm()\" [isSubmit]=\"isMailSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showMailForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Profile Info -->\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\t<div *ngIf=\"!profileForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showProfileForm('edit')\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdmin\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile</label> \n\t\t\t\t\t\t\t\t<div class=\"d-block\">\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"selectedCountryISO\"\n\t\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" disabled name=\"phone\">\n\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{getBloodGroup(user.bloodGroup) | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div *ngIf=\"profileForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdmin\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" disabled>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<div class=\"d-block\">\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"selectedCountryISO\"\n\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" [disabled]=\"!isAdmin\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"user.bloodGroup\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBloodGroup($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitProfileBasicForm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showProfileForm('back')\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\t</form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<h4 class=\"mb-4\">General</h4>\n\n\n\t<!-- Active and Deactive Block -->\n\t<div class=\"bg-card shadow p-4\" *ngIf=\"isProfile\">\n\t\t<app-loader *ngIf=\"!isActiveDataLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isActiveDataLoaded\">\n\t\t\t<form>\n\t\t\t\t<div *ngIf=\"!isShowActiveForm\"> \n\t\t\t\t\t<div class=\"text-right mb-2 float-right\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showActiveForm('edit')\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{isActivate ? 'Active' : 'In Active'}}</span></h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div *ngIf=\"isShowActiveForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"active\" [(ngModel)]=\"isActivate\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"inactive\" [(ngModel)]=\"isActivate\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"isActiveBlock()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showActiveForm('back')\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\n\t\t\t</form>\n\t\t</ng-container>\n\t</div>\n\n\t<!-- Residing Condo -->\n\t<div class=\"bg-card shadow p-4\" *ngIf=\"isProfile\">\n\t\t<app-loader *ngIf=\"!isResidingDataLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isResidingDataLoaded\">\n\t\t\t<form>\n\t\t\t\t<div *ngIf=\"!isResidingForm\">\n\t\t\t\t\t<!-- <div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showResidingForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div> -->\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Residing in the Condo</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isLiving ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Billing Contact</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isPrimaryContact ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"isResidingForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"blockUnitResponse.isLiving\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"livingcondo\">Is Residing In Condo</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"blockUnitResponse.isPrimaryContact\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact for Billing</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"updateBlockUnitUser()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showResidingForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</div>\n\n\t<!-- Mail Info -->\n\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded && !isAdmin\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<form>\n\t\t\t\t<div *ngIf=\"!isMailForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showMailForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div *ngIf=\"isMailForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Old Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"oldEmailId\" [(ngModel)]=\"user.emailId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>New Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"New Email Id\" name=\"newEmailId\" [(ngModel)]=\"mailForm.newEmailId\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Password\" name=\"password\" [(ngModel)]=\"mailForm.password\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitMailForm()\" [isSubmit]=\"isMailSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showMailForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</div>\n\n\t<!-- Profile Info -->\n\t<div class=\"bg-card shadow\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<form #userProfileForm=\"ngForm\">\n\t\t\t\t<div *ngIf=\"!profileForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showProfileForm('edit')\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdmin\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile</label> \n\t\t\t\t\t\t\t\t<div class=\"d-block\">\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"selectedCountryISO\"\n\t\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" disabled name=\"phone\">\n\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{getBloodGroup(user.bloodGroup) | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div *ngIf=\"profileForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isAdmin\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" disabled required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<div class=\"d-block\">\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"selectedCountryISO\"\n\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" [disabled]=\"!isAdmin\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"user.bloodGroup\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBloodGroup($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"float-right mt-2\">\n\t\t\t\t\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitProfileBasicForm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showProfileForm('back')\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</div>\n</div>";
       /***/
     },
 
@@ -114,7 +114,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded && !isFamilyNew\">\n\t\t<div class=\"row\"  *ngIf=\"isAdmin || isUserEdit\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deleteMember()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md delete\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<!-- Edit Form -->\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber?.number | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\t</ng-container>\n\n\t<!-- New Form -->\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" (ngSubmit)=\"submitProfileFamilyForm(profileFamilyForm)\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label class=\"d-block\">Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<select name=\"relationship\" id=\"relationship\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.relationship\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of relationshipList\">{{ item }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\" [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"userFormData.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"userDOB\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"userFormData.genderId\" [value]=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"userFormData.genderId\" [value]=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.bloodGroup\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mt-4 float-right\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded && !isFamilyNew\">\n\t\t<div class=\"row\"  *ngIf=\"isAdmin || isUserEdit\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deleteMember()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md delete\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<!-- Edit Form -->\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t<form>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber?.number | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n\t<!-- New Form -->\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" (ngSubmit)=\"submitProfileFamilyForm()\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label class=\"d-block\">Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<select name=\"relationship\" id=\"relationship\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.relationship\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of relationshipList\">{{ item }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\" [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"userFormData.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"userDOB\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"userFormData.genderId\" [value]=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"userFormData.genderId\" [value]=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.bloodGroup\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mt-4 float-right\">\n\t\t\t\t\t<submit-button [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -194,7 +194,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      \t\t</div>\n\t\t</div>\n \t </ng-container>\n\n  \t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{getDate(rent.startDate)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{getDate(rent.expiryDate)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t  <!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Start Date\"\n\t\t\t\t\t\t\tfieldName=\"startDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"rent.startDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getStartDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Expiry Date\"\n\t\t\t\t\t\t\tfieldName=\"endDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpiryDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<submit-button class=\"mr-2\" (click)=\"submitLeaseInfoForm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      \t\t</div>\n\t\t</div>\n \t </ng-container>\n\n  \t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{getDate(rent.startDate)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{getDate(rent.expiryDate)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t  <!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Start Date\"\n\t\t\t\t\t\t\tfieldName=\"startDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"rent.startDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getStartDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Expiry Date\"\n\t\t\t\t\t\t\tfieldName=\"endDate\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t(fieldParams)=\"getExpiryDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<div class=\"mt-4 d-flex justify-content-end\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t\t<submit-button (click)=\"submitLeaseInfoForm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -474,7 +474,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-manager-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Property Manager</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<!-- <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button> -->\n\t\t\t</div>\n\t\t</div>\n  \t</ng-container>\n\n\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company</label>\n\t\t\t\t\t\t\t<p>{{propertyData.propertyManagerName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person</label>\n\t\t\t\t\t\t\t<p>{{propertyData.contactPerson}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{propertyData.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<p>{{propertyData.city}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<p>{{propertyData.state}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<p>{{propertyData.pin}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t<!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.propertyManagerName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.contactPerson\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.phone1\" name=\"phoneNo1\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.phone2\" name=\"phoneNo2\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address1\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.city\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.state\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.pin\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t  \n\t\t</div>\n\n\t\t<div class=\"mt-4\"  *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t<submit-button class=\"mr-2\" (click)=\"submitPropertyManagerForm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"property-manager-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Property Manager</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<!-- <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button> -->\n\t\t\t</div>\n\t\t</div>\n  \t</ng-container>\n\n\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company</label>\n\t\t\t\t\t\t\t<p>{{propertyData.propertyManagerName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person</label>\n\t\t\t\t\t\t\t<p>{{propertyData.contactPerson}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{propertyData.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<p>{{propertyData.city}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<p>{{propertyData.state}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<p>{{propertyData.pin}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t<!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.propertyManagerName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.contactPerson\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.phone1\" name=\"phoneNo1\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.phone2\" name=\"phoneNo2\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address1\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.city\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.state\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.pin\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t  \n\t\t</div>\n\n\t\t<div class=\"mt-4\"  *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t<button class=\"mr-2\" mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t\t\t<submit-button  (click)=\"submitPropertyManagerForm()\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -1071,9 +1071,15 @@
       var src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/LoginCheck */
       "./src/app/api/controllers/LoginCheck.ts");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var ProfileAreaBasicComponent = /*#__PURE__*/function () {
-        function ProfileAreaBasicComponent(router, _activatedRoute, apartmentService, userService, logInCheckService, sharedService, lookupService, sessionService) {
+        function ProfileAreaBasicComponent(router, _activatedRoute, apartmentService, userService, logInCheckService, sharedService, lookupService, sessionService, _changeDetectorRef) {
           _classCallCheck(this, ProfileAreaBasicComponent);
 
           this.router = router;
@@ -1084,6 +1090,7 @@
           this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
+          this._changeDetectorRef = _changeDetectorRef;
           this.isDataLoaded = false;
           this.profileForm = false;
           this.isMailForm = false;
@@ -1105,6 +1112,7 @@
           this.isProfile = false;
           this.isDataSubmitted = false;
           this.isMailSubmitted = false;
+          this.message = null;
         }
 
         _createClass(ProfileAreaBasicComponent, [{
@@ -1264,29 +1272,48 @@
           value: function submitProfileBasicForm() {
             var _this7 = this;
 
-            this.isDataSubmitted = true;
-            if (!this.IsValidEmail(this.user.emailId)) return true;
-            var params = {
-              user: Object.assign(Object.assign({}, this.user), {
-                'phoneNumber': this.user.phoneNumber.number,
-                'phonecountrycode': this.user.phoneNumber.countryCode
-              })
-            };
-            this.userService.updateUser(params).subscribe(function (res) {
-              _this7.isDataSubmitted = false;
+            this.message = null;
 
-              if (res.message) {
-                _this7.sharedService.openSnackBar("User updated successfully", 'success');
+            if (!this.userProfileForm.valid || this.userProfileForm.valid && !this.user.phoneNumber) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
 
-                _this7.showProfileForm('edit');
-              } else {
-                _this7.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this7.isDataSubmitted = false;
+              this.message = {
+                appearance: 'outline',
+                content: 'Fill the Required Fields',
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
 
-              _this7.sharedService.openSnackBar("Server Error", 'error');
-            });
+              this._changeDetectorRef.markForCheck();
+            } else {
+              this.isDataSubmitted = true;
+              if (!this.IsValidEmail(this.user.emailId)) return true;
+              var params = {
+                user: Object.assign(Object.assign({}, this.user), {
+                  'phoneNumber': this.user.phoneNumber.number,
+                  'phonecountrycode': this.user.phoneNumber.countryCode
+                })
+              };
+              this.userService.updateUser(params).subscribe(function (res) {
+                _this7.isDataSubmitted = false;
+
+                if (res.message) {
+                  _this7.sharedService.openSnackBar("User updated successfully", 'success');
+
+                  _this7.showProfileForm('edit');
+                } else {
+                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this7.isDataSubmitted = false;
+
+                _this7.sharedService.openSnackBar("Server Error", 'error');
+              });
+            }
           }
         }, {
           key: "submitMailForm",
@@ -1343,33 +1370,15 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getUserInfo",
+          value: function getUserInfo(userId) {
             var _this10 = this;
 
-            // Show Radio Button
-            if (!this.isAdmin) {
-              this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
-              this.getBlockUnitInfo();
-            }
-
-            this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params && params.type && params.unituserid) {
-                _this10.apartmentBlockUnitUserId = Number(params['unituserid']);
-
-                _this10.getBlockUnitInfo();
-              }
-
-              if (params['type'] != undefined) {
-                _this10.isProfile = true;
-              } else {
-                _this10.isProfile = false;
-              }
-            }); // Subscribe to the resolved route data
-
-
-            this._activatedRoute.parent.data.subscribe(function (data) {
-              _this10.user = Object.assign({}, data.initialData.profileUser);
+            var params = {
+              userid: userId
+            };
+            this.userService.getUserById(params).subscribe(function (res) {
+              _this10.user = res[0];
 
               if (!_this10.user.phoneNumber.number) {
                 _this10.user.phoneNumber = {
@@ -1379,6 +1388,38 @@
               }
 
               _this10.isDataLoaded = true;
+            }, function (error) {
+              _this10.sharedService.openSnackBar('Server Error', error);
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this11 = this;
+
+            // Show Radio Button
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+              this.getBlockUnitInfo();
+              this.getUserInfo(this.sessionService.userId);
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.type && params.unituserid) {
+                _this11.apartmentBlockUnitUserId = Number(params['unituserid']);
+
+                _this11.getBlockUnitInfo();
+
+                var userId = Number(params['id']);
+
+                _this11.getUserInfo(userId);
+              }
+
+              if (params['type'] != undefined) {
+                _this11.isProfile = true;
+              } else {
+                _this11.isProfile = false;
+              }
             }); //Blood Group
 
 
@@ -1387,7 +1428,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this10.bloodGroupData = res;
+              _this11.bloodGroupData = res;
             });
           }
         }, {
@@ -1417,18 +1458,28 @@
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
 
+      ProfileAreaBasicComponent.propDecorators = {
+        userProfileForm: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['userProfileForm']
+        }]
+      };
       ProfileAreaBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-area-basic',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./profile-area-basic.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-area-basic/profile-area-basic.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-area-basic.component.scss */
         "./src/app/modules/profile/profile-area-basic/profile-area-basic.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_10__["LoginCheckService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfileAreaBasicComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_LoginCheck__WEBPACK_IMPORTED_MODULE_10__["LoginCheckService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], ProfileAreaBasicComponent);
       /***/
     },
 
@@ -1885,13 +1936,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {
-                _this11.isProfile = true;
+                _this12.isProfile = true;
               } else {
-                _this11.isProfile = false;
+                _this12.isProfile = false;
               }
             }); // Subscribe to media changes
 
@@ -1901,11 +1952,11 @@
 
               // Set the drawerMode and drawerOpened if the given breakpoint is active
               if (matchingAliases.includes('lt-lg')) {
-                _this11.drawerMode = 'over';
-                _this11.drawerOpened = false;
+                _this12.drawerMode = 'over';
+                _this12.drawerOpened = false;
               } else {
-                _this11.drawerMode = 'side';
-                _this11.drawerOpened = true;
+                _this12.drawerMode = 'side';
+                _this12.drawerOpened = true;
               }
             });
           }
@@ -2363,7 +2414,7 @@
         }, {
           key: "openUploadModal",
           value: function openUploadModal() {
-            var _this12 = this;
+            var _this13 = this;
 
             var dialogRef = this.dialog.open(src_app_modules_ams_documents_document_config_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_8__["DocumentCreateComponent"], {
               panelClass: 'material-dialog-medium',
@@ -2374,24 +2425,24 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this12.getDocumetList(_this12.apartmentBlockUnitId);
+                _this13.getDocumetList(_this13.apartmentBlockUnitId);
               }
             });
           }
         }, {
           key: "downloadFile",
           value: function downloadFile(data, url) {
-            var _this13 = this;
+            var _this14 = this;
 
             if (data.filePath && !data.fileUrl) {
               this.fileDownloadService.downloadFile(data.filePath).subscribe(function (down) {
                 var blob = down.body;
                 var objectURL, sanitizeUrl, trigger;
                 objectURL = URL.createObjectURL(blob);
-                sanitizeUrl = _this13.sanitizer.bypassSecurityTrustUrl(objectURL);
+                sanitizeUrl = _this14.sanitizer.bypassSecurityTrustUrl(objectURL);
                 data.fileUrl = sanitizeUrl;
 
-                _this13.changeDetection.detectChanges();
+                _this14.changeDetection.detectChanges();
 
                 trigger = url.firstElementChild;
                 trigger.click();
@@ -2401,7 +2452,7 @@
         }, {
           key: "getDocumetList",
           value: function getDocumetList(unitId) {
-            var _this14 = this;
+            var _this15 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2409,19 +2460,19 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.documentService.getAllDocByApartmentBlockUnitId(params).subscribe(function (res) {
-              _this14.isDataLoaded = true;
+              _this15.isDataLoaded = true;
 
               if (res.length > 0) {
-                _this14.documentViewList = res;
+                _this15.documentViewList = res;
               }
 
-              _this14.totalItems = res.length;
+              _this15.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -2430,9 +2481,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this15.apartmentBlockUnitId = Number(params.unitId);
+                _this16.apartmentBlockUnitId = Number(params.unitId);
 
-                _this15.getDocumetList(_this15.apartmentBlockUnitId);
+                _this16.getDocumetList(_this16.apartmentBlockUnitId);
               }
             });
           }
@@ -2607,9 +2658,15 @@
       var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var ProfileFamilyMembersDetailsComponent = /*#__PURE__*/function () {
-        function ProfileFamilyMembersDetailsComponent(router, _activatedRoute, apartmentService, userService, sharedService, lookupService, dialog, sessionService, translateService) {
+        function ProfileFamilyMembersDetailsComponent(router, _activatedRoute, apartmentService, userService, sharedService, lookupService, dialog, _changeDetectorRef, sessionService, translateService) {
           _classCallCheck(this, ProfileFamilyMembersDetailsComponent);
 
           this.router = router;
@@ -2619,6 +2676,7 @@
           this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.dialog = dialog;
+          this._changeDetectorRef = _changeDetectorRef;
           this.sessionService = sessionService;
           this.translateService = translateService;
           this.isDataLoaded = true;
@@ -2633,6 +2691,7 @@
           this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
           this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
           this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].Philippines;
+          this.message = null;
         }
 
         _createClass(ProfileFamilyMembersDetailsComponent, [{
@@ -2657,13 +2716,13 @@
         }, {
           key: "deleteMember",
           value: function deleteMember() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
               var message = "".concat(data.DELETETITLE);
               var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-              var dialogRef = _this16.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["CommonConfirmModalComponent"], {
+              var dialogRef = _this17.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -2672,17 +2731,17 @@
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
                   var params = {
-                    userFamilyMemberId: parseInt(_this16.userFormData.userFamilyMemberId),
-                    deleteBy: _this16.sessionService.userId
+                    userFamilyMemberId: parseInt(_this17.userFormData.userFamilyMemberId),
+                    deleteBy: _this17.sessionService.userId
                   };
 
-                  _this16.userService.deleteUserFamilyMember(params).subscribe(function (res) {
-                    _this16.isDataLoaded = true;
+                  _this17.userService.deleteUserFamilyMember(params).subscribe(function (res) {
+                    _this17.isDataLoaded = true;
 
                     if (res.message) {
-                      _this16.sharedService.openSnackBar("Member deleted", 'success');
+                      _this17.sharedService.openSnackBar("Member deleted", 'success');
 
-                      _this16.outputParams.emit(true);
+                      _this17.outputParams.emit(true);
                     }
                   });
                 }
@@ -2691,98 +2750,114 @@
           }
         }, {
           key: "submitProfileFamilyForm",
-          value: function submitProfileFamilyForm(form) {
-            var _this17 = this;
+          value: function submitProfileFamilyForm() {
+            var _this18 = this;
 
-            this.isDataSubmitted = true;
+            this.message = null;
 
-            if (!this.isEdit) {
-              var details = {
-                "firstName": this.userFormData.firstName,
-                "middleName": this.userFormData.middleName,
-                "lastName": this.userFormData.lastName,
-                "relationship": this.userFormData.relationship,
-                //"relatedUserId": this.userId,
-                "relatedUserId": this.sessionService.userId,
-                "emailId": this.userFormData.emailId,
-                "genderId": this.userFormData.genderId,
-                "dob": this.userFormData.dob,
-                "bloodGroup": this.userFormData.bloodGroup,
-                "phoneNumber": this.userFormData.phoneNumber.number,
-                "isActive": true,
-                "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null,
-                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
-                "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
-              };
-              var params = {
-                userFamilyMember: details
-              };
-              this.userService.addUserFamilyMember(params).subscribe(function (res) {
-                _this17.isDataSubmitted = false;
+            if (!this.form.valid || this.form.valid && !this.userFormData.phoneNumber) {
+              this.translateService.get('VALIDATION').subscribe(function (data) {
+                _this18.message = {
+                  appearance: 'outline',
+                  content: "".concat(data.CONTENTREQUIREDFIELD),
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }); //Mark for check
 
-                if (res.message) {
-                  _this17.sharedService.openSnackBar("Family Member added successfully", 'success');
-
-                  _this17.userFormData = {};
-
-                  _this17.outputParams.emit(true);
-                } else {
-                  _this17.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this17.isDataSubmitted = false;
-
-                _this17.sharedService.openSnackBar("Server Error", 'error');
-              });
+              this._changeDetectorRef.markForCheck();
             } else {
-              var _details = {
-                "userFamilyMemberId": this.userFormData.userFamilyMemberId,
-                "firstName": this.userFormData.firstName,
-                "middleName": this.userFormData.middleName,
-                "lastName": this.userFormData.lastName,
-                "relationship": this.userFormData.relationship,
-                //"relatedUserId": this.userId,
-                "relatedUserId": this.sessionService.userId,
-                "emailId": this.userFormData.emailId,
-                "genderId": this.userFormData.genderId,
-                "dob": this.userFormData.dob,
-                "bloodGroup": this.userFormData.bloodGroup,
-                "phoneNumber": this.userFormData.phoneNumber.number,
-                "isActive": this.userFormData.isActive,
-                "insertedBy": this.userFormData.insertedBy,
-                "insertedOn": this.userFormData.insertedOn,
-                "updatedBy": this.sessionService.userId,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
-                "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
-              };
-              var _params = {
-                userFamilyMember: _details
-              };
-              this.userService.updateUserFamilyMember(_params).subscribe(function (res) {
-                _this17.isDataSubmitted = false;
+              this.isDataSubmitted = true;
 
-                if (res.message) {
-                  _this17.sharedService.openSnackBar("Family Member updated successfully", 'success');
+              if (!this.isEdit) {
+                var details = {
+                  "firstName": this.userFormData.firstName,
+                  "middleName": this.userFormData.middleName,
+                  "lastName": this.userFormData.lastName,
+                  "relationship": this.userFormData.relationship,
+                  //"relatedUserId": this.userId,
+                  "relatedUserId": this.sessionService.userId,
+                  "emailId": this.userFormData.emailId,
+                  "genderId": this.userFormData.genderId,
+                  "dob": this.userFormData.dob,
+                  "bloodGroup": this.userFormData.bloodGroup,
+                  "phoneNumber": this.userFormData.phoneNumber.number,
+                  "isActive": true,
+                  "insertedBy": this.sessionService.userId,
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                  "updatedBy": null,
+                  "updatedOn": null,
+                  "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
+                  "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
+                };
+                var params = {
+                  userFamilyMember: details
+                };
+                this.userService.addUserFamilyMember(params).subscribe(function (res) {
+                  _this18.isDataSubmitted = false;
 
-                  _this17.outputParams.emit(true);
-                } else {
-                  _this17.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this17.isDataSubmitted = false;
+                  if (res.message) {
+                    _this18.sharedService.openSnackBar("Family Member added successfully", 'success');
 
-                _this17.sharedService.openSnackBar("Server Error", 'error');
-              });
+                    _this18.userFormData = {};
+
+                    _this18.outputParams.emit(true);
+                  } else {
+                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this18.isDataSubmitted = false;
+
+                  _this18.sharedService.openSnackBar("Server Error", 'error');
+                });
+              } else {
+                var _details = {
+                  "userFamilyMemberId": this.userFormData.userFamilyMemberId,
+                  "firstName": this.userFormData.firstName,
+                  "middleName": this.userFormData.middleName,
+                  "lastName": this.userFormData.lastName,
+                  "relationship": this.userFormData.relationship,
+                  //"relatedUserId": this.userId,
+                  "relatedUserId": this.sessionService.userId,
+                  "emailId": this.userFormData.emailId,
+                  "genderId": this.userFormData.genderId,
+                  "dob": this.userFormData.dob,
+                  "bloodGroup": this.userFormData.bloodGroup,
+                  "phoneNumber": this.userFormData.phoneNumber.number,
+                  "isActive": this.userFormData.isActive,
+                  "insertedBy": this.userFormData.insertedBy,
+                  "insertedOn": this.userFormData.insertedOn,
+                  "updatedBy": this.sessionService.userId,
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                  "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
+                  "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
+                };
+                var _params = {
+                  userFamilyMember: _details
+                };
+                this.userService.updateUserFamilyMember(_params).subscribe(function (res) {
+                  _this18.isDataSubmitted = false;
+
+                  if (res.message) {
+                    _this18.sharedService.openSnackBar("Family Member updated successfully", 'success');
+
+                    _this18.outputParams.emit(true);
+                  } else {
+                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this18.isDataSubmitted = false;
+
+                  _this18.sharedService.openSnackBar("Server Error", 'error');
+                });
+              }
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this19 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
@@ -2790,14 +2865,14 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid) {
-                _this18.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this19.apartmentBlockUnitUserId = Number(params.unituserid);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this18.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
+                _this19.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
               }
             });
 
@@ -2843,6 +2918,8 @@
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"]
         }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]
@@ -2861,6 +2938,10 @@
         }],
         outputParams: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }],
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['profileFamilyForm']
         }]
       };
       ProfileFamilyMembersDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2869,10 +2950,11 @@
         /*! raw-loader!./profile-family-members-details.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_14__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-family-members-details.component.scss */
         "./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]])], ProfileFamilyMembersDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]])], ProfileFamilyMembersDetailsComponent);
       /***/
     },
 
@@ -2988,23 +3070,23 @@
         }, {
           key: "getFamilyList",
           value: function getFamilyList(id) {
-            var _this19 = this;
+            var _this20 = this;
 
             this.isDataLoaded = false;
             var getFamilyMember = {
               apartmentBlockUnitUserId: id
             };
             this.userService.getUserFamilyMembersByUserId(getFamilyMember).subscribe(function (res) {
-              _this19.familyDataList = res;
-              _this19.isDataLoaded = true;
+              _this20.familyDataList = res;
+              _this20.isDataLoaded = true;
             }, function (error) {
-              _this19.sharedService.openSnackBar('Server Error', 'error');
+              _this20.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -3014,9 +3096,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid) {
-                _this20.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this21.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this20.getFamilyList(_this20.apartmentBlockUnitUserId);
+                _this21.getFamilyList(_this21.apartmentBlockUnitUserId);
               }
             });
 
@@ -3025,12 +3107,12 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this20.bloodGroupList = res;
+              _this21.bloodGroupList = res;
             }); // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this20.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
+                _this21.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
               }
             });
           }
@@ -3205,7 +3287,7 @@
         }, {
           key: "getBlockUnitInfo",
           value: function getBlockUnitInfo() {
-            var _this21 = this;
+            var _this22 = this;
 
             this.isUserDataLoaded = true;
             var blockUnit = {
@@ -3213,39 +3295,39 @@
               apartmentBlockUnitUserId: this.apartmentBlockUnitUserId
             };
             this.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(blockUnit).subscribe(function (res) {
-              _this21.isUserDataLoaded = false;
-              if (Array.isArray(res)) _this21.blockUnitInfo = res[0];
+              _this22.isUserDataLoaded = false;
+              if (Array.isArray(res)) _this22.blockUnitInfo = res[0];
             }, function (error) {
-              _this21.isUserDataLoaded = false;
+              _this22.isUserDataLoaded = false;
 
-              _this21.sharedService.openSnackBar('Server Error', 'error');
+              _this22.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this23 = this;
 
             // User Information
             this._activatedRoute.parent.parent.data.subscribe(function (data) {
-              _this22.user = Object.assign({}, data.initialData.profileUser);
+              _this23.user = Object.assign({}, data.initialData.profileUser);
 
-              if (_this22.user.image) {
-                _this22.profilePic = _this22.user.image;
+              if (_this23.user.image) {
+                _this23.profilePic = _this23.user.image;
               }
             });
 
             this._activatedRoute.parent.parent.parent.data.subscribe(function (data) {
-              _this22.apartmentName = data.initialData.apartment.apartmentName;
+              _this23.apartmentName = data.initialData.apartment.apartmentName;
             }); // Tower Information
 
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.type && params.unituserid) {
-                _this22.apartmentBlockUnitUserId = Number(params['unituserid']);
-                _this22.apartmentBlockUnitId = Number(params['unitId']);
+                _this23.apartmentBlockUnitUserId = Number(params['unituserid']);
+                _this23.apartmentBlockUnitId = Number(params['unitId']);
 
-                _this22.getBlockUnitInfo();
+                _this23.getBlockUnitInfo();
               }
             });
 
@@ -3260,12 +3342,12 @@
               apartmentBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this22.isVehicleDataLoaded = false;
-              if (Array.isArray(res)) _this22.vehicleDataList = res;
+              _this23.isVehicleDataLoaded = false;
+              if (Array.isArray(res)) _this23.vehicleDataList = res;
             }, function (error) {
-              _this22.isVehicleDataLoaded = false;
+              _this23.isVehicleDataLoaded = false;
 
-              _this22.sharedService.openSnackBar('Server Error', 'error');
+              _this23.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -3405,7 +3487,7 @@
         _createClass(ProfileInterestGroupComponent, [{
           key: "updateGroupUser",
           value: function updateGroupUser(data) {
-            var _this23 = this;
+            var _this24 = this;
 
             var params = {
               'broadcast': {
@@ -3423,21 +3505,21 @@
               }
             };
             this.broadcastService.upsertBroadCastGroupCategoryUser(params).subscribe(function (res) {
-              if (res.message) _this23.sharedService.openSnackBar("Interest groups added successfully", 'success');else {
+              if (res.message) _this24.sharedService.openSnackBar("Interest groups added successfully", 'success');else {
                 data.isActive = !data.isActive;
 
-                _this23.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this24.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
               data.isActive = !data.isActive;
 
-              _this23.sharedService.openSnackBar('Server Error', 'error');
+              _this24.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this24 = this;
+            var _this25 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId,
@@ -3447,26 +3529,26 @@
               var allBroadcastGroupCategory = res;
               allBroadcastGroupCategory.forEach(function (data) {
                 var privilege = data.privilege.split(',');
-                if (privilege.includes('All')) _this24.userInterestGroupCategory.push(data);
-                if (privilege.includes('Admin')) _this24.adminInterestGroupCategory.push(data);
+                if (privilege.includes('All')) _this25.userInterestGroupCategory.push(data);
+                if (privilege.includes('Admin')) _this25.adminInterestGroupCategory.push(data);
               });
-              _this24.isDataLoaded = true;
+              _this25.isDataLoaded = true;
             }, function (error) {
-              _this24.isDataLoaded = true;
+              _this25.isDataLoaded = true;
 
-              _this24.sharedService.openSnackBar('Server Error', 'error');
+              _this25.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               var user = data.initialData.profileUser;
 
               if (user.roleId) {
-                _this25.roleId = user.roleId;
+                _this26.roleId = user.roleId;
               }
             });
 
@@ -3478,9 +3560,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.blockId) {
-                _this25.apartmentBlockId = Number(params.blockId);
-                _this25.apartmentBlockUnitId = Number(params.unitId);
-                _this25.userId = Number(params.id);
+                _this26.apartmentBlockId = Number(params.blockId);
+                _this26.apartmentBlockUnitId = Number(params.unitId);
+                _this26.userId = Number(params.id);
               }
             });
 
@@ -3687,7 +3769,7 @@
         }, {
           key: "createLeaseForm",
           value: function createLeaseForm() {
-            var _this26 = this;
+            var _this27 = this;
 
             var details = {
               "apartmentBlockUnitId": this.apartmentBlockUnitId,
@@ -3710,40 +3792,10 @@
               apartmentBlockUnitRent: details
             };
             this.rentService.addApartmentBlockUnitRent(AddApartmentBlockUnitRentParams).subscribe(function (res) {
-              _this26.isDataSubmitted = false;
-
-              if (res.message) {
-                _this26.sharedService.openSnackBar("Lease Info added successfully", 'success');
-
-                _this26.getListData();
-              } else {
-                _this26.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this26.isDataSubmitted = false;
-
-              _this26.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updateLeaseForm",
-          value: function updateLeaseForm() {
-            var _this27 = this;
-
-            var params = {
-              apartmentBlockUnitRent: Object.assign(Object.assign({}, this.rent), {
-                "rentAmount": parseInt(this.rent.rentAmount),
-                "advanceAmount": parseInt(this.rent.advanceAmount),
-                "leaseAmount": parseInt(this.rent.leaseAmount),
-                "updatedBy": this.sessionService.userId,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
-              })
-            };
-            this.rentService.updateApartmentBlockUnitRent(params).subscribe(function (res) {
               _this27.isDataSubmitted = false;
 
               if (res.message) {
-                _this27.sharedService.openSnackBar("Lease Info Updated successfully", 'success');
+                _this27.sharedService.openSnackBar("Lease Info added successfully", 'success');
 
                 _this27.getListData();
               } else {
@@ -3756,9 +3808,39 @@
             });
           }
         }, {
+          key: "updateLeaseForm",
+          value: function updateLeaseForm() {
+            var _this28 = this;
+
+            var params = {
+              apartmentBlockUnitRent: Object.assign(Object.assign({}, this.rent), {
+                "rentAmount": parseInt(this.rent.rentAmount),
+                "advanceAmount": parseInt(this.rent.advanceAmount),
+                "leaseAmount": parseInt(this.rent.leaseAmount),
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
+              })
+            };
+            this.rentService.updateApartmentBlockUnitRent(params).subscribe(function (res) {
+              _this28.isDataSubmitted = false;
+
+              if (res.message) {
+                _this28.sharedService.openSnackBar("Lease Info Updated successfully", 'success');
+
+                _this28.getListData();
+              } else {
+                _this28.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this28.isDataSubmitted = false;
+
+              _this28.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "getListData",
           value: function getListData() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3767,28 +3849,28 @@
             this.rentService.getApartmentBlockUnitRentByBlockunitId(params).subscribe(function (res) {
               if (res && Array.isArray(res)) {
                 if (res.length > 0) {
-                  _this28.rentListData = res.reverse();
-                  _this28.rent = _this28.rentListData[0];
+                  _this29.rentListData = res.reverse();
+                  _this29.rent = _this29.rentListData[0];
                 }
               } else {
-                _this28.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this29.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this28.clickMode = 'showAll';
-              _this28.isDataLoaded = true;
+              _this29.clickMode = 'showAll';
+              _this29.isDataLoaded = true;
             }, function (error) {
-              _this28.isDataLoaded = true;
+              _this29.isDataLoaded = true;
 
-              _this28.sharedService.openSnackBar('Server Error', 'error');
+              _this29.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this29 = this;
+            var _this30 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this29.timeZone = timeZone;
+              return _this30.timeZone = timeZone;
             });
 
             if (!this.isAdmin) {
@@ -3797,16 +3879,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this29.apartmentBlockUnitId = Number(params.unitId);
+                _this30.apartmentBlockUnitId = Number(params.unitId);
 
-                _this29.getListData();
+                _this30.getListData();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this29.isUserEdit = data.initialData.userIndicator[0].isRentalInfo;
+                _this30.isUserEdit = data.initialData.userIndicator[0].isRentalInfo;
               }
             });
           }
@@ -3957,7 +4039,7 @@
         }, {
           key: "submitPasswordReset",
           value: function submitPasswordReset() {
-            var _this30 = this;
+            var _this31 = this;
 
             this.message = null;
 
@@ -3986,33 +4068,34 @@
                 }
               };
               this.logInCheckService.changePasswordEmail(params).subscribe(function (res) {
-                _this30.formSubmitted = false;
+                _this31.formSubmitted = false;
 
                 if (res.message) {
-                  _this30.user.password = '';
-                  _this30.user.confirmPassword = '';
+                  _this31.form.controls.password.reset();
 
-                  _this30.sharedService.openSnackBar(res.message, 'success');
+                  _this31.form.controls.confirmPassword.reset();
+
+                  _this31.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this30.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this31.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this30.formSubmitted = false;
+                _this31.formSubmitted = false;
 
-                _this30.sharedService.openSnackBar('Server Error', 'error');
+                _this31.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this32 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               var profileInfo = data.initialData.profileUser;
-              _this31.user = {
+              _this32.user = {
                 "emailId": profileInfo.emailId,
                 "userId": profileInfo.userId,
                 "password": '',
@@ -4039,6 +4122,12 @@
         }];
       };
 
+      ProfilePasswordComponent.propDecorators = {
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['forgotpassform']
+        }]
+      };
       ProfilePasswordComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-password',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -4153,7 +4242,7 @@
         }, {
           key: "enablePushNotifyPermission",
           value: function enablePushNotifyPermission() {
-            var _this32 = this;
+            var _this33 = this;
 
             var details = {
               "userId": this.sessionService.userId,
@@ -4165,9 +4254,9 @@
               OneS: details
             };
             this.notificationService.addOneSignalPlayerId(params).subscribe(function (res) {
-              _this32.sharedService.openSnackBar('Push Notification enabled', 'success');
+              _this33.sharedService.openSnackBar('Push Notification enabled', 'success');
             }, function (error) {
-              _this32.sharedService.openSnackBar('Some error occured', 'error');
+              _this33.sharedService.openSnackBar('Some error occured', 'error');
             });
           }
         }, {
@@ -4373,7 +4462,7 @@
         }, {
           key: "createPet",
           value: function createPet() {
-            var _this33 = this;
+            var _this34 = this;
 
             var params = {
               pet: {
@@ -4390,84 +4479,24 @@
               if (res.message) {
                 var _params2 = {
                   apartmentBlockUnitPet: {
-                    "apartmentBlockUnitId": _this33.apartmentBlockUnitId,
+                    "apartmentBlockUnitId": _this34.apartmentBlockUnitId,
                     "petId": res.message,
                     "isActive": true,
-                    "insertedBy": _this33.sessionService.userId,
+                    "insertedBy": _this34.sessionService.userId,
                     "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": null
                   }
                 };
 
-                _this33.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
-                  _this33.isDataSubmitted = false;
-
-                  if (res.message) {
-                    _this33.petFormData.pet.petTypeId = '';
-                    _this33.petFormData.pet.dob = '';
-
-                    _this33.sharedService.openSnackBar("Pet added successfully", 'success');
-
-                    _this33.outputParams.emit('success');
-                  } else {
-                    _this33.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this33.isDataSubmitted = false;
-
-                  _this33.sharedService.openSnackBar('Server Error', 'error');
-                });
-              } else {
-                _this33.isDataSubmitted = false;
-
-                _this33.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this33.isDataSubmitted = false;
-
-              _this33.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updatePet",
-          value: function updatePet() {
-            var _this34 = this;
-
-            this.isDataSubmitted = true;
-            var details = {
-              "petId": this.petFormData.pet.petId,
-              "petTypeId": this.petFormData.pet.petTypeId,
-              "dob": this.petFormData.pet.dob,
-              "isActive": this.petFormData.pet.isActive,
-              "insertedBy": this.petFormData.pet.insertedBy,
-              "insertedOn": this.petFormData.pet.insertedOn,
-              "updatedBy": this.sessionService.userId,
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
-            };
-            var params = {
-              pet: details
-            };
-            this.petService.updatePet(params).subscribe(function (res) {
-              if (res.message) {
-                var _params3 = {
-                  apartmentBlockUnitPet: {
-                    "apartmentBlockUnitPetId": _this34.petFormData.apartmentBlockUnitPetId,
-                    "apartmentBlockUnitId": _this34.petFormData.apartmentBlockUnitId,
-                    "petId": _this34.petFormData.petId,
-                    "isActive": _this34.petFormData.isActive,
-                    "insertedBy": _this34.petFormData.insertedBy,
-                    "insertedOn": _this34.petFormData.insertedOn,
-                    "updatedBy": _this34.sessionService.userId,
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
-                  }
-                };
-
-                _this34.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                _this34.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   _this34.isDataSubmitted = false;
 
                   if (res.message) {
-                    _this34.sharedService.openSnackBar("Pet updated successfully", 'success');
+                    _this34.petFormData.pet.petTypeId = '';
+                    _this34.petFormData.pet.dob = '';
+
+                    _this34.sharedService.openSnackBar("Pet added successfully", 'success');
 
                     _this34.outputParams.emit('success');
                   } else {
@@ -4490,9 +4519,69 @@
             });
           }
         }, {
+          key: "updatePet",
+          value: function updatePet() {
+            var _this35 = this;
+
+            this.isDataSubmitted = true;
+            var details = {
+              "petId": this.petFormData.pet.petId,
+              "petTypeId": this.petFormData.pet.petTypeId,
+              "dob": this.petFormData.pet.dob,
+              "isActive": this.petFormData.pet.isActive,
+              "insertedBy": this.petFormData.pet.insertedBy,
+              "insertedOn": this.petFormData.pet.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+            };
+            var params = {
+              pet: details
+            };
+            this.petService.updatePet(params).subscribe(function (res) {
+              if (res.message) {
+                var _params3 = {
+                  apartmentBlockUnitPet: {
+                    "apartmentBlockUnitPetId": _this35.petFormData.apartmentBlockUnitPetId,
+                    "apartmentBlockUnitId": _this35.petFormData.apartmentBlockUnitId,
+                    "petId": _this35.petFormData.petId,
+                    "isActive": _this35.petFormData.isActive,
+                    "insertedBy": _this35.petFormData.insertedBy,
+                    "insertedOn": _this35.petFormData.insertedOn,
+                    "updatedBy": _this35.sessionService.userId,
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+                  }
+                };
+
+                _this35.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                  _this35.isDataSubmitted = false;
+
+                  if (res.message) {
+                    _this35.sharedService.openSnackBar("Pet updated successfully", 'success');
+
+                    _this35.outputParams.emit('success');
+                  } else {
+                    _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this35.isDataSubmitted = false;
+
+                  _this35.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this35.isDataSubmitted = false;
+
+                _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this35.isDataSubmitted = false;
+
+              _this35.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this36 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -4500,7 +4589,7 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this35.apartmentBlockUnitId = Number(params.unitId);
+                _this36.apartmentBlockUnitId = Number(params.unitId);
               }
             });
 
@@ -4511,7 +4600,7 @@
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this35.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
+                _this36.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
               }
             });
           }
@@ -4690,33 +4779,33 @@
         }, {
           key: "getParams",
           value: function getParams(event) {
-            var _this36 = this;
+            var _this37 = this;
 
             if (event == 'delete') {
               this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
                 if (id != null) {
-                  _this36.isUserDataLoaded = false;
+                  _this37.isUserDataLoaded = false;
                   var params = {
                     petId: parseInt(id),
-                    deleteBy: _this36.sessionService.userId
+                    deleteBy: _this37.sessionService.userId
                   };
 
-                  _this36.petService.deletePet(params).subscribe(function (res) {
-                    _this36.isUserDataLoaded = true;
+                  _this37.petService.deletePet(params).subscribe(function (res) {
+                    _this37.isUserDataLoaded = true;
 
-                    _this36.sharedService.setUnitListDeleteIndex(null);
+                    _this37.sharedService.setUnitListDeleteIndex(null);
 
                     if (res.message) {
-                      _this36.sharedService.openSnackBar("Pet deleted", 'success');
+                      _this37.sharedService.openSnackBar("Pet deleted", 'success');
 
-                      _this36.showUnitPetDetails(_this36.apartmentBlockUnitId);
+                      _this37.showUnitPetDetails(_this37.apartmentBlockUnitId);
 
-                      _this36.isExpanded = false;
+                      _this37.isExpanded = false;
                     } else {
-                      _this36.sharedService.openSnackBar(res.errorMessage, 'error');
+                      _this37.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
 
-                    _this36.apiSubscribe.unsubscribe();
+                    _this37.apiSubscribe.unsubscribe();
                   });
                 }
               });
@@ -4728,26 +4817,26 @@
         }, {
           key: "showUnitPetDetails",
           value: function showUnitPetDetails(id) {
-            var _this37 = this;
+            var _this38 = this;
 
             this.isUserDataLoaded = false;
             var petListParams = {
               apartmentBlockUnitId: id
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
-              if (res.length > 0) {
-                _this37.petDataList = res.reverse();
-              }
+              if (Array.isArray(res)) {
+                _this38.petDataList = res.reverse();
+              } else _this38.petDataList = [];
 
-              _this37.isUserDataLoaded = true;
+              _this38.isUserDataLoaded = true;
             }, function (error) {
-              _this37.sharedService.openSnackBar('Server Error', 'error');
+              _this38.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this38 = this;
+            var _this39 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -4757,9 +4846,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this38.apartmentBlockUnitId = Number(params.unitId);
+                _this39.apartmentBlockUnitId = Number(params.unitId);
 
-                _this38.showUnitPetDetails(_this38.apartmentBlockUnitId);
+                _this39.showUnitPetDetails(_this39.apartmentBlockUnitId);
               }
             }); //Pet DropDown
 
@@ -4769,12 +4858,12 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-              _this38.petTypeList = res;
+              _this39.petTypeList = res;
             }); // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this38.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
+                _this39.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
               }
             });
           }
@@ -4925,7 +5014,7 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this39 = this;
+            var _this40 = this;
 
             this.isImageLoaded = false;
             var file = event[0];
@@ -4948,32 +5037,32 @@
               ctx.drawImage(img, 0, 0, iwScaled, ihScaled);
               var params = {
                 user: {
-                  emailId: _this39.user.emailId,
+                  emailId: _this40.user.emailId,
                   image: canvas.toDataURL('image/jpeg')
                 }
               };
 
-              _this39.userService.updateUserPic2(params).subscribe(function (res) {
-                _this39.isImageLoaded = true;
+              _this40.userService.updateUserPic2(params).subscribe(function (res) {
+                _this40.isImageLoaded = true;
 
                 if (res.message) {
-                  _this39.sharedService.openSnackBar('Picture updated', 'success'); //if its not a profile interface update the user
+                  _this40.sharedService.openSnackBar('Picture updated', 'success'); //if its not a profile interface update the user
 
 
-                  if (!_this39.isProfile) {
-                    _this39.sharedService.setUserPic(canvas.toDataURL('image/jpeg'));
+                  if (!_this40.isProfile) {
+                    _this40.sharedService.setUserPic(canvas.toDataURL('image/jpeg'));
                   } else {
-                    _this39.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
+                    _this40.sharedService.setProfilePic(canvas.toDataURL('image/jpeg'));
                   }
 
-                  _this39.profilePicUrl = canvas.toDataURL('image/jpeg');
+                  _this40.profilePicUrl = canvas.toDataURL('image/jpeg');
                 } else {
-                  _this39.sharedService.openSnackBar('Some error occured', 'error');
+                  _this40.sharedService.openSnackBar('Some error occured', 'error');
                 }
               }, function (err) {
-                _this39.isImageLoaded = true;
+                _this40.isImageLoaded = true;
 
-                _this39.sharedService.openSnackBar('Some error occured', 'error');
+                _this40.sharedService.openSnackBar('Some error occured', 'error');
               });
             };
 
@@ -4982,18 +5071,18 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.imageFormats = this.constantsService.imageFormats.join(',');
             this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-              _this40.profilePicUrl = profilePicUrl;
+              _this41.profilePicUrl = profilePicUrl;
             });
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {
-                _this40.isProfile = true;
+                _this41.isProfile = true;
               } else {
-                _this40.isProfile = false;
+                _this41.isProfile = false;
               }
             });
           }
@@ -5139,7 +5228,7 @@
          * @param {MatDialog} _matDialog
          */
         function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
-          var _this41 = this;
+          var _this42 = this;
 
           _classCallCheck(this, ProfileSidebarComponent);
 
@@ -5164,7 +5253,7 @@
 
           this._activatedRoute.queryParams.subscribe(function (params) {
             if (params['type'] != undefined) {
-              _this41.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
+              _this42.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
             }
           });
 
@@ -5179,12 +5268,12 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this42 = this;
+            var _this43 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this42.user = data.initialData.profileUser;
+              _this43.user = Object.assign({}, data.initialData.profileUser);
             }); //if profile from unapproved and approved modules
             // this._activatedRoute.queryParams.subscribe(params => {
             //   if(params['unituserid'] != undefined){
@@ -5216,7 +5305,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this43 = this;
+            var _this44 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -5229,7 +5318,7 @@
                 type: 'basic',
                 icon: folder.icon,
                 query: 'preserve',
-                link: '/' + _this43.pagePath() + '/profile/' + folder.slug
+                link: '/' + _this44.pagePath() + '/profile/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -5241,7 +5330,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this43._foldersMenuData.push(menuItem);
+              _this44._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -5249,19 +5338,19 @@
         }, {
           key: "_generateSettingsMenuLinks",
           value: function _generateSettingsMenuLinks() {
-            var _this44 = this;
+            var _this45 = this;
 
             // Reset the labels menu
             this._settingsMenuData = []; // Iterate through the labels
 
             this.settings.forEach(function (setting) {
               // Generate menu item for the label
-              _this44._settingsMenuData.push({
+              _this45._settingsMenuData.push({
                 id: setting.id,
                 title: setting.title,
                 type: 'basic',
                 icon: setting.icon,
-                link: '/' + _this44.pagePath() + '/profile/' + setting.slug
+                link: '/' + _this45.pagePath() + '/profile/' + setting.slug
               });
             }); // Update the menu data
 
@@ -5416,7 +5505,7 @@
         }, {
           key: "submitTimeSettingsform",
           value: function submitTimeSettingsform(form) {
-            var _this45 = this;
+            var _this46 = this;
 
             this.isDataSubmitted = true;
             var params = {
@@ -5426,32 +5515,32 @@
               updatedBy: this.sessionService.userId
             };
             this.userService.updateUserTimezone(params).subscribe(function (res) {
-              _this45.isDataSubmitted = false;
+              _this46.isDataSubmitted = false;
 
               if (res.message) {
-                _this45.sessionService.zone = _this45.user.timeZone;
+                _this46.sessionService.zone = _this46.user.timeZone;
 
-                _this45.sharedService.setTimeZone(_this45.sessionService.zone);
+                _this46.sharedService.setTimeZone(_this46.sessionService.zone);
 
-                _this45.sharedService.openSnackBar('Timezone updated Successfully', 'success');
+                _this46.sharedService.openSnackBar('Timezone updated Successfully', 'success');
               } else {
-                _this45.sharedService.openSnackBar('Some error occured', 'error');
+                _this46.sharedService.openSnackBar('Some error occured', 'error');
               }
             }, function (error) {
-              _this45.isDataSubmitted = false;
+              _this46.isDataSubmitted = false;
 
-              _this45.sharedService.openSnackBar('Network error', 'error');
+              _this46.sharedService.openSnackBar('Network error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this46 = this;
+            var _this47 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this46.user = data.initialData.profileUser;
+              _this47.user = data.initialData.profileUser;
             });
 
             this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_3__["timeZones"].map(function (data) {
@@ -5606,7 +5695,7 @@
         }, {
           key: "getBlockUnitList",
           value: function getBlockUnitList(event) {
-            var _this47 = this;
+            var _this48 = this;
 
             this.isUserDataLoaded = false;
 
@@ -5620,18 +5709,18 @@
               apartmentBlockId: this.block.apartmentBlockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
-              _this47.isUserDataLoaded = true;
-              _this47.blockUnitList = res;
+              _this48.isUserDataLoaded = true;
+              _this48.blockUnitList = res;
 
-              _this47.blockUnitList.forEach(function (data) {
-                if (data.apartmentBlockUnitId == _this47.block.apartmentBlockUnitId) {
-                  _this47.blockFormData.cars = data.cars;
-                  _this47.blockFormData.intercom = data.intercom;
-                  _this47.blockFormData.unitType = data.unitType;
-                  _this47.block.apartmentBlockNumber = data.apartmentBlockNumber;
-                  _this47.block.apartmentBlockUnitNumber = data.apartmentBlockUnitNumber;
-                  _this47.block.cars = data.cars;
-                  _this47.block.intercom = data.intercom;
+              _this48.blockUnitList.forEach(function (data) {
+                if (data.apartmentBlockUnitId == _this48.block.apartmentBlockUnitId) {
+                  _this48.blockFormData.cars = data.cars;
+                  _this48.blockFormData.intercom = data.intercom;
+                  _this48.blockFormData.unitType = data.unitType;
+                  _this48.block.apartmentBlockNumber = data.apartmentBlockNumber;
+                  _this48.block.apartmentBlockUnitNumber = data.apartmentBlockUnitNumber;
+                  _this48.block.cars = data.cars;
+                  _this48.block.intercom = data.intercom;
                 }
               });
             });
@@ -5652,7 +5741,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this48 = this;
+            var _this49 = this;
 
             if (!this.isAdmin) {
               this.isUserEdit = false;
@@ -5663,9 +5752,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this48.block.apartmentBlockId = Number(params.blockId);
-                _this48.block.apartmentBlockUnitId = Number(params.unitId);
-                _this48.apartmentBlockUnitUserId = Number(params.unituserid); //this.getBlockUnitInfo(this.block.apartmentBlockUnitId);
+                _this49.block.apartmentBlockId = Number(params.blockId);
+                _this49.block.apartmentBlockUnitId = Number(params.unitId);
+                _this49.apartmentBlockUnitUserId = Number(params.unituserid); //this.getBlockUnitInfo(this.block.apartmentBlockUnitId);
               }
             }); // Tower
 
@@ -5674,9 +5763,9 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerInfo).subscribe(function (res) {
-              _this48.blockList = res;
+              _this49.blockList = res;
 
-              _this48.getBlockUnitList(null);
+              _this49.getBlockUnitList(null);
             }); //Unit Type
 
             var unitTypeInfo = {
@@ -5684,7 +5773,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeInfo).subscribe(function (res) {
-              _this48.unitTypeList = res;
+              _this49.unitTypeList = res;
             });
           }
         }, {
@@ -5989,7 +6078,7 @@
         }, {
           key: "createAbsenceForm",
           value: function createAbsenceForm() {
-            var _this49 = this;
+            var _this50 = this;
 
             var details = {
               "apartmentId": this.sessionService.apartmentId,
@@ -6020,25 +6109,25 @@
               apartmentLongAbsence: details
             };
             this.apartmentService.addApartmentLongAbsence(params).subscribe(function (res) {
-              _this49.isDataSubmitted = false;
+              _this50.isDataSubmitted = false;
 
               if (res.message) {
-                _this49.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
+                _this50.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
 
-                _this49.getHistoryData();
+                _this50.getHistoryData();
               } else {
-                _this49.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this50.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this49.isDataSubmitted = false;
+              _this50.isDataSubmitted = false;
 
-              _this49.sharedService.openSnackBar('Server Error', 'error');
+              _this50.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateAbsenceForm",
           value: function updateAbsenceForm() {
-            var _this50 = this;
+            var _this51 = this;
 
             var params = {
               apartmentLongAbsence: Object.assign(Object.assign({}, this.data), {
@@ -6056,25 +6145,25 @@
               })
             };
             this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
-              _this50.isDataSubmitted = false;
+              _this51.isDataSubmitted = false;
 
               if (res.message) {
-                _this50.sharedService.openSnackBar(res.message, 'success');
+                _this51.sharedService.openSnackBar(res.message, 'success');
 
-                _this50.getHistoryData();
+                _this51.getHistoryData();
               } else {
-                _this50.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this51.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this50.isDataSubmitted = false;
+              _this51.isDataSubmitted = false;
 
-              _this50.sharedService.openSnackBar('Server Error', 'error');
+              _this51.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getHistoryData",
           value: function getHistoryData() {
-            var _this51 = this;
+            var _this52 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -6084,25 +6173,25 @@
             this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
               if (unit && Array.isArray(unit)) {
                 if (unit.length > 0) {
-                  _this51.historyListData = unit.reverse();
-                  _this51.data = _this51.historyListData[0];
+                  _this52.historyListData = unit.reverse();
+                  _this52.data = _this52.historyListData[0];
                 }
               } else {
-                _this51.sharedService.openSnackBar(unit.errorMessage, 'error');
+                _this52.sharedService.openSnackBar(unit.errorMessage, 'error');
               }
 
-              _this51.clickMode = 'showAll';
-              _this51.isDataLoaded = true;
+              _this52.clickMode = 'showAll';
+              _this52.isDataLoaded = true;
             }, function (error) {
-              _this51.isDataLoaded = true;
+              _this52.isDataLoaded = true;
 
-              _this51.sharedService.openSnackBar('Server Error', 'error');
+              _this52.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this52 = this;
+            var _this53 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -6112,16 +6201,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this52.apartmentBlockUnitId = Number(params.unitId), _this52.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this53.apartmentBlockUnitId = Number(params.unitId), _this53.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this52.getHistoryData();
+                _this53.getHistoryData();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this52.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
+                _this53.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
               }
             });
           }
@@ -6343,7 +6432,7 @@
         }, {
           key: "createProfileVehicle",
           value: function createProfileVehicle() {
-            var _this53 = this;
+            var _this54 = this;
 
             var details = {
               "vehicleNumber": this.vehicleFormData.vehicleNumber,
@@ -6364,18 +6453,18 @@
             this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": _this53.apartmentBlockUnitId,
+                  "apartmentBlockUnitId": _this54.apartmentBlockUnitId,
                   "vehicleId": parseInt(res.message),
-                  "userId": _this53.sessionService.userId,
+                  "userId": _this54.sessionService.userId,
                   "documentId": null,
                   "parkingSlotId": null,
-                  "stickerNumber": _this53.vehicleFormData.stickerNumber,
-                  "rfid": _this53.vehicleFormData.rfid,
-                  "fromDate": _this53.vehicleFormData.fromDate,
-                  "toDate": _this53.vehicleFormData.toDate,
+                  "stickerNumber": _this54.vehicleFormData.stickerNumber,
+                  "rfid": _this54.vehicleFormData.rfid,
+                  "fromDate": _this54.vehicleFormData.fromDate,
+                  "toDate": _this54.vehicleFormData.toDate,
                   "isPassIssued": true,
                   "isActive": true,
-                  "insertedBy": parseInt(_this53.sessionService.userId),
+                  "insertedBy": parseInt(_this54.sessionService.userId),
                   "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
@@ -6384,85 +6473,13 @@
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this53.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
-                  _this53.isDataSubmitted = false;
-
-                  if (res.message) {
-                    _this53.vehicleFormData = {};
-
-                    _this53.sharedService.openSnackBar("Vehicle added successfully", 'success');
-
-                    _this53.outputParams.emit(true);
-                  } else {
-                    _this53.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this53.isDataSubmitted = false;
-
-                  _this53.sharedService.openSnackBar('Server Error', 'error');
-                });
-              } else {
-                _this53.isDataSubmitted = false;
-
-                _this53.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this53.isDataSubmitted = false;
-
-              _this53.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updateProfileVehicle",
-          value: function updateProfileVehicle() {
-            var _this54 = this;
-
-            var details = {
-              "vehicleId": parseInt(this.vehicleFormData.vehicleId),
-              "vehicleNumber": this.vehicleFormData.vehicleNumber,
-              "vehicleTypeId": parseInt(this.vehicleFormData.vehicleTypeId),
-              "vehicleManufacturer": this.vehicleFormData.vehicleManufacturer,
-              "vehicleModel": this.vehicleFormData.vehicleModel,
-              "vehicleDriverNumber": this.vehicleFormData.vehicleDriverNumber,
-              "vehicleColor": this.vehicleFormData.vehicleColor,
-              "isActive": this.vehicleFormData.isActive,
-              "insertedBy": this.vehicleFormData.insertedBy,
-              "insertedOn": this.vehicleFormData.insertedOn,
-              "updatedBy": this.sessionService.userId,
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-            };
-            var vehicleParams = {
-              vehicle: details
-            };
-            this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
-              if (res.message) {
-                var unitDetails = {
-                  "apartmentBlockUnitVehicleId": parseInt(_this54.vehicleData.apartmentBlockUnitVehicleId),
-                  "apartmentBlockUnitId": _this54.apartmentBlockUnitId,
-                  "vehicleId": parseInt(_this54.vehicleFormData.vehicleId),
-                  "userId": _this54.sessionService.userId,
-                  "documentId": null,
-                  "parkingSlotId": null,
-                  "stickerNumber": _this54.vehicleFormData.stickerNumber,
-                  "rfid": _this54.vehicleFormData.rfid,
-                  "fromDate": _this54.vehicleFormData.fromDate,
-                  "toDate": _this54.vehicleFormData.toDate,
-                  "isPassIssued": _this54.vehicleFormData.isPassIssued,
-                  "isActive": _this54.vehicleFormData.isActive,
-                  "insertedBy": _this54.vehicleFormData.insertedBy,
-                  "insertedOn": _this54.vehicleFormData.insertedOn,
-                  "updatedBy": parseInt(_this54.sessionService.userId),
-                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-                };
-                var unitParams = {
-                  apartmentBlockUnitVehicle: unitDetails
-                };
-
-                _this54.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this54.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   _this54.isDataSubmitted = false;
 
                   if (res.message) {
-                    _this54.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+                    _this54.vehicleFormData = {};
+
+                    _this54.sharedService.openSnackBar("Vehicle added successfully", 'success');
 
                     _this54.outputParams.emit(true);
                   } else {
@@ -6485,15 +6502,87 @@
             });
           }
         }, {
+          key: "updateProfileVehicle",
+          value: function updateProfileVehicle() {
+            var _this55 = this;
+
+            var details = {
+              "vehicleId": parseInt(this.vehicleFormData.vehicleId),
+              "vehicleNumber": this.vehicleFormData.vehicleNumber,
+              "vehicleTypeId": parseInt(this.vehicleFormData.vehicleTypeId),
+              "vehicleManufacturer": this.vehicleFormData.vehicleManufacturer,
+              "vehicleModel": this.vehicleFormData.vehicleModel,
+              "vehicleDriverNumber": this.vehicleFormData.vehicleDriverNumber,
+              "vehicleColor": this.vehicleFormData.vehicleColor,
+              "isActive": this.vehicleFormData.isActive,
+              "insertedBy": this.vehicleFormData.insertedBy,
+              "insertedOn": this.vehicleFormData.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+            };
+            var vehicleParams = {
+              vehicle: details
+            };
+            this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
+              if (res.message) {
+                var unitDetails = {
+                  "apartmentBlockUnitVehicleId": parseInt(_this55.vehicleData.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": _this55.apartmentBlockUnitId,
+                  "vehicleId": parseInt(_this55.vehicleFormData.vehicleId),
+                  "userId": _this55.sessionService.userId,
+                  "documentId": null,
+                  "parkingSlotId": null,
+                  "stickerNumber": _this55.vehicleFormData.stickerNumber,
+                  "rfid": _this55.vehicleFormData.rfid,
+                  "fromDate": _this55.vehicleFormData.fromDate,
+                  "toDate": _this55.vehicleFormData.toDate,
+                  "isPassIssued": _this55.vehicleFormData.isPassIssued,
+                  "isActive": _this55.vehicleFormData.isActive,
+                  "insertedBy": _this55.vehicleFormData.insertedBy,
+                  "insertedOn": _this55.vehicleFormData.insertedOn,
+                  "updatedBy": parseInt(_this55.sessionService.userId),
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                };
+                var unitParams = {
+                  apartmentBlockUnitVehicle: unitDetails
+                };
+
+                _this55.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                  _this55.isDataSubmitted = false;
+
+                  if (res.message) {
+                    _this55.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+
+                    _this55.outputParams.emit(true);
+                  } else {
+                    _this55.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this55.isDataSubmitted = false;
+
+                  _this55.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this55.isDataSubmitted = false;
+
+                _this55.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this55.isDataSubmitted = false;
+
+              _this55.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "deleteVehicle",
           value: function deleteVehicle() {
-            var _this55 = this;
+            var _this56 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
               var message = "".concat(data.DELETETITLE);
               var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-              var dialogRef = _this55.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+              var dialogRef = _this56.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -6501,43 +6590,43 @@
 
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
-                  _this55.isDataSubmitted = true;
+                  _this56.isDataSubmitted = true;
                   var vehicleParams = {
-                    vehicleId: _this55.vehicleFormData.vehicleId,
-                    deleteBy: _this55.sessionService.userId
+                    vehicleId: _this56.vehicleFormData.vehicleId,
+                    deleteBy: _this56.sessionService.userId
                   };
 
-                  _this55.vehicleService.deleteVehicle(vehicleParams).subscribe(function (res) {
+                  _this56.vehicleService.deleteVehicle(vehicleParams).subscribe(function (res) {
                     if (res.message) {
                       var params = {
-                        apartmentBlockUnitVehicleId: _this55.vehicleData.apartmentBlockUnitVehicleId,
-                        deleteBy: _this55.sessionService.userId
+                        apartmentBlockUnitVehicleId: _this56.vehicleData.apartmentBlockUnitVehicleId,
+                        deleteBy: _this56.sessionService.userId
                       };
 
-                      _this55.vehicleService.deleteApartmentBlockUnitVehicle(params).subscribe(function (unit) {
-                        _this55.isDataSubmitted = false;
+                      _this56.vehicleService.deleteApartmentBlockUnitVehicle(params).subscribe(function (unit) {
+                        _this56.isDataSubmitted = false;
 
                         if (res.message) {
-                          _this55.outputParams.emit(true);
+                          _this56.outputParams.emit(true);
 
-                          _this55.sharedService.openSnackBar("Vehicle Deleted Successfully", 'success');
+                          _this56.sharedService.openSnackBar("Vehicle Deleted Successfully", 'success');
                         } else {
-                          _this55.sharedService.openSnackBar(res.errorMessage, 'error');
+                          _this56.sharedService.openSnackBar(res.errorMessage, 'error');
                         }
                       }, function (error) {
-                        _this55.isDataSubmitted = false;
+                        _this56.isDataSubmitted = false;
 
-                        _this55.sharedService.openSnackBar('Server Error', 'error');
+                        _this56.sharedService.openSnackBar('Server Error', 'error');
                       });
                     } else {
-                      _this55.isDataSubmitted = false;
+                      _this56.isDataSubmitted = false;
 
-                      _this55.sharedService.openSnackBar(res.errorMessage, 'error');
+                      _this56.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
                   }, function (error) {
-                    _this55.isDataSubmitted = false;
+                    _this56.isDataSubmitted = false;
 
-                    _this55.sharedService.openSnackBar('Server Error', 'error');
+                    _this56.sharedService.openSnackBar('Server Error', 'error');
                   });
                 }
               });
@@ -6546,10 +6635,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this56 = this;
+            var _this57 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this56.timeZone = timeZone;
+              return _this57.timeZone = timeZone;
             });
 
             if (!this.isAdmin) {
@@ -6558,14 +6647,14 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this56.apartmentBlockUnitId = Number(params.unitId);
+                _this57.apartmentBlockUnitId = Number(params.unitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this56.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this57.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             });
 
@@ -6740,23 +6829,23 @@
         }, {
           key: "vehicleList",
           value: function vehicleList(id) {
-            var _this57 = this;
+            var _this58 = this;
 
             this.isUserDataLoaded = false;
             var vehicleListParams = {
               apartmentBlockUnitId: id
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this57.isUserDataLoaded = true;
-              if (Array.isArray(res)) _this57.vehicleDataList = res.reverse();else _this57.vehicleDataList = [];
+              _this58.isUserDataLoaded = true;
+              if (Array.isArray(res)) _this58.vehicleDataList = res.reverse();else _this58.vehicleDataList = [];
             }, function (error) {
-              _this57.sharedService.openSnackBar('Server Error', 'error');
+              _this58.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this58 = this;
+            var _this59 = this;
 
             //this.userId = this.sessionService.profileUserId
             if (!this.isAdmin) {
@@ -6766,16 +6855,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this58.apartmentBlockUnitId = Number(params.unitId);
+                _this59.apartmentBlockUnitId = Number(params.unitId);
 
-                _this58.vehicleList(_this58.apartmentBlockUnitId);
+                _this59.vehicleList(_this59.apartmentBlockUnitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this58.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this59.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             }); //Vehicle Type DropDown
 
@@ -6785,14 +6874,14 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this58.vehicleTypeList = res;
+              _this59.vehicleTypeList = res;
             }); //parking List
 
             var parkingListParams = {
               apartmentIdBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-              _this58.parkingSlotsDataList = res;
+              _this59.parkingSlotsDataList = res;
             });
           }
         }, {
@@ -7005,7 +7094,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this59 = this;
+            var _this60 = this;
 
             this.isDataSubmitted = true;
             var details = {
@@ -7029,17 +7118,17 @@
               propertyManager: details
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
-              _this59.isDataSubmitted = false;
+              _this60.isDataSubmitted = false;
 
               if (res.message) {
-                _this59.sharedService.openSnackBar("Property Manager added successfully", 'success');
+                _this60.sharedService.openSnackBar("Property Manager added successfully", 'success');
 
-                _this59.propertyData = {};
+                _this60.propertyData = {};
 
-                _this59.outputParams.emit('close');
+                _this60.outputParams.emit('close');
               }
             }, function (error) {
-              _this59.isDataSubmitted = false;
+              _this60.isDataSubmitted = false;
             });
           }
         }]);
@@ -7296,7 +7385,7 @@
         }, {
           key: "addPropertyManager",
           value: function addPropertyManager() {
-            var _this60 = this;
+            var _this61 = this;
 
             this.isDataSubmitted = true;
             var propertyManagerParams = {
@@ -7322,25 +7411,25 @@
               }
             };
             this.propertyManagerService.addPropertyManager(propertyManagerParams).subscribe(function (res) {
-              _this60.isDataSubmitted = false;
+              _this61.isDataSubmitted = false;
 
               if (res.message) {
-                _this60.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this61.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this60.getPropertyList();
+                _this61.getPropertyList();
               } else {
-                _this60.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this61.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this60.isDataSubmitted = false;
+              _this61.isDataSubmitted = false;
 
-              _this60.sharedService.openSnackBar('Server Error', 'error');
+              _this61.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updatePropertyManagerForm",
           value: function updatePropertyManagerForm() {
-            var _this61 = this;
+            var _this62 = this;
 
             this.isDataSubmitted = true;
             var propertyManagerParams = {
@@ -7367,31 +7456,31 @@
               }
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
-              _this61.isDataSubmitted = false;
+              _this62.isDataSubmitted = false;
 
               if (res.message) {
-                _this61.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this62.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this61.getPropertyList();
+                _this62.getPropertyList();
               } else {
-                _this61.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this62.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this61.isDataSubmitted = false;
+              _this62.isDataSubmitted = false;
 
-              _this61.sharedService.openSnackBar('Server Error', 'error');
+              _this62.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this62 = this;
+            var _this63 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
               var message = "".concat(data.DELETETITLE);
               var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-              var dialogRef = _this62.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
+              var dialogRef = _this63.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -7399,15 +7488,15 @@
 
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
-                  _this62.isDataLoaded = false;
+                  _this63.isDataLoaded = false;
                   var details = {
-                    "propertyManagerId": _this62.propertyData.propertyManagerId,
-                    "deleteBy": _this62.userId
+                    "propertyManagerId": _this63.propertyData.propertyManagerId,
+                    "deleteBy": _this63.userId
                   };
 
-                  _this62.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                  _this63.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                     if (res.message) {
-                      _this62.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                      _this63.sharedService.setAlertMessage("Property Manager Deleted successfully");
                     }
                   }, function (error) {});
                 }
@@ -7417,7 +7506,7 @@
         }, {
           key: "getPropertyList",
           value: function getPropertyList() {
-            var _this63 = this;
+            var _this64 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -7426,25 +7515,25 @@
             this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(params).subscribe(function (res) {
               if (res && Array.isArray(res)) {
                 if (res.length > 0) {
-                  _this63.propertyList = res.reverse();
-                  _this63.propertyData = res[0];
+                  _this64.propertyList = res.reverse();
+                  _this64.propertyData = res[0];
                 }
               } else {
-                _this63.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this64.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this63.clickMode = 'showAll';
-              _this63.isDataLoaded = true;
+              _this64.clickMode = 'showAll';
+              _this64.isDataLoaded = true;
             }, function (error) {
-              _this63.isDataLoaded = true;
+              _this64.isDataLoaded = true;
 
-              _this63.sharedService.openSnackBar('Server Error', 'error');
+              _this64.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this64 = this;
+            var _this65 = this;
 
             //this.userId =  this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -7454,16 +7543,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this64.apartmentBlockUnitId = Number(params.unitId);
+                _this65.apartmentBlockUnitId = Number(params.unitId);
 
-                _this64.getPropertyList();
+                _this65.getPropertyList();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this64.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
+                _this65.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
               }
             });
           }
