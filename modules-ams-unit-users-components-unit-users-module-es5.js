@@ -48,7 +48,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-resident-wrapper\" *ngIf=\"isAddUserForm\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">{{'MAIN.UNITUSER.ADDUSER.TITLE' | translate}}</h4>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}\" name=\"emailRegister\"\n                                [(ngModel)]=\"user.emailId\" [disabled]=\"isValidEmail\">\n                                <help-tooltip title=\"userEmail\"></help-tooltip>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">{{'MAIN.UNITUSER.ADDUSER.CHECKBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"clearEmail()\">{{'MAIN.UNITUSER.ADDUSER.CHANGEBUTTON' | translate}}</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n        <app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n        <form #addResidentForm=\"ngForm\" *ngIf=\"isValidEmail && !isUserSubmitted\">\n            <div class=\"bg-card shadow mb-1\">\n                <div class=\"row\">\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.USERTYPE' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"owner\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"4\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"owner\">{{'MAIN.UNITUSER.ADDUSER.OWNER' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"tenant\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"2\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"tenant\">{{'MAIN.UNITUSER.ADDUSER.TENANT' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\" *ngIf=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message\">\n                        <div class=\"input-box\">\n                            <ng-container *ngIf=\"(isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>Current {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} in this unit</label>\n                                <p>Tower : {{isTenantOrOwnerInfo.tower}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 4\">Tenant Name : {{isTenantOrOwnerInfo.userNameTenant}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 2\">Owner Name : {{isTenantOrOwnerInfo.userNameOwner}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isPrimaryContact != null\">Billing Contact: {{isTenantOrOwnerInfo.isPrimaryContact ? 'Yes' : 'No'}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isLiving != null\">Resident : {{isTenantOrOwnerInfo.isLiving ? 'Yes' : 'No'}}</p>\n                            </ng-container>\n                            <ng-container *ngIf=\"(!isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (!isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>No {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} Exist in this unit</label>\n                                <p>{{isTenantOrOwnerInfo.tower}}</p>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box float-sm-right mr-3\" *ngIf=\"emailResponse.length > 0\">\n                            <label>{{name}} is an existing user in</label>\n                            <p *ngFor=\"let data of emailResponse\">{{data.role_Label}} - {{data.blockId_Label}} {{data.unitId_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"towerInfo.roleId\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}\" name=\"userEmail\"\n                                [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}*</label>\n                            <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                                required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}*</label>\n                            <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n                                required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'MAIN.UNITUSER.ADDUSER.TOWERNO' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"towerList\"\n                            fieldValue=\"block_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockId\"\n                            fieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"towerInfo.apartmentBlockId\">\n                        <condo-select \n                            labelText=\"Unit No\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"unitList\"\n                            fieldValue=\"bu_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockUnitId\"\n                            fieldId=\"buId\"\n                            (fieldParams)=\"setBlockUnit($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n                            <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n                                [preferredCountries]=\"preferredCountries\"\n                                [enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n                                [searchCountryFlag]=\"true\"\n                                [searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n                                [selectFirstCountry]=\"false\"\n                                [selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n                                [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n                                [(ngModel)]=\"user.phoneNumber\" name=\"phone\">\n                        </ngx-intl-tel-input>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.GENDER' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"male\">{{'MAIN.UNITUSER.ADDUSER.MALE' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"female\">{{'MAIN.UNITUSER.ADDUSER.FEMALE' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box d-flex flex-column\">\n                            <div class=\"mb-1\">\n                                <input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"auto\">{{'MAIN.UNITUSER.ADDUSER.AUTOGENERATEPASSWORD' | translate}}</label>\n                            </div>\n                            <div>\n                                <input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"set\">{{'MAIN.UNITUSER.ADDUSER.SETUPPASSWORD' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.PASSWORD' | translate}}*</label>\n                            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n                                [(ngModel)]=\"user.password\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n                                        name=\"livingcondo\" [(ngModel)]=\"user.isLiving\" [disabled]=\"isLiving()\">\n                                    <label class=\"form-check-label tiny\"\n                                        for=\"livingcondo\">{{'MAIN.UNITUSER.ADDUSER.ISRESIDINGINCONDO' | translate}}</label>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n                                        name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n                                    <label class=\"form-check-label tiny\" for=\"primarycondo\">{{'MAIN.UNITUSER.ADDUSER.ISPRIMARYCONTACTFORBILLING' | translate}}</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box d-inline-block oh\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.NOTIFICATION' | translate}}</label>\n                            <div class=\"form-group checker-group\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n                                        name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n                                        disabled=\"true\">\n                                    <label class=\"form-check-label tiny\" for=\"emailNotify\">{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}</label>\n                                </div>\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n                                        name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n                                    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <button class=\"mr-2\" mat-button (click)=\"clearAllField('clear')\">{{'MAIN.UNITUSER.ADDUSER.CANCELBUTTON' | translate}}</button>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addResidentDetails()\">{{'MAIN.UNITUSER.ADDUSER.SUBMITBUTTON' | translate}}</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </form>\n\t</div>\n</div>\n\n<!-- Success Page -->\n\n<div class=\"add-users-resident-success-page\" *ngIf=\"!isAddUserForm\">\n    <div class=\"main\">\n        <condo-message class=\"mb-3\"\n            [appearance]=\"'outline'\"\n            [showIcon]=\"true\"\n            [type]=\"'success'\"\n            [@shake]=\"false\">\n            Account has been created and User has been informed through email\n        </condo-message>\n        <div class=\"bg-card shadow my-3\">\n            <div class=\"text-right\">\n                <button class=\"mr-3\" mat-flat-button  [color]=\"'primary'\" (click)=\"showAddUser()\">\n                    <span class=\"font-bold btn-size\">Create another User</span> \n                </button>\n                <button  mat-stroked-button (click)=\"navigateUnapprovedPage()\">\n                    <span class=\"font-bold btn-size\">View unapproved User List</span> \n                </button>\n            </div>\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-sign-up-request-resident-wrapper\">\n\t<div class=\"main\">\n\n        <div class=\"bg-card shadow\">\n            <div class=\"d-lg-flex justify-content-lg-between align-items-lg-center\">\n                <div class=\"mb-3 mb-xl-0\">\n                    <h5>Review And Create Unit User Account</h5>\n                    <p class=\"text-sm text-nowrap\">Form submitted by Unit Owner/Tenant through JOIN page has been given below</p>\n                    <p class=\"text-sm\">Please review and enter tower and unit details</p>\n                </div>\n                <!-- <div *ngIf=\"!isEditUser\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"enableEdit()\">\n                        <mat-icon class=\"mr-2\" [svgIcon]=\"'edit'\"></mat-icon>\n                        Edit\n                    </button>\n                </div> -->\n            </div>\n        </div>\n\n        <div class=\"bg-card shadow\">\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>First Name</label>\n                            <h6>{{signUpRequestInfo.firstName}}</h6>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Last Name</label>\n                            <h6>{{signUpRequestInfo.lastName}}</h6>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Gender</label>\n                            <h6>{{signUpRequestInfo.genderName == 43 ? 'Male' : 'Female'}}</h6>\n                        </div>\n                    </div>\n                    <ng-container *ngIf=\"signUpRequestInfo.signupSubNotes && signUpRequestInfo.signupSubNotes.length > 0\">\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>User Type</label>\n                                <h6>{{signUpRequestInfo.signupSubNotes[0].userType == 4 ? 'Owner' : 'Tenant'}}</h6>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>Block Name</label>\n                                <h6>{{signUpRequestInfo?.signupSubNotes[0].blockUnit}}</h6>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>Unit Name</label>\n                                <h6>{{signUpRequestInfo?.signupSubNotes[0].unit}}</h6>\n                            </div>\n                        </div>\n                    </ng-container>\n                </div>\n            </form>\n        </div>\n       \n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n        </condo-message>\n        \n        <app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\n        <form #addResidentForm=\"ngForm\" *ngIf=\"!isUserSubmitted\">\n\n            <div class=\"bg-card shadow mb-1\">\n                <div class=\"row\">\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.USERTYPE' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"owner\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"4\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"owner\">{{'MAIN.UNITUSER.ADDUSER.OWNER' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"tenant\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"2\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"tenant\">{{'MAIN.UNITUSER.ADDUSER.TENANT' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\" *ngIf=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message\">\n                        <div class=\"input-box\">\n                            <ng-container *ngIf=\"(isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>Current {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} in this unit</label>\n                                <p>Tower : {{isTenantOrOwnerInfo.tower}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 4\">Tenant Name : {{isTenantOrOwnerInfo.userNameTenant}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 2\">Owner Name : {{isTenantOrOwnerInfo.userNameOwner}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isPrimaryContact != null\">Billing Contact: {{isTenantOrOwnerInfo.isPrimaryContact ? 'Yes' : 'No'}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isLiving != null\">Resident : {{isTenantOrOwnerInfo.isLiving ? 'Yes' : 'No'}}</p>\n                            </ng-container>\n                            <ng-container *ngIf=\"(!isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (!isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>No {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} Exist in this unit</label>\n                                <p>{{isTenantOrOwnerInfo.tower}}</p>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box float-sm-right mr-3\" *ngIf=\"emailResponse.length > 0\">\n                            <label>{{name}} is an existing user in</label>\n                            <p *ngFor=\"let data of emailResponse\">{{data.role_Label}} - {{data.blockId_Label}} {{data.unitId_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"towerInfo.roleId\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}\" name=\"userEmail\"\n                                [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                                required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n                                required disabled>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'MAIN.UNITUSER.ADDUSER.TOWERNO' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"towerList\"\n                            fieldValue=\"block_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockId\"\n                            fieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"towerInfo.apartmentBlockId\">\n                        <condo-select \n                            labelText=\"Unit No\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"unitList\"\n                            fieldValue=\"bu_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockUnitId\"\n                            fieldId=\"buId\"\n                            (fieldParams)=\"setBlockUnit($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n                            <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n                                [preferredCountries]=\"preferredCountries\"\n                                [enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n                                [searchCountryFlag]=\"true\"\n                                [searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n                                [selectFirstCountry]=\"false\"\n                                [selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n                                [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n                                [(ngModel)]=\"user.phoneNumber\" name=\"phone\" disabled>\n                            </ngx-intl-tel-input>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.GENDER' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"male\">{{'MAIN.UNITUSER.ADDUSER.MALE' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"female\">{{'MAIN.UNITUSER.ADDUSER.FEMALE' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box d-flex flex-column\">\n                            <div class=\"mb-1\">\n                                <input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"auto\">{{'MAIN.UNITUSER.ADDUSER.AUTOGENERATEPASSWORD' | translate}}</label>\n                            </div>\n                            <div>\n                                <input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"set\">{{'MAIN.UNITUSER.ADDUSER.SETUPPASSWORD' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.PASSWORD' | translate}}*</label>\n                            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n                                [(ngModel)]=\"user.password\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n                                        name=\"livingcondo\" [(ngModel)]=\"user.isLiving\" [disabled]=\"isLiving()\">\n                                    <label class=\"form-check-label tiny\"\n                                        for=\"livingcondo\">{{'MAIN.UNITUSER.ADDUSER.ISRESIDINGINCONDO' | translate}}</label>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n                                        name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n                                    <label class=\"form-check-label tiny\" for=\"primarycondo\">{{'MAIN.UNITUSER.ADDUSER.ISPRIMARYCONTACTFORBILLING' | translate}}</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box d-inline-block oh\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.NOTIFICATION' | translate}}</label>\n                            <div class=\"form-group checker-group\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n                                        name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n                                        disabled>\n                                    <label class=\"form-check-label tiny\" for=\"emailNotify\">{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}</label>\n                                </div>\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n                                        name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n                                    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <button class=\"mr-2\" mat-button (click)=\"clearAllField()\">{{'MAIN.UNITUSER.ADDUSER.CANCELBUTTON' | translate}}</button>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addResidentDetails()\">{{'MAIN.UNITUSER.ADDUSER.SUBMITBUTTON' | translate}}</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -774,7 +774,7 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (tower) {
-              if (tower.length > 0) {
+              if (Array.isArray(tower)) {
                 _this9.towerList = tower;
               }
             });
@@ -933,46 +933,42 @@
       /* harmony import */
 
 
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! src/app/shared/services/constants.service */
-      "./src/app/shared/services/constants.service.ts");
-      /* harmony import */
-
-
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
       /* harmony import */
 
 
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
       /* harmony import */
 
 
-      var _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ../add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts");
 
       var SignupRequestAdduserComponent = /*#__PURE__*/function () {
-        function SignupRequestAdduserComponent(dialog, router, userService, emailSendService, apartmentService, sharedService, sessionService, constantsService, activateRouter, cd, translateService) {
+        function SignupRequestAdduserComponent(dialog, router, userService, emailSendService, apartmentService, sharedService, sessionService, activateRouter, cd, translateService) {
+          var _this10 = this;
+
           _classCallCheck(this, SignupRequestAdduserComponent);
 
           this.dialog = dialog;
@@ -982,22 +978,19 @@
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
-          this.constantsService = constantsService;
           this.activateRouter = activateRouter;
           this.cd = cd;
           this.translateService = translateService;
           this.isUserSubmitted = false;
-          this.isValidEmail = false;
-          this.isExistingUSer = false;
           this.user = {};
-          this.emailResponse = [];
-          this.isAddUserForm = true; //mobile number
+          this.isAutoGenPassword = true;
+          this.emailResponse = []; //mobile number
 
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"];
-          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedKingdom];
-          this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].Philippines;
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
+          this.selectedCountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].Philippines;
           this.message = null; //Tower and Unit
 
           this.towerList = [];
@@ -1010,27 +1003,36 @@
           }; //check Owner or Tenant Info
 
           this.isTenantOrOwnerInfo = {};
-          this.imageFormats = this.constantsService.imageFormats.join(',');
+          this.signUpRequestInfo = {};
+          this.signUpRequestId = this.activateRouter.params['value'].id;
+          var params = {
+            apartmentId: this.sessionService.apartmentId,
+            requestId: this.signUpRequestId
+          };
+          this.userService.getSignupUserRequestByRequestId(params).subscribe(function (res) {
+            if (Array.isArray(res)) {
+              _this10.signUpRequestInfo = res[0];
+              _this10.user.emailId = _this10.signUpRequestInfo.emailId;
+              _this10.user.firstName = _this10.signUpRequestInfo.firstName;
+              _this10.user.lastName = _this10.signUpRequestInfo.lastName;
+              _this10.user.genderId = Number(_this10.signUpRequestInfo.genderName);
+              _this10.user.phoneNumber = {
+                'countryCode': _this10.signUpRequestInfo.phonecountrycode,
+                'number': _this10.signUpRequestInfo.phoneNumber
+              };
+              _this10.user.isEmailNotify = true;
+
+              _this10.checkEmail();
+            }
+          });
         }
 
         _createClass(SignupRequestAdduserComponent, [{
-          key: "showAddUser",
-          value: function showAddUser() {
-            this.isAddUserForm = true;
-          }
-        }, {
-          key: "navigateUnapprovedPage",
-          value: function navigateUnapprovedPage() {
-            this.router.navigate(['ams/unit&users/info/unapproved']);
-          }
-        }, {
-          key: "clearEmail",
-          value: function clearEmail() {
-            this.user = {};
-            this.isValidEmail = false;
-            this.isExistingUSer = false;
-            this.emailResponse = [];
-            this.name = '';
+          key: "navigateSignUpRequest",
+          value: function navigateSignUpRequest() {
+            this.router.navigate(['usersignuprequest'], {
+              relativeTo: this.activateRouter.parent
+            });
           }
         }, {
           key: "isLiving",
@@ -1038,39 +1040,15 @@
             if (this.towerInfo.roleId == 2) return true;else if (this.towerInfo.roleId == 4 && this.isTenantOrOwnerInfo.userNameTenant && this.isTenantOrOwnerInfo.roleName == 'Tenant') return true;else return false;
           }
         }, {
-          key: "resetField",
-          value: function resetField(type) {
-            this.user.isEmailNotify = true;
-            this.isAutoGenPassword = true;
-
-            if (type == 'check') {
-              var mailId = this.user.emailId;
-              this.user = {};
-              this.user = {
-                emailId: mailId
-              };
-            } else {
-              this.clearEmail();
-            }
-
-            this.towerInfo = {
-              roleId: null,
-              apartmentBlockId: null,
-              apartmentBlockUnitId: null,
-              apartmentBlockUnitUserId: null
-            };
-            this.isTenantOrOwnerInfo = {};
-          }
-        }, {
           key: "clearAllField",
           value: function clearAllField() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.translateService.get('POPUP').subscribe(function (data) {
               var message = "".concat(data.CANCELUSERCREATION);
-              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
 
-              var dialogRef = _this10.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+              var dialogRef = _this11.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -1078,9 +1056,7 @@
 
               dialogRef.afterClosed().subscribe(function (dialogResult) {
                 if (dialogResult) {
-                  _this10.resetField('clear');
-
-                  _this10.cd.detectChanges();
+                  _this11.navigateSignUpRequest();
                 }
               });
             });
@@ -1088,123 +1064,26 @@
         }, {
           key: "checkEmail",
           value: function checkEmail() {
-            var _this11 = this;
-
-            this.isValidEmail = false;
-            this.resetField('check');
-            var isValid = this.validateEmail(this.user.emailId); // Validate Email
-
-            if (isValid) {
-              var params = {
-                emailId: this.user.emailId,
-                apartmentId: this.sessionService.apartmentId
-              };
-              this.isUserSubmitted = true;
-              this.userService.checkUnituseremailexists(params).subscribe(function (respone) {
-                _this11.isUserSubmitted = false;
-
-                if (Array.isArray(respone) && respone[0].blockunitUserDetails && respone[0].blockunitUserDetails.length > 0) {
-                  _this11.translateService.get('VALIDATION').subscribe(function (data) {
-                    var confirmBoxData = {
-                      message: "".concat(data.USER, "  ").concat(_this11.user.emailId, "  ").concat(data.EXISTSUSERWITHUNITS, " ?"),
-                      title: "".concat(data.TITLE),
-                      type: 'email',
-                      response: respone[0].blockunitUserDetails
-                    };
-                    _this11.name = "".concat(respone[0].firstName, " ").concat(respone[0].lastName);
-                    _this11.emailResponse = respone[0].blockunitUserDetails;
-
-                    _this11.confirmBox(confirmBoxData, respone[0]);
-                  });
-                } else if (respone.errorMessage == 'EmailId Not Exists.') {
-                  _this11.isValidEmail = true;
-                  _this11.isExistingUSer = false;
-                  _this11.user.isEmailNotify = true;
-
-                  _this11.cd.markForCheck();
-                } else {
-                  _this11.translateService.get('VALIDATION').subscribe(function (data) {
-                    var confirmBoxData = {
-                      message: "User ".concat(_this11.user.emailId, " already exists and not assigned to any units. Do you want to add this emailId to an unit of your community?"),
-                      title: "".concat(data.TITLE),
-                      type: 'email'
-                    };
-
-                    _this11.confirmBox(confirmBoxData, respone[0]);
-                  });
-                }
-              }, function (error) {
-                _this11.isValidEmail = false;
-                _this11.isUserSubmitted = false;
-
-                _this11.sharedService.openSnackBar("Server Error", 'error');
-              });
-            } else {
-              this.user.emailId = '';
-              this.translateService.get('SNACKBAR').subscribe(function (data) {
-                _this11.sharedService.openSnackBar("".concat(data.PROPEREMAIL), 'error');
-
-                _this11.cd.markForCheck();
-              });
-            }
-          }
-        }, {
-          key: "validateEmail",
-          value: function validateEmail(val) {
-            var retVal = true;
-            var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
-            var isValid = rex.test(val);
-
-            if (!isValid) {
-              retVal = false;
-              this.sharedService.openSnackBar('Please correct your email id', 'error');
-            }
-
-            return retVal;
-          }
-        }, {
-          key: "confirmBox",
-          value: function confirmBox(confirmBoxData, info) {
             var _this12 = this;
 
-            var dialogRef = this.dialog.open(_add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["AddUserConfirmModalComponent"], {
-              panelClass: 'material-dialog-big',
-              data: confirmBoxData
-            });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result) {
-                // this.result = result;
-                _this12.isValidEmail = _this12.isExistingUSer = true;
-                _this12.user = info;
-                _this12.user.phoneNumber = {
-                  'countryCode': _this12.user.phonecountrycode,
-                  'number': _this12.user.phoneNumber
-                };
+            var params = {
+              emailId: this.user.emailId,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.isUserSubmitted = true;
+            this.userService.checkUnituseremailexists(params).subscribe(function (respone) {
+              _this12.isUserSubmitted = false;
+
+              if (Array.isArray(respone) && respone[0].blockunitUserDetails && respone[0].blockunitUserDetails.length > 0) {
+                _this12.name = "".concat(respone[0].firstName, " ").concat(respone[0].lastName);
+                _this12.emailResponse = respone[0].blockunitUserDetails;
                 _this12.user.isEmailNotify = true;
-
-                _this12.cd.markForCheck();
-              } else {
-                _this12.cd.detectChanges();
-
-                _this12.isUserSubmitted = false;
               }
+            }, function (error) {
+              _this12.isUserSubmitted = false;
+
+              _this12.sharedService.openSnackBar("Server Error", 'error');
             });
-          }
-        }, {
-          key: "uploadFile",
-          value: function uploadFile(event) {
-            var _this13 = this;
-
-            this.imageFile = event[0];
-
-            if (this.imageFile) {
-              var reader = new FileReader();
-              reader.readAsDataURL(this.imageFile);
-
-              reader.onload = function (event) {
-                _this13.profilePicUrl = reader.result;
-              };
-            }
           }
         }, {
           key: "setBlock",
@@ -1244,7 +1123,7 @@
         }, {
           key: "checkUnitOccupied",
           value: function checkUnitOccupied(type) {
-            var _this14 = this;
+            var _this13 = this;
 
             this.isTenantOrOwnerInfo = {};
 
@@ -1263,8 +1142,8 @@
                   if (isExist != 'No') {
                     unitRes = res.message.message.split(',');
 
-                    _this14.translateService.get('POPUP').subscribe(function (data) {
-                      var dialogRef = _this14.dialog.open(_add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["AddUserConfirmModalComponent"], {
+                    _this13.translateService.get('POPUP').subscribe(function (data) {
+                      var dialogRef = _this13.dialog.open(_add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["AddUserConfirmModalComponent"], {
                         panelClass: 'material-dialog-big',
                         data: {
                           title: "".concat(data.CONFIRMACTION),
@@ -1274,21 +1153,21 @@
                       });
 
                       dialogRef.afterClosed().subscribe(function (result) {
-                        _this14.towerInfo.apartmentBlockId = null;
-                        _this14.towerInfo.apartmentBlockUnitId = null;
-                        _this14.unitList = [];
+                        _this13.towerInfo.apartmentBlockId = null;
+                        _this13.towerInfo.apartmentBlockUnitId = null;
+                        _this13.unitList = [];
 
-                        _this14.cd.detectChanges();
+                        _this13.cd.detectChanges();
                       });
                     });
                   } else {
                     var message = res.message.message;
                     res.message.tower = message.substr(message.lastIndexOf(':') + 2);
-                    _this14.isTenantOrOwnerInfo = res.message;
+                    _this13.isTenantOrOwnerInfo = res.message;
                   }
-                } else _this14.sharedService.openSnackBar(res.errorMessage, 'error');
+                } else _this13.sharedService.openSnackBar(res.errorMessage, 'error');
               }, function (error) {
-                _this14.sharedService.openSnackBar('Server Error', 'error');
+                _this13.sharedService.openSnackBar('Server Error', 'error');
               });
             }
 
@@ -1303,16 +1182,16 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.userService.getAllRolesByRoleTypeIdByApartmentId(roles).subscribe(function (res) {
-                _this14.user.roleId = res[0].roleId;
+                _this13.user.roleId = res[0].roleId;
               }, function (error) {
-                _this14.sharedService.openSnackBar('Server Error', 'sucess');
+                _this13.sharedService.openSnackBar('Server Error', 'sucess');
               });
             }
           }
         }, {
           key: "addResidentDetails",
           value: function addResidentDetails() {
-            var _this15 = this;
+            var _this14 = this;
 
             this.message = null;
 
@@ -1323,7 +1202,7 @@
               }); // Show the validation message
 
               this.translateService.get('VALIDATION').subscribe(function (data) {
-                _this15.message = {
+                _this14.message = {
                   appearance: 'outline',
                   content: "".concat(data.CONTENTREQUIREDFIELD),
                   shake: true,
@@ -1378,29 +1257,29 @@
               };
               this.userService.addUser(params).subscribe(function (res) {
                 if (res.code == 200) {
-                  var userId = parseInt(res.responseData.value.message); //this.sharedService.openSnackBar('User Created Successfully', 'success');
+                  var userId = parseInt(res.responseData.value.message);
 
-                  _this15.submitUserConfig(userId);
+                  _this14.submitUserConfig(userId);
                 } else if (res.code == 404 && res.message == 'Already EmailId Exists') {
                   var _userId2 = parseInt(res.statusMessage);
 
-                  _this15.submitUserConfig(_userId2);
+                  _this14.submitUserConfig(_userId2);
                 } else {
-                  _this15.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this14.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
 
-                  _this15.isUserSubmitted = false;
+                  _this14.isUserSubmitted = false;
                 }
               }, function (error) {
-                _this15.isUserSubmitted = false;
+                _this14.isUserSubmitted = false;
 
-                _this15.sharedService.openSnackBar('Server Error', 'error');
+                _this14.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "submitUserConfig",
           value: function submitUserConfig(userId) {
-            var _this16 = this;
+            var _this15 = this;
 
             var apartmentParams = {
               apartmentBlockUnitUser: {
@@ -1411,7 +1290,7 @@
                 "isBillToParty": this.user.isPrimaryContact,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "isLiving": this.user.isLiving,
@@ -1427,94 +1306,60 @@
             };
             this.apartmentService.addApartmentBlockUnitUser(apartmentParams).subscribe(function (res) {
               if (res.message) {
-                //this.sharedService.openSnackBar('Block Unit User Added Successfully','success');
                 var params = {
                   userRole: {
                     "userId": userId,
-                    "roleId": _this16.user.roleId,
+                    "roleId": _this15.user.roleId,
                     "isActive": true,
-                    "insertedBy": _this16.sessionService.userId,
-                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+                    "insertedBy": _this15.sessionService.userId,
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                     "updatedBy": null,
                     "apartmentBlockUnitUserId": res.message,
                     "updatedOn": null
                   }
                 };
 
-                _this16.userService.addUserRole(params).subscribe(function (res) {
-                  _this16.isUserSubmitted = false;
+                _this15.userService.addUserRole(params).subscribe(function (res) {
+                  _this15.isUserSubmitted = false;
+                  if (res.message) _this15.navigateSignUpRequest();else _this15.sharedService.openSnackBar(res.errorMessage, 'error');
 
-                  if (res.message) {
-                    _this16.isAddUserForm = false; //Show Success Page 
-
-                    _this16.resetField('submit'); //this.sentMail();
-
-                  } else {
-                    _this16.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-
-                  _this16.cd.detectChanges();
+                  _this15.cd.detectChanges();
                 }, function (error) {
-                  _this16.isUserSubmitted = false;
+                  _this15.isUserSubmitted = false;
 
-                  _this16.sharedService.openSnackBar('Server Error', 'error');
+                  _this15.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this16.isUserSubmitted = false;
+                _this15.isUserSubmitted = false;
 
-                _this16.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this15.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this16.isUserSubmitted = false;
+              _this15.isUserSubmitted = false;
 
-              _this16.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "sentMail",
-          value: function sentMail() {
-            var _this17 = this;
-
-            var emailDetails = {
-              emailAddress: this.user.emailId,
-              Name: this.user.firstName,
-              Subject: 'User Created',
-              TextMessage: 'User Created'
-            };
-            this.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
-              _this17.isUserSubmitted = false;
-
-              if (res) {
-                _this17.router.navigate(['ams/unit&users/info/success']);
-              } else {
-                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this17.isUserSubmitted = false;
-
-              _this17.sharedService.openSnackBar('Server Error', 'error');
+              _this15.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this16 = this;
 
             // Set TimeZone 
             this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
               if (data) {
-                _this18.user.timeZone = data.initialData.apartment.timesettings;
+                _this16.user.timeZone = data.initialData.apartment.timesettings;
                 var response = data.initialData.apartment;
-                _this18.selectedCountryISO = response.country.toLowerCase();
-              } else _this18.user.timeZone = '';
+                _this16.selectedCountryISO = response.country.toLowerCase();
+              } else _this16.user.timeZone = '';
             }); //Tower List
 
             var tower = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (tower) {
-              if (tower.length > 0) {
-                _this18.towerList = tower;
+              if (Array.isArray(tower)) {
+                _this16.towerList = tower;
               }
             });
           }
@@ -1539,13 +1384,11 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]
         }];
       };
 
@@ -1565,7 +1408,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./signup-request-adduser.component.scss */
         "./src/app/modules/ams/unit-users/components/signup-request-adduser/signup-request-adduser.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__["EmailSendService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]])], SignupRequestAdduserComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__["EmailSendService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]])], SignupRequestAdduserComponent);
       /***/
     },
 
@@ -1714,7 +1557,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this19 = this;
+            var _this17 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1727,7 +1570,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this19.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this17.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1743,11 +1586,11 @@
         }, {
           key: "viewUserInfo",
           value: function viewUserInfo(id) {
-            var _this20 = this;
+            var _this18 = this;
 
             this.isProfile = false;
             setTimeout(function () {
-              _this20.isProfile = true;
+              _this18.isProfile = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.user-info-card');
@@ -1763,7 +1606,7 @@
         }, {
           key: "showConfirmModal",
           value: function showConfirmModal(data) {
-            var _this21 = this;
+            var _this19 = this;
 
             this.modalService.showConfirmModal(data.signupUserRequestId);
             var params = {
@@ -1772,9 +1615,9 @@
             };
             this.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
               if (res.message) {
-                _this21.sharedService.setAlertMessage("Signup deleted successfully.");
+                _this19.sharedService.setAlertMessage("Signup deleted successfully.");
 
-                _this21.router.navigate(['ams/unit&users/usersignuprequest', _this21.viewUserId]);
+                _this19.router.navigate(['ams/unit&users/usersignuprequest', _this19.viewUserId]);
               }
             }, function (error) {
               console.log(error);
@@ -1796,14 +1639,14 @@
           key: "onViewUser",
           value: function onViewUser(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            dataRecord.mode = false;
-            dataRecord.selectedCountryISO = this.selectedCountryISO;
-            this.openEditDialog(dataRecord); // this.modalService.showSignUpdetailsModal(dataRecord);
+            this.router.navigate(["signuprequest/".concat(dataRecord.signupUserRequestId)], {
+              relativeTo: this.activateRouter.parent
+            });
           }
         }, {
           key: "openEditDialog",
           value: function openEditDialog(signupData) {
-            var _this22 = this;
+            var _this20 = this;
 
             var dialogRef = this.dialog.open(_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["SignupEditModalComponent"], {
               panelClass: 'material-dialog-medium',
@@ -1813,7 +1656,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this22.getSignUpUserList(); // this.sharedService.refreshSignUpList(true)
+                _this20.getSignUpUserList(); // this.sharedService.refreshSignUpList(true)
 
               }
             });
@@ -1829,17 +1672,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this21 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this23.timeZone = timeZone;
+              return _this21.timeZone = timeZone;
             }); // Set TimeZone 
 
             this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
               if (data) {
                 //this.timeZone = data.initialData.apartment.timesettings;
                 var response = data.initialData.apartment;
-                _this23.selectedCountryISO = response.country.toLowerCase();
+                _this21.selectedCountryISO = response.country.toLowerCase();
               }
             });
 
@@ -1887,7 +1730,7 @@
               datafield: 'insertedOn',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__["utc"](value).tz(_this23.timeZone.region).format(_this23.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__["utc"](value).tz(_this21.timeZone.region).format(_this21.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1904,28 +1747,28 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this23.datagrid.getrowdata(id);
+                var dataRecord = _this21.datagrid.getrowdata(id);
 
                 var signupUserId = dataRecord.signupUserRequestId;
                 var params = {
                   signupUserId: signupUserId,
-                  apartmentId: _this23.sessionService.apartmentId
+                  apartmentId: _this21.sessionService.apartmentId
                 };
 
-                _this23.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
+                _this21.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this23.datagrid.deleterow(id);
+                    _this21.datagrid.deleterow(id);
 
-                    _this23.totalItems = _this23.unitListData.length;
+                    _this21.totalItems = _this21.unitListData.length;
 
-                    _this23.sharedService.openSnackBar("User sign up request deleted successfully", 'success');
+                    _this21.sharedService.openSnackBar("User sign up request deleted successfully", 'success');
                   } else {
-                    _this23.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this23.sharedService.setUnitListDeleteIndex(null);
+                  _this21.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this23.sharedService.openSnackBar("Server Error", 'error');
+                  _this21.sharedService.openSnackBar("Server Error", 'error');
                 });
               }
             }); // this.sharedService.refreshSignUpUser.subscribe(resp =>{
@@ -1935,7 +1778,7 @@
         }, {
           key: "getSignUpUserList",
           value: function getSignUpUserList() {
-            var _this24 = this;
+            var _this22 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -1952,13 +1795,13 @@
 
                 key['fullName'] = key.firstName + '  ' + key.lastName;
               });
-              _this24.gridSourceData = {
+              _this22.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this24.unitListData = new jqx.dataAdapter(_this24.gridSourceData);
-              _this24.totalItems = unitListData.length;
-              _this24.isUserDataLoaded = true;
+              _this22.unitListData = new jqx.dataAdapter(_this22.gridSourceData);
+              _this22.totalItems = unitListData.length;
+              _this22.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2360,7 +2203,7 @@
         }, {
           key: "approveUsers",
           value: function approveUsers() {
-            var _this25 = this;
+            var _this23 = this;
 
             this.isUserDataLoaded = false;
             var multipleApiCall = [];
@@ -2368,26 +2211,26 @@
               if (item.checked) {
                 var updateParam = {
                   approveuser: {
-                    apartmentId: _this25.sessionService.apartmentId,
+                    apartmentId: _this23.sessionService.apartmentId,
                     apartmentBlockUnitUserId: item.apartmentBlockUnitUserID
                   }
                 };
-                multipleApiCall.push(_this25.userService.updateApproveuser(updateParam));
+                multipleApiCall.push(_this23.userService.updateApproveuser(updateParam));
               }
             });
             Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
               if (res.length > 0) {
                 res.forEach(function (data) {
                   if (data.code == 200) {
-                    _this25.sharedService.openSnackBar(data.statusMessage, 'success');
+                    _this23.sharedService.openSnackBar(data.statusMessage, 'success');
                   } else {
-                    _this25.sharedService.openSnackBar(data.statusMessage, 'error');
+                    _this23.sharedService.openSnackBar(data.statusMessage, 'error');
                   }
                 });
 
-                _this25.getUnApprovedList();
+                _this23.getUnApprovedList();
               } else {
-                _this25.isUserDataLoaded = true;
+                _this23.isUserDataLoaded = true;
               }
             });
             this.isUserSelected = !this.isUserSelected;
@@ -2395,7 +2238,7 @@
         }, {
           key: "rejPopUpClose",
           value: function rejPopUpClose(comments) {
-            var _this26 = this;
+            var _this24 = this;
 
             this.isDataSubmitted = true;
             var multipleApiCall = [];
@@ -2403,32 +2246,32 @@
               if (item.checked) {
                 var updateParam = {
                   approveuser: {
-                    apartmentId: _this26.sessionService.apartmentId,
+                    apartmentId: _this24.sessionService.apartmentId,
                     apartmentBlockUnitUserId: item.apartmentBlockUnitUserID,
                     comments: comments
                   }
                 };
-                multipleApiCall.push(_this26.userService.updateRejectuser(updateParam));
+                multipleApiCall.push(_this24.userService.updateRejectuser(updateParam));
               }
             });
             Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
-              _this26.isDataSubmitted = false;
+              _this24.isDataSubmitted = false;
 
               if (res.length > 0) {
                 res.forEach(function (data) {
                   if (data.code == 200) {
-                    _this26.sharedService.openSnackBar(data.statusMessage, 'success');
+                    _this24.sharedService.openSnackBar(data.statusMessage, 'success');
                   } else {
-                    _this26.sharedService.openSnackBar(data.statusMessage, 'error');
+                    _this24.sharedService.openSnackBar(data.statusMessage, 'error');
                   }
                 });
 
-                _this26.getUnApprovedList();
+                _this24.getUnApprovedList();
 
-                _this26.dialog.closeAll();
+                _this24.dialog.closeAll();
               }
             }, function (error) {
-              _this26.isDataSubmitted = false;
+              _this24.isDataSubmitted = false;
             });
             this.isUserSelected = !this.isUserSelected;
           }
@@ -2466,20 +2309,20 @@
         }, {
           key: "showLogs",
           value: function showLogs() {
-            var _this27 = this;
+            var _this25 = this;
 
             this.isLogs = !this.isLogs;
             this.sharedService.getJsonData().subscribe(function (res) {
-              _this27.logsData = res.logsData;
-              _this27.totalLogItems = _this27.logsData.length;
+              _this25.logsData = res.logsData;
+              _this25.totalLogItems = _this25.logsData.length;
 
-              if (_this27.totalLogItems > _this27.itemLogLimit) {
-                _this27.ItemLogEndIndex = _this27.itemLogLimit;
+              if (_this25.totalLogItems > _this25.itemLogLimit) {
+                _this25.ItemLogEndIndex = _this25.itemLogLimit;
               } else {
-                _this27.ItemLogEndIndex = _this27.totalLogItems;
+                _this25.ItemLogEndIndex = _this25.totalLogItems;
               }
 
-              _this27.isLogsDataLoaded = true;
+              _this25.isLogsDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2487,7 +2330,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this28 = this;
+            var _this26 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2500,7 +2343,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this28.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2522,7 +2365,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this29 = this;
+            var _this27 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2615,23 +2458,23 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this29.datagrid.getrowdata(id);
+                var dataRecord = _this27.datagrid.getrowdata(id);
 
                 var params = {
-                  apartmentId: _this29.sessionService.apartmentId,
+                  apartmentId: _this27.sessionService.apartmentId,
                   apartmentBlockUnitUserId: dataRecord.apartmentBlockUnitUserID,
-                  deleteBy: _this29.sessionService.userId
+                  deleteBy: _this27.sessionService.userId
                 };
 
-                _this29.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
-                  _this29.sharedService.setUnitListDeleteIndex(null);
+                _this27.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
+                  _this27.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.length > 0) {
-                    _this29.getUnApprovedList();
+                    _this27.getUnApprovedList();
 
-                    _this29.sharedService.openSnackBar(res[0].message, 'success');
+                    _this27.sharedService.openSnackBar(res[0].message, 'success');
                   } else {
-                    _this29.sharedService.openSnackBar(res[0].errorMessage, 'error');
+                    _this27.sharedService.openSnackBar(res[0].errorMessage, 'error');
                   }
                 });
               }
@@ -2640,7 +2483,7 @@
         }, {
           key: "getUnApprovedList",
           value: function getUnApprovedList() {
-            var _this30 = this;
+            var _this28 = this;
 
             this.unitData = '';
             var params = {
@@ -2649,17 +2492,17 @@
             this.userService.getAllUnApprovedUsersByApartmentIdNew(params).subscribe(function (res) {
               var unitListData = res; //filter active true items
 
-              _this30.unitListData = unitListData.filter(function (data) {
+              _this28.unitListData = unitListData.filter(function (data) {
                 data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
                 return data.active;
               });
-              _this30.gridSourceData = {
+              _this28.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this30.unitListData = new jqx.dataAdapter(_this30.gridSourceData);
-              _this30.totalUserItems = unitListData.length;
-              _this30.isUserDataLoaded = true;
+              _this28.unitListData = new jqx.dataAdapter(_this28.gridSourceData);
+              _this28.totalUserItems = unitListData.length;
+              _this28.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2883,6 +2726,12 @@
       var _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./add-users-resident/add-users-resident.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.ts");
+      /* harmony import */
+
+
+      var _signup_request_adduser_signup_request_adduser_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ./signup-request-adduser/signup-request-adduser.component */
+      "./src/app/modules/ams/unit-users/components/signup-request-adduser/signup-request-adduser.component.ts");
 
       var routes = [{
         path: '',
@@ -2891,6 +2740,10 @@
       }, {
         path: 'usersignuprequest',
         component: _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_5__["SignuprequestComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'signuprequest/:id',
+        component: _signup_request_adduser_signup_request_adduser_component__WEBPACK_IMPORTED_MODULE_8__["SignupRequestAdduserComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'unapproved',
