@@ -1522,7 +1522,7 @@
                     map: 'escalationLevelId1>userName'
                   }, {
                     name: 'dayOne',
-                    type: 'number',
+                    type: 'string',
                     map: 'escalationLevelId1>escalationDays'
                   }, {
                     name: 'userNameTwo',
@@ -1530,7 +1530,7 @@
                     map: 'escalationLevelId2>userName'
                   }, {
                     name: 'dayTwo',
-                    type: 'number',
+                    type: 'string',
                     map: 'escalationLevelId2>escalationDays'
                   }]
                 };
@@ -1581,7 +1581,9 @@
             }, {
               text: 'L1 escdays',
               datafield: 'dayOne',
-              cellsrenderer: cellsrendererPrivate,
+              cellsrenderer: function cellsrenderer(value) {
+                return '<div class="jqx-custom-inner-cell">' + value.toFixed(0) + '</div>';
+              },
               width: 120,
               renderer: columnrendererPrivate
             }, {
@@ -1593,7 +1595,9 @@
             }, {
               text: 'L2 escdays',
               datafield: 'dayTwo',
-              cellsrenderer: cellsrendererPrivate,
+              cellsrenderer: function cellsrenderer(value) {
+                return '<div class="jqx-custom-inner-cell">' + value.toFixed(0) + '</div>';
+              },
               width: 120,
               renderer: columnrendererPrivate
             }, {

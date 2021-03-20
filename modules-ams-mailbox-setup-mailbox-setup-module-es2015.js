@@ -167,7 +167,6 @@ let MailboxSetupComponent = class MailboxSetupComponent {
     }
     ngOnInit() {
         this.sharedService.userpiccast.subscribe((res) => {
-            console.log(res);
         });
         this.sharedService.timezonecast
             .subscribe(timeZone => {

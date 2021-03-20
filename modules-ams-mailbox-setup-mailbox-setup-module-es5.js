@@ -264,9 +264,7 @@
           value: function ngOnInit() {
             var _this2 = this;
 
-            this.sharedService.userpiccast.subscribe(function (res) {
-              console.log(res);
-            });
+            this.sharedService.userpiccast.subscribe(function (res) {});
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               _this2.timeZone = timeZone;
               console.log(timeZone);

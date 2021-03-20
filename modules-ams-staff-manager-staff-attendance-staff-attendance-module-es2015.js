@@ -330,12 +330,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -357,8 +360,8 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
         this.sessionService = sessionService;
         this.translateService = translateService;
         this.popupContent = {};
-        this.currentDate = moment__WEBPACK_IMPORTED_MODULE_6__();
-        this.attendanceDate = moment__WEBPACK_IMPORTED_MODULE_6__();
+        this.currentDate = moment__WEBPACK_IMPORTED_MODULE_10__();
+        this.attendanceDate = moment__WEBPACK_IMPORTED_MODULE_10__();
         this.attendanceList = [];
         this.actionList = [{ name: 'In Time', edit: 'true' }, { name: 'Out Time', edit: 'true' }, { name: 'Over Time Hrs', edit: 'true' }, { name: 'Late Hrs', edit: 'true' }];
     }
@@ -412,7 +415,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
             ])
         });
         // Create a portal from the template
-        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_7__["TemplatePortal"](this.content, this._viewContainerRef);
+        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["TemplatePortal"](this.content, this._viewContainerRef);
         // Attach the portal to the overlay
         this._overlayRef.attach(templatePortal);
         // Subscribe to the backdrop click
@@ -431,13 +434,19 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
     }
     setInTime(event, data) {
         data.inTime = event;
+        if (data.inTime >= data.outTime) {
+            data.outTime = moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()(data.inTime).add(1, 'minutes');
+        }
+    }
+    setOutTime(event, data) {
+        data.outTime = event;
+        if (data.outTime == data.inTime) {
+            data.outTime = moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()(data.inTime).add(1, 'minutes');
+        }
     }
     pickerChange(event, data, type) {
         if (event)
             this.updateAttendance(data, type);
-    }
-    setOutTime(event, data) {
-        data.outTime = event;
     }
     setOverTime(data, type) {
         this.updateAttendance(data, type);
@@ -457,8 +466,8 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
     attendanceAlertPopup() {
         this.translateService.get('POPUP').subscribe((data) => {
             const message = `${data.STAFFATTENDANCEALERT}`;
-            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
-            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-big',
                 disableClose: true,
                 data: dialogData
@@ -474,7 +483,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
         this.isDataLoaded = true;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            currentDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.attendanceDate).toISOString(),
+            currentDate: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()(this.attendanceDate).toISOString(),
             insertedBy: this.sessionService.userId,
         };
         this.staffService.pushStaffAttendanceByApartmentIdAndDate(params).subscribe((res) => {
@@ -482,10 +491,10 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
                 this.attendanceList = res;
                 this.attendanceList.forEach((data) => {
                     if (data.latetoworkhrs) {
-                        data.lateTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.latetoworkhrs, 'HH.mm').format();
+                        data.lateTime = moment__WEBPACK_IMPORTED_MODULE_10__(data.latetoworkhrs, 'HH.mm').format();
                     }
                     if (data.overTimehrs) {
-                        data.overTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.overTimehrs, 'HH.mm').format();
+                        data.overTime = moment__WEBPACK_IMPORTED_MODULE_10__(data.overTimehrs, 'HH.mm').format();
                     }
                 });
             }
@@ -548,7 +557,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
             ])
         });
         // Create a portal from the template
-        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_7__["TemplatePortal"](this.content, this._viewContainerRef);
+        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["TemplatePortal"](this.content, this._viewContainerRef);
         // Attach the portal to the overlay
         this._overlayRef.attach(templatePortal);
         // Subscribe to the backdrop click
@@ -599,7 +608,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
     }
     getDecimalFormat(data) {
         if (data) {
-            let timeFormat = moment__WEBPACK_IMPORTED_MODULE_6__(data).format('HH:mm');
+            let timeFormat = moment__WEBPACK_IMPORTED_MODULE_10__(data).format('HH:mm');
             return timeFormat.replace(':', '.');
         }
         else
@@ -617,7 +626,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
     }
     updateAttendance(data, type) {
         let params = {
-            attendance: Object.assign(Object.assign({}, data), { "overTimehrs": this.getDecimalFormat(data.overTime), "latetoworkhrs": this.getDecimalFormat(data.lateTime), "updatedBy": this.sessionService.userId, "year": new Date().getFullYear(), "status": this.getStatus(data), "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__() })
+            attendance: Object.assign(Object.assign({}, data), { "overTimehrs": this.getDecimalFormat(data.overTime), "latetoworkhrs": this.getDecimalFormat(data.lateTime), "updatedBy": this.sessionService.userId, "year": new Date().getFullYear(), "status": this.getStatus(data), "updatedOn": moment__WEBPACK_IMPORTED_MODULE_10__() })
         };
         this.staffService.updateAttendance(params).subscribe((res) => {
             if (res.message) {
@@ -665,8 +674,8 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
     allPresent() {
         this.translateService.get('POPUP').subscribe((data) => {
             const message = `${data.STAFFALLPRESENT}`;
-            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
-            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -679,7 +688,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
                             "apartmentId": this.sessionService.apartmentId,
                             "attendanceforDate": this.attendanceDate,
                             "updatedBy": this.sessionService.userId,
-                            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_10__()
                         }
                     };
                     this.staffService.updateAttendanceAllPresent(params).subscribe((res) => {
@@ -702,8 +711,8 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
     allHoliday() {
         this.translateService.get('POPUP').subscribe((data) => {
             const message = `${data.STAFFALLHOLIDAY}`;
-            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
-            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"](`${data.CONFIRMACTION}`, message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
                 panelClass: 'material-dialog-medium',
                 disableClose: true,
                 data: dialogData
@@ -716,7 +725,7 @@ let StaffAttendanceEntryComponent = class StaffAttendanceEntryComponent {
                             "apartmentId": this.sessionService.apartmentId,
                             "attendanceforDate": this.attendanceDate,
                             "updatedBy": this.sessionService.userId,
-                            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_6__()
+                            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_10__()
                         }
                     };
                     this.staffService.updateAttendanceAllHoliday(params).subscribe((res) => {
@@ -743,10 +752,10 @@ StaffAttendanceEntryComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"] },
     { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["Overlay"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"] }
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] }
 ];
 StaffAttendanceEntryComponent.propDecorators = {
     setting: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['setting',] }],
@@ -762,10 +771,10 @@ StaffAttendanceEntryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_3__["StaffService"],
         _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["Overlay"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
 ], StaffAttendanceEntryComponent);
 
 
