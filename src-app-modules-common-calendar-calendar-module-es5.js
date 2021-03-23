@@ -10204,8 +10204,7 @@
               // Staff List
               var staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                roleTypeIds: '1,3' //Admin and Staff Id
-
+                roleTypeIds: '1,3,5'
               };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
                 _this34.staffsList = res;

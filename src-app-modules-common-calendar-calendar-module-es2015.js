@@ -7523,7 +7523,7 @@ let CalendarSidebarComponent = class CalendarSidebarComponent {
             // Staff List
             let staffParms = {
                 apartmentId: this.sessionService.apartmentId,
-                roleTypeIds: '1,3' //Admin and Staff Id
+                roleTypeIds: '1,3,5'
             };
             this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 this.staffsList = res;

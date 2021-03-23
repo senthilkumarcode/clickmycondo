@@ -13,6 +13,26 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-unit-users-components-unit-users-module"], {
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.html":
+    /*!*************************************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.html ***!
+      \*************************************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsUnitUsersComponentsAddUsersResidentAddUserConfirmModalAddUserConfirmModalComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"confirm-modal-wrapper\">\n    <div class=\"info-modal-box rel\">\n      <div class=\"d-flex p-4\">\n        <h4>{{data.title}}</h4>\n        <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n      </div>\n      <!-- Check E-mail -->\n      <div class=\"pt-4 text-center\" *ngIf=\"data.type == 'email'\">\n        <h6 class=\"text-secondary mx-5\">{{data.message}}</h6>\n      </div>\n      <div class=\"pt-4 text-center\" *ngIf=\"data.type == 'email' && data.response\">\n        <p class=\"text-secondary my-2\" *ngFor=\"let towerInfo of data.response\"> {{towerInfo.role_Label}} - {{towerInfo.blockId_Label}} {{towerInfo.unitId_Label}}</p>\n      </div>\n\n       <!-- Check Unit -->\n       <div class=\"pt-4 text-center\" *ngIf=\"data.type == 'checkunit' && data.response\">\n        <h6 class=\"text-secondary mx-5 mb-3\" *ngFor=\"let message of data.response\">{{message}}</h6>\n      </div>\n\n      <div class=\"pt-4 pb-5 text-center\">\n        <button mat-flat-button [color]=\"'primary'\" (click)=\"confirm()\" >{{ 'CONFIRMDLG.YES' | translate}}</button>\n        <button  class=\"ml-2\" mat-button (click)=\"dismiss()\">{{'CONFIRMDLG.NO' | translate}}</button>\n      </div>\n    </div>\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.html":
     /*!**********************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.html ***!
@@ -48,7 +68,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-sign-up-request-resident-wrapper\">\n\t<div class=\"main\">\n\n        <div class=\"bg-card shadow\">\n            <div class=\"d-lg-flex justify-content-lg-between align-items-lg-center\">\n                <div class=\"mb-3 mb-xl-0\">\n                    <h5>Review And Create Unit User Account</h5>\n                    <p class=\"text-sm text-nowrap\">Form submitted by Unit Owner/Tenant through JOIN page has been given below</p>\n                    <p class=\"text-sm\">Please review and enter tower and unit details</p>\n                </div>\n                <!-- <div *ngIf=\"!isEditUser\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"enableEdit()\">\n                        <mat-icon class=\"mr-2\" [svgIcon]=\"'edit'\"></mat-icon>\n                        Edit\n                    </button>\n                </div> -->\n            </div>\n        </div>\n\n        <div class=\"bg-card shadow\">\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>First Name</label>\n                            <h6>{{signUpRequestInfo.firstName}}</h6>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Last Name</label>\n                            <h6>{{signUpRequestInfo.lastName}}</h6>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Gender</label>\n                            <h6>{{signUpRequestInfo.genderName == 43 ? 'Male' : 'Female'}}</h6>\n                        </div>\n                    </div>\n                    <ng-container *ngIf=\"signUpRequestInfo.signupSubNotes && signUpRequestInfo.signupSubNotes.length > 0\">\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>User Type</label>\n                                <h6>{{signUpRequestInfo.signupSubNotes[0].userType == 4 ? 'Owner' : 'Tenant'}}</h6>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>Block Name</label>\n                                <h6>{{signUpRequestInfo?.signupSubNotes[0].blockUnit}}</h6>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>Unit Name</label>\n                                <h6>{{signUpRequestInfo?.signupSubNotes[0].unit}}</h6>\n                            </div>\n                        </div>\n                    </ng-container>\n                </div>\n            </form>\n        </div>\n       \n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n        </condo-message>\n        \n        <app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\n        <form #addResidentForm=\"ngForm\" *ngIf=\"!isUserSubmitted\">\n\n            <div class=\"bg-card shadow mb-1\">\n                <div class=\"row\">\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.USERTYPE' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"owner\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"4\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"owner\">{{'MAIN.UNITUSER.ADDUSER.OWNER' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"tenant\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"2\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"tenant\">{{'MAIN.UNITUSER.ADDUSER.TENANT' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\" *ngIf=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message\">\n                        <div class=\"input-box\">\n                            <ng-container *ngIf=\"(isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>Current {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} in this unit</label>\n                                <p>Tower : {{isTenantOrOwnerInfo.tower}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 4\">Tenant Name : {{isTenantOrOwnerInfo.userNameTenant}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 2\">Owner Name : {{isTenantOrOwnerInfo.userNameOwner}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isPrimaryContact != null\">Billing Contact: {{isTenantOrOwnerInfo.isPrimaryContact ? 'Yes' : 'No'}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isLiving != null\">Resident : {{isTenantOrOwnerInfo.isLiving ? 'Yes' : 'No'}}</p>\n                            </ng-container>\n                            <ng-container *ngIf=\"(!isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (!isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>No {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} Exist in this unit</label>\n                                <p>{{isTenantOrOwnerInfo.tower}}</p>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box float-sm-right mr-3\" *ngIf=\"emailResponse.length > 0\">\n                            <label>{{name}} is an existing user in</label>\n                            <p *ngFor=\"let data of emailResponse\">{{data.role_Label}} - {{data.blockId_Label}} {{data.unitId_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"towerInfo.roleId\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}\" name=\"userEmail\"\n                                [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                                required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n                                required disabled>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'MAIN.UNITUSER.ADDUSER.TOWERNO' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"towerList\"\n                            fieldValue=\"block_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockId\"\n                            fieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"towerInfo.apartmentBlockId\">\n                        <condo-select \n                            labelText=\"Unit No\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"unitList\"\n                            fieldValue=\"bu_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockUnitId\"\n                            fieldId=\"buId\"\n                            (fieldParams)=\"setBlockUnit($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n                            <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n                                [preferredCountries]=\"preferredCountries\"\n                                [enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n                                [searchCountryFlag]=\"true\"\n                                [searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n                                [selectFirstCountry]=\"false\"\n                                [selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n                                [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n                                [(ngModel)]=\"user.phoneNumber\" name=\"phone\" disabled>\n                            </ngx-intl-tel-input>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.GENDER' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"male\">{{'MAIN.UNITUSER.ADDUSER.MALE' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"female\">{{'MAIN.UNITUSER.ADDUSER.FEMALE' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box d-flex flex-column\">\n                            <div class=\"mb-1\">\n                                <input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"auto\">{{'MAIN.UNITUSER.ADDUSER.AUTOGENERATEPASSWORD' | translate}}</label>\n                            </div>\n                            <div>\n                                <input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"set\">{{'MAIN.UNITUSER.ADDUSER.SETUPPASSWORD' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.PASSWORD' | translate}}*</label>\n                            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n                                [(ngModel)]=\"user.password\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n                                        name=\"livingcondo\" [(ngModel)]=\"user.isLiving\" [disabled]=\"isLiving()\">\n                                    <label class=\"form-check-label tiny\"\n                                        for=\"livingcondo\">{{'MAIN.UNITUSER.ADDUSER.ISRESIDINGINCONDO' | translate}}</label>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n                                        name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n                                    <label class=\"form-check-label tiny\" for=\"primarycondo\">{{'MAIN.UNITUSER.ADDUSER.ISPRIMARYCONTACTFORBILLING' | translate}}</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box d-inline-block oh\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.NOTIFICATION' | translate}}</label>\n                            <div class=\"form-group checker-group\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n                                        name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n                                        disabled>\n                                    <label class=\"form-check-label tiny\" for=\"emailNotify\">{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}</label>\n                                </div>\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n                                        name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n                                    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <button class=\"mr-2\" mat-button (click)=\"clearAllField()\">{{'MAIN.UNITUSER.ADDUSER.CANCELBUTTON' | translate}}</button>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addResidentDetails()\">{{'MAIN.UNITUSER.ADDUSER.SUBMITBUTTON' | translate}}</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-sign-up-request-resident-wrapper\">\n\t<div class=\"main\">\n\n        <div class=\"bg-card shadow\">\n            <div class=\"d-lg-flex justify-content-lg-between align-items-lg-center mb-3\">\n                <div class=\"mb-3 mb-xl-0\">\n                    <h5>Review and create Unit User Account</h5>\n                    <p class=\"text-sm\">Form submitted by Unit Owner/Tenant through JOIN page has been given below. Please review and enter tower and unit details</p>\n                    <p class=\"text-sm\"></p>\n                </div>\n            </div>\n            <form *ngIf=\"!isDataLoaded\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Name</label>\n                            <h6>{{signUpRequestInfo.firstName}} {{signUpRequestInfo.lastName}}</h6>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Email</label>\n                            <h6>{{signUpRequestInfo.emailId}}</h6>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Gender</label>\n                            <h6>{{signUpRequestInfo.genderName == 43 ? 'Male' : 'Female'}}</h6>\n                        </div>\n                    </div>\n                    <ng-container *ngIf=\"signUpRequestInfo.signupSubNotes && signUpRequestInfo.signupSubNotes.length > 0\">\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>User Type</label>\n                                <h6>{{signUpRequestInfo.signupSubNotes[0].userType == 4 ? 'Owner' : 'Tenant'}}</h6>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>Block Name</label>\n                                <h6>{{signUpRequestInfo?.signupSubNotes[0].blockUnit}}</h6>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div>\n                                <label>Unit Name</label>\n                                <h6>{{signUpRequestInfo?.signupSubNotes[0].unit}}</h6>\n                            </div>\n                        </div>\n                    </ng-container>\n                </div>\n            </form>\n        </div>\n\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n        </condo-message>\n\n        <div class=\"bg-card shadow\" *ngIf=\"!isDataLoaded\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}\" name=\"emailRegister\"\n                                [(ngModel)]=\"user.emailId\" [disabled]=\"isValidEmail\">\n                                <help-tooltip title=\"userEmail\"></help-tooltip>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">{{'MAIN.UNITUSER.ADDUSER.CHECKBUTTON' | translate}}</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"clearEmail()\">{{'MAIN.UNITUSER.ADDUSER.CHANGEBUTTON' | translate}}</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n        \n        <app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\n        <form #addResidentForm=\"ngForm\" *ngIf=\"isValidEmail && !isUserSubmitted\">\n\n            <div class=\"bg-card shadow mb-1\">\n                <div class=\"row\">\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.USERTYPE' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"owner\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"4\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"owner\">{{'MAIN.UNITUSER.ADDUSER.OWNER' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"checkUnitOccupied('radio')\" id=\"tenant\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"2\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"tenant\">{{'MAIN.UNITUSER.ADDUSER.TENANT' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\" *ngIf=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message\">\n                        <div class=\"input-box\">\n                            <ng-container *ngIf=\"(isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>Current {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} in this unit</label>\n                                <p>Tower : {{isTenantOrOwnerInfo.tower}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 4\">Tenant Name : {{isTenantOrOwnerInfo.userNameTenant}}</p>\n                                <p *ngIf=\"towerInfo.roleId == 2\">Owner Name : {{isTenantOrOwnerInfo.userNameOwner}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isPrimaryContact != null\">Billing Contact: {{isTenantOrOwnerInfo.isPrimaryContact ? 'Yes' : 'No'}}</p>\n                                <p *ngIf=\"isTenantOrOwnerInfo.isLiving != null\">Resident : {{isTenantOrOwnerInfo.isLiving ? 'Yes' : 'No'}}</p>\n                            </ng-container>\n                            <ng-container *ngIf=\"(!isTenantOrOwnerInfo.userNameTenant && towerInfo.roleId == 4) || (!isTenantOrOwnerInfo.userNameOwner && towerInfo.roleId == 2)\">\n                                <label>No {{towerInfo.roleId == 4 ? 'Tenant' : 'Owner'}} Exist in this unit</label>\n                                <p>{{isTenantOrOwnerInfo.tower}}</p>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <div [ngClass]=\"isTenantOrOwnerInfo && isTenantOrOwnerInfo.message ? 'col-sm-4' : 'col-sm-6'\">\n                        <div class=\"input-box float-sm-right mr-3\" *ngIf=\"emailResponse.length > 0\">\n                            <label>{{name}} is an existing user in</label>\n                            <p *ngFor=\"let data of emailResponse\">{{data.role_Label}} - {{data.blockId_Label}} {{data.unitId_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"towerInfo.roleId\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}\" name=\"userEmail\"\n                                [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.FIRSTNAME' | translate}}\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                                required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}*</label>\n                            <input type=\"text\" class=\"form-control\"\n                                placeholder=\"{{'MAIN.UNITUSER.ADDUSER.LASTNAME' | translate}}\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n                                required disabled>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"{{'MAIN.UNITUSER.ADDUSER.TOWERNO' | translate}}\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.TOWER' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"towerList\"\n                            fieldValue=\"block_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockId\"\n                            fieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"towerInfo.apartmentBlockId\">\n                        <condo-select \n                            labelText=\"Unit No\"\n                            fieldPlaceholder=\"{{'PLACEHOLDER.UNIT' | translate}}\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"unitList\"\n                            fieldValue=\"bu_Label\"\n                            [fieldModel]=\"towerInfo.apartmentBlockUnitId\"\n                            fieldId=\"buId\"\n                            (fieldParams)=\"setBlockUnit($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.MOBILENO' | translate}}<span class=\"required\">*</span></label>\n                            <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n                                [preferredCountries]=\"preferredCountries\"\n                                [enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n                                [searchCountryFlag]=\"true\"\n                                [searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n                                [selectFirstCountry]=\"false\"\n                                [selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n                                [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n                                [(ngModel)]=\"user.phoneNumber\" name=\"phone\" disabled>\n                            </ngx-intl-tel-input>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.GENDER' | translate}}*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"male\">{{'MAIN.UNITUSER.ADDUSER.MALE' | translate}}</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"female\">{{'MAIN.UNITUSER.ADDUSER.FEMALE' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box d-flex flex-column\">\n                            <div class=\"mb-1\">\n                                <input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"auto\">{{'MAIN.UNITUSER.ADDUSER.AUTOGENERATEPASSWORD' | translate}}</label>\n                            </div>\n                            <div>\n                                <input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"set\">{{'MAIN.UNITUSER.ADDUSER.SETUPPASSWORD' | translate}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n                        <div class=\"input-box\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.PASSWORD' | translate}}*</label>\n                            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n                                [(ngModel)]=\"user.password\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n                                        name=\"livingcondo\" [(ngModel)]=\"user.isLiving\" [disabled]=\"isLiving()\">\n                                    <label class=\"form-check-label tiny\"\n                                        for=\"livingcondo\">{{'MAIN.UNITUSER.ADDUSER.ISRESIDINGINCONDO' | translate}}</label>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n                                        name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n                                    <label class=\"form-check-label tiny\" for=\"primarycondo\">{{'MAIN.UNITUSER.ADDUSER.ISPRIMARYCONTACTFORBILLING' | translate}}</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box d-inline-block oh\">\n                            <label>{{'MAIN.UNITUSER.ADDUSER.NOTIFICATION' | translate}}</label>\n                            <div class=\"form-group checker-group\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n                                        name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n                                        disabled>\n                                    <label class=\"form-check-label tiny\" for=\"emailNotify\">{{'MAIN.UNITUSER.ADDUSER.EMAIL' | translate}}</label>\n                                </div>\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n                                        name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n                                    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"d-flex justify-content-end\">\n                            <button class=\"mr-2\" mat-button (click)=\"clearAllField()\">{{'MAIN.UNITUSER.ADDUSER.CANCELBUTTON' | translate}}</button>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addResidentDetails()\">{{'MAIN.UNITUSER.ADDUSER.SUBMITBUTTON' | translate}}</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -88,7 +108,117 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<!-- Tips -->\n\t\t<div class=\"bg-card p-0\">\n\t\t\t\t<mat-accordion>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Tips</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t\t<p>Tips :  Gives the list of users unapproved by the Admin.</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t</mat-accordion>\n\t\t\t</div>\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"unitData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/unit&users/info/add-users\"\n\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div >\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" [disabled]=\"!isUserSelected\" (click)=\"rejPopUpOpen()\">Reject User</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n\n<ng-template #rejectedReason>\n\t<div class=\"bg-card shadow mb-0\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Reject User</h4>\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<form>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comment</label>\n\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comments\" #reason></textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t<submit-button (click)=\"rejPopUpClose(reason.value)\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<!-- Tips -->\n\t\t<div class=\"bg-card p-0\">\n\t\t\t<mat-accordion>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Tips</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t<p>Tips :  Gives the list of users unapproved by the Admin.</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t</div>\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"unitData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/unit&users/info/add-users\"\n\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div >\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" [disabled]=\"!isUserSelected\" (click)=\"rejPopUpOpen()\">Reject User</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n\n<ng-template #rejectedReason>\n\t<div class=\"bg-card shadow mb-0\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Reject User</h4>\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<form>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comment*</label>\n\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comments\" #reason></textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t<submit-button (click)=\"rejPopUpClose(reason.value)\" [isSubmit]=\"isDataSubmitted\">Submit</submit-button>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</ng-template>";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.scss":
+    /*!***********************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.scss ***!
+      \***********************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsUnitUsersComponentsAddUsersResidentAddUserConfirmModalAddUserConfirmModalComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3VuaXQtdXNlcnMvY29tcG9uZW50cy9hZGQtdXNlcnMtcmVzaWRlbnQvYWRkLXVzZXItY29uZmlybS1tb2RhbC9hZGQtdXNlci1jb25maXJtLW1vZGFsLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts":
+    /*!*********************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts ***!
+      \*********************************************************************************************************************************/
+
+    /*! exports provided: AddUserConfirmModalComponent */
+
+    /***/
+    function srcAppModulesAmsUnitUsersComponentsAddUsersResidentAddUserConfirmModalAddUserConfirmModalComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AddUserConfirmModalComponent", function () {
+        return AddUserConfirmModalComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+
+      var AddUserConfirmModalComponent = /*#__PURE__*/function () {
+        function AddUserConfirmModalComponent(dialogRef, data) {
+          _classCallCheck(this, AddUserConfirmModalComponent);
+
+          this.dialogRef = dialogRef;
+          this.data = data;
+        }
+
+        _createClass(AddUserConfirmModalComponent, [{
+          key: "confirm",
+          value: function confirm() {
+            // Close the dialog, return true
+            this.dialogRef.close(true);
+          }
+        }, {
+          key: "dismiss",
+          value: function dismiss() {
+            // Close the dialog, return false
+            this.dialogRef.close(false);
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return AddUserConfirmModalComponent;
+      }();
+
+      AddUserConfirmModalComponent.ctorParameters = function () {
+        return [{
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
+          }]
+        }];
+      };
+
+      AddUserConfirmModalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-user-confirm-modal',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./add-user-confirm-modal.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./add-user-confirm-modal.component.scss */
+        "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])], AddUserConfirmModalComponent);
       /***/
     },
 
@@ -984,7 +1114,8 @@
           this.isUserSubmitted = false;
           this.user = {};
           this.isAutoGenPassword = true;
-          this.emailResponse = []; //mobile number
+          this.emailResponse = [];
+          this.isValidEmail = false; //mobile number
 
           this.separateDialCode = true;
           this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
@@ -1004,6 +1135,7 @@
 
           this.isTenantOrOwnerInfo = {};
           this.signUpRequestInfo = {};
+          this.isDataLoaded = true;
           this.signUpRequestId = this.activateRouter.params['value'].id;
           var params = {
             apartmentId: this.sessionService.apartmentId,
@@ -1021,9 +1153,13 @@
                 'number': _this10.signUpRequestInfo.phoneNumber
               };
               _this10.user.isEmailNotify = true;
-
-              _this10.checkEmail();
             }
+
+            _this10.isDataLoaded = false;
+          }, function (error) {
+            _this10.isDataLoaded = false;
+
+            _this10.sharedService.openSnackBar('Server Error', 'error');
           });
         }
 
@@ -1062,27 +1198,130 @@
             });
           }
         }, {
+          key: "clearEmail",
+          value: function clearEmail() {
+            this.user = {};
+            this.user.emailId = this.signUpRequestInfo.emailId;
+            this.user.firstName = this.signUpRequestInfo.firstName;
+            this.user.lastName = this.signUpRequestInfo.lastName;
+            this.user.genderId = Number(this.signUpRequestInfo.genderName);
+            this.user.phoneNumber = {
+              'countryCode': this.signUpRequestInfo.phonecountrycode,
+              'number': this.signUpRequestInfo.phoneNumber
+            };
+            this.user.isEmailNotify = true;
+            this.isValidEmail = false;
+            this.emailResponse = [];
+            this.name = '';
+            this.isAutoGenPassword = true;
+          }
+        }, {
           key: "checkEmail",
           value: function checkEmail() {
             var _this12 = this;
 
-            var params = {
-              emailId: this.user.emailId,
-              apartmentId: this.sessionService.apartmentId
+            this.isValidEmail = false;
+            this.resetField();
+            var isValid = this.validateEmail(this.user.emailId); // Validate Email
+
+            if (isValid) {
+              var params = {
+                emailId: this.user.emailId,
+                apartmentId: this.sessionService.apartmentId
+              };
+              this.isUserSubmitted = true;
+              this.userService.checkUnituseremailexists(params).subscribe(function (respone) {
+                _this12.isUserSubmitted = false;
+
+                if (Array.isArray(respone) && respone[0].blockunitUserDetails && respone[0].blockunitUserDetails.length > 0) {
+                  _this12.translateService.get('VALIDATION').subscribe(function (data) {
+                    var confirmBoxData = {
+                      message: "".concat(data.USER, "  ").concat(_this12.user.emailId, "  ").concat(data.EXISTSUSERWITHUNITS, " ?"),
+                      title: "".concat(data.TITLE),
+                      type: 'email',
+                      response: respone[0].blockunitUserDetails
+                    };
+                    _this12.name = "".concat(respone[0].firstName, " ").concat(respone[0].lastName);
+                    _this12.emailResponse = respone[0].blockunitUserDetails;
+
+                    _this12.confirmBox(confirmBoxData);
+                  });
+                } else if (respone.errorMessage == 'EmailId Not Exists.') {
+                  _this12.isValidEmail = true;
+                  _this12.user.isEmailNotify = true;
+
+                  _this12.cd.markForCheck();
+                } else {
+                  _this12.translateService.get('VALIDATION').subscribe(function (data) {
+                    var confirmBoxData = {
+                      message: "User ".concat(_this12.user.emailId, " already exists and not assigned to any units. Do you want to add this emailId to an unit of your community?"),
+                      title: "".concat(data.TITLE),
+                      type: 'email'
+                    };
+
+                    _this12.confirmBox(confirmBoxData);
+                  });
+                }
+              }, function (error) {
+                _this12.isValidEmail = false;
+                _this12.isUserSubmitted = false;
+
+                _this12.sharedService.openSnackBar("Server Error", 'error');
+              });
+            } else {
+              this.user.emailId = '';
+              this.translateService.get('SNACKBAR').subscribe(function (data) {
+                _this12.sharedService.openSnackBar("".concat(data.PROPEREMAIL), 'error');
+
+                _this12.cd.markForCheck();
+              });
+            }
+          }
+        }, {
+          key: "resetField",
+          value: function resetField() {
+            this.towerInfo = {
+              roleId: null,
+              apartmentBlockId: null,
+              apartmentBlockUnitId: null,
+              apartmentBlockUnitUserId: null
             };
-            this.isUserSubmitted = true;
-            this.userService.checkUnituseremailexists(params).subscribe(function (respone) {
-              _this12.isUserSubmitted = false;
+            this.isTenantOrOwnerInfo = {};
+            this.emailResponse = [];
+            this.name = '';
+            this.isAutoGenPassword = true;
+          }
+        }, {
+          key: "validateEmail",
+          value: function validateEmail(val) {
+            var retVal = true;
+            var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+            var isValid = rex.test(val);
 
-              if (Array.isArray(respone) && respone[0].blockunitUserDetails && respone[0].blockunitUserDetails.length > 0) {
-                _this12.name = "".concat(respone[0].firstName, " ").concat(respone[0].lastName);
-                _this12.emailResponse = respone[0].blockunitUserDetails;
-                _this12.user.isEmailNotify = true;
+            if (!isValid) {
+              retVal = false;
+              this.sharedService.openSnackBar('Please correct your email id', 'error');
+            }
+
+            return retVal;
+          }
+        }, {
+          key: "confirmBox",
+          value: function confirmBox(confirmBoxData) {
+            var _this13 = this;
+
+            var dialogRef = this.dialog.open(_add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["AddUserConfirmModalComponent"], {
+              panelClass: 'material-dialog-big',
+              data: confirmBoxData
+            });
+            dialogRef.afterClosed().subscribe(function (result) {
+              _this13.cd.markForCheck();
+
+              if (result) {
+                _this13.isValidEmail = true;
               }
-            }, function (error) {
-              _this12.isUserSubmitted = false;
 
-              _this12.sharedService.openSnackBar("Server Error", 'error');
+              _this13.isUserSubmitted = false;
             });
           }
         }, {
@@ -1123,7 +1362,7 @@
         }, {
           key: "checkUnitOccupied",
           value: function checkUnitOccupied(type) {
-            var _this13 = this;
+            var _this14 = this;
 
             this.isTenantOrOwnerInfo = {};
 
@@ -1142,8 +1381,8 @@
                   if (isExist != 'No') {
                     unitRes = res.message.message.split(',');
 
-                    _this13.translateService.get('POPUP').subscribe(function (data) {
-                      var dialogRef = _this13.dialog.open(_add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["AddUserConfirmModalComponent"], {
+                    _this14.translateService.get('POPUP').subscribe(function (data) {
+                      var dialogRef = _this14.dialog.open(_add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["AddUserConfirmModalComponent"], {
                         panelClass: 'material-dialog-big',
                         data: {
                           title: "".concat(data.CONFIRMACTION),
@@ -1153,21 +1392,21 @@
                       });
 
                       dialogRef.afterClosed().subscribe(function (result) {
-                        _this13.towerInfo.apartmentBlockId = null;
-                        _this13.towerInfo.apartmentBlockUnitId = null;
-                        _this13.unitList = [];
+                        _this14.towerInfo.apartmentBlockId = null;
+                        _this14.towerInfo.apartmentBlockUnitId = null;
+                        _this14.unitList = [];
 
-                        _this13.cd.detectChanges();
+                        _this14.cd.detectChanges();
                       });
                     });
                   } else {
                     var message = res.message.message;
                     res.message.tower = message.substr(message.lastIndexOf(':') + 2);
-                    _this13.isTenantOrOwnerInfo = res.message;
+                    _this14.isTenantOrOwnerInfo = res.message;
                   }
-                } else _this13.sharedService.openSnackBar(res.errorMessage, 'error');
+                } else _this14.sharedService.openSnackBar(res.errorMessage, 'error');
               }, function (error) {
-                _this13.sharedService.openSnackBar('Server Error', 'error');
+                _this14.sharedService.openSnackBar('Server Error', 'error');
               });
             }
 
@@ -1182,16 +1421,16 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.userService.getAllRolesByRoleTypeIdByApartmentId(roles).subscribe(function (res) {
-                _this13.user.roleId = res[0].roleId;
+                _this14.user.roleId = res[0].roleId;
               }, function (error) {
-                _this13.sharedService.openSnackBar('Server Error', 'sucess');
+                _this14.sharedService.openSnackBar('Server Error', 'sucess');
               });
             }
           }
         }, {
           key: "addResidentDetails",
           value: function addResidentDetails() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.message = null;
 
@@ -1202,7 +1441,7 @@
               }); // Show the validation message
 
               this.translateService.get('VALIDATION').subscribe(function (data) {
-                _this14.message = {
+                _this15.message = {
                   appearance: 'outline',
                   content: "".concat(data.CONTENTREQUIREDFIELD),
                   shake: true,
@@ -1259,27 +1498,27 @@
                 if (res.code == 200) {
                   var userId = parseInt(res.responseData.value.message);
 
-                  _this14.submitUserConfig(userId);
+                  _this15.submitUserConfig(userId);
                 } else if (res.code == 404 && res.message == 'Already EmailId Exists') {
                   var _userId2 = parseInt(res.statusMessage);
 
-                  _this14.submitUserConfig(_userId2);
+                  _this15.submitUserConfig(_userId2);
                 } else {
-                  _this14.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this15.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
 
-                  _this14.isUserSubmitted = false;
+                  _this15.isUserSubmitted = false;
                 }
               }, function (error) {
-                _this14.isUserSubmitted = false;
+                _this15.isUserSubmitted = false;
 
-                _this14.sharedService.openSnackBar('Server Error', 'error');
+                _this15.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "submitUserConfig",
           value: function submitUserConfig(userId) {
-            var _this15 = this;
+            var _this16 = this;
 
             var apartmentParams = {
               apartmentBlockUnitUser: {
@@ -1309,9 +1548,9 @@
                 var params = {
                   userRole: {
                     "userId": userId,
-                    "roleId": _this15.user.roleId,
+                    "roleId": _this16.user.roleId,
                     "isActive": true,
-                    "insertedBy": _this15.sessionService.userId,
+                    "insertedBy": _this16.sessionService.userId,
                     "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                     "updatedBy": null,
                     "apartmentBlockUnitUserId": res.message,
@@ -1319,39 +1558,56 @@
                   }
                 };
 
-                _this15.userService.addUserRole(params).subscribe(function (res) {
-                  _this15.isUserSubmitted = false;
-                  if (res.message) _this15.navigateSignUpRequest();else _this15.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this16.userService.addUserRole(params).subscribe(function (res) {
+                  _this16.isUserSubmitted = false;
+                  if (res.message) _this16.deactivateSignUpUser();else _this16.sharedService.openSnackBar(res.errorMessage, 'error');
 
-                  _this15.cd.detectChanges();
+                  _this16.cd.detectChanges();
                 }, function (error) {
-                  _this15.isUserSubmitted = false;
+                  _this16.isUserSubmitted = false;
 
-                  _this15.sharedService.openSnackBar('Server Error', 'error');
+                  _this16.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this15.isUserSubmitted = false;
+                _this16.isUserSubmitted = false;
 
-                _this15.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this16.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this15.isUserSubmitted = false;
+              _this16.isUserSubmitted = false;
 
-              _this15.sharedService.openSnackBar('Server Error', 'error');
+              _this16.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "deactivateSignUpUser",
+          value: function deactivateSignUpUser() {
+            var _this17 = this;
+
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              signupUserId: this.signUpRequestId
+            };
+            this.userService.deleteSignupUserRequestByApartmentId(params).subscribe(function (res) {
+              if (res.message) {
+                _this17.sharedService.openSnackBar('Account has been created and User has been informed through email', 'success');
+
+                _this17.navigateSignUpRequest();
+              }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this18 = this;
 
             // Set TimeZone 
             this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
               if (data) {
-                _this16.user.timeZone = data.initialData.apartment.timesettings;
+                _this18.user.timeZone = data.initialData.apartment.timesettings;
                 var response = data.initialData.apartment;
-                _this16.selectedCountryISO = response.country.toLowerCase();
-              } else _this16.user.timeZone = '';
+                _this18.selectedCountryISO = response.country.toLowerCase();
+              } else _this18.user.timeZone = '';
             }); //Tower List
 
             var tower = {
@@ -1359,7 +1615,7 @@
             };
             this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (tower) {
               if (Array.isArray(tower)) {
-                _this16.towerList = tower;
+                _this18.towerList = tower;
               }
             });
           }
@@ -1521,12 +1777,6 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-      /* harmony import */
-
-
-      var _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! ../signup-edit-modal/signup-edit-modal.component */
-      "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
 
       var SignuprequestComponent = /*#__PURE__*/function () {
         function SignuprequestComponent(injector, activateRouter, dialog, router, userService, constantsService, sharedService, sessionService) {
@@ -1557,7 +1807,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this17 = this;
+            var _this19 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1570,7 +1820,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this19.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1586,11 +1836,11 @@
         }, {
           key: "viewUserInfo",
           value: function viewUserInfo(id) {
-            var _this18 = this;
+            var _this20 = this;
 
             this.isProfile = false;
             setTimeout(function () {
-              _this18.isProfile = true;
+              _this20.isProfile = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.user-info-card');
@@ -1606,7 +1856,7 @@
         }, {
           key: "showConfirmModal",
           value: function showConfirmModal(data) {
-            var _this19 = this;
+            var _this21 = this;
 
             this.modalService.showConfirmModal(data.signupUserRequestId);
             var params = {
@@ -1615,9 +1865,9 @@
             };
             this.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
               if (res.message) {
-                _this19.sharedService.setAlertMessage("Signup deleted successfully.");
+                _this21.sharedService.setAlertMessage("Signup deleted successfully.");
 
-                _this19.router.navigate(['ams/unit&users/usersignuprequest', _this19.viewUserId]);
+                _this21.router.navigate(['ams/unit&users/usersignuprequest', _this21.viewUserId]);
               }
             }, function (error) {
               console.log(error);
@@ -1642,24 +1892,6 @@
             this.router.navigate(["signuprequest/".concat(dataRecord.signupUserRequestId)], {
               relativeTo: this.activateRouter.parent
             });
-          }
-        }, {
-          key: "openEditDialog",
-          value: function openEditDialog(signupData) {
-            var _this20 = this;
-
-            var dialogRef = this.dialog.open(_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["SignupEditModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              minWidth: '60vw',
-              data: signupData
-            });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result) {
-                _this20.getSignUpUserList(); // this.sharedService.refreshSignUpList(true)
-
-              }
-            });
           } // EditUserInfo(data) {
           //   data.mode = true;
           //   this.modalService.showSignUpdetailsModal(data);
@@ -1672,17 +1904,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this21.timeZone = timeZone;
+              return _this22.timeZone = timeZone;
             }); // Set TimeZone 
 
             this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
               if (data) {
                 //this.timeZone = data.initialData.apartment.timesettings;
                 var response = data.initialData.apartment;
-                _this21.selectedCountryISO = response.country.toLowerCase();
+                _this22.selectedCountryISO = response.country.toLowerCase();
               }
             });
 
@@ -1730,7 +1962,7 @@
               datafield: 'insertedOn',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__["utc"](value).tz(_this21.timeZone.region).format(_this21.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__["utc"](value).tz(_this22.timeZone.region).format(_this22.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1747,28 +1979,28 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this21.datagrid.getrowdata(id);
+                var dataRecord = _this22.datagrid.getrowdata(id);
 
                 var signupUserId = dataRecord.signupUserRequestId;
                 var params = {
                   signupUserId: signupUserId,
-                  apartmentId: _this21.sessionService.apartmentId
+                  apartmentId: _this22.sessionService.apartmentId
                 };
 
-                _this21.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
+                _this22.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this21.datagrid.deleterow(id);
+                    _this22.datagrid.deleterow(id);
 
-                    _this21.totalItems = _this21.unitListData.length;
+                    _this22.totalItems = _this22.unitListData.length;
 
-                    _this21.sharedService.openSnackBar("User sign up request deleted successfully", 'success');
+                    _this22.sharedService.openSnackBar("User sign up request deleted successfully", 'success');
                   } else {
-                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this22.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this21.sharedService.setUnitListDeleteIndex(null);
+                  _this22.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this21.sharedService.openSnackBar("Server Error", 'error');
+                  _this22.sharedService.openSnackBar("Server Error", 'error');
                 });
               }
             }); // this.sharedService.refreshSignUpUser.subscribe(resp =>{
@@ -1778,7 +2010,7 @@
         }, {
           key: "getSignUpUserList",
           value: function getSignUpUserList() {
-            var _this22 = this;
+            var _this23 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -1795,13 +2027,13 @@
 
                 key['fullName'] = key.firstName + '  ' + key.lastName;
               });
-              _this22.gridSourceData = {
+              _this23.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this22.unitListData = new jqx.dataAdapter(_this22.gridSourceData);
-              _this22.totalItems = unitListData.length;
-              _this22.isUserDataLoaded = true;
+              _this23.unitListData = new jqx.dataAdapter(_this23.gridSourceData);
+              _this23.totalItems = unitListData.length;
+              _this23.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2203,7 +2435,7 @@
         }, {
           key: "approveUsers",
           value: function approveUsers() {
-            var _this23 = this;
+            var _this24 = this;
 
             this.isUserDataLoaded = false;
             var multipleApiCall = [];
@@ -2211,52 +2443,14 @@
               if (item.checked) {
                 var updateParam = {
                   approveuser: {
-                    apartmentId: _this23.sessionService.apartmentId,
+                    apartmentId: _this24.sessionService.apartmentId,
                     apartmentBlockUnitUserId: item.apartmentBlockUnitUserID
                   }
                 };
-                multipleApiCall.push(_this23.userService.updateApproveuser(updateParam));
+                multipleApiCall.push(_this24.userService.updateApproveuser(updateParam));
               }
             });
             Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
-              if (res.length > 0) {
-                res.forEach(function (data) {
-                  if (data.code == 200) {
-                    _this23.sharedService.openSnackBar(data.statusMessage, 'success');
-                  } else {
-                    _this23.sharedService.openSnackBar(data.statusMessage, 'error');
-                  }
-                });
-
-                _this23.getUnApprovedList();
-              } else {
-                _this23.isUserDataLoaded = true;
-              }
-            });
-            this.isUserSelected = !this.isUserSelected;
-          }
-        }, {
-          key: "rejPopUpClose",
-          value: function rejPopUpClose(comments) {
-            var _this24 = this;
-
-            this.isDataSubmitted = true;
-            var multipleApiCall = [];
-            this.checkedList.forEach(function (item) {
-              if (item.checked) {
-                var updateParam = {
-                  approveuser: {
-                    apartmentId: _this24.sessionService.apartmentId,
-                    apartmentBlockUnitUserId: item.apartmentBlockUnitUserID,
-                    comments: comments
-                  }
-                };
-                multipleApiCall.push(_this24.userService.updateRejectuser(updateParam));
-              }
-            });
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
-              _this24.isDataSubmitted = false;
-
               if (res.length > 0) {
                 res.forEach(function (data) {
                   if (data.code == 200) {
@@ -2267,13 +2461,53 @@
                 });
 
                 _this24.getUnApprovedList();
-
-                _this24.dialog.closeAll();
+              } else {
+                _this24.isUserDataLoaded = true;
               }
-            }, function (error) {
-              _this24.isDataSubmitted = false;
             });
             this.isUserSelected = !this.isUserSelected;
+          }
+        }, {
+          key: "rejPopUpClose",
+          value: function rejPopUpClose(comments) {
+            var _this25 = this;
+
+            if (comments && comments.trim().length > 0) {
+              this.isDataSubmitted = true;
+              var multipleApiCall = [];
+              this.checkedList.forEach(function (item) {
+                if (item.checked) {
+                  var updateParam = {
+                    approveuser: {
+                      apartmentId: _this25.sessionService.apartmentId,
+                      apartmentBlockUnitUserId: item.apartmentBlockUnitUserID,
+                      comments: comments.trim()
+                    }
+                  };
+                  multipleApiCall.push(_this25.userService.updateRejectuser(updateParam));
+                }
+              });
+              Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
+                _this25.isDataSubmitted = false;
+
+                if (res.length > 0) {
+                  res.forEach(function (data) {
+                    if (data.code == 200) {
+                      _this25.sharedService.openSnackBar(data.statusMessage, 'success');
+                    } else {
+                      _this25.sharedService.openSnackBar(data.statusMessage, 'error');
+                    }
+                  });
+
+                  _this25.getUnApprovedList();
+
+                  _this25.dialog.closeAll();
+                }
+              }, function (error) {
+                _this25.isDataSubmitted = false;
+              });
+              this.isUserSelected = !this.isUserSelected;
+            }
           }
         }, {
           key: "rejPopUpOpen",
@@ -2309,20 +2543,20 @@
         }, {
           key: "showLogs",
           value: function showLogs() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.isLogs = !this.isLogs;
             this.sharedService.getJsonData().subscribe(function (res) {
-              _this25.logsData = res.logsData;
-              _this25.totalLogItems = _this25.logsData.length;
+              _this26.logsData = res.logsData;
+              _this26.totalLogItems = _this26.logsData.length;
 
-              if (_this25.totalLogItems > _this25.itemLogLimit) {
-                _this25.ItemLogEndIndex = _this25.itemLogLimit;
+              if (_this26.totalLogItems > _this26.itemLogLimit) {
+                _this26.ItemLogEndIndex = _this26.itemLogLimit;
               } else {
-                _this25.ItemLogEndIndex = _this25.totalLogItems;
+                _this26.ItemLogEndIndex = _this26.totalLogItems;
               }
 
-              _this25.isLogsDataLoaded = true;
+              _this26.isLogsDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2330,7 +2564,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this26 = this;
+            var _this27 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2343,7 +2577,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2365,7 +2599,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this28 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2458,23 +2692,23 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this27.datagrid.getrowdata(id);
+                var dataRecord = _this28.datagrid.getrowdata(id);
 
                 var params = {
-                  apartmentId: _this27.sessionService.apartmentId,
+                  apartmentId: _this28.sessionService.apartmentId,
                   apartmentBlockUnitUserId: dataRecord.apartmentBlockUnitUserID,
-                  deleteBy: _this27.sessionService.userId
+                  deleteBy: _this28.sessionService.userId
                 };
 
-                _this27.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
-                  _this27.sharedService.setUnitListDeleteIndex(null);
+                _this28.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
+                  _this28.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.length > 0) {
-                    _this27.getUnApprovedList();
+                    _this28.getUnApprovedList();
 
-                    _this27.sharedService.openSnackBar(res[0].message, 'success');
+                    _this28.sharedService.openSnackBar(res[0].message, 'success');
                   } else {
-                    _this27.sharedService.openSnackBar(res[0].errorMessage, 'error');
+                    _this28.sharedService.openSnackBar(res[0].errorMessage, 'error');
                   }
                 });
               }
@@ -2483,7 +2717,7 @@
         }, {
           key: "getUnApprovedList",
           value: function getUnApprovedList() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.unitData = '';
             var params = {
@@ -2492,17 +2726,17 @@
             this.userService.getAllUnApprovedUsersByApartmentIdNew(params).subscribe(function (res) {
               var unitListData = res; //filter active true items
 
-              _this28.unitListData = unitListData.filter(function (data) {
+              _this29.unitListData = unitListData.filter(function (data) {
                 data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
                 return data.active;
               });
-              _this28.gridSourceData = {
+              _this29.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this28.unitListData = new jqx.dataAdapter(_this28.gridSourceData);
-              _this28.totalUserItems = unitListData.length;
-              _this28.isUserDataLoaded = true;
+              _this29.unitListData = new jqx.dataAdapter(_this29.gridSourceData);
+              _this29.totalUserItems = unitListData.length;
+              _this29.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2886,37 +3120,31 @@
       /* harmony import */
 
 
-      var _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! ./signup-edit-modal/signup-edit-modal.component */
-      "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
-      /* harmony import */
-
-
-      var _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./add-users-resident/add-users-resident.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.ts");
       /* harmony import */
 
 
-      var _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/modules/ui/help-tooltip/help-tooltip.module */
       "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
       /* harmony import */
 
 
-      var _signup_request_adduser_signup_request_adduser_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _signup_request_adduser_signup_request_adduser_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./signup-request-adduser/signup-request-adduser.component */
       "./src/app/modules/ams/unit-users/components/signup-request-adduser/signup-request-adduser.component.ts");
 
@@ -2925,8 +3153,8 @@
       };
 
       UnitUsersModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__["UnapprovedComponent"], _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_10__["SignuprequestComponent"], _unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["UnapprovedEditModalComponent"], _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_12__["SignupEditModalComponent"], _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_13__["AddUsersResidentComponent"], _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["AddUserConfirmModalComponent"], _signup_request_adduser_signup_request_adduser_component__WEBPACK_IMPORTED_MODULE_17__["SignupRequestAdduserComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _unit_users_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_7__["NgxIntlTelInputModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_8__["CondoMessageModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_15__["HelpTooltipModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateModule"]]
+        declarations: [_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__["UnapprovedComponent"], _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_10__["SignuprequestComponent"], _unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["UnapprovedEditModalComponent"], _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_12__["AddUsersResidentComponent"], _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["AddUserConfirmModalComponent"], _signup_request_adduser_signup_request_adduser_component__WEBPACK_IMPORTED_MODULE_16__["SignupRequestAdduserComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _unit_users_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_7__["NgxIntlTelInputModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_8__["CondoMessageModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__["HelpTooltipModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateModule"]]
       })], UnitUsersModule);
       /***/
     }
