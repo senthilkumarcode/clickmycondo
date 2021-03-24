@@ -595,7 +595,6 @@
 
             if (!isValid) {
               retVal = false;
-              this.sharedService.openSnackBar('Please correct your email id', 'error');
             }
 
             return retVal;

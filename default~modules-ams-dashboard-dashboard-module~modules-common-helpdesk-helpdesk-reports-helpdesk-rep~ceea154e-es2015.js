@@ -175,65 +175,79 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'userName',
-                    minwidth: 150,
-                    maxwidth: 170,
+                    width: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 120,
-                    maxwidth: 150,
+                    width: 180,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Unit Number',
                     datafield: 'unitNo',
-                    minwidth: 110,
-                    maxwidth: 120,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Type',
                     datafield: 'ticketType',
-                    minwidth: 100,
-                    maxwidth: 120,
+                    width: 130,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'User Type',
                     datafield: 'userTypeName',
-                    minwidth: 100,
-                    maxwidth: 150,
+                    width: 130,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Subject',
                     datafield: 'subject',
-                    minwidth: 220,
-                    maxwidth: 240,
+                    minwidth: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Priority',
                     datafield: 'ticketPriority',
-                    minwidth: 120,
-                    maxwidth: 150,
+                    width: 140,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Status',
                     datafield: 'ticketStatus',
-                    minwidth: 120,
-                    maxwidth: 150,
-                    cellsrenderer: cellsrenderer,
+                    width: 160,
+                    cellsrenderer: (row, column, value) => {
+                        let status;
+                        if (value == 'New') {
+                            status = 'purple';
+                        }
+                        else if (value == 'Assigned - Inprogress') {
+                            status = 'orange';
+                        }
+                        else if (value == 'Closed') {
+                            status = 'green';
+                        }
+                        else if (value == 'Resolved ') {
+                            status = 'green';
+                        }
+                        else if (value == 'On Hold') {
+                            status = 'red';
+                        }
+                        return `<div class="jqx-custom-inner-cell">
+						<div class="status-badge bg-status-${status}-700">
+						  <span class="font-bold text-status-${status}-900 text-uppercase">${value ? value : ''}</span>
+						</div>
+					</div>`;
+                    },
                     renderer: columnrenderer
                 }
             ];
@@ -264,73 +278,86 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'userName',
-                    minwidth: 130,
-                    maxwidth: 140,
+                    width: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
-                    maxwidth: 120,
+                    width: 180,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Unit Number',
                     datafield: 'unitNo',
-                    minwidth: 100,
-                    maxwidth: 110,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Type',
                     datafield: 'ticketType',
-                    minwidth: 100,
-                    maxwidth: 110,
+                    width: 130,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'User Type',
                     datafield: 'userTypeName',
-                    minwidth: 100,
-                    maxwidth: 110,
+                    width: 130,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Subject',
                     datafield: 'subject',
-                    minwidth: 220,
-                    maxwidth: 240,
+                    minwidth: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Priority',
                     datafield: 'ticketPriority',
-                    minwidth: 100,
-                    maxwidth: 120,
+                    width: 140,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Age',
                     datafield: 'ticketAge',
-                    minwidth: 80,
-                    maxwidth: 100,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Status',
                     datafield: 'ticketStatus',
-                    minwidth: 150,
-                    maxwidth: 170,
-                    cellsrenderer: cellsrenderer,
+                    width: 160,
+                    cellsrenderer: (row, column, value) => {
+                        let status;
+                        if (value == 'New') {
+                            status = 'purple';
+                        }
+                        else if (value == 'Assigned - Inprogress') {
+                            status = 'orange';
+                        }
+                        else if (value == 'Closed') {
+                            status = 'green';
+                        }
+                        else if (value == 'Resolved ') {
+                            status = 'green';
+                        }
+                        else if (value == 'On Hold') {
+                            status = 'red';
+                        }
+                        return `<div class="jqx-custom-inner-cell">
+						<div class="status-badge bg-status-${status}-700">
+						  <span class="font-bold text-status-${status}-900 text-uppercase">${value ? value : ''}</span>
+						</div>
+					</div>`;
+                    },
                     renderer: columnrenderer
                 }
             ];
@@ -360,65 +387,79 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'userName',
-                    minwidth: 170,
-                    maxwidth: 200,
+                    width: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 130,
-                    maxwidth: 150,
+                    width: 180,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Unit Number',
                     datafield: 'unitNo',
-                    minwidth: 110,
-                    maxwidth: 120,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Type',
                     datafield: 'ticketType',
-                    minwidth: 100,
-                    maxwidth: 120,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'User Type',
                     datafield: 'userTypeName',
-                    minwidth: 110,
-                    maxwidth: 150,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Subject',
                     datafield: 'subject',
-                    minwidth: 220,
-                    maxwidth: 240,
+                    minwidth: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Priority',
                     datafield: 'ticketPriority',
-                    minwidth: 130,
-                    maxwidth: 150,
+                    width: 120,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Ticket Status',
                     datafield: 'ticketStatus',
-                    minwidth: 130,
-                    maxwidth: 150,
-                    cellsrenderer: cellsrenderer,
+                    width: 160,
+                    cellsrenderer: (row, column, value) => {
+                        let status;
+                        if (value == 'New') {
+                            status = 'purple';
+                        }
+                        else if (value == 'Assigned - Inprogress') {
+                            status = 'orange';
+                        }
+                        else if (value == 'Closed') {
+                            status = 'green';
+                        }
+                        else if (value == 'Resolved ') {
+                            status = 'green';
+                        }
+                        else if (value == 'On Hold') {
+                            status = 'red';
+                        }
+                        return `<div class="jqx-custom-inner-cell">
+						<div class="status-badge bg-status-${status}-700">
+						  <span class="font-bold text-status-${status}-900 text-uppercase">${value ? value : ''}</span>
+						</div>
+					</div>`;
+                    },
                     renderer: columnrenderer
                 }
             ];

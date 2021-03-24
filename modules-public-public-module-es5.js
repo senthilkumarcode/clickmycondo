@@ -5729,50 +5729,65 @@
           value: function submitAddResidentForm(form) {
             var _this16 = this;
 
-            var notesStrVal = "{\"UserType\":\"".concat(this.userType, "\",\"BlockName\":\"").concat(this.BlockName, "\",\"UnitName\":\"").concat(this.unitName, "\"}");
-            this.isUserSubmitted = true; //add user
+            if (this.validateEmail(this.user.emailId)) {
+              var notesStrVal = "{\"UserType\":\"".concat(this.userType, "\",\"BlockName\":\"").concat(this.BlockName, "\",\"UnitName\":\"").concat(this.unitName, "\"}");
+              this.isUserSubmitted = true;
+              var params = {
+                signupUser: {
+                  "apartmentId": parseInt(this.apartmentDetails.apartmentId),
+                  "firstName": this.user.firstName,
+                  "lastName": this.user.lastName,
+                  "emailId": this.user.emailId,
+                  "genderName": this.user.genderId.toString(),
+                  "phoneNumber": this.phoneForm.value.phone.number,
+                  "notes": notesStrVal,
+                  "comments": "",
+                  "isActive": true,
+                  "insertedOn": moment__WEBPACK_IMPORTED_MODULE_10__().format(),
+                  "updatedOn": "",
+                  "phonecountrycode": this.phoneForm.value.phone.countryCode,
+                  "signupSubNotes": [{
+                    "signupSubNotesId": 0,
+                    "signupUserRequestId": 0,
+                    "userType": this.userType,
+                    "blockUnit": this.BlockName,
+                    "unit": this.unitName,
+                    "genderName": this.user.genderId.toString()
+                  }]
+                }
+              };
+              this.userService.addSignupUserRequest(params).subscribe(function (res) {
+                if (res.message) {
+                  setTimeout(function () {
+                    _this16.sharedService.setAlertMessage("Signup has been created successfull.");
+                  }, 200);
+                  _this16.isApartmentSelected = false;
+                  _this16.unitName = _this16.BlockName = _this16.userType = "";
+                  _this16.user = {};
+                  _this16.successImage = true;
+                  _this16.searchApartmentText = "";
+                } else {
+                  _this16.isUserSubmitted = false;
+                }
+              }, function (error) {
+                _this16.sharedService.openSnackBar('Server Error', 'error');
+              });
+            } else {
+              this.sharedService.openSnackBar("Kindly enter proper email...!", 'error');
+            }
+          }
+        }, {
+          key: "validateEmail",
+          value: function validateEmail(val) {
+            var retVal = true;
+            var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+            var isValid = rex.test(val);
 
-            var userDetails = {
-              "apartmentId": parseInt(this.apartmentDetails.apartmentId),
-              "firstName": this.user.firstName,
-              "lastName": this.user.lastName,
-              "emailId": this.user.emailId,
-              "genderName": this.user.genderId.toString(),
-              "phoneNumber": this.phoneForm.value.phone.number,
-              "notes": notesStrVal,
-              "comments": "",
-              "isActive": true,
-              "insertedOn": moment__WEBPACK_IMPORTED_MODULE_10__().format(),
-              "updatedOn": "",
-              "phonecountrycode": this.phoneForm.value.phone.countryCode,
-              "signupSubNotes": [{
-                "signupSubNotesId": 0,
-                "signupUserRequestId": 0,
-                "userType": this.userType,
-                "blockUnit": this.BlockName,
-                "unit": this.unitName,
-                "genderName": this.user.genderId.toString()
-              }]
-            };
-            var params = {
-              signupUser: userDetails
-            };
-            this.userService.addSignupUserRequest(params).subscribe(function (res) {
-              if (res.message) {
-                setTimeout(function () {
-                  _this16.sharedService.setAlertMessage("Signup has been created successfull.");
-                }, 200);
-                _this16.isApartmentSelected = false;
-                _this16.unitName = _this16.BlockName = _this16.userType = "";
-                _this16.user = {};
-                _this16.successImage = true;
-                _this16.searchApartmentText = "";
-              } else {
-                _this16.isUserSubmitted = false;
-              }
-            }, function (error) {
-              console.log(error);
-            });
+            if (!isValid) {
+              retVal = false;
+            }
+
+            return retVal;
           }
         }, {
           key: "backToJoin",

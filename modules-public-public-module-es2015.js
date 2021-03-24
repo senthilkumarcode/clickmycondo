@@ -3658,53 +3658,65 @@ let joinComponent = class joinComponent {
         });
     }
     submitAddResidentForm(form) {
-        var notesStrVal = `{"UserType":"${this.userType}","BlockName":"${this.BlockName}","UnitName":"${this.unitName}"}`;
-        this.isUserSubmitted = true;
-        //add user
-        let userDetails = {
-            "apartmentId": parseInt(this.apartmentDetails.apartmentId),
-            "firstName": this.user.firstName,
-            "lastName": this.user.lastName,
-            "emailId": this.user.emailId,
-            "genderName": this.user.genderId.toString(),
-            "phoneNumber": this.phoneForm.value.phone.number,
-            "notes": notesStrVal,
-            "comments": "",
-            "isActive": true,
-            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_10__().format(),
-            "updatedOn": "",
-            "phonecountrycode": this.phoneForm.value.phone.countryCode,
-            "signupSubNotes": [
-                {
-                    "signupSubNotesId": 0,
-                    "signupUserRequestId": 0,
-                    "userType": this.userType,
-                    "blockUnit": this.BlockName,
-                    "unit": this.unitName,
-                    "genderName": this.user.genderId.toString()
+        if (this.validateEmail(this.user.emailId)) {
+            var notesStrVal = `{"UserType":"${this.userType}","BlockName":"${this.BlockName}","UnitName":"${this.unitName}"}`;
+            this.isUserSubmitted = true;
+            let params = {
+                signupUser: {
+                    "apartmentId": parseInt(this.apartmentDetails.apartmentId),
+                    "firstName": this.user.firstName,
+                    "lastName": this.user.lastName,
+                    "emailId": this.user.emailId,
+                    "genderName": this.user.genderId.toString(),
+                    "phoneNumber": this.phoneForm.value.phone.number,
+                    "notes": notesStrVal,
+                    "comments": "",
+                    "isActive": true,
+                    "insertedOn": moment__WEBPACK_IMPORTED_MODULE_10__().format(),
+                    "updatedOn": "",
+                    "phonecountrycode": this.phoneForm.value.phone.countryCode,
+                    "signupSubNotes": [
+                        {
+                            "signupSubNotesId": 0,
+                            "signupUserRequestId": 0,
+                            "userType": this.userType,
+                            "blockUnit": this.BlockName,
+                            "unit": this.unitName,
+                            "genderName": this.user.genderId.toString()
+                        }
+                    ]
                 }
-            ]
-        };
-        let params = {
-            signupUser: userDetails
-        };
-        this.userService.addSignupUserRequest(params).subscribe((res) => {
-            if (res.message) {
-                setTimeout(() => {
-                    this.sharedService.setAlertMessage("Signup has been created successfull.");
-                }, 200);
-                this.isApartmentSelected = false;
-                this.unitName = this.BlockName = this.userType = "";
-                this.user = {};
-                this.successImage = true;
-                this.searchApartmentText = "";
-            }
-            else {
-                this.isUserSubmitted = false;
-            }
-        }, error => {
-            console.log(error);
-        });
+            };
+            this.userService.addSignupUserRequest(params).subscribe((res) => {
+                if (res.message) {
+                    setTimeout(() => {
+                        this.sharedService.setAlertMessage("Signup has been created successfull.");
+                    }, 200);
+                    this.isApartmentSelected = false;
+                    this.unitName = this.BlockName = this.userType = "";
+                    this.user = {};
+                    this.successImage = true;
+                    this.searchApartmentText = "";
+                }
+                else {
+                    this.isUserSubmitted = false;
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
+            });
+        }
+        else {
+            this.sharedService.openSnackBar("Kindly enter proper email...!", 'error');
+        }
+    }
+    validateEmail(val) {
+        var retVal = true;
+        var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+        var isValid = rex.test(val);
+        if (!isValid) {
+            retVal = false;
+        }
+        return retVal;
     }
     backToJoin() {
         this.isApartmentSelected = true;
