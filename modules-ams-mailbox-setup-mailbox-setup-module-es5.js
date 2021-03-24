@@ -236,6 +236,7 @@
               var params = {
                 staffInchargeMailbox: {
                   "apartmentId": this.sessionService.apartmentId,
+                  "mailCategoryID": 1,
                   "description": "string",
                   "comment1": "string",
                   "comment2": "string",
@@ -248,7 +249,7 @@
                 if (res.message) {
                   _this.sharedService.openSnackBar('Staff Added Successfully', 'success');
                 } else {
-                  _this.sharedService.openSnackBar(res.errorMessage, 'error');
+                  if (res.errorMessage == 'No Changes Made.') _this.sharedService.openSnackBar(res.errorMessage, 'success');else _this.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
 
                 _this.isSubmitted = false;
@@ -267,7 +268,6 @@
             this.sharedService.userpiccast.subscribe(function (res) {});
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               _this2.timeZone = timeZone;
-              console.log(timeZone);
             }); // Staff List
 
             var staffParms = {
@@ -284,12 +284,15 @@
             };
             this.staffService.getStaffInchargeMailboxByApartmentId(parmas).subscribe(function (res) {
               if (Array.isArray) {
-                _this2.staffId = res.map(function (data) {
+                _this2.staffId = res.filter(function (item) {
+                  return item.staffId != null || !item.isActive;
+                }).map(function (data) {
                   return {
                     'staffId': data.staffId,
                     'staffName': data.staffName
                   };
                 });
+                console.log(_this2.staffId);
               }
             });
           }

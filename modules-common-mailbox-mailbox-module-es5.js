@@ -74,7 +74,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"list-wrapper\"\n     [ngClass]=\"{'mail-selected': selectedMail && selectedMail.messageId, 'no-mails': !mails || mails.length === 0}\">\n\n    <ng-container *ngIf=\"mails && mails.length > 0; else noMails\">\n\n        <!-- Mail list header -->\n        <div class=\"header\">\n\n            <!-- Header left -->\n            <div class=\"left\">\n\n                <!-- Sidebar toggle button -->\n                <button class=\"sidebar-toggle\"\n                        mat-icon-button\n                        (click)=\"mailboxComponent.drawer.toggle()\">\n                    <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                </button>\n\n                <!-- Category name -->\n                <div class=\"category\">{{category.name}}</div>\n\n            </div>\n\n            <!-- Pagination -->\n            <div class=\"pagination\">\n\n                <!-- Pagination information -->\n                <div class=\"info\">\n                    <span>{{pagination.startIndex + 1}}</span>\n                    <span class=\"separator\">-</span>\n                    <span>{{pagination.endIndex}}</span>\n                    <span class=\"separator\">of</span>\n                    <span>{{pagination.totalResults}}</span>\n                </div>\n\n                <!-- Previous page button -->\n                <a class=\"previous-page\"\n                   mat-icon-button\n                   [disabled]=\"pagination.currentPage == 1\"\n                   [routerLink]=\"['../' + ( pagination.currentPage - 1 )]\">\n                    <mat-icon [svgIcon]=\"'arrow_back_ios'\"></mat-icon>\n                </a>\n\n                <!-- Next page button-->\n                <a class=\"next-page\"\n                   mat-icon-button\n                   [disabled]=\"pagination.currentPage == pagination.lastPage\"\n                   [routerLink]=\"['../' + ( pagination.currentPage + 1 )]\">\n                    <mat-icon [svgIcon]=\"'arrow_forward_ios'\"></mat-icon>\n                </a>\n\n            </div>\n\n            <!-- Loading bar -->\n            <mat-progress-bar class=\"loading-progress-bar\"\n                              *ngIf=\"mailsLoading\"\n                              [mode]=\"'indeterminate'\"></mat-progress-bar>\n\n        </div>\n\n        <!-- Mail list -->\n        <div class=\"list\"\n             #mailList>\n\n            <!-- Mail list item loop -->\n            <ng-container *ngFor=\"let mail of mails | slice:pagination.startIndex:pagination.endIndex; let i = index; trackBy: trackByFn\">\n\n                <!-- Mail list item -->\n                <a class=\"item\"\n                   [ngClass]=\"{'selected': (selectedMail && selectedMail.messageId === mail.messageId),'unread': !mail.isRead}\"\n                   [routerLink]=\"[mail.messageId]\"\n                   (click)=\"onMailSelected(mail)\">\n\n                    <div class=\"item-content\">\n\n                        <!-- Info -->\n                        <div class=\"info\">\n\n                            <!-- Sender name -->\n                            <div class=\"name\">\n                                {{mail.sentBy}}\n                            </div>\n\n                            <!-- Date -->\n                            <div class=\"date\">\n                               {{getDate(mail.receivedOn)}}\n                            </div>\n\n                        </div>\n\n                        <!-- Subject -->\n                        <div class=\"subject\">\n\n                            <span>{{mail.subject}}</span>\n\n                            <!-- Indicators -->\n                            <div class=\"indicators\"\n                                 *ngIf=\"mail.attachment1\">\n\n                                <!-- Attachments indicator -->\n                                <mat-icon class=\"attachments-indicator\" [svgIcon]=\"'attachment'\"></mat-icon>\n\n\n                            </div>\n\n                        </div>\n\n                        <div class=\"excerpt\" [innerHTML]=\"mail.message\">\n                            <ng-container *ngIf=\"mail.message.length > 80\">...</ng-container>\n                        </div>\n\n                    </div>\n\n                </a>\n\n            </ng-container>\n\n        </div>\n\n    </ng-container>\n\n    <!-- No mails template -->\n    <ng-template #noMails>\n\n        <div class=\"p-3 ml-1\">\n            <!-- Sidebar toggle button -->\n        <button class=\"sidebar-toggle\"\n        mat-icon-button\n        (click)=\"mailboxComponent.drawer.toggle()\">\n        <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n    </button>\n\n        </div>\n\n        <div class=\"no-mails\">\n            <mat-icon [svgIcon]=\"'iconsmind:mailbox_empty'\"></mat-icon>\n            <h4>There are no e-mails</h4>\n        </div>\n\n    </ng-template>\n\n</div>\n\n<!-- Mail details -->\n<router-outlet *ngIf=\"mails && mails.length > 0\"></router-outlet>\n\n";
+      __webpack_exports__["default"] = "<div class=\"list-wrapper\"\n     [ngClass]=\"{'mail-selected': selectedMail && selectedMail.messageId, 'no-mails': !mails || mails.length === 0}\">\n\n    <ng-container *ngIf=\"mails && mails.length > 0; else noMails\">\n\n        <!-- Mail list header -->\n        <div class=\"header\">\n\n            <!-- Header left -->\n            <div class=\"left\">\n\n                <!-- Sidebar toggle button -->\n                <button class=\"sidebar-toggle\"\n                        mat-icon-button\n                        (click)=\"mailboxComponent.drawer.toggle()\">\n                    <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                </button>\n\n                <!-- Category name -->\n                <div class=\"category\">{{category.name}}</div>\n\n            </div>\n\n            <!-- Pagination -->\n            <div class=\"pagination\">\n\n                <!-- Pagination information -->\n                <div class=\"info\">\n                    <span>{{pagination.startIndex + 1}}</span>\n                    <span class=\"separator\">-</span>\n                    <span>{{pagination.endIndex}}</span>\n                    <span class=\"separator\">of</span>\n                    <span>{{pagination.totalResults}}</span>\n                </div>\n\n                <!-- Previous page button -->\n                <a class=\"previous-page\"\n                   mat-icon-button\n                   [disabled]=\"pagination.currentPage == 1\"\n                   [routerLink]=\"['../' + ( pagination.currentPage - 1 )]\">\n                    <mat-icon [svgIcon]=\"'arrow_back_ios'\"></mat-icon>\n                </a>\n\n                <!-- Next page button-->\n                <a class=\"next-page\"\n                   mat-icon-button\n                   [disabled]=\"pagination.currentPage == pagination.lastPage\"\n                   [routerLink]=\"['../' + ( pagination.currentPage + 1 )]\">\n                    <mat-icon [svgIcon]=\"'arrow_forward_ios'\"></mat-icon>\n                </a>\n\n            </div>\n\n            <!-- Loading bar -->\n            <mat-progress-bar class=\"loading-progress-bar\"\n                              *ngIf=\"mailsLoading\"\n                              [mode]=\"'indeterminate'\"></mat-progress-bar>\n\n        </div>\n\n        <!-- Mail list -->\n        <div class=\"list\"\n             #mailList>\n\n            <!-- Mail list item loop -->\n            <ng-container *ngFor=\"let mail of mails | slice:pagination.startIndex:pagination.endIndex; let i = index; trackBy: trackByFn\">\n\n                <!-- Mail list item -->\n                <a class=\"item\"\n                   [ngClass]=\"{'selected': (selectedMail && selectedMail.messageId === mail.messageId),'unread': !mail.isRead && category.name != 'sent' && this.category.name != 'trash'}\"\n                   [routerLink]=\"[mail.messageId]\"\n                   (click)=\"onMailSelected(mail)\">\n\n                    <div class=\"item-content\">\n\n                        <!-- Info -->\n                        <div class=\"info\">\n\n                            <!-- Sender name -->\n                            <div class=\"name\">\n                                {{mail.sentBy}}\n                            </div>\n\n                            <!-- Date -->\n                            <div class=\"date\">\n                               {{getDate(mail.receivedOn)}}\n                            </div>\n\n                        </div>\n\n                        <!-- Subject -->\n                        <div class=\"subject\">\n\n                            <span>{{mail.subject}}</span>\n\n                            <!-- Indicators -->\n                            <div class=\"indicators\"\n                                 *ngIf=\"mail.attachment1\">\n\n                                <!-- Attachments indicator -->\n                                <mat-icon class=\"attachments-indicator\" [svgIcon]=\"'attachment'\"></mat-icon>\n\n\n                            </div>\n\n                        </div>\n\n                        <div class=\"excerpt\" [innerHTML]=\"mail.message\">\n                            <ng-container *ngIf=\"mail.message.length > 80\">...</ng-container>\n                        </div>\n\n                    </div>\n\n                </a>\n\n            </ng-container>\n\n        </div>\n\n    </ng-container>\n\n    <!-- No mails template -->\n    <ng-template #noMails>\n\n        <div class=\"p-3 ml-1\">\n            <!-- Sidebar toggle button -->\n        <button class=\"sidebar-toggle\"\n        mat-icon-button\n        (click)=\"mailboxComponent.drawer.toggle()\">\n        <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n    </button>\n\n        </div>\n\n        <div class=\"no-mails\">\n            <mat-icon [svgIcon]=\"'iconsmind:mailbox_empty'\"></mat-icon>\n            <h4>There are no e-mails</h4>\n        </div>\n\n    </ng-template>\n\n</div>\n\n<!-- Mail details -->\n<router-outlet *ngIf=\"mails && mails.length > 0\"></router-outlet>\n\n";
       /***/
     },
 
@@ -461,49 +461,55 @@
       /* harmony import */
 
 
-      var src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/modules/common/mailbox/mailbox.service */
       "./src/app/modules/common/mailbox/mailbox.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/MessageInbox */
       "./src/app/api/controllers/MessageInbox.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
       /* harmony import */
 
 
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
@@ -514,9 +520,10 @@
          * @param {MatDialogRef} matDialogRef
          * @param {FormBuilder} _formBuilder
          */
-        function MailboxComposeComponent(matDialogRef, _formBuilder, _mailboxService, userService, messageInbox, sessionService, sharedService, staffService, _changeDetectorRef, dialog, translateService) {
+        function MailboxComposeComponent(_router, matDialogRef, _formBuilder, _mailboxService, userService, messageInbox, sessionService, sharedService, staffService, _changeDetectorRef, dialog, translateService) {
           _classCallCheck(this, MailboxComposeComponent);
 
+          this._router = _router;
           this.matDialogRef = matDialogRef;
           this._formBuilder = _formBuilder;
           this._mailboxService = _mailboxService;
@@ -681,8 +688,8 @@
             var _this2 = this;
 
             var message = "Are you sure you want to close ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
               disableClose: true,
               data: dialogData
@@ -756,6 +763,8 @@
 
                 _this3.sharedService.openSnackBar('Mail Sent Successfully', 'success');
 
+                _this3._router.navigate['/ams/mailbox/sent/1'];
+
                 _this3.matDialogRef.close();
               }, function (error) {
                 _this3.isMailSubmitted = false;
@@ -776,27 +785,29 @@
 
       MailboxComposeComponent.ctorParameters = function () {
         return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
+        }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"]
         }, {
           type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
         }, {
-          type: src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"]
+          type: src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_7__["MailboxService"]
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
         }, {
-          type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_7__["MessageInboxService"]
+          type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_8__["MessageInboxService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
         }, {
-          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__["StaffService"]
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__["StaffService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]
         }];
       };
 
@@ -816,11 +827,11 @@
         /*! raw-loader!./compose.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/mailbox/compose/compose.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_10__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./compose.component.scss */
         "./src/app/modules/common/mailbox/compose/compose.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_7__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__["StaffService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])], MailboxComposeComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_7__["MailboxService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_8__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__["StaffService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateService"]])], MailboxComposeComponent);
       /***/
     },
 
@@ -1119,6 +1130,7 @@
 
             this._mailboxService.mail$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mail) {
               _this4.mail = mail;
+              console.log(mail);
             }); // Selected mail changed
 
 
@@ -1180,7 +1192,7 @@
               _this5.mail = resp[0];
               _this5.composeMail.subject = _this5.mail.subject;
               _this5.composeMail.parentId = _this5.mail.parentId;
-              _this5.composeMail.parentId = _this5.mail.messageId;
+              _this5.composeMail.messageId = _this5.mail.messageId;
             });
           }
           /**
@@ -1411,9 +1423,17 @@
             var param = {
               InboxCollection: this.composeMail
             };
-            this.messageInbox.addMessageInbox(param).subscribe(function (resp) {
-              _this9.replyFormActive = false;
-            }); // Deactivate the reply form
+            this.messageInbox.addMessageInbox(param).subscribe(function (res) {
+              if (res.message) {
+                _this9.replyFormActive = false;
+
+                _this9.sharedService.openSnackBar('Reply Sent Successfully', 'success');
+              } else {
+                _this9.sharedService.openSnackBar('Some error occured', 'error');
+              }
+            }, function (error) {
+              _this9.sharedService.openSnackBar('Network error', 'error');
+            });
           }
           /**
            * Open info details panel
@@ -1693,8 +1713,8 @@
           value: function onMailSelected(mail) {
             var _this11 = this;
 
-            // If the mail is unread...
-            if (!mail.isRead) {
+            // If the mail is unread... and unread disabled for 'sent' and 'trash' folder
+            if (!mail.isRead && this.category.name != 'sent' && this.category.name != 'trash') {
               var params = {
                 userId: this.sessionService.userId,
                 messageId: mail.messageId,

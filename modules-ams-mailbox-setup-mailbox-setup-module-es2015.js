@@ -143,6 +143,7 @@ let MailboxSetupComponent = class MailboxSetupComponent {
             let params = {
                 staffInchargeMailbox: {
                     "apartmentId": this.sessionService.apartmentId,
+                    "mailCategoryID": 1,
                     "description": "string",
                     "comment1": "string",
                     "comment2": "string",
@@ -156,7 +157,10 @@ let MailboxSetupComponent = class MailboxSetupComponent {
                     this.sharedService.openSnackBar('Staff Added Successfully', 'success');
                 }
                 else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    if (res.errorMessage == 'No Changes Made.')
+                        this.sharedService.openSnackBar(res.errorMessage, 'success');
+                    else
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
                 this.isSubmitted = false;
             }, (error) => {
@@ -171,7 +175,6 @@ let MailboxSetupComponent = class MailboxSetupComponent {
         this.sharedService.timezonecast
             .subscribe(timeZone => {
             this.timeZone = timeZone;
-            console.log(timeZone);
         });
         // Staff List
         let staffParms = {
@@ -187,12 +190,15 @@ let MailboxSetupComponent = class MailboxSetupComponent {
         };
         this.staffService.getStaffInchargeMailboxByApartmentId(parmas).subscribe((res) => {
             if (Array.isArray) {
-                this.staffId = res.map((data) => {
+                this.staffId = res
+                    .filter(item => item.staffId != null || !item.isActive)
+                    .map((data) => {
                     return {
                         'staffId': data.staffId,
                         'staffName': data.staffName
                     };
                 });
+                console.log(this.staffId);
             }
         });
     }
