@@ -372,6 +372,8 @@
           value: function ngOnChanges() {
             var _this3 = this;
 
+            this.fieldName = this.camelCase(this.labelText);
+
             if (this.fieldModel != undefined && this.fieldModel != "" && this.fieldModel != null && this.fieldList != undefined) {
               this.selectedItem = this.fieldList.filter(function (item) {
                 return item[_this3.fieldId] == _this3.fieldModel;

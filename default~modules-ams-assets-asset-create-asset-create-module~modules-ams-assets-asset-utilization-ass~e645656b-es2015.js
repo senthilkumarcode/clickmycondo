@@ -235,6 +235,7 @@ let SelectComponent = class SelectComponent {
         this.fieldName = this.camelCase(this.labelText);
     }
     ngOnChanges() {
+        this.fieldName = this.camelCase(this.labelText);
         if ((this.fieldModel != undefined && this.fieldModel != "" && this.fieldModel != null) && this.fieldList != undefined) {
             this.selectedItem = this.fieldList.filter(item => { return item[this.fieldId] == this.fieldModel; });
             if (this.selectedItem.length != 0)
