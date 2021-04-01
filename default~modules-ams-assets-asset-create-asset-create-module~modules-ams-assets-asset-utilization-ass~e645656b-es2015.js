@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-details-panel\">\n        \n    <div class=\"select-panel-header\">\n        \n        <div class=\"new-value\">\n            <mat-icon [svgIcon]=\"'search'\"></mat-icon>\n            <input type=\"text\"\n                   placeholder=\"Enter a value\"\n                   (input)=\"filterValues($event)\"\n                   (keydown)=\"filterValuesInputKeyDown($event)\"\n                   [maxLength]=\"50\"\n                   #newValueInput>\n        </div>\n\n    </div>\n\n    <div class=\"available-values\" *ngIf=\"filteredValues.length != 0\">\n\n        <!-- Values  -->\n        <mat-selection-list #selectionList [multiple]=\"false\" [(ngModel)]=\"selectedItem\" (selectionChange)=\"onListSelect()\">\n            <mat-list-option class=\"mat-primary\" \n            *ngFor=\"let value of filteredValues; trackBy: trackByFn\" \n            [value]=\"value\"\n            >\n              {{value[fieldValue]}}\n            </mat-list-option>\n        </mat-selection-list> \n\n    </div>\n\n    <div class=\"no-value\" *ngIf=\"filteredValues.length == 0\">\n        <div class=\"text-secondary\">No Records</div>\n    </div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-details-panel\">\n        \n    <div class=\"select-panel-header\">\n        \n        <div class=\"new-value\">\n            <mat-icon [svgIcon]=\"'search'\"></mat-icon>\n            <input type=\"text\"\n                   placeholder=\"{{'CONDOSELECT.DROPDOWN.PLACEHOLDER' | translate}}\"\n                   (input)=\"filterValues($event)\"\n                   (keydown)=\"filterValuesInputKeyDown($event)\"\n                   [maxLength]=\"50\"\n                   #newValueInput>\n        </div>\n\n    </div>\n\n    <div class=\"available-values\" *ngIf=\"filteredValues.length != 0\">\n\n        <!-- Values  -->\n        <mat-selection-list #selectionList [multiple]=\"false\" [(ngModel)]=\"selectedItem\" (selectionChange)=\"onListSelect()\">\n            <mat-list-option class=\"mat-primary\" \n            *ngFor=\"let value of filteredValues; trackBy: trackByFn\" \n            [value]=\"value\"\n            >\n              {{value[fieldValue]}}\n            </mat-list-option>\n        </mat-selection-list> \n\n    </div>\n\n    <div class=\"no-value\" *ngIf=\"filteredValues.length == 0\">\n        <div class=\"text-secondary\">{{'CONDOSELECT.DROPDOWN.NORECORDS' | translate}}</div>\n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -235,7 +235,6 @@ let SelectComponent = class SelectComponent {
         this.fieldName = this.camelCase(this.labelText);
     }
     ngOnChanges() {
-        this.fieldName = this.camelCase(this.labelText);
         if ((this.fieldModel != undefined && this.fieldModel != "" && this.fieldModel != null) && this.fieldList != undefined) {
             this.selectedItem = this.fieldList.filter(item => { return item[this.fieldId] == this.fieldModel; });
             if (this.selectedItem.length != 0)
@@ -302,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _select_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./select.component */ "./src/app/modules/ui/select/select.component.ts");
 /* harmony import */ var _panel_list_panel_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./panel-list/panel-list.component */ "./src/app/modules/ui/select/panel-list/panel-list.component.ts");
 /* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
@@ -320,7 +321,8 @@ SelectModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-            src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_7__["HelpTooltipModule"]
+            src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_7__["HelpTooltipModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"]
         ],
         exports: [
             _select_component__WEBPACK_IMPORTED_MODULE_5__["SelectComponent"]

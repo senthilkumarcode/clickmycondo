@@ -342,10 +342,12 @@
             "GUESTPHONE": "โทรศัพท์สำหรับแขก",
             "RELATIONSHIPGUEST": "ความสัมพันธ์กับแขก",
             "GUESTATTEND": "ไม่มีแขกเข้าร่วม",
-            "CREATEVISITORPASS": "สร้าง Visitor Pass",
-            "VISITORPASS": "Visitor Pass",
+            "CREATEVISITORPASS": "สร้าง ผู้เยี่ยมชม ผ่าน",
+            "VISITORPASS": "ผู้เยี่ยมชม ผ่าน",
             "STATUS": "สถานะ",
-            "COMMENT": "แสดงความคิดเห็น"
+            "COMMENT": "แสดงความคิดเห็น",
+            "VIEWBOOKINGDETAILS": "ดูรายละเอียดการจอง",
+            "T&C": "ข้อกำหนดและเงื่อนไข"
         },
     "SETUP": {
         "TITLE": "สิ่งอำนวยความสะดวก",
@@ -397,12 +399,31 @@
         "PLEASEENTERMINIMUM": "โปรดป้อนขั้นต่ำ",
         "HOURS": "ชั่วโมง",
         "BEGINTIME": "เวลาเริ่มต้น",
+        "ENDTIME": "เวลาสิ้นสุด",
         "COSTPERSLOT": "ต้นทุนต่อช่อง",
         "COMMENTS": "ความคิดเห็น",
-        "TERMSANDCONDITION": "ข้อกำหนดและเงื่อนไข"
+        "TERMSANDCONDITION": "ข้อกำหนดและเงื่อนไข",
+        "RATETYPE": "ประเภทอัตรา",
+        "ENABLETIMESLOT": "เปิดใช้งานช่วงเวลา"
     },
     "REPORTS": {
         "TITLE": "รายงานสิ่งอำนวยความสะดวก"
+    },
+    "USERBOOKING": {
+        "TITLE": "การจองทั้งหมด",
+        "RESULTS": "ผล"
+    },
+    "EXPECTEDVISITOR": {
+        "TITLE": "สร้างผู้เยี่ยมชมที่คาดหวัง",
+        "EXPECTEDVISITORNAME": "ชื่อผู้เยี่ยมชมที่คาดหวัง",
+        "EXPECTEDVISITORCOUNT": "จำนวนผู้เยี่ยมชมที่คาดหวัง",
+        "EXPECTEDPHONEORMOBILENO": "หมายเลขโทรศัพท์ / มือถือที่คาดไว้",
+        "EXPECTEDDATETIMEVISIT": "วันที่ / เวลาเข้าชมที่คาดไว้",
+        "EXPECTEDOUTTIMEVISIT": "คาดว่าจะหมด / เวลาเยี่ยมชม",
+        "EXPECTEDDURATIONOFVISIT": "ระยะเวลาการเยี่ยมชมที่คาดไว้",
+        "EXPECTEDVISITCATEGORY": "หมวดหมู่การเยี่ยมชมที่คาดหวัง",
+        "REASONFORVISIT": "เหตุผลในการเยี่ยมชม",
+        "SELECT": "เลือก"
     }
     },
     "MOVEINOUT": {
@@ -543,7 +564,7 @@
         "GUESTPHONE": "โทรศัพท์สำหรับแขก",
         "RELATIONSHIPGUEST": "ความสัมพันธ์กับแขก",
         "GUESTATTEND": "ไม่มีแขกเข้าร่วม",
-        "VISITORPASS": "Visitor Pass",
+        "VISITORPASS": "ผู้เยี่ยมชม ผ่าน",
         "ENTERCOMMENT": "ป้อนความคิดเห็น",
         "T&C": "ข้อกำหนดและเงื่อนไข",
         "CATEGORYNAME": "ชื่อหมวดหมู่",
@@ -565,7 +586,12 @@
         "ENTERVALUE": "ป้อนค่า",
         "CONSTRUCTIONENDDATE": "วันที่สิ้นสุดการก่อสร้าง",
         "CONSTRUCTIONSTARTDATE": "วันที่เริ่มการก่อสร้าง",
-        "PROPERTY": "เลือกคุณสมบัติ"
+        "PROPERTY": "เลือกคุณสมบัติ",
+        "SEARCH": "ค้นหา...",
+        "SELECTTYPE": "เลือกประเภท",
+        "NOOFCARS": "ป้อนจำนวนรถ",
+        "INTERCOM": "เข้าสู่อินเตอร์คอม",
+        "BOOKINGAMOUNT": "จำนวนการจอง"
     },
     "BUTTONS": {
         "CHANGEBUTTON": "เปลี่ยน",
@@ -663,7 +689,8 @@
         "THEMEUPDATED": "อัปเดตธีมแล้ว",
         "SOMEERROROCCURED": "เกิดข้อผิดพลาดบางอย่าง",
         "NOSUCHUSERSEXISTSTOBROADCAST": "ไม่มีผู้ใช้ดังกล่าวในการถ่ายทอดข้อความ",
-        "BROADCASTSUCCESS": "ส่งข้อความออกอากาศเรียบร้อยแล้ว"
+        "BROADCASTSUCCESS": "ส่งข้อความออกอากาศเรียบร้อยแล้ว",
+        "SETUPVALUENOTADDEDASITALREADYEXIST": "ไม่ได้เพิ่มค่าติดตั้งเนื่องจากมีอยู่แล้ว"
     },
     "PROPERTY": {
         "CONFIGURATION" : {
@@ -705,6 +732,18 @@
             "ISVACANT": "ว่าง",
             "ISPETSALLOWED": "อนุญาตให้นำสัตว์เลี้ยงเข้ามาได้",
             "ISFURNISHED": "เป็นเฟอร์นิเจอร์"
+        }
+    },
+    "CONDOSELECT": {
+        "DROPDOWN": {
+            "PLACEHOLDER": "ป้อนค่า",
+            "NORECORDS": "ไม่มีบันทึก"
+        },
+        "SEARCH": {
+            "PLACEHOLDER": "ค้นหา..."
+        },
+        "EXPORT": {
+            "EXPORTBUTTON": "ส่งออก"
         }
     }
 }

@@ -3706,7 +3706,7 @@ let joinComponent = class joinComponent {
             });
         }
         else {
-            this.sharedService.openSnackBar("Kindly enter proper email...!", 'error');
+            this.sharedService.openSnackBar("EmailId is Invalid", 'error');
         }
     }
     validateEmail(val) {

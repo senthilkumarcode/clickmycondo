@@ -347,7 +347,9 @@
             "CREATEVISITORPASS": "Create Visitor Pass",
             "VISITORPASS": "Visitor Pass",
             "STATUS": "Status",
-            "COMMENT": "Comment"
+            "COMMENT": "Comment",
+            "VIEWBOOKINGDETAILS": "View Booking Details",
+            "T&C": "Terms and Condition"
         },
         "SETUP": {
             "TITLE": "Facilities",
@@ -399,12 +401,31 @@
             "PLEASEENTERMINIMUM": "Please enter minimum",
             "HOURS": "Hours",
             "BEGINTIME": "Begin Time",
+            "ENDTIME": "End Time",
             "COSTPERSLOT": "Cost per Slot",
             "COMMENTS": "Comments",
-            "TERMSANDCONDITION": "Terms and Condition"
+            "TERMSANDCONDITION": "Terms and Condition",
+            "RATETYPE": "Rate Type",
+            "ENABLETIMESLOT": "Enable Time Slot"
         },
         "REPORTS": {
             "TITLE": "Facility Reports"
+        },
+        "USERBOOKING": {
+            "TITLE": "All Bookings",
+            "RESULTS": "results"
+        },
+        "EXPECTEDVISITOR": {
+            "TITLE": "Create Expected Visitor",
+            "EXPECTEDVISITORNAME": "Expected Visitor Name",
+            "EXPECTEDVISITORCOUNT": "Expected Visitor Count",
+            "EXPECTEDPHONEORMOBILENO": "Expected Phone/Mobile No",
+            "EXPECTEDDATETIMEVISIT": "Expected Date/Time of Visit",
+            "EXPECTEDOUTTIMEVISIT": "Expected Out/Time of Visit",
+            "EXPECTEDDURATIONOFVISIT": "Expected Duration of Visit",
+            "EXPECTEDVISITCATEGORY": "Expected Visit Category",
+            "REASONFORVISIT": "Reason for Visit",
+            "SELECT": "Select"
         }
     },
     "MOVEINOUT": {
@@ -531,6 +552,7 @@
         "ENTERPURPOSE": "Enter Purpose",
         "VISIT": "Select Visit",
         "PRIMARYNAME": "Primary Name",
+        "BOOKINGAMOUNT": "Booking Amount Per Hour",
         "STAFF": "Select Staff",
         "FACILITYNAME": "Select Facility Name",
         "EVENTNAME": "Event Name",
@@ -571,7 +593,8 @@
         "SEARCH": "Search...",
         "SELECTTYPE": "Select Type",
         "NOOFCARS": "Enter No.of Cars",
-        "INTERCOM": "Enter Intercom"
+        "INTERCOM": "Enter Intercom",
+        "BOOKINGAMOUNT": "Booking Amount"
 
     },
     "BUTTONS": {
@@ -670,7 +693,9 @@
         "THEMEUPDATED": "Theme updated",
         "SOMEERROROCCURED": "Some error occured",
         "NOSUCHUSERSEXISTSTOBROADCAST": "No such Users exists to broadcast message.",
-        "BROADCASTSUCCESS": "Broadcast Message sent successfully"
+        "BROADCASTSUCCESS": "Broadcast Message sent successfully",
+        "SETUPVALUENOTADDEDASITALREADYEXIST": "Setup Value Not Added as it already exist.",
+        "TICKETMANAGERCONFIGUPDATED": "TicketManager Config updated Successfully"
 
     },
     "PROPERTY": {
@@ -713,6 +738,18 @@
             "ISVACANT": "Is Vacant",
             "ISPETSALLOWED": "Is Pets Allowed",
             "ISFURNISHED": "Is Furnished"
+        }
+    },
+    "CONDOSELECT": {
+        "DROPDOWN": {
+            "PLACEHOLDER": "Enter a value",
+            "NORECORDS": "No Records"
+        },
+        "SEARCH": {
+            "PLACEHOLDER": "Search..."
+        },
+        "EXPORT": {
+            "EXPORTBUTTON": "Export"
         }
     }
 }

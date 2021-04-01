@@ -345,7 +345,9 @@
             "CREATEVISITORPASS": "Crear pase de visitante",
             "VISITORPASS": "Pase de visitante",
             "STATUS": "Estado",
-            "COMMENT": "Comentario"
+            "COMMENT": "Comentario",
+            "VIEWBOOKINGDETAILS": "Ver detalles de la reserva",
+            "T&C": "Términos y Condiciones"
         },
         "SETUP": {
             "TITLE": "Instalaciones",
@@ -397,12 +399,31 @@
             "PLEASEENTERMINIMUM": "Por favor ingrese el mínimo",
             "HOURS": "Horas",
             "BEGINTIME": "Hora de inicio",
+            "ENDTIME": "Hora de finalización",
             "COSTPERSLOT": "Costo por ranura",
             "COMMENTS": "Comentarios",
-            "TERMSANDCONDITION": "Términos y Condiciones"
+            "TERMSANDCONDITION": "Términos y Condiciones",
+            "RATETYPE": "Tipo de cambio",
+            "ENABLETIMESLOT": "Habilitar intervalo de tiempo"
         },
         "REPORTS": {
             "TITLE": "Informes de instalaciones"
+        },
+        "USERBOOKING": {
+            "TITLE": "Todas las reservas",
+            "RESULTS": "resultados"
+        },
+        "EXPECTEDVISITOR": {
+            "TITLE": "Crear visitante esperada",
+            "EXPECTEDVISITORNAME": "Nombre del visitante esperado",
+            "EXPECTEDVISITORCOUNT": "Recuento esperado de visitantes",
+            "EXPECTEDPHONEORMOBILENO": "Número de teléfono / móvil esperado",
+            "EXPECTEDDATETIMEVISIT": "Fecha / hora esperada de la visita",
+            "EXPECTEDOUTTIMEVISIT": "Hora prevista de salida / visita",
+            "EXPECTEDDURATIONOFVISIT": "Duración prevista de la visita",
+            "EXPECTEDVISITCATEGORY": "Categoría de visita esperada",
+            "REASONFORVISIT": "Razón de la visita",
+            "SELECT": "Seleccione"
         }
     },
     "MOVEINOUT": {
@@ -565,7 +586,12 @@
         "ENTERVALUE": "Ingrese valor",
         "CONSTRUCTIONENDDATE": "Fecha de finalización de la construcción",
         "CONSTRUCTIONSTARTDATE": "Fecha de inicio de la construcción",
-        "PROPERTY": "Seleccionar propiedad"
+        "PROPERTY": "Seleccionar propiedad",
+        "SEARCH": "Buscar...",
+        "SELECTTYPE": "Seleccione tipo",
+        "NOOFCARS": "Ingrese el número de autos",
+        "INTERCOM": "Entrar en el intercomunicador",
+        "BOOKINGAMOUNT": "Importe de la reserva"
 
     },
     "BUTTONS": {
@@ -664,7 +690,8 @@
         "THEMEUPDATED": "Tema actualizado",
         "SOMEERROROCCURED": "Ocurrió algún error",
         "NOSUCHUSERSEXISTSTOBROADCAST": "No existen tales Usuarios para difundir mensajes.",
-        "BROADCASTSUCCESS": "Mensaje de difusión enviado con éxito"
+        "BROADCASTSUCCESS": "Mensaje de difusión enviado con éxito",
+        "SETUPVALUENOTADDEDASITALREADYEXIST": "Valor de configuración no agregado porque ya existe."
 
     },
     "PROPERTY": {
@@ -707,6 +734,18 @@
             "ISVACANT": "Está vacante",
             "ISPETSALLOWED": "¿Se admiten mascotas?",
             "ISFURNISHED": "Esta amueblada"
+        }
+    },
+    "CONDOSELECT": {
+        "DROPDOWN": {
+            "PLACEHOLDER": "Ingrese un valor",
+            "NORECORDS": "no Records"
+        },
+        "SEARCH": {
+            "PLACEHOLDER": "Buscar..."
+        },
+        "EXPORT": {
+            "EXPORTBUTTON": "Exportar"
         }
     }
 }

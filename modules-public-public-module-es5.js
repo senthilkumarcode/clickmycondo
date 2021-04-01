@@ -5773,7 +5773,7 @@
                 _this16.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
-              this.sharedService.openSnackBar("Kindly enter proper email...!", 'error');
+              this.sharedService.openSnackBar("EmailId is Invalid", 'error');
             }
           }
         }, {

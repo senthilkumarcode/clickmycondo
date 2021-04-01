@@ -298,13 +298,21 @@
               };
               this.lookupService.addLookupValue(lookupvalue).subscribe(function (res) {
                 if (res.code == 200) {
-                  _this.sharedService.openSnackBar(res.statusMessage, 'success');
+                  _this.translateService.get('SNACKBAR').subscribe(function (data) {
+                    if (res.statusMessage === "TicketManager Config updated Successfully") {
+                      _this.sharedService.openSnackBar(res.statusMessage, 'success');
+                    }
+                  });
 
                   _this.createEsclation(parseInt(res.message));
                 } else {
                   _this.isTicketSubmitted = false;
 
-                  _this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this.translateService.get('SNACKBAR').subscribe(function (data) {
+                    if (res.responseData.value.errorMessage === "Setup Value Not Added as it already exist.") {
+                      _this.sharedService.openSnackBar("".concat(data.SETUPVALUENOTADDEDASITALREADYEXIST), 'error');
+                    }
+                  });
                 }
               }, function (error) {
                 _this.isTicketSubmitted = false;
@@ -790,7 +798,7 @@
                     map: 'escalationLevelId1>userName'
                   }, {
                     name: 'dayOne',
-                    type: 'number',
+                    type: 'string',
                     map: 'escalationLevelId1>escalationDays'
                   }, {
                     name: 'userNameTwo',
@@ -798,7 +806,7 @@
                     map: 'escalationLevelId2>userName'
                   }, {
                     name: 'dayTwo',
-                    type: 'number',
+                    type: 'string',
                     map: 'escalationLevelId2>escalationDays'
                   }]
                 };

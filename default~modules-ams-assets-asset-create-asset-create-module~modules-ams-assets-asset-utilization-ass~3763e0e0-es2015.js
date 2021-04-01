@@ -159,6 +159,11 @@ const defaultTooltip = [
         title: 'stickerNumber',
         text: 'Enter the Pass Number'
     },
+    {
+        id: 'minimumHours',
+        title: 'minimumHours',
+        text: 'Delete the available slot before changing the minimum hours bookings'
+    },
 ];
 
 

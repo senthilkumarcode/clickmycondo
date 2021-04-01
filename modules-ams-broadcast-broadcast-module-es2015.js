@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-removeuser-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span>Interest Group Category</span>\n        </h4>\n        <mat-accordion class=\"pt-5\">\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>\n                        <div class=\"flex wd-100\">\n                            <div class=\"flex wd-50\">Filter</div>\n                        </div>\n                    </mat-panel-title>\n                </mat-expansion-panel-header>\n                <div class=\"card-body\">\n                    <form #searchCategory=\"ngForm\" name=\"searchCategory\" novalidate>\n                        <div class=\"row\">\n                            <div class=\"col-sm-3\">\n                                <condo-select labelText=\"Category\" fieldPlaceholder=\"Select Category\"\n                                    [fieldRequired]=\"'required'\" [fieldList]=\"broadCastGroupCategory.dropdownList\"\n                                    fieldValue=\"groupName\" [fieldModel]=\"categoryId\" fieldId=\"broadCastGroupCategoryId\"\n                                    (fieldParams)=\"getCategory($event)\"></condo-select>\n                                <!-- <div class=\"select-box\"> -->\n                                <!-- <label>Category</label>\n                                    <select name=\"categoryId\" placeholder=\"Select Category\" class=\"form-control\"\n                                        [(ngModel)]=\"categoryId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option *ngFor=\"let item of broadCastGroupCategory.dropdownList\"\n                                            [value]=\"item.broadCastGroupCategoryId\">\n                                            {{ item.groupName }}\n                                        </option>\n                                    </select> -->\n                                <!-- </div> -->\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'null'\"\n                                    [fieldList]=\"apartmentBlockList\" fieldValue=\"apartmentBlockNumber\"\n                                    [fieldModel]=\"apartmentBlockId\" fieldId=\"apartmentBlockId\"\n                                    (fieldParams)=\"getTower($event)\"></condo-select>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <condo-select labelText=\"Unit No\" fieldPlaceholder=\"Select Unit\"\n                                    [fieldRequired]=\"'null'\" [fieldList]=\"unitData\"\n                                    fieldValue=\"apartmentBlockUnitNumber\" [fieldModel]=\"apartmentBlockUnitId\"\n                                    fieldId=\"apartmentBlockUnitId\" (fieldParams)=\"getUnitValue($event)\"></condo-select>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 d-flex justify-content-end \">\n                                <button mat-flat-button class=\"mr-3\" (click)=\"clear()\">Clear</button>\n                                <button mat-flat-button [color]=\"'primary'\" class=\"mr-2\" (click)=\"getAllGoupUsers()\"\n                                    [disabled]=\"searchCategory.invalid\">Search</button>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n\n            </mat-expansion-panel>\n        </mat-accordion>\n        <div class=\"row\" *ngIf=\"allGroupUser && allGroupUser.length;else notFound\">\n            <div class=\"col-lg-2 col-md-2 col-sm-3 col-xs-6\" *ngFor=\"let groupUser of allGroupUser; let i = index\">\n                <div class=\"reminder bg-card shadow mt-3\" (mouseenter)=\"isShowRemove=i\" (mouseleave)=\"mouseOutEvent()\">\n                    <div *ngIf=\"isShowRemove == i\" class=\"remind-action\"\n                        (click)=\"removeMappedUser(groupUser.broadCastGroupCategoryUserId)\">\n                        <i class=\"fa fa-times icon\" aria-hidden=\"true\"></i>\n                    </div>\n                    <div class=\"w-100 d-flex justify-content-between\">\n                        <p class=\"reminder-title\">\n                            {{groupUser.user}}\n                        </p>\n                        <span>({{groupUser.role}})</span>\n                    </div>\n                    <p>{{groupUser.block+' '+groupUser.unit}}</p>\n                    <!-- <P>{{groupUser.groupCategory}}</P> -->\n                </div>\n            </div>\n        </div>\n        <ng-template class=\"row\" #notFound>\n            <p class=\"d-flex justify-content-center p-5\">No Data Found</p>\n        </ng-template>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-removeuser-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span>Interest Group Category</span>\n        </h4>\n        <mat-accordion class=\"pt-5\">\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>\n                        <div class=\"flex wd-100\">\n                            <div class=\"flex wd-50\">Filter</div>\n                        </div>\n                    </mat-panel-title>\n                </mat-expansion-panel-header>\n                <div class=\"card-body\">\n                    <form #searchCategory=\"ngForm\" name=\"searchCategory\" novalidate>\n                        <div class=\"row\">\n                            <div class=\"col-sm-3\">\n                                <condo-select labelText=\"Category\" fieldPlaceholder=\"Select Category\"\n                                    [fieldRequired]=\"'required'\" [fieldList]=\"broadCastGroupCategory.dropdownList\"\n                                    fieldValue=\"groupName\" [fieldModel]=\"categoryId\" fieldId=\"broadCastGroupCategoryId\"\n                                    (fieldParams)=\"getCategory($event)\"></condo-select>\n                                <!-- <div class=\"select-box\"> -->\n                                <!-- <label>Category</label>\n                                    <select name=\"categoryId\" placeholder=\"Select Category\" class=\"form-control\"\n                                        [(ngModel)]=\"categoryId\" required>\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option *ngFor=\"let item of broadCastGroupCategory.dropdownList\"\n                                            [value]=\"item.broadCastGroupCategoryId\">\n                                            {{ item.groupName }}\n                                        </option>\n                                    </select> -->\n                                <!-- </div> -->\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'null'\"\n                                    [fieldList]=\"apartmentBlockList\" fieldValue=\"apartmentBlockNumber\"\n                                    [fieldModel]=\"apartmentBlockId\" fieldId=\"apartmentBlockId\"\n                                    (fieldParams)=\"getTower($event)\"></condo-select>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <condo-select labelText=\"Unit No\" fieldPlaceholder=\"Select Unit\"\n                                    [fieldRequired]=\"'null'\" [fieldList]=\"unitData\"\n                                    fieldValue=\"apartmentBlockUnitNumber\" [fieldModel]=\"apartmentBlockUnitId\"\n                                    fieldId=\"apartmentBlockUnitId\" (fieldParams)=\"getUnitValue($event)\"></condo-select>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 d-flex justify-content-end \">\n                                <button mat-button class=\"mr-3\" (click)=\"clear()\">Clear</button>\n                                <button mat-flat-button [color]=\"'primary'\" class=\"mr-2\" (click)=\"getAllGoupUsers()\"\n                                    [disabled]=\"searchCategory.invalid\">Search</button>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n\n            </mat-expansion-panel>\n        </mat-accordion>\n        <div class=\"row\" *ngIf=\"allGroupUser && allGroupUser.length;else notFound\">\n            <div class=\"col-lg-2 col-md-2 col-sm-3 col-xs-6\" *ngFor=\"let groupUser of allGroupUser; let i = index\">\n                <div class=\"reminder bg-card shadow mt-3\" (mouseenter)=\"isShowRemove=i\" (mouseleave)=\"mouseOutEvent()\">\n                    <div *ngIf=\"isShowRemove == i\" class=\"remind-action\"\n                        (click)=\"removeMappedUser(groupUser.broadCastGroupCategoryUserId)\">\n                        <i class=\"fa fa-times icon\" aria-hidden=\"true\"></i>\n                    </div>\n                    <div class=\"w-100 d-flex justify-content-between\">\n                        <p class=\"reminder-title\">\n                            {{groupUser.user}}\n                        </p>\n                        <span>({{groupUser.role}})</span>\n                    </div>\n                    <p>{{groupUser.block+' '+groupUser.unit}}</p>\n                    <!-- <P>{{groupUser.groupCategory}}</P> -->\n                </div>\n            </div>\n        </div>\n        <ng-template class=\"row\" #notFound>\n            <p class=\"d-flex justify-content-center p-5\">No Data Found</p>\n        </ng-template>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer mode=\"over\" position=\"end\">\n\t\t\t<div class=\"broadcast-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n                </div>\n                <condo-message class=\"mb-3\" *ngIf=\"message\"\n                    [appearance]=\"message.appearance\"\n                    [showIcon]=\"message.showIcon\"\n                    [type]=\"message.type\"\n                    [@shake]=\"message.shake\">\n                    {{message.content}}\n                </condo-message>\n                \n                <form #createBroadcastCategoryForm=\"ngForm\" name=\"createBroadcastCategoryForm\">\n                    <app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n                    <ng-container *ngIf=\"isDrawerLoader\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Broadcast Category Template Name*</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter category name\"\n                                        name=\"broadCastMessageCategory1\" [(ngModel)]=\"category.broadCastMessageCategory1\"\n                                        required>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Description*</label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"category.template\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex justify-content-end\">\n                                    <button class=\"ml-2\" mat-button (click)=\"closeDrawer()\">Cancel</button>\n                                    <button mat-flat-button [color]=\"'primary'\" (click)=\"UpsertBroadcastMessageCategory()\" \n                                    [disabled]=\"createBroadcastCategoryForm.invalid\">{{clickMode=='add' ? 'Create' : 'Update'}}</button>\n                                </div>\n                            </div>\n                        </div>\n                    </ng-container>\n                </form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n                <div class=\"w-80\" *ngIf=\"isDataLoaded\">\n                    <condo-card >\n                        <div CondoCardHeader>\n                            <div class=\"d-flex\">\n                                <div>\n                                    <h4>Broadcast Category</h4>\n                                    <p>{{totalItems}} results</p>\n                                </div>\n                                <div class=\"ml-auto mr-3\">\n                                    <app-table-search [input]=\"searchCategory\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                                </div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add Category</button>\n                            </div>\n                        </div>\n                        <div CondoCardBody>\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                                [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastCategoryList\"\n                                [columns]=\"broadcastCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </condo-card>\n                </div>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer mode=\"over\" position=\"end\">\n\t\t\t<div class=\"broadcast-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n                </div>\n                <condo-message class=\"mb-3\" *ngIf=\"message\"\n                    [appearance]=\"message.appearance\"\n                    [showIcon]=\"message.showIcon\"\n                    [type]=\"message.type\"\n                    [@shake]=\"message.shake\">\n                    {{message.content}}\n                </condo-message>\n                \n                <form #createBroadcastCategoryForm=\"ngForm\" name=\"createBroadcastCategoryForm\">\n                    <app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n                    <ng-container *ngIf=\"isDrawerLoader\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Broadcast Category Template Name*</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter category name\"\n                                        name=\"broadCastMessageCategory1\" [(ngModel)]=\"category.broadCastMessageCategory1\"\n                                        required>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Message Template*</label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"category.template\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"d-flex justify-content-end\">\n                                    <button class=\"ml-2\" mat-button (click)=\"closeDrawer()\">Cancel</button>\n                                    <button mat-flat-button [color]=\"'primary'\" (click)=\"UpsertBroadcastMessageCategory()\" \n                                    [disabled]=\"createBroadcastCategoryForm.invalid\">{{clickMode=='add' ? 'Create' : 'Update'}}</button>\n                                </div>\n                            </div>\n                        </div>\n                    </ng-container>\n                </form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"main\">\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n                <div class=\"w-80\" *ngIf=\"isDataLoaded\">\n                    <condo-card >\n                        <div CondoCardHeader>\n                            <div class=\"d-flex\">\n                                <div>\n                                    <h4>Broadcast Category</h4>\n                                    <p>{{totalItems}} results</p>\n                                </div>\n                                <div class=\"ml-auto mr-3\">\n                                    <app-table-search [input]=\"searchCategory\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                                </div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add Category</button>\n                            </div>\n                        </div>\n                        <div CondoCardBody>\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                                [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastCategoryList\"\n                                [columns]=\"broadcastCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </condo-card>\n                </div>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -1620,6 +1620,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+
+
 
 
 
@@ -1630,8 +1634,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
-    constructor(broadcastService, sharedService, sessionService, userService, staffService, apartmentService, injector) {
+    constructor(broadcastService, dialog, sharedService, sessionService, userService, staffService, apartmentService, injector) {
         this.broadcastService = broadcastService;
+        this.dialog = dialog;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.userService = userService;
@@ -1668,29 +1673,9 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
             maxHeight: 240,
             classes: "myClass inputField"
         };
-        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(index => {
-            if (index != null) {
-                var params = {
-                    broadCastGroupCategoryUserId: index,
-                    deleteBy: this.loginUserId
-                };
-                this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe((res) => {
-                    this.sharedService.openSnackBar("User has been removed from interest group successfully", 'success');
-                    this.allGroupUser = this.allGroupUser.filter(function (obj) {
-                        return obj.broadCastGroupCategoryUserId !== index;
-                    });
-                    this.interestGroupUsers = this.interestGroupUsers.filter(function (obj) {
-                        return obj.broadCastGroupCategoryUserId !== index;
-                    });
-                });
-            }
-        });
         this.getAllGroupCategory();
         this.getAllApartmentBlockList();
         this.getUsers();
-    }
-    ngOnDestroy() {
-        this.apiSubscribe.unsubscribe();
     }
     getCategory(e) {
         this.categoryId = e[0].broadCastGroupCategoryId;
@@ -1716,7 +1701,30 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
     }
     removeMappedUser(broadCastMessageCategoryId) {
         if (broadCastMessageCategoryId != null) {
-            this.modalService.showConfirmModal(broadCastMessageCategoryId);
+            const message = `Are you sure you want to remove ?`;
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    var params = {
+                        broadCastGroupCategoryUserId: broadCastMessageCategoryId,
+                        deleteBy: this.loginUserId
+                    };
+                    this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe((res) => {
+                        this.sharedService.openSnackBar("User has been removed from interest group successfully", 'success');
+                        this.allGroupUser = this.allGroupUser.filter(function (obj) {
+                            return obj.broadCastGroupCategoryUserId !== broadCastMessageCategoryId;
+                        });
+                        this.interestGroupUsers = this.interestGroupUsers.filter(function (obj) {
+                            return obj.broadCastGroupCategoryUserId !== broadCastMessageCategoryId;
+                        });
+                    });
+                }
+            });
         }
     }
     getIndexParams(event) {
@@ -1838,6 +1846,7 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
 };
 BroadcastRemoveuserComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_7__["BroadcastService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
@@ -1852,6 +1861,7 @@ BroadcastRemoveuserComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./broadcast-removeuser.component.scss */ "./src/app/modules/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_7__["BroadcastService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
@@ -3477,11 +3487,11 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
     ngOnDestroy() {
         this.apiSubscribe.unsubscribe();
     }
-    onGlSearchFilter() {
-        if (this.searchCategory != "") {
+    onGlSearchFilter(event) {
+        if (event != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.searchCategory;
+            let filtervalue = event;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -3814,13 +3824,14 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
     }
     //Get Category Type
     getAllGroupCategory() {
+        this.isDataLoaded = false;
         let queryParamBase = {
             apartmentId: this.sessionService.apartmentId
         };
         this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe((res) => {
             if (Array.isArray(res)) {
                 let groupSourceData = {
-                    localdata: res.reverse(),
+                    localdata: Object.assign({}, res.reverse()),
                     datatype: "array"
                 };
                 this.totalItems = res.length;

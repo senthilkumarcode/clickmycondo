@@ -192,12 +192,20 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             };
             this.lookupService.addLookupValue(lookupvalue).subscribe((res) => {
                 if (res.code == 200) {
-                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                    this.translateService.get('SNACKBAR').subscribe((data) => {
+                        if (res.statusMessage === "TicketManager Config updated Successfully") {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
+                    });
                     this.createEsclation(parseInt(res.message));
                 }
                 else {
                     this.isTicketSubmitted = false;
-                    this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                    this.translateService.get('SNACKBAR').subscribe((data) => {
+                        if (res.responseData.value.errorMessage === "Setup Value Not Added as it already exist.") {
+                            this.sharedService.openSnackBar(`${data.SETUPVALUENOTADDEDASITALREADYEXIST}`, 'error');
+                        }
+                    });
                 }
             }, (error) => {
                 this.isTicketSubmitted = false;
@@ -559,7 +567,7 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                             map: 'escalationLevelId1>userName'
                         }, {
                             name: 'dayOne',
-                            type: 'number',
+                            type: 'string',
                             map: 'escalationLevelId1>escalationDays'
                         }, {
                             name: 'userNameTwo',
@@ -567,7 +575,7 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                             map: 'escalationLevelId2>userName'
                         }, {
                             name: 'dayTwo',
-                            type: 'number',
+                            type: 'string',
                             map: 'escalationLevelId2>escalationDays'
                         }],
                 };
