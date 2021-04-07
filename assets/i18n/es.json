@@ -688,6 +688,7 @@
     "SNACKBAR": {
         "PROPEREMAIL": "Por favor ingrese el correo electrónico adecuado...!",
         "THEMEUPDATED": "Tema actualizado",
+        "LAYOUTUPDATED": "Diseño actualizado",
         "SOMEERROROCCURED": "Ocurrió algún error",
         "NOSUCHUSERSEXISTSTOBROADCAST": "No existen tales Usuarios para difundir mensajes.",
         "BROADCASTSUCCESS": "Mensaje de difusión enviado con éxito",

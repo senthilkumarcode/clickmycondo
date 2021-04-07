@@ -687,6 +687,7 @@
     "SNACKBAR": {
         "PROPEREMAIL": "กรุณากรอกอีเมลที่ถูกต้อง...!",
         "THEMEUPDATED": "อัปเดตธีมแล้ว",
+        "LAYOUTUPDATED": "อัปเดตเค้าโครงแล้ว",
         "SOMEERROROCCURED": "เกิดข้อผิดพลาดบางอย่าง",
         "NOSUCHUSERSEXISTSTOBROADCAST": "ไม่มีผู้ใช้ดังกล่าวในการถ่ายทอดข้อความ",
         "BROADCASTSUCCESS": "ส่งข้อความออกอากาศเรียบร้อยแล้ว",

@@ -691,6 +691,7 @@
     "SNACKBAR": {
         "PROPEREMAIL": "Kindly enter proper email...!",
         "THEMEUPDATED": "Theme updated",
+        "LAYOUTUPDATED": "Layout updated",
         "SOMEERROROCCURED": "Some error occured",
         "NOSUCHUSERSEXISTSTOBROADCAST": "No such Users exists to broadcast message.",
         "BROADCASTSUCCESS": "Broadcast Message sent successfully",
