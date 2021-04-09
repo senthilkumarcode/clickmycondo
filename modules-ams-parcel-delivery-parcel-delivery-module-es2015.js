@@ -1583,22 +1583,15 @@ let PackageTypeComponent = class PackageTypeComponent {
             };
             this.lookupService.addLookupValue(add_param).subscribe((res) => {
                 if (res.code == 200) {
-                    this.sharedService.openSnackBar(res.statusMessage, 'success');
-                }
-                if (res.message) {
-                    const param = {
-                        LookupTypeId: 169,
-                        ApartmentId: this.sessionService.apartmentId
-                    };
-                    this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        // this.isDeliveryCategorySubmitted = true;
-                        /// Go to the parent route
-                        this.goBack();
-                        this.getCategoryData();
-                    });
+                    this.goBack();
+                    this.sharedService.openSnackBar('Package Type Successfully Added.', 'success');
+                    this.getCategoryData();
                 }
                 else {
-                    // this.isDeliveryCategorySubmitted = true;
+                    if (res.statusMessage == "Setup Value Not Added as it already exist.")
+                        this.sharedService.openSnackBar('Package Type already exists', 'error');
+                    else
+                        this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
             });
         }
@@ -1626,20 +1619,15 @@ let PackageTypeComponent = class PackageTypeComponent {
             };
             this.lookupService.updateLookupValue(update_param).subscribe((res) => {
                 if (res.message) {
-                    this.sharedService.openSnackBar(res.message, 'success');
-                }
-                if (res.message) {
-                    const param = {
-                        LookupTypeId: 169,
-                        ApartmentId: this.sessionService.apartmentId
-                    };
-                    this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        /// Go to the parent route
-                        this.goBack();
-                        this.getCategoryData();
-                    });
+                    this.goBack();
+                    this.getCategoryData();
+                    this.sharedService.openSnackBar('Package Type Successfully Updated', 'success');
                 }
                 else {
+                    if (res.errorMessage == "Setup already exist.")
+                        this.sharedService.openSnackBar('Package Type already exists', 'error');
+                    else
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
             });
         }

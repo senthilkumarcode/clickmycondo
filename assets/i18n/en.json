@@ -171,7 +171,7 @@
             "EXPECTEDVISITOUTTIME": "Expected Out/Time of Visit",
             "EXPECTEDDURATIONVISIT": "Expected Duration of Visit",
             "EXPECTEDVISITCATEGORY": "Expected Visit Category",
-            "REASONFORVISIT":"Reason for Visit",
+            "REASONFORVISIT":"Purpose",
             "TOWERNO": "Tower No",
             "UNITNO": "Unit No",
             "PRIMARYNAME": "Primary Name",
@@ -192,7 +192,7 @@
             "FREQUENTVISITORCOUNT": "Frequent Visitor Count",
             "FREQUENTMOBILENO": "Frequent Phone/Mobile No",
             "FREQUENTVISITCATEGORY": "Frequent Visit Category",
-            "REASONFORVISIT": "Reason for Visit",
+            "REASONFORVISIT": "Purpose",
             "VENDORPASS": "Vendor Pass",
             "EXPECTEDVISITTYPE": "Expected Visit Type",
             "TOWERNO": "Tower No",
@@ -274,7 +274,7 @@
             "EXPECTEDDURATIONOFVISIT": "Expected Duration of Visit",
             "PASSNUMBER": "Pass Number",
             "VISITCATEGORY": "Visit Category",
-            "REASONFORVISIT": "Reason for Visit"
+            "REASONFORVISIT": "Purpose"
 
 
         },
@@ -342,7 +342,7 @@
             "GUESTDETAILS": "Guest Details",
             "GUESTNAME": "Guest Name",
             "GUESTPHONE": "Guest Phone",
-            "RELATIONSHIPGUEST": "Relatioship To Guest",
+            "RELATIONSHIPGUEST": "Relationship To Guest",
             "GUESTATTEND": "No Of Guest To Attend",
             "CREATEVISITORPASS": "Create Visitor Pass",
             "VISITORPASS": "Visitor Pass",
@@ -404,7 +404,7 @@
             "ENDTIME": "End Time",
             "COSTPERSLOT": "Cost per Slot",
             "COMMENTS": "Comments",
-            "TERMSANDCONDITION": "Terms and Condition",
+            "TERMSANDCONDITION": "Terms and Conditions",
             "RATETYPE": "Rate Type",
             "ENABLETIMESLOT": "Enable Time Slot"
         },
@@ -424,7 +424,7 @@
             "EXPECTEDOUTTIMEVISIT": "Expected Out/Time of Visit",
             "EXPECTEDDURATIONOFVISIT": "Expected Duration of Visit",
             "EXPECTEDVISITCATEGORY": "Expected Visit Category",
-            "REASONFORVISIT": "Reason for Visit",
+            "REASONFORVISIT": "Purpose",
             "SELECT": "Select"
         }
     },

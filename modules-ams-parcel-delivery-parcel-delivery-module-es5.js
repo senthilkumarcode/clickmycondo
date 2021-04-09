@@ -2323,23 +2323,13 @@
               };
               this.lookupService.addLookupValue(add_param).subscribe(function (res) {
                 if (res.code == 200) {
-                  _this20.sharedService.openSnackBar(res.statusMessage, 'success');
-                }
+                  _this20.goBack();
 
-                if (res.message) {
-                  var param = {
-                    LookupTypeId: 169,
-                    ApartmentId: _this20.sessionService.apartmentId
-                  };
+                  _this20.sharedService.openSnackBar('Package Type Successfully Added.', 'success');
 
-                  _this20.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    // this.isDeliveryCategorySubmitted = true;
-                    /// Go to the parent route
-                    _this20.goBack();
-
-                    _this20.getCategoryData();
-                  });
-                } else {// this.isDeliveryCategorySubmitted = true;
+                  _this20.getCategoryData();
+                } else {
+                  if (res.statusMessage == "Setup Value Not Added as it already exist.") _this20.sharedService.openSnackBar('Package Type already exists', 'error');else _this20.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               });
             } else {
@@ -2366,22 +2356,14 @@
               };
               this.lookupService.updateLookupValue(update_param).subscribe(function (res) {
                 if (res.message) {
-                  _this20.sharedService.openSnackBar(res.message, 'success');
+                  _this20.goBack();
+
+                  _this20.getCategoryData();
+
+                  _this20.sharedService.openSnackBar('Package Type Successfully Updated', 'success');
+                } else {
+                  if (res.errorMessage == "Setup already exist.") _this20.sharedService.openSnackBar('Package Type already exists', 'error');else _this20.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
-
-                if (res.message) {
-                  var param = {
-                    LookupTypeId: 169,
-                    ApartmentId: _this20.sessionService.apartmentId
-                  };
-
-                  _this20.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    /// Go to the parent route
-                    _this20.goBack();
-
-                    _this20.getCategoryData();
-                  });
-                } else {}
               });
             }
           }
