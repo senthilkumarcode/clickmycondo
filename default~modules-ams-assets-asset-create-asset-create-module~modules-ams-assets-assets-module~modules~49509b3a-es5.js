@@ -269,6 +269,7 @@
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (data) {
               _this3.newFiles[index].fileDetailsId = data[0].fileDetailsId;
               _this3.newFiles[index].filePath = data[0].filePath;
+              _this3.fileList[index].fileName = file.name;
               return _this3.fileDownloadService.downloadFile(data[0].filePath);
             }));
           }
@@ -315,8 +316,10 @@
               return _this5.fileDetailsService.getFileDetailsById(params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(function (data) {
                 return data != undefined;
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (data) {
+                console.log(data);
                 _this5.fileList[index].filePath = data[0].filePath;
                 _this5.fileList[index].status = false;
+                _this5.fileList[index].fileName = data[0].fileName;
                 return _this5.fileDownloadService.downloadFile(data[0].filePath);
               }));
             });

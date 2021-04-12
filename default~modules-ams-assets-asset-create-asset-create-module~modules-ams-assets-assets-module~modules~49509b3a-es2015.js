@@ -159,6 +159,7 @@ let UploadComponent = class UploadComponent {
         return this.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {
             this.newFiles[index].fileDetailsId = data[0].fileDetailsId;
             this.newFiles[index].filePath = data[0].filePath;
+            this.fileList[index].fileName = file.name;
             return this.fileDownloadService.downloadFile(data[0].filePath);
         }));
     }
@@ -190,8 +191,10 @@ let UploadComponent = class UploadComponent {
                 fileDetailsId: file.fileDetailsId
             };
             return this.fileDetailsService.getFileDetailsById(params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {
+                console.log(data);
                 this.fileList[index].filePath = data[0].filePath;
                 this.fileList[index].status = false;
+                this.fileList[index].fileName = data[0].fileName;
                 return this.fileDownloadService.downloadFile(data[0].filePath);
             }));
         });
