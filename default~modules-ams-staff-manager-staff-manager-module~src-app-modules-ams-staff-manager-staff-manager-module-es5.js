@@ -2164,7 +2164,7 @@
         _createClass(StaffInactiveStaffComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Staff');
+            this.datagrid.exportdata(event, 'Staff', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",
@@ -2480,7 +2480,7 @@
         _createClass(StaffMaintainStaffComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Staff');
+            this.datagrid.exportdata(event, 'Staff', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getTimeFormat",

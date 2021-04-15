@@ -167,7 +167,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'MoveinReportData');
+            this.datagrid.exportdata(event, 'MoveinReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",

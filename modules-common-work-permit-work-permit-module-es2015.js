@@ -204,7 +204,7 @@ let UserWorkpermitComponent = class UserWorkpermitComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'WorkPermit List');
+        this.datagrid.exportdata(event, 'WorkPermit List', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     navCreatePageUrl() {
         this.router.navigate([`/user/work-permit/create`]);
@@ -1125,7 +1125,7 @@ let WorkpermitListComponent = class WorkpermitListComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, `${this.urlType} list`);
+        this.datagrid.exportdata(event, `${this.urlType} list`, true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     navCreatePageUrl() {
         this.router.navigate([`/ams/work-permit/create`]);
@@ -1829,7 +1829,7 @@ let WorkpermitReportDataComponent = class WorkpermitReportDataComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'HelpdeskReportsData');
+        this.datagrid.exportdata(event, 'HelpdeskReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();
@@ -2091,7 +2091,7 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
         }
     }
     getPrintParams(event) {
-        this.dataGrid.exportdata(event, 'Nature Of Work');
+        this.dataGrid.exportdata(event, 'Nature Of Work', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     OnDeleteNatureWork(detail) {
         let dataRecord = this.dataGrid.getrowdata(detail.rowId);
@@ -2488,7 +2488,7 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
         }
     }
     getPrintParams(event) {
-        this.dataGrid.exportdata(event, 'WorkPermit Type');
+        this.dataGrid.exportdata(event, 'WorkPermit Type', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onDeleteWorkPermit(detail) {
         let dataRecord = this.dataGrid.getrowdata(detail.rowId);

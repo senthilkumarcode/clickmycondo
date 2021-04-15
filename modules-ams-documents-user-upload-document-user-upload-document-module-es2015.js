@@ -122,7 +122,7 @@ let UserTableListComponent = class UserTableListComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'User Document');
+        this.datagrid.exportdata(event, 'User Document', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         let params = {

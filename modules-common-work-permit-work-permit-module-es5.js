@@ -350,7 +350,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'WorkPermit List');
+            this.datagrid.exportdata(event, 'WorkPermit List', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "navCreatePageUrl",
@@ -1664,7 +1664,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, "".concat(this.urlType, " list"));
+            this.datagrid.exportdata(event, "".concat(this.urlType, " list"), true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "navCreatePageUrl",
@@ -2511,7 +2511,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'HelpdeskReportsData');
+            this.datagrid.exportdata(event, 'HelpdeskReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",
@@ -2936,7 +2936,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.dataGrid.exportdata(event, 'Nature Of Work');
+            this.dataGrid.exportdata(event, 'Nature Of Work', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "OnDeleteNatureWork",
@@ -3501,7 +3501,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.dataGrid.exportdata(event, 'WorkPermit Type');
+            this.dataGrid.exportdata(event, 'WorkPermit Type', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onDeleteWorkPermit",

@@ -290,7 +290,7 @@ let VendorReportDataComponent = class VendorReportDataComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'VendorReportData');
+        this.datagrid.exportdata(event, 'VendorReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();
@@ -693,7 +693,7 @@ let VendorReportsComponent = class VendorReportsComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'vendorReports');
+        this.datagrid.exportdata(event, 'vendorReports', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onViewVendor(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);

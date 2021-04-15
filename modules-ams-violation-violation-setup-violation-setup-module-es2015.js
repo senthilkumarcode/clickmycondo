@@ -141,7 +141,7 @@ let ViolationCategorySetupComponent = class ViolationCategorySetupComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Violation Category');
+        this.datagrid.exportdata(event, 'Violation Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     editViolation(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -618,7 +618,7 @@ let ViolationRulesSetupComponent = class ViolationRulesSetupComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Violation Category');
+        this.datagrid.exportdata(event, 'Violation Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     deleteViolation(detail) {
         this.modalService.showConfirmModal(detail.rowId);
@@ -1045,7 +1045,7 @@ let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComp
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Violation Category');
+        this.datagrid.exportdata(event, 'Violation Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getallMenu() {
         let params = {

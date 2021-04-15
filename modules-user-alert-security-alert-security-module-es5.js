@@ -596,7 +596,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.dataGrid.exportdata(event, 'Nature Of Work');
+            this.dataGrid.exportdata(event, 'Nature Of Work', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onCancelAlert",

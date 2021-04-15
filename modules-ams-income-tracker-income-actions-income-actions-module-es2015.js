@@ -837,7 +837,7 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
         this.glAccountsList = [];
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'CustomerAdvancesData');
+        this.datagrid.exportdata(event, 'CustomerAdvancesData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter() {
         if (this.customerAdvancesData != "") {
@@ -1156,7 +1156,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'JournalData');
+        this.datagrid.exportdata(event, 'JournalData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getPostingDateFrom(event) {
         this.report.PostingdateFrom = event;
@@ -1456,7 +1456,7 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
         this.glAccountsList = [];
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'SecurityDepositData');
+        this.datagrid.exportdata(event, 'SecurityDepositData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter() {
         if (this.securityDepositData != "") {

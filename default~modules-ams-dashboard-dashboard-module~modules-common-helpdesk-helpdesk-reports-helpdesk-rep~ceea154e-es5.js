@@ -586,7 +586,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'HelpdeskReportsData');
+            this.datagrid.exportdata(event, 'HelpdeskReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",

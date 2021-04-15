@@ -247,7 +247,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'vendorData');
+            this.datagrid.exportdata(event, 'vendorData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",

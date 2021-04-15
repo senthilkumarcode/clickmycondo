@@ -140,7 +140,7 @@ let UtilityDetailsReadingsComponent = class UtilityDetailsReadingsComponent {
         }
     }
     getPrintParams(event) {
-        this.dataGrid.exportdata(event, 'Report');
+        this.dataGrid.exportdata(event, 'Report', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     selectMeter(index, data) {
         this.selectedIndex = index;
@@ -505,7 +505,7 @@ let UtilityTotalReadingsDetailsComponent = class UtilityTotalReadingsDetailsComp
         }
     }
     getPrintParams(event) {
-        this.dataGrid.exportdata(event, 'Report');
+        this.dataGrid.exportdata(event, 'Report', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getDateFormat(date) {
         if (date) {

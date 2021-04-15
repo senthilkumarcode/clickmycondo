@@ -483,7 +483,7 @@ let ViewMonthlyInvoiceComponent = class ViewMonthlyInvoiceComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'monthlyInvoice');
+        this.datagrid.exportdata(event, 'monthlyInvoice', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onDownloadInvoice(detail) {
         let row = this.datagrid.getrowdata(detail.rowId);

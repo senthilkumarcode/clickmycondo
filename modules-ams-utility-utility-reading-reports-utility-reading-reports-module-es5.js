@@ -250,7 +250,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.dataGrid.exportdata(event, 'Report');
+            this.dataGrid.exportdata(event, 'Report', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "selectMeter",
@@ -851,7 +851,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.dataGrid.exportdata(event, 'Report');
+            this.dataGrid.exportdata(event, 'Report', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getDateFormat",

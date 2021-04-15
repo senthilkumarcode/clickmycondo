@@ -1561,7 +1561,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Meeting');
+            this.datagrid.exportdata(event, 'Meeting', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "addMeeting",

@@ -508,7 +508,7 @@ let CommonCategoryComponent = class CommonCategoryComponent {
         });
     }
     getPrintParams(event) {
-        this.commondatagrid.exportdata(event, 'Common Category');
+        this.commondatagrid.exportdata(event, 'Common Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onCommonCatEdit(detail) {
         let dataRecord = this.commondatagrid.getrowdata(detail.rowId);
@@ -980,7 +980,7 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
         });
     }
     getPrintParams(event) {
-        this.privatedatagrid.exportdata(event, 'Private Category');
+        this.privatedatagrid.exportdata(event, 'Private Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onPrivateCatEdit(detail) {
         let dataRecord = this.privatedatagrid.getrowdata(detail.rowId);

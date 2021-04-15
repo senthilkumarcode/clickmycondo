@@ -3290,7 +3290,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'InventoryCurrentDetails');
+            this.datagrid.exportdata(event, 'InventoryCurrentDetails', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getCurrentInventory",
@@ -4191,7 +4191,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Asset Info');
+            this.datagrid.exportdata(event, 'Asset Info', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onSearchFilter",
@@ -4842,7 +4842,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'assestLastMaintenace');
+            this.datagrid.exportdata(event, 'assestLastMaintenace', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onStatusFilter",
@@ -5207,7 +5207,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'assestMaintenanceHistory');
+            this.datagrid.exportdata(event, 'assestMaintenanceHistory', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onStatusFilter",

@@ -183,7 +183,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'VisitorReportsData');
+            this.datagrid.exportdata(event, 'VisitorReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getDate",

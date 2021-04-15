@@ -1331,7 +1331,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'OpMaintananceHistory');
+            this.datagrid.exportdata(event, 'OpMaintananceHistory', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onSearchFilter",
@@ -3523,7 +3523,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.titleGrid.exportdata(event, 'Title');
+            this.titleGrid.exportdata(event, 'Title', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "addCheckListOption",

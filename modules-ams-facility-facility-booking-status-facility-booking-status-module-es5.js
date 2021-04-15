@@ -556,7 +556,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, this.urlType);
+            this.datagrid.exportdata(event, this.urlType, true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "applyFilter",

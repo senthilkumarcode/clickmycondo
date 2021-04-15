@@ -128,7 +128,7 @@ let AllVendorsComponent = class AllVendorsComponent {
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'vendorData');
+        this.datagrid.exportdata(event, 'vendorData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter() {
         if (this.vendorData != "") {

@@ -470,7 +470,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Todo History');
+            this.datagrid.exportdata(event, 'Todo History', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "deSelectStatus",

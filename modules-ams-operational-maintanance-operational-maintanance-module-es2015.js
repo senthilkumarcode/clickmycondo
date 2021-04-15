@@ -884,7 +884,7 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'OpMaintananceHistory');
+        this.datagrid.exportdata(event, 'OpMaintananceHistory', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onSearchFilter() {
         if (this.histroySearch != "") {
@@ -2378,7 +2378,7 @@ let OpMaintenanceSetupTitleComponent = class OpMaintenanceSetupTitleComponent {
         }
     }
     getPrintParams(event) {
-        this.titleGrid.exportdata(event, 'Title');
+        this.titleGrid.exportdata(event, 'Title', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     addCheckListOption(event) {
         const input = event.input;

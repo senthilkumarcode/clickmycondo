@@ -442,7 +442,7 @@
         _createClass(InventoryCreateItemComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'inventory');
+            this.datagrid.exportdata(event, 'inventory', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",
@@ -1381,7 +1381,7 @@
         _createClass(InventoryCurrentDetailsComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'InventoryCurrentDetails');
+            this.datagrid.exportdata(event, 'InventoryCurrentDetails', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onStatusFilter",
@@ -3641,7 +3641,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'InventoryCurrentDetails');
+            this.datagrid.exportdata(event, 'InventoryCurrentDetails', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getCurrentInventory",

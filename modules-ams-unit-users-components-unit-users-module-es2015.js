@@ -1316,7 +1316,7 @@ let SignuprequestComponent = class SignuprequestComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'selfSignupUser');
+        this.datagrid.exportdata(event, 'selfSignupUser', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     viewUserInfo(id) {
         this.isProfile = false;

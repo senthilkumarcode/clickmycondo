@@ -95,7 +95,7 @@ let VisitorReportsDataComponent = class VisitorReportsDataComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'VisitorReportsData');
+        this.datagrid.exportdata(event, 'VisitorReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getDate(date) {
         return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);

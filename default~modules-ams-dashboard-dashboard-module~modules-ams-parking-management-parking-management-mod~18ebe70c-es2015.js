@@ -83,7 +83,7 @@ let ParkingManagementReportDataComponent = class ParkingManagementReportDataComp
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'ParkingManagementReportData');
+        this.datagrid.exportdata(event, 'ParkingManagementReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();

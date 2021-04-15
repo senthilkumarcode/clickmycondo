@@ -345,7 +345,7 @@ let IncomeActionCreditListComponent = class IncomeActionCreditListComponent {
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'CreditnoteData');
+        this.datagrid.exportdata(event, 'CreditnoteData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter() {
         if (this.creditNoteData != "") {

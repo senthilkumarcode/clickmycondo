@@ -260,7 +260,7 @@ let InventoryCreateItemComponent = class InventoryCreateItemComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_13__["ModalService"]);
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'inventory');
+        this.datagrid.exportdata(event, 'inventory', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter() {
         if (this.securityDepositData != "") {
@@ -996,7 +996,7 @@ let InventoryCurrentDetailsComponent = class InventoryCurrentDetailsComponent {
         this.isDataLoaded = false;
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'InventoryCurrentDetails');
+        this.datagrid.exportdata(event, 'InventoryCurrentDetails', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onStatusFilter() {
         if (this.historyStatus != "") {
@@ -2671,7 +2671,7 @@ let InventoryReportsComponent = class InventoryReportsComponent {
         this.getCurrentInventory();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'InventoryCurrentDetails');
+        this.datagrid.exportdata(event, 'InventoryCurrentDetails', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getCurrentInventory() {
         let params = {};

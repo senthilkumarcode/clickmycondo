@@ -332,7 +332,7 @@ let SecurityMyHistoryComponent = class SecurityMyHistoryComponent {
         }
     }
     getPrintParams(event) {
-        this.dataGrid.exportdata(event, 'Nature Of Work');
+        this.dataGrid.exportdata(event, 'Nature Of Work', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onCancelAlert(detail) {
         let data = this.dataGrid.getrowdata(detail.rowId);

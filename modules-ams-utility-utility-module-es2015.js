@@ -1790,7 +1790,7 @@ let ElectricityReportComponent = class ElectricityReportComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'electricityReportData');
+        this.datagrid.exportdata(event, 'electricityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();
@@ -2082,7 +2082,7 @@ let InsuranceReportComponent = class InsuranceReportComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'electricityReportData');
+        this.datagrid.exportdata(event, 'electricityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();
@@ -2263,7 +2263,7 @@ let UtilityReportDataComponent = class UtilityReportDataComponent {
         this.matDrawer.close();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'UtilityReportData');
+        this.datagrid.exportdata(event, 'UtilityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getSelectedBlock(event) {
         this.blockId = event[0].apartmentBlockId;
@@ -2860,7 +2860,7 @@ let WaterReportComponent = class WaterReportComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'electricityReportData');
+        this.datagrid.exportdata(event, 'electricityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();

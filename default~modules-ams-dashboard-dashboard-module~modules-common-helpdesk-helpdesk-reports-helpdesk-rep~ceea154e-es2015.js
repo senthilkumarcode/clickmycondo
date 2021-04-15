@@ -496,7 +496,7 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'HelpdeskReportsData');
+        this.datagrid.exportdata(event, 'HelpdeskReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     goBack() {
         this.matDrawer.close();

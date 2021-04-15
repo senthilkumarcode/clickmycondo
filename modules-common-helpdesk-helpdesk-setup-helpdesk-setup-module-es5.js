@@ -725,7 +725,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.commondatagrid.exportdata(event, 'Common Category');
+            this.commondatagrid.exportdata(event, 'Common Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onCommonCatEdit",
@@ -1457,7 +1457,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.privatedatagrid.exportdata(event, 'Private Category');
+            this.privatedatagrid.exportdata(event, 'Private Category', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onPrivateCatEdit",

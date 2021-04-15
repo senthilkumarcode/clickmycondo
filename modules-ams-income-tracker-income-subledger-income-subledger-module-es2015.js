@@ -119,7 +119,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
         this.dialogRef.close();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'helpdeskData');
+        this.datagrid.exportdata(event, 'helpdeskData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getAllBlockData() {
         this.filterSelected = 'all';

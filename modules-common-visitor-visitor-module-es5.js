@@ -3470,7 +3470,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'expectedVisitorData');
+            this.datagrid.exportdata(event, 'expectedVisitorData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",
@@ -4555,7 +4555,7 @@
         _createClass(VisitorHistoryComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Visitor History');
+            this.datagrid.exportdata(event, 'Visitor History', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "navigateToCreate",

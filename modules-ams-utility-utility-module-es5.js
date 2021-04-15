@@ -2700,7 +2700,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'electricityReportData');
+            this.datagrid.exportdata(event, 'electricityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",
@@ -3115,7 +3115,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'electricityReportData');
+            this.datagrid.exportdata(event, 'electricityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",
@@ -3400,7 +3400,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'UtilityReportData');
+            this.datagrid.exportdata(event, 'UtilityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getSelectedBlock",
@@ -4191,7 +4191,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'electricityReportData');
+            this.datagrid.exportdata(event, 'electricityReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",

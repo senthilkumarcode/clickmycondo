@@ -908,7 +908,7 @@ let MoveinAdminHistoryComponent = class MoveinAdminHistoryComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'moveinHistoryData');
+        this.datagrid.exportdata(event, 'moveinHistoryData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
@@ -1167,7 +1167,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
             this.router.navigate(['user/moveinout-tracker/create-movein']);
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'MoveInMaintainData');
+        this.datagrid.exportdata(event, 'MoveInMaintainData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -1664,7 +1664,7 @@ let CancelMoveInOutDetailsComponent = class CancelMoveInOutDetailsComponent {
     }
     getPrintParams(event) {
         let title = this.urlType == 'movein' ? 'Cancelled MoveIn' : 'Cancelled MoveOut';
-        this.datagrid.exportdata(event, title);
+        this.datagrid.exportdata(event, title, true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     moveInOut(detail) {
         let data = this.datagrid.getrowdata(detail.rowId);
@@ -2323,7 +2323,7 @@ let MoveinSetupComponent = class MoveinSetupComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Document');
+        this.datagrid.exportdata(event, 'Document', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     deleteMoveIn(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -2720,7 +2720,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
             this.router.navigate(['user/moveinout-tracker/create-moveout']);
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'moveOutMaintainData');
+        this.datagrid.exportdata(event, 'moveOutMaintainData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter(event) {
         if (event != "") {

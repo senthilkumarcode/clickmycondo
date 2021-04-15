@@ -2186,7 +2186,7 @@ let UserVisitorListComponent = class UserVisitorListComponent {
             this.router.navigate(['/user/visitor/create-expected-visitor']);
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'expectedVisitorData');
+        this.datagrid.exportdata(event, 'expectedVisitorData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -2912,7 +2912,7 @@ let VisitorHistoryComponent = class VisitorHistoryComponent {
         this.visitorSearch = '';
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Visitor History');
+        this.datagrid.exportdata(event, 'Visitor History', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     navigateToCreate() {
         this.router.navigate([`checkin`], { relativeTo: this.activateRouter.parent });

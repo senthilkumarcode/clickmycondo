@@ -459,7 +459,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'VendorReportData');
+            this.datagrid.exportdata(event, 'VendorReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "goBack",
@@ -1016,7 +1016,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'vendorReports');
+            this.datagrid.exportdata(event, 'vendorReports', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onViewVendor",

@@ -217,7 +217,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.dataGrid.exportdata(event, 'Esclation');
+            this.dataGrid.exportdata(event, 'Esclation', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "ngOnInit",
@@ -1491,7 +1491,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'helpdeskData');
+            this.datagrid.exportdata(event, 'helpdeskData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "isAdmin",

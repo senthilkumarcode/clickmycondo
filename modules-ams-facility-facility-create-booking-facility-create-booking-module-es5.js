@@ -8137,7 +8137,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'BookingList');
+            this.datagrid.exportdata(event, 'BookingList', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getBookingList",

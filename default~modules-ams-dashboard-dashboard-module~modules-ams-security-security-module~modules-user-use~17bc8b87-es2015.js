@@ -266,7 +266,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.matDrawer.close();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'SecurityReportsData');
+        this.datagrid.exportdata(event, 'SecurityReportsData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);

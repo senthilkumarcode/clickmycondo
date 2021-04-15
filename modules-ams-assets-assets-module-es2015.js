@@ -2247,7 +2247,7 @@ let AssetsReportsComponent = class AssetsReportsComponent {
         this.getCurrentInventory();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'InventoryCurrentDetails');
+        this.datagrid.exportdata(event, 'InventoryCurrentDetails', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getCurrentInventory() {
         let params = {};
@@ -2945,7 +2945,7 @@ let AssetsViewComponent = class AssetsViewComponent {
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Asset Info');
+        this.datagrid.exportdata(event, 'Asset Info', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onSearchFilter() {
         if (this.histroySearch != "") {
@@ -3486,7 +3486,7 @@ let LastMaintenanceComponent = class LastMaintenanceComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'assestLastMaintenace');
+        this.datagrid.exportdata(event, 'assestLastMaintenace', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onStatusFilter() {
         if (this.historyStatus != "") {
@@ -3761,7 +3761,7 @@ let MaintenanceHistoryComponent = class MaintenanceHistoryComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'assestMaintenanceHistory');
+        this.datagrid.exportdata(event, 'assestMaintenanceHistory', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onStatusFilter() {
         if (this.historyStatus != "") {

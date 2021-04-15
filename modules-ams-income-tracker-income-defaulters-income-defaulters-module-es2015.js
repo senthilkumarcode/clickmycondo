@@ -173,7 +173,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'helpdeskData');
+        this.datagrid.exportdata(event, 'helpdeskData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onCheckDefaulterHeader(detail) {
         let allDataRecords = this.datagrid.getrows();

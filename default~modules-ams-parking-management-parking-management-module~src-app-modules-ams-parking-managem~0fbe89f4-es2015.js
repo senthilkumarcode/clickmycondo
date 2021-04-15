@@ -2304,7 +2304,7 @@ let ParkingManageAllocatedSlotsComponent = class ParkingManageAllocatedSlotsComp
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'AllocatedSlot');
+        this.datagrid.exportdata(event, 'AllocatedSlot', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         this.getAllocatedSlot();
@@ -3034,7 +3034,7 @@ let ParkingManageParkingSlotsComponent = class ParkingManageParkingSlotsComponen
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'ParkingSlots');
+        this.datagrid.exportdata(event, 'ParkingSlots', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         this.getParkingSlot();
@@ -4573,7 +4573,7 @@ let CommunityParkingAvailablityComponent = class CommunityParkingAvailablityComp
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'CommunityAvailability');
+        this.datagrid.exportdata(event, 'CommunityAvailability', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         this.getCommunityAvailability();
@@ -4953,7 +4953,7 @@ let UnitParkingAvailablityComponent = class UnitParkingAvailablityComponent {
         });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'UnitAvailability');
+        this.datagrid.exportdata(event, 'UnitAvailability', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         this.getUnitAvailability();

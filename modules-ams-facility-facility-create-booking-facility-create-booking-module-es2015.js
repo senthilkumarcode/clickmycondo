@@ -6092,7 +6092,7 @@ let UserFacilityBookingListComponent = class UserFacilityBookingListComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'BookingList');
+        this.datagrid.exportdata(event, 'BookingList', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getBookingList() {
         this.isBookingDataLoaded = false;

@@ -1564,7 +1564,7 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
         this.staffData = "";
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Staff');
+        this.datagrid.exportdata(event, 'Staff', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -1776,7 +1776,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'Staff');
+        this.datagrid.exportdata(event, 'Staff', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getTimeFormat(dateTime) {
         return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");

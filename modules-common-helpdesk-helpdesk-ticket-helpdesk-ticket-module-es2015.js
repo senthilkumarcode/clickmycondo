@@ -121,7 +121,7 @@ let EscalationListComponent = class EscalationListComponent {
         }
     }
     getPrintParams(event) {
-        this.dataGrid.exportdata(event, 'Esclation');
+        this.dataGrid.exportdata(event, 'Esclation', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
@@ -1086,7 +1086,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             this.router.navigate(['edit-ticket', ticketId], { relativeTo: this.activateRouter.parent });
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'helpdeskData');
+        this.datagrid.exportdata(event, 'helpdeskData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     isAdmin() {
         return this.sessionService.isAdmin();

@@ -1453,7 +1453,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'moveinHistoryData');
+            this.datagrid.exportdata(event, 'moveinHistoryData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "ngOnInit",
@@ -1835,7 +1835,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'MoveInMaintainData');
+            this.datagrid.exportdata(event, 'MoveInMaintainData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",
@@ -2430,7 +2430,7 @@
           key: "getPrintParams",
           value: function getPrintParams(event) {
             var title = this.urlType == 'movein' ? 'Cancelled MoveIn' : 'Cancelled MoveOut';
-            this.datagrid.exportdata(event, title);
+            this.datagrid.exportdata(event, title, true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "moveInOut",
@@ -3427,7 +3427,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'Document');
+            this.datagrid.exportdata(event, 'Document', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "deleteMoveIn",
@@ -3988,7 +3988,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'moveOutMaintainData');
+            this.datagrid.exportdata(event, 'moveOutMaintainData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",

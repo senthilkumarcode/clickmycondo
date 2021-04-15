@@ -154,7 +154,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         this.matDrawer.close();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'UnitUsersReportData');
+        this.datagrid.exportdata(event, 'UnitUsersReportData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
     }
     getSelectedBlock(event) {
         this.blockId = event[0].apartmentBlockId;

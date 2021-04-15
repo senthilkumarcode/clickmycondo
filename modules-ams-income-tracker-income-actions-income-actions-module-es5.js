@@ -1384,7 +1384,7 @@
         _createClass(IncomeCustomerAdvancesComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'CustomerAdvancesData');
+            this.datagrid.exportdata(event, 'CustomerAdvancesData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",
@@ -1814,7 +1814,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'JournalData');
+            this.datagrid.exportdata(event, 'JournalData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getPostingDateFrom",
@@ -2189,7 +2189,7 @@
         _createClass(IncomeSecurityDepositComponent, [{
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'SecurityDepositData');
+            this.datagrid.exportdata(event, 'SecurityDepositData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "onGlSearchFilter",
