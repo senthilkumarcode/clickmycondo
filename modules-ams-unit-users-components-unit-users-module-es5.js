@@ -2297,7 +2297,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.exportData = this.datagrid.exportdata(event, 'unitandusersData');
+            this.datagrid.exportdata(event, 'unitandusersData', true, null, true, 'https://www.jqwidgets.com/export_server/dataexport.php');
           }
         }, {
           key: "getUserIndexParams",
