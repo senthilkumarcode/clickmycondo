@@ -1650,7 +1650,7 @@ let UnapprovedComponent = class UnapprovedComponent {
         this.dataSource.filter = filterValue.trim().toLowerCase();
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'unitandusersData');
+        this.exportData = this.datagrid.exportdata(event, 'unitandusersData');
     }
     getUserIndexParams(event) {
         this.ItemUserStartIndex = event.ItemStartIndex;

@@ -2297,7 +2297,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'unitandusersData');
+            this.exportData = this.datagrid.exportdata(event, 'unitandusersData');
           }
         }, {
           key: "getUserIndexParams",
