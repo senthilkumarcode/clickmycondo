@@ -467,6 +467,9 @@
             return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter() {}
+        }, {
           key: "submitIncomeReportsCustomerForm",
           value: function submitIncomeReportsCustomerForm(form) {
             var _this2 = this;

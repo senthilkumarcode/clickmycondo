@@ -262,6 +262,8 @@ let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerCo
     getDateTime(date) {
         return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
+    onGlSearchFilter() {
+    }
     submitIncomeReportsCustomerForm(form) {
         this.isReportSubmitted = true;
         this.isDataLoaded = false;
