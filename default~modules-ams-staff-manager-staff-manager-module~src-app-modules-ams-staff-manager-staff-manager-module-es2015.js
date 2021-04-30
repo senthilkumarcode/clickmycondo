@@ -2079,7 +2079,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/pipe/shared.pipe */ "./src/app/shared/pipe/shared.pipe.ts");
-/* harmony import */ var src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/assets-add-setup/assets-add-setup.component */ "./src/app/shared/components/assets-add-setup/assets-add-setup.component.ts");
+/* harmony import */ var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component */ "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
 
@@ -2160,7 +2160,7 @@ let AssociateStaffComponent = class AssociateStaffComponent {
         });
     }
     addDepartmentName(name, type, value) {
-        const dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__["AssetsAddSetupComponent"], {
+        const dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__["AssetsAddSetupComponent"], {
             panelClass: 'material-dialog-big',
             width: '70%',
             data: {

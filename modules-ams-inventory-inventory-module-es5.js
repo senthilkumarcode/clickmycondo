@@ -3795,9 +3795,9 @@
       /* harmony import */
 
 
-      var src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/shared/components/assets-add-setup/assets-add-setup.component */
-      "./src/app/shared/components/assets-add-setup/assets-add-setup.component.ts");
+      var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component */
+      "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component.ts");
       /* harmony import */
 
 
@@ -3894,7 +3894,7 @@
           value: function addSetUp(name, type, value, e) {
             var _this45 = this;
 
-            var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
+            var dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
               panelClass: 'material-dialog-big',
               width: '70%',
               data: {

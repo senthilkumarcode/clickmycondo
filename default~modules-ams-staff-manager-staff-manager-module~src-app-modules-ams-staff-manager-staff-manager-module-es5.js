@@ -2951,9 +2951,9 @@
       /* harmony import */
 
 
-      var src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/shared/components/assets-add-setup/assets-add-setup.component */
-      "./src/app/shared/components/assets-add-setup/assets-add-setup.component.ts");
+      var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component */
+      "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component.ts");
       /* harmony import */
 
 
@@ -3052,7 +3052,7 @@
           value: function addDepartmentName(name, type, value) {
             var _this32 = this;
 
-            var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__["AssetsAddSetupComponent"], {
+            var dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_7__["AssetsAddSetupComponent"], {
               panelClass: 'material-dialog-big',
               width: '70%',
               data: {

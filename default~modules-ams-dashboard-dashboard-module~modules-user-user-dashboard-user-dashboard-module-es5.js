@@ -15633,7 +15633,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */
-              [__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~3e7fd88c"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-expense-tracker-expense-acti~ad549514"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */
               "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(function (m) {
                 return m.UnitUsersReportModule;
@@ -15644,7 +15644,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-staff-manager-staff-manager-module */
-              [__webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~3a7ac222"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~3a7ac222"), __webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-inventory-inventory-module~m~e6c77f40"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/staff-manager/staff-manager.module */
               "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(function (m) {
                 return m.StaffManagerModule;
@@ -15677,7 +15677,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-security-security-module */
-              [__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~3e7fd88c"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-expense-tracker-expense-acti~ad549514"), __webpack_require__.e("default~modules-ams-security-security-module~src-app-modules-ams-security-security-module")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/security/security.module */
               "./src/app/modules/ams/security/security.module.ts")).then(function (m) {
                 return m.SecurityModule;
@@ -15692,7 +15692,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-common-visitor-visitor-report-visitor-report-module */
-              [__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~3e7fd88c"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-expense-tracker-expense-acti~ad549514"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/common/visitor/visitor-report/visitor-report.module */
               "./src/app/modules/common/visitor/visitor-report/visitor-report.module.ts")).then(function (m) {
                 return m.VisitorReportModule;
@@ -15707,7 +15707,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-facility-facility-report-facility-report-module */
-              [__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~3e7fd88c"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-expense-tracker-expense-acti~ad549514"), __webpack_require__.e("common")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/facility/facility-report/facility-report.module */
               "./src/app/modules/ams/facility/facility-report/facility-report.module.ts")).then(function (m) {
                 return m.FacilityReportModule;
@@ -15722,7 +15722,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-common-moveinout-tracker-moveinout-tracker-module */
-              [__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~3e7fd88c"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~49509b3a"), __webpack_require__.e("default~modules-common-moveinout-tracker-moveinout-tracker-module~src-app-modules-common-moveinout-t~47ccd680")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-expense-tracker-expense-acti~ad549514"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~ed9bdb9e"), __webpack_require__.e("default~modules-common-moveinout-tracker-moveinout-tracker-module~src-app-modules-common-moveinout-t~47ccd680")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/common/moveinout-tracker/moveinout-tracker.module */
               "./src/app/modules/common/moveinout-tracker/moveinout-tracker.module.ts")).then(function (m) {
                 return m.MoveinoutTrackerModule;
@@ -15737,7 +15737,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-common-moveinout-tracker-moveinout-tracker-module */
-              [__webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~3e7fd88c"), __webpack_require__.e("default~modules-ams-assets-asset-create-asset-create-module~modules-ams-assets-assets-module~modules~49509b3a"), __webpack_require__.e("default~modules-common-moveinout-tracker-moveinout-tracker-module~src-app-modules-common-moveinout-t~47ccd680")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-expense-tracker-expense-acti~ad549514"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~ed9bdb9e"), __webpack_require__.e("default~modules-common-moveinout-tracker-moveinout-tracker-module~src-app-modules-common-moveinout-t~47ccd680")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/common/moveinout-tracker/moveinout-tracker.module */
               "./src/app/modules/common/moveinout-tracker/moveinout-tracker.module.ts")).then(function (m) {
                 return m.MoveinoutTrackerModule;
