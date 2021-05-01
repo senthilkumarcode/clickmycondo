@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"manage-asset-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Assets</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-flex\">\n\t\t\t\t\t\t<input class=\"form-control d-none d-md-block mr-3\" type=\"text\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\"  (ngModelChange)=\"onSearchFilter()\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t<button class=\"mx-3 d-md-w-100 w-50\" mat-flat-button [color]=\"'primary'\" (click)=\"addAsset()\">Add Asset</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"assetData\" [columns]=\"header\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\n<ng-template #actionPanel>\n\t<div class=\"bg-card popover-card p-0 table-action-menu\">\n\t\t<a href=\"javascript:void(0)\" (click)=\"editAsset(assetId)\">Edit Asset</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"deleteAsset(assetId)\">De-Activate Asset</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"addMaintanence(assetId)\">Add Maintenance</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"manageMaintanence(assetId)\">Manage Maintenance</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"viewMaintanenceHistory(assetId)\">View Maintenance History</a>\n\t</div>\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"manage-asset-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Assets</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"histroySearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addAsset()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\tAdd Asset\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"addAsset()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'add_circle'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"assetData\" [columns]=\"header\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\n<ng-template #actionPanel>\n\t<div class=\"bg-card popover-card p-0 table-action-menu\">\n\t\t<a href=\"javascript:void(0)\" (click)=\"editAsset(assetId)\">Edit Asset</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"deleteAsset(assetId)\">De-Activate Asset</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"addMaintanence(assetId)\">Add Maintenance</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"manageMaintanence(assetId)\">Manage Maintenance</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"viewMaintanenceHistory(assetId)\">View Maintenance History</a>\n\t</div>\n</ng-template>";
       /***/
     },
 
@@ -208,6 +208,7 @@
           this.router = router;
           this.sharedService = sharedService;
           this.injector = injector;
+          this.histroySearch = "";
           this.isDataLoaded = true;
           this.totalItems = 0;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
@@ -333,22 +334,22 @@
             this.router.navigateByUrl('/ams/assets/create');
           }
         }, {
-          key: "onSearchFilter",
-          value: function onSearchFilter() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this3 = this;
 
-            if (this.histroySearch != "") {
-              var filterGroup = new jqx.filter();
-              var filterOperator = 1;
-              var filterValue = this.histroySearch;
-              var filterCondition = 'contains';
-              var filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
-              filterGroup.operator = 'or';
-              filterGroup.addfilter(filterOperator, filterData);
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
               this.datagrid.showfiltercolumnbackground(false);
               this.header.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this3.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this3.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
