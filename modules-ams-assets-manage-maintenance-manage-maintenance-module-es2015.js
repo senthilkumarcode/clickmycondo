@@ -467,6 +467,7 @@ let ManageMaintenanceComponent = class ManageMaintenanceComponent {
             assignedtoStaffid: this.sessionService.staffId,
         };
         this.assetService.getAssetMaintenancePlanByAssignedtome(params).subscribe((res) => {
+            console.log(res);
             if (res) {
                 this.maintenanceList = res.length > 0 ? res : [];
                 this.tempMaintenanceList = this.maintenanceList;

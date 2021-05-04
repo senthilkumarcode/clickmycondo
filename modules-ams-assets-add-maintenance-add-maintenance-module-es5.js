@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-maintenance-assets-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t<h4 class=\"mb-4\">\t\t\t\n\t\t\t\t<span *ngIf=\"!isEdit\">Create Asset Maintenance </span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Asset Maintenance </span>\t\t\t\n\t\t\t</h4>\t\t\t\n\t\t</div>\n\t\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t\t<form name=\"addMaintenanceForm\" #addMaintenanceForm=\"ngForm\" novalidate>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\tlabelText=\"Select Asset\"                                     \n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t fieldPlaceholder=\"Select Asset\"\n\t\t\t\t\t\t [fieldList]=\"assetList\"                                     \n\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t fieldId=\"assetId\"\n\t\t\t\t\t\t [fieldModel]=\"assetId\"\n\t\t\t\t\t\t (fieldParams)=\"setAssetId($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<mat-accordion>\n\t\t\t\t<mat-expansion-panel [expanded] = \"true\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Current Maintenance</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\t\t\tlabelText=\"Maint Type\"                                     \n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t fieldPlaceholder=\"Select Maint type\"\n\t\t\t\t\t\t\t\t [fieldList]=\"mainType\"                                     \n\t\t\t\t\t\t\t\t fieldValue=\"name\"\n\t\t\t\t\t\t\t\t fieldId=\"id\"\n\t\t\t\t\t\t\t\t [fieldModel]=\"maintenance.maintenanceTypeId\"\n\t\t\t\t\t\t\t\t (fieldParams)=\"setMaintTypeId($event)\"></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\t\t\t\tlabelText=\"Maint Subtype\"                                     \n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Maint Subtype\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"mainSubType\"                                     \n\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.maintenanceSubtypeId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setSubTypeId($event)\">\n\t\t\t\t\t\t\t\t</condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\tlabelText=\"Planned Maintenance Date\"\n\t\t\t\t\t\t\t\t\tfieldName=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.plannedMaintenanceDate\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getPlannedMaintenanceDate($event)\">\n\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\tlabelText=\"Actual Maintenance Date\"\n\t\t\t\t\t\t\t\t\tfieldName=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.actualMaintDate\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getActualMaintDate($event)\">\n\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\t\t\tlabelText=\"Staff Incharge\"                                     \n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t fieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n\t\t\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t fieldId=\"staffId\"\n\t\t\t\t\t\t\t\t [fieldModel]=\"maintenance.maintainedbyStaff\"\n\t\t\t\t\t\t\t\t (fieldParams)=\"setStaffId($event)\"></condo-select>\n\t\t\t\t\t\t\t</div>\t\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Maintenance by Vendor*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"   (change)=\"maintenance.maintenanceByCompany =''\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"  (change)=\"maintenance.maintenanceByCompany =''\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\"  *ngIf=\"maintenance.isMaintainedbyStaff\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n\t\t\t\t\t\t\t\t\tname=\"Company\" [(ngModel)]=\"maintenance.maintenanceByCompany\" >\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>  \n\t\t\t\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"isEdit\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Status</label>                 \n\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">                           \n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let list of statusList;let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"status\" type=\"radio\" id=\"status{{i}}\" [(ngModel)]=\"maintenance.maintenanceStatusId\" [value]=\"list.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline ml-2\" for=\"status{{i}}\" >\n\t\t\t\t\t\t\t\t\t\t\t\t{{list.lookupValueName | titlecase}}\n\t\t\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div> \t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"Enter Notes\" name=\"notes\" [(ngModel)]=\"maintenance.notes\" ></textarea>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>                                \n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Maintenance Expenses</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\t\t\t\t\t\t  \n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Maintenance Labor Cost</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Labor Cost\" \n\t\t\t\t\t\t\t\t\tname=\"maintLaborCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintLaborCost\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Maintenance Parts Cost</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Parts Cost\" \n\t\t\t\t\t\t\t\t\tname=\"maintPartsCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintPartsCost\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>VAT</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Vat\" \n\t\t\t\t\t\t\t\t\tname=\"maintVat\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintVat\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>With Holding Tax</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter With Holding Tax\" \n\t\t\t\t\t\t\t\t\tname=\"maintWithTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintWithTax\" (change)=\"totalAmt()\"  >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Total Discount</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Total Discount\" \n\t\t\t\t\t\t\t\t\tname=\"totalTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.totalDiscount\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Total Billed Amount</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Total Billed Amount\" \n\t\t\t\t\t\t\t\t\tname=\"maintenanceTotalBilledAmt\" OnlyNumber=\"true\" readonly [(ngModel)]=\"maintenance.maintenanceTotalBilledAmt\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Future Plan</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\tlabelText=\"Next Planned Maint. Date\"\n\t\t\t\t\t\t\t\t\tfieldName=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.nextPlannedMaintenance\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getNextPlannedMaintenance($event)\">\n\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Alert/Remind Before Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Remind me days\" \n\t\t\t\t\t\t\t\t\tname=\"alertBeforeDays\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<app-upload\n\t\t\t\t\t\t\t\t\t\t[fileIds]=\"maintenance.fileDetailsIds\"\n\t\t\t\t\t\t\t\t\t\t[isEdit]=\"isEdit\"\n\t\t\t\t\t\t\t\t\t\t(outputParams)=\"getFileIds($event)\"\n\t\t\t\t\t\t\t\t\t></app-upload>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t<!-- Dynamic Form -->\n\t\t\t\t<mat-expansion-panel *ngIf=\"assetId && dynamicForm?.length > 0\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Check List Form</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let data of dynamicForm;let i=index\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<!-- Input Field -->\n\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"data.type == 'text-field'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [name]=\"data.question\" [(ngModel)]=\"data.answer\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- Check Box -->\n\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"data.type == 'check-box'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check\" *ngFor=\"let box of data.option;let j=index\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"checkbox{{i}}{{j}}\" name=\"{{box.name}}{{i}}{{j}}\" [(ngModel)]=\"box.answer\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"checkbox{{i}}{{j}}\">{{box.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- Radio Button -->\n\t\t\t\t\t\t\t\t<div class=\"select-box radio-box\" *ngIf=\"data.type == 'radio'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let opt of data.option;let j=index\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"ques{{i}}index{{j}}\" id=\"{{i}}index{{j}}\" [(ngModel)]=\"data.answer\" [value]=\"opt.name\" type=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{i}}index{{j}}\">{{opt.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- Date -->\n\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"data.type == 'date'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"data.question{{i}}\" [owlDateTime]=\"dynamicDate\" [owlDateTimeTrigger]=\"dynamicDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Date\"[(ngModel)]=\"data.answer\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #dynamicDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"dynamicDate\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t\t<div class=\"mt-4\">\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button *ngIf=\"!isEdit\"  [color]=\"'primary'\" (click)=\"addMaintenance()\" >Submit</button>\n\t\t\t\t\t<button mat-flat-button *ngIf=\"isEdit\"  [color]=\"'primary'\" (click)=\"updateMaintenance()\">Update</button>\n\t\t\t\t\t<button class=\"ml-2\" *ngIf=\"!isEdit\" mat-button routerLink=\"/ams/assets/view\">Cancel</button>\n\t\t\t\t\t<button class=\"ml-2\" *ngIf=\"isEdit\" mat-button routerLink=\"/ams/assets/manage-maintenance\">Cancel</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"add-maintenance-assets-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"d-flex justify-content-between\">\n\t\t\t<h4 class=\"mb-4\">\t\t\t\n\t\t\t\t<span *ngIf=\"!isEdit\">Create Asset Maintenance </span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Asset Maintenance </span>\t\t\t\n\t\t\t</h4>\t\t\t\n\t\t</div>\n\t\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t\t<form name=\"addMaintenanceForm\" #addMaintenanceForm=\"ngForm\" novalidate>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\tlabelText=\"Select Asset\"                                     \n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t fieldPlaceholder=\"Select Asset\"\n\t\t\t\t\t\t [fieldList]=\"assetList\"                                     \n\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t fieldId=\"assetId\"\n\t\t\t\t\t\t [fieldModel]=\"maintenance.assetId\"\n\t\t\t\t\t\t (fieldParams)=\"setAssetId($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<mat-accordion>\n\t\t\t\t<mat-expansion-panel [expanded] = \"true\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Current Maintenance</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\t\t\tlabelText=\"Maint Type\"                                     \n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t fieldPlaceholder=\"Select Maint type\"\n\t\t\t\t\t\t\t\t [fieldList]=\"mainType\"                                     \n\t\t\t\t\t\t\t\t fieldValue=\"name\"\n\t\t\t\t\t\t\t\t fieldId=\"id\"\n\t\t\t\t\t\t\t\t [fieldModel]=\"maintenance.maintenanceTypeId\"\n\t\t\t\t\t\t\t\t (fieldParams)=\"setMaintTypeId($event)\"></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\t\t\t\tlabelText=\"Maint Subtype\"                                     \n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Maint Subtype\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"mainSubType\"                                     \n\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.maintenanceSubtypeId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setSubTypeId($event)\">\n\t\t\t\t\t\t\t\t</condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\tlabelText=\"Planned Maintenance Date\"\n\t\t\t\t\t\t\t\t\tfieldName=\"maitainPlannedDate\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.plannedMaintenanceDate\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getPlannedMaintenanceDate($event)\">\n\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\tlabelText=\"Actual Maintenance Date\"\n\t\t\t\t\t\t\t\t\tfieldName=\"actualMaintenance\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.actualMaintDate\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getActualMaintDate($event)\">\n\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select\n\t\t\t\t\t\t\t\tlabelText=\"Staff Incharge\"                                     \n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t fieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t [fieldList]=\"staffList | orderBy : 'staffName'\"                                     \n\t\t\t\t\t\t\t\t fieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t fieldId=\"staffId\"\n\t\t\t\t\t\t\t\t [fieldModel]=\"maintenance.maintainedbyStaff\"\n\t\t\t\t\t\t\t\t (fieldParams)=\"setStaffId($event)\"></condo-select>\n\t\t\t\t\t\t\t</div>\t\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Maintenance by Vendor*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"isMaintainedbyStaff\" id=\"inactive\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"   (change)=\"maintenance.maintenanceByCompany =''\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Yes</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"isMaintainedbyStaff\" id=\"active\" [(ngModel)]=\"maintenance.isMaintainedbyStaff\"  (change)=\"maintenance.maintenanceByCompany =''\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">No</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\"  *ngIf=\"maintenance.isMaintainedbyStaff\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Performed by Company/Vendor</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Company/Vendor\" \n\t\t\t\t\t\t\t\t\tname=\"Company\" [(ngModel)]=\"maintenance.maintenanceByCompany\" >\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>  \n\t\t\t\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"isEdit\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Status</label>                 \n\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">                           \n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let list of statusList;let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"status\" type=\"radio\" id=\"status{{i}}\" [(ngModel)]=\"maintenance.maintenanceStatusId\" [value]=\"list.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline ml-2\" for=\"status{{i}}\" >\n\t\t\t\t\t\t\t\t\t\t\t\t{{list.lookupValueName | titlecase}}\n\t\t\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div> \t\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"Enter Notes\" name=\"notes\" [(ngModel)]=\"maintenance.notes\" ></textarea>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>                                \n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Maintenance Expenses</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\t\t\t\t\t\t  \n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Maintenance Labor Cost</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Labor Cost\" \n\t\t\t\t\t\t\t\t\tname=\"maintLaborCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintLaborCost\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Maintenance Parts Cost</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Parts Cost\" \n\t\t\t\t\t\t\t\t\tname=\"maintPartsCost\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintPartsCost\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>VAT</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Vat\" \n\t\t\t\t\t\t\t\t\tname=\"maintVat\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintVat\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>With Holding Tax</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter With Holding Tax\" \n\t\t\t\t\t\t\t\t\tname=\"maintWithTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.maintWithTax\" (change)=\"totalAmt()\"  >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Total Discount</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Total Discount\" \n\t\t\t\t\t\t\t\t\tname=\"totalTax\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.totalDiscount\" (change)=\"totalAmt()\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Total Billed Amount</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Total Billed Amount\" \n\t\t\t\t\t\t\t\t\tname=\"maintenanceTotalBilledAmt\" OnlyNumber=\"true\" readonly [(ngModel)]=\"maintenance.maintenanceTotalBilledAmt\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Future Plan</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\tlabelText=\"Next Planned Maint. Date\"\n\t\t\t\t\t\t\t\t\tfieldName=\"plannedDate\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"maintenance.nextPlannedMaintenance\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getNextPlannedMaintenance($event)\">\n\t\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Alert/Remind Before Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\"  class=\"form-control\" placeholder=\"Enter Remind me days\" \n\t\t\t\t\t\t\t\t\tname=\"alertBeforeDays\" OnlyNumber=\"true\" [(ngModel)]=\"maintenance.alertBeforeDays\" >\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\t\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<app-upload\n\t\t\t\t\t\t\t\t\t\t[fileIds]=\"maintenance.fileDetailsIds\"\n\t\t\t\t\t\t\t\t\t\t[isEdit]=\"isEdit\"\n\t\t\t\t\t\t\t\t\t\t(outputParams)=\"getFileIds($event)\"\n\t\t\t\t\t\t\t\t\t></app-upload>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t<!-- Dynamic Form -->\n\t\t\t\t<mat-expansion-panel *ngIf=\"assetId && dynamicForm?.length > 0\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Check List Form</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let data of dynamicForm;let i=index\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<!-- Input Field -->\n\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"data.type == 'text-field'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [name]=\"data.question\" [(ngModel)]=\"data.answer\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- Check Box -->\n\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"data.type == 'check-box'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check\" *ngFor=\"let box of data.option;let j=index\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"checkbox{{i}}{{j}}\" name=\"{{box.name}}{{i}}{{j}}\" [(ngModel)]=\"box.answer\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"checkbox{{i}}{{j}}\">{{box.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- Radio Button -->\n\t\t\t\t\t\t\t\t<div class=\"select-box radio-box\" *ngIf=\"data.type == 'radio'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let opt of data.option;let j=index\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"ques{{i}}index{{j}}\" id=\"{{i}}index{{j}}\" [(ngModel)]=\"data.answer\" [value]=\"opt.name\" type=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{i}}index{{j}}\">{{opt.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- Date -->\n\t\t\t\t\t\t\t\t<div class=\"select-box\" *ngIf=\"data.type == 'date'\">\n\t\t\t\t\t\t\t\t\t<label>{{data.question}}</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"data.question{{i}}\" [owlDateTime]=\"dynamicDate\" [owlDateTimeTrigger]=\"dynamicDate\" \n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Date\"[(ngModel)]=\"data.answer\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #dynamicDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"dynamicDate\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\t\t\t<div class=\"mt-4\">\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button *ngIf=\"!isEdit\"  [color]=\"'primary'\" (click)=\"addMaintenance()\" >Submit</button>\n\t\t\t\t\t<button mat-flat-button *ngIf=\"isEdit\"  [color]=\"'primary'\" (click)=\"updateMaintenance()\">Update</button>\n\t\t\t\t\t<button class=\"ml-3\" *ngIf=\"!isEdit\" mat-button (click)=\"clear()\">Cancel</button>\n\t\t\t\t\t<button class=\"ml-3\" *ngIf=\"isEdit\" mat-button (click)=\"back()\">Cancel</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -157,58 +157,76 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Asset */
       "./src/app/api/controllers/Asset.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-      /* harmony import */
-
-
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_13__);
 
       var AddMaintenanceComponent = /*#__PURE__*/function () {
-        function AddMaintenanceComponent(route, assetService, lookupService, sessionService, sharedService, router, activatedRoute, staffService, _changeDetectorRef, translateService) {
+        function AddMaintenanceComponent(route, assetService, lookupService, sessionService, sharedService, dialog, router, activatedRoute, staffService, _changeDetectorRef, translateService) {
           _classCallCheck(this, AddMaintenanceComponent);
 
           this.route = route;
@@ -216,6 +234,7 @@
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.sharedService = sharedService;
+          this.dialog = dialog;
           this.router = router;
           this.activatedRoute = activatedRoute;
           this.staffService = staffService;
@@ -248,7 +267,7 @@
             this.maintenance.actualMaintDate = event;
 
             if (this.frequencyDays) {
-              this.maintenance.nextPlannedMaintenance = moment__WEBPACK_IMPORTED_MODULE_8___default()(this.maintenance.actualMaintDate).add(this.frequencyDays, 'days');
+              this.maintenance.nextPlannedMaintenance = moment__WEBPACK_IMPORTED_MODULE_13___default()(this.maintenance.actualMaintDate).add(this.frequencyDays, 'days');
             }
           }
         }, {
@@ -276,7 +295,7 @@
 
             this.activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.type == 'ADD') {
-                _this.assetId = params.assetId;
+                _this.maintenance.assetId = params.assetId;
               }
             });
             this.route.paramMap.subscribe(function (params) {
@@ -291,7 +310,7 @@
 
                   _this.assetService.getAllAssetMaintenancePlanById(_params).subscribe(function (res) {
                     _this.maintenance = res[0] ? res[0] : {};
-                    _this.assetId = _this.maintenance ? _this.maintenance.assetId : '';
+                    _this.maintenance.assetId = _this.maintenance ? _this.maintenance.assetId : '';
                     _this.maintenance.isMaintainedbyStaff = !_this.maintenance.isMaintainedbyStaff;
                     var customField = JSON.parse(_this.maintenance.customFields);
                     if (customField && customField.length > 0) _this.dynamicForm = customField;
@@ -345,7 +364,7 @@
         }, {
           key: "setAssetId",
           value: function setAssetId(event) {
-            this.assetId = event[0].assetId;
+            this.maintenance.assetId = event[0].assetId;
             this.dynamicForm = [];
             this.frequencyDays = event[0].maintFrequencyInDays;
             if (event[0].customFields) this.dynamicForm = JSON.parse(event[0].customFields);
@@ -390,7 +409,7 @@
 
             this.message = null;
 
-            if (!this.form.valid) {
+            if (!this.addMaintenanceForm.valid) {
               window.scroll({
                 top: 0,
                 behavior: 'smooth'
@@ -413,7 +432,7 @@
                 assetMaintenancePlan: {
                   assetMaintenancePlanId: 0,
                   apartmentId: this.sessionService.apartmentId,
-                  assetId: this.assetId,
+                  assetId: this.maintenance.assetId,
                   notes: this.maintenance.notes,
                   maintenanceStatusId: 418,
                   isActive: true,
@@ -460,7 +479,7 @@
 
             this.message = null;
 
-            if (!this.form.valid) {
+            if (!this.addMaintenanceForm.valid) {
               window.scroll({
                 top: 0,
                 behavior: 'smooth'
@@ -524,9 +543,35 @@
             }
           }
         }, {
+          key: "back",
+          value: function back() {
+            var _this6 = this;
+
+            this.translateService.get('POPUP').subscribe(function (data) {
+              var message = "".concat(data.CLOSETITLE);
+              var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("".concat(data.CONFIRMACTION), message);
+
+              var dialogRef = _this6.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+              });
+
+              dialogRef.afterClosed().subscribe(function (dialogResult) {
+                if (dialogResult) _this6.router.navigate(['/ams/assets/manage-maintenance']);
+              });
+            });
+          }
+        }, {
+          key: "clear",
+          value: function clear() {
+            this.addMaintenanceForm.resetForm();
+            this.maintenance = {};
+          }
+        }, {
           key: "getAllMaintenance",
           value: function getAllMaintenance() {
-            var _this6 = this;
+            var _this7 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -537,11 +582,11 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this6.isAssetLoaded = false;
-                _this6.mainType = res ? res : [];
+                _this7.isAssetLoaded = false;
+                _this7.mainType = res ? res : [];
 
-                if (_this6.isEdit && _this6.maintenance.maintenanceTypeId) {
-                  _this6.setMainSubType(_this6.maintenance.maintenanceTypeId);
+                if (_this7.isEdit && _this7.maintenance.maintenanceTypeId) {
+                  _this7.setMainSubType(_this7.maintenance.maintenanceTypeId);
                 } else {// this.maintenance.maintenanceTypeId = this.mainType && this.mainType.length > 0 ? this.mainType[0].id : '';
                   // this.setMainSubType(this.maintenance.maintenanceTypeId);
                 }
@@ -556,17 +601,17 @@
         }, {
           key: "getAsset",
           value: function getAsset() {
-            var _this7 = this;
+            var _this8 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this7.assetList = res ? res : [];
+                _this8.assetList = res ? res : [];
 
-                _this7.assetList.forEach(function (data) {
+                _this8.assetList.forEach(function (data) {
                   data.customLabel = "".concat(data.assetName, " -- ").concat(data.assetLocationName, " - ").concat(data.assetSubLocationName);
-                }); // this.assetId = !this.assetId ? (this.assetList && this.assetList.length > 0) && this.assetList[0].assetId :'';
+                }); // this.maintenance.assetId = !this.maintenance.assetId ? (this.assetList && this.assetList.length > 0) && this.assetList[0].assetId :'';
 
               }
             });
@@ -580,30 +625,34 @@
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"]
+          type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__["AssetService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]
         }];
       };
 
       AddMaintenanceComponent.propDecorators = {
-        form: [{
+        addMaintenanceForm: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['addMaintenanceForm']
+          args: ['addMaintenanceForm', {
+            "static": false
+          }]
         }]
       };
       AddMaintenanceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -612,11 +661,11 @@
         /*! raw-loader!./add-maintenance.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/add-maintenance/add-maintenance.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-maintenance.component.scss */
         "./src/app/modules/ams/assets/add-maintenance/add-maintenance.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_4__["AssetService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])], AddMaintenanceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__["AssetService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]])], AddMaintenanceComponent);
       /***/
     },
 

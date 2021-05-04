@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"assets-setup-depreciation-wrapper\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isError\">\n\n        <!-- Message -->\n       <condo-message *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\" [type]=\"message.type\" [@shake]=\"message.shake\">\n         {{message.content}}\n       </condo-message>\n\n      </ng-container>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"my-4\">Depreciaton methods</h4>\n\n        <div>\n            <div class=\"bg-card shadow\">\n                <div class=\"setup-slide\" *ngFor=\"let list of depreciatonData\">\n                    <mat-slide-toggle [(ngModel)]=\"list.isCheck\"  (change)=\"updateDepreciatonList(list)\">{{list.lookupValueName}}</mat-slide-toggle>\n                </div>\n            </div>\n        </div>\n\n    </ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"assets-setup-depreciation-wrapper\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isError\">\n\n        <!-- Message -->\n       <condo-message *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\" [type]=\"message.type\" [@shake]=\"message.shake\">\n         {{message.content}}\n       </condo-message>\n\n      </ng-container>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"my-4\">Depreciaton methods</h4>\n\n        <div>\n            <div class=\"bg-card shadow\">\n                <div class=\"setup-slide\" *ngFor=\"let list of depreciatonData\">\n                    <mat-slide-toggle *ngIf=\"list.isCommon\" [(ngModel)]=\"list.isCheck\"  (change)=\"updateDepreciatonList(list)\">{{list.lookupValueName}}</mat-slide-toggle>\n                    <p class=\"my-3 font-medium text-secondary\" *ngIf=\"!list.isCommon\">{{list.lookupValueName}}</p>\n                </div>\n            </div>\n        </div>\n\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -391,7 +391,6 @@ let AssetsSetupDepreciationComponent = class AssetsSetupDepreciationComponent {
         });
     }
     updateDepreciatonList(data) {
-        console.log(data);
         this.isDataLoaded = false;
         let reqObj = {
             "lookupValueId": data.lookupValueId,
@@ -404,8 +403,9 @@ let AssetsSetupDepreciationComponent = class AssetsSetupDepreciationComponent {
             "insertedOn": new Date(),
             "updatedBy": parseInt(this.sessionService.userId),
             "updatedOn": new Date(),
-            "isDisabled": data.isCheck
+            "isDisabled": !data.isCheck
         };
+        console.log(reqObj);
         let param = {
             lookupvalue: reqObj
         };

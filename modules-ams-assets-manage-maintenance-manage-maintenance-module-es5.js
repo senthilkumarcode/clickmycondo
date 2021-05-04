@@ -674,6 +674,8 @@
               assignedtoStaffid: this.sessionService.staffId
             };
             this.assetService.getAssetMaintenancePlanByAssignedtome(params).subscribe(function (res) {
+              console.log(res);
+
               if (res) {
                 _this10.maintenanceList = res.length > 0 ? res : [];
                 _this10.tempMaintenanceList = _this10.maintenanceList;
