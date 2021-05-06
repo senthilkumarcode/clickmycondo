@@ -465,6 +465,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
             this.popupClose.emit(false);
             this.type = 'add';
             this.glAccountId = null;
+            this.gl = {};
         });
     }
     isCreateGroup() {

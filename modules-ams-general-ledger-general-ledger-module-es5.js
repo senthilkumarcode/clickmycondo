@@ -740,6 +740,7 @@
 
               _this.type = 'add';
               _this.glAccountId = null;
+              _this.gl = {};
             });
           }
         }, {
