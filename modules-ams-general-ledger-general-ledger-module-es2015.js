@@ -477,7 +477,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
         return this.group == 'Liability';
     }
     isIncome() {
-        return this.group == 'Income';
+        return this.group == 'Member Income';
     }
     isExpenses() {
         return this.group == 'Expenses';
@@ -504,6 +504,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
             let params = {
                 glAccount: details
             };
+            console.log(details);
             this.accountsService.addGlAccount(params).subscribe((res) => {
                 this.isAccountAdded = true;
                 if (res.code == 200) {
@@ -512,7 +513,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
                     this._selectPanelOverlayRef.detach();
                 }
                 else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    this.sharedService.openSnackBar(res.message, 'error');
                 }
             }, (err) => {
                 this.isAccountAdded = true;
@@ -563,7 +564,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.gl = {};
         this.gl.openingBalanceDate = moment__WEBPACK_IMPORTED_MODULE_10__();
-        if (this.group == 'Income' || this.group == 'Expenses') {
+        if (this.group == 'Member Income' || this.group == 'Expenses') {
             this.gl.openingBalance = 0;
         }
         if (!this.isCreateGroup()) {
@@ -574,7 +575,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
             this.accountsService.getGlAccountsId(params).subscribe((res) => {
                 if (res[0] != undefined)
                     this.gl = res[0];
-                if (this.group == 'Income' || this.group == 'Expenses') {
+                if (this.group == 'Member Income' || this.group == 'Expenses') {
                     this.gl.openingBalance = 0;
                 }
             });
@@ -725,6 +726,7 @@ let AddGlGroupComponent = class AddGlGroupComponent {
                 // Detach it
                 templatePortal.detach();
             }
+            this.gl = {};
         });
     }
     isCreateGroup() {
@@ -748,15 +750,19 @@ let AddGlGroupComponent = class AddGlGroupComponent {
             };
             this.accountsService.addGlGroup(params).subscribe((res) => {
                 this.isGroupAdded = true;
+                this.formSubmitted.emit(true);
                 if (res.message) {
-                    this.formSubmitted.emit(true);
                     this.sharedService.openSnackBar(`${this.group} Group added successfully`, 'success');
                     this.type = 'add';
                     this._selectPanelOverlayRef.detach();
                 }
                 else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    this.sharedService.openSnackBar(`${res.errorMessage} Group Number already exists Added`, 'error');
                 }
+            }, err => {
+                this.isGroupAdded = true;
+                this.formSubmitted.emit(true);
+                this.sharedService.openSnackBar(`${err.error.errorMessage} Group Number already exists Added`, 'error');
             });
         }
         else {
@@ -776,15 +782,19 @@ let AddGlGroupComponent = class AddGlGroupComponent {
             };
             this.accountsService.updateGlGroup(params).subscribe((res) => {
                 this.isGroupAdded = true;
+                this.formSubmitted.emit(true);
                 if (res.message) {
-                    this.formSubmitted.emit(true);
                     this.sharedService.openSnackBar(`${this.group} Group updated successfully`, 'success');
                     this.type = 'add';
                     this._selectPanelOverlayRef.detach();
                 }
                 else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    this.sharedService.openSnackBar(`${res.errorMessage} Group Number already exists Added`, 'error');
                 }
+            }, err => {
+                this.isGroupAdded = true;
+                this.formSubmitted.emit(true);
+                this.sharedService.openSnackBar(`${err.error.errorMessage} Group Number already exists Added`, 'error');
             });
         }
     }
@@ -1607,7 +1617,7 @@ let GlAssetGroupsComponent = class GlAssetGroupsComponent {
                     this.accountsService.deleteGlGroup(params).subscribe((res) => {
                         if (res.message) {
                             this.getGlGroups();
-                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.sharedService.openSnackBar("Asset Group deleted", 'success');
                         }
                         else {
                             this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -1792,7 +1802,7 @@ let GlEquityMemberFundGroupsComponent = class GlEquityMemberFundGroupsComponent 
                     this.accountsService.deleteGlGroup(params).subscribe((res) => {
                         if (res.message) {
                             this.getGlGroups();
-                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.sharedService.openSnackBar("Equity Group deleted", 'success');
                         }
                         else {
                             this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -1975,7 +1985,7 @@ let GlExpenseGroupsComponent = class GlExpenseGroupsComponent {
                     this.accountsService.deleteGlGroup(params).subscribe((res) => {
                         if (res.message) {
                             this.getGlGroups();
-                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.sharedService.openSnackBar("Expense Group deleted", 'success');
                         }
                         else {
                             this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2208,7 +2218,7 @@ let GlIncomeGroupsComponent = class GlIncomeGroupsComponent {
                         this.sharedService.setUnitListDeleteIndex(null);
                         if (res.message) {
                             this.getGlGroups();
-                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.sharedService.openSnackBar("Income Group deleted", 'success');
                         }
                         else {
                             this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2396,7 +2406,7 @@ let GlLiabilitesGroupsComponent = class GlLiabilitesGroupsComponent {
                     this.accountsService.deleteGlGroup(params).subscribe((res) => {
                         if (res.message) {
                             this.getGlGroups();
-                            this.sharedService.openSnackBar(res.message, 'success');
+                            this.sharedService.openSnackBar("Liablilities Group deleted", 'success');
                         }
                         else {
                             this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2542,7 +2552,7 @@ let GlIncomeComponent = class GlIncomeComponent {
         this.sessionService = sessionService;
         this.glAccountData = "";
         this.glaccountTypeId = 165; // for Income
-        this.glAccountIndicator = "Income";
+        this.glAccountIndicator = "Member Income";
         this.isDataLoaded = false;
         this.ItemStartIndex = 0;
         this.itemLimit = 100;

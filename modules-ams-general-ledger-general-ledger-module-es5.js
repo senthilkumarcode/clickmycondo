@@ -760,7 +760,7 @@
         }, {
           key: "isIncome",
           value: function isIncome() {
-            return this.group == 'Income';
+            return this.group == 'Member Income';
           }
         }, {
           key: "isExpenses",
@@ -794,6 +794,7 @@
               var params = {
                 glAccount: details
               };
+              console.log(details);
               this.accountsService.addGlAccount(params).subscribe(function (res) {
                 _this2.isAccountAdded = true;
 
@@ -804,7 +805,7 @@
 
                   _this2._selectPanelOverlayRef.detach();
                 } else {
-                  _this2.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this2.sharedService.openSnackBar(res.message, 'error');
                 }
               }, function (err) {
                 _this2.isAccountAdded = true;
@@ -868,7 +869,7 @@
             this.gl = {};
             this.gl.openingBalanceDate = moment__WEBPACK_IMPORTED_MODULE_10__();
 
-            if (this.group == 'Income' || this.group == 'Expenses') {
+            if (this.group == 'Member Income' || this.group == 'Expenses') {
               this.gl.openingBalance = 0;
             }
 
@@ -880,7 +881,7 @@
               this.accountsService.getGlAccountsId(params).subscribe(function (res) {
                 if (res[0] != undefined) _this3.gl = res[0];
 
-                if (_this3.group == 'Income' || _this3.group == 'Expenses') {
+                if (_this3.group == 'Member Income' || _this3.group == 'Expenses') {
                   _this3.gl.openingBalance = 0;
                 }
               });
@@ -1125,6 +1126,8 @@
                 // Detach it
                 templatePortal.detach();
               }
+
+              _this4.gl = {};
             });
           }
         }, {
@@ -1156,17 +1159,23 @@
               this.accountsService.addGlGroup(params).subscribe(function (res) {
                 _this5.isGroupAdded = true;
 
-                if (res.message) {
-                  _this5.formSubmitted.emit(true);
+                _this5.formSubmitted.emit(true);
 
+                if (res.message) {
                   _this5.sharedService.openSnackBar("".concat(_this5.group, " Group added successfully"), 'success');
 
                   _this5.type = 'add';
 
                   _this5._selectPanelOverlayRef.detach();
                 } else {
-                  _this5.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this5.sharedService.openSnackBar("".concat(res.errorMessage, " Group Number already exists Added"), 'error');
                 }
+              }, function (err) {
+                _this5.isGroupAdded = true;
+
+                _this5.formSubmitted.emit(true);
+
+                _this5.sharedService.openSnackBar("".concat(err.error.errorMessage, " Group Number already exists Added"), 'error');
               });
             } else {
               var _params2 = {
@@ -1186,17 +1195,23 @@
               this.accountsService.updateGlGroup(_params2).subscribe(function (res) {
                 _this5.isGroupAdded = true;
 
-                if (res.message) {
-                  _this5.formSubmitted.emit(true);
+                _this5.formSubmitted.emit(true);
 
+                if (res.message) {
                   _this5.sharedService.openSnackBar("".concat(_this5.group, " Group updated successfully"), 'success');
 
                   _this5.type = 'add';
 
                   _this5._selectPanelOverlayRef.detach();
                 } else {
-                  _this5.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this5.sharedService.openSnackBar("".concat(res.errorMessage, " Group Number already exists Added"), 'error');
                 }
+              }, function (err) {
+                _this5.isGroupAdded = true;
+
+                _this5.formSubmitted.emit(true);
+
+                _this5.sharedService.openSnackBar("".concat(err.error.errorMessage, " Group Number already exists Added"), 'error');
               });
             }
           }
@@ -2439,7 +2454,7 @@
                     if (res.message) {
                       _this12.getGlGroups();
 
-                      _this12.sharedService.openSnackBar(res.message, 'success');
+                      _this12.sharedService.openSnackBar("Asset Group deleted", 'success');
                     } else {
                       _this12.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
@@ -2721,7 +2736,7 @@
                     if (res.message) {
                       _this15.getGlGroups();
 
-                      _this15.sharedService.openSnackBar(res.message, 'success');
+                      _this15.sharedService.openSnackBar("Equity Group deleted", 'success');
                     } else {
                       _this15.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
@@ -3001,7 +3016,7 @@
                     if (res.message) {
                       _this18.getGlGroups();
 
-                      _this18.sharedService.openSnackBar(res.message, 'success');
+                      _this18.sharedService.openSnackBar("Expense Group deleted", 'success');
                     } else {
                       _this18.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
@@ -3371,7 +3386,7 @@
                     if (res.message) {
                       _this21.getGlGroups();
 
-                      _this21.sharedService.openSnackBar(res.message, 'success');
+                      _this21.sharedService.openSnackBar("Income Group deleted", 'success');
                     } else {
                       _this21.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
@@ -3660,7 +3675,7 @@
                     if (res.message) {
                       _this24.getGlGroups();
 
-                      _this24.sharedService.openSnackBar(res.message, 'success');
+                      _this24.sharedService.openSnackBar("Liablilities Group deleted", 'success');
                     } else {
                       _this24.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
@@ -3900,7 +3915,7 @@
           this.glAccountData = "";
           this.glaccountTypeId = 165; // for Income
 
-          this.glAccountIndicator = "Income";
+          this.glAccountIndicator = "Member Income";
           this.isDataLoaded = false;
           this.ItemStartIndex = 0;
           this.itemLimit = 100;
