@@ -82,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-view-card-wrapper\">\n\n    <div class=\"d-flex align-items-center title p-5\">\n        <h4>View Card</h4>\n        <div class=\"ml-auto\">\n            <button mat-icon-button\n              (click)=\"goBack()\">\n            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n            </button>\n          </div>\n    </div>\n\n    <div class=\"content\">\n        <h6 class=\"mb-3\">{{staff.apartmentName}}</h6>\n        <div class=\"text-center\"></div>\n        \n        <div class=\"bg-card p-5\" id=\"id-card\">\n            \n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Staff Name</h6>\n                <p class=\"text-secondary\">{{staff.firstName}} {{staff.lastName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Role</h6>\n                <p class=\"text-secondary\">{{staff.roleName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">ID</h6>\n                <p class=\"text-secondary\">{{staff.staffId}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Category</h6>\n                <p class=\"text-secondary\">{{staff.staffCategoryName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Sub Category</h6>\n                <p class=\"text-secondary\">{{staff.staffSubCategoryName}}</p>\n            </div>\n\n        </div>\n\n        <div class=\"text-center\">\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard()\">Print</button>\n\t\t</div>\n        \n    </div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-view-card-wrapper\">\n\n    <div class=\"d-flex align-items-center title p-5\">\n        <h4>View Card</h4>\n        <div class=\"ml-auto\">\n            <button mat-icon-button\n              (click)=\"goBack()\">\n            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n            </button>\n          </div>\n    </div>\n\n    <div class=\"content\">\n        \n        <div class=\"bg-card px-5 py-0\" id=\"id-card\">\n\n            <h5 class=\"mb-5 text-center text-secondary\">{{staff.apartmentName}}</h5>\n            <div class=\"d-flex d-flex justify-content-center w-100 mb-5\">\n                <app-common-pic [commonPicUrl]=\"staff.image\" [isUpload]=\"false\"></app-common-pic>\n            </div>\n            \n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Staff Name</h6>\n                <p class=\"text-secondary\">{{staff.firstName}} {{staff.lastName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Role</h6>\n                <p class=\"text-secondary\">{{staff.roleName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">ID</h6>\n                <p class=\"text-secondary\">{{staff.staffId}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Category</h6>\n                <p class=\"text-secondary\">{{staff.staffCategoryName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Sub Category</h6>\n                <p class=\"text-secondary\">{{staff.staffSubCategoryName}}</p>\n            </div>\n\n        </div>\n\n        <div class=\"text-center\">\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard()\">Print</button>\n\t\t</div>\n        \n    </div>\n\n</div>";
       /***/
     },
 
@@ -387,6 +387,7 @@
               route = route.firstChild;
             }
 
+            console.log(this.staff.apartmentName);
             this.addStaffService.setAddStaffMatDrawer(staff);
             this.router.navigate(['view-card'], {
               relativeTo: route
@@ -486,14 +487,7 @@
           value: function ngOnInit() {
             var _this2 = this;
 
-            this.route.parent.parent.parent.data.subscribe(function (data) {
-              if (data && data.initialData) {
-                _this2.staff.timeZone = data.initialData.apartment.timesettings;
-                var response = data.initialData.apartment;
-                _this2.staff.apartmentName = response.apartmentName;
-              } else _this2.staff.timeZone = '';
-            }); //Category 
-
+            //Category 
             var categoryParams = {
               LookupTypeId: 26,
               ApartmentId: this.sessionService.apartmentId
@@ -532,10 +526,26 @@
                 if (_this2.staff.plannedExitTime) {
                   _this2.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_15__(_this2.staff.plannedExitTime, 'HH:mm:ss').format();
                 }
+
+                _this2.route.parent.parent.parent.data.subscribe(function (data) {
+                  if (data && data.initialData) {
+                    _this2.staff.timeZone = data.initialData.apartment.timesettings;
+                    var _response = data.initialData.apartment;
+                    _this2.staff.apartmentName = _response.apartmentName;
+                  } else _this2.staff.timeZone = '';
+                });
               }, function (error) {
                 _this2.sharedService.openSnackBar('Server Error', 'error');
               });
-            } else {}
+            } else {
+              this.route.parent.parent.parent.data.subscribe(function (data) {
+                if (data && data.initialData) {
+                  _this2.staff.timeZone = data.initialData.apartment.timesettings;
+                  var response = data.initialData.apartment;
+                  _this2.staff.apartmentName = response.apartmentName;
+                } else _this2.staff.timeZone = '';
+              });
+            }
           }
         }]);
 
@@ -2056,6 +2066,7 @@
                 _this17._addStaffComponent.matDrawer.open();
 
                 _this17.staff = res;
+                console.log(res);
               } else {
                 _this17.staff = {};
               }

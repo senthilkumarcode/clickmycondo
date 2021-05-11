@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-view-card-wrapper\">\n\n    <div class=\"d-flex align-items-center title p-5\">\n        <h4>View Card</h4>\n        <div class=\"ml-auto\">\n            <button mat-icon-button\n              (click)=\"goBack()\">\n            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n            </button>\n          </div>\n    </div>\n\n    <div class=\"content\">\n        <h6 class=\"mb-3\">{{staff.apartmentName}}</h6>\n        <div class=\"text-center\"></div>\n        \n        <div class=\"bg-card p-5\" id=\"id-card\">\n            \n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Staff Name</h6>\n                <p class=\"text-secondary\">{{staff.firstName}} {{staff.lastName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Role</h6>\n                <p class=\"text-secondary\">{{staff.roleName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">ID</h6>\n                <p class=\"text-secondary\">{{staff.staffId}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Category</h6>\n                <p class=\"text-secondary\">{{staff.staffCategoryName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Sub Category</h6>\n                <p class=\"text-secondary\">{{staff.staffSubCategoryName}}</p>\n            </div>\n\n        </div>\n\n        <div class=\"text-center\">\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard()\">Print</button>\n\t\t</div>\n        \n    </div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-view-card-wrapper\">\n\n    <div class=\"d-flex align-items-center title p-5\">\n        <h4>View Card</h4>\n        <div class=\"ml-auto\">\n            <button mat-icon-button\n              (click)=\"goBack()\">\n            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n            </button>\n          </div>\n    </div>\n\n    <div class=\"content\">\n        \n        <div class=\"bg-card px-5 py-0\" id=\"id-card\">\n\n            <h5 class=\"mb-5 text-center text-secondary\">{{staff.apartmentName}}</h5>\n            <div class=\"d-flex d-flex justify-content-center w-100 mb-5\">\n                <app-common-pic [commonPicUrl]=\"staff.image\" [isUpload]=\"false\"></app-common-pic>\n            </div>\n            \n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Staff Name</h6>\n                <p class=\"text-secondary\">{{staff.firstName}} {{staff.lastName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Role</h6>\n                <p class=\"text-secondary\">{{staff.roleName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">ID</h6>\n                <p class=\"text-secondary\">{{staff.staffId}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Category</h6>\n                <p class=\"text-secondary\">{{staff.staffCategoryName}}</p>\n            </div>\n\n            <div class=\"my-4\">\n                <h6 class=\"mb-1\">Sub Category</h6>\n                <p class=\"text-secondary\">{{staff.staffSubCategoryName}}</p>\n            </div>\n\n        </div>\n\n        <div class=\"text-center\">\n\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"downloadIdCard()\">Print</button>\n\t\t</div>\n        \n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -211,6 +211,7 @@ let AddStaffComponent = class AddStaffComponent {
         while (route.firstChild) {
             route = route.firstChild;
         }
+        console.log(this.staff.apartmentName);
         this.addStaffService.setAddStaffMatDrawer(staff);
         this.router.navigate(['view-card'], { relativeTo: route });
     }
@@ -285,15 +286,6 @@ let AddStaffComponent = class AddStaffComponent {
         this.outputParams.emit(this.staffArray);
     }
     ngOnInit() {
-        this.route.parent.parent.parent.data.subscribe((data) => {
-            if (data && data.initialData) {
-                this.staff.timeZone = data.initialData.apartment.timesettings;
-                let response = data.initialData.apartment;
-                this.staff.apartmentName = response.apartmentName;
-            }
-            else
-                this.staff.timeZone = '';
-        });
         //Category 
         let categoryParams = {
             LookupTypeId: 26,
@@ -328,11 +320,29 @@ let AddStaffComponent = class AddStaffComponent {
                 if (this.staff.plannedExitTime) {
                     this.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_15__(this.staff.plannedExitTime, 'HH:mm:ss').format();
                 }
+                this.route.parent.parent.parent.data.subscribe((data) => {
+                    if (data && data.initialData) {
+                        this.staff.timeZone = data.initialData.apartment.timesettings;
+                        let response = data.initialData.apartment;
+                        this.staff.apartmentName = response.apartmentName;
+                    }
+                    else
+                        this.staff.timeZone = '';
+                });
             }, (error) => {
                 this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
+            this.route.parent.parent.parent.data.subscribe((data) => {
+                if (data && data.initialData) {
+                    this.staff.timeZone = data.initialData.apartment.timesettings;
+                    let response = data.initialData.apartment;
+                    this.staff.apartmentName = response.apartmentName;
+                }
+                else
+                    this.staff.timeZone = '';
+            });
         }
     }
 };
@@ -1376,6 +1386,7 @@ let StaffViewCardComponent = class StaffViewCardComponent {
             if (res != null) {
                 this._addStaffComponent.matDrawer.open();
                 this.staff = res;
+                console.log(res);
             }
             else {
                 this.staff = {};
