@@ -3277,12 +3277,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/services/profilep-pic-upload.service */ "./src/app/shared/services/profilep-pic-upload.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
-
-
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 
 
 
@@ -3290,11 +3286,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfilePicComponent = class ProfilePicComponent {
-    constructor(_activatedRoute, userService, profilepPicUploadService, sessionService, sharedService, constantsService) {
+    constructor(_activatedRoute, userService, sharedService, constantsService) {
         this._activatedRoute = _activatedRoute;
         this.userService = userService;
-        this.profilepPicUploadService = profilepPicUploadService;
-        this.sessionService = sessionService;
         this.sharedService = sharedService;
         this.constantsService = constantsService;
         this.profilePicUrl = "";
@@ -3370,10 +3364,8 @@ let ProfilePicComponent = class ProfilePicComponent {
 ProfilePicComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_4__["ProfilepPicUploadService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"] }
 ];
 ProfilePicComponent.propDecorators = {
     user: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
@@ -3387,10 +3379,8 @@ ProfilePicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_4__["ProfilepPicUploadService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"]])
 ], ProfilePicComponent);
 
 

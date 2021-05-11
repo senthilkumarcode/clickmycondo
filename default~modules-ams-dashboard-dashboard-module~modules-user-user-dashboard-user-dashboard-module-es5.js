@@ -15644,7 +15644,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-staff-manager-staff-manager-module */
-              [__webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~3a7ac222"), __webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-inventory-inventory-module~m~e6c77f40"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-inventory-inventory-module~m~e6c77f40"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/staff-manager/staff-manager.module */
               "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(function (m) {
                 return m.StaffManagerModule;

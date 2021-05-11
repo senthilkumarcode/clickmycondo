@@ -5065,36 +5065,22 @@
       /* harmony import */
 
 
-      var _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ../../../shared/services/profilep-pic-upload.service */
-      "./src/app/shared/services/profilep-pic-upload.service.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ../../../shared/services/constants.service */
       "./src/app/shared/services/constants.service.ts");
 
       var ProfilePicComponent = /*#__PURE__*/function () {
-        function ProfilePicComponent(_activatedRoute, userService, profilepPicUploadService, sessionService, sharedService, constantsService) {
+        function ProfilePicComponent(_activatedRoute, userService, sharedService, constantsService) {
           _classCallCheck(this, ProfilePicComponent);
 
           this._activatedRoute = _activatedRoute;
           this.userService = userService;
-          this.profilepPicUploadService = profilepPicUploadService;
-          this.sessionService = sessionService;
           this.sharedService = sharedService;
           this.constantsService = constantsService;
           this.profilePicUrl = "";
@@ -5193,13 +5179,9 @@
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
         }, {
-          type: _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_4__["ProfilepPicUploadService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"]
+          type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"]
         }];
       };
 
@@ -5217,7 +5199,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-pic.component.scss */
         "./src/app/modules/profile/profile-pic/profile-pic.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_services_profilep_pic_upload_service__WEBPACK_IMPORTED_MODULE_4__["ProfilepPicUploadService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"]])], ProfilePicComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_5__["ConstantsService"]])], ProfilePicComponent);
       /***/
     },
 
