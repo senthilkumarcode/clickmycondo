@@ -15642,9 +15642,9 @@
           }, {
             path: 'staff',
             loadChildren: function loadChildren() {
-              return Promise.all(
+              return __webpack_require__.e(
               /*! import() | src-app-modules-ams-staff-manager-staff-manager-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-inventory-inventory-module~m~e6c77f40"), __webpack_require__.e("default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module")]).then(__webpack_require__.bind(null,
+              "default~modules-ams-staff-manager-staff-manager-module~src-app-modules-ams-staff-manager-staff-manager-module").then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/staff-manager/staff-manager.module */
               "./src/app/modules/ams/staff-manager/staff-manager.module.ts")).then(function (m) {
                 return m.StaffManagerModule;
