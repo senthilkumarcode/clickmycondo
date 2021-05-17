@@ -15596,9 +15596,9 @@
       /* harmony import */
 
 
-      var _common_visitor_visitor_report_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ../../common/visitor/visitor-report/visitor-reports/visitor-reports-data/visitor-reports-data.component */
-      "./src/app/modules/common/visitor/visitor-report/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
+      var _common_visitor_visitor_report_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ../../common/visitor/visitor-report/visitor-reports-data/visitor-reports-data.component */
+      "./src/app/modules/common/visitor/visitor-report/visitor-reports-data/visitor-reports-data.component.ts");
       /* harmony import */
 
 
@@ -15700,7 +15700,7 @@
             },
             children: [{
               path: 'reports/:name/:id/:link',
-              component: _common_visitor_visitor_report_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"]
+              component: _common_visitor_visitor_report_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"]
             }]
           }, {
             path: 'facility',
