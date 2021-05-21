@@ -2314,6 +2314,7 @@
 
                 if (_this15.activateRouter.params['value'].id == undefined) {
                   _this15.selectedCountryISO = response.country.toLowerCase();
+                  console.log(response.country);
                 }
               }); //visit type
 

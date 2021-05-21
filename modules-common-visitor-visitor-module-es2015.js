@@ -1424,6 +1424,7 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
                 let response = data.initialData.apartment;
                 if (this.activateRouter.params['value'].id == undefined) {
                     this.selectedCountryISO = response.country.toLowerCase();
+                    console.log(response.country);
                 }
             });
             //visit type
