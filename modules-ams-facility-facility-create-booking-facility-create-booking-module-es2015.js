@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildRowNodes", function() { return buildRowNodes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flattenResources", function() { return flattenResources; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isGroupsEqual", function() { return isGroupsEqual; });
-/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/angular/node_modules/@fullcalendar/core/main.esm.js");
+/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/core/main.esm.js");
 /*!
 FullCalendar Resources Common Plugin v4.4.2
 Docs & License: https://fullcalendar.io/scheduler
@@ -1606,7 +1606,7 @@ var main = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createPlugin"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResourceTimelineView", function() { return ResourceTimelineView; });
-/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/angular/node_modules/@fullcalendar/core/main.esm.js");
+/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/core/main.esm.js");
 /* harmony import */ var _fullcalendar_timeline__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fullcalendar/timeline */ "./node_modules/@fullcalendar/timeline/main.esm.js");
 /* harmony import */ var _fullcalendar_resource_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fullcalendar/resource-common */ "./node_modules/@fullcalendar/resource-common/main.esm.js");
 /*!
@@ -2703,7 +2703,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeAxis", function() { return TimeAxis; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimelineLane", function() { return TimelineLane; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimelineView", function() { return TimelineView; });
-/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/angular/node_modules/@fullcalendar/core/main.esm.js");
+/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/core/main.esm.js");
 /*!
 FullCalendar Timeline Plugin v4.4.2
 Docs & License: https://fullcalendar.io/scheduler

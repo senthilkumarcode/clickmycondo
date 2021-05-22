@@ -300,12 +300,12 @@ let CreateMoveinComponent = class CreateMoveinComponent {
     getPrimaryDetails() {
         for (let data of this.unitList) {
             if (this.movein.apartmentBlockUnitId == data.buId) {
+                console.log(data);
                 this.movein.reqUserId = data.blockUnitUserId;
                 this.block.primaryName = data.pc_Label;
                 this.block.email = "";
                 this.block.phoneNumber = data.blockUnitOwnerTenantUsers[0].phoneNumber;
                 this.block.emailId = data.blockUnitOwnerTenantUsers[0].emailId;
-                this.block.phonecountrycode = data.blockUnitOwnerTenantUsers[0].phonecountrycode;
                 this.getBanner();
                 break;
             }
@@ -330,12 +330,6 @@ let CreateMoveinComponent = class CreateMoveinComponent {
     }
     getFileIds(event) {
         this.fileDetailsIds = event.join();
-    }
-    addFileUpload() {
-        this.fileUploadList.push({ fileAttachmentId: null });
-    }
-    deleteFileUpload(index) {
-        this.fileUploadList.splice(index, 1);
     }
     moveinCreate() {
         this.message = null;
@@ -381,15 +375,15 @@ let CreateMoveinComponent = class CreateMoveinComponent {
                 "updatedOn": null,
                 "apartmentId": this.sessionService.apartmentId,
                 "userName": this.block.primaryName,
-                "mobile": this.block.phoneNumber,
-                "email": this.block.email,
+                "mobile": this.block.phoneNumber.number,
+                "email": this.block.emailId,
                 "block_Unit": "",
                 "requestType": "MoveIn",
                 "statusName": "Pending Approval",
                 "serialNo": 0,
                 "startDate": null,
                 "expiryDate": null,
-                "moveInDetails": null
+                "moveInDetails": []
             };
             let params = {
                 moveIn: details
@@ -437,12 +431,12 @@ let CreateMoveinComponent = class CreateMoveinComponent {
     cancel() {
         if (this.isAdmin()) {
             if (this.mode == 'view')
-                this.router.navigate(['ams/moveinout-tracker/cancelled/movein']);
+                this.router.navigate(['/ams/moveinout-tracker/cancelled/movein']);
             else
-                this.router.navigate(['ams/moveinout-tracker/movein']);
+                this.router.navigate(['/ams/moveinout-tracker/movein']);
         }
         else {
-            this.router.navigate(['user/moveinout-tracker/movein']);
+            this.router.navigate(['/user/moveinout-tracker/movein']);
         }
     }
     getTowers() {
@@ -453,6 +447,7 @@ let CreateMoveinComponent = class CreateMoveinComponent {
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+        this.movein.inDate = moment__WEBPACK_IMPORTED_MODULE_4__();
         if (!this.isAdmin()) {
             this.movein.reqUserId = this.sessionService.apartmentBlockUnitUserId;
             this.movein.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -626,7 +621,7 @@ let CreateMoveoutComponent = class CreateMoveoutComponent {
             }
             else {
                 let tower = yield this.getParticularBlockId().toPromise();
-                if (tower.length > 0)
+                if (Array.isArray(tower) && tower.length > 0)
                     this.block.blockId = tower[0].apartmentBlockId;
             }
             for (let data of this.towerList) {
@@ -644,12 +639,12 @@ let CreateMoveoutComponent = class CreateMoveoutComponent {
     getPrimaryDetails() {
         for (let data of this.unitList) {
             if (this.moveout.apartmentBlockUnitId == data.buId) {
+                console.log(data);
                 this.moveout.reqUserId = data.blockUnitUserId;
                 this.block.primaryName = data.pc_Label;
                 this.block.email = "";
                 this.block.phoneNumber = data.blockUnitOwnerTenantUsers[0].phoneNumber;
                 this.block.emailId = data.blockUnitOwnerTenantUsers[0].emailId;
-                this.block.phonecountrycode = data.blockUnitOwnerTenantUsers[0].phonecountrycode;
                 break;
             }
         }
@@ -673,12 +668,13 @@ let CreateMoveoutComponent = class CreateMoveoutComponent {
             "updatedBy": null,
             "updatedOn": null,
             "apartmentId": this.sessionService.apartmentId,
-            "userName": '',
-            "mobile": '',
-            "email": '',
+            "userName": this.block.primaryName,
+            "mobile": this.block.phoneNumber.number,
+            "email": this.block.emailId,
             "block_Unit": '',
             "requestType": "MoveOut",
             "statusName": "Pending Approval",
+            "serialNo": 0
         };
         let params = {
             moveOut: details
@@ -701,21 +697,23 @@ let CreateMoveoutComponent = class CreateMoveoutComponent {
     cancel() {
         if (this.isAdmin()) {
             if (this.mode == 'view')
-                this.router.navigate(['ams/moveinout-tracker/cancelled/moveout']);
+                this.router.navigate(['/ams/moveinout-tracker/cancelled/moveout']);
             else
-                this.router.navigate(['ams/moveinout-tracker/moveout']);
+                this.router.navigate(['/ams/moveinout-tracker/moveout']);
         }
         else {
-            this.router.navigate(['user/moveinout-tracker/moveout']);
+            this.router.navigate(['/user/moveinout-tracker/moveout']);
         }
     }
     getTowers() {
         let tower = {
             apartmentId: this.sessionService.apartmentId
         };
-        return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).toPromise();
+        return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentIdNew(tower).toPromise();
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+        this.moveout.outDate = moment__WEBPACK_IMPORTED_MODULE_4__();
         if (!this.isAdmin()) {
             this.moveout.reqUserId = this.sessionService.apartmentBlockUnitUserId;
             this.moveout.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -1385,6 +1383,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
                 let newData = res.filter(item => {
                     return item.statusId != 374;
                 });
+                console.log(newData);
                 this.totalItems = newData.length;
                 let tableData = {
                     localdata: newData.reverse(),
@@ -2973,6 +2972,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
                 let newData = res.filter(item => {
                     return item.statusId != 378;
                 });
+                console.log(newData);
                 this.totalItems = newData.length;
                 let tableData = {
                     localdata: newData.reverse(),
@@ -3176,15 +3176,6 @@ MoveoutMaintainComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])
 ], MoveoutMaintainComponent);
 
-// function navigateTo(row){
-//   var event = new CustomEvent('navigateTo', {
-//     detail: {
-//         rowId: row
-//     }
-//   })
-//   window.dispatchEvent(event);
-// }
-// (window as any).navigateTo = navigateTo
 function checkOutUser(row) {
     var event = new CustomEvent('checkOutUser', {
         detail: {

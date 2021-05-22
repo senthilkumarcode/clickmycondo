@@ -549,12 +549,12 @@
                 var data = _step2.value;
 
                 if (this.movein.apartmentBlockUnitId == data.buId) {
+                  console.log(data);
                   this.movein.reqUserId = data.blockUnitUserId;
                   this.block.primaryName = data.pc_Label;
                   this.block.email = "";
                   this.block.phoneNumber = data.blockUnitOwnerTenantUsers[0].phoneNumber;
                   this.block.emailId = data.blockUnitOwnerTenantUsers[0].emailId;
-                  this.block.phonecountrycode = data.blockUnitOwnerTenantUsers[0].phonecountrycode;
                   this.getBanner();
                   break;
                 }
@@ -589,18 +589,6 @@
           key: "getFileIds",
           value: function getFileIds(event) {
             this.fileDetailsIds = event.join();
-          }
-        }, {
-          key: "addFileUpload",
-          value: function addFileUpload() {
-            this.fileUploadList.push({
-              fileAttachmentId: null
-            });
-          }
-        }, {
-          key: "deleteFileUpload",
-          value: function deleteFileUpload(index) {
-            this.fileUploadList.splice(index, 1);
           }
         }, {
           key: "moveinCreate",
@@ -651,15 +639,15 @@
                 "updatedOn": null,
                 "apartmentId": this.sessionService.apartmentId,
                 "userName": this.block.primaryName,
-                "mobile": this.block.phoneNumber,
-                "email": this.block.email,
+                "mobile": this.block.phoneNumber.number,
+                "email": this.block.emailId,
                 "block_Unit": "",
                 "requestType": "MoveIn",
                 "statusName": "Pending Approval",
                 "serialNo": 0,
                 "startDate": null,
                 "expiryDate": null,
-                "moveInDetails": null
+                "moveInDetails": []
               };
               var params = {
                 moveIn: details
@@ -713,9 +701,9 @@
           key: "cancel",
           value: function cancel() {
             if (this.isAdmin()) {
-              if (this.mode == 'view') this.router.navigate(['ams/moveinout-tracker/cancelled/movein']);else this.router.navigate(['ams/moveinout-tracker/movein']);
+              if (this.mode == 'view') this.router.navigate(['/ams/moveinout-tracker/cancelled/movein']);else this.router.navigate(['/ams/moveinout-tracker/movein']);
             } else {
-              this.router.navigate(['user/moveinout-tracker/movein']);
+              this.router.navigate(['/user/moveinout-tracker/movein']);
             }
           }
         }, {
@@ -734,6 +722,7 @@
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this4.timeZone = timeZone;
             });
+            this.movein.inDate = moment__WEBPACK_IMPORTED_MODULE_4__();
 
             if (!this.isAdmin()) {
               this.movein.reqUserId = this.sessionService.apartmentBlockUnitUserId;
@@ -1020,7 +1009,7 @@
 
                     case 7:
                       tower = _context2.sent;
-                      if (tower.length > 0) this.block.blockId = tower[0].apartmentBlockId;
+                      if (Array.isArray(tower) && tower.length > 0) this.block.blockId = tower[0].apartmentBlockId;
 
                     case 9:
                       _iterator3 = _createForOfIteratorHelper(this.towerList);
@@ -1090,12 +1079,12 @@
                 var data = _step4.value;
 
                 if (this.moveout.apartmentBlockUnitId == data.buId) {
+                  console.log(data);
                   this.moveout.reqUserId = data.blockUnitUserId;
                   this.block.primaryName = data.pc_Label;
                   this.block.email = "";
                   this.block.phoneNumber = data.blockUnitOwnerTenantUsers[0].phoneNumber;
                   this.block.emailId = data.blockUnitOwnerTenantUsers[0].emailId;
-                  this.block.phonecountrycode = data.blockUnitOwnerTenantUsers[0].phonecountrycode;
                   break;
                 }
               }
@@ -1128,12 +1117,13 @@
               "updatedBy": null,
               "updatedOn": null,
               "apartmentId": this.sessionService.apartmentId,
-              "userName": '',
-              "mobile": '',
-              "email": '',
+              "userName": this.block.primaryName,
+              "mobile": this.block.phoneNumber.number,
+              "email": this.block.emailId,
               "block_Unit": '',
               "requestType": "MoveOut",
-              "statusName": "Pending Approval"
+              "statusName": "Pending Approval",
+              "serialNo": 0
             };
             var params = {
               moveOut: details
@@ -1160,9 +1150,9 @@
           key: "cancel",
           value: function cancel() {
             if (this.isAdmin()) {
-              if (this.mode == 'view') this.router.navigate(['ams/moveinout-tracker/cancelled/moveout']);else this.router.navigate(['ams/moveinout-tracker/moveout']);
+              if (this.mode == 'view') this.router.navigate(['/ams/moveinout-tracker/cancelled/moveout']);else this.router.navigate(['/ams/moveinout-tracker/moveout']);
             } else {
-              this.router.navigate(['user/moveinout-tracker/moveout']);
+              this.router.navigate(['/user/moveinout-tracker/moveout']);
             }
           }
         }, {
@@ -1171,12 +1161,17 @@
             var tower = {
               apartmentId: this.sessionService.apartmentId
             };
-            return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).toPromise();
+            return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentIdNew(tower).toPromise();
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this7 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this7.timeZone = timeZone;
+            });
+            this.moveout.outDate = moment__WEBPACK_IMPORTED_MODULE_4__();
 
             if (!this.isAdmin()) {
               this.moveout.reqUserId = this.sessionService.apartmentBlockUnitUserId;
@@ -2080,6 +2075,7 @@
                 var newData = res.filter(function (item) {
                   return item.statusId != 374;
                 });
+                console.log(newData);
                 _this17.totalItems = newData.length;
                 var tableData = {
                   localdata: newData.reverse(),
@@ -4268,6 +4264,7 @@
                 var newData = res.filter(function (item) {
                   return item.statusId != 378;
                 });
+                console.log(newData);
                 _this41.totalItems = newData.length;
                 var tableData = {
                   localdata: newData.reverse(),
@@ -4494,15 +4491,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./moveout-maintain.component.scss */
         "./src/app/modules/common/moveinout-tracker/components/moveout-maintain/moveout-maintain.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_13__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])], MoveoutMaintainComponent); // function navigateTo(row){
-      //   var event = new CustomEvent('navigateTo', {
-      //     detail: {
-      //         rowId: row
-      //     }
-      //   })
-      //   window.dispatchEvent(event);
-      // }
-      // (window as any).navigateTo = navigateTo
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_13__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]])], MoveoutMaintainComponent);
 
       function checkOutUser(row) {
         var event = new CustomEvent('checkOutUser', {
