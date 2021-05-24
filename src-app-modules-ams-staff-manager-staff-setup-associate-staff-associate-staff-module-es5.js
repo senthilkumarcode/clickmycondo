@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"associate-staff-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isError\">\n\n\t\t <!-- Message -->\n\t\t <condo-message *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\" [type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t  </condo-message>\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"d-flex mt-4\">\n\t\t\t<div>\n\t\t\t\t<h4>Add Department &  Job Title</h4>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n                <app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n            </div>\n\t\t\t<div>\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addDepartment($event, 'staff','add', null)\">Add Department</button>\n\t\t\t</div> \n\t\t</div>\n\n\t\t<div class=\"mt-4\">\n\n\t\t\t<mat-accordion>\n\t\t\n\t\t\t\t<mat-expansion-panel class=\"box-border\" *ngFor=\"let department of departments$ | async | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\n\n\t\t\t\t\t<mat-expansion-panel-header>\n                        \n\t\t\t\t\t\t<div class=\"d-flex w-100 align-items-center\">\n                            <div class=\"pointer d-flex  align-items-center\" (click)=\"editDepartmentName($event, department)\" (mouseenter)=\"department.hover=true\" (mouseleave)=\"department.hover=false\">\n                                <input class=\"font-medium text-sm\" [readonly]=\"!department.isNameClicked\" [ngClass]=\"department.isNameClicked ? '' : 'no-border'\" type=\"text\" name=\"department\"  [(ngModel)]=\"department.name\" />\n                                <div class=\"d-flex icon-actions justify-content-start align-items-center rel\">\n                                    <button *ngIf=\"!department.isNameClicked && department.hover\" mat-icon-button>\n                                        <mat-icon svgIcon=\"feather:edit\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"department.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:close\" (click)=\"cancelDepartmentName($event, department)\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"department.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:save\" (click)=\"saveDepartmentName($event, department)\"></mat-icon>\n                                    </button>\n                                </div>\n                            </div>\n                            \n                            <div class=\"icon-actions ml-auto mr-2\">\n                                <button mat-icon-button>\n                                    <mat-icon class=\"edit\" svgIcon=\"feather:edit\" (click)=\"addDepartment($event, 'staff','edit', department)\"></mat-icon>\n                                </button>\n                                <button mat-icon-button>\n                                    <mat-icon class=\"delete\" svgIcon=\"feather:trash-2\" (click)=\"deleteDepartment($event, department)\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n\n                    </mat-expansion-panel-header>\n\n\n\t\t\t\t\t<mat-panel-description>\n                        <h5 class=\"my-2 text-red-500\" *ngIf=\"department?.subCategory.length == 0\">Sub Category not found</h5>\n                        <div class=\"my-2\" *ngFor=\"let subcategory  of department?.subCategory;let catIndex = index\">\n                            <div class=\"d-flex w-100 align-items-center\" (click)=\"editSubCategoryName($event, subcategory)\" (mouseenter)=\"subcategory.hover=true\" (mouseleave)=\"subcategory.hover=false\">\n                                <div class=\"d-flex align-items-center\">\n                                    <mat-icon [svgIcon]=\"'heroicons_solid:arrow-circle-right'\"  class=\"mr-2\"></mat-icon>\n                                    <input class=\"font-medium text-sm\" [readonly]=\"!subcategory.isNameClicked\" [ngClass]=\"subcategory.isNameClicked ? '' : 'no-border'\" type=\"text\" name=\"subcategory\"  [(ngModel)]=\"subcategory.name\" />\n                                </div>\n                                <div class=\"d-flex icon-actions justify-content-start align-items-center rel\">\n                                    <button *ngIf=\"!subcategory.isNameClicked && subcategory.hover\" mat-icon-button>\n                                        <mat-icon svgIcon=\"feather:edit\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"subcategory.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:close\" (click)=\"cancelSubCategoryName($event, subcategory)\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"subcategory.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:save\" (click)=\"saveSubCategoryName(department)\"></mat-icon>\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                    </mat-panel-description>\n\n\t\t\t\t</mat-expansion-panel>\n\t\t\n\t\t\t</mat-accordion>\n\n\t\t</div>\n\n\t</ng-container>\n\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"associate-staff-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <!-- Message -->\n    <condo-message *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\" [type]=\"message.type\" [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"d-flex mt-4\">\n\t\t\t<div>\n\t\t\t\t<h4>Add Department &  Job Title</h4>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto mr-3\">\n                <app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n            </div>\n\t\t\t<div>\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addDepartment('main')\">Add Department</button>\n\t\t\t</div> \n\t\t</div>\n\n\t\t<div class=\"mt-4\">\n\n\t\t\t<mat-accordion>\n\t\t\n\t\t\t\t<mat-expansion-panel class=\"box-border\" *ngFor=\"let department of departments$ | async | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t\n\n\t\t\t\t\t<mat-expansion-panel-header>\n                        \n\t\t\t\t\t\t<div class=\"d-flex w-100 align-items-center\">\n                            <div class=\"pointer d-flex  align-items-center\" (click)=\"editDepartmentName($event, department)\" (mouseenter)=\"department.hover=true\" (mouseleave)=\"department.hover=false\">\n                                <input class=\"font-medium text-sm\" [readonly]=\"!department.isNameClicked\" [ngClass]=\"department.isNameClicked ? '' : 'no-border'\" type=\"text\" name=\"department\"  [(ngModel)]=\"department.name\" />\n                                <div class=\"d-flex icon-actions justify-content-start align-items-center rel\">\n                                    <button *ngIf=\"!department.isNameClicked && department.hover\" mat-icon-button>\n                                        <mat-icon svgIcon=\"feather:edit\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"department.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:close\" (click)=\"cancelDepartmentName($event, department)\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"department.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:save\" (click)=\"saveDepartmentName($event, department)\"></mat-icon>\n                                    </button>\n                                </div>\n                            </div>\n                            \n                            <div class=\"icon-actions ml-auto mr-2\">\n                                <button mat-icon-button>\n                                    <mat-icon class=\"edit\" svgIcon=\"feather:edit\" (click)=\"editDepartment($event, 'sub', department)\"></mat-icon>\n                                </button>\n                                <button mat-icon-button>\n                                    <mat-icon class=\"delete\" svgIcon=\"feather:trash-2\" (click)=\"deleteDepartment($event, department)\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n\n                    </mat-expansion-panel-header>\n\n\n\t\t\t\t\t<mat-panel-description>\n                        <h5 class=\"my-2 text-red-500\" *ngIf=\"department?.subCategory.length == 0\">Sub Category not found</h5>\n                        <div class=\"my-2\" *ngFor=\"let subcategory  of department?.subCategory;let catIndex = index\">\n                            <div class=\"d-flex w-100 align-items-center\" (click)=\"editSubCategoryName($event, subcategory)\" (mouseenter)=\"subcategory.hover=true\" (mouseleave)=\"subcategory.hover=false\">\n                                <div class=\"d-flex align-items-center\">\n                                    <mat-icon [svgIcon]=\"'heroicons_solid:arrow-circle-right'\"  class=\"mr-2\"></mat-icon>\n                                    <input class=\"font-medium text-sm\" [readonly]=\"!subcategory.isNameClicked\" [ngClass]=\"subcategory.isNameClicked ? '' : 'no-border'\" type=\"text\" name=\"subcategory\"  [(ngModel)]=\"subcategory.name\" />\n                                </div>\n                                <div class=\"d-flex icon-actions justify-content-start align-items-center rel\">\n                                    <button *ngIf=\"!subcategory.isNameClicked && subcategory.hover\" mat-icon-button>\n                                        <mat-icon svgIcon=\"feather:edit\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"subcategory.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:close\" (click)=\"cancelSubCategoryName($event, subcategory)\"></mat-icon>\n                                    </button>\n                                    <button *ngIf=\"subcategory.isNameClicked\" mat-icon-button>\n                                        <mat-icon svgIcon=\"mat_outline:save\" (click)=\"saveSubCategoryName(department)\"></mat-icon>\n                                    </button>\n                                </div>\n                            </div>\n                        </div>\n                    </mat-panel-description>\n\n\t\t\t\t</mat-expansion-panel>\n\t\t\n\t\t\t</mat-accordion>\n\n\t\t</div>\n\n\t</ng-container>\n\n\n</div>";
       /***/
     },
 
@@ -152,49 +152,49 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/modules/ams/staff-manager/staff-setup/staff-setup.service */
+      "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
       /* harmony import */
 
 
-      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/pipe/shared.pipe */
       "./src/app/shared/pipe/shared.pipe.ts");
-      /* harmony import */
-
-
-      var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component */
-      "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component.ts");
       /* harmony import */
 
 
@@ -209,9 +209,10 @@
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
       var AssociateStaffComponent = /*#__PURE__*/function () {
-        function AssociateStaffComponent(lookupService, sessionService, injector, dialog, simplePipe, sharedService) {
+        function AssociateStaffComponent(staffSetupService, lookupService, sessionService, injector, dialog, simplePipe, sharedService) {
           _classCallCheck(this, AssociateStaffComponent);
 
+          this.staffSetupService = staffSetupService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.injector = injector;
@@ -227,7 +228,8 @@
           this.currDepartmentIndex = -1;
           this.currSubIndex = -1;
           this.departmentList = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]); // Set the private defaults
+          this.selectedData = {};
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]); // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
           this.message = null;
@@ -286,24 +288,28 @@
           }
         }, {
           key: "addDepartment",
-          value: function addDepartment(event, name, type, value) {
-            var _this2 = this;
-
-            event.stopPropagation();
-            var dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_10__["AssetsAddSetupComponent"], {
-              panelClass: 'material-dialog-big',
-              width: '70%',
-              data: {
-                'name': name,
-                'type': type,
-                'value': JSON.stringify(value)
-              },
-              disableClose: true
+          value: function addDepartment(type) {
+            var id = this.sharedService.guid();
+            this.staffSetupService.setStaffSetupMatDrawer({
+              id: id,
+              data: null,
+              category: 'department',
+              type: type,
+              isedit: false
             });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result) {
-                _this2.getAllDepartment();
-              }
+          }
+        }, {
+          key: "editDepartment",
+          value: function editDepartment(event, type, data) {
+            console.log(data);
+            event.stopPropagation();
+            this.selectedData = data;
+            this.staffSetupService.setStaffSetupMatDrawer({
+              id: data.id,
+              data: data,
+              category: 'department',
+              type: type,
+              isedit: true
             });
           }
         }, {
@@ -315,7 +321,7 @@
         }, {
           key: "saveSubCategoryName",
           value: function saveSubCategoryName(data) {
-            var _this3 = this;
+            var _this2 = this;
 
             this.isDataLoaded = false;
             var reqObj = {
@@ -325,23 +331,23 @@
               "subCategory": data && data.subCategory.length > 0 ? data.subCategory : [],
               "isActive": true,
               "insertedBy": this.sessionService.userId,
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
             };
             var params = {
               model: reqObj,
               categoryLookupTypeId: 26
             };
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
-              _this3.isDataLoaded = true;
+              _this2.isDataLoaded = true;
 
               if (res.message) {
-                _this3.sharedService.openSnackBar("Job Title Updated successfully", 'success');
+                _this2.sharedService.openSnackBar("Job Title Updated successfully", 'success');
 
-                _this3.getAllDepartment();
+                _this2.getAllDepartment();
               } else {
-                _this3.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this2.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
@@ -385,7 +391,7 @@
         }, {
           key: "getAllDepartment",
           value: function getAllDepartment() {
-            var _this4 = this;
+            var _this3 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId,
@@ -394,20 +400,20 @@
             };
             this.isDataLoaded = false;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              _this4.isDataLoaded = true;
+              _this3.isDataLoaded = true;
 
               if (Array.isArray(res)) {
                 var newData = res.filter(function (item) {
                   return item.isActive;
                 });
-                _this4.fullDepartmentList = newData;
-                _this4.allData = newData;
+                _this3.fullDepartmentList = newData;
+                _this3.allData = newData;
 
-                _this4._departmentList.next(newData);
+                _this3._departmentList.next(newData);
               } else {
-                _this4.isError = true; // Show the error message
+                _this3.isError = true; // Show the error message
 
-                _this4.message = {
+                _this3.message = {
                   appearance: 'outline',
                   content: 'Some error occured',
                   shake: true,
@@ -420,39 +426,44 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this4 = this;
 
             this.getAllDepartment();
+            this.staffSetupService.staffsetupentryrefreshcast.subscribe(function (res) {
+              if (res) {
+                _this4.getAllDepartment();
+              }
+            });
             this.departments$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (res) {
               return res != null;
             })).subscribe(function (res) {
-              _this5.totalItems = res.length;
+              _this4.totalItems = res.length;
             });
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this5.timeZone = timeZone;
+              return _this4.timeZone = timeZone;
             }); //this.getAssociateStaff();
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   categoryId: id,
-                  deletedBy: _this5.sessionService.userId
+                  deletedBy: _this4.sessionService.userId
                 };
 
-                _this5.lookupService.deleteCategory(params).subscribe(function (res) {
+                _this4.lookupService.deleteCategory(params).subscribe(function (res) {
                   if (res.message) {
-                    _this5.sharedService.openSnackBar('Department Deleted Successfully', 'success');
+                    _this4.sharedService.openSnackBar('Department Deleted Successfully', 'success');
 
-                    _this5.getAllDepartment();
+                    _this4.getAllDepartment();
                   } else {
-                    _this5.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this4.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this5.sharedService.setUnitListDeleteIndex(null);
+                  _this4.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this5.sharedService.setUnitListDeleteIndex(null);
+                  _this4.sharedService.setUnitListDeleteIndex(null);
 
-                  _this5.sharedService.openSnackBar('Server Error', 'error');
+                  _this4.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -474,17 +485,19 @@
 
       AssociateStaffComponent.ctorParameters = function () {
         return [{
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+          type: src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"]
         }, {
-          type: src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_9__["SimpleSearchPipe"]
+          type: src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_10__["SimpleSearchPipe"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }];
       };
 
@@ -497,7 +510,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./associate-staff.component.scss */
         "./src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_9__["SimpleSearchPipe"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])], AssociateStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_10__["SimpleSearchPipe"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], AssociateStaffComponent);
       /***/
     },
 

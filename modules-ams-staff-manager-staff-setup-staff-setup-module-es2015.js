@@ -38,13 +38,13 @@ const routes = [
         children: [
             {
                 path: ":type/:id",
-                loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-staff-manager-staff-setup-add-personal-staff-add-personal-staff-module */ "src-app-modules-ams-staff-manager-staff-setup-add-personal-staff-add-personal-staff-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/add-personal-staff/add-personal-staff.module */ "./src/app/modules/ams/staff-manager/staff-setup/add-personal-staff/add-personal-staff.module.ts")).then(m => m.AddPersonalStaffModule),
+                loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */ "src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */ "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(m => m.AddStaffSetupModule),
                 outlet: "drawer",
                 resolve: {
                     StaffSetupResolver: _staff_setup_resolver__WEBPACK_IMPORTED_MODULE_4__["StaffSetupResolver"]
                 }
             },
-            { path: 'department', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module */[__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-inventory-inventory-module~s~224009a0"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.module */ "./src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.module.ts")).then(m => m.AssociateStaffModule) },
+            { path: 'department', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module */ "src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.module */ "./src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.module.ts")).then(m => m.AssociateStaffModule) },
             { path: 'personal', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-staff-manager-staff-setup-personal-staff-personal-staff-module */ "src-app-modules-ams-staff-manager-staff-setup-personal-staff-personal-staff-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.module */ "./src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.module.ts")).then(m => m.PersonalStaffModule) },
             { path: '', redirectTo: 'department', pathMatch: 'full' }
         ]
@@ -115,8 +115,9 @@ let StaffSetupComponent = class StaffSetupComponent {
             route = route.firstChild;
         }
         let drawerData = this.staffSetupService.getStaffSetupMatDrawer();
+        console.log(drawerData.category);
         // Go to the parent route
-        this._router.navigateByUrl('/ams/staff/settings/list/personal');
+        this._router.navigateByUrl('/ams/staff/settings/list/' + drawerData.category);
         this.matDrawer.close();
         this.staffSetupService.setStaffSetupMatDrawer(null);
         // Mark for check
@@ -147,7 +148,7 @@ let StaffSetupComponent = class StaffSetupComponent {
             { link: 'department', name: 'Department' },
             { link: 'personal', name: 'Personal' }
         ];
-        this.staffSetupService.staffetupmatdrawercast.subscribe((res) => {
+        this.staffSetupService.staffsetupmatdrawercast.subscribe((res) => {
             if (res != null) {
                 if (res.id) {
                     if (!res.isedit) {
@@ -299,7 +300,7 @@ __webpack_require__.r(__webpack_exports__);
 let StaffSetupService = class StaffSetupService {
     constructor() {
         this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-        this.staffetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
+        this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
         this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
     }

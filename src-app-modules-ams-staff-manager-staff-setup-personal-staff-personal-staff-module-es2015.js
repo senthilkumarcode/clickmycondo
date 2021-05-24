@@ -124,17 +124,17 @@ let PersonalStaffComponent = class PersonalStaffComponent {
     }
     addStaff() {
         var id = this.sharedService.guid();
-        this.staffSetupService.setStaffSetupMatDrawer({ id: id, data: null, isedit: false });
+        this.staffSetupService.setStaffSetupMatDrawer({ id: id, data: null, category: 'personal', isedit: false });
     }
     editStaff(data) {
         this.selectedData = data;
-        this.staffSetupService.setStaffSetupMatDrawer({ id: data.lookupValueId, data: data, isedit: true });
+        this.staffSetupService.setStaffSetupMatDrawer({ id: data.lookupValueId, data: data, category: 'personal', isedit: true });
     }
     ngOnInit() {
-        this.getAssociateStaff();
+        this.getPersonalStaff();
         this.staffSetupService.staffsetupentryrefreshcast.subscribe((res) => {
             if (res) {
-                this.getAssociateStaff();
+                this.getPersonalStaff();
             }
         });
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
@@ -150,7 +150,7 @@ let PersonalStaffComponent = class PersonalStaffComponent {
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
                     if (res.message) {
                         this.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
-                        this.getAssociateStaff();
+                        this.getPersonalStaff();
                     }
                     else {
                         this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -181,7 +181,7 @@ let PersonalStaffComponent = class PersonalStaffComponent {
             this._staffList.next(this.fullStaffList);
         }
     }
-    getAssociateStaff() {
+    getPersonalStaff() {
         this.isDataLoaded = false;
         let params = {
             LookupTypeId: 27,

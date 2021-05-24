@@ -83,11 +83,11 @@
           path: ":type/:id",
           loadChildren: function loadChildren() {
             return __webpack_require__.e(
-            /*! import() | src-app-modules-ams-staff-manager-staff-setup-add-personal-staff-add-personal-staff-module */
-            "src-app-modules-ams-staff-manager-staff-setup-add-personal-staff-add-personal-staff-module").then(__webpack_require__.bind(null,
-            /*! src/app/modules/ams/staff-manager/staff-setup/add-personal-staff/add-personal-staff.module */
-            "./src/app/modules/ams/staff-manager/staff-setup/add-personal-staff/add-personal-staff.module.ts")).then(function (m) {
-              return m.AddPersonalStaffModule;
+            /*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */
+            "src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module").then(__webpack_require__.bind(null,
+            /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */
+            "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(function (m) {
+              return m.AddStaffSetupModule;
             });
           },
           outlet: "drawer",
@@ -97,9 +97,9 @@
         }, {
           path: 'department',
           loadChildren: function loadChildren() {
-            return Promise.all(
+            return __webpack_require__.e(
             /*! import() | src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module */
-            [__webpack_require__.e("default~modules-ams-assets-assets-setup-assets-setup-module~modules-ams-inventory-inventory-module~s~224009a0"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module")]).then(__webpack_require__.bind(null,
+            "src-app-modules-ams-staff-manager-staff-setup-associate-staff-associate-staff-module").then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.module */
             "./src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.module.ts")).then(function (m) {
               return m.AssociateStaffModule;
@@ -236,9 +236,10 @@
               route = route.firstChild;
             }
 
-            var drawerData = this.staffSetupService.getStaffSetupMatDrawer(); // Go to the parent route
+            var drawerData = this.staffSetupService.getStaffSetupMatDrawer();
+            console.log(drawerData.category); // Go to the parent route
 
-            this._router.navigateByUrl('/ams/staff/settings/list/personal');
+            this._router.navigateByUrl('/ams/staff/settings/list/' + drawerData.category);
 
             this.matDrawer.close();
             this.staffSetupService.setStaffSetupMatDrawer(null); // Mark for check
@@ -299,7 +300,7 @@
               link: 'personal',
               name: 'Personal'
             }];
-            this.staffSetupService.staffetupmatdrawercast.subscribe(function (res) {
+            this.staffSetupService.staffsetupmatdrawercast.subscribe(function (res) {
               if (res != null) {
                 if (res.id) {
                   if (!res.isedit) {
@@ -552,7 +553,7 @@
           _classCallCheck(this, StaffSetupService);
 
           this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-          this.staffetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
+          this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
           this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
           this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
         }

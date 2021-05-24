@@ -233,6 +233,7 @@
             this.staffSetupService.setStaffSetupMatDrawer({
               id: id,
               data: null,
+              category: 'personal',
               isedit: false
             });
           }
@@ -243,6 +244,7 @@
             this.staffSetupService.setStaffSetupMatDrawer({
               id: data.lookupValueId,
               data: data,
+              category: 'personal',
               isedit: true
             });
           }
@@ -251,10 +253,10 @@
           value: function ngOnInit() {
             var _this = this;
 
-            this.getAssociateStaff();
+            this.getPersonalStaff();
             this.staffSetupService.staffsetupentryrefreshcast.subscribe(function (res) {
               if (res) {
-                _this.getAssociateStaff();
+                _this.getPersonalStaff();
               }
             });
             this.sharedService.timezonecast.subscribe(function (timeZone) {
@@ -276,7 +278,7 @@
                   if (res.message) {
                     _this.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
 
-                    _this.getAssociateStaff();
+                    _this.getPersonalStaff();
                   } else {
                     _this.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
@@ -312,8 +314,8 @@
             }
           }
         }, {
-          key: "getAssociateStaff",
-          value: function getAssociateStaff() {
+          key: "getPersonalStaff",
+          value: function getPersonalStaff() {
             var _this2 = this;
 
             this.isDataLoaded = false;

@@ -82,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"asset-setup-wrapper\">  \n\t<div class=\"main\">\n\n\t\t<div class=\"bg-card shadow p-0\">\n\n\t\t\t<nav mat-tab-nav-bar>\n\t  \n\t\t\t  <a mat-tab-link \n\t\t\t\t*ngFor=\"let link of navArray\" \n\t\t\t\t[routerLink]=\"link.link\" \n\t\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t\t{{link.name}}\n\t\t\t  </a>\n\t\t\n\t\t\t</nav>\n\t  \n\t\t  </div>\n\t  \n\t\t  <router-outlet></router-outlet>\n\n\t</div>\n</div>\n\t\n\t\n\t\n\t\n\n";
+      __webpack_exports__["default"] = "<div class=\"asset-setup-wrapper\">  \n\t\n\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n\t\t<!-- Drawer -->\n\t\t\t<mat-drawer [mode]=\"drawerMode\"\n\t\t\t[opened]=\"false\"\n\t\t\t[position]=\"'end'\"\n\t\t\t[disableClose]=\"true\"\n\t\t\t#matDrawer>\n\t\n\t\t<router-outlet name=\"drawer\"></router-outlet>\n\t\n\t\t</mat-drawer>\n\t\n\t\t<mat-drawer-content>\n\t\n\t\t  <div class=\"main\">\n\t\n\t\t\t<div class=\"bg-card shadow p-0\">\n\t\n\t\t\t  <nav mat-tab-nav-bar>\n\t\n\t\t\t\t<a mat-tab-link\n\t\t\t\t  *ngFor=\"let nav of navArray\"\n\t\t\t\t  [routerLink]=\"nav.link\"\n\t\t\t\t  routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\" [ngClass]=\"rla.isActive ? 'font-semibold' : ''\">\n\t\t\t\t  {{nav.name}}\n\t\t\t\t</a>\n\t\n\t\t\t  </nav>\n\t\n\t\t\t</div>\n\t\n\t\t\t<div class=\"mt-16\">\n\t\t\t  <router-outlet></router-outlet>\n\t\t\t</div>\n\t\n\t\n\t\t  </div>\n\t\n\t\t</mat-drawer-content>\n\t\n\t  </mat-drawer-container>\n\n</div>\n\t\n\t\n\t\n\t\n\n";
       /***/
     },
 
@@ -1197,43 +1197,49 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Asset */
       "./src/app/api/controllers/Asset.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component */
       "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component.ts");
 
@@ -1253,10 +1259,13 @@
           this.categoryList = [];
           this.tempCategoryList = [];
           this.depreciatonData = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(AssetsSetupComponent, [{
+          key: "onBackdropClicked",
+          value: function onBackdropClicked() {}
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this13 = this;
@@ -1317,7 +1326,7 @@
 
             // let data:any={};
             // data.name=type;
-            var dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
+            var dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_9__["AssetsAddSetupComponent"], {
               panelClass: 'material-dialog-big',
               width: '70%',
               data: {
@@ -1613,20 +1622,28 @@
 
       AssetsSetupComponent.ctorParameters = function () {
         return [{
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"]
+          type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]
         }];
       };
 
+      AssetsSetupComponent.propDecorators = {
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
+          }]
+        }]
+      };
       AssetsSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-assets-setup',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1636,7 +1653,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./assets-setup.component.scss */
         "./src/app/modules/ams/assets/assets-setup/assets-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_2__["AssetService"]])], AssetsSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"]])], AssetsSetupComponent);
       /***/
     },
 
