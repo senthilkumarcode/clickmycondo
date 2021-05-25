@@ -82,9 +82,9 @@
         children: [{
           path: ":type/:id",
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */
-            "src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */
             "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(function (m) {
               return m.AddStaffSetupModule;

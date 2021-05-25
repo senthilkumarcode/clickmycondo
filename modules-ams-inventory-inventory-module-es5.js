@@ -3795,25 +3795,19 @@
       /* harmony import */
 
 
-      var src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component */
-      "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.component.ts");
-      /* harmony import */
-
-
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
       /* harmony import */
 
 
-      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
 
@@ -3892,27 +3886,25 @@
         }, {
           key: "addSetUp",
           value: function addSetUp(name, type, value, e) {
-            var _this45 = this;
-
-            var dialogRef = this.dialog.open(src_app_modules_ams_assets_assets_setup_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
-              panelClass: 'material-dialog-big',
-              width: '70%',
-              data: {
-                'name': name,
-                'type': type,
-                'value': JSON.stringify(value)
-              }
+            /*const dialogRef = this.dialog.open(AssetsAddSetupComponent, {
+                panelClass: 'material-dialog-big',
+                width: '70%',
+                data: {
+                    'name': name,
+                    'type': type,
+                    'value': JSON.stringify(value)
+                }
             });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result) {
-                _this45.getAllInventory();
-              }
-            });
+             dialogRef.afterClosed().subscribe(result => {
+                if (result) {
+                    this.getAllInventory();
+                }
+            }); */
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this46 = this;
+            var _this45 = this;
 
             this.getAllInventory();
             this.getAllStaff();
@@ -3923,43 +3915,43 @@
             this.getAllGetAllWarehouse();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                if (_this46.deleteType == 'categoryDelete') {
+                if (_this45.deleteType == 'categoryDelete') {
                   var param = {};
                   param = {
                     categoryId: id,
-                    deletedBy: parseInt(_this46.sessionService.userId)
+                    deletedBy: parseInt(_this45.sessionService.userId)
                   };
 
-                  _this46.lookupService.deleteCategory(param).subscribe(function (res) {
+                  _this45.lookupService.deleteCategory(param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this46.sharedService.setAlertMessage("Category deleted successfully");
+                      _this45.sharedService.setAlertMessage("Category deleted successfully");
 
-                      _this46.sharedService.setUnitListDeleteIndex(null);
+                      _this45.sharedService.setUnitListDeleteIndex(null);
 
-                      _this46.deleteType = '';
+                      _this45.deleteType = '';
 
-                      _this46.getAllInventory();
+                      _this45.getAllInventory();
                     }, 500);
                   }, function (error) {
                     console.log(error);
                   });
-                } else if (_this46.deleteMaterial == true) {
+                } else if (_this45.deleteMaterial == true) {
                   var _param = {};
                   _param = {
                     lookupValueId: id,
-                    updateUserId: parseInt(_this46.sessionService.userId)
+                    updateUserId: parseInt(_this45.sessionService.userId)
                   };
 
-                  _this46.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
+                  _this45.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this46.sharedService.setAlertMessage("Material type deleted successfully");
+                      _this45.sharedService.setAlertMessage("Material type deleted successfully");
 
-                      _this46.sharedService.setUnitListDeleteIndex(null);
+                      _this45.sharedService.setUnitListDeleteIndex(null);
 
-                      _this46.deleteType = '';
-                      _this46.deleteMaterial = false;
+                      _this45.deleteType = '';
+                      _this45.deleteMaterial = false;
 
-                      _this46.getAllMaterial();
+                      _this45.getAllMaterial();
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3967,18 +3959,18 @@
                 } else {
                   var _param2 = {};
                   _param2 = {
-                    apartmentId: _this46.sessionService.apartmentId,
+                    apartmentId: _this45.sessionService.apartmentId,
                     warehouseId: id,
-                    deleteBy: parseInt(_this46.sessionService.userId)
+                    deleteBy: parseInt(_this45.sessionService.userId)
                   };
 
-                  _this46.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
-                    _this46.getAllGetAllWarehouse();
+                  _this45.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
+                    _this45.getAllGetAllWarehouse();
 
                     setTimeout(function () {
-                      _this46.sharedService.setAlertMessage("Warehouse deleted successfully");
+                      _this45.sharedService.setAlertMessage("Warehouse deleted successfully");
 
-                      _this46.sharedService.setUnitListDeleteIndex(null);
+                      _this45.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -4035,7 +4027,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this47 = this;
+            var _this46 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4045,13 +4037,13 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this47.warehouseData = res && res.length > 0 ? res.reverse() : [];
-                _this47.isAssetLoaded = false;
-                _this47.tempWarehouseData = _this47.warehouseData;
-                _this47.totalItems = _this47.warehouseData.length;
+                _this46.warehouseData = res && res.length > 0 ? res.reverse() : [];
+                _this46.isAssetLoaded = false;
+                _this46.tempWarehouseData = _this46.warehouseData;
+                _this46.totalItems = _this46.warehouseData.length;
 
-                if (_this47.warehouseData && _this47.warehouseData.length > 0) {
-                  _this47.warehouseData.filter(function (val) {
+                if (_this46.warehouseData && _this46.warehouseData.length > 0) {
+                  _this46.warehouseData.filter(function (val) {
                     if (val.warehouseName == '') {
                       delete val.warehouseName;
                       delete val.warehouseId;
@@ -4059,10 +4051,10 @@
                   });
                 }
 
-                if (_this47.totalItems > _this47.itemLimit) {
-                  _this47.ItemEndIndex = _this47.itemLimit;
+                if (_this46.totalItems > _this46.itemLimit) {
+                  _this46.ItemEndIndex = _this46.itemLimit;
                 } else {
-                  _this47.ItemEndIndex = _this47.totalItems;
+                  _this46.ItemEndIndex = _this46.totalItems;
                 }
               }
             });
@@ -4070,7 +4062,7 @@
         }, {
           key: "addWareHouse",
           value: function addWareHouse(data) {
-            var _this48 = this;
+            var _this47 = this;
 
             var reqObj = {};
             reqObj = {
@@ -4092,19 +4084,19 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.addWarehouse(params).subscribe(function (res) {
               if (res.message) {
-                _this48.sharedService.openSnackBar('Warehouse added Successfully', 'success');
+                _this47.sharedService.openSnackBar('Warehouse added Successfully', 'success');
 
-                _this48.isAssetLoaded = false;
-                _this48.row = {};
+                _this47.isAssetLoaded = false;
+                _this47.row = {};
 
-                _this48.getAllGetAllWarehouse();
+                _this47.getAllGetAllWarehouse();
               }
             });
           }
         }, {
           key: "updateWareHouse",
           value: function updateWareHouse(data) {
-            var _this49 = this;
+            var _this48 = this;
 
             var reqObj = {};
             reqObj = {
@@ -4126,18 +4118,18 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.updateWarehouse(params).subscribe(function (res) {
               if (res) {
-                _this49.sharedService.setAlertMessage("Warehouse Updated successfully");
+                _this48.sharedService.setAlertMessage("Warehouse Updated successfully");
 
-                _this49.isAssetLoaded = false; // this.isEditRow = false;
+                _this48.isAssetLoaded = false; // this.isEditRow = false;
 
-                _this49.wareHouseIndex = -1;
+                _this48.wareHouseIndex = -1;
               }
             });
           }
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this50 = this;
+            var _this49 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -4145,7 +4137,7 @@
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
-                _this50.staffList = res;
+                _this49.staffList = res;
               }
             }, function (error) {
               console.log(error);
@@ -4158,7 +4150,7 @@
         }, {
           key: "getAllInventory",
           value: function getAllInventory() {
-            var _this51 = this;
+            var _this50 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4169,9 +4161,9 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this51.isAssetLoaded = false;
-                _this51.inventoryCategoryList = res ? res : [];
-                _this51.tempCategoryList = _this51.inventoryCategoryList;
+                _this50.isAssetLoaded = false;
+                _this50.inventoryCategoryList = res ? res : [];
+                _this50.tempCategoryList = _this50.inventoryCategoryList;
               }
             });
           }
@@ -4188,7 +4180,7 @@
         }, {
           key: "editInventory",
           value: function editInventory(data) {
-            var _this52 = this;
+            var _this51 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -4204,20 +4196,20 @@
             params.subcategoryLookupTypeId = 175;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this52.sharedService.setAlertMessage("Inventory sub types updated successfully");
+                _this51.sharedService.setAlertMessage("Inventory sub types updated successfully");
 
-                _this52.isAssetLoaded = false;
+                _this51.isAssetLoaded = false;
 
-                _this52.getAllInventory();
+                _this51.getAllInventory();
 
-                _this52.inventoryCurrIndex = -1;
+                _this51.inventoryCurrIndex = -1;
               }
             });
           }
         }, {
           key: "getAllLocation",
           value: function getAllLocation() {
-            var _this53 = this;
+            var _this52 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4226,15 +4218,15 @@
             this.isAssetLoaded = true;
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this53.isAssetLoaded = false;
-                _this53.locationList = res ? res : [];
+                _this52.isAssetLoaded = false;
+                _this52.locationList = res ? res : [];
               }
             });
           }
         }, {
           key: "getAllMaterial",
           value: function getAllMaterial() {
-            var _this54 = this;
+            var _this53 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4244,15 +4236,15 @@
             this.isAssetLoaded = true;
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this54.isAssetLoaded = false;
-                _this54.materialList = res ? res.reverse() : [];
-                _this54.tempMaterialList = _this54.materialList;
-                _this54.typeTotalItems = _this54.materialList.length;
+                _this53.isAssetLoaded = false;
+                _this53.materialList = res ? res.reverse() : [];
+                _this53.tempMaterialList = _this53.materialList;
+                _this53.typeTotalItems = _this53.materialList.length;
 
-                if (_this54.typeTotalItems > _this54.typeItemLimit) {
-                  _this54.typeItemEndIndex = _this54.typeItemLimit;
+                if (_this53.typeTotalItems > _this53.typeItemLimit) {
+                  _this53.typeItemEndIndex = _this53.typeItemLimit;
                 } else {
-                  _this54.typeItemEndIndex = _this54.typeTotalItems;
+                  _this53.typeItemEndIndex = _this53.typeTotalItems;
                 }
               }
             });
@@ -4260,7 +4252,7 @@
         }, {
           key: "addMaterialType",
           value: function addMaterialType(data) {
-            var _this55 = this;
+            var _this54 = this;
 
             var reqObj = {};
             reqObj = {
@@ -4281,25 +4273,25 @@
             param.lookupvalue = reqObj;
             this.lookupService.addLookupValue(param).subscribe(function (res) {
               if (res.code == 200) {
-                _this55.isAssetLoaded = false;
-                _this55.typeRow = {};
+                _this54.isAssetLoaded = false;
+                _this54.typeRow = {};
 
-                _this55.getAllMaterial();
+                _this54.getAllMaterial();
 
-                _this55.sharedService.openSnackBar('Created SuccessFully', 'success');
+                _this54.sharedService.openSnackBar('Created SuccessFully', 'success');
               } else {
-                _this55.isAssetLoaded = false;
+                _this54.isAssetLoaded = false;
 
-                _this55.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                _this54.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
               }
             }, function (error) {
-              _this55.sharedService.openSnackBar('Server Error', 'error');
+              _this54.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateMaterial",
           value: function updateMaterial(data) {
-            var _this56 = this;
+            var _this55 = this;
 
             var reqObj = {};
             reqObj = {
@@ -4320,23 +4312,23 @@
             param.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(param).subscribe(function (res) {
               if (res.message) {
-                _this56.isAssetLoaded = false;
-                _this56.currMaterialIndex = -1;
+                _this55.isAssetLoaded = false;
+                _this55.currMaterialIndex = -1;
 
-                _this56.sharedService.openSnackBar('Material type updated successfully', 'success');
+                _this55.sharedService.openSnackBar('Material type updated successfully', 'success');
               } else {
-                _this56.isAssetLoaded = false;
+                _this55.isAssetLoaded = false;
 
-                _this56.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this55.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this56.sharedService.openSnackBar('Server Error', 'error');
+              _this55.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this57 = this;
+            var _this56 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -4356,16 +4348,16 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this57.sharedService.setAlertMessage("Category updated successfully");
+                _this56.sharedService.setAlertMessage("Category updated successfully");
 
-                _this57.isAssetLoaded = false;
-                _this57.currCatIndex = -1;
+                _this56.isAssetLoaded = false;
+                _this56.currCatIndex = -1;
 
-                _this57.getAllInventory();
+                _this56.getAllInventory();
               } else if (res.body.errorMessage) {
-                _this57.isError = true;
-                _this57.errorMessage = 'Not Added it already exist';
-                _this57.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this56.isError = true;
+                _this56.errorMessage = 'Not Added it already exist';
+                _this56.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
@@ -4377,16 +4369,16 @@
         }, {
           key: "cancelWarHouse",
           value: function cancelWarHouse(type) {
-            var _this58 = this;
+            var _this57 = this;
 
             if (type == 'warhouse') {
               var index = this.warehouseData.findIndex(function (data) {
-                return data.warehouseId == _this58.backupWarhouse.warehouseId;
+                return data.warehouseId == _this57.backupWarhouse.warehouseId;
               });
               this.warehouseData.splice(index, 1, this.backupWarhouse);
             } else {
               var _index = this.materialList.findIndex(function (data) {
-                return data.lookupValueId == _this58.backupWarhouse.lookupValueId;
+                return data.lookupValueId == _this57.backupWarhouse.lookupValueId;
               });
 
               this.materialList.splice(_index, 1, this.backupWarhouse);
@@ -4408,7 +4400,7 @@
         return [{
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
         }, {
-          type: _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormBuilder"]
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
@@ -4420,9 +4412,9 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
         }, {
-          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"]
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]
         }];
       };
 
@@ -4435,7 +4427,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./inventory-setup.component.scss */
         "./src/app/modules/ams/inventory/components/inventory-setup/inventory-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormBuilder"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_6__["PurchaseOrderService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]])], InventorySetupComponent); //   inventoryCategoryData:any;
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_6__["PurchaseOrderService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])], InventorySetupComponent); //   inventoryCategoryData:any;
       //   isInventoryCategoryLoaded:boolean = false;
       //   isInventoryCategorySubmitted:boolean = true;
       //   isInventoryCategoryNew:boolean = false;
@@ -4710,7 +4702,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this59 = this;
+            var _this58 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4719,8 +4711,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this59.warehouseData = res && res.length > 0 ? res : [];
-                _this59.warehouseData = _this59.warehouseData.filter(function (el) {
+                _this58.warehouseData = res && res.length > 0 ? res : [];
+                _this58.warehouseData = _this58.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
               }
@@ -4729,7 +4721,7 @@
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this60 = this;
+            var _this59 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4739,7 +4731,7 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this60.materialItemData.push({
+                    _this59.materialItemData.push({
                       'id': val.materialId,
                       'itemName': val.material1
                     });
@@ -4751,7 +4743,7 @@
         }, {
           key: "addStock",
           value: function addStock() {
-            var _this61 = this;
+            var _this60 = this;
 
             this.isDataSubmitted = true;
             var stockReqobj = {};
@@ -4780,26 +4772,26 @@
             var params = {};
             params.inventoryTransaction = stockReqobj;
             this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
-              _this61.isDataSubmitted = false;
+              _this60.isDataSubmitted = false;
 
               if (res) {
-                _this61.sharedService.openSnackBar("Stock Item added successfully", 'success');
+                _this60.sharedService.openSnackBar("Stock Item added successfully", 'success');
 
-                _this61.stock = {}; // this.getAllItem();	
+                _this60.stock = {}; // this.getAllItem();	
 
-                _this61.selectedItem = [];
-                _this61.issuedStaffId = [];
-                _this61.inventoryList = [];
-                _this61.stock.inventoryList = '';
+                _this60.selectedItem = [];
+                _this60.issuedStaffId = [];
+                _this60.inventoryList = [];
+                _this60.stock.inventoryList = '';
               }
             }, function (error) {
-              _this61.isDataSubmitted = false;
+              _this60.isDataSubmitted = false;
             });
           }
         }, {
           key: "getAvailableStock",
           value: function getAvailableStock() {
-            var _this62 = this;
+            var _this61 = this;
 
             if (this.stock.materialId || this.stock.warehouseId) {
               var queryParamBase = {
@@ -4809,9 +4801,9 @@
               };
               this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
                 if (res && res.length > 0) {
-                  _this62.stock.availableStockQty = res[0].totalStockQty;
+                  _this61.stock.availableStockQty = res[0].totalStockQty;
                 } else {
-                  _this62.stock.availableStockQty = 0;
+                  _this61.stock.availableStockQty = 0;
                 }
               });
             }
@@ -4819,7 +4811,7 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this63 = this;
+            var _this62 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -4830,7 +4822,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                 });
-                _this63.staffList = res;
+                _this62.staffList = res;
               }
             }, function (error) {
               console.log(error);
@@ -4839,7 +4831,7 @@
         }, {
           key: "getAllItem",
           value: function getAllItem() {
-            var _this64 = this;
+            var _this63 = this;
 
             if (this.stock.warehouseId || this.stock.materialId) {
               var queryParamBase = {
@@ -4849,13 +4841,13 @@
               };
               this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
                 if (res) {
-                  _this64.inventoryList = res && res.length > 0 ? res : [];
-                  _this64.totalItems = _this64.inventoryList.length;
+                  _this63.inventoryList = res && res.length > 0 ? res : [];
+                  _this63.totalItems = _this63.inventoryList.length;
 
-                  if (_this64.totalItems > _this64.itemLimit) {
-                    _this64.ItemEndIndex = _this64.itemLimit;
+                  if (_this63.totalItems > _this63.itemLimit) {
+                    _this63.ItemEndIndex = _this63.itemLimit;
                   } else {
-                    _this64.ItemEndIndex = _this64.totalItems;
+                    _this63.ItemEndIndex = _this63.totalItems;
                   }
                 }
               });
@@ -5213,7 +5205,7 @@
 
       var InventoryViewComponent = /*#__PURE__*/function () {
         function InventoryViewComponent(injector, dialog, router, route, inventoryService, vendorService, lookupService, sharedService, sessionService) {
-          var _this65 = this;
+          var _this64 = this;
 
           _classCallCheck(this, InventoryViewComponent);
 
@@ -5241,7 +5233,7 @@
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-              _this65.getAllInventories();
+              _this64.getAllInventories();
             }
           });
         }
@@ -5322,46 +5314,46 @@
         }, {
           key: "getAllInventories",
           value: function getAllInventories() {
-            var _this66 = this;
+            var _this65 = this;
 
             this.isInventoryLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.inventoryService.getAllInventoryByApartmentId(params).subscribe(function (res) {
-              _this66.inventoryListData = res.filter(function (item) {
+              _this65.inventoryListData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              if (_this66.route.params['value'].id != undefined) {
-                _this66.inventoryListData = _this66.inventoryListData.filter(function (item) {
-                  return item.inventoryCategoryId == _this66.route.params['value'].id && item.isActive;
+              if (_this65.route.params['value'].id != undefined) {
+                _this65.inventoryListData = _this65.inventoryListData.filter(function (item) {
+                  return item.inventoryCategoryId == _this65.route.params['value'].id && item.isActive;
                 });
-                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this66.inventoryCategoryData, function (item, index) {
-                  if (item.lookupValueId == _this66.route.params['value'].id) {
-                    _this66.inventoryCategoryName = item.lookupValueName;
-                    _this66.inventoryCategory = item.lookupValueId;
+                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this65.inventoryCategoryData, function (item, index) {
+                  if (item.lookupValueId == _this65.route.params['value'].id) {
+                    _this65.inventoryCategoryName = item.lookupValueName;
+                    _this65.inventoryCategory = item.lookupValueId;
                   }
 
-                  _this66.isInventoryLoaded = true;
+                  _this65.isInventoryLoaded = true;
                 });
               }
 
-              _this66.totalItems = _this66.inventoryListData.length;
+              _this65.totalItems = _this65.inventoryListData.length;
 
-              if (_this66.totalItems > _this66.itemLimit) {
-                _this66.ItemEndIndex = _this66.itemLimit;
+              if (_this65.totalItems > _this65.itemLimit) {
+                _this65.ItemEndIndex = _this65.itemLimit;
               } else {
-                _this66.ItemEndIndex = _this66.totalItems;
+                _this65.ItemEndIndex = _this65.totalItems;
               }
 
-              _this66.isInventoryLoaded = true;
+              _this65.isInventoryLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this67 = this;
+            var _this66 = this;
 
             this.inventory = {};
             var params = {
@@ -5369,41 +5361,41 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this67.inventoryCategoryData = res.filter(function (item) {
+              _this66.inventoryCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this67.getAllInventories();
+              _this66.getAllInventories();
             });
             var vendorParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-              _this67.vendorListData = res;
+              _this66.vendorListData = res;
             }); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   inventoryId: id,
-                  deleteBy: parseInt(_this67.sessionService.userId)
+                  deleteBy: parseInt(_this66.sessionService.userId)
                 };
 
-                _this67.inventoryService.deleteInventory(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this67.inventoryListData, function (type) {
+                _this66.inventoryService.deleteInventory(params).subscribe(function (res) {
+                  underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this66.inventoryListData, function (type) {
                     if (type.inventoryId == id) {
                       type.isActive = false;
                     }
                   });
                   setTimeout(function () {
-                    _this67.inventoryListData = _this67.inventoryListData.filter(function (type) {
+                    _this66.inventoryListData = _this66.inventoryListData.filter(function (type) {
                       return type.id !== id;
                     });
-                    _this67.totalItems = _this67.inventoryListData.length;
+                    _this66.totalItems = _this66.inventoryListData.length;
 
-                    _this67.sharedService.setAlertMessage("Inventory deleted");
+                    _this66.sharedService.setAlertMessage("Inventory deleted");
 
-                    _this67.sharedService.setUnitListDeleteIndex(null);
+                    _this66.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);

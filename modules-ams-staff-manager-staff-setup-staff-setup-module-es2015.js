@@ -38,7 +38,7 @@ const routes = [
         children: [
             {
                 path: ":type/:id",
-                loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */ "src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */ "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(m => m.AddStaffSetupModule),
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */ "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(m => m.AddStaffSetupModule),
                 outlet: "drawer",
                 resolve: {
                     StaffSetupResolver: _staff_setup_resolver__WEBPACK_IMPORTED_MODULE_4__["StaffSetupResolver"]
