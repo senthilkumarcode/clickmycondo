@@ -296,6 +296,54 @@ PersonalStaffModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 
 
+/***/ }),
+
+/***/ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts ***!
+  \******************************************************************************/
+/*! exports provided: StaffSetupService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffSetupService", function() { return StaffSetupService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+let StaffSetupService = class StaffSetupService {
+    constructor() {
+        this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
+        this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
+    }
+    getStaffSetupMatDrawer() {
+        return this.staffSetupMatDrawer.value;
+    }
+    setStaffSetupMatDrawer(value) {
+        this.staffSetupMatDrawer.next(value);
+    }
+    getStaffetupEntryRefresh() {
+        return this.staffSetupEntryRefresh.value;
+    }
+    setStaffSetupEntryRefresh(value) {
+        this.staffSetupEntryRefresh.next(value);
+    }
+};
+StaffSetupService.ctorParameters = () => [];
+StaffSetupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], StaffSetupService);
+
+
+
 /***/ })
 
 }]);

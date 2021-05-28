@@ -38,7 +38,7 @@ const routes = [
         children: [
             {
                 path: ":type/:id",
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */ "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(m => m.AddStaffSetupModule),
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-collective-add-lookup-add-lookup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~95af9b5c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~2d464e12"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~66e2f276"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~09d98673"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/collective/add-lookup/add-lookup.module */ "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(m => m.AddLookupModule),
                 outlet: "drawer",
                 resolve: {
                     StaffSetupResolver: _staff_setup_resolver__WEBPACK_IMPORTED_MODULE_4__["StaffSetupResolver"]
@@ -89,10 +89,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffSetupComponent", function() { return StaffSetupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ams/staff-manager/staff-setup/staff-setup.service */ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/data */ "./src/app/modules/collective/add-lookup/data.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
+
 
 
 
@@ -100,13 +102,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffSetupComponent = class StaffSetupComponent {
-    constructor(staffSetupService, _changeDetectorRef, _activatedRoute, _router) {
-        this.staffSetupService = staffSetupService;
+    constructor(addLookupService, _changeDetectorRef, _activatedRoute, _router) {
+        this.addLookupService = addLookupService;
         this._changeDetectorRef = _changeDetectorRef;
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         // Set the private defaults
-        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
     }
     onBackdropClicked() {
         // Get the current activated route
@@ -114,12 +116,10 @@ let StaffSetupComponent = class StaffSetupComponent {
         while (route.firstChild) {
             route = route.firstChild;
         }
-        let drawerData = this.staffSetupService.getStaffSetupMatDrawer();
-        console.log(drawerData.category);
         // Go to the parent route
-        this._router.navigateByUrl('/ams/staff/settings/list/' + drawerData.category);
-        this.matDrawer.close();
-        this.staffSetupService.setStaffSetupMatDrawer(null);
+        this._router.navigateByUrl(this.type.path);
+        this.addLookupService.setAddLookupOpenMatDrawer(false);
+        this.addLookupService.setAddLookupMatDrawer(null);
         // Mark for check
         this._changeDetectorRef.markForCheck();
     }
@@ -148,7 +148,7 @@ let StaffSetupComponent = class StaffSetupComponent {
             { link: 'department', name: 'Department' },
             { link: 'personal', name: 'Personal' }
         ];
-        this.staffSetupService.staffsetupmatdrawercast.subscribe((res) => {
+        this.addLookupService.addlookupmatdrawercast.subscribe((res) => {
             if (res != null) {
                 if (res.id) {
                     if (!res.isedit) {
@@ -157,16 +157,29 @@ let StaffSetupComponent = class StaffSetupComponent {
                     else {
                         this.editStaff(res.id);
                     }
+                    src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__["types"].forEach(item => {
+                        if (item.label == res.category) {
+                            return this.type = item;
+                        }
+                    });
                 }
+            }
+        });
+        this.addLookupService.addlookupopenmatdrawercast.subscribe((res) => {
+            if (res) {
+                this.matDrawer.open();
+            }
+            else {
+                this.matDrawer.close();
             }
         });
     }
 };
 StaffSetupComponent.ctorParameters = () => [
-    { type: src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_5__["StaffSetupService"] },
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 StaffSetupComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
@@ -178,10 +191,10 @@ StaffSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./staff-setup.component.scss */ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_5__["StaffSetupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], StaffSetupComponent);
 
 
@@ -240,21 +253,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _staff_setup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./staff-setup.service */ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
 
 
 
 
 let StaffSetupResolver = class StaffSetupResolver {
-    constructor(router, staffSetupService, sharedService) {
+    constructor(router, addLookupService) {
         this.router = router;
-        this.staffSetupService = staffSetupService;
-        this.sharedService = sharedService;
+        this.addLookupService = addLookupService;
     }
     resolve(route, state) {
-        let data = this.staffSetupService.getStaffSetupMatDrawer();
+        let data = this.addLookupService.getAddLookupMatDrawer();
         if (data == null) {
             const parentUrl = state.url.split('//')[0].replace(/[{()}]/g, '');
             // Navigate to parent url
@@ -265,65 +275,15 @@ let StaffSetupResolver = class StaffSetupResolver {
 };
 StaffSetupResolver.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _staff_setup_service__WEBPACK_IMPORTED_MODULE_3__["StaffSetupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] }
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__["AddLookupService"] }
 ];
 StaffSetupResolver = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _staff_setup_service__WEBPACK_IMPORTED_MODULE_3__["StaffSetupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])
+        src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__["AddLookupService"]])
 ], StaffSetupResolver);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts ***!
-  \******************************************************************************/
-/*! exports provided: StaffSetupService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffSetupService", function() { return StaffSetupService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-
-
-
-let StaffSetupService = class StaffSetupService {
-    constructor() {
-        this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-        this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
-        this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
-        this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
-    }
-    getStaffSetupMatDrawer() {
-        return this.staffSetupMatDrawer.value;
-    }
-    setStaffSetupMatDrawer(value) {
-        this.staffSetupMatDrawer.next(value);
-    }
-    getStaffetupEntryRefresh() {
-        return this.staffSetupEntryRefresh.value;
-    }
-    setStaffSetupEntryRefresh(value) {
-        this.staffSetupEntryRefresh.next(value);
-    }
-};
-StaffSetupService.ctorParameters = () => [];
-StaffSetupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], StaffSetupService);
 
 
 

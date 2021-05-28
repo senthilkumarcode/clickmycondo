@@ -38,15 +38,15 @@ const routes = [
         children: [
             {
                 path: ":type/:id",
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-add-setup-assets-add-setup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~09cdf606"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7cbdaa9d"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-add-setup-assets-add-setup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.module */ "./src/app/modules/ams/assets/assets-setup/assets-add-setup/assets-add-setup.module.ts")).then(m => m.AssetsAddSetupModule),
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-collective-add-lookup-add-lookup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~95af9b5c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~2d464e12"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~66e2f276"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~09d98673"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/collective/add-lookup/add-lookup.module */ "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(m => m.AddLookupModule),
                 outlet: "drawer",
                 resolve: {
                     AssetsSetupResolver: _assets_setup_resolver__WEBPACK_IMPORTED_MODULE_4__["AssetsSetupResolver"]
                 }
             },
-            { path: 'category', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-setup-category-assets-setup-category-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~09cdf606"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7cbdaa9d"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-setup-category-assets-setup-category-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-setup-category/assets-setup-category.module */ "./src/app/modules/ams/assets/assets-setup/assets-setup-category/assets-setup-category.module.ts")).then(m => m.AssetsSetupCategoryModule) },
-            { path: 'depreciation', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-setup-depreciation-assets-setup-depreciation-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~09cdf606"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7cbdaa9d"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-setup-depreciation-assets-setup-depreciation-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-setup-depreciation/assets-setup-depreciation.module */ "./src/app/modules/ams/assets/assets-setup/assets-setup-depreciation/assets-setup-depreciation.module.ts")).then(m => m.AssetsSetupDepreciationModule) },
-            { path: 'maintenance-types', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-setup-maintenance-types-assets-setup-maintenance-types-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~09cdf606"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7cbdaa9d"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-setup-maintenance-types-assets-setup-maintenance-types-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-setup-maintenance-types/assets-setup-maintenance-types.module */ "./src/app/modules/ams/assets/assets-setup/assets-setup-maintenance-types/assets-setup-maintenance-types.module.ts")).then(m => m.AssetsSetupMaintenanceTypesModule) },
+            { path: 'category', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-setup-category-assets-setup-category-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~95af9b5c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~2d464e12"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~66e2f276"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~09d98673"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-setup-category-assets-setup-category-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-setup-category/assets-setup-category.module */ "./src/app/modules/ams/assets/assets-setup/assets-setup-category/assets-setup-category.module.ts")).then(m => m.AssetsSetupCategoryModule) },
+            { path: 'depreciation', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-setup-depreciation-assets-setup-depreciation-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~95af9b5c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~2d464e12"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~66e2f276"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~09d98673"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-setup-depreciation-assets-setup-depreciation-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-setup-depreciation/assets-setup-depreciation.module */ "./src/app/modules/ams/assets/assets-setup/assets-setup-depreciation/assets-setup-depreciation.module.ts")).then(m => m.AssetsSetupDepreciationModule) },
+            { path: 'maintenance-types', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-assets-assets-setup-assets-setup-maintenance-types-assets-setup-maintenance-types-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~95af9b5c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~2d464e12"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~66e2f276"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~09d98673"), __webpack_require__.e("src-app-modules-ams-assets-assets-setup-assets-setup-maintenance-types-assets-setup-maintenance-types-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/assets/assets-setup/assets-setup-maintenance-types/assets-setup-maintenance-types.module */ "./src/app/modules/ams/assets/assets-setup/assets-setup-maintenance-types/assets-setup-maintenance-types.module.ts")).then(m => m.AssetsSetupMaintenanceTypesModule) },
             { path: '', redirectTo: 'category', pathMatch: 'full' }
         ]
     },
@@ -92,15 +92,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var _assets_setup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets-setup.service */ "./src/app/modules/ams/assets/assets-setup/assets-setup.service.ts");
+/* harmony import */ var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/data */ "./src/app/modules/collective/add-lookup/data.ts");
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
+
 
 
 
 
 
 let AssetsSetupComponent = class AssetsSetupComponent {
-    constructor(assetsSetupService, _changeDetectorRef, _activatedRoute, _router) {
-        this.assetsSetupService = assetsSetupService;
+    constructor(addLookupService, _changeDetectorRef, _activatedRoute, _router) {
+        this.addLookupService = addLookupService;
         this._changeDetectorRef = _changeDetectorRef;
         this._activatedRoute = _activatedRoute;
         this._router = _router;
@@ -111,11 +113,10 @@ let AssetsSetupComponent = class AssetsSetupComponent {
         while (route.firstChild) {
             route = route.firstChild;
         }
-        let drawerData = this.assetsSetupService.getAssetSetupMatDrawer();
         // Go to the parent route
-        this._router.navigateByUrl('/ams/assets/settings/list/' + drawerData.category);
-        this.matDrawer.close();
-        this.assetsSetupService.setAssetSetupMatDrawer(null);
+        this._router.navigateByUrl(this.type.path);
+        this.addLookupService.setAddLookupOpenMatDrawer(false);
+        this.addLookupService.setAddLookupMatDrawer(null);
         // Mark for check
         this._changeDetectorRef.markForCheck();
     }
@@ -136,6 +137,7 @@ let AssetsSetupComponent = class AssetsSetupComponent {
             route = route.firstChild;
         }
         this._router.navigate([{ outlets: { drawer: ['edit', id] } }], { relativeTo: route.parent.parent });
+        console.log('100');
         //Mark for check
         this._changeDetectorRef.markForCheck();
     }
@@ -145,7 +147,7 @@ let AssetsSetupComponent = class AssetsSetupComponent {
             { link: 'depreciation', name: 'Asset Depreciation Method' },
             { link: 'maintenance-types', name: 'Maintenance types' }
         ];
-        this.assetsSetupService.assetsetupmatdrawercast.subscribe((res) => {
+        this.addLookupService.addlookupmatdrawercast.subscribe((res) => {
             if (res != null) {
                 if (res.id) {
                     if (!res.isedit) {
@@ -154,13 +156,26 @@ let AssetsSetupComponent = class AssetsSetupComponent {
                     else {
                         this.editAssetCategory(res.id);
                     }
+                    src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__["types"].forEach(item => {
+                        if (item.label == res.category) {
+                            return this.type = item;
+                        }
+                    });
                 }
+            }
+        });
+        this.addLookupService.addlookupopenmatdrawercast.subscribe((res) => {
+            if (res) {
+                this.matDrawer.open();
+            }
+            else {
+                this.matDrawer.close();
             }
         });
     }
 };
 AssetsSetupComponent.ctorParameters = () => [
-    { type: _assets_setup_service__WEBPACK_IMPORTED_MODULE_4__["AssetsSetupService"] },
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
@@ -175,7 +190,7 @@ AssetsSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./assets-setup.component.scss */ "./src/app/modules/ams/assets/assets-setup/assets-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_assets_setup_service__WEBPACK_IMPORTED_MODULE_4__["AssetsSetupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
@@ -237,18 +252,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _assets_setup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets-setup.service */ "./src/app/modules/ams/assets/assets-setup/assets-setup.service.ts");
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
 
 
 
 
 let AssetsSetupResolver = class AssetsSetupResolver {
-    constructor(router, assetsSetupService) {
+    constructor(router, addLookupService) {
         this.router = router;
-        this.assetsSetupService = assetsSetupService;
+        this.addLookupService = addLookupService;
     }
     resolve(route, state) {
-        let data = this.assetsSetupService.getAssetSetupMatDrawer();
+        let data = this.addLookupService.getAddLookupMatDrawer();
         if (data == null) {
             const parentUrl = state.url.split('//')[0].replace(/[{()}]/g, '');
             // Navigate to parent url
@@ -259,63 +274,15 @@ let AssetsSetupResolver = class AssetsSetupResolver {
 };
 AssetsSetupResolver.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _assets_setup_service__WEBPACK_IMPORTED_MODULE_3__["AssetsSetupService"] }
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__["AddLookupService"] }
 ];
 AssetsSetupResolver = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _assets_setup_service__WEBPACK_IMPORTED_MODULE_3__["AssetsSetupService"]])
+        src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__["AddLookupService"]])
 ], AssetsSetupResolver);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/assets/assets-setup/assets-setup.service.ts":
-/*!*************************************************************************!*\
-  !*** ./src/app/modules/ams/assets/assets-setup/assets-setup.service.ts ***!
-  \*************************************************************************/
-/*! exports provided: AssetsSetupService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetsSetupService", function() { return AssetsSetupService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-
-
-
-let AssetsSetupService = class AssetsSetupService {
-    constructor() {
-        this.assetSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-        this.assetsetupmatdrawercast = this.assetSetupMatDrawer.asObservable();
-        this.assetSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
-        this.assetsetupentryrefreshcast = this.assetSetupEntryRefresh.asObservable();
-    }
-    getAssetSetupMatDrawer() {
-        return this.assetSetupMatDrawer.value;
-    }
-    setAssetSetupMatDrawer(value) {
-        this.assetSetupMatDrawer.next(value);
-    }
-    getAssetetupEntryRefresh() {
-        return this.assetSetupEntryRefresh.value;
-    }
-    setAssetSetupEntryRefresh(value) {
-        this.assetSetupEntryRefresh.next(value);
-    }
-};
-AssetsSetupService.ctorParameters = () => [];
-AssetsSetupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], AssetsSetupService);
 
 
 

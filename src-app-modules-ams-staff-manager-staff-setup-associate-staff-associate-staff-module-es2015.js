@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ams/staff-manager/staff-setup/staff-setup.service */ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
@@ -98,8 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AssociateStaffComponent = class AssociateStaffComponent {
-    constructor(staffSetupService, lookupService, sessionService, injector, dialog, simplePipe, sharedService) {
-        this.staffSetupService = staffSetupService;
+    constructor(addLookupService, lookupService, sessionService, injector, dialog, simplePipe, sharedService) {
+        this.addLookupService = addLookupService;
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.injector = injector;
@@ -168,12 +168,12 @@ let AssociateStaffComponent = class AssociateStaffComponent {
     }
     addDepartment() {
         var id = this.sharedService.guid();
-        this.staffSetupService.setStaffSetupMatDrawer({ id: id, data: null, category: 'department', list: null, isedit: false });
+        this.addLookupService.setAddLookupMatDrawer({ id: id, data: null, category: 'staff', list: null, isedit: false });
     }
     editDepartment(event, data) {
         event.stopPropagation();
         this.selectedData = data;
-        this.staffSetupService.setStaffSetupMatDrawer({ id: data.id, data: data, category: 'department', list: this.fullDepartmentList, isedit: true });
+        this.addLookupService.setAddLookupMatDrawer({ id: data.id, data: data, category: 'staff', list: this.fullDepartmentList, isedit: true });
     }
     deleteDepartment(event, department) {
         event.stopPropagation();
@@ -199,7 +199,7 @@ let AssociateStaffComponent = class AssociateStaffComponent {
         this.lookupService.upsertSubCategory(params).subscribe((res) => {
             this.isDataLoaded = true;
             if (res.message) {
-                this.sharedService.openSnackBar("Job Title Updated successfully", 'success');
+                this.sharedService.openSnackBar("Sub Department updated successfully", 'success');
                 this.getAllDepartment();
             }
             else {
@@ -269,7 +269,7 @@ let AssociateStaffComponent = class AssociateStaffComponent {
     }
     ngOnInit() {
         this.getAllDepartment();
-        this.staffSetupService.staffsetupentryrefreshcast.subscribe((res) => {
+        this.addLookupService.addlookupentryrefreshcast.subscribe((res) => {
             if (res) {
                 this.getAllDepartment();
             }
@@ -306,7 +306,7 @@ let AssociateStaffComponent = class AssociateStaffComponent {
     }
 };
 AssociateStaffComponent.ctorParameters = () => [
-    { type: src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"] },
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_4__["AddLookupService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
@@ -321,7 +321,7 @@ AssociateStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./associate-staff.component.scss */ "./src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_4__["AddLookupService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],

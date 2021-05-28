@@ -195,6 +195,126 @@ FacilityReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
 
 /***/ }),
 
+/***/ "./src/app/modules/collective/add-lookup/add-lookup.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/modules/collective/add-lookup/add-lookup.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: AddLookupService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddLookupService", function() { return AddLookupService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+let AddLookupService = class AddLookupService {
+    constructor() {
+        this.addLookupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.addlookupmatdrawercast = this.addLookupMatDrawer.asObservable();
+        this.addLookupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.addlookupentryrefreshcast = this.addLookupEntryRefresh.asObservable();
+        this.addLookupOpenMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.addlookupopenmatdrawercast = this.addLookupOpenMatDrawer.asObservable();
+    }
+    getAddLookupMatDrawer() {
+        return this.addLookupMatDrawer.value;
+    }
+    setAddLookupMatDrawer(value) {
+        this.addLookupMatDrawer.next(value);
+    }
+    getAddLookupEntryRefresh() {
+        return this.addLookupEntryRefresh.value;
+    }
+    setAddLookupEntryRefresh(value) {
+        this.addLookupEntryRefresh.next(value);
+    }
+    getAddLookupOpenMatDrawer() {
+        return this.addLookupOpenMatDrawer.value;
+    }
+    setAddLookupOpenMatDrawer(value) {
+        this.addLookupOpenMatDrawer.next(value);
+    }
+};
+AddLookupService.ctorParameters = () => [];
+AddLookupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], AddLookupService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/collective/add-lookup/data.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/modules/collective/add-lookup/data.ts ***!
+  \*******************************************************/
+/*! exports provided: types */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "types", function() { return types; });
+const types = [
+    {
+        "label": "category",
+        "lookuptypeId": 19,
+        "subcategorylookuptypeid": 68,
+        "title": "Asset Category",
+        "select": "Select Asset",
+        "add": "Asset added successfully",
+        "update": "Asset updated successfully",
+        "error": "Asset already exists",
+        "delete": "Asset deleted successfully",
+        "path": "/ams/assets/settings/list/category"
+    },
+    {
+        "label": "maintenance-types",
+        "lookuptypeId": 167,
+        "subcategorylookuptypeid": 168,
+        "title": "Asset Maintenance Types",
+        "select": "Select Maintenance Type",
+        "add": "Asset added successfully",
+        "update": "Maintenance updated successfully",
+        "error": "Maintenance already exists",
+        "delete": "Maintenance deleted successfully",
+        "path": "/ams/assets/settings/list/maintenance-types"
+    },
+    {
+        "label": "inventory",
+        "lookuptypeId": 174,
+        "subcategorylookuptypeid": 175,
+        "title": "Inventory",
+        "select": "Select Inventory",
+        "add": "Inventory added successfully",
+        "update": "Inventory updated successfully",
+        "error": "Inventory already exists",
+        "delete": "Inventory deleted successfully",
+        "path": "/ams/inventory/settings/list/category"
+    },
+    {
+        "label": "staff",
+        "lookuptypeId": 204,
+        "subcategorylookuptypeid": 26,
+        "title": "Department",
+        "select": "Select Department",
+        "add": "Job Title added successfully",
+        "update": "Job Title updated successfully",
+        "error": "Job Title already exists",
+        "delete": "Job Title deleted successfully",
+        "path": "/ams/staff/settings/list/department"
+    }
+];
+
+
+/***/ }),
+
 /***/ "./src/app/modules/common/visitor/visitor-report/visitor-report-routing.module.ts":
 /*!****************************************************************************************!*\
   !*** ./src/app/modules/common/visitor/visitor-report/visitor-report-routing.module.ts ***!

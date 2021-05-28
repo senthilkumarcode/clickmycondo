@@ -83,11 +83,11 @@
           path: ":type/:id",
           loadChildren: function loadChildren() {
             return Promise.all(
-            /*! import() | src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module */
-            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0c95bc36"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~074fd9ae"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-add-staff-setup-add-staff-setup-module")]).then(__webpack_require__.bind(null,
-            /*! src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module */
-            "./src/app/modules/ams/staff-manager/staff-setup/add-staff-setup/add-staff-setup.module.ts")).then(function (m) {
-              return m.AddStaffSetupModule;
+            /*! import() | src-app-modules-collective-add-lookup-add-lookup-module */
+            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~95af9b5c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~2d464e12"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~66e2f276"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~09d98673"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null,
+            /*! src/app/modules/collective/add-lookup/add-lookup.module */
+            "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(function (m) {
+              return m.AddLookupModule;
             });
           },
           outlet: "drawer",
@@ -192,38 +192,44 @@
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/material/sidenav */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/modules/collective/add-lookup/data */
+      "./src/app/modules/collective/add-lookup/data.ts");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
       /* harmony import */
 
 
-      var src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/modules/ams/staff-manager/staff-setup/staff-setup.service */
-      "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
+      var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/modules/collective/add-lookup/add-lookup.service */
+      "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
 
       var StaffSetupComponent = /*#__PURE__*/function () {
-        function StaffSetupComponent(staffSetupService, _changeDetectorRef, _activatedRoute, _router) {
+        function StaffSetupComponent(addLookupService, _changeDetectorRef, _activatedRoute, _router) {
           _classCallCheck(this, StaffSetupComponent);
 
-          this.staffSetupService = staffSetupService;
+          this.addLookupService = addLookupService;
           this._changeDetectorRef = _changeDetectorRef;
           this._activatedRoute = _activatedRoute;
           this._router = _router; // Set the private defaults
 
-          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
         }
 
         _createClass(StaffSetupComponent, [{
@@ -234,15 +240,13 @@
 
             while (route.firstChild) {
               route = route.firstChild;
-            }
+            } // Go to the parent route
 
-            var drawerData = this.staffSetupService.getStaffSetupMatDrawer();
-            console.log(drawerData.category); // Go to the parent route
 
-            this._router.navigateByUrl('/ams/staff/settings/list/' + drawerData.category);
+            this._router.navigateByUrl(this.type.path);
 
-            this.matDrawer.close();
-            this.staffSetupService.setStaffSetupMatDrawer(null); // Mark for check
+            this.addLookupService.setAddLookupOpenMatDrawer(false);
+            this.addLookupService.setAddLookupMatDrawer(null); // Mark for check
 
             this._changeDetectorRef.markForCheck();
           }
@@ -300,7 +304,7 @@
               link: 'personal',
               name: 'Personal'
             }];
-            this.staffSetupService.staffsetupmatdrawercast.subscribe(function (res) {
+            this.addLookupService.addlookupmatdrawercast.subscribe(function (res) {
               if (res != null) {
                 if (res.id) {
                   if (!res.isedit) {
@@ -308,7 +312,20 @@
                   } else {
                     _this.editStaff(res.id);
                   }
+
+                  src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__["types"].forEach(function (item) {
+                    if (item.label == res.category) {
+                      return _this.type = item;
+                    }
+                  });
                 }
+              }
+            });
+            this.addLookupService.addlookupopenmatdrawercast.subscribe(function (res) {
+              if (res) {
+                _this.matDrawer.open();
+              } else {
+                _this.matDrawer.close();
               }
             });
           }
@@ -319,13 +336,13 @@
 
       StaffSetupComponent.ctorParameters = function () {
         return [{
-          type: src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_5__["StaffSetupService"]
+          type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
       };
 
@@ -346,7 +363,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-setup.component.scss */
         "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_5__["StaffSetupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])], StaffSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffSetupComponent);
       /***/
     },
 
@@ -457,29 +474,22 @@
       /* harmony import */
 
 
-      var _staff_setup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./staff-setup.service */
-      "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
+      var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/modules/collective/add-lookup/add-lookup.service */
+      "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
 
       var StaffSetupResolver = /*#__PURE__*/function () {
-        function StaffSetupResolver(router, staffSetupService, sharedService) {
+        function StaffSetupResolver(router, addLookupService) {
           _classCallCheck(this, StaffSetupResolver);
 
           this.router = router;
-          this.staffSetupService = staffSetupService;
-          this.sharedService = sharedService;
+          this.addLookupService = addLookupService;
         }
 
         _createClass(StaffSetupResolver, [{
           key: "resolve",
           value: function resolve(route, state) {
-            var data = this.staffSetupService.getStaffSetupMatDrawer();
+            var data = this.addLookupService.getAddLookupMatDrawer();
 
             if (data == null) {
               var parentUrl = state.url.split('//')[0].replace(/[{()}]/g, ''); // Navigate to parent url
@@ -498,98 +508,13 @@
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: _staff_setup_service__WEBPACK_IMPORTED_MODULE_3__["StaffSetupService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+          type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__["AddLookupService"]
         }];
       };
 
       StaffSetupResolver = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _staff_setup_service__WEBPACK_IMPORTED_MODULE_3__["StaffSetupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])], StaffSetupResolver);
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts":
-    /*!******************************************************************************!*\
-      !*** ./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts ***!
-      \******************************************************************************/
-
-    /*! exports provided: StaffSetupService */
-
-    /***/
-    function srcAppModulesAmsStaffManagerStaffSetupStaffSetupServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "StaffSetupService", function () {
-        return StaffSetupService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! rxjs */
-      "./node_modules/rxjs/_esm2015/index.js");
-
-      var StaffSetupService = /*#__PURE__*/function () {
-        function StaffSetupService() {
-          _classCallCheck(this, StaffSetupService);
-
-          this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-          this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
-          this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
-          this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
-        }
-
-        _createClass(StaffSetupService, [{
-          key: "getStaffSetupMatDrawer",
-          value: function getStaffSetupMatDrawer() {
-            return this.staffSetupMatDrawer.value;
-          }
-        }, {
-          key: "setStaffSetupMatDrawer",
-          value: function setStaffSetupMatDrawer(value) {
-            this.staffSetupMatDrawer.next(value);
-          }
-        }, {
-          key: "getStaffetupEntryRefresh",
-          value: function getStaffetupEntryRefresh() {
-            return this.staffSetupEntryRefresh.value;
-          }
-        }, {
-          key: "setStaffSetupEntryRefresh",
-          value: function setStaffSetupEntryRefresh(value) {
-            this.staffSetupEntryRefresh.next(value);
-          }
-        }]);
-
-        return StaffSetupService;
-      }();
-
-      StaffSetupService.ctorParameters = function () {
-        return [];
-      };
-
-      StaffSetupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], StaffSetupService);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_3__["AddLookupService"]])], StaffSetupResolver);
       /***/
     }
   }]);

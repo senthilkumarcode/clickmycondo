@@ -152,9 +152,9 @@
       /* harmony import */
 
 
-      var src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/modules/ams/staff-manager/staff-setup/staff-setup.service */
-      "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts");
+      var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/modules/collective/add-lookup/add-lookup.service */
+      "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
       /* harmony import */
 
 
@@ -209,10 +209,10 @@
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
       var AssociateStaffComponent = /*#__PURE__*/function () {
-        function AssociateStaffComponent(staffSetupService, lookupService, sessionService, injector, dialog, simplePipe, sharedService) {
+        function AssociateStaffComponent(addLookupService, lookupService, sessionService, injector, dialog, simplePipe, sharedService) {
           _classCallCheck(this, AssociateStaffComponent);
 
-          this.staffSetupService = staffSetupService;
+          this.addLookupService = addLookupService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.injector = injector;
@@ -290,10 +290,10 @@
           key: "addDepartment",
           value: function addDepartment() {
             var id = this.sharedService.guid();
-            this.staffSetupService.setStaffSetupMatDrawer({
+            this.addLookupService.setAddLookupMatDrawer({
               id: id,
               data: null,
-              category: 'department',
+              category: 'staff',
               list: null,
               isedit: false
             });
@@ -303,10 +303,10 @@
           value: function editDepartment(event, data) {
             event.stopPropagation();
             this.selectedData = data;
-            this.staffSetupService.setStaffSetupMatDrawer({
+            this.addLookupService.setAddLookupMatDrawer({
               id: data.id,
               data: data,
-              category: 'department',
+              category: 'staff',
               list: this.fullDepartmentList,
               isedit: true
             });
@@ -342,7 +342,7 @@
               _this2.isDataLoaded = true;
 
               if (res.message) {
-                _this2.sharedService.openSnackBar("Job Title Updated successfully", 'success');
+                _this2.sharedService.openSnackBar("Sub Department updated successfully", 'success');
 
                 _this2.getAllDepartment();
               } else {
@@ -428,7 +428,7 @@
             var _this4 = this;
 
             this.getAllDepartment();
-            this.staffSetupService.staffsetupentryrefreshcast.subscribe(function (res) {
+            this.addLookupService.addlookupentryrefreshcast.subscribe(function (res) {
               if (res) {
                 _this4.getAllDepartment();
               }
@@ -484,7 +484,7 @@
 
       AssociateStaffComponent.ctorParameters = function () {
         return [{
-          type: src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"]
+          type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_4__["AddLookupService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
@@ -509,7 +509,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./associate-staff.component.scss */
         "./src/app/modules/ams/staff-manager/staff-setup/associate-staff/associate-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_10__["SimpleSearchPipe"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], AssociateStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_4__["AddLookupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialog"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_10__["SimpleSearchPipe"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], AssociateStaffComponent);
       /***/
     },
 

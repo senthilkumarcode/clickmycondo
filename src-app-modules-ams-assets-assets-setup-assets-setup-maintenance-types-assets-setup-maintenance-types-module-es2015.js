@@ -75,15 +75,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_modules_ams_assets_assets_setup_assets_setup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ams/assets/assets-setup/assets-setup.service */ "./src/app/modules/ams/assets/assets-setup/assets-setup.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
-
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -97,9 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AssetsSetupMaintenanceTypesComponent = class AssetsSetupMaintenanceTypesComponent {
-    constructor(dialog, assetsSetupService, lookupService, sharedService, sessionService, injector) {
-        this.dialog = dialog;
-        this.assetsSetupService = assetsSetupService;
+    constructor(addLookupService, lookupService, sharedService, sessionService, injector) {
+        this.addLookupService = addLookupService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
@@ -118,19 +115,19 @@ let AssetsSetupMaintenanceTypesComponent = class AssetsSetupMaintenanceTypesComp
         this.message = null;
         this._typesList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
         this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('');
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     get types$() {
         return this._typesList.asObservable();
     }
     addMaintenanceTypes() {
         var id = this.sharedService.guid();
-        this.assetsSetupService.setAssetSetupMatDrawer({ id: id, data: null, category: 'maintenance-types', list: null, isedit: false });
+        this.addLookupService.setAddLookupMatDrawer({ id: id, data: null, category: 'maintenance-types', list: null, isedit: false });
     }
     editMaintenanceTypes(event, data) {
         event.stopPropagation();
         this.selectedData = data;
-        this.assetsSetupService.setAssetSetupMatDrawer({ id: data.id, data: data, category: 'maintenance-types', list: this.fullTypesList, isedit: true });
+        this.addLookupService.setAddLookupMatDrawer({ id: data.id, data: data, category: 'maintenance-types', list: this.fullTypesList, isedit: true });
     }
     editTypeName(event, category) {
         event.stopPropagation();
@@ -148,9 +145,9 @@ let AssetsSetupMaintenanceTypesComponent = class AssetsSetupMaintenanceTypesComp
             "description": category.name,
             "isActive": true,
             "insertedBy": this.sessionService.userId,
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
             "updatedBy": this.sessionService.userId,
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
             "isCommon": false,
             "isDisabled": false
         };
@@ -193,9 +190,9 @@ let AssetsSetupMaintenanceTypesComponent = class AssetsSetupMaintenanceTypesComp
             "subCategory": data && data.subCategory.length > 0 ? data.subCategory : [],
             "isActive": true,
             "insertedBy": this.sessionService.userId,
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
             "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString()
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
         };
         let params = {};
         params.model = reqObj;
@@ -262,7 +259,7 @@ let AssetsSetupMaintenanceTypesComponent = class AssetsSetupMaintenanceTypesComp
     }
     ngOnInit() {
         this.getAllMaintenance();
-        this.assetsSetupService.assetsetupentryrefreshcast.subscribe((res) => {
+        this.addLookupService.addlookupentryrefreshcast.subscribe((res) => {
             if (res) {
                 this.getAllMaintenance();
             }
@@ -294,11 +291,10 @@ let AssetsSetupMaintenanceTypesComponent = class AssetsSetupMaintenanceTypesComp
     }
 };
 AssetsSetupMaintenanceTypesComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
-    { type: src_app_modules_ams_assets_assets_setup_assets_setup_service__WEBPACK_IMPORTED_MODULE_6__["AssetsSetupService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] },
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 AssetsSetupMaintenanceTypesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -308,11 +304,10 @@ AssetsSetupMaintenanceTypesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./assets-setup-maintenance-types.component.scss */ "./src/app/modules/ams/assets/assets-setup/assets-setup-maintenance-types/assets-setup-maintenance-types.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
-        src_app_modules_ams_assets_assets_setup_assets_setup_service__WEBPACK_IMPORTED_MODULE_6__["AssetsSetupService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], AssetsSetupMaintenanceTypesComponent);
 
