@@ -108,7 +108,7 @@
 
       var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @fullcalendar/core */
-      "./node_modules/@fullcalendar/angular/node_modules/@fullcalendar/core/main.esm.js");
+      "./node_modules/@fullcalendar/core/main.esm.js");
       /*!
       FullCalendar Resources Common Plugin v4.4.2
       Docs & License: https://fullcalendar.io/scheduler
@@ -2075,7 +2075,7 @@
 
       var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @fullcalendar/core */
-      "./node_modules/@fullcalendar/angular/node_modules/@fullcalendar/core/main.esm.js");
+      "./node_modules/@fullcalendar/core/main.esm.js");
       /* harmony import */
 
 
@@ -3475,7 +3475,7 @@
 
       var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @fullcalendar/core */
-      "./node_modules/@fullcalendar/angular/node_modules/@fullcalendar/core/main.esm.js");
+      "./node_modules/@fullcalendar/core/main.esm.js");
       /*!
       FullCalendar Timeline Plugin v4.4.2
       Docs & License: https://fullcalendar.io/scheduler

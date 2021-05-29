@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-lookup-setup-wrapper\">\n\n\n\n\t<div class=\"title\">\n\t\t\n\t\t<h4>\n            <ng-container *ngIf=\"!isEdit\">Add {{type.title}}</ng-container>\n\t\t\t<ng-container *ngIf=\"isEdit\">Update {{type.title}}</ng-container>\n        </h4>\n\n\t\t<div class=\"ml-auto\">\n\t\t\t<button mat-icon-button\n\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t</button>\n\t\t</div>\n\t\t\n\t</div>\n\n\n\t<form #addLookupForm = \"ngForm\" name=\"addLookupForm\" novalidate>\n\n\t\t<condo-message class=\"mb-4\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n            {{message.content}}\n        </condo-message>\n\n\t\t<ng-container *ngIf=\"!isEdit\">\n\n            <div class=\"row\">\n\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Name<span class=\"mandatory pl-2\">*</span></label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\" [(ngModel)]=\"lookup.name\" required>\n                    </div>\n                </div>\n    \n                <div class=\"col-sm-12 pb-4\">\n                    <submit-button class=\"mt-4 float-right\" (click)=\"submitAddLookupForm()\" [isSubmit]=\"!isDataSubmitted\">Submit</submit-button>\n                </div>\n    \n            </div>\n        \n\n        </ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t<div class=\"row\">\n\n                <div class=\"col-sm-12\">\n                    <condo-select \n                        labelText=\"{{type.select}}\" \n                        fieldPlaceholder=\"{{type.select}}\" \n                        [fieldRequired]=\"'required'\" \n                        [fieldList]=\"lookupList\" \n                        fieldValue=\"name\" \n                        [fieldModel]=\"lookup.id\" \n                        fieldId=\"id\"\n                        [isDisabled]=\"true\"\n                        [isClear]=\"false\" \n                        (fieldParams)=\"getSelectedCategory($event)\">\n                    </condo-select>\n                </div>\n\n                <div class=\"col-sm-12\" *ngIf=\"this.lookup?.subCategory.length != 0\">\n                    <div class=\"d-flex flex-wrap align-items-center pb-4\">\n                        <div class=\"border shadow d-flex align-items-center sub-category-list mr-3 mb-4\" *ngFor=\" let item of lookup.subCategory\">\n                            <span class=\"mr-2\">{{item.name}}</span>\n                            <mat-icon (click)=\"deleteCategory(item)\" class=\"close\" [svgIcon]=\"'close'\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"col-sm-12\" *ngIf=\"this.lookup?.subCategory.length == 0\">\n                    <h6 class=\"mb-4 text-red-500\">Sub Category not found</h6>\n                </div>\n    \n            </div>\n\n            <div class=\"row\">\n\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Sub Category<span class=\"mandatory pl-2\">*</span></label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\" [(ngModel)]=\"lookup.subCategoryName\" required>\n                    </div>\n                </div>\n\n                <div class=\"col-sm-12 pb-4\">\n                    <submit-button class=\"mt-4 float-right\" (click)=\"submitAddLookupForm()\" [isSubmit]=\"!isDataSubmitted\">Add Sub Category</submit-button>\n                </div>\n            </div>\n\n\t\t</ng-container>\n\n\n\t</form>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"add-lookup-setup-wrapper\">\n\n\n\n\t<div class=\"title\">\n\t\t\n\t\t<h4>\n            <ng-container *ngIf=\"!isEdit\">Add {{type.title}}</ng-container>\n\t\t\t<ng-container *ngIf=\"isEdit\">Update {{type.title}}</ng-container>\n        </h4>\n\n\t\t<div class=\"ml-auto\">\n\t\t\t<button mat-icon-button\n\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t</button>\n\t\t</div>\n\t\t\n\t</div>\n\n\n\t<form #addLookupForm = \"ngForm\" name=\"addLookupForm\" novalidate>\n\n\t\t<condo-message class=\"mb-4\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n            {{message.content}}\n        </condo-message>\n\n\t\t<ng-container *ngIf=\"!isEdit\">\n\n            <div class=\"row\">\n\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Name<span class=\"mandatory pl-2\">*</span></label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\" [(ngModel)]=\"lookup.name\" [disabled]=\"isCategoryAdded\" required>\n                    </div>\n                </div>\n    \n                <div class=\"col-sm-12 pb-4\" *ngIf=\"!isCategoryAdded\">\n                    <submit-button class=\"mt-4 float-right\" (click)=\"submitAddLookupForm()\" [isSubmit]=\"!isDataSubmitted\">Submit</submit-button>\n                </div>\n    \n            </div>\n        \n\n        </ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t<div class=\"row\">\n\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Name<span class=\"mandatory pl-2\">*</span></label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\" [(ngModel)]=\"lookup.name\" disabled>\n                    </div>\n                </div>\n\n                <div class=\"col-sm-12\" *ngIf=\"this.lookup?.subCategory.length != 0\">\n                    <div class=\"d-flex flex-wrap align-items-center pb-4\">\n                        <div class=\"border shadow d-flex align-items-center sub-category-list mr-3 mb-4\" *ngFor=\" let item of lookup.subCategory\">\n                            <span class=\"mr-2\">{{item.name}}</span>\n                            <mat-icon (click)=\"deleteCategory(item)\" class=\"close\" [svgIcon]=\"'close'\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"col-sm-12\" *ngIf=\"this.lookup?.subCategory.length == 0 && !isCategoryAdded\">\n                    <h6 class=\"mb-4 text-red-500\">Sub Category not found</h6>\n                </div>\n    \n            </div>\n\n            <div class=\"row\">\n\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label><span *ngIf=\"isCategoryAdded\">Please</span> Sub Category<span class=\"mandatory pl-2\">*</span></label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categorySubName\" [(ngModel)]=\"lookup.subCategoryName\" required>\n                    </div>\n                </div>\n\n                <div class=\"col-sm-12\">\n                    <submit-button [buttonColor]=\"'accent'\" class=\"mt-2 float-right\" (click)=\"submitAddLookupForm()\" [isSubmit]=\"!isDataSubmitted\">Add Sub Category</submit-button>\n                </div>\n            </div>\n\n\t\t</ng-container>\n\n\n\t</form>\n\n</div>\n";
       /***/
     },
 
@@ -210,6 +210,7 @@
           this.sharedService = sharedService;
           this.isDataSubmitted = true;
           this.isEdit = false;
+          this.isCategoryAdded = false;
           this.category = "";
           this.message = null;
         }
@@ -221,11 +222,6 @@
             this.addLookupService.setAddLookupMatDrawer(null);
 
             this._router.navigateByUrl(this.type.path);
-          }
-        }, {
-          key: "getSelectedCategory",
-          value: function getSelectedCategory(event) {
-            this.lookup.id = event[0].id;
           }
         }, {
           key: "deleteCategory",
@@ -247,34 +243,6 @@
             }, function (error) {
               _this.sharedService.openSnackBar('Server Error', 'error');
             });
-          }
-        }, {
-          key: "formatText",
-          value: function formatText(str) {
-            str = str.replace(/-/g, ' ');
-            return str.charAt(0).toUpperCase() + str.slice(1);
-          }
-        }, {
-          key: "getLookTypeId",
-          value: function getLookTypeId() {
-            if (this.category == 'category') {
-              return 19;
-            } else if (this.category == 'maintenance-types') {
-              return 167;
-            } else {
-              return 174;
-            }
-          }
-        }, {
-          key: "getSubcategoryLookupTypeId",
-          value: function getSubcategoryLookupTypeId() {
-            if (this.category == 'category') {
-              return 68;
-            } else if (this.category == 'maintenance-types') {
-              return 168;
-            } else {
-              return 175;
-            }
           }
         }, {
           key: "submitAddLookupForm",
@@ -327,12 +295,15 @@
                 this.lookupService.addLookupValue(param).subscribe(function (res) {
                   _this2.isDataSubmitted = true;
 
-                  if (res.message) {
+                  if (res.code == 200) {
                     _this2.sharedService.openSnackBar(_this2.type.add, 'success');
 
-                    _this2.goBack();
-
                     _this2.addLookupService.setAddLookupEntryRefresh(true);
+
+                    _this2.isCategoryAdded = true;
+                    _this2.isEdit = true;
+                    _this2.lookup.id = parseInt(res.message);
+                    _this2.lookup.subCategory = [];
                   } else if (res.statusMessage == "Setup Value Not Added as it already exist.") {
                     _this2.sharedService.openSnackBar(_this2.type.error, 'error');
                   } else {
@@ -393,12 +364,9 @@
                 if (res.id != undefined && res.id == _this3._activatedRoute.params['value'].id) {
                   _this3.addLookupService.setAddLookupOpenMatDrawer(true);
 
-                  console.log(1343);
-
                   if (_this3._activatedRoute.params['value'].type == 'edit') {
                     _this3.isEdit = true;
                     _this3.lookup = res.data;
-                    _this3.lookupList = res.list;
                   } else {
                     _this3.isEdit = false;
                     _this3.lookup = {};
