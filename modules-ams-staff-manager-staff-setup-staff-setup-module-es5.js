@@ -84,7 +84,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-collective-add-lookup-add-lookup-module */
-            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~e1d2224c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~6b5b7b4d"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0e25d77a"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~16b1f47f"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~6b5b7b4d"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0e25d77a"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/collective/add-lookup/add-lookup.module */
             "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(function (m) {
               return m.AddLookupModule;
@@ -198,30 +198,38 @@
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
       /* harmony import */
 
 
-      var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/modules/collective/add-lookup/data */
       "./src/app/modules/collective/add-lookup/data.ts");
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
       /* harmony import */
 
 
-      var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/modules/collective/add-lookup/add-lookup.service */
       "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
 
       var StaffSetupComponent = /*#__PURE__*/function () {
-        function StaffSetupComponent(addLookupService, _changeDetectorRef, _activatedRoute, _router) {
+        function StaffSetupComponent(location, addLookupService, _changeDetectorRef, _activatedRoute, _router) {
+          var _this = this;
+
           _classCallCheck(this, StaffSetupComponent);
 
           this.addLookupService = addLookupService;
@@ -229,7 +237,14 @@
           this._activatedRoute = _activatedRoute;
           this._router = _router; // Set the private defaults
 
-          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+
+          _router.events.forEach(function (event) {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+              var url = location.path().split('/');
+              _this.pageType = url[url.length - 1];
+            }
+          });
         }
 
         _createClass(StaffSetupComponent, [{
@@ -295,7 +310,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this = this;
+            var _this2 = this;
 
             this.navArray = [{
               link: 'department',
@@ -308,14 +323,14 @@
               if (res != null) {
                 if (res.id) {
                   if (!res.isedit) {
-                    _this.addStaff(res.id);
+                    _this2.addStaff(res.id);
                   } else {
-                    _this.editStaff(res.id);
+                    _this2.editStaff(res.id);
                   }
 
-                  src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__["types"].forEach(function (item) {
+                  src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_5__["types"].forEach(function (item) {
                     if (item.label == res.category) {
-                      return _this.type = item;
+                      return _this2.type = item;
                     }
                   });
                 }
@@ -323,9 +338,9 @@
             });
             this.addLookupService.addlookupopenmatdrawercast.subscribe(function (res) {
               if (res) {
-                _this.matDrawer.open();
+                _this2.matDrawer.open();
               } else {
-                _this.matDrawer.close();
+                _this2.matDrawer.close();
               }
             });
           }
@@ -336,7 +351,9 @@
 
       StaffSetupComponent.ctorParameters = function () {
         return [{
-          type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"]
+          type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"]
+        }, {
+          type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_7__["AddLookupService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
@@ -363,7 +380,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-setup.component.scss */
         "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"], src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_7__["AddLookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], StaffSetupComponent);
       /***/
     },
 

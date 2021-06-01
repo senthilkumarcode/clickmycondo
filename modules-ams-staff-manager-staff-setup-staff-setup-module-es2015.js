@@ -38,7 +38,7 @@ const routes = [
         children: [
             {
                 path: ":type/:id",
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-collective-add-lookup-add-lookup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~e1d2224c"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~6b5b7b4d"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0e25d77a"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/collective/add-lookup/add-lookup.module */ "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(m => m.AddLookupModule),
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-collective-add-lookup-add-lookup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~16b1f47f"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~6b5b7b4d"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0e25d77a"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/collective/add-lookup/add-lookup.module */ "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(m => m.AddLookupModule),
                 outlet: "drawer",
                 resolve: {
                     StaffSetupResolver: _staff_setup_resolver__WEBPACK_IMPORTED_MODULE_4__["StaffSetupResolver"]
@@ -90,10 +90,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/data */ "./src/app/modules/collective/add-lookup/data.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/data */ "./src/app/modules/collective/add-lookup/data.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/collective/add-lookup/add-lookup.service */ "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
+
 
 
 
@@ -102,13 +104,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let StaffSetupComponent = class StaffSetupComponent {
-    constructor(addLookupService, _changeDetectorRef, _activatedRoute, _router) {
+    constructor(location, addLookupService, _changeDetectorRef, _activatedRoute, _router) {
         this.addLookupService = addLookupService;
         this._changeDetectorRef = _changeDetectorRef;
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         // Set the private defaults
-        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+        _router.events.forEach((event) => {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
+                let url = location.path().split('/');
+                this.pageType = url[url.length - 1];
+            }
+        });
     }
     onBackdropClicked() {
         // Get the current activated route
@@ -157,7 +165,7 @@ let StaffSetupComponent = class StaffSetupComponent {
                     else {
                         this.editStaff(res.id);
                     }
-                    src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_4__["types"].forEach(item => {
+                    src_app_modules_collective_add_lookup_data__WEBPACK_IMPORTED_MODULE_5__["types"].forEach(item => {
                         if (item.label == res.category) {
                             return this.type = item;
                         }
@@ -176,7 +184,8 @@ let StaffSetupComponent = class StaffSetupComponent {
     }
 };
 StaffSetupComponent.ctorParameters = () => [
-    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"] },
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"] },
+    { type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_7__["AddLookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
@@ -191,7 +200,8 @@ StaffSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./staff-setup.component.scss */ "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_6__["AddLookupService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"],
+        src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_7__["AddLookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])

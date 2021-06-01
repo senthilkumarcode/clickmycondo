@@ -293,7 +293,7 @@
             this.addLookupService.setAddLookupMatDrawer({
               id: id,
               data: null,
-              category: 'staff',
+              category: 'associate-staff',
               list: null,
               isedit: false
             });
@@ -306,7 +306,7 @@
             this.addLookupService.setAddLookupMatDrawer({
               id: data.id,
               data: data,
-              category: 'staff',
+              category: 'associate-staff',
               list: this.fullDepartmentList,
               isedit: true
             });

@@ -272,7 +272,8 @@ const types = [
         "update": "Asset updated successfully",
         "error": "Asset already exists",
         "delete": "Asset deleted successfully",
-        "path": "/ams/assets/settings/list/category"
+        "path": "/ams/assets/settings/list/category",
+        "subcategory": true
     },
     {
         "label": "maintenance-types",
@@ -284,7 +285,8 @@ const types = [
         "update": "Maintenance updated successfully",
         "error": "Maintenance already exists",
         "delete": "Maintenance deleted successfully",
-        "path": "/ams/assets/settings/list/maintenance-types"
+        "path": "/ams/assets/settings/list/maintenance-types",
+        "subcategory": true
     },
     {
         "label": "inventory",
@@ -296,10 +298,11 @@ const types = [
         "update": "Inventory updated successfully",
         "error": "Inventory already exists",
         "delete": "Inventory deleted successfully",
-        "path": "/ams/inventory/settings/list/category"
+        "path": "/ams/inventory/settings/list/category",
+        "subcategory": true
     },
     {
-        "label": "staff",
+        "label": "associate-staff",
         "lookuptypeId": 204,
         "subcategorylookuptypeid": 26,
         "title": "Department",
@@ -308,7 +311,34 @@ const types = [
         "update": "Job Title updated successfully",
         "error": "Job Title already exists",
         "delete": "Job Title deleted successfully",
-        "path": "/ams/staff/settings/list/department"
+        "path": "/ams/staff/settings/list/department",
+        "subcategory": true
+    },
+    {
+        "label": "personal-staff",
+        "lookuptypeId": 204,
+        "subcategorylookuptypeid": null,
+        "title": "Department",
+        "select": "Select Department",
+        "add": "Personal Staff added successfully",
+        "update": "Personal Staff updated successfully",
+        "error": "Personal Staff already exists",
+        "delete": "Personal Staff deleted successfully",
+        "path": "/ams/staff/settings/list/personal",
+        "subcategory": false
+    },
+    {
+        "label": "violation-category",
+        "lookuptypeId": 78,
+        "subcategorylookuptypeid": null,
+        "title": "Violation Category",
+        "select": "Select Department",
+        "add": "Violation category added successfully",
+        "update": "Violation category updated successfully",
+        "error": "Violation already exists",
+        "delete": "Violation category deleted successfully",
+        "path": "/ams/violation/setup/list/category",
+        "subcategory": false
     }
 ];
 

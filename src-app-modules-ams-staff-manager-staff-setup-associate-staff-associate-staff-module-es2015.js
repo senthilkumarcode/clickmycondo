@@ -168,12 +168,12 @@ let AssociateStaffComponent = class AssociateStaffComponent {
     }
     addDepartment() {
         var id = this.sharedService.guid();
-        this.addLookupService.setAddLookupMatDrawer({ id: id, data: null, category: 'staff', list: null, isedit: false });
+        this.addLookupService.setAddLookupMatDrawer({ id: id, data: null, category: 'associate-staff', list: null, isedit: false });
     }
     editDepartment(event, data) {
         event.stopPropagation();
         this.selectedData = data;
-        this.addLookupService.setAddLookupMatDrawer({ id: data.id, data: data, category: 'staff', list: this.fullDepartmentList, isedit: true });
+        this.addLookupService.setAddLookupMatDrawer({ id: data.id, data: data, category: 'associate-staff', list: this.fullDepartmentList, isedit: true });
     }
     deleteDepartment(event, department) {
         event.stopPropagation();

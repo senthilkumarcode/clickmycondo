@@ -158,51 +158,58 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/modules/collective/add-lookup/add-lookup.service */
+      "./src/app/modules/collective/add-lookup/add-lookup.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var PersonalStaffComponent = /*#__PURE__*/function () {
-        function PersonalStaffComponent(staffSetupService, lookupService, sessionService, injector, _changeDetectorRef, translateService, sharedService) {
+        function PersonalStaffComponent(staffSetupService, addLookupService, lookupService, sessionService, injector, _changeDetectorRef, translateService, sharedService) {
           _classCallCheck(this, PersonalStaffComponent);
 
           this.staffSetupService = staffSetupService;
+          this.addLookupService = addLookupService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.injector = injector;
@@ -218,22 +225,23 @@
           this.search = '';
           this.ItemStartIndex = 0;
           this.selectedData = {};
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]); // Set the private defaults
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]); // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
           this.message = null;
           this._staffList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-          this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"]('');
+          this.searchData = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]('');
         }
 
         _createClass(PersonalStaffComponent, [{
           key: "addStaff",
           value: function addStaff() {
             var id = this.sharedService.guid();
-            this.staffSetupService.setStaffSetupMatDrawer({
+            this.addLookupService.setAddLookupMatDrawer({
               id: id,
               data: null,
-              category: 'personal',
+              category: 'personal-staff',
+              list: null,
               isedit: false
             });
           }
@@ -241,10 +249,11 @@
           key: "editStaff",
           value: function editStaff(data) {
             this.selectedData = data;
-            this.staffSetupService.setStaffSetupMatDrawer({
-              id: data.lookupValueId,
+            this.addLookupService.setAddLookupMatDrawer({
+              id: data.id,
               data: data,
-              category: 'personal',
+              category: 'personal-staff',
+              list: null,
               isedit: true
             });
           }
@@ -373,17 +382,19 @@
         return [{
           type: src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+          type: src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }];
       };
 
@@ -405,11 +416,11 @@
         /*! raw-loader!./personal-staff.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_10__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./personal-staff.component.scss */
         "./src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], PersonalStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"], src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], PersonalStaffComponent);
       /***/
     },
 
