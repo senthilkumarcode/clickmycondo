@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"violation-setup-privilege\">\n\n    <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isViolationCategoryLoaded\">\n\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Stop Privilege</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n                        <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addStopPrivilege()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Stop Privilege\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                        [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"stopPrivilageList\"\n                        [columns]=\"stopPrivilageHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n\n    </ng-container>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"violation-setup-privilege\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Stop Privilege</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n                        <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addStopPrivilege()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Stop Privilege\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                        [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"stopPrivilageList\"\n                        [columns]=\"stopPrivilageHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n\n    </ng-container>\n\n</div>\n";
       /***/
     },
 
@@ -197,7 +197,7 @@
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.sharedService = sharedService;
-          this.isViolationCategoryLoaded = false;
+          this.isDataLoaded = false;
           this.violationSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         }
@@ -247,15 +247,15 @@
           value: function editStopPrivilege(detail) {
             var data = this.datagrid.getrowdata(detail.rowId);
             this.violationSetupService.setViolationSetupMatDrawer({
-              id: data.lookupValueId,
+              id: data.id,
               data: data,
               category: 'stop-privilege',
               isedit: true
             });
           }
         }, {
-          key: "deleteViolation",
-          value: function deleteViolation(detail) {
+          key: "deleteStopPrivilege",
+          value: function deleteStopPrivilege(detail) {
             this.modalService.showConfirmModal(detail.rowId);
           }
         }, {
@@ -263,7 +263,7 @@
           value: function getViolationPrivilege() {
             var _this2 = this;
 
-            this.isViolationCategoryLoaded = false;
+            this.isDataLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -277,7 +277,7 @@
                 _this2.stopPrivilageList = new jqx.dataAdapter(violationPrivilageSourceData);
               }
 
-              _this2.isViolationCategoryLoaded = true;
+              _this2.isDataLoaded = true;
             }, function (error) {
               _this2.sharedService.openSnackBar('Server Error', 'error');
             });
@@ -288,6 +288,11 @@
             var _this3 = this;
 
             this.getViolationPrivilege();
+            this.violationSetupService.violationsetupentryrefreshcast.subscribe(function (res) {
+              if (res) {
+                _this3.getViolationPrivilege();
+              }
+            });
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -328,7 +333,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editCategory(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+                return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editStopPrivilege(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="deleteStopPrivilege(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
               },
               renderer: columnrenderer
             }];
@@ -337,7 +342,7 @@
                 var dataRecord = _this3.datagrid.getrowdata(id);
 
                 var params = {
-                  lookupValueId: dataRecord.lookupValueId,
+                  lookupValueId: dataRecord.id,
                   updateUserId: _this3.sessionService.userId
                 };
 
@@ -389,11 +394,11 @@
         }],
         editStopPrivilege: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onEditViolation', ['$event.detail']]
+          args: ['window:onEditStopPrivilege', ['$event.detail']]
         }],
-        deleteViolation: [{
+        deleteStopPrivilege: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onDeleteViolation', ['$event.detail']]
+          args: ['window:onDeleteStopPrivilege', ['$event.detail']]
         }]
       };
       ViolationSetupPrivilegeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -405,6 +410,28 @@
         /*! ./violation-setup-privilege.component.scss */
         "./src/app/modules/ams/violation/violation-setup/violation-setup-privilege/violation-setup-privilege.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_4__["ViolationSetupService"], src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_3__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], ViolationSetupPrivilegeComponent);
+
+      var editStopPrivilege = function editStopPrivilege(row) {
+        var event = new CustomEvent('onEditStopPrivilege', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      };
+
+      window.editStopPrivilege = editStopPrivilege;
+
+      var deleteStopPrivilege = function deleteStopPrivilege(row) {
+        var event = new CustomEvent('onDeleteStopPrivilege', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      };
+
+      window.deleteStopPrivilege = deleteStopPrivilege;
       /***/
     },
 

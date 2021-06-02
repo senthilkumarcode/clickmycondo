@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-violation-privilage-wrapper\">\n\n    <div class=\"title\">\n\t\t\n\t\t<h4>\n            <ng-container *ngIf=\"!isEdit\">Add Stop Privilege</ng-container>\n\t\t\t<ng-container *ngIf=\"isEdit\">Update Stop Privilege</ng-container>\n        </h4>\n\n\t\t<div class=\"ml-auto\">\n\t\t\t<button mat-icon-button\n\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t</button>\n\t\t</div>\n\t\t\n\t</div>\n\n\n\t<form #addViolatonPrivilegeForm = \"ngForm\" name=\"addViolatonPrivilegeForm\" novalidate>\n\n\t\t<condo-message class=\"mb-4\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n            {{message.content}}\n        </condo-message>\n\n\t\t<div class=\"row\">\n\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Name<span class=\"mandatory pl-2\">*</span></label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"privilegeName\" [(ngModel)]=\"privilege.name\" required>\n                </div>\n            </div>\n\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Description<span class=\"mandatory pl-2\">*</span></label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"privilegeDescription\" [(ngModel)]=\"privilege.description\" required>\n                </div>\n            </div>\n\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Period of Stop Privledges (days)</label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"PeriodOfPrivilege\" [(ngModel)]=\"privilege.StopPriveldgeDays\" required>\n                </div>\n            </div>\n\n            <div class=\"col-sm-12 pb-4\" *ngIf=\"!isCategoryAdded\">\n                <submit-button class=\"mt-4 float-right\" (click)=\"submitAddViolatonPrivilegeForm()\" [isSubmit]=\"!isDataSubmitted\">Submit</submit-button>\n            </div>\n\n        </div>\n\n\n\t</form>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-violation-privilage-wrapper\">\n\n    <div class=\"title\">\n\t\t\n\t\t<h4>\n            <ng-container *ngIf=\"!isEdit\">Add Stop Privilege</ng-container>\n\t\t\t<ng-container *ngIf=\"isEdit\">Update Stop Privilege</ng-container>\n        </h4>\n\n\t\t<div class=\"ml-auto\">\n\t\t\t<button mat-icon-button\n\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t</button>\n\t\t</div>\n\t\t\n\t</div>\n\n\n\t<form #addViolatonPrivilegeForm = \"ngForm\" name=\"addViolatonPrivilegeForm\" novalidate>\n\n\t\t<condo-message class=\"mb-4\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n            {{message.content}}\n        </condo-message>\n\n\t\t<div class=\"row\">\n\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Name<span class=\"mandatory pl-2\">*</span></label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"privilegeName\" [(ngModel)]=\"privilege.name\" required>\n                </div>\n            </div>\n\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Description<span class=\"mandatory pl-2\">*</span></label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"privilegeDescription\" [(ngModel)]=\"privilege.description\" required>\n                </div>\n            </div>\n\n            <div class=\"col-sm-12\">\n                <div class=\"input-box\">\n                    <label>Period of Stop Privileges (days)</label>\n                    <input type=\"number\" class=\"form-control\" placeholder=\"Enter\" name=\"PeriodOfPrivilege\" [(ngModel)]=\"privilege.stopPriveldgeDays\" required>\n                </div>\n            </div>\n\n            <div class=\"col-sm-12 pb-4\" *ngIf=\"!isCategoryAdded\">\n                <submit-button class=\"mt-4 float-right\" (click)=\"submitAddViolatonPrivilegeForm(addViolatonPrivilegeForm)\" [isSubmit]=\"!isDataSubmitted\">Submit</submit-button>\n            </div>\n\n        </div>\n\n\n\t</form>\n\n</div>\n");
 
 /***/ }),
 
@@ -39,10 +39,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_modules_ams_violation_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modules/ams/violation/violation-setup/violation-setup.component */ "./src/app/modules/ams/violation/violation-setup/violation-setup.component.ts");
-/* harmony import */ var src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ams/violation/violation-setup/violation-setup.service */ "./src/app/modules/ams/violation/violation-setup/violation-setup.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var src_app_modules_ams_violation_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ams/violation/violation-setup/violation-setup.component */ "./src/app/modules/ams/violation/violation-setup/violation-setup.component.ts");
+/* harmony import */ var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Violation */ "./src/app/api/controllers/Violation.ts");
+/* harmony import */ var src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ams/violation/violation-setup/violation-setup.service */ "./src/app/modules/ams/violation/violation-setup/violation-setup.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
+
 
 
 
@@ -51,11 +60,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddViolationPrivilageComponent = class AddViolationPrivilageComponent {
-    constructor(_activatedRoute, _changeDetectorRef, _router, violationSetupService, _violationSetupComponent, sessionService, sharedService) {
+    constructor(_activatedRoute, _changeDetectorRef, _router, violationService, violationSetupService, translateService, _violationSetupComponent, sessionService, sharedService) {
         this._activatedRoute = _activatedRoute;
         this._changeDetectorRef = _changeDetectorRef;
         this._router = _router;
+        this.violationService = violationService;
         this.violationSetupService = violationSetupService;
+        this.translateService = translateService;
         this._violationSetupComponent = _violationSetupComponent;
         this.sessionService = sessionService;
         this.sharedService = sharedService;
@@ -64,17 +75,108 @@ let AddViolationPrivilageComponent = class AddViolationPrivilageComponent {
         this.isCategoryAdded = false;
         this.category = "";
         this.message = null;
+        // Set the private defaults
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
     goBack() {
+        this._violationSetupComponent.matDrawer.close();
+        this.violationSetupService.setViolationSetupMatDrawer(null);
+        this._router.navigateByUrl('/ams/violation/setup/list/stop-privilege');
     }
-    submitAddViolatonPrivilegeForm() {
+    submitAddViolatonPrivilegeForm(form) {
+        if (!form.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            // Show the validation message
+            this.translateService.get('VALIDATION').subscribe((data) => {
+                this.message = {
+                    appearance: 'outline',
+                    content: `${data.CONTENTREQUIREDFIELD}`,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
+        }
+        else {
+            this.isDataSubmitted = false;
+            this.message = null;
+            if (!this.isEdit) {
+                let details = {
+                    "ApartmentId": this.sessionService.apartmentId,
+                    "Name": this.privilege.name,
+                    "Description": this.privilege.description,
+                    "StopPriveldgeDays": this.privilege.stopPriveldgeDays,
+                    "IsActive": true,
+                    "InsertedBy": this.sessionService.userId,
+                    "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                    "UpdatedBy": this.sessionService.userId,
+                    "UpdatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
+                };
+                this.violationService.addViolationPrivilege(details).subscribe((res) => {
+                    this.isDataSubmitted = true;
+                    if (res.id != null) {
+                        this.sharedService.openSnackBar('Violation Privilege added successfully', 'success');
+                        this.goBack();
+                        this.violationSetupService.setViolationSetupEntryRefresh(true);
+                    }
+                    else {
+                        this.sharedService.openSnackBar('Violation Privilege already exits', 'error');
+                    }
+                }, error => {
+                    this.isDataSubmitted = true;
+                    this.sharedService.openSnackBar('Network error', 'error');
+                });
+            }
+            else {
+                let details = {
+                    "Id": this.privilege.id,
+                    "ApartmentId": this.sessionService.apartmentId,
+                    "Name": this.privilege.name,
+                    "Description": this.privilege.description,
+                    "StopPriveldgeDays": this.privilege.stopPriveldgeDays,
+                    "IsActive": true,
+                    "InsertedBy": this.sessionService.userId,
+                    "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                    "UpdatedBy": this.sessionService.userId,
+                    "UpdatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
+                };
+                this.violationService.updateViolationPrivilege(details).subscribe((res) => {
+                    this.isDataSubmitted = true;
+                    if (res.id != null) {
+                        this.sharedService.openSnackBar('Violation Privilege updated successfully', 'success');
+                        this.goBack();
+                        this.violationSetupService.setViolationSetupEntryRefresh(true);
+                    }
+                    else {
+                        this.sharedService.openSnackBar('Violation Privilege already exits', 'error');
+                    }
+                }, error => {
+                    this.isDataSubmitted = true;
+                    this.sharedService.openSnackBar('Network error', 'error');
+                });
+            }
+        }
     }
     ngOnInit() {
         this.violationSetupService.violationsetupmatdrawercast.subscribe((res) => {
-            console.log(res);
             if (res != null) {
-                this._violationSetupComponent.matDrawer.open();
+                if (res.id != undefined && res.id == this._activatedRoute.params['value'].id) {
+                    this._violationSetupComponent.matDrawer.open();
+                    if (res.isedit) {
+                        this.isEdit = true;
+                        this.privilege = res.data;
+                    }
+                    else {
+                        this.isEdit = false;
+                        this.privilege = {};
+                    }
+                }
             }
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
         });
     }
 };
@@ -82,10 +184,12 @@ AddViolationPrivilageComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_4__["ViolationSetupService"] },
-    { type: src_app_modules_ams_violation_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_3__["ViolationSetupComponent"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] }
+    { type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"] },
+    { type: src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_6__["ViolationSetupService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] },
+    { type: src_app_modules_ams_violation_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_4__["ViolationSetupComponent"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] }
 ];
 AddViolationPrivilageComponent.propDecorators = {
     addLookupForm: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addLookupForm',] }]
@@ -99,10 +203,12 @@ AddViolationPrivilageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_4__["ViolationSetupService"],
-        src_app_modules_ams_violation_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_3__["ViolationSetupComponent"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])
+        src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"],
+        src_app_modules_ams_violation_violation_setup_violation_setup_service__WEBPACK_IMPORTED_MODULE_6__["ViolationSetupService"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"],
+        src_app_modules_ams_violation_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_4__["ViolationSetupComponent"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])
 ], AddViolationPrivilageComponent);
 
 
@@ -122,10 +228,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _add_violation_privilage_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./add-violation-privilage.component */ "./src/app/modules/ams/violation/violation-setup/add-violation-privilege/add-violation-privilage.component.ts");
 
 
 
-const routes = [];
+
+const routes = [
+    { path: '', component: _add_violation_privilage_component__WEBPACK_IMPORTED_MODULE_3__["AddViolationPrivilageComponent"] }
+];
 let AddViolationPrivilegeRoutingModule = class AddViolationPrivilegeRoutingModule {
 };
 AddViolationPrivilegeRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
