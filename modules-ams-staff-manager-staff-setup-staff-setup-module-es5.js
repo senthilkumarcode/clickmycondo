@@ -84,7 +84,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-collective-add-lookup-add-lookup-module */
-            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~56a2d3e5"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~6b5b7b4d"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0e25d77a"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~56a2d3e5"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~39a47dd8"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~3b38af94"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/collective/add-lookup/add-lookup.module */
             "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(function (m) {
               return m.AddLookupModule;
@@ -108,9 +108,9 @@
         }, {
           path: 'personal',
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | src-app-modules-ams-staff-manager-staff-setup-personal-staff-personal-staff-module */
-            "src-app-modules-ams-staff-manager-staff-setup-personal-staff-personal-staff-module").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("common"), __webpack_require__.e("src-app-modules-ams-staff-manager-staff-setup-personal-staff-personal-staff-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.module */
             "./src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.module.ts")).then(function (m) {
               return m.PersonalStaffModule;

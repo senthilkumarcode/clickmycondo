@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-violation-rules-wrapper\">\n\n\t<ng-container *ngIf=\"!isView\">\n\n\t\t<div class=\"title\">\n\t\t\n\t\t\t<h4>\n\t\t\t\t<ng-container *ngIf=\"!isEdit\">Add Rules</ng-container>\n\t\t\t\t<ng-container *ngIf=\"isEdit\">Update Rules</ng-container>\n\t\t\t</h4>\n\t\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\n\t\t<form #addViolatonRulesForm = \"ngForm\" name=\"addViolatonRulesForm\" novalidate>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12 mt-2 mb-4 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"addRuleRow()\" *ngIf=\"!isView\" >\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\tAdd Row\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>Category</label>\n                        <select class=\"form-control\" name=\"category\" [(ngModel)]=\"rules.violationCategoryId\">\n                            <option *ngFor=\"let item of allViolationCategoryList\" [value]=\"item.lookupValueId\">\n                                {{ item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>Rule</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Rule Name\" name=\"name\"\n                            [(ngModel)]=\"rules.name\" required>\n                    </div>\n                </div>\n            </div>\n\n\t\t\t<div class=\"row border-top pt-4 align-items-center\" *ngFor=\"let rule of ruleList;let i = index;\">\n\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Penalty Amount</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Penalty Amount\"\n\t\t\t\t\t\t\tname=\"fineViolationNo{{i}}\" [(ngModel)]=\"rule.fineViolationNo\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Violation Description</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Violation Description\"\n\t\t\t\t\t\t\tname=\"descViolationNo{{i}}\" [(ngModel)]=\"rule.descViolationNo\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Stop Privilage</label>\n\t\t\t\t\t\t<select class=\"form-control\" placeholder=\"Stop Provilage\" name=\"violationPrivilegeId{{i}}\"\n\t\t\t\t\t\t\t[(ngModel)]=\"rule.violationPrivilegeId\">\n\t\t\t\t\t\t\t<option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.id\">\n\t\t\t\t\t\t\t\t{{ item.name }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-1\">\n\t\t\t\t\t<mat-icon class=\"close-row pointer\"  (click)=\"deleteRuleRow(rule)\" [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n                <div class=\"col-sm-12 mt-3 text-right\">\n\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"categoryRuleUpdation(addViolatonRulesForm)\">\n                        {{isEdit ? 'Update' : 'Submit'}}</button>\n                </div>\n            </div>\n\n\t\t</form>\n\n\t</ng-container>\n\n    \n\t<ng-container *ngIf=\"isView\">\n\n\t\t<div class=\"title\">\n\t\t\n\t\t\t<h4>View Rules</h4>\n\t\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\n\t</ng-container>\n    \n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-violation-rules-wrapper\">\n\n\n\n\t<ng-container *ngIf=\"!isView\">\n\n\t\t<div class=\"title\">\n\t\t\n\t\t\t<h4>\n\t\t\t\t<ng-container *ngIf=\"!isEdit\">Add Rules</ng-container>\n\t\t\t\t<ng-container *ngIf=\"isEdit\">Update Rules</ng-container>\n\t\t\t</h4>\n\t\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\n\t\t<form #addViolatonRulesForm = \"ngForm\" name=\"addViolatonRulesForm\" novalidate>\n\n\t\t\t<condo-message class=\"mb-4\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n        \t</condo-message>\n\n\t\t\t<div class=\"row\">\n                <div class=\"col-sm-6\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Category\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"allViolationCategoryList\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"rules.violationCategoryId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"setVendorCategory($event)\" \n                    ></condo-select>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>Rule</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Rule Name\" name=\"name\"\n                            [(ngModel)]=\"rules.name\" required>\n                    </div>\n                </div>\n            </div>\n\n\t\t\t<div class=\"row border-top pt-4 align-items-center\" *ngFor=\"let rule of ruleList;let i = index;\">\n\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Penalty Amount</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Penalty Amount\"\n\t\t\t\t\t\t\tname=\"fineViolationNo{{i}}\" [(ngModel)]=\"rule.fineViolationNo\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Violation Description</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Violation Description\"\n\t\t\t\t\t\t\tname=\"descViolationNo{{i}}\" [(ngModel)]=\"rule.descViolationNo\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Provilage\"\n\t\t\t\t\t\tfieldPlaceholder=\"Stop Provilage\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"allViolationPrivilege\"\n\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t[fieldModel]=\"rules.violationPrivilegeId\"\n\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t(fieldParams)=\"setProvilageCategory($event)\" \n                    ></condo-select>\n\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-1\">\n\t\t\t\t\t<mat-icon class=\"close-row pointer\"  (click)=\"deleteRuleRow(rule)\" [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"d-flex align-items-center w-100 mt-3 justify-content-end\">\n\t\t\t\t<button class=\"mr-3\" mat-flat-button [color]=\"'accent'\" (click)=\"addRuleRow()\" *ngIf=\"!isView\" >\n\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\tAdd Row\n\t\t\t\t</button>\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"categoryRuleUpdation(addViolatonRulesForm)\">\n\t\t\t\t\t{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n    \n\t<ng-container *ngIf=\"isView\">\n\n\t\t<div class=\"title\">\n\t\t\n\t\t\t<h4>View Rules</h4>\n\t\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\n\t</ng-container>\n    \n\n</div>\n");
 
 /***/ }),
 
@@ -81,6 +81,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -119,6 +122,12 @@ let AddViolationRulesComponent = class AddViolationRulesComponent {
         this.violationSetupService.setViolationSetupMatDrawer(null);
         this._router.navigateByUrl('/ams/violation/setup/list/violation-rules');
     }
+    setVendorCategory(event) {
+        this.rules.violationCategoryId = event[0].lookupValueId;
+    }
+    setProvilageCategory(event) {
+        this.rules.violationPrivilegeId = event[0].id;
+    }
     addRuleRow() {
         this.rowCount++;
         let ruleObj = {
@@ -145,7 +154,7 @@ let AddViolationRulesComponent = class AddViolationRulesComponent {
     }
     getViolationRule() {
         const params1 = {
-            apartmentId: this.sessionService.apartmentId,
+            apartmentId: this.sessionService.apartmentId
         };
         this.violationService.getViolationRuleNew(params1).subscribe((rule) => {
             let selectedRule = rule[0];
@@ -181,6 +190,66 @@ let AddViolationRulesComponent = class AddViolationRulesComponent {
             });
         }
         else {
+            this.ruleList = this.ruleList.map(item => {
+                delete item.rowCount;
+                return item;
+            });
+            if (!this.isEdit) {
+                let details = {
+                    "name": this.rules.name,
+                    "violationCategoryId": this.rules.violationCategoryId,
+                    "rules": this.ruleList,
+                    "isActive": true,
+                    "insertedBy": this.sessionService.userId,
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null,
+                    "apartmentId": this.sessionService.apartmentId
+                };
+                let params = {
+                    model: details
+                };
+                this.violationService.addViolationRuleNew(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.openSnackBar('Violation Rules created successfully', 'success');
+                        this.goBack();
+                        this.violationSetupService.setViolationSetupEntryRefresh(true);
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, error => {
+                    this.sharedService.openSnackBar('Netwoek error', 'error');
+                });
+            }
+            else {
+                let details = {
+                    "name": this.rules.name,
+                    "violationCategoryId": this.rules.violationCategoryId,
+                    "rules": this.ruleList,
+                    "isActive": this.rules.isActive,
+                    "insertedBy": this.rules.insertedBy,
+                    "insertedOn": this.rules.insertedOn,
+                    "updatedBy": this.sessionService.userId,
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+                    "apartmentId": this.sessionService.apartmentId
+                };
+                let params = {
+                    model: details
+                };
+                this.violationService.updateViolationRuleNew(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.openSnackBar('Violation Rules updated successfully', 'success');
+                        this.goBack();
+                        this.violationSetupService.setViolationSetupEntryRefresh(true);
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, error => {
+                    this.sharedService.openSnackBar('Netwoek error', 'error');
+                });
+            }
         }
     }
     ngOnInit() {
@@ -263,9 +332,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
-/* harmony import */ var _add_violation_rules_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./add-violation-rules-routing.module */ "./src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules-routing.module.ts");
-/* harmony import */ var _add_violation_rules_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./add-violation-rules.component */ "./src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules.component.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var _add_violation_rules_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./add-violation-rules-routing.module */ "./src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules-routing.module.ts");
+/* harmony import */ var _add_violation_rules_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./add-violation-rules.component */ "./src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules.component.ts");
+
 
 
 
@@ -277,12 +348,13 @@ let AddViolationRulesModule = class AddViolationRulesModule {
 };
 AddViolationRulesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_add_violation_rules_component__WEBPACK_IMPORTED_MODULE_6__["AddViolationRulesComponent"]],
+        declarations: [_add_violation_rules_component__WEBPACK_IMPORTED_MODULE_7__["AddViolationRulesComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
-            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_4__["CondoMessageModule"],
-            _add_violation_rules_routing_module__WEBPACK_IMPORTED_MODULE_5__["AddViolationRulesRoutingModule"]
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_4__["SelectModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_5__["CondoMessageModule"],
+            _add_violation_rules_routing_module__WEBPACK_IMPORTED_MODULE_6__["AddViolationRulesRoutingModule"]
         ]
     })
 ], AddViolationRulesModule);

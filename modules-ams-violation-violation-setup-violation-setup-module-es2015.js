@@ -39,7 +39,7 @@ const routes = [
         children: [
             {
                 path: "category/:type/:id",
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-collective-add-lookup-add-lookup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~56a2d3e5"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~6b5b7b4d"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~0e25d77a"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/collective/add-lookup/add-lookup.module */ "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(m => m.AddLookupModule),
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-collective-add-lookup-add-lookup-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~56a2d3e5"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~39a47dd8"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~3b38af94"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~9bbef384"), __webpack_require__.e("src-app-modules-collective-add-lookup-add-lookup-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/collective/add-lookup/add-lookup.module */ "./src/app/modules/collective/add-lookup/add-lookup.module.ts")).then(m => m.AddLookupModule),
                 outlet: "drawer",
                 resolve: {
                     ViolationSetupResolver: _violation_setup_resolver__WEBPACK_IMPORTED_MODULE_3__["ViolationSetupResolver"]
@@ -55,7 +55,7 @@ const routes = [
             },
             {
                 path: "rules/:type/:id",
-                loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-violation-violation-setup-add-violation-rules-add-violation-rules-module */ "src-app-modules-ams-violation-violation-setup-add-violation-rules-add-violation-rules-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules.module */ "./src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules.module.ts")).then(m => m.AddViolationRulesModule),
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-violation-violation-setup-add-violation-rules-add-violation-rules-module */[__webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~39a47dd8"), __webpack_require__.e("default~modules-ams-assets-add-maintenance-add-maintenance-module~modules-ams-assets-asset-create-as~3b38af94"), __webpack_require__.e("src-app-modules-ams-violation-violation-setup-add-violation-rules-add-violation-rules-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules.module */ "./src/app/modules/ams/violation/violation-setup/add-violation-rules/add-violation-rules.module.ts")).then(m => m.AddViolationRulesModule),
                 outlet: "drawer",
                 resolve: {
                     ViolationAlterSetupResolver: _violation_setup_resolver__WEBPACK_IMPORTED_MODULE_3__["ViolationAlterSetupResolver"]
@@ -249,7 +249,7 @@ let ViolationSetupComponent = class ViolationSetupComponent {
                             this.editStopPrivilege(res.id);
                         }
                     }
-                    else {
+                    else if (res.category == 'rules') {
                         this.type.path = '/ams/violation/setup/list/violation-rules';
                         if (!res.isedit) {
                             this.addRules(res.id);

@@ -312,6 +312,11 @@
             var _this3 = this;
 
             this.getViolationRules();
+            this.violationSetupService.violationsetupentryrefreshcast.subscribe(function (res) {
+              if (res) {
+                _this3.getViolationRules();
+              }
+            });
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';

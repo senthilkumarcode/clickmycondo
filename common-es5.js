@@ -357,6 +357,89 @@
     },
 
     /***/
+    "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts":
+    /*!******************************************************************************!*\
+      !*** ./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts ***!
+      \******************************************************************************/
+
+    /*! exports provided: StaffSetupService */
+
+    /***/
+    function srcAppModulesAmsStaffManagerStaffSetupStaffSetupServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "StaffSetupService", function () {
+        return StaffSetupService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
+
+      var StaffSetupService = /*#__PURE__*/function () {
+        function StaffSetupService() {
+          _classCallCheck(this, StaffSetupService);
+
+          this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+          this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
+          this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+          this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
+        }
+
+        _createClass(StaffSetupService, [{
+          key: "getStaffSetupMatDrawer",
+          value: function getStaffSetupMatDrawer() {
+            return this.staffSetupMatDrawer.value;
+          }
+        }, {
+          key: "setStaffSetupMatDrawer",
+          value: function setStaffSetupMatDrawer(value) {
+            this.staffSetupMatDrawer.next(value);
+          }
+        }, {
+          key: "getStaffetupEntryRefresh",
+          value: function getStaffetupEntryRefresh() {
+            return this.staffSetupEntryRefresh.value;
+          }
+        }, {
+          key: "setStaffSetupEntryRefresh",
+          value: function setStaffSetupEntryRefresh(value) {
+            this.staffSetupEntryRefresh.next(value);
+          }
+        }]);
+
+        return StaffSetupService;
+      }();
+
+      StaffSetupService.ctorParameters = function () {
+        return [];
+      };
+
+      StaffSetupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], StaffSetupService);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/collective/add-lookup/add-lookup.service.ts":
     /*!*********************************************************************!*\
       !*** ./src/app/modules/collective/add-lookup/add-lookup.service.ts ***!
@@ -542,6 +625,42 @@
         "error": "Violation already exists",
         "delete": "Violation category deleted successfully",
         "path": "/ams/violation/setup/list/category",
+        "subcategory": false
+      }, {
+        "label": "package-type",
+        "lookuptypeId": 169,
+        "subcategorylookuptypeid": null,
+        "title": "Package Type",
+        "select": "Select Package",
+        "add": "Package Type added successfully",
+        "update": "Package Type updated successfully",
+        "error": "Package Type already exists",
+        "delete": "Package Type deleted successfully",
+        "path": "/ams/parcel-delivery/setup/list/package-type",
+        "subcategory": false
+      }, {
+        "label": "delivery-type",
+        "lookuptypeId": 170,
+        "subcategorylookuptypeid": null,
+        "title": "Delivery Type",
+        "select": "Select Delivery",
+        "add": "Delivery Type added successfully",
+        "update": "Delivery Type updated successfully",
+        "error": "Delivery Type already exists",
+        "delete": "Delivery Type deleted successfully",
+        "path": "/ams/parcel-delivery/setup/list/delivery-type",
+        "subcategory": false
+      }, {
+        "label": "parcel-slot-type",
+        "lookuptypeId": 172,
+        "subcategorylookuptypeid": null,
+        "title": "Slot",
+        "select": "Select Slot",
+        "add": "Slot added successfully",
+        "update": "Slot updated successfully",
+        "error": "Slot already exists",
+        "delete": "Slot deleted successfully",
+        "path": "/ams/parcel-delivery/setup/list/parcel-slot-type",
         "subcategory": false
       }];
       /***/

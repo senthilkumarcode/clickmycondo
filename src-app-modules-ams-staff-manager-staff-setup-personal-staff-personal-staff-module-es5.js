@@ -197,15 +197,9 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
-      /* harmony import */
-
-
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! @ngx-translate/core */
-      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var PersonalStaffComponent = /*#__PURE__*/function () {
-        function PersonalStaffComponent(staffSetupService, addLookupService, lookupService, sessionService, injector, _changeDetectorRef, translateService, sharedService) {
+        function PersonalStaffComponent(staffSetupService, addLookupService, lookupService, sessionService, injector, sharedService) {
           _classCallCheck(this, PersonalStaffComponent);
 
           this.staffSetupService = staffSetupService;
@@ -213,18 +207,12 @@
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.injector = injector;
-          this._changeDetectorRef = _changeDetectorRef;
-          this.translateService = translateService;
           this.sharedService = sharedService;
           this.isDataLoaded = false;
-          this.isError = false;
           this.isEdit = false;
-          this.isShowForm = false;
-          this.categorySearch = '';
           this.fullStaffList = [];
           this.search = '';
           this.ItemStartIndex = 0;
-          this.selectedData = {};
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]); // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
@@ -248,7 +236,6 @@
         }, {
           key: "editStaff",
           value: function editStaff(data) {
-            this.selectedData = data;
             this.addLookupService.setAddLookupMatDrawer({
               id: data.id,
               data: data,
@@ -267,9 +254,6 @@
               if (res) {
                 _this.getPersonalStaff();
               }
-            });
-            this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this.timeZone = timeZone;
             });
             this.staffs$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (res) {
               return res != null;
@@ -344,8 +328,7 @@
 
                 _this2._staffList.next(newData);
               } else {
-                _this2.isError = true; // Show the error message
-
+                // Show the error message
                 _this2.message = {
                   appearance: 'outline',
                   content: 'Some error occured',
@@ -390,26 +373,10 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"]
-        }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }];
       };
 
-      PersonalStaffComponent.propDecorators = {
-        timeZone: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['association', {
-            "static": true
-          }]
-        }],
-        form: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['addAssociationCategoryForm']
-        }]
-      };
       PersonalStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-personal-staff',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -420,7 +387,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./personal-staff.component.scss */
         "./src/app/modules/ams/staff-manager/staff-setup/personal-staff/personal-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"], src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], PersonalStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_ams_staff_manager_staff_setup_staff_setup_service__WEBPACK_IMPORTED_MODULE_4__["StaffSetupService"], src_app_modules_collective_add_lookup_add_lookup_service__WEBPACK_IMPORTED_MODULE_5__["AddLookupService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], PersonalStaffComponent);
       /***/
     },
 
@@ -501,89 +468,6 @@
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_4__["CondoMessageModule"], _personal_staff_routing_module__WEBPACK_IMPORTED_MODULE_6__["PersonalStaffRoutingModule"]],
         providers: [src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_5__["ColumnSearchPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_5__["SimpleSearchPipe"]]
       })], PersonalStaffModule);
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts":
-    /*!******************************************************************************!*\
-      !*** ./src/app/modules/ams/staff-manager/staff-setup/staff-setup.service.ts ***!
-      \******************************************************************************/
-
-    /*! exports provided: StaffSetupService */
-
-    /***/
-    function srcAppModulesAmsStaffManagerStaffSetupStaffSetupServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "StaffSetupService", function () {
-        return StaffSetupService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! rxjs */
-      "./node_modules/rxjs/_esm2015/index.js");
-
-      var StaffSetupService = /*#__PURE__*/function () {
-        function StaffSetupService() {
-          _classCallCheck(this, StaffSetupService);
-
-          this.staffSetupMatDrawer = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-          this.staffsetupmatdrawercast = this.staffSetupMatDrawer.asObservable();
-          this.staffSetupEntryRefresh = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
-          this.staffsetupentryrefreshcast = this.staffSetupEntryRefresh.asObservable();
-        }
-
-        _createClass(StaffSetupService, [{
-          key: "getStaffSetupMatDrawer",
-          value: function getStaffSetupMatDrawer() {
-            return this.staffSetupMatDrawer.value;
-          }
-        }, {
-          key: "setStaffSetupMatDrawer",
-          value: function setStaffSetupMatDrawer(value) {
-            this.staffSetupMatDrawer.next(value);
-          }
-        }, {
-          key: "getStaffetupEntryRefresh",
-          value: function getStaffetupEntryRefresh() {
-            return this.staffSetupEntryRefresh.value;
-          }
-        }, {
-          key: "setStaffSetupEntryRefresh",
-          value: function setStaffSetupEntryRefresh(value) {
-            this.staffSetupEntryRefresh.next(value);
-          }
-        }]);
-
-        return StaffSetupService;
-      }();
-
-      StaffSetupService.ctorParameters = function () {
-        return [];
-      };
-
-      StaffSetupService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], StaffSetupService);
       /***/
     }
   }]);

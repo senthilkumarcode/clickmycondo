@@ -166,6 +166,11 @@ let ViolationSetupRulesComponent = class ViolationSetupRulesComponent {
     }
     ngOnInit() {
         this.getViolationRules();
+        this.violationSetupService.violationsetupentryrefreshcast.subscribe((res) => {
+            if (res) {
+                this.getViolationRules();
+            }
+        });
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
