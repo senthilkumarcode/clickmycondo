@@ -426,6 +426,32 @@ const types = [
         "delete": "Slot deleted successfully",
         "path": "/ams/parcel-delivery/setup/list/parcel-slot-type",
         "subcategory": false
+    },
+    {
+        "label": "location-meter",
+        "lookuptypeId": 205,
+        "subcategorylookuptypeid": 206,
+        "title": "Meter Location & Sub Location",
+        "select": "Select Location",
+        "add": "Location added successfully",
+        "update": "Location updated successfully",
+        "error": "Location already exists",
+        "delete": "Location deleted successfully",
+        "path": "/ams/utility/location/list/setup",
+        "subcategory": true
+    },
+    {
+        "label": "location-group",
+        "lookuptypeId": 207,
+        "subcategorylookuptypeid": null,
+        "title": "Group",
+        "select": "Select Group",
+        "add": "Group added successfully",
+        "update": "Group updated successfully",
+        "error": "Group already exists",
+        "delete": "Group deleted successfully",
+        "path": "/ams/utility/location/list/groups",
+        "subcategory": false
     }
 ];
 

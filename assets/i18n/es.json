@@ -652,7 +652,7 @@
         "CLEARTITLE": "Estas segura que quieres borrar los datos ?",
         "DELETEALLSLOT": "¿Estás segura de que quieres eliminar todas las ranuras? ?",
         "CANCELDATA": "Estas segura que quieres cancelar los datos ?",
-        "DELIVERYDATA": "¿Estás segura de que quieres entrega??",
+        "DELIVERYDATA": "¿Estás seguro de que quieres establecer el estado en Entregado?",
         "ACKNOWLEDGEALERT": "¿Está seguro de que desea reconocer esta alerta?",
         "CLOSEALERT": "¿Está seguro de que desea cerrar esta alerta?",
         "DEACTIVATEUSER": "¿Quieres desactivar el usuario?",

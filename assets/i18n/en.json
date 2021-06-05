@@ -655,7 +655,7 @@
         "CLEARTITLE": "Are you sure, you want to clear the data ?",
         "DELETEALLSLOT": "Are you sure you want to delete all slot ?",
         "CANCELDATA": "Are you sure, you want to cancel the data ?",
-        "DELIVERYDATA": "Are you sure you want to Delivery?",
+        "DELIVERYDATA": "Are you sure you want to set Status to Delivered?",
         "ACKNOWLEDGEALERT": "Are you sure, you want to acknowledge this Alert?",
         "CLOSEALERT": "Are you sure you want to close this Alert?",
         "DEACTIVATEUSER": "Do you want to deactivate user?",
